@@ -11,6 +11,7 @@ class Client : public QDialog
 {
     Q_OBJECT
 
+
 public:
     explicit Client(QWidget *parent = nullptr);
     ~Client();

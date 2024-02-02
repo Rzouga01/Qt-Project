@@ -2,7 +2,7 @@
 #include "ui_client.h"
 
 Client::Client(QWidget *parent) :
-    QDialog(parent)
+    QDialog(parent),
     ui(new Ui::Client)
 {
     ui->setupUi(this);
