@@ -8,8 +8,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    Client C;
 
-    C.exec();
     return a.exec();
 }
