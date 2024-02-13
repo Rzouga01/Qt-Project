@@ -24,12 +24,14 @@ class Ui_Client
 {
 public:
     QFrame *frame;
-    QLabel *label;
+    QLabel *logo;
     QLineEdit *role;
     QTextEdit *helloBar;
     QListWidget *readBox;
     QLineEdit *searchBar;
-    QLabel *searchIcon;
+    QFrame *featureBar;
+    QFrame *stats;
+    QFrame *addFeature;
 
     void setupUi(QDialog *Client)
     {
@@ -41,7 +43,8 @@ public:
 "\n"
 "}\n"
 "\n"
-"\n"
+"*{font: \"Helvetica\" bold;\n"
+"}\n"
 "#helloBar{\n"
 "border: none;\n"
 "background-color:#171717;\n"
@@ -74,29 +77,61 @@ public:
         frame = new QFrame(Client);
         frame->setObjectName("frame");
         frame->setGeometry(QRect(0, 0, 1200, 650));
+        frame->setStyleSheet(QString::fromUtf8("#featureBar{\n"
+"background-color:white;\n"
+"border-radius:25px;\n"
+"}\n"
+"#addFeature{\n"
+"background-color:#A7C34E;\n"
+"border-radius:25px;\n"
+"}\n"
+"\n"
+"#stats{\n"
+"background-color:#A7C34E;\n"
+"border-radius:25px;\n"
+"}"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        label = new QLabel(frame);
-        label->setObjectName("label");
-        label->setGeometry(QRect(40, 30, 111, 101));
-        label->setPixmap(QPixmap(QString::fromUtf8("../Resources/Logo/icon ripple.png")));
-        label->setScaledContents(true);
+        logo = new QLabel(frame);
+        logo->setObjectName("logo");
+        logo->setGeometry(QRect(10, 30, 111, 101));
+        logo->setPixmap(QPixmap(QString::fromUtf8("../Resources/Logo/icon ripple.png")));
+        logo->setScaledContents(true);
         role = new QLineEdit(frame);
         role->setObjectName("role");
-        role->setGeometry(QRect(910, 40, 161, 71));
+        role->setGeometry(QRect(890, 40, 281, 91));
+        role->setCursor(QCursor(Qt::ArrowCursor));
         role->setReadOnly(true);
         helloBar = new QTextEdit(frame);
         helloBar->setObjectName("helloBar");
-        helloBar->setGeometry(QRect(150, 40, 221, 91));
+        helloBar->setGeometry(QRect(120, 40, 221, 91));
+        helloBar->setTextInteractionFlags(Qt::NoTextInteraction);
         readBox = new QListWidget(frame);
         readBox->setObjectName("readBox");
-        readBox->setGeometry(QRect(520, 220, 641, 381));
+        readBox->setGeometry(QRect(640, 220, 541, 411));
         searchBar = new QLineEdit(frame);
         searchBar->setObjectName("searchBar");
-        searchBar->setGeometry(QRect(710, 240, 391, 51));
-        searchIcon = new QLabel(frame);
-        searchIcon->setObjectName("searchIcon");
-        searchIcon->setGeometry(QRect(560, 260, 71, 21));
+        searchBar->setGeometry(QRect(880, 250, 241, 41));
+        searchBar->setStyleSheet(QString::fromUtf8("#searchBar{\n"
+"border-radius:10px;\n"
+"}"));
+        searchBar->setClearButtonEnabled(true);
+        featureBar = new QFrame(frame);
+        featureBar->setObjectName("featureBar");
+        featureBar->setGeometry(QRect(640, 149, 541, 61));
+        featureBar->setStyleSheet(QString::fromUtf8(""));
+        featureBar->setFrameShape(QFrame::StyledPanel);
+        featureBar->setFrameShadow(QFrame::Raised);
+        stats = new QFrame(frame);
+        stats->setObjectName("stats");
+        stats->setGeometry(QRect(20, 400, 601, 231));
+        stats->setFrameShape(QFrame::StyledPanel);
+        stats->setFrameShadow(QFrame::Raised);
+        addFeature = new QFrame(frame);
+        addFeature->setObjectName("addFeature");
+        addFeature->setGeometry(QRect(20, 149, 601, 231));
+        addFeature->setFrameShape(QFrame::StyledPanel);
+        addFeature->setFrameShadow(QFrame::Raised);
 
         retranslateUi(Client);
 
@@ -105,10 +140,9 @@ public:
 
     void retranslateUi(QDialog *Client)
     {
-        Client->setWindowTitle(QCoreApplication::translate("Client", "Dialog", nullptr));
-        label->setText(QString());
+        Client->setWindowTitle(QCoreApplication::translate("Client", "Client Manager", nullptr));
+        logo->setText(QString());
         role->setPlaceholderText(QCoreApplication::translate("Client", "Role", nullptr));
-        searchIcon->setText(QCoreApplication::translate("Client", "TextLabel", nullptr));
     } // retranslateUi
 
 };

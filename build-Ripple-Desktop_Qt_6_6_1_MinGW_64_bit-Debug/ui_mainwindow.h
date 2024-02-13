@@ -58,9 +58,8 @@ public:
 "    background-color: white;\n"
 "    font-size: 30px;\n"
 "    margin: 0 auto; \n"
-"    display: block; \n"
 "    color: #171717;\n"
-"    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Add box shadow */\n"
+"\n"
 "}\n"
 "\n"
 "#dark_theme,#light_theme{\n"
@@ -75,7 +74,7 @@ public:
         LoginPage->setFrameShadow(QFrame::Raised);
         logo = new QLabel(LoginPage);
         logo->setObjectName("logo");
-        logo->setGeometry(QRect(490, 30, 241, 231));
+        logo->setGeometry(QRect(510, 20, 211, 201));
         logo->setPixmap(QPixmap(QString::fromUtf8("../Resources/Logo/icon ripple.png")));
         logo->setScaledContents(true);
         email = new QLineEdit(LoginPage);
@@ -108,7 +107,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Login Page", nullptr));
         logo->setText(QString());
         email->setPlaceholderText(QCoreApplication::translate("MainWindow", "Email", nullptr));
         password->setPlaceholderText(QCoreApplication::translate("MainWindow", "Password", nullptr));

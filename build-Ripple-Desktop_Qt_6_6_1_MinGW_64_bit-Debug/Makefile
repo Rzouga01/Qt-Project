@@ -117,11 +117,6 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_linguist.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_linguist_private.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimedia.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_network.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_network_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_opengl.pri \
@@ -161,7 +156,6 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quick.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quick_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
@@ -192,8 +186,6 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_repparser.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_repparser_private.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri \
-		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_sql.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_sql_private.pri \
 		C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_svg.pri \
@@ -215,6 +207,7 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf
 		C:/Qt/6.6.1/mingw_64/mkspecs/features/qt_config.prf \
 		C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/6.6.1/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/6.6.1/mingw_64/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/6.6.1/mingw_64/mkspecs/features/toolchain.prf \
 		C:/Qt/6.6.1/mingw_64/mkspecs/features/default_pre.prf \
@@ -244,7 +237,6 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf
 		C:/Qt/6.6.1/mingw_64/lib/Qt6Gui.prl \
 		C:/Qt/6.6.1/mingw_64/lib/Qt6Core.prl \
 		C:/Qt/6.6.1/mingw_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
 		C:/Qt/6.6.1/mingw_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\Ripple\Ripple.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/Qt/6.6.1/mingw_64/mkspecs/features/spec_pre.prf:
@@ -294,11 +286,6 @@ C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_linguist.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_linguist_private.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimedia.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_network.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_network_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_opengl.pri:
@@ -338,7 +325,6 @@ C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quick.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quick_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
@@ -369,8 +355,6 @@ C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_repparser.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_repparser_private.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri:
-C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_sql.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_sql_private.pri:
 C:/Qt/6.6.1/mingw_64/mkspecs/modules/qt_lib_svg.pri:
@@ -392,6 +376,7 @@ C:/Qt/6.6.1/mingw_64/mkspecs/features/qt_functions.prf:
 C:/Qt/6.6.1/mingw_64/mkspecs/features/qt_config.prf:
 C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++/qmake.conf:
 C:/Qt/6.6.1/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/6.6.1/mingw_64/mkspecs/features/exclusive_builds.prf:
 C:/Qt/6.6.1/mingw_64/mkspecs/features/toolchain.prf:
 C:/Qt/6.6.1/mingw_64/mkspecs/features/default_pre.prf:
@@ -421,7 +406,6 @@ C:/Qt/6.6.1/mingw_64/lib/Qt6Widgets.prl:
 C:/Qt/6.6.1/mingw_64/lib/Qt6Gui.prl:
 C:/Qt/6.6.1/mingw_64/lib/Qt6Core.prl:
 C:/Qt/6.6.1/mingw_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 C:/Qt/6.6.1/mingw_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Ripple\Ripple.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

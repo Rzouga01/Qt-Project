@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Client Manager</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#Client{
@@ -19,7 +19,8 @@ background-color:#171717;
 
 }
 
-
+*{font: &quot;Helvetica&quot; bold;
+}
 #helloBar{
 border: none;
 background-color:#171717;
@@ -59,16 +60,31 @@ background-color:white;
      <height>650</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#featureBar{
+background-color:white;
+border-radius:25px;
+}
+#addFeature{
+background-color:#A7C34E;
+border-radius:25px;
+}
+
+#stats{
+background-color:#A7C34E;
+border-radius:25px;
+}</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="logo">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>30</y>
       <width>111</width>
       <height>101</height>
@@ -87,11 +103,14 @@ background-color:white;
    <widget class="QLineEdit" name="role">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>890</x>
       <y>40</y>
-      <width>161</width>
-      <height>71</height>
+      <width>281</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -103,44 +122,93 @@ background-color:white;
    <widget class="QTextEdit" name="helloBar">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>120</x>
       <y>40</y>
       <width>221</width>
       <height>91</height>
      </rect>
     </property>
+    <property name="textInteractionFlags">
+     <set>Qt::NoTextInteraction</set>
+    </property>
    </widget>
    <widget class="QListWidget" name="readBox">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>640</x>
       <y>220</y>
-      <width>641</width>
-      <height>381</height>
+      <width>541</width>
+      <height>411</height>
      </rect>
     </property>
    </widget>
    <widget class="QLineEdit" name="searchBar">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>240</y>
-      <width>391</width>
-      <height>51</height>
+      <x>880</x>
+      <y>250</y>
+      <width>241</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#searchBar{
+border-radius:10px;
+}</string>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="searchIcon">
+   <widget class="QFrame" name="featureBar">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>260</y>
-      <width>71</width>
-      <height>21</height>
+      <x>640</x>
+      <y>149</y>
+      <width>541</width>
+      <height>61</height>
      </rect>
     </property>
-    <property name="text">
-     <string>TextLabel</string>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="stats">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>400</y>
+      <width>601</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="addFeature">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>149</y>
+      <width>601</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
     </property>
    </widget>
   </widget>
