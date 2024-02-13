@@ -28,8 +28,8 @@ public:
     QLineEdit *role;
     QTextEdit *helloBar;
     QListWidget *readBox;
-    QLineEdit *lineEdit;
-    QLabel *label_2;
+    QLineEdit *searchBar;
+    QLabel *searchIcon;
 
     void setupUi(QDialog *Client)
     {
@@ -66,6 +66,10 @@ public:
 "\n"
 "}\n"
 "\n"
+"#searchBar{\n"
+"background-color:white;\n"
+"\n"
+"}\n"
 ""));
         frame = new QFrame(Client);
         frame->setObjectName("frame");
@@ -87,12 +91,12 @@ public:
         readBox = new QListWidget(frame);
         readBox->setObjectName("readBox");
         readBox->setGeometry(QRect(520, 220, 641, 381));
-        lineEdit = new QLineEdit(frame);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(710, 240, 391, 51));
-        label_2 = new QLabel(frame);
-        label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(560, 260, 71, 21));
+        searchBar = new QLineEdit(frame);
+        searchBar->setObjectName("searchBar");
+        searchBar->setGeometry(QRect(710, 240, 391, 51));
+        searchIcon = new QLabel(frame);
+        searchIcon->setObjectName("searchIcon");
+        searchIcon->setGeometry(QRect(560, 260, 71, 21));
 
         retranslateUi(Client);
 
@@ -104,7 +108,7 @@ public:
         Client->setWindowTitle(QCoreApplication::translate("Client", "Dialog", nullptr));
         label->setText(QString());
         role->setPlaceholderText(QCoreApplication::translate("Client", "Role", nullptr));
-        label_2->setText(QCoreApplication::translate("Client", "TextLabel", nullptr));
+        searchIcon->setText(QCoreApplication::translate("Client", "TextLabel", nullptr));
     } // retranslateUi
 
 };

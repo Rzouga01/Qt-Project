@@ -15,6 +15,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void handleThemeChange(int value);
+    void animation();
+    void resetLogoSize(const QRect &size);
 
 private:
     Ui::MainWindow *ui;

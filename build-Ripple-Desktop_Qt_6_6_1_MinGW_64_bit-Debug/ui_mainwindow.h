@@ -15,6 +15,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QWidget>
 
@@ -29,6 +30,8 @@ public:
     QLineEdit *email;
     QLineEdit *password;
     QSlider *themeSlider;
+    QPlainTextEdit *dark_theme;
+    QPlainTextEdit *light_theme;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -59,6 +62,14 @@ public:
 "    color: #171717;\n"
 "    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Add box shadow */\n"
 "}\n"
+"\n"
+"#dark_theme,#light_theme{\n"
+"border:none;\n"
+"background-color:rgba(0, 0, 0, 0);\n"
+"color:white;\n"
+"\n"
+"}\n"
+"\n"
 ""));
         LoginPage->setFrameShape(QFrame::StyledPanel);
         LoginPage->setFrameShadow(QFrame::Raised);
@@ -75,9 +86,19 @@ public:
         password->setGeometry(QRect(360, 440, 501, 70));
         themeSlider = new QSlider(LoginPage);
         themeSlider->setObjectName("themeSlider");
-        themeSlider->setGeometry(QRect(80, 340, 191, 51));
+        themeSlider->setGeometry(QRect(80, 520, 111, 71));
+        themeSlider->setStyleSheet(QString::fromUtf8(""));
         themeSlider->setMaximum(1);
         themeSlider->setOrientation(Qt::Horizontal);
+        themeSlider->setInvertedControls(false);
+        dark_theme = new QPlainTextEdit(LoginPage);
+        dark_theme->setObjectName("dark_theme");
+        dark_theme->setGeometry(QRect(70, 600, 71, 41));
+        dark_theme->setReadOnly(true);
+        light_theme = new QPlainTextEdit(LoginPage);
+        light_theme->setObjectName("light_theme");
+        light_theme->setGeometry(QRect(170, 600, 91, 61));
+        light_theme->setReadOnly(true);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -91,6 +112,10 @@ public:
         logo->setText(QString());
         email->setPlaceholderText(QCoreApplication::translate("MainWindow", "Email", nullptr));
         password->setPlaceholderText(QCoreApplication::translate("MainWindow", "Password", nullptr));
+        dark_theme->setPlainText(QCoreApplication::translate("MainWindow", "Dark\n"
+"", nullptr));
+        light_theme->setPlainText(QCoreApplication::translate("MainWindow", "Light\n"
+"", nullptr));
     } // retranslateUi
 
 };

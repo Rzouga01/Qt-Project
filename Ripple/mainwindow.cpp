@@ -19,13 +19,27 @@ MainWindow::MainWindow(QWidget *parent)
     ui->password->setAlignment(Qt::AlignCenter);
 
 
+
+
+
     connect(ui->themeSlider, &QSlider::valueChanged, this, &MainWindow::handleThemeChange);
 
 
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
 
 
-  //Logo animation
 
+}
+void MainWindow::animation()
+{
+    // Store the original geometry of the logo QLabel
+    QRect originalLogoGeometry = ui->logo->geometry();
+
+    // Logo animation
     QPropertyAnimation *logoAnimation = new QPropertyAnimation(ui->logo, "geometry");
 
     // Set the duration of the animation (in milliseconds)
@@ -38,34 +52,43 @@ MainWindow::MainWindow(QWidget *parent)
     // Set the easing curve for a smooth effect
     logoAnimation->setEasingCurve(QEasingCurve::OutBounce); // You can experiment with different easing curves
 
+    // Connect the finished() signal of the animation to the resetLogoSize slot
+    connect(logoAnimation, &QPropertyAnimation::finished, [=]() {
+resetLogoSize(originalLogoGeometry);
+    });
+
     // Start the animation
     logoAnimation->start();
-
-
 }
 
-MainWindow::~MainWindow()
+void MainWindow::resetLogoSize(const QRect &size)
 {
-    delete ui;
-
-
-
+    // Reset the size of the logo QLabel to its original size
+    ui->logo->setGeometry(size);
 }
+
+
 void MainWindow::handleThemeChange(int value) {
+    MainWindow::animation();
     if (value == 0) {
         // Dark theme
         ui->centralwidget->setStyleSheet("background-color: #171717; color: white;");
         ui->email->setStyleSheet("background-color: #FFFFFF; color: #171717;");
         ui->password->setStyleSheet("background-color: #FFFFFF; color: #171717;");
-        QPixmap pixmap("../Resources/Logo/icon ripple.png"); // Load black icon pixmap
-        ui->logo->setPixmap(pixmap); // Set the black icon pixmap
+        ui->dark_theme->setStyleSheet("color: #FFFFFF;");
+        ui->light_theme->setStyleSheet("color: #FFFFFF;");
+        QPixmap pixmap("../Resources/Logo/icon ripple.png");
+        ui->logo->setPixmap(pixmap);
+
     } else {
         // Light theme
         ui->centralwidget->setStyleSheet("background-color: #FFFFFF; color: black;");
         ui->email->setStyleSheet("background-color: #333333; color: white;");
         ui->password->setStyleSheet("background-color: #333333; color: white;");
-        QPixmap pixmap("../Resources/Logo/icon black.png"); // Load white icon pixmap
-        ui->logo->setPixmap(pixmap); // Set the white icon pixmap
+        ui->dark_theme->setStyleSheet("color: #171717;");
+        ui->light_theme->setStyleSheet("color: #171717;");
+        QPixmap pixmap("../Resources/Logo/icon black.png");
+        ui->logo->setPixmap(pixmap);
     }
 }
 

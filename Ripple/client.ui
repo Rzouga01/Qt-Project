@@ -44,6 +44,10 @@ border-radius:25px;
 
 }
 
+#searchBar{
+background-color:white;
+
+}
 </string>
   </property>
   <widget class="QFrame" name="frame">
@@ -116,7 +120,7 @@ border-radius:25px;
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="searchBar">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -126,7 +130,7 @@ border-radius:25px;
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="searchIcon">
     <property name="geometry">
      <rect>
       <x>560</x>
