@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     Client c;
     c.show();
+    w.show();
 
 
     return a.exec();

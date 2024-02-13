@@ -86,6 +86,7 @@ public:
         themeSlider = new QSlider(LoginPage);
         themeSlider->setObjectName("themeSlider");
         themeSlider->setGeometry(QRect(80, 520, 111, 71));
+        themeSlider->setMouseTracking(true);
         themeSlider->setStyleSheet(QString::fromUtf8(""));
         themeSlider->setMaximum(1);
         themeSlider->setOrientation(Qt::Horizontal);
