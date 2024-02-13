@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->email->setAlignment(Qt::AlignCenter);
     ui->password->setAlignment(Qt::AlignCenter);
+    ui->logo->setAlignment(Qt::AlignCenter);
 
 
 
@@ -87,7 +88,7 @@ void MainWindow::handleThemeChange(int value) {
         ui->password->setStyleSheet("background-color: #333333; color: white;");
         ui->dark_theme->setStyleSheet("color: #171717;");
         ui->light_theme->setStyleSheet("color: #171717;");
-        QPixmap pixmap("../Resources/Logo/icon black.png");
+        QPixmap pixmap("../Resources/Logo/icon white.png");
         ui->logo->setPixmap(pixmap);
     }
 }
