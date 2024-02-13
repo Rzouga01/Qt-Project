@@ -19,22 +19,11 @@
 }
 
 #LoginPage {
-    background-color: #171717;
-    display: block;
-    text-align: center;
-  
+    background-color: #171717; /* Default dark background color */
 }
 
-#email, #password {
-    border-radius: 25px;
-    background-color: white;
-    font-size: 30px;
-    margin: 0 auto; 
-    display: block; 
-color:#171717;
 
-
-}</string>
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="LoginPage">
@@ -45,6 +34,18 @@ color:#171717;
       <width>1200</width>
       <height>650</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#email, #password {
+    border-radius: 25px;
+    background-color: white;
+    font-size: 30px;
+    margin: 0 auto; 
+    display: block; 
+    color: #171717;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+}
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -95,6 +96,22 @@ color:#171717;
      </property>
      <property name="placeholderText">
       <string>Password</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="themeSlider">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>340</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </widget>

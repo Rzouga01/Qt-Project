@@ -15,6 +15,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,6 +28,7 @@ public:
     QLabel *logo;
     QLineEdit *email;
     QLineEdit *password;
+    QSlider *themeSlider;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -38,27 +40,26 @@ public:
 "}\n"
 "\n"
 "#LoginPage {\n"
-"    background-color: #171717;\n"
-"    display: block;\n"
-"    text-align: center;\n"
-"  \n"
+"    background-color: #171717; /* Default dark background color */\n"
 "}\n"
 "\n"
-"#email, #password {\n"
-"    border-radius: 25px;\n"
-"    background-color: white;\n"
-"    font-size: 30px;\n"
-"    margin: 0 auto; \n"
-"    display: block; \n"
-"color:#171717;\n"
 "\n"
-"\n"
-"}"));
+""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         LoginPage = new QFrame(centralwidget);
         LoginPage->setObjectName("LoginPage");
         LoginPage->setGeometry(QRect(0, 0, 1200, 650));
+        LoginPage->setStyleSheet(QString::fromUtf8("#email, #password {\n"
+"    border-radius: 25px;\n"
+"    background-color: white;\n"
+"    font-size: 30px;\n"
+"    margin: 0 auto; \n"
+"    display: block; \n"
+"    color: #171717;\n"
+"    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Add box shadow */\n"
+"}\n"
+""));
         LoginPage->setFrameShape(QFrame::StyledPanel);
         LoginPage->setFrameShadow(QFrame::Raised);
         logo = new QLabel(LoginPage);
@@ -72,6 +73,11 @@ public:
         password = new QLineEdit(LoginPage);
         password->setObjectName("password");
         password->setGeometry(QRect(360, 440, 501, 70));
+        themeSlider = new QSlider(LoginPage);
+        themeSlider->setObjectName("themeSlider");
+        themeSlider->setGeometry(QRect(80, 340, 191, 51));
+        themeSlider->setMaximum(1);
+        themeSlider->setOrientation(Qt::Horizontal);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);

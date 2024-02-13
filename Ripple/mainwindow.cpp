@@ -4,7 +4,10 @@
 #include <QPropertyAnimation>
 #include <QEasingCurve>
 
-#include "client.h"
+#include "mainwindow.h"
+
+#include <QApplication>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,10 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->password->setAlignment(Qt::AlignCenter);
 
 
+    connect(ui->themeSlider, &QSlider::valueChanged, this, &MainWindow::handleThemeChange);
 
-    // Assuming your logo is represented by a QLabel named 'logoLabel'
 
-    // Create a property animation for the logo label
+
+
+  //Logo animation
+
     QPropertyAnimation *logoAnimation = new QPropertyAnimation(ui->logo, "geometry");
 
     // Set the duration of the animation (in milliseconds)
@@ -35,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Start the animation
     logoAnimation->start();
 
+
 }
 
 MainWindow::~MainWindow()
@@ -43,6 +50,23 @@ MainWindow::~MainWindow()
 
 
 
+}
+void MainWindow::handleThemeChange(int value) {
+    if (value == 0) {
+        // Dark theme
+        ui->centralwidget->setStyleSheet("background-color: #171717; color: white;");
+        ui->email->setStyleSheet("background-color: #FFFFFF; color: #171717;");
+        ui->password->setStyleSheet("background-color: #FFFFFF; color: #171717;");
+        QPixmap pixmap("../Resources/Logo/icon ripple.png"); // Load black icon pixmap
+        ui->logo->setPixmap(pixmap); // Set the black icon pixmap
+    } else {
+        // Light theme
+        ui->centralwidget->setStyleSheet("background-color: #FFFFFF; color: black;");
+        ui->email->setStyleSheet("background-color: #333333; color: white;");
+        ui->password->setStyleSheet("background-color: #333333; color: white;");
+        QPixmap pixmap("../Resources/Logo/icon black.png"); // Load white icon pixmap
+        ui->logo->setPixmap(pixmap); // Set the white icon pixmap
+    }
 }
 
 

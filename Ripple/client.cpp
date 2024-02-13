@@ -6,6 +6,10 @@ Client::Client(QWidget *parent) :
     ui(new Ui::Client)
 {
     ui->setupUi(this);
+    ui->role->setText("Customer");
+    ui->helloBar->setPlainText("Hello,\nMalek Bsaissa");
+
+    ui->helloBar->setFixedWidth(200);
 }
 
 Client::~Client()
