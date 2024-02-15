@@ -3,6 +3,7 @@
 #include "client.h"
 #include "employee.h"
 #include "contract.h"
+#include "accident.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,10 +12,14 @@ int main(int argc, char *argv[])
     Client c;
     Employee e;
     contract ct;
+    accident ac;
+
     e.show();
-    c.show();
+    ac.show();
     ct.show();
+    c.show();
     w.show();
+
 
 
     return a.exec();

@@ -7,7 +7,7 @@ contract::contract(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->role->setText("Contracts Manager");
-    ui->helloBar->setPlainText("Hello,\nAmine  Larbi");
+    ui->helloBar->setPlainText("Hello,\nAmine Larbi");
 }
 
 contract::~contract()

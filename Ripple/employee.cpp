@@ -7,7 +7,7 @@ Employee::Employee(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->role->setText("Employee Manager");
-    ui->helloBar->setPlainText("Hello,\nAbdRazek Nakhli");
+    ui->helloBar->setPlainText("Hello,\nAbd Razek Nakhli");
 }
 
 Employee::~Employee()
