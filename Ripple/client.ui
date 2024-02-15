@@ -124,12 +124,15 @@ border-radius:25px;
      <rect>
       <x>120</x>
       <y>40</y>
-      <width>221</width>
+      <width>311</width>
       <height>91</height>
      </rect>
     </property>
     <property name="textInteractionFlags">
      <set>Qt::NoTextInteraction</set>
+    </property>
+    <property name="placeholderText">
+     <string>Hello,                    First Name Last Name</string>
     </property>
    </widget>
    <widget class="QListWidget" name="readBox">
