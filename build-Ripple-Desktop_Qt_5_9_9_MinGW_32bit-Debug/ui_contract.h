@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'client.ui'
+** Form generated from reading UI file 'contract.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.9
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_CLIENT_H
-#define UI_CLIENT_H
+#ifndef UI_CONTRACT_H
+#define UI_CONTRACT_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -23,7 +23,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Client
+class Ui_contract
 {
 public:
     QFrame *frame;
@@ -36,12 +36,12 @@ public:
     QFrame *stats;
     QFrame *addFeature;
 
-    void setupUi(QDialog *Client)
+    void setupUi(QDialog *contract)
     {
-        if (Client->objectName().isEmpty())
-            Client->setObjectName(QStringLiteral("Client"));
-        Client->resize(1200, 650);
-        Client->setStyleSheet(QLatin1String("#Client{\n"
+        if (contract->objectName().isEmpty())
+            contract->setObjectName(QStringLiteral("contract"));
+        contract->resize(1200, 650);
+        contract->setStyleSheet(QLatin1String("#contract{\n"
 "background-color:#171717;\n"
 "\n"
 "}\n"
@@ -77,7 +77,7 @@ public:
 "\n"
 "}\n"
 ""));
-        frame = new QFrame(Client);
+        frame = new QFrame(contract);
         frame->setObjectName(QStringLiteral("frame"));
         frame->setGeometry(QRect(0, 0, 1200, 650));
         frame->setStyleSheet(QLatin1String("#featureBar{\n"
@@ -107,7 +107,7 @@ public:
         role->setReadOnly(true);
         helloBar = new QTextEdit(frame);
         helloBar->setObjectName(QStringLiteral("helloBar"));
-        helloBar->setGeometry(QRect(120, 40, 311, 91));
+        helloBar->setGeometry(QRect(120, 40, 221, 91));
         helloBar->setTextInteractionFlags(Qt::NoTextInteraction);
         readBox = new QListWidget(frame);
         readBox->setObjectName(QStringLiteral("readBox"));
@@ -136,25 +136,24 @@ public:
         addFeature->setFrameShape(QFrame::StyledPanel);
         addFeature->setFrameShadow(QFrame::Raised);
 
-        retranslateUi(Client);
+        retranslateUi(contract);
 
-        QMetaObject::connectSlotsByName(Client);
+        QMetaObject::connectSlotsByName(contract);
     } // setupUi
 
-    void retranslateUi(QDialog *Client)
+    void retranslateUi(QDialog *contract)
     {
-        Client->setWindowTitle(QApplication::translate("Client", "Client Manager", Q_NULLPTR));
+        contract->setWindowTitle(QApplication::translate("contract", "Contract Manager", Q_NULLPTR));
         logo->setText(QString());
-        role->setPlaceholderText(QApplication::translate("Client", "Role", Q_NULLPTR));
-        helloBar->setPlaceholderText(QApplication::translate("Client", "Hello,                    First Name Last Name", Q_NULLPTR));
+        role->setPlaceholderText(QApplication::translate("contract", "Role", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Client: public Ui_Client {};
+    class contract: public Ui_contract {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_CLIENT_H
+#endif // UI_CONTRACT_H

@@ -17,17 +17,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     client.cpp \
+    contract.cpp \
     employee.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     client.h \
+    contract.h \
     employee.h \
     mainwindow.h
 
 FORMS += \
     client.ui \
+    contract.ui \
     employee.ui \
     mainwindow.ui
 
