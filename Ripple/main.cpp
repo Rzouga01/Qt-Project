@@ -2,7 +2,7 @@
 #include <QApplication>
 #include "client.h"
 #include "employee.h"
-#include "accident.h"
+#include "contract.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,10 +10,10 @@ int main(int argc, char *argv[])
     MainWindow w;
     Client c;
     Employee e;
-    accident ac;
+    contract ct;
     e.show();
     c.show();
-    ac.show();
+    ct.show();
     w.show();
 
 

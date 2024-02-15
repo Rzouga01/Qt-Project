@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     accident.cpp \
     client.cpp \
+    contract.cpp \
     employee.cpp \
     main.cpp \
     mainwindow.cpp
@@ -25,12 +26,14 @@ SOURCES += \
 HEADERS += \
     accident.h \
     client.h \
+    contract.h \
     employee.h \
     mainwindow.h
 
 FORMS += \
     accident.ui \
     client.ui \
+    contract.ui \
     employee.ui \
     mainwindow.ui
 
