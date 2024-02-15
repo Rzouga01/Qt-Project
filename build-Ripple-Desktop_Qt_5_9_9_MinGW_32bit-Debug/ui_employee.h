@@ -107,7 +107,7 @@ public:
         role->setReadOnly(true);
         helloBar = new QTextEdit(frame);
         helloBar->setObjectName(QStringLiteral("helloBar"));
-        helloBar->setGeometry(QRect(120, 40, 221, 91));
+        helloBar->setGeometry(QRect(120, 40, 291, 91));
         helloBar->setTextInteractionFlags(Qt::NoTextInteraction);
         readBox = new QListWidget(frame);
         readBox->setObjectName(QStringLiteral("readBox"));

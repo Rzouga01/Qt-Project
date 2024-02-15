@@ -4,6 +4,7 @@
 #include "employee.h"
 #include "contract.h"
 #include "accident.h"
+#include "connection.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +20,6 @@ int main(int argc, char *argv[])
     ct.show();
     c.show();
     w.show();
-
 
 
     return a.exec();
