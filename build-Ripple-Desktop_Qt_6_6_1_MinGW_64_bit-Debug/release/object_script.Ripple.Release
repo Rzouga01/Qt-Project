@@ -1,5 +1,6 @@
 release/accident.o
 release/client.o
+release/connection.o
 release/contract.o
 release/employee.o
 release/main.o

@@ -14,6 +14,9 @@ int main(int argc, char *argv[])
     Employee e;
     contract ct;
     accident ac;
+    Connection con;
+
+    con.createconnect();
 
     e.show();
     ac.show();

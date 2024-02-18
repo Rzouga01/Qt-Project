@@ -1,5 +1,6 @@
 debug/accident.o
 debug/client.o
+debug/connection.o
 debug/contract.o
 debug/employee.o
 debug/main.o
