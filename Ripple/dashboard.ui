@@ -14,7 +14,11 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QFrame {
+         background-color:#171717;
+         border-radius: 10px;
+     }
+   </string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">

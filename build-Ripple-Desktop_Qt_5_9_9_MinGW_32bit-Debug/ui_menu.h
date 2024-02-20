@@ -37,7 +37,7 @@ public:
         frame->setGeometry(QRect(0, 0, 1200, 650));
         frame->setStyleSheet(QLatin1String("QFrame {\n"
 "          border: 2px solid black;\n"
-"          background-color: black;\n"
+"          background-color:#171717;\n"
 "          border-radius: 10px;\n"
 "      }\n"
 "    "));

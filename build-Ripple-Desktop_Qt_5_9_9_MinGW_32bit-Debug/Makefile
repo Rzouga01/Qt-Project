@@ -235,9 +235,13 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf \
 		../Ripple/Ripple.pro \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5UiTools.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Quick.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Qml.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\Ripple\Ripple.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -414,9 +418,13 @@ C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf:
 ../Ripple/Ripple.pro:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5UiTools.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Quick.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Qml.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Ripple\Ripple.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
