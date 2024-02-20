@@ -1,4 +1,5 @@
-QT       += sql core gui
+QT       += uitools sql core gui \
+    quick
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,6 +21,7 @@ SOURCES += \
     client.cpp \
     connection.cpp \
     contract.cpp \
+    dashboard.cpp \
     employee.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -30,6 +32,7 @@ HEADERS += \
     client.h \
     connection.h \
     contract.h \
+    dashboard.h \
     employee.h \
     mainwindow.h \
     menu.h
@@ -38,6 +41,7 @@ FORMS += \
     accident.ui \
     client.ui \
     contract.ui \
+    dashboard.ui \
     employee.ui \
     mainwindow.ui \
     menu.ui

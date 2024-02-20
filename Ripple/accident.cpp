@@ -7,8 +7,7 @@ accident::accident(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    ui->role->setText("Accident Manager");
-    ui->helloBar->setPlainText("Hello,\nWalaa Eddine Ghrairi");
+
 }
 
 accident::~accident()
