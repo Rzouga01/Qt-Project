@@ -13,7 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QTextEdit>
@@ -24,8 +23,6 @@ class Ui_contract
 {
 public:
     QFrame *frame;
-    QLabel *logo;
-    QLineEdit *role;
     QTextEdit *helloBar;
     QListWidget *readBox;
     QLineEdit *searchBar;
@@ -92,16 +89,6 @@ public:
 "}"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        logo = new QLabel(frame);
-        logo->setObjectName("logo");
-        logo->setGeometry(QRect(10, 30, 111, 101));
-        logo->setPixmap(QPixmap(QString::fromUtf8("../Resources/Logo/icon ripple.png")));
-        logo->setScaledContents(true);
-        role = new QLineEdit(frame);
-        role->setObjectName("role");
-        role->setGeometry(QRect(890, 40, 281, 91));
-        role->setCursor(QCursor(Qt::ArrowCursor));
-        role->setReadOnly(true);
         helloBar = new QTextEdit(frame);
         helloBar->setObjectName("helloBar");
         helloBar->setGeometry(QRect(120, 40, 221, 91));
@@ -141,8 +128,6 @@ public:
     void retranslateUi(QDialog *contract)
     {
         contract->setWindowTitle(QCoreApplication::translate("contract", "Contract Manager", nullptr));
-        logo->setText(QString());
-        role->setPlaceholderText(QCoreApplication::translate("contract", "Role", nullptr));
     } // retranslateUi
 
 };

@@ -2,11 +2,13 @@ release/accident.o
 release/client.o
 release/connection.o
 release/contract.o
+release/dashboard.o
 release/employee.o
 release/main.o
 release/mainwindow.o
 release/moc_accident.o
 release/moc_client.o
 release/moc_contract.o
+release/moc_dashboard.o
 release/moc_employee.o
 release/moc_mainwindow.o
