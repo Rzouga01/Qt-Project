@@ -11,52 +11,56 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , logoAnimation(nullptr)
 {
-
     ui->setupUi(this);
     ui->email->setAlignment(Qt::AlignCenter);
     ui->password->setAlignment(Qt::AlignCenter);
     ui->logo->setAlignment(Qt::AlignCenter);
 
-
     connect(ui->themeSlider, &QSlider::valueChanged, this, &MainWindow::handleThemeChange);
-
-
 }
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 
-
-
 }
-void MainWindow::animation()
-{
-    // Store the original geometry of the logo QLabel
-    QRect originalLogoGeometry = ui->logo->geometry();
 
-    // Logo animation
-    QPropertyAnimation *logoAnimation = new QPropertyAnimation(ui->logo, "geometry");
+    void MainWindow::animation()
+    {
+        // If logoAnimation already exists, stop and delete it to prevent memory leaks
+        if (logoAnimation) {
+            logoAnimation->stop();
+            delete logoAnimation;
+            logoAnimation = nullptr;
+        }
 
-    // Set the duration of the animation (in milliseconds)
-    logoAnimation->setDuration(500); // 0.5 seconds
+        // Store the original geometry of the logo QLabel if it's not stored yet
+        static QRect originalLogoGeometry = ui->logo->geometry();
 
-    // Set the start and end scale factors for the logo (e.g., 1.0 to 1.2)
-    logoAnimation->setStartValue(QRect(ui->logo->x(), ui->logo->y(), ui->logo->width(), ui->logo->height()));
-    logoAnimation->setEndValue(QRect(ui->logo->x() - 10, ui->logo->y() - 10, ui->logo->width() + 20, ui->logo->height() + 20));
+        // Create a new logo animation
+        logoAnimation = new QPropertyAnimation(ui->logo, "geometry");
 
-    // Set the easing curve for a smooth effect
-    logoAnimation->setEasingCurve(QEasingCurve::OutBounce); // You can experiment with different easing curves
+        // Set the duration of the animation (in milliseconds)
+        logoAnimation->setDuration(500); // 0.5 seconds
 
-    // Connect the finished() signal of the animation to the resetLogoSize slot
-    connect(logoAnimation, &QPropertyAnimation::finished, [=]() {
-resetLogoSize(originalLogoGeometry);
-    });
+        // Set the start and end scale factors for the logo (e.g., 1.0 to 1.2)
+        logoAnimation->setStartValue(QRect(ui->logo->x(), ui->logo->y(), ui->logo->width(), ui->logo->height()));
+        logoAnimation->setEndValue(QRect(ui->logo->x() - 10, ui->logo->y() - 10, ui->logo->width() + 20, ui->logo->height() + 20));
 
-    // Start the animation
-    logoAnimation->start();
-}
+        // Set the easing curve for a smooth effect
+        logoAnimation->setEasingCurve(QEasingCurve::OutBounce); // You can experiment with different easing curves
+
+        // Connect the finished() signal of the animation to the resetLogoSize slot
+        connect(logoAnimation, &QPropertyAnimation::finished, [=]() {
+            resetLogoSize(originalLogoGeometry);
+        });
+
+        // Start the animation
+        logoAnimation->start();
+    }
 
 void MainWindow::resetLogoSize(const QRect &size)
 {

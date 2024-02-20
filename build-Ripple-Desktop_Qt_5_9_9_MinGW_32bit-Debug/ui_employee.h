@@ -133,6 +133,7 @@ public:
         addFeature = new QFrame(frame);
         addFeature->setObjectName(QStringLiteral("addFeature"));
         addFeature->setGeometry(QRect(20, 149, 601, 231));
+        addFeature->setAutoFillBackground(false);
         addFeature->setFrameShape(QFrame::StyledPanel);
         addFeature->setFrameShadow(QFrame::Raised);
 

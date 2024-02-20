@@ -22,7 +22,8 @@ SOURCES += \
     contract.cpp \
     employee.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    menu.cpp
 
 HEADERS += \
     accident.h \
@@ -30,16 +31,22 @@ HEADERS += \
     connection.h \
     contract.h \
     employee.h \
-    mainwindow.h
+    mainwindow.h \
+    menu.h
 
 FORMS += \
     accident.ui \
     client.ui \
     contract.ui \
     employee.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Menu.qml \
+    MenuForm.ui.qml
