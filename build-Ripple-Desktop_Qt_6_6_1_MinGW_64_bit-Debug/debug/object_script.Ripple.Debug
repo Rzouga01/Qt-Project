@@ -6,9 +6,11 @@ debug/dashboard.o
 debug/employee.o
 debug/main.o
 debug/mainwindow.o
+debug/menu.o
 debug/moc_accident.o
 debug/moc_client.o
 debug/moc_contract.o
 debug/moc_dashboard.o
 debug/moc_employee.o
 debug/moc_mainwindow.o
+debug/moc_menu.o

@@ -65,11 +65,12 @@ public:
         if (Dashboard->objectName().isEmpty())
             Dashboard->setObjectName("Dashboard");
         Dashboard->resize(1200, 650);
-        Dashboard->setStyleSheet(QString::fromUtf8(""));
-        frame = new QFrame(Dashboard);
-        frame->setObjectName("frame");
-        frame->setGeometry(QRect(0, 0, 1200, 650));
-        frame->setStyleSheet(QString::fromUtf8("#Dashboard\n"
+        Dashboard->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"         background-color:#171717;\n"
+"        border:none;\n"
+"     }\n"
+"\n"
+"#Dashboard\n"
 "{\n"
 "background-color: #171717;\n"
 "}\n"
@@ -79,6 +80,7 @@ public:
 "background-color:#171717;\n"
 "font-size:30px;\n"
 "color:white;\n"
+"font-family:\"helvetica\"\n"
 "\n"
 "\n"
 "}\n"
@@ -88,6 +90,7 @@ public:
 "background-color:#171717;\n"
 "color:white;\n"
 "border:none;\n"
+"font-family:\"helvetica\"\n"
 "}\n"
 "\n"
 "\n"
@@ -117,17 +120,19 @@ public:
 "/* Apply styles to the readBox_2 */\n"
 "#readBox_2 {\n"
 "    border: none;\n"
-"    background-color: #A7C34E;\n"
+"    background-color: #A7C34E"
+                        ";\n"
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the searchBar_2 */\n"
 "#searchBar_2 {\n"
-"    background-color: white;\n"
+"     background-color: white;\n"
+"border-radius:25px;\n"
+"\n"
 "}\n"
 "\n"
-"/*"
-                        " Apply styles to the featureBar_3 */\n"
+"/* Apply styles to the featureBar_3 */\n"
 "#featureBar_3 {\n"
 "    background-color: white;\n"
 "    border-radius: 25px;\n"
@@ -155,6 +160,7 @@ public:
 "/* Apply styles to the searchBar_3 */\n"
 "#searchBar_3 {\n"
 "    background-color: white;\n"
+" border-radius: 25px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the featureBar_4 */\n"
@@ -163,7 +169,8 @@ public:
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
-"/* Apply styles to the addFeature_4 */\n"
+"/* Apply styles to th"
+                        "e addFeature_4 */\n"
 "#addFeature_4 {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
@@ -172,8 +179,7 @@ public:
 "/* Apply styles to the stats_4 */\n"
 "#stats_4 {\n"
 "    background-color: #A7C34E;\n"
-"    "
-                        "border-radius: 25px;\n"
+"    border-radius: 25px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the readBox_4 */\n"
@@ -185,7 +191,8 @@ public:
 "\n"
 "/* Apply styles to the searchBar_4 */\n"
 "#searchBar_4 {\n"
-"    background-color: white;\n"
+"      background-color: white;\n"
+" border-radius: 25px;\n"
 "}\n"
 "\n"
 "\n"
@@ -211,13 +218,43 @@ public:
 "    border: none;\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "/* Apply styles to the searchBar */\n"
 "#searchBar {\n"
 "    background-color: white;\n"
+" border-radius: 25px;\n"
+"}\n"
+"\n"
+"#employees,\n"
+"#clients,\n"
+"#contracts,\n"
+"#accidents {\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    color: white; /* Set the default text color */\n"
+"	background-color: #444444;;\n"
+"	border-radius:15px;\n"
+"\n"
+"	\n"
+"\n"
+"}\n"
+"\n"
+"#employees:hover,\n"
+"#contracts:hover,\n"
+"#clients:hover,\n"
+"#accidents:hover {\n"
+"    background-color: #333; /* Darker color on hover */\n"
+"    color: #fff; /* Text color changes to white on hover */\n"
+"    cursor: pointer; /* Change cursor to pointer on hover */\n"
+"   \n"
 "}\n"
 ""));
+        frame = new QFrame(Dashboard);
+        frame->setObjectName("frame");
+        frame->setGeometry(QRect(0, 0, 1200, 650));
+        frame->setStyleSheet(QString::fromUtf8(""));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         role = new QLineEdit(frame);
@@ -355,20 +392,20 @@ public:
         stackedWidget->addWidget(page_4);
         employees = new QPushButton(frame);
         employees->setObjectName("employees");
-        employees->setGeometry(QRect(80, 260, 80, 24));
+        employees->setGeometry(QRect(30, 175, 200, 50));
         clients = new QPushButton(frame);
         clients->setObjectName("clients");
-        clients->setGeometry(QRect(80, 330, 80, 24));
+        clients->setGeometry(QRect(30, 275, 200, 50));
         contracts = new QPushButton(frame);
         contracts->setObjectName("contracts");
-        contracts->setGeometry(QRect(80, 390, 80, 24));
+        contracts->setGeometry(QRect(30, 375, 200, 50));
         accidents = new QPushButton(frame);
         accidents->setObjectName("accidents");
-        accidents->setGeometry(QRect(80, 460, 80, 24));
+        accidents->setGeometry(QRect(30, 475, 200, 50));
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Dashboard);

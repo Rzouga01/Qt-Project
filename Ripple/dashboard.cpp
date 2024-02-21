@@ -11,8 +11,8 @@ Dashboard::Dashboard(QWidget *parent) :
     ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
-    ui->role->setText("Customer Manager");
-    ui->helloBar->setPlainText("Hello,\nMalek Bsaissa");
+    ui->role->setText("Role Test");
+    ui->helloBar->setPlainText("Hello,\nFirst Name Last Name");
 
     update();
 

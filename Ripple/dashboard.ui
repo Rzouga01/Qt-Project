@@ -16,21 +16,10 @@
   <property name="styleSheet">
    <string notr="true">QFrame {
          background-color:#171717;
-         border-radius: 10px;
+        border:none;
      }
-   </string>
-  </property>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1200</width>
-     <height>650</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#Dashboard
+
+#Dashboard
 {
 background-color: #171717;
 }
@@ -40,6 +29,7 @@ border: none;
 background-color:#171717;
 font-size:30px;
 color:white;
+font-family:&quot;helvetica&quot;
 
 
 }
@@ -49,6 +39,7 @@ font-size:30px;
 background-color:#171717;
 color:white;
 border:none;
+font-family:&quot;helvetica&quot;
 }
 
 
@@ -84,7 +75,9 @@ background-color: #171717;
 
 /* Apply styles to the searchBar_2 */
 #searchBar_2 {
-    background-color: white;
+     background-color: white;
+border-radius:25px;
+
 }
 
 /* Apply styles to the featureBar_3 */
@@ -115,6 +108,7 @@ background-color: #171717;
 /* Apply styles to the searchBar_3 */
 #searchBar_3 {
     background-color: white;
+ border-radius: 25px;
 }
 
 /* Apply styles to the featureBar_4 */
@@ -144,7 +138,8 @@ background-color: #171717;
 
 /* Apply styles to the searchBar_4 */
 #searchBar_4 {
-    background-color: white;
+      background-color: white;
+ border-radius: 25px;
 }
 
 
@@ -175,8 +170,45 @@ background-color: #171717;
 /* Apply styles to the searchBar */
 #searchBar {
     background-color: white;
+ border-radius: 25px;
+}
+
+#employees,
+#clients,
+#contracts,
+#accidents {
+    font-size: 15px;
+    font-weight: bold;
+    color: white; /* Set the default text color */
+	background-color: #444444;;
+	border-radius:15px;
+
+	
+
+}
+
+#employees:hover,
+#contracts:hover,
+#clients:hover,
+#accidents:hover {
+    background-color: #333; /* Darker color on hover */
+    color: #fff; /* Text color changes to white on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+   
 }
 </string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>650</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -248,7 +280,7 @@ background-color: #171717;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="featureBar">
@@ -578,10 +610,10 @@ border-radius:10px;
    <widget class="QPushButton" name="employees">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>260</y>
-      <width>80</width>
-      <height>24</height>
+      <x>30</x>
+      <y>175</y>
+      <width>200</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
@@ -591,10 +623,10 @@ border-radius:10px;
    <widget class="QPushButton" name="clients">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>330</y>
-      <width>80</width>
-      <height>24</height>
+      <x>30</x>
+      <y>275</y>
+      <width>200</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
@@ -604,10 +636,10 @@ border-radius:10px;
    <widget class="QPushButton" name="contracts">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>390</y>
-      <width>80</width>
-      <height>24</height>
+      <x>30</x>
+      <y>375</y>
+      <width>200</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
@@ -617,10 +649,10 @@ border-radius:10px;
    <widget class="QPushButton" name="accidents">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>460</y>
-      <width>80</width>
-      <height>24</height>
+      <x>30</x>
+      <y>475</y>
+      <width>200</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
