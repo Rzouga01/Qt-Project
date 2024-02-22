@@ -20,11 +20,11 @@ Dashboard::Dashboard(QWidget *parent) :
 
 void Dashboard::update() {
 
-   QIcon addIcon("../Resources/Icons/icons/add.png");
-   QIcon deleteIcon("../Resources/Icons/icons/delete.png");
-   QIcon updateIcon("../Resources/Icons/icons/update.png");
-   QIcon sortIcon("../Resources/Icons/icons/sort.png");
-   QIcon pdfIcon("../Resources/Icons/icons/pdf.png");
+   QIcon addIcon("../Resources/Icons/add.png");
+   QIcon deleteIcon("../Resources/Icons/delete.png");
+   QIcon updateIcon("../Resources/Icons/update.png");
+   QIcon sortIcon("../Resources/Icons/sort.png");
+   QIcon pdfIcon("../Resources/Icons/pdf.png");
 
     ui->add->setIcon(addIcon);
     ui->del->setIcon(deleteIcon);
