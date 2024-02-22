@@ -7,13 +7,9 @@
 
 #include "mainwindow.h"
 
-
-
 Dashboard::Dashboard(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Dashboard),
-    mainWindowRef()
-
+    ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
     ui->role->setText("Role Test");
@@ -22,19 +18,25 @@ Dashboard::Dashboard(QWidget *parent) :
     update();
 }
 
+void Dashboard::update() {
 
-void Dashboard::onLogoutButtonClicked() {
-    close();
-    mainWindowRef.show();
-}
+   QIcon addIcon("../Resources/Icons/icons/add.png");
+   QIcon deleteIcon("../Resources/Icons/icons/delete.png");
+   QIcon updateIcon("../Resources/Icons/icons/update.png");
+   QIcon sortIcon("../Resources/Icons/icons/sort.png");
+   QIcon pdfIcon("../Resources/Icons/icons/pdf.png");
 
-void Dashboard::update(){
+    ui->add->setIcon(addIcon);
+    ui->del->setIcon(deleteIcon);
+    ui->update->setIcon(updateIcon);
+    ui->sort->setIcon(sortIcon);
+    ui->pdf->setIcon(pdfIcon);
 
-    QStackedWidget stackedWidget;
-
-
-    QUiLoader loader;
-
+    QObject::connect(ui->add, &QPushButton::clicked, this, &Dashboard::onAddClicked);
+    QObject::connect(ui->del, &QPushButton::clicked, this, &Dashboard::onDeleteClicked);
+    QObject::connect(ui->update, &QPushButton::clicked, this, &Dashboard::onUpdateClicked);
+    QObject::connect(ui->sort, &QPushButton::clicked, this, &Dashboard::onSortClicked);
+    QObject::connect(ui->pdf, &QPushButton::clicked, this, &Dashboard::onPdfClicked);
 
     QObject::connect(ui->employees, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(0); });
     QObject::connect(ui->clients, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(1); });
@@ -42,11 +44,33 @@ void Dashboard::update(){
     QObject::connect(ui->accidents, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(3); });
 
     QObject::connect(ui->logoutButton, &QPushButton::clicked, this, &Dashboard::onLogoutButtonClicked);
-    stackedWidget.show();
-
 }
 
-Dashboard::~Dashboard()
-{
+void Dashboard::onLogoutButtonClicked() {
+    close();
+    mainWindowRef.show();
+}
+
+void Dashboard::onAddClicked() {
+    // Handle add button click
+}
+
+void Dashboard::onDeleteClicked() {
+    // Handle delete button click
+}
+
+void Dashboard::onUpdateClicked() {
+    // Handle update button click
+}
+
+void Dashboard::onSortClicked() {
+    // Handle sort button click
+}
+
+void Dashboard::onPdfClicked() {
+    // Handle pdf button click
+}
+
+Dashboard::~Dashboard() {
     delete ui;
 }

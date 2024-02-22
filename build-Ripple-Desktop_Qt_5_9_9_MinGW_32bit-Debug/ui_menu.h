@@ -53,12 +53,21 @@ public:
 "    "));
         sideMenuFrame->setFrameShape(QFrame::StyledPanel);
         sideMenuFrame->setFrameShadow(QFrame::Raised);
-        logoutButton = new QPushButton(Menu);
+        logoutButton = new QPushButton(sideMenuFrame);
         logoutButton->setObjectName(QStringLiteral("logoutButton"));
-        logoutButton->setGeometry(QRect(10, 579, 161, 61));
+        logoutButton->setGeometry(QRect(10, 570, 161, 61));
+        QFont font;
+        font.setPointSize(10);
+        font.setBold(true);
+        font.setWeight(75);
+        logoutButton->setFont(font);
+        logoutButton->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; /* Set the background color to transparent */\n"
+"    }"));
         QIcon icon;
         icon.addFile(QStringLiteral("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
         logoutButton->setIcon(icon);
+        logoutButton->setIconSize(QSize(25, 25));
 
         retranslateUi(Menu);
 
@@ -68,6 +77,9 @@ public:
     void retranslateUi(QDialog *Menu)
     {
         Menu->setWindowTitle(QApplication::translate("Menu", "Dialog", Q_NULLPTR));
+#ifndef QT_NO_WHATSTHIS
+        logoutButton->setWhatsThis(QApplication::translate("Menu", "<html><head/><body><p>Logout</p></body></html>", Q_NULLPTR));
+#endif // QT_NO_WHATSTHIS
         logoutButton->setText(QApplication::translate("Menu", "Logout", Q_NULLPTR));
     } // retranslateUi
 

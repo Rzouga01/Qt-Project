@@ -919,6 +919,9 @@ debug/moc_dashboard.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialo
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsversion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtUiTools/QUiLoader \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtUiTools/quiloader.h \
+		../Ripple/mainwindow.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPropertyAnimation \
 		../Ripple/dashboard.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -2138,6 +2141,9 @@ debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsversion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtUiTools/QUiLoader \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtUiTools/quiloader.h \
+		../Ripple/mainwindow.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPropertyAnimation \
 		ui_dashboard.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dashboard.o ..\Ripple\dashboard.cpp
 

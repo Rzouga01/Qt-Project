@@ -181,8 +181,8 @@ background-color: #171717;
     font-size: 15px;
     font-weight: bold;
     color: white; /* Set the default text color */
-	background-color: #444444;;
-	border-radius:15px;
+        background-color: #444444;;
+        border-radius:15px;
 
 }
 
@@ -210,6 +210,49 @@ background-color: #171717;
 #searchBar_4 {
     border-radius: 20px;
 }
+
+/* Apply styles to the add button */
+#add,
+#del,
+#pdf,
+#update,
+#sort {
+    border: none; /* Remove default button border */
+    background-color: transparent; /* Make the background transparent */
+}
+
+/* Set styles for the icons */
+#add::icon,
+#del::icon,
+#pdf::icon,
+#update::icon,
+#sort::icon {
+    padding: 0; /* Remove padding */
+    width: 40px; /* Set icon width */
+    height: 40px; /* Set icon height */
+}
+
+/* Set icons for the buttons */
+#add::icon {
+    image: url(../Resources/Icons/add.png); /* Set the icon for the add button */
+}
+
+#del::icon {
+    image: url(../Resources/Icons/delete.png); /* Set the icon for the delete button */
+}
+
+#pdf::icon {
+    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF button */
+}
+
+#update::icon {
+    image: url(../Resources/Icons/update.png); /* Set the icon for the update button */
+}
+
+#sort::icon {
+    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort button */
+}
+
 </string>
   </property>
   <widget class="QFrame" name="frame">
@@ -281,7 +324,7 @@ background-color: #171717;
      <set>Qt::NoTextInteraction</set>
     </property>
     <property name="placeholderText">
-     <string>Hello,                    First Name Last Name</string>
+     <string>Hello,First Name Last Name</string>
     </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
@@ -552,6 +595,121 @@ background-color: #171717;
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QPushButton" name="add">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="del">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="update">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="sort">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QListWidget" name="readBox_4">
       <property name="geometry">
