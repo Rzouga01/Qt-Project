@@ -128,7 +128,7 @@ public:
 "/* Apply styles to the searchBar_2 */\n"
 "#searchBar_2 {\n"
 "     background-color: white;\n"
-"border-radius:25px;\n"
+" border-radius: 25px;\n"
 "\n"
 "}\n"
 "\n"
@@ -160,7 +160,7 @@ public:
 "/* Apply styles to the searchBar_3 */\n"
 "#searchBar_3 {\n"
 "    background-color: white;\n"
-" border-radius: 25px;\n"
+"  border-radius: 25px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the featureBar_4 */\n"
@@ -169,8 +169,8 @@ public:
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
-"/* Apply styles to th"
-                        "e addFeature_4 */\n"
+"/* Apply styles to"
+                        " the addFeature_4 */\n"
 "#addFeature_4 {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
@@ -192,7 +192,7 @@ public:
 "/* Apply styles to the searchBar_4 */\n"
 "#searchBar_4 {\n"
 "      background-color: white;\n"
-" border-radius: 25px;\n"
+"  border-radius: 25px;\n"
 "}\n"
 "\n"
 "\n"
@@ -405,7 +405,7 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Dashboard);

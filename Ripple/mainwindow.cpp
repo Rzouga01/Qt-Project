@@ -17,9 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->email->setAlignment(Qt::AlignCenter);
     ui->password->setAlignment(Qt::AlignCenter);
     ui->logo->setAlignment(Qt::AlignCenter);
-
     connect(ui->themeSlider, &QSlider::valueChanged, this, &MainWindow::handleThemeChange);
 }
+
 
 
 MainWindow::~MainWindow()

@@ -17,11 +17,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-
-
-
-
-
     MainWindow w;
     Client c;
     Employee e;
@@ -30,10 +25,7 @@ int main(int argc, char *argv[])
     Connection con;
     Dashboard dash;
 
-
     con.createconnect();
-
-
     w.show();
     dash.show();
 

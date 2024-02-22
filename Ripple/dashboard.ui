@@ -76,7 +76,7 @@ background-color: #171717;
 /* Apply styles to the searchBar_2 */
 #searchBar_2 {
      background-color: white;
-border-radius:25px;
+ border-radius: 25px;
 
 }
 
@@ -108,7 +108,7 @@ border-radius:25px;
 /* Apply styles to the searchBar_3 */
 #searchBar_3 {
     background-color: white;
- border-radius: 25px;
+  border-radius: 25px;
 }
 
 /* Apply styles to the featureBar_4 */
@@ -139,7 +139,7 @@ border-radius:25px;
 /* Apply styles to the searchBar_4 */
 #searchBar_4 {
       background-color: white;
- border-radius: 25px;
+  border-radius: 25px;
 }
 
 
@@ -280,7 +280,7 @@ border-radius:25px;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="featureBar">
