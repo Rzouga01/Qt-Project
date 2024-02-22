@@ -52,6 +52,11 @@ public:
     QLineEdit *searchBar_3;
     QWidget *page_4;
     QFrame *featureBar_4;
+    QPushButton *add;
+    QPushButton *del;
+    QPushButton *pdf;
+    QPushButton *update;
+    QPushButton *sort;
     QListWidget *readBox_4;
     QLineEdit *searchBar_4;
     QFrame *stats_4;
@@ -237,8 +242,8 @@ public:
 "    font-size: 15px;\n"
 "    font-weight: bold;\n"
 "    color: white; /* Set the default text color */\n"
-"	background-color: #444444;;\n"
-"	border-radius:15px;\n"
+"        background-color: #444444;;\n"
+"        border-radius:15px;\n"
 "\n"
 "}\n"
 "\n"
@@ -266,6 +271,50 @@ public:
 "#searchBar_4 {\n"
 "    border-radius: 20px;\n"
 "}\n"
+"\n"
+"/* Apply styles to the add button */\n"
+"#add,\n"
+"#del,\n"
+"#pdf,\n"
+"#update,\n"
+"#sort {\n"
+"    border: none; /* Remove default button border */\n"
+"    background-color: transparent; /* Make the background transparent */\n"
+"}\n"
+"\n"
+"/* Set styles for the icons *"
+                        "/\n"
+"#add::icon,\n"
+"#del::icon,\n"
+"#pdf::icon,\n"
+"#update::icon,\n"
+"#sort::icon {\n"
+"    padding: 0; /* Remove padding */\n"
+"    width: 40px; /* Set icon width */\n"
+"    height: 40px; /* Set icon height */\n"
+"}\n"
+"\n"
+"/* Set icons for the buttons */\n"
+"#add::icon {\n"
+"    image: url(../Resources/Icons/add.png); /* Set the icon for the add button */\n"
+"}\n"
+"\n"
+"#del::icon {\n"
+"    image: url(../Resources/Icons/delete.png); /* Set the icon for the delete button */\n"
+"}\n"
+"\n"
+"#pdf::icon {\n"
+"    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF button */\n"
+"}\n"
+"\n"
+"#update::icon {\n"
+"    image: url(../Resources/Icons/update.png); /* Set the icon for the update button */\n"
+"}\n"
+"\n"
+"#sort::icon {\n"
+"    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort button */\n"
+"}\n"
+"\n"
 ""));
         frame = new QFrame(Dashboard);
         frame->setObjectName("frame");
@@ -379,6 +428,46 @@ public:
         featureBar_4->setStyleSheet(QString::fromUtf8(""));
         featureBar_4->setFrameShape(QFrame::StyledPanel);
         featureBar_4->setFrameShadow(QFrame::Raised);
+        add = new QPushButton(featureBar_4);
+        add->setObjectName("add");
+        add->setGeometry(QRect(30, 10, 41, 41));
+        add->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../Resources/Icons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
+        add->setIcon(icon);
+        add->setIconSize(QSize(60, 60));
+        del = new QPushButton(featureBar_4);
+        del->setObjectName("del");
+        del->setGeometry(QRect(130, 10, 41, 41));
+        del->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("../Resources/Icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        del->setIcon(icon1);
+        del->setIconSize(QSize(40, 40));
+        pdf = new QPushButton(featureBar_4);
+        pdf->setObjectName("pdf");
+        pdf->setGeometry(QRect(420, 10, 41, 41));
+        pdf->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("../Resources/Icons/pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdf->setIcon(icon2);
+        pdf->setIconSize(QSize(50, 50));
+        update = new QPushButton(featureBar_4);
+        update->setObjectName("update");
+        update->setGeometry(QRect(320, 10, 41, 41));
+        update->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8("../Resources/Icons/update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        update->setIcon(icon3);
+        update->setIconSize(QSize(60, 60));
+        sort = new QPushButton(featureBar_4);
+        sort->setObjectName("sort");
+        sort->setGeometry(QRect(220, 10, 41, 41));
+        sort->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8("../Resources/Icons/sort.png"), QSize(), QIcon::Normal, QIcon::Off);
+        sort->setIcon(icon4);
+        sort->setIconSize(QSize(50, 50));
         readBox_4 = new QListWidget(page_4);
         readBox_4->setObjectName("readBox_4");
         readBox_4->setGeometry(QRect(400, 90, 501, 371));
@@ -401,23 +490,28 @@ public:
         employees = new QPushButton(frame);
         employees->setObjectName("employees");
         employees->setGeometry(QRect(30, 175, 200, 50));
+        employees->setCursor(QCursor(Qt::PointingHandCursor));
         clients = new QPushButton(frame);
         clients->setObjectName("clients");
         clients->setGeometry(QRect(30, 275, 200, 50));
+        clients->setCursor(QCursor(Qt::PointingHandCursor));
         contracts = new QPushButton(frame);
         contracts->setObjectName("contracts");
         contracts->setGeometry(QRect(30, 375, 200, 50));
+        contracts->setCursor(QCursor(Qt::PointingHandCursor));
         accidents = new QPushButton(frame);
         accidents->setObjectName("accidents");
         accidents->setGeometry(QRect(30, 475, 200, 50));
+        accidents->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton = new QPushButton(frame);
         logoutButton->setObjectName("logoutButton");
         logoutButton->setGeometry(QRect(30, 575, 200, 50));
+        logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon);
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon5);
         logoutButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Dashboard);
@@ -433,7 +527,12 @@ public:
         Dashboard->setWindowTitle(QCoreApplication::translate("Dashboard", "Dialog", nullptr));
         role->setPlaceholderText(QCoreApplication::translate("Dashboard", "Role", nullptr));
         logo->setText(QString());
-        helloBar->setPlaceholderText(QCoreApplication::translate("Dashboard", "Hello,                    First Name Last Name", nullptr));
+        helloBar->setPlaceholderText(QCoreApplication::translate("Dashboard", "Hello,First Name Last Name", nullptr));
+        add->setText(QString());
+        del->setText(QString());
+        pdf->setText(QString());
+        update->setText(QString());
+        sort->setText(QString());
         employees->setText(QCoreApplication::translate("Dashboard", "Employees", nullptr));
         clients->setText(QCoreApplication::translate("Dashboard", "Clients", nullptr));
         contracts->setText(QCoreApplication::translate("Dashboard", "Contrats", nullptr));

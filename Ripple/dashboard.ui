@@ -604,6 +604,9 @@ background-color: #171717;
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -626,6 +629,9 @@ background-color: #171717;
          <width>41</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string/>
@@ -650,6 +656,9 @@ background-color: #171717;
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -673,6 +682,9 @@ background-color: #171717;
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -695,6 +707,9 @@ background-color: #171717;
          <width>41</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string/>
@@ -780,6 +795,9 @@ background-color: #171717;
       <height>50</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
      <string>Employees</string>
     </property>
@@ -792,6 +810,9 @@ background-color: #171717;
       <width>200</width>
       <height>50</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>Clients</string>
@@ -806,6 +827,9 @@ background-color: #171717;
       <height>50</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
      <string>Contrats</string>
     </property>
@@ -819,6 +843,9 @@ background-color: #171717;
       <height>50</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
      <string>Accidents</string>
     </property>
@@ -831,6 +858,9 @@ background-color: #171717;
       <width>200</width>
       <height>50</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
