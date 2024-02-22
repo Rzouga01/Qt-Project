@@ -130,7 +130,7 @@ public:
 "/* Apply styles to the searchBar_2 */\n"
 "#searchBar_2 {\n"
 "     background-color: white;\n"
-" border-radius: 25px;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
@@ -162,7 +162,8 @@ public:
 "/* Apply styles to the searchBar_3 */\n"
 "#searchBar_3 {\n"
 "    background-color: white;\n"
-"  border-radius: 25px;\n"
+"\n"
+"\n"
 "}\n"
 "\n"
 "/* Apply styles to the featureBar_4 */\n"
@@ -171,9 +172,9 @@ public:
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
-"/* Apply styles to"
-                        " the addFeature_4 */\n"
-"#addFeature_4 {\n"
+"/* Apply styles to the addFeature_4 */\n"
+"#addFeature_4"
+                        " {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
@@ -194,7 +195,7 @@ public:
 "/* Apply styles to the searchBar_4 */\n"
 "#searchBar_4 {\n"
 "      background-color: white;\n"
-"  border-radius: 25px;\n"
+"\n"
 "}\n"
 "\n"
 "\n"
@@ -220,13 +221,13 @@ public:
 "    border: none;\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
-""
-                        "}\n"
+"}\n"
 "\n"
 "/* Apply styles to the searchBar */\n"
-"#searchBar {\n"
+"#sear"
+                        "chBar {\n"
 "    background-color: white;\n"
-" border-radius: 25px;\n"
+"\n"
 "}\n"
 "#logoutButton,\n"
 "#employees,\n"
@@ -239,18 +240,31 @@ public:
 "	background-color: #444444;;\n"
 "	border-radius:15px;\n"
 "\n"
-"	\n"
-"\n"
 "}\n"
+"\n"
+"\n"
 "#logoutButton:hover,\n"
 "#employees:hover,\n"
 "#contracts:hover,\n"
 "#clients:hover,\n"
 "#accidents:hover {\n"
 "    background-color: #333; /* Darker color on hover */\n"
-"    color: #fff; /* Text color changes to white on hover */\n"
-"    \n"
-"   \n"
+"}\n"
+"\n"
+"#searchBar {\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"#searchBar_2 {\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"#searchBar_3 {\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"#searchBar_4 {\n"
+"    border-radius: 20px;\n"
 "}\n"
 ""));
         frame = new QFrame(Dashboard);
@@ -300,9 +314,7 @@ public:
         searchBar = new QLineEdit(page);
         searchBar->setObjectName("searchBar");
         searchBar->setGeometry(QRect(620, 120, 241, 41));
-        searchBar->setStyleSheet(QString::fromUtf8("#searchBar{\n"
-"border-radius:10px;\n"
-"}"));
+        searchBar->setStyleSheet(QString::fromUtf8(""));
         searchBar->setClearButtonEnabled(true);
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
@@ -319,9 +331,7 @@ public:
         searchBar_2 = new QLineEdit(page_2);
         searchBar_2->setObjectName("searchBar_2");
         searchBar_2->setGeometry(QRect(620, 120, 241, 41));
-        searchBar_2->setStyleSheet(QString::fromUtf8("#searchBar{\n"
-"border-radius:10px;\n"
-"}"));
+        searchBar_2->setStyleSheet(QString::fromUtf8(""));
         searchBar_2->setClearButtonEnabled(true);
         stats_2 = new QFrame(page_2);
         stats_2->setObjectName("stats_2");
@@ -358,9 +368,7 @@ public:
         searchBar_3 = new QLineEdit(page_3);
         searchBar_3->setObjectName("searchBar_3");
         searchBar_3->setGeometry(QRect(620, 120, 241, 41));
-        searchBar_3->setStyleSheet(QString::fromUtf8("#searchBar{\n"
-"border-radius:10px;\n"
-"}"));
+        searchBar_3->setStyleSheet(QString::fromUtf8(""));
         searchBar_3->setClearButtonEnabled(true);
         stackedWidget->addWidget(page_3);
         page_4 = new QWidget();
@@ -377,9 +385,7 @@ public:
         searchBar_4 = new QLineEdit(page_4);
         searchBar_4->setObjectName("searchBar_4");
         searchBar_4->setGeometry(QRect(620, 120, 241, 41));
-        searchBar_4->setStyleSheet(QString::fromUtf8("#searchBar{\n"
-"border-radius:10px;\n"
-"}"));
+        searchBar_4->setStyleSheet(QString::fromUtf8(""));
         searchBar_4->setClearButtonEnabled(true);
         stats_4 = new QFrame(page_4);
         stats_4->setObjectName("stats_4");
@@ -416,7 +422,7 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(Dashboard);

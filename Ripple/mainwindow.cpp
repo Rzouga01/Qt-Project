@@ -9,9 +9,9 @@
 
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-    , logoAnimation(nullptr)
+    : QMainWindow(parent),
+    ui(new Ui::MainWindow),
+    logoAnimation(nullptr)
 {
     ui->setupUi(this);
     ui->email->setAlignment(Qt::AlignCenter);
@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->logo->setAlignment(Qt::AlignCenter);
     connect(ui->themeSlider, &QSlider::valueChanged, this, &MainWindow::handleThemeChange);
 }
+
 
 
 

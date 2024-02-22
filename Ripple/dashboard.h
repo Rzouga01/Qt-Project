@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QtWidgets>
 #include <QUiLoader>
+#include "mainwindow.h"
 
 
 namespace Ui {
@@ -26,6 +27,8 @@ public:
 
 private:
     Ui::Dashboard *ui;
+    MainWindow mainWindowRef;
+
 
 };
 

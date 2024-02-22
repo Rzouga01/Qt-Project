@@ -11,43 +11,37 @@
 
 Dashboard::Dashboard(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Dashboard)
+    ui(new Ui::Dashboard),
+    mainWindowRef()
+
 {
     ui->setupUi(this);
     ui->role->setText("Role Test");
     ui->helloBar->setPlainText("Hello,\nFirst Name Last Name");
 
     update();
-
-
 }
 
 
 void Dashboard::onLogoutButtonClicked() {
- MainWindow w;
-    QDialog::close();
-    w.show();
-
-
+    close();
+    mainWindowRef.show();
 }
 
 void Dashboard::update(){
 
     QStackedWidget stackedWidget;
 
-    MainWindow w;
 
     QUiLoader loader;
 
 
-    QObject::connect(ui->employees, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(0); });
-    QObject::connect(ui->clients, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(1); });
-    QObject::connect(ui->contracts, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(2); });
-    QObject::connect(ui->accidents, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(3); });
-    QObject::connect(ui->logoutButton, &QPushButton::clicked, [this, &w](){
-        close();
-    });
+    QObject::connect(ui->employees, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(0); });
+    QObject::connect(ui->clients, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(1); });
+    QObject::connect(ui->contracts, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(2); });
+    QObject::connect(ui->accidents, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(3); });
 
+    QObject::connect(ui->logoutButton, &QPushButton::clicked, this, &Dashboard::onLogoutButtonClicked);
     stackedWidget.show();
 
 }
