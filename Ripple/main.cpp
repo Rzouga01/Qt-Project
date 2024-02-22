@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
     Connection con;
     Dashboard dash;
 
+
     con.createconnect();
     w.show();
     dash.show();

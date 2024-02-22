@@ -5,6 +5,9 @@
 #include <QtWidgets>
 #include <QUiLoader>
 
+#include "mainwindow.h"
+
+
 
 Dashboard::Dashboard(QWidget *parent) :
     QDialog(parent),
@@ -19,9 +22,20 @@ Dashboard::Dashboard(QWidget *parent) :
 
 }
 
+
+void Dashboard::onLogoutButtonClicked() {
+ MainWindow w;
+    QDialog::close();
+    w.show();
+
+
+}
+
 void Dashboard::update(){
 
     QStackedWidget stackedWidget;
+
+    MainWindow w;
 
     QUiLoader loader;
 
@@ -30,9 +44,9 @@ void Dashboard::update(){
     QObject::connect(ui->clients, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(1); });
     QObject::connect(ui->contracts, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(2); });
     QObject::connect(ui->accidents, &QPushButton::clicked, [this](){ ui->stackedWidget->setCurrentIndex(3); });
-
-
-
+    QObject::connect(ui->logoutButton, &QPushButton::clicked, [this, &w](){
+        close();
+    });
 
     stackedWidget.show();
 

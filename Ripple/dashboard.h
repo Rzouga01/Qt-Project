@@ -22,6 +22,7 @@ public:
     ~Dashboard();
 
     void update();
+    void onLogoutButtonClicked();
 
 private:
     Ui::Dashboard *ui;

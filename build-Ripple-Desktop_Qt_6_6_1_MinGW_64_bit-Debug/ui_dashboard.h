@@ -10,6 +10,7 @@
 #define UI_DASHBOARD_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
@@ -59,6 +60,7 @@ public:
     QPushButton *clients;
     QPushButton *contracts;
     QPushButton *accidents;
+    QPushButton *logoutButton;
 
     void setupUi(QDialog *Dashboard)
     {
@@ -226,7 +228,7 @@ public:
 "    background-color: white;\n"
 " border-radius: 25px;\n"
 "}\n"
-"\n"
+"#logoutButton,\n"
 "#employees,\n"
 "#clients,\n"
 "#contracts,\n"
@@ -240,14 +242,14 @@ public:
 "	\n"
 "\n"
 "}\n"
-"\n"
+"#logoutButton:hover,\n"
 "#employees:hover,\n"
 "#contracts:hover,\n"
 "#clients:hover,\n"
 "#accidents:hover {\n"
 "    background-color: #333; /* Darker color on hover */\n"
 "    color: #fff; /* Text color changes to white on hover */\n"
-"    cursor: pointer; /* Change cursor to pointer on hover */\n"
+"    \n"
 "   \n"
 "}\n"
 ""));
@@ -402,6 +404,15 @@ public:
         accidents = new QPushButton(frame);
         accidents->setObjectName("accidents");
         accidents->setGeometry(QRect(30, 475, 200, 50));
+        logoutButton = new QPushButton(frame);
+        logoutButton->setObjectName("logoutButton");
+        logoutButton->setGeometry(QRect(30, 575, 200, 50));
+        logoutButton->setAutoFillBackground(false);
+        logoutButton->setStyleSheet(QString::fromUtf8(""));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon);
+        logoutButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Dashboard);
 
@@ -421,6 +432,7 @@ public:
         clients->setText(QCoreApplication::translate("Dashboard", "Clients", nullptr));
         contracts->setText(QCoreApplication::translate("Dashboard", "Contrats", nullptr));
         accidents->setText(QCoreApplication::translate("Dashboard", "Accidents", nullptr));
+        logoutButton->setText(QCoreApplication::translate("Dashboard", "Logout", nullptr));
     } // retranslateUi
 
 };
