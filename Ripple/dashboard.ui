@@ -172,7 +172,7 @@ background-color: #171717;
     background-color: white;
  border-radius: 25px;
 }
-
+#logoutButton,
 #employees,
 #clients,
 #contracts,
@@ -186,7 +186,7 @@ background-color: #171717;
 	
 
 }
-
+#logoutButton:hover,
 #employees:hover,
 #contracts:hover,
 #clients:hover,
@@ -657,6 +657,35 @@ border-radius:10px;
     </property>
     <property name="text">
      <string>Accidents</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="logoutButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>575</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Logout</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../Resources/Icons/logout.png</normaloff>../Resources/Icons/logout.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
     </property>
    </widget>
   </widget>
