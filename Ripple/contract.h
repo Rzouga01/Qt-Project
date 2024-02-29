@@ -51,6 +51,8 @@ public:
     //Fonctionnalités de Base relatives a l'entités contrat
     bool ajouter();
     bool supprimer();
+    bool lire();
+    bool modifier();
 
 
 

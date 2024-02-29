@@ -55,6 +55,41 @@ bool contract::supprimer(){
 }
 
 
+//fonction lire
+bool contract::lire(){
+    QSqlQuery query;
+    query.prepare("SELECT * FROM CONTRACTS WHERE CONTRACT_ID = :CONTRACT_ID");
+    query.bindValue(":CONTRACT_ID",CONTRACT_ID);
+    if(query.exec() && query.first()){
+        CONTRACT_ID = query.value("CONTRACT_ID").toInt();
+        USER_ID = query.value("USER_ID").toInt();
+        CLIENT_ID = query.value("CLIENT_ID").toInt();
+        PREMIUM_AMOUNT = query.value("PREMIUM_AMOUNT").toInt();
+        EFFECTIVE_DATE = query.value("EFFECTIVE_DATE").toDate();
+        EXPIRATION_DATE = query.value("EXPIRATION_DATE").toDate();
+        PAYMENT_STATUS = query.value("PAYMENT_STATUS").toInt();
+        TYPE = query.value("TYPE").toString();
+        return true;
+    }else {
+        return false;
+    }
+}
+
+//fonction modifier
+bool contract::modifier(){
+    QSqlQuery query;
+    query.prepare("UPDATE CONTRACTS SET USER_ID = :USER_ID, CLIENT_ID = :CLIENT_ID, PREMIUM_AMOUNT = :PREMIUM_AMOUNT, EFFECTIVE_DATE = :EFFECTIVE_DATE, EXPIRATION_DATE = :EXPIRATION_DATE, PAYMENT_STATUS = :PAYMENT_STATUS, TYPE = :TYPE WHERE CONTRACT_ID = :CONTRACT_ID ");
+    query.bindValue(":USER_ID", USER_ID);
+    query.bindValue(":CLIENT_ID", CLIENT_ID);
+    query.bindValue(":PREMIUM_AMOUNT", PREMIUM_AMOUNT);
+    query.bindValue(":EFFECTIVE_DATE", EFFECTIVE_DATE);
+    query.bindValue(":EXPIRATION_DATE", EXPIRATION_DATE);
+    query.bindValue(":PAYMENT_STATUS", PAYMENT_STATUS);
+    query.bindValue(":TYPE", TYPE);
+    query.bindValue(":CONTRACT_ID", CONTRACT_ID);
+    return query.exec();
+}
+
 contract::contract(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::contract)

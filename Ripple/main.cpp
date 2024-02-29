@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
         dash.show();
         ct.ajouter();
         ct.supprimer();
+        ct.lire();
+        ct.modifier();
 
     };
 
