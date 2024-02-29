@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     MainWindow w;
-    Client c;
+    Client c("email", "first_name", "last_name", 123456789, "adress", QDate::currentDate());
     Employee e;
     contract ct;
     accident ac;
@@ -26,8 +26,19 @@ int main(int argc, char *argv[])
     Dashboard dash;
 
 
-    con.createconnect();
-    dash.show();
+    if(!con.createconnect())
+    {
+        qDebug() << "Not Connected";
+    }
+    else
+    {
+        dash.show();
+
+    };
+
+
+
+
 
 
     return a.exec();

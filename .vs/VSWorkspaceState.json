@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Ripple"
+    "\\Resources",
+    "\\Resources\\Data Base"
   ],
-  "SelectedNode": "\\Ripple\\main.cpp",
+  "SelectedNode": "\\Resources\\Data Base\\ripple.sql",
   "PreviewInSolutionExplorer": false
 }
