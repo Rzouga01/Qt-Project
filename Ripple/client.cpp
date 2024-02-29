@@ -24,7 +24,7 @@ Client::Client()
 	email = "";
 	first_name = "";
 	last_name = "";
-    phone_number = 0;
+    phone_number = "";
 	adress = "";
     dob =QDate::currentDate();
 }

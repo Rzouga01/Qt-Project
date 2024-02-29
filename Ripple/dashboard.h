@@ -27,11 +27,6 @@ public:
     void onSortClicked();
     void onPdfClicked();
 
-private slots:
-    void on_accidents_clicked();
-
-    void on_employees_clicked();
-
 private:
     Ui::Dashboard *ui;
     MainWindow mainWindowRef;
