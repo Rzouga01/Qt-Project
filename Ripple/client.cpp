@@ -5,6 +5,11 @@
 #include <QtDebug>
 #include <QDate>
 #include <QTableWidget>
+#include <QTableWidgetItem>
+#include "ui_dashboard.h"
+#include "dashboard.h"
+
+
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
@@ -85,6 +90,7 @@ void Client::DeleteClient(int id)
 void Client::ReadClient()
 {
     QSqlQuery qry;
+    dashboardUi=new Ui::Dashboard;
     qry.prepare("SELECT * FROM CLIENTS");
     if (qry.exec())
     {

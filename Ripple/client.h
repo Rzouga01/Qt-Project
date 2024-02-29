@@ -4,7 +4,6 @@
 
 #include <QDialog>
 #include <QDate>
-#include "dashboard.h"
 #include "ui_dashboard.h"
 
 namespace Ui {
@@ -32,6 +31,7 @@ public:
 
 private:
     Ui::Client* ui;
+    Ui::Dashboard* dashboardUi;
 
 public:
     void CreateClient();
