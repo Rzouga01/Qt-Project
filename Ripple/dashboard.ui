@@ -283,10 +283,7 @@ background-color: #171717;
     <string notr="true"/>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <widget class="QLineEdit" name="role">
     <property name="geometry">
@@ -352,7 +349,7 @@ background-color: #171717;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="featureBar">
@@ -368,10 +365,7 @@ background-color: #171717;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="add">
        <property name="geometry">
@@ -524,10 +518,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QFrame" name="addFeature">
@@ -540,10 +531,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QLineEdit" name="searchBar">
@@ -683,10 +671,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QFrame" name="addFeature_2">
@@ -699,10 +684,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QFrame" name="featureBar_2">
@@ -718,10 +700,7 @@ background-color: #171717;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="add_2">
        <property name="geometry">
@@ -854,7 +833,7 @@ background-color: #171717;
        </property>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_2">
+     <widget class="QTableWidget" name="tableClient">
       <property name="geometry">
        <rect>
         <x>400</x>
@@ -941,10 +920,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QFrame" name="stats_3">
@@ -957,10 +933,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QListWidget" name="readBox_3">
@@ -1002,10 +975,7 @@ background-color: #171717;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="add_3">
        <property name="geometry">
@@ -1256,10 +1226,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QFrame" name="addFeature_4">
@@ -1272,10 +1239,7 @@ background-color: #171717;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QFrame" name="featureBar_4">
@@ -1291,10 +1255,7 @@ background-color: #171717;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="add_4">
        <property name="geometry">

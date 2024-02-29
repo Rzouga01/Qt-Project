@@ -6,6 +6,7 @@
 #include <QtWidgets>
 #include <QUiLoader>
 #include "mainwindow.h"
+#include "client.h"
 
 namespace Ui {
     class Dashboard;
