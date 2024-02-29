@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     MainWindow w;
-    Client c("email", "first_name", "last_name", 123456789, "adress", QDate::currentDate());
+    Client c("email", "first_name", "last_name", "12345678", "adress", QDate::currentDate());
     Employee e;
     contract ct;
     accident ac;
