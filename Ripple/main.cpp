@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
     else
     {
         dash.show();
-        c.ReadClient();
 
     };
 
