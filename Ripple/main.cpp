@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     Client c("email", "first_name", "last_name", 123456789, "adress", QDate::currentDate());
     Employee e;
-    contract ct;
+    contract ct(1,1,100,QDate::currentDate(),QDate::currentDate(),0,"test");
     accident ac;
     Connection con;
     Dashboard dash;
@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
     else
     {
         dash.show();
+        ct.ajouter();
+        ct.supprimer();
 
     };
 

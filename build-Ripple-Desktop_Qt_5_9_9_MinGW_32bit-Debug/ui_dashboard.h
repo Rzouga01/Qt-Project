@@ -433,6 +433,7 @@ public:
         add = new QPushButton(featureBar_4);
         add->setObjectName(QStringLiteral("add"));
         add->setGeometry(QRect(30, 10, 41, 41));
+        add->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon;
         icon.addFile(QStringLiteral("../Resources/Icons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
         add->setIcon(icon);
@@ -440,6 +441,7 @@ public:
         del = new QPushButton(featureBar_4);
         del->setObjectName(QStringLiteral("del"));
         del->setGeometry(QRect(130, 10, 41, 41));
+        del->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon1;
         icon1.addFile(QStringLiteral("../Resources/Icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         del->setIcon(icon1);
@@ -447,6 +449,7 @@ public:
         pdf = new QPushButton(featureBar_4);
         pdf->setObjectName(QStringLiteral("pdf"));
         pdf->setGeometry(QRect(420, 10, 41, 41));
+        pdf->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon2;
         icon2.addFile(QStringLiteral("../Resources/Icons/pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
         pdf->setIcon(icon2);
@@ -454,6 +457,7 @@ public:
         update = new QPushButton(featureBar_4);
         update->setObjectName(QStringLiteral("update"));
         update->setGeometry(QRect(320, 10, 41, 41));
+        update->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon3;
         icon3.addFile(QStringLiteral("../Resources/Icons/update.png"), QSize(), QIcon::Normal, QIcon::Off);
         update->setIcon(icon3);
@@ -461,6 +465,7 @@ public:
         sort = new QPushButton(featureBar_4);
         sort->setObjectName(QStringLiteral("sort"));
         sort->setGeometry(QRect(220, 10, 41, 41));
+        sort->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon4;
         icon4.addFile(QStringLiteral("../Resources/Icons/sort.png"), QSize(), QIcon::Normal, QIcon::Off);
         sort->setIcon(icon4);
@@ -487,18 +492,23 @@ public:
         employees = new QPushButton(frame);
         employees->setObjectName(QStringLiteral("employees"));
         employees->setGeometry(QRect(30, 175, 200, 50));
+        employees->setCursor(QCursor(Qt::PointingHandCursor));
         clients = new QPushButton(frame);
         clients->setObjectName(QStringLiteral("clients"));
         clients->setGeometry(QRect(30, 275, 200, 50));
+        clients->setCursor(QCursor(Qt::PointingHandCursor));
         contracts = new QPushButton(frame);
         contracts->setObjectName(QStringLiteral("contracts"));
         contracts->setGeometry(QRect(30, 375, 200, 50));
+        contracts->setCursor(QCursor(Qt::PointingHandCursor));
         accidents = new QPushButton(frame);
         accidents->setObjectName(QStringLiteral("accidents"));
         accidents->setGeometry(QRect(30, 475, 200, 50));
+        accidents->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton = new QPushButton(frame);
         logoutButton->setObjectName(QStringLiteral("logoutButton"));
         logoutButton->setGeometry(QRect(30, 575, 200, 50));
+        logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QStringLiteral(""));
         QIcon icon5;
