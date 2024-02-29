@@ -1,2 +1,2 @@
-﻿  client.cpp
-  Ripple.vcxproj -> C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\Ripple.exe
+﻿  main.cpp
+LINK : fatal error LNK1168: cannot open debug\\Ripple.exe for writing
