@@ -42,12 +42,9 @@ Client::Client(QString email, QString first_name, QString last_name, QString pho
 void Client::CreateClient()
 {
 
-
     QSqlQuery qry;
 
     qry.prepare("INSERT INTO CLIENTS (EMAIL, FIRST_NAME, LAST_NAME, ADRESS, PHONE_NUMBER, DOB) VALUES ( :email, :first_name, :last_name,  :adress, :phone_number, :dob)");
-
-
 
     qry.bindValue(":email", this->email);
     qry.bindValue(":first_name", this->first_name);
@@ -59,7 +56,13 @@ void Client::CreateClient()
     if (qry.exec())
     {
 
-        qDebug() << "Client saved successfully."<<"Data:"<<"\nEmail :"<<this->id <<"\nFirst Name :"<< this->first_name <<"\nLast Name :"<<this->last_name <<"\nPhone Number :"<<this->phone_number <<"\nAdress :"<<this->adress <<"\nDate of Birth :"<<this->dob.toString();
+        qDebug() << "Client saved successfully."<<"Data:"<<
+            "\nEmail :"<<this->id <<
+            "\nFirst Name :"<< this->first_name <<
+            "\nLast Name :"<<this->last_name <<
+            "\nPhone Number :"<<this->phone_number <<
+            "\nAdress :"<<this->adress <<
+            "\nDate of Birth :"<<this->dob.toString();
     }
     else
     {
@@ -82,7 +85,6 @@ void Client::DeleteClient(int id)
         qDebug() << "Error executing query:" << qry.lastError().text();
         QMessageBox::critical(this, tr("Error"), qry.lastError().text());
 
-
     }
 
 }
@@ -95,7 +97,13 @@ void Client::ReadClient()
     {
         while(qry.next())
         {
-            qDebug() << "Client ID :"<<qry.value(0).toInt() <<"\nEmail :"<<qry.value(1).toString() <<"\nFirst Name :"<<qry.value(2).toString() <<"\nLast Name :"<<qry.value(3).toString() <<"\nPhone Number :"<<qry.value(4).toString() <<"\nAdress :"<<qry.value(5).toString() <<"\nDate of Birth :"<<qry.value(6).toDate();
+            qDebug() << "Client ID :"<<qry.value(0).toInt() <<
+                "\nEmail :"<<qry.value(1).toString() <<
+                "\nFirst Name :"<<qry.value(2).toString() <<
+                "\nLast Name :"<<qry.value(3).toString() <<
+                "\nPhone Number :"<<qry.value(4).toString() <<
+                "\nAdress :"<<qry.value(5).toString() <<
+                "\nDate of Birth :"<<qry.value(6).toDate();
             qDebug() << "---------------------------------------";
         }
     }
