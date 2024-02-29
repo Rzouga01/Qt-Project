@@ -12,7 +12,7 @@ class Client : public QDialog
 {
     Q_OBJECT
 private:
-
+    int id;
     QString email;
     QString first_name;
     QString last_name;
@@ -33,7 +33,7 @@ public:
     void CreateClient();
     void ReadClient();
     void UpdateClient();
-    void DeleteClient();
+    void DeleteClient(int id);
 
 
     QString getEmail() {return email;};
@@ -52,10 +52,6 @@ public:
     void setDob(QDate dob) {this->dob = dob;};
 
 
-
-    
-
-    
 
 };
 

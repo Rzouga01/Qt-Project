@@ -20,6 +20,7 @@ Client::~Client()
 }
 Client::Client()
 {
+    id=-1;
 	email = "";
 	first_name = "";
 	last_name = "";
@@ -57,11 +58,50 @@ void Client::CreateClient()
 
     if (qry.exec())
     {
-        QMessageBox::critical(this, tr("Save"), tr("Saved"));
+
+        qDebug() << "Client saved successfully."<<"Data:"<<"\nEmail :"<<this->id <<"\nFirst Name :"<< this->first_name <<"\nLast Name :"<<this->last_name <<"\nPhone Number :"<<this->phone_number <<"\nAdress :"<<this->adress <<"\nDate of Birth :"<<this->dob.toString();
+    }
+    else
+    {
+        qDebug() << "Error Creating Client query:" << qry.lastError().text();
+
+    }
+}
+
+void Client::DeleteClient(int id)
+{
+    QSqlQuery qry;
+
+    qry.prepare("DELETE FROM CLIENTS WHERE CLIENT_ID = :id");
+    qry.bindValue(":id", id);
+    if(qry.exec())
+    {
+        QMessageBox::critical(this, tr("Deleted"), tr("Deleted"));
+    }
+    else{
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+
+
+    }
+
+}
+
+void Client::ReadClient()
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CLIENTS");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            qDebug() << "Client ID :"<<qry.value(0).toInt() <<"\nEmail :"<<qry.value(1).toString() <<"\nFirst Name :"<<qry.value(2).toString() <<"\nLast Name :"<<qry.value(3).toString() <<"\nPhone Number :"<<qry.value(4).toString() <<"\nAdress :"<<qry.value(5).toString() <<"\nDate of Birth :"<<qry.value(6).toDate();
+            qDebug() << "---------------------------------------";
+        }
     }
     else
     {
         qDebug() << "Error executing query:" << qry.lastError().text();
-        QMessageBox::critical(this, tr("Error"), qry.lastError().text());
     }
 }
+
