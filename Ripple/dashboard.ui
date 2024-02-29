@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Dashboard</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QFrame {
@@ -216,7 +216,22 @@ background-color: #171717;
 #del,
 #pdf,
 #update,
-#sort {
+#sort ,
+#add_2,
+#del_2,
+#pdf_2,
+#update_2,
+#sort_2,
+#add_3,
+#del_3,
+#pdf_3,
+#update_3,
+#sort_3,
+#add_4,
+#del_4,
+#pdf_4,
+#update_4,
+#sort_4{
     border: none; /* Remove default button border */
     background-color: transparent; /* Make the background transparent */
 }
@@ -337,247 +352,10 @@ background-color: #171717;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="featureBar">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>10</y>
-        <width>501</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="readBox">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QFrame" name="stats">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>371</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="addFeature">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>371</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="searchBar">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>120</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QFrame" name="featureBar_2">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>10</y>
-        <width>501</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="readBox_2">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="searchBar_2">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>120</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QFrame" name="stats_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>371</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="addFeature_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>371</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_3">
-     <widget class="QFrame" name="addFeature_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>371</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="stats_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>371</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="featureBar_3">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>10</y>
-        <width>501</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="readBox_3">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="searchBar_3">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>120</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_4">
-     <widget class="QFrame" name="featureBar_4">
       <property name="geometry">
        <rect>
         <x>400</x>
@@ -647,36 +425,10 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>10</y>
-         <width>41</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QPushButton" name="update">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>330</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -699,10 +451,36 @@ background-color: #171717;
         </size>
        </property>
       </widget>
+      <widget class="QPushButton" name="pdf">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
       <widget class="QPushButton" name="sort">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>230</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -726,6 +504,722 @@ background-color: #171717;
        </property>
       </widget>
      </widget>
+     <widget class="QListWidget" name="readBox">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>90</y>
+        <width>501</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QFrame" name="stats">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>371</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="addFeature">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>371</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="searchBar">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>120</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>170</y>
+        <width>501</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>JetBrains Mono</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>50</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>62</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string> ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Email</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Role</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>First Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Last Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Phone Number</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Address</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date Of Birth</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QListWidget" name="readBox_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>90</y>
+        <width>501</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="searchBar_2">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>120</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QFrame" name="stats_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>371</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="addFeature_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>371</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="featureBar_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>10</y>
+        <width>501</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="add_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="del_2">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="update_2">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf_2">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="sort_2">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>170</y>
+        <width>501</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>JetBrains Mono</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>50</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>62</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string> ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Email</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>First Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Last Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Address</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Phone Number</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date Of Birth</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QFrame" name="addFeature_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>371</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="stats_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>371</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="readBox_3">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>90</y>
+        <width>501</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="searchBar_3">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>120</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QFrame" name="featureBar_3">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>10</y>
+        <width>501</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="add_3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="del_3">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="update_3">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf_3">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="sort_3">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>170</y>
+        <width>501</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>JetBrains Mono</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>50</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>62</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string> ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>User ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Client ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Premium Amount</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Effective Date</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Expiration Date</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Payment Status</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4">
      <widget class="QListWidget" name="readBox_4">
       <property name="geometry">
        <rect>
@@ -783,6 +1277,225 @@ background-color: #171717;
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+     </widget>
+     <widget class="QFrame" name="featureBar_4">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>10</y>
+        <width>501</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="add_4">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="del_4">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="update_4">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf_4">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="sort_4">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>170</y>
+        <width>501</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>JetBrains Mono</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>50</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>62</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>10</number>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string> ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Client ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Damage</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Location</string>
+       </property>
+      </column>
      </widget>
     </widget>
    </widget>

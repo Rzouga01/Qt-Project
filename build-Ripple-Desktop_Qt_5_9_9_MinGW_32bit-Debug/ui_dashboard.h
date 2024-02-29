@@ -21,6 +21,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
@@ -36,33 +37,52 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *page;
     QFrame *featureBar;
+    QPushButton *add;
+    QPushButton *del;
+    QPushButton *update;
+    QPushButton *pdf;
+    QPushButton *sort;
     QListWidget *readBox;
     QFrame *stats;
     QFrame *addFeature;
     QLineEdit *searchBar;
+    QTableWidget *tableWidget;
     QWidget *page_2;
-    QFrame *featureBar_2;
     QListWidget *readBox_2;
     QLineEdit *searchBar_2;
     QFrame *stats_2;
     QFrame *addFeature_2;
+    QFrame *featureBar_2;
+    QPushButton *add_2;
+    QPushButton *del_2;
+    QPushButton *update_2;
+    QPushButton *pdf_2;
+    QPushButton *sort_2;
+    QTableWidget *tableWidget_2;
     QWidget *page_3;
     QFrame *addFeature_3;
     QFrame *stats_3;
-    QFrame *featureBar_3;
     QListWidget *readBox_3;
     QLineEdit *searchBar_3;
+    QFrame *featureBar_3;
+    QPushButton *add_3;
+    QPushButton *del_3;
+    QPushButton *update_3;
+    QPushButton *pdf_3;
+    QPushButton *sort_3;
+    QTableWidget *tableWidget_3;
     QWidget *page_4;
-    QFrame *featureBar_4;
-    QPushButton *add;
-    QPushButton *del;
-    QPushButton *pdf;
-    QPushButton *update;
-    QPushButton *sort;
     QListWidget *readBox_4;
     QLineEdit *searchBar_4;
     QFrame *stats_4;
     QFrame *addFeature_4;
+    QFrame *featureBar_4;
+    QPushButton *add_4;
+    QPushButton *del_4;
+    QPushButton *update_4;
+    QPushButton *pdf_4;
+    QPushButton *sort_4;
+    QTableWidget *tableWidget_4;
     QPushButton *employees;
     QPushButton *clients;
     QPushButton *contracts;
@@ -279,13 +299,28 @@ public:
 "#del,\n"
 "#pdf,\n"
 "#update,\n"
-"#sort {\n"
+"#sort ,\n"
+"#add_2,\n"
+"#del_2,\n"
+"#pdf_2,\n"
+"#update_2,\n"
+"#sort_2,\n"
+"#add_3,\n"
+"#del_3,\n"
+"#pdf_3,\n"
+"#update_3,\n"
+"#sort_3,\n"
+"#add_4,\n"
+"#del_4,\n"
+"#pdf_4,\n"
+"#update_4,"
+                        "\n"
+"#sort_4{\n"
 "    border: none; /* Remove default button border */\n"
 "    background-color: transparent; /* Make the background transparent */\n"
 "}\n"
 "\n"
-"/* Set styles for the icons *"
-                        "/\n"
+"/* Set styles for the icons */\n"
 "#add::icon,\n"
 "#del::icon,\n"
 "#pdf::icon,\n"
@@ -314,7 +349,8 @@ public:
 "}\n"
 "\n"
 "#sort::icon {\n"
-"    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort button */\n"
+"    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort butto"
+                        "n */\n"
 "}\n"
 "\n"
 ""));
@@ -349,6 +385,46 @@ public:
         featureBar->setStyleSheet(QStringLiteral(""));
         featureBar->setFrameShape(QFrame::StyledPanel);
         featureBar->setFrameShadow(QFrame::Raised);
+        add = new QPushButton(featureBar);
+        add->setObjectName(QStringLiteral("add"));
+        add->setGeometry(QRect(30, 10, 41, 41));
+        add->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon;
+        icon.addFile(QStringLiteral("../Resources/Icons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
+        add->setIcon(icon);
+        add->setIconSize(QSize(60, 60));
+        del = new QPushButton(featureBar);
+        del->setObjectName(QStringLiteral("del"));
+        del->setGeometry(QRect(130, 10, 41, 41));
+        del->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("../Resources/Icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        del->setIcon(icon1);
+        del->setIconSize(QSize(40, 40));
+        update = new QPushButton(featureBar);
+        update->setObjectName(QStringLiteral("update"));
+        update->setGeometry(QRect(330, 10, 41, 41));
+        update->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../Resources/Icons/update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        update->setIcon(icon2);
+        update->setIconSize(QSize(60, 60));
+        pdf = new QPushButton(featureBar);
+        pdf->setObjectName(QStringLiteral("pdf"));
+        pdf->setGeometry(QRect(430, 10, 41, 41));
+        pdf->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("../Resources/Icons/pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdf->setIcon(icon3);
+        pdf->setIconSize(QSize(50, 50));
+        sort = new QPushButton(featureBar);
+        sort->setObjectName(QStringLiteral("sort"));
+        sort->setGeometry(QRect(230, 10, 41, 41));
+        sort->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("../Resources/Icons/sort.png"), QSize(), QIcon::Normal, QIcon::Off);
+        sort->setIcon(icon4);
+        sort->setIconSize(QSize(50, 50));
         readBox = new QListWidget(page);
         readBox->setObjectName(QStringLiteral("readBox"));
         readBox->setGeometry(QRect(400, 90, 501, 371));
@@ -367,15 +443,42 @@ public:
         searchBar->setGeometry(QRect(620, 120, 241, 41));
         searchBar->setStyleSheet(QStringLiteral(""));
         searchBar->setClearButtonEnabled(true);
+        tableWidget = new QTableWidget(page);
+        if (tableWidget->columnCount() < 8)
+            tableWidget->setColumnCount(8);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tableWidget->setGeometry(QRect(400, 170, 501, 261));
+        QFont font;
+        font.setFamily(QStringLiteral("JetBrains Mono"));
+        font.setPointSize(10);
+        tableWidget->setFont(font);
+        tableWidget->setShowGrid(true);
+        tableWidget->setSortingEnabled(true);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(62);
+        tableWidget->horizontalHeader()->setMinimumSectionSize(50);
+        tableWidget->verticalHeader()->setVisible(false);
+        tableWidget->verticalHeader()->setDefaultSectionSize(10);
+        tableWidget->verticalHeader()->setHighlightSections(false);
+        tableWidget->verticalHeader()->setMinimumSectionSize(10);
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
-        featureBar_2 = new QFrame(page_2);
-        featureBar_2->setObjectName(QStringLiteral("featureBar_2"));
-        featureBar_2->setGeometry(QRect(400, 10, 501, 61));
-        featureBar_2->setStyleSheet(QStringLiteral(""));
-        featureBar_2->setFrameShape(QFrame::StyledPanel);
-        featureBar_2->setFrameShadow(QFrame::Raised);
         readBox_2 = new QListWidget(page_2);
         readBox_2->setObjectName(QStringLiteral("readBox_2"));
         readBox_2->setGeometry(QRect(400, 90, 501, 371));
@@ -394,6 +497,70 @@ public:
         addFeature_2->setGeometry(QRect(10, 10, 371, 201));
         addFeature_2->setFrameShape(QFrame::StyledPanel);
         addFeature_2->setFrameShadow(QFrame::Raised);
+        featureBar_2 = new QFrame(page_2);
+        featureBar_2->setObjectName(QStringLiteral("featureBar_2"));
+        featureBar_2->setGeometry(QRect(400, 10, 501, 61));
+        featureBar_2->setStyleSheet(QStringLiteral(""));
+        featureBar_2->setFrameShape(QFrame::StyledPanel);
+        featureBar_2->setFrameShadow(QFrame::Raised);
+        add_2 = new QPushButton(featureBar_2);
+        add_2->setObjectName(QStringLiteral("add_2"));
+        add_2->setGeometry(QRect(30, 10, 41, 41));
+        add_2->setCursor(QCursor(Qt::PointingHandCursor));
+        add_2->setIcon(icon);
+        add_2->setIconSize(QSize(60, 60));
+        del_2 = new QPushButton(featureBar_2);
+        del_2->setObjectName(QStringLiteral("del_2"));
+        del_2->setGeometry(QRect(130, 10, 41, 41));
+        del_2->setCursor(QCursor(Qt::PointingHandCursor));
+        del_2->setIcon(icon1);
+        del_2->setIconSize(QSize(40, 40));
+        update_2 = new QPushButton(featureBar_2);
+        update_2->setObjectName(QStringLiteral("update_2"));
+        update_2->setGeometry(QRect(330, 10, 41, 41));
+        update_2->setCursor(QCursor(Qt::PointingHandCursor));
+        update_2->setIcon(icon2);
+        update_2->setIconSize(QSize(60, 60));
+        pdf_2 = new QPushButton(featureBar_2);
+        pdf_2->setObjectName(QStringLiteral("pdf_2"));
+        pdf_2->setGeometry(QRect(430, 10, 41, 41));
+        pdf_2->setCursor(QCursor(Qt::PointingHandCursor));
+        pdf_2->setIcon(icon3);
+        pdf_2->setIconSize(QSize(50, 50));
+        sort_2 = new QPushButton(featureBar_2);
+        sort_2->setObjectName(QStringLiteral("sort_2"));
+        sort_2->setGeometry(QRect(230, 10, 41, 41));
+        sort_2->setCursor(QCursor(Qt::PointingHandCursor));
+        sort_2->setIcon(icon4);
+        sort_2->setIconSize(QSize(50, 50));
+        tableWidget_2 = new QTableWidget(page_2);
+        if (tableWidget_2->columnCount() < 7)
+            tableWidget_2->setColumnCount(7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(1, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(2, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(4, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(5, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(6, __qtablewidgetitem14);
+        tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
+        tableWidget_2->setGeometry(QRect(400, 170, 501, 261));
+        tableWidget_2->setFont(font);
+        tableWidget_2->setShowGrid(true);
+        tableWidget_2->setSortingEnabled(true);
+        tableWidget_2->horizontalHeader()->setDefaultSectionSize(62);
+        tableWidget_2->horizontalHeader()->setMinimumSectionSize(50);
+        tableWidget_2->verticalHeader()->setVisible(false);
+        tableWidget_2->verticalHeader()->setDefaultSectionSize(10);
+        tableWidget_2->verticalHeader()->setHighlightSections(false);
+        tableWidget_2->verticalHeader()->setMinimumSectionSize(10);
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName(QStringLiteral("page_3"));
@@ -407,12 +574,6 @@ public:
         stats_3->setGeometry(QRect(10, 230, 371, 231));
         stats_3->setFrameShape(QFrame::StyledPanel);
         stats_3->setFrameShadow(QFrame::Raised);
-        featureBar_3 = new QFrame(page_3);
-        featureBar_3->setObjectName(QStringLiteral("featureBar_3"));
-        featureBar_3->setGeometry(QRect(400, 10, 501, 61));
-        featureBar_3->setStyleSheet(QStringLiteral(""));
-        featureBar_3->setFrameShape(QFrame::StyledPanel);
-        featureBar_3->setFrameShadow(QFrame::Raised);
         readBox_3 = new QListWidget(page_3);
         readBox_3->setObjectName(QStringLiteral("readBox_3"));
         readBox_3->setGeometry(QRect(400, 90, 501, 371));
@@ -421,50 +582,75 @@ public:
         searchBar_3->setGeometry(QRect(620, 120, 241, 41));
         searchBar_3->setStyleSheet(QStringLiteral(""));
         searchBar_3->setClearButtonEnabled(true);
+        featureBar_3 = new QFrame(page_3);
+        featureBar_3->setObjectName(QStringLiteral("featureBar_3"));
+        featureBar_3->setGeometry(QRect(400, 10, 501, 61));
+        featureBar_3->setStyleSheet(QStringLiteral(""));
+        featureBar_3->setFrameShape(QFrame::StyledPanel);
+        featureBar_3->setFrameShadow(QFrame::Raised);
+        add_3 = new QPushButton(featureBar_3);
+        add_3->setObjectName(QStringLiteral("add_3"));
+        add_3->setGeometry(QRect(30, 10, 41, 41));
+        add_3->setCursor(QCursor(Qt::PointingHandCursor));
+        add_3->setIcon(icon);
+        add_3->setIconSize(QSize(60, 60));
+        del_3 = new QPushButton(featureBar_3);
+        del_3->setObjectName(QStringLiteral("del_3"));
+        del_3->setGeometry(QRect(130, 10, 41, 41));
+        del_3->setCursor(QCursor(Qt::PointingHandCursor));
+        del_3->setIcon(icon1);
+        del_3->setIconSize(QSize(40, 40));
+        update_3 = new QPushButton(featureBar_3);
+        update_3->setObjectName(QStringLiteral("update_3"));
+        update_3->setGeometry(QRect(330, 10, 41, 41));
+        update_3->setCursor(QCursor(Qt::PointingHandCursor));
+        update_3->setIcon(icon2);
+        update_3->setIconSize(QSize(60, 60));
+        pdf_3 = new QPushButton(featureBar_3);
+        pdf_3->setObjectName(QStringLiteral("pdf_3"));
+        pdf_3->setGeometry(QRect(430, 10, 41, 41));
+        pdf_3->setCursor(QCursor(Qt::PointingHandCursor));
+        pdf_3->setIcon(icon3);
+        pdf_3->setIconSize(QSize(50, 50));
+        sort_3 = new QPushButton(featureBar_3);
+        sort_3->setObjectName(QStringLiteral("sort_3"));
+        sort_3->setGeometry(QRect(230, 10, 41, 41));
+        sort_3->setCursor(QCursor(Qt::PointingHandCursor));
+        sort_3->setIcon(icon4);
+        sort_3->setIconSize(QSize(50, 50));
+        tableWidget_3 = new QTableWidget(page_3);
+        if (tableWidget_3->columnCount() < 8)
+            tableWidget_3->setColumnCount(8);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(0, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(1, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(2, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(3, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(4, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(5, __qtablewidgetitem20);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(6, __qtablewidgetitem21);
+        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(7, __qtablewidgetitem22);
+        tableWidget_3->setObjectName(QStringLiteral("tableWidget_3"));
+        tableWidget_3->setGeometry(QRect(400, 170, 501, 261));
+        tableWidget_3->setFont(font);
+        tableWidget_3->setShowGrid(true);
+        tableWidget_3->setSortingEnabled(true);
+        tableWidget_3->horizontalHeader()->setDefaultSectionSize(62);
+        tableWidget_3->horizontalHeader()->setMinimumSectionSize(50);
+        tableWidget_3->verticalHeader()->setVisible(false);
+        tableWidget_3->verticalHeader()->setDefaultSectionSize(10);
+        tableWidget_3->verticalHeader()->setHighlightSections(false);
+        tableWidget_3->verticalHeader()->setMinimumSectionSize(10);
         stackedWidget->addWidget(page_3);
         page_4 = new QWidget();
         page_4->setObjectName(QStringLiteral("page_4"));
-        featureBar_4 = new QFrame(page_4);
-        featureBar_4->setObjectName(QStringLiteral("featureBar_4"));
-        featureBar_4->setGeometry(QRect(400, 10, 501, 61));
-        featureBar_4->setStyleSheet(QStringLiteral(""));
-        featureBar_4->setFrameShape(QFrame::StyledPanel);
-        featureBar_4->setFrameShadow(QFrame::Raised);
-        add = new QPushButton(featureBar_4);
-        add->setObjectName(QStringLiteral("add"));
-        add->setGeometry(QRect(30, 10, 41, 41));
-        QIcon icon;
-        icon.addFile(QStringLiteral("../Resources/Icons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
-        add->setIcon(icon);
-        add->setIconSize(QSize(60, 60));
-        del = new QPushButton(featureBar_4);
-        del->setObjectName(QStringLiteral("del"));
-        del->setGeometry(QRect(130, 10, 41, 41));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("../Resources/Icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
-        del->setIcon(icon1);
-        del->setIconSize(QSize(40, 40));
-        pdf = new QPushButton(featureBar_4);
-        pdf->setObjectName(QStringLiteral("pdf"));
-        pdf->setGeometry(QRect(420, 10, 41, 41));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("../Resources/Icons/pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdf->setIcon(icon2);
-        pdf->setIconSize(QSize(50, 50));
-        update = new QPushButton(featureBar_4);
-        update->setObjectName(QStringLiteral("update"));
-        update->setGeometry(QRect(320, 10, 41, 41));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("../Resources/Icons/update.png"), QSize(), QIcon::Normal, QIcon::Off);
-        update->setIcon(icon3);
-        update->setIconSize(QSize(60, 60));
-        sort = new QPushButton(featureBar_4);
-        sort->setObjectName(QStringLiteral("sort"));
-        sort->setGeometry(QRect(220, 10, 41, 41));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("../Resources/Icons/sort.png"), QSize(), QIcon::Normal, QIcon::Off);
-        sort->setIcon(icon4);
-        sort->setIconSize(QSize(50, 50));
         readBox_4 = new QListWidget(page_4);
         readBox_4->setObjectName(QStringLiteral("readBox_4"));
         readBox_4->setGeometry(QRect(400, 90, 501, 371));
@@ -483,22 +669,89 @@ public:
         addFeature_4->setGeometry(QRect(10, 10, 371, 201));
         addFeature_4->setFrameShape(QFrame::StyledPanel);
         addFeature_4->setFrameShadow(QFrame::Raised);
+        featureBar_4 = new QFrame(page_4);
+        featureBar_4->setObjectName(QStringLiteral("featureBar_4"));
+        featureBar_4->setGeometry(QRect(400, 10, 501, 61));
+        featureBar_4->setStyleSheet(QStringLiteral(""));
+        featureBar_4->setFrameShape(QFrame::StyledPanel);
+        featureBar_4->setFrameShadow(QFrame::Raised);
+        add_4 = new QPushButton(featureBar_4);
+        add_4->setObjectName(QStringLiteral("add_4"));
+        add_4->setGeometry(QRect(30, 10, 41, 41));
+        add_4->setCursor(QCursor(Qt::PointingHandCursor));
+        add_4->setIcon(icon);
+        add_4->setIconSize(QSize(60, 60));
+        del_4 = new QPushButton(featureBar_4);
+        del_4->setObjectName(QStringLiteral("del_4"));
+        del_4->setGeometry(QRect(130, 10, 41, 41));
+        del_4->setCursor(QCursor(Qt::PointingHandCursor));
+        del_4->setIcon(icon1);
+        del_4->setIconSize(QSize(40, 40));
+        update_4 = new QPushButton(featureBar_4);
+        update_4->setObjectName(QStringLiteral("update_4"));
+        update_4->setGeometry(QRect(330, 10, 41, 41));
+        update_4->setCursor(QCursor(Qt::PointingHandCursor));
+        update_4->setIcon(icon2);
+        update_4->setIconSize(QSize(60, 60));
+        pdf_4 = new QPushButton(featureBar_4);
+        pdf_4->setObjectName(QStringLiteral("pdf_4"));
+        pdf_4->setGeometry(QRect(430, 10, 41, 41));
+        pdf_4->setCursor(QCursor(Qt::PointingHandCursor));
+        pdf_4->setIcon(icon3);
+        pdf_4->setIconSize(QSize(50, 50));
+        sort_4 = new QPushButton(featureBar_4);
+        sort_4->setObjectName(QStringLiteral("sort_4"));
+        sort_4->setGeometry(QRect(230, 10, 41, 41));
+        sort_4->setCursor(QCursor(Qt::PointingHandCursor));
+        sort_4->setIcon(icon4);
+        sort_4->setIconSize(QSize(50, 50));
+        tableWidget_4 = new QTableWidget(page_4);
+        if (tableWidget_4->columnCount() < 6)
+            tableWidget_4->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(1, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(2, __qtablewidgetitem25);
+        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(3, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(4, __qtablewidgetitem27);
+        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(5, __qtablewidgetitem28);
+        tableWidget_4->setObjectName(QStringLiteral("tableWidget_4"));
+        tableWidget_4->setGeometry(QRect(400, 170, 501, 261));
+        tableWidget_4->setFont(font);
+        tableWidget_4->setShowGrid(true);
+        tableWidget_4->setSortingEnabled(true);
+        tableWidget_4->horizontalHeader()->setDefaultSectionSize(62);
+        tableWidget_4->horizontalHeader()->setMinimumSectionSize(50);
+        tableWidget_4->verticalHeader()->setVisible(false);
+        tableWidget_4->verticalHeader()->setDefaultSectionSize(10);
+        tableWidget_4->verticalHeader()->setHighlightSections(false);
+        tableWidget_4->verticalHeader()->setMinimumSectionSize(10);
         stackedWidget->addWidget(page_4);
         employees = new QPushButton(frame);
         employees->setObjectName(QStringLiteral("employees"));
         employees->setGeometry(QRect(30, 175, 200, 50));
+        employees->setCursor(QCursor(Qt::PointingHandCursor));
         clients = new QPushButton(frame);
         clients->setObjectName(QStringLiteral("clients"));
         clients->setGeometry(QRect(30, 275, 200, 50));
+        clients->setCursor(QCursor(Qt::PointingHandCursor));
         contracts = new QPushButton(frame);
         contracts->setObjectName(QStringLiteral("contracts"));
         contracts->setGeometry(QRect(30, 375, 200, 50));
+        contracts->setCursor(QCursor(Qt::PointingHandCursor));
         accidents = new QPushButton(frame);
         accidents->setObjectName(QStringLiteral("accidents"));
         accidents->setGeometry(QRect(30, 475, 200, 50));
+        accidents->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton = new QPushButton(frame);
         logoutButton->setObjectName(QStringLiteral("logoutButton"));
         logoutButton->setGeometry(QRect(30, 575, 200, 50));
+        logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QStringLiteral(""));
         QIcon icon5;
@@ -516,15 +769,88 @@ public:
 
     void retranslateUi(QDialog *Dashboard)
     {
-        Dashboard->setWindowTitle(QApplication::translate("Dashboard", "Dialog", Q_NULLPTR));
+        Dashboard->setWindowTitle(QApplication::translate("Dashboard", "Dashboard", Q_NULLPTR));
         role->setPlaceholderText(QApplication::translate("Dashboard", "Role", Q_NULLPTR));
         logo->setText(QString());
         helloBar->setPlaceholderText(QApplication::translate("Dashboard", "Hello,First Name Last Name", Q_NULLPTR));
         add->setText(QString());
         del->setText(QString());
-        pdf->setText(QString());
         update->setText(QString());
+        pdf->setText(QString());
         sort->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("Dashboard", " ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("Dashboard", "Email", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("Dashboard", "Role", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("Dashboard", "First Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QApplication::translate("Dashboard", "Last Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QApplication::translate("Dashboard", "Phone Number", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem6 = tableWidget->horizontalHeaderItem(6);
+        ___qtablewidgetitem6->setText(QApplication::translate("Dashboard", "Address", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
+        ___qtablewidgetitem7->setText(QApplication::translate("Dashboard", "Date Of Birth", Q_NULLPTR));
+        add_2->setText(QString());
+        del_2->setText(QString());
+        update_2->setText(QString());
+        pdf_2->setText(QString());
+        sort_2->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem8 = tableWidget_2->horizontalHeaderItem(0);
+        ___qtablewidgetitem8->setText(QApplication::translate("Dashboard", " ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem9 = tableWidget_2->horizontalHeaderItem(1);
+        ___qtablewidgetitem9->setText(QApplication::translate("Dashboard", "Email", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem10 = tableWidget_2->horizontalHeaderItem(2);
+        ___qtablewidgetitem10->setText(QApplication::translate("Dashboard", "First Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem11 = tableWidget_2->horizontalHeaderItem(3);
+        ___qtablewidgetitem11->setText(QApplication::translate("Dashboard", "Last Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem12 = tableWidget_2->horizontalHeaderItem(4);
+        ___qtablewidgetitem12->setText(QApplication::translate("Dashboard", "Address", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem13 = tableWidget_2->horizontalHeaderItem(5);
+        ___qtablewidgetitem13->setText(QApplication::translate("Dashboard", "Phone Number", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem14 = tableWidget_2->horizontalHeaderItem(6);
+        ___qtablewidgetitem14->setText(QApplication::translate("Dashboard", "Date Of Birth", Q_NULLPTR));
+        add_3->setText(QString());
+        del_3->setText(QString());
+        update_3->setText(QString());
+        pdf_3->setText(QString());
+        sort_3->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem15 = tableWidget_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem15->setText(QApplication::translate("Dashboard", " ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem16 = tableWidget_3->horizontalHeaderItem(1);
+        ___qtablewidgetitem16->setText(QApplication::translate("Dashboard", "User ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem17 = tableWidget_3->horizontalHeaderItem(2);
+        ___qtablewidgetitem17->setText(QApplication::translate("Dashboard", "Client ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem18 = tableWidget_3->horizontalHeaderItem(3);
+        ___qtablewidgetitem18->setText(QApplication::translate("Dashboard", "Premium Amount", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem19 = tableWidget_3->horizontalHeaderItem(4);
+        ___qtablewidgetitem19->setText(QApplication::translate("Dashboard", "Effective Date", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem20 = tableWidget_3->horizontalHeaderItem(5);
+        ___qtablewidgetitem20->setText(QApplication::translate("Dashboard", "Expiration Date", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem21 = tableWidget_3->horizontalHeaderItem(6);
+        ___qtablewidgetitem21->setText(QApplication::translate("Dashboard", "Payment Status", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem22 = tableWidget_3->horizontalHeaderItem(7);
+        ___qtablewidgetitem22->setText(QApplication::translate("Dashboard", "Type", Q_NULLPTR));
+        add_4->setText(QString());
+        del_4->setText(QString());
+        update_4->setText(QString());
+        pdf_4->setText(QString());
+        sort_4->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem23 = tableWidget_4->horizontalHeaderItem(0);
+        ___qtablewidgetitem23->setText(QApplication::translate("Dashboard", " ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem24 = tableWidget_4->horizontalHeaderItem(1);
+        ___qtablewidgetitem24->setText(QApplication::translate("Dashboard", "Client ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem25 = tableWidget_4->horizontalHeaderItem(2);
+        ___qtablewidgetitem25->setText(QApplication::translate("Dashboard", "Type", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem26 = tableWidget_4->horizontalHeaderItem(3);
+        ___qtablewidgetitem26->setText(QApplication::translate("Dashboard", "Damage", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem27 = tableWidget_4->horizontalHeaderItem(4);
+        ___qtablewidgetitem27->setText(QApplication::translate("Dashboard", "Date", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem28 = tableWidget_4->horizontalHeaderItem(5);
+        ___qtablewidgetitem28->setText(QApplication::translate("Dashboard", "Location", Q_NULLPTR));
         employees->setText(QApplication::translate("Dashboard", "Employees", Q_NULLPTR));
         clients->setText(QApplication::translate("Dashboard", "Clients", Q_NULLPTR));
         contracts->setText(QApplication::translate("Dashboard", "Contrats", Q_NULLPTR));

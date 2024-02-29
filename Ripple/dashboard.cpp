@@ -50,7 +50,6 @@ void Dashboard::onLogoutButtonClicked() {
     close();
     mainWindowRef.show();
 }
-
 void Dashboard::onAddClicked() {
     // Handle add button click
 }
