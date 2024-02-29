@@ -16,7 +16,7 @@ private:
     QString email;
     QString first_name;
     QString last_name;
-    qint64 phone_number;
+    QString phone_number;
     QString adress;
     QDate dob;
 
@@ -24,7 +24,7 @@ public:
     explicit Client(QWidget *parent = nullptr);
     ~Client();
     Client();
-    Client(QString email, QString first_name, QString last_name, qint64 phone_number, QString adress, QDate dob);
+    Client(QString email, QString first_name, QString last_name, QString phone_number, QString adress, QDate dob);
 
 private:
     Ui::Client *ui;
@@ -39,7 +39,7 @@ public:
     QString getEmail() {return email;};
     QString getFirstName() {return first_name;};
     QString getLastName() {return last_name;};
-    qint64 getPhoneNumber() {return phone_number;};
+    QString getPhoneNumber() {return phone_number;};
     QString getAdress() {return adress;};
     QDate getDob() {return dob;};
 
@@ -47,9 +47,11 @@ public:
     void setEmail(QString email) {this->email = email;};
     void setFirstName(QString first_name) {this->first_name = first_name;};
     void setLastName(QString last_name) {this->last_name = last_name;};
-    void setPhoneNumber(qint64 phone_number) {this->phone_number = phone_number;};
+    void setPhoneNumber(QString phone_number) {this->phone_number = phone_number;};
     void setAdress(QString adress) {this->adress = adress;};
     void setDob(QDate dob) {this->dob = dob;};
+
+
 
     
 

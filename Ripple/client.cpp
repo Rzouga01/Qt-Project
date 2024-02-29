@@ -28,7 +28,7 @@ Client::Client()
     dob =QDate::currentDate();
 }
 
-Client::Client(QString email, QString first_name, QString last_name, qint64 phone_number, QString adress, QDate dob)
+Client::Client(QString email, QString first_name, QString last_name, QString phone_number, QString adress, QDate dob)
 {
 	this->email = email;
 	this->first_name = first_name;
@@ -44,7 +44,9 @@ void Client::CreateClient()
 
     QSqlQuery qry;
 
-    qry.prepare("INSERT INTO CLIENTS (EMAIL, FIRST_NAME, LAST_NAME, PHONE_NUMBER, ADRESS, DOB) VALUES ( :email, :first_name, :last_name, :phone_number, :adress, :dob)");
+    qry.prepare("INSERT INTO CLIENTS (EMAIL, FIRST_NAME, LAST_NAME, ADRESS, PHONE_NUMBER, DOB) VALUES ( :email, :first_name, :last_name,  :adress, :phone_number, :dob)");
+
+
 
     qry.bindValue(":email", this->email);
     qry.bindValue(":first_name", this->first_name);
