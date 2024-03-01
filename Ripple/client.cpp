@@ -1,25 +1,43 @@
 #include "client.h"
+
 #include "ui_client.h"
 #include "connection.h"
-#include "ui_dashboard.h"
+
 #include <QMessageBox>
 #include <QtDebug>
 #include <QDate>
-#include <QTableWidget>
+#include <QSqlQuery>
 #include <QTableWidgetItem>
 
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
-    ui(new Ui::Client){
+    ui(new Ui::Client),
+    tableClient(nullptr){
     ui->setupUi(this);
-
 }
+
+
+Client::Client(QTableWidget *tableWidget, QWidget *parent)
+    : QDialog(parent), ui(new Ui::Client), tableClient(tableWidget)
+
+{
+    ui->setupUi(this);
+}
+
+
+void Client::setTableWidget(QTableWidget *tableWidget)
+
+{
+    tableClient = tableWidget;
+}
+
 
 Client::~Client()
 {
     delete ui;
 }
+
 
 Client::Client()
 {
@@ -92,28 +110,30 @@ void Client::ReadClient()
 {
     QSqlQuery qry;
     qry.prepare("SELECT * FROM CLIENTS");
-    dashboardUi.ui->role->setText("Client");
     if (qry.exec())
     {
         while (qry.next())
         {
 
-            qDebug() << "Client ID :" << qry.value(0).toInt() <<
-                "\nEmail :" << qry.value(1).toString() <<
-                "\nFirst Name :" << qry.value(2).toString() <<
-                "\nLast Name :" << qry.value(3).toString() <<
-                "\nPhone Number :" << qry.value(4).toString() <<
-                "\nAdress :" << qry.value(5).toString() <<
-                "\nDate of Birth :" << qry.value(6).toDate();
-            qDebug() << "---------------------------------------";
+            int row = tableClient->rowCount();
+            tableClient->insertRow(row);
 
+            tableClient->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));
+            tableClient->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString()));
+            tableClient->setItem(row, 2, new QTableWidgetItem(qry.value(2).toString()));
+            tableClient->setItem(row, 3, new QTableWidgetItem(qry.value(3).toString()));
+            tableClient->setItem(row, 4, new QTableWidgetItem(qry.value(4).toString()));
+            tableClient->setItem(row, 5, new QTableWidgetItem(qry.value(5).toString()));
+            tableClient->setItem(row, 6, new QTableWidgetItem(qry.value(6).toDate().toString()));
         }
+        tableClient->repaint();
     }
     else
     {
         qDebug() << "Error executing query:" << qry.lastError().text();
     }
 }
+
 
 void Client::UpdateClient(Client NewClient)
 {
@@ -143,6 +163,5 @@ void Client::UpdateClient(Client NewClient)
         qDebug() << "Error executing query:" << qry.lastError().text();
         QMessageBox::critical(this, tr("Error"), qry.lastError().text());
     }
-
 
 }

@@ -7,8 +7,6 @@
 *****************************************************************************/
 
 #include "../../Ripple/client.h"
-#include <QtGui/qtextcursor.h>
-#include <QtGui/qscreen.h>
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)

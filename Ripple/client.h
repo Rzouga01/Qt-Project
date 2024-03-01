@@ -4,7 +4,7 @@
 
 #include <QDialog>
 #include <QDate>
-#include "dashboard.h"
+#include <QTableWidget>
 
 
 namespace Ui {
@@ -25,14 +25,16 @@ private:
     QDate dob;
 
 public:
-    explicit Client(QWidget* parent = nullptr);
+   explicit Client(QWidget* parent = nullptr);
+   explicit Client(QTableWidget *tableWidget, QWidget *parent = nullptr);
     ~Client();
     Client();
     Client(QString email, QString first_name, QString last_name, QString phone_number, QString address, QDate dob);
 
+
 private:
     Ui::Client* ui;
-    Dashboard dashboardUi;
+    QTableWidget *tableClient;
 
 public:
     void CreateClient();
@@ -44,7 +46,6 @@ public:
     QString getFirstName() { return first_name; };
     QString getLastName() { return last_name; };
     QString getPhoneNumber() { return phone_number; };
-
     QString getAddress() { return address; };
     QDate getDob() { return dob; };
 
@@ -54,6 +55,9 @@ public:
     void setPhoneNumber(QString phone_number) { this->phone_number = phone_number; };
     void setAddress(QString address) { this->address = address; };
     void setDob(QDate dob) { this->dob = dob; };
+
+
+    void setTableWidget(QTableWidget *tableWidget);
 };
 
 #endif // CLIENT_H

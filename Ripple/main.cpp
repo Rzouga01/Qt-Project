@@ -24,15 +24,13 @@ int main(int argc, char *argv[])
     accident ac;
     Connection con;
     Dashboard dash;
+    QTableWidget *tableWidget = new QTableWidget();
+    Client c2(tableWidget);
 
 
-    if(!con.createconnect())
-    {
-        qDebug() << "Not Connected";
-    }
-    else
-    {
-        dash.show();
-    };
+
+    dash.show();
+
+
     return a.exec();
 }

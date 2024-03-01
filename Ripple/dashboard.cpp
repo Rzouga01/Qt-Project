@@ -6,13 +6,25 @@
 #include <QUiLoader>
 #include "mainwindow.h"
 #include "connection.h"
+#include "client.h"
 
 Dashboard::Dashboard(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
-    update();
+    Client client(ui->tableClient, this);
+    Connection con;
+
+    if(!con.createconnect())
+    {
+        qDebug() << "Not Connected";
+    }
+    else
+    {
+        client.ReadClient();
+        update();
+    }
 
 }
 
