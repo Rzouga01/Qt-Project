@@ -92,7 +92,7 @@ public:
     {
         if (Dashboard->objectName().isEmpty())
             Dashboard->setObjectName("Dashboard");
-        Dashboard->resize(1200, 650);
+        Dashboard->resize(1360, 800);
         Dashboard->setStyleSheet(QString::fromUtf8("QFrame {\n"
 "         background-color:#171717;\n"
 "        border:none;\n"
@@ -355,7 +355,7 @@ public:
 ""));
         frame = new QFrame(Dashboard);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(0, 0, 1200, 650));
+        frame->setGeometry(QRect(0, -1, 1361, 801));
         frame->setStyleSheet(QString::fromUtf8(""));
         frame->setFrameShape(QFrame::NoFrame);
         role = new QLineEdit(frame);
@@ -374,7 +374,7 @@ public:
         helloBar->setTextInteractionFlags(Qt::NoTextInteraction);
         stackedWidget = new QStackedWidget(frame);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(260, 150, 911, 481));
+        stackedWidget->setGeometry(QRect(440, 310, 911, 481));
         page = new QWidget();
         page->setObjectName("page");
         featureBar = new QFrame(page);
