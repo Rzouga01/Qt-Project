@@ -4,7 +4,8 @@
 
 #include <QDialog>
 #include <QDate>
-#include "ui_dashboard.h"
+#include "dashboard.h"
+
 
 namespace Ui {
     class Client;
@@ -31,12 +32,12 @@ public:
 
 private:
     Ui::Client* ui;
-    Ui::Dashboard* dashboardUi;
+    Dashboard dashboardUi;
 
 public:
     void CreateClient();
     void ReadClient();
-    void UpdateClient();
+    void UpdateClient(Client NewClient);
     void DeleteClient(int id);
 
     QString getEmail() { return email; };

@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     Client c("email", "first_name", "last_name", "12345678", "address", QDate::currentDate());
-    Employee e("email", "password", 0, "first_name", "last_name", "12345678", "address", QDate::currentDate());
+    //Employee e("email", "password", 0, "first_name", "last_name", "12345678", "address", QDate::currentDate());
     contract ct(1,1,100,QDate::currentDate(),QDate::currentDate(),0,"test");
     accident ac;
     Connection con;

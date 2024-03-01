@@ -1,21 +1,19 @@
 #include "client.h"
 #include "ui_client.h"
 #include "connection.h"
+#include "ui_dashboard.h"
 #include <QMessageBox>
 #include <QtDebug>
 #include <QDate>
 #include <QTableWidget>
 #include <QTableWidgetItem>
-#include "ui_dashboard.h"
-#include "dashboard.h"
-
 
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
-    ui(new Ui::Client)
-{
+    ui(new Ui::Client){
     ui->setupUi(this);
+
 }
 
 Client::~Client()
@@ -44,6 +42,7 @@ Client::Client(QString email, QString first_name, QString last_name, QString pho
     this->dob = dob;
 }
 
+
 void Client::CreateClient()
 {
     QSqlQuery qry;
@@ -71,6 +70,7 @@ void Client::CreateClient()
     }
 }
 
+
 void Client::DeleteClient(int id)
 {
     QSqlQuery qry;
@@ -87,11 +87,12 @@ void Client::DeleteClient(int id)
     }
 }
 
+
 void Client::ReadClient()
 {
     QSqlQuery qry;
-    dashboardUi=new Ui::Dashboard;
     qry.prepare("SELECT * FROM CLIENTS");
+    dashboardUi.ui->role->setText("Client");
     if (qry.exec())
     {
         while (qry.next())
@@ -105,10 +106,43 @@ void Client::ReadClient()
                 "\nAdress :" << qry.value(5).toString() <<
                 "\nDate of Birth :" << qry.value(6).toDate();
             qDebug() << "---------------------------------------";
+
         }
     }
     else
     {
         qDebug() << "Error executing query:" << qry.lastError().text();
     }
+}
+
+void Client::UpdateClient(Client NewClient)
+{
+    QSqlQuery qry;
+
+    qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = :dob WHERE CLIENT_ID = :id");
+    qry.bindValue(":id", NewClient.id);
+    qry.bindValue(":email", NewClient.email);
+    qry.bindValue(":first_name", NewClient.first_name);
+    qry.bindValue(":last_name", NewClient.last_name);
+    qry.bindValue(":phone_number", NewClient.phone_number);
+    qry.bindValue(":address", NewClient.address);
+    qry.bindValue(":dob", NewClient.dob);
+
+    if (qry.exec())
+    {
+        qDebug() <<"Client Updated successfully." << "Data:" <<
+            "\nEmail :" << NewClient.id <<
+            "\nFirst Name :" << NewClient.first_name <<
+            "\nLast Name :" << NewClient.last_name <<
+            "\nPhone Number :" << NewClient.phone_number <<
+            "\nAddress :" << NewClient.address <<
+            "\nDate of Birth :" << NewClient.dob.toString();
+    }
+    else
+    {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+    }
+
+
 }

@@ -4,18 +4,16 @@
 #include <QApplication>
 #include <QtWidgets>
 #include <QUiLoader>
-
 #include "mainwindow.h"
+#include "connection.h"
 
 Dashboard::Dashboard(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
-    ui->role->setText("Role Test");
-    ui->helloBar->setPlainText("Hello,\nFirst Name Last Name");
-
     update();
+
 }
 
 void Dashboard::update() {
@@ -46,10 +44,14 @@ void Dashboard::update() {
     QObject::connect(ui->logoutButton, &QPushButton::clicked, this, &Dashboard::onLogoutButtonClicked);
 }
 
+
 void Dashboard::onLogoutButtonClicked() {
     close();
     mainWindowRef.show();
 }
+
+
+
 void Dashboard::onAddClicked() {
     // Handle add button click
 }
@@ -73,3 +75,5 @@ void Dashboard::onPdfClicked() {
 Dashboard::~Dashboard() {
     delete ui;
 }
+
+
