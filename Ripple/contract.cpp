@@ -32,7 +32,7 @@ bool contract::ajouter(){
 
 
     //prepare() prend la requete en paramétre pour la préparer a l'exécution.
-    query.prepare("INSERT INTO CONTRACTS(USER_ID,CLIENT_ID,PREMIUM_AMOUNT,EFFECTIVE_DATE,EXPIRATION_DATE,PAYMENT_STATUS,TYPE)" "values( :USER_ID, :CLIENT_ID, :PREMIUM_AMOUNT, :EFFECTIVE_DATE, :EXPIRATION_DATE, :PAYMENT_STATUS, :TYPE)");
+    query.prepare("INSERT INTO CONTRACTS(USER_ID,CLIENT_ID,PREMIUM_AMOUNT,EFFECTIVE_DATE,EXPIRATION_DATE,PAYMENT_STATUS,TYPE) values( :USER_ID, :CLIENT_ID, :PREMIUM_AMOUNT, :EFFECTIVE_DATE, :EXPIRATION_DATE, :PAYMENT_STATUS, :TYPE)");
 
     //création des variables liées
     query.bindValue(":USER_ID",USER_ID);
@@ -50,10 +50,10 @@ bool contract::ajouter(){
 
 
 //fonction supprimer
-bool contract::supprimer(int id){
+bool contract:: supprimer(int id){
     QSqlQuery query;
-    query.prepare("DELETE FROM CONTRACTS WHERE CONTRACT_ID = id ");
-    query.bindValue(":CONTRACT_ID",id);
+    query.prepare("DELETE FROM CONTRACTS WHERE CONTRACT_ID = :id ");
+    query.bindValue(":id",id);
     return query.exec();
 }
 
