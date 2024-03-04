@@ -4,28 +4,18 @@
 #include <QApplication>
 #include <QtWidgets>
 #include <QUiLoader>
+
 #include "mainwindow.h"
-#include "connection.h"
-#include "client.h"
 
 Dashboard::Dashboard(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
-    Client client(ui->tableClient, this);
-    Connection con;
+    ui->role->setText("Role Test");
+    ui->helloBar->setPlainText("Hello,\nFirst Name Last Name");
 
-    if(!con.createconnect())
-    {
-        qDebug() << "Not Connected";
-    }
-    else
-    {
-        client.ReadClient();
-        update();
-    }
-
+    update();
 }
 
 void Dashboard::update() {
@@ -57,14 +47,10 @@ void Dashboard::update() {
     this->repaint();
 }
 
-
 void Dashboard::onLogoutButtonClicked() {
     close();
     mainWindowRef.show();
 }
-
-
-
 void Dashboard::onAddClicked() {
     // Handle add button click
 }
@@ -88,5 +74,3 @@ void Dashboard::onPdfClicked() {
 Dashboard::~Dashboard() {
     delete ui;
 }
-
-

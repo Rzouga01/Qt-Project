@@ -481,37 +481,15 @@ release/moc_client.cpp: ../Ripple/client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 		release/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\client.h -o release\moc_client.cpp
 
 release/moc_contract.cpp: ../Ripple/contract.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -555,16 +533,24 @@ release/moc_contract.cpp: ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qobject.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qrefcount.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qarraydata.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qpair.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -584,61 +570,30 @@ release/moc_contract.cpp: ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qutf8stringview.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringtokenizer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringbuilder.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qscopedpointer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmetatype.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcompare.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qscopedpointer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qiterable.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmetacontainer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcontainerinfo.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlist.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qiterator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qbytearraylist.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringmatcher.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/q23utility.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreevent.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbindingstorage.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmargins.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/q23utility.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qicon.h \
@@ -650,12 +605,25 @@ release/moc_contract.cpp: ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qtransform.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpolygon.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qregion.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qline.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qfont.h \
@@ -681,10 +649,6 @@ release/moc_contract.cpp: ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
 		release/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\contract.h -o release\moc_contract.cpp
@@ -1221,8 +1185,6 @@ release/moc_dashboard.cpp: ../Ripple/dashboard.h \
 		../Ripple/mainwindow.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QPropertyAnimation \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
 		release/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\dashboard.h -o release\moc_dashboard.cpp
@@ -1391,20 +1353,6 @@ release/moc_employee.cpp: ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QString \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
 		release/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\employee.h -o release\moc_employee.cpp
@@ -1962,62 +1910,7 @@ release/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		../Ripple/ui_accident.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h
+		ui_accident.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\accident.o ..\Ripple\accident.cpp
 
 release/client.o: ../Ripple/client.cpp ../Ripple/client.h \
@@ -2184,82 +2077,7 @@ release/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
-		../Ripple/ui_client.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h \
-		../Ripple/connection.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlDatabase \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem
+		ui_client.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\client.o ..\Ripple\client.cpp
 
 release/connection.o: ../Ripple/connection.cpp ../Ripple/connection.h \
@@ -2385,9 +2203,10 @@ release/connection.o: ../Ripple/connection.cpp ../Ripple/connection.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\connection.o ..\Ripple\connection.cpp
 
 release/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -2431,16 +2250,24 @@ release/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qobject.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qrefcount.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qarraydata.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qpair.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -2460,61 +2287,30 @@ release/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qutf8stringview.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringtokenizer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringbuilder.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qscopedpointer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmetatype.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcompare.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qscopedpointer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qiterable.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmetacontainer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcontainerinfo.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlist.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qiterator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qbytearraylist.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringmatcher.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/q23utility.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreevent.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbindingstorage.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmargins.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/q23utility.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qicon.h \
@@ -2526,12 +2322,25 @@ release/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qtransform.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpolygon.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qregion.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qline.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qfont.h \
@@ -2557,61 +2366,7 @@ release/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		../Ripple/ui_contract.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h
+		ui_contract.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\contract.o ..\Ripple\contract.cpp
 
 release/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
@@ -3146,31 +2901,7 @@ release/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
 		../Ripple/mainwindow.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QPropertyAnimation \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
-		../Ripple/ui_dashboard.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QHeaderView \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
-		../Ripple/connection.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlDatabase \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		../Ripple/client.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate
+		ui_dashboard.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dashboard.o ..\Ripple\dashboard.cpp
 
 release/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
@@ -3337,81 +3068,7 @@ release/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QString \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		../Ripple/ui_employee.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h \
-		../Ripple/connection.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlDatabase \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug
+		ui_employee.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\employee.o ..\Ripple\employee.cpp
 
 release/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
@@ -3946,25 +3603,20 @@ release/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
 		C:/Qt/6.6.1/mingw_64/include/QtUiTools/qtuitoolsglobal.h \
 		../Ripple/client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
 		../Ripple/employee.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
 		../Ripple/contract.h \
 		../Ripple/accident.h \
 		../Ripple/connection.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlDatabase \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
-		../Ripple/dashboard.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
+		../Ripple/dashboard.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Ripple\main.cpp
 
 release/mainwindow.o: ../Ripple/mainwindow.cpp ../Ripple/mainwindow.h \
@@ -4137,8 +3789,8 @@ release/mainwindow.o: ../Ripple/mainwindow.cpp ../Ripple/mainwindow.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariantanimation.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qabstractanimation.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qeasingcurve.h \
-		../Ripple/ui_mainwindow.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
+		ui_mainwindow.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/QEasingCurve \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
@@ -4160,33 +3812,7 @@ release/mainwindow.o: ../Ripple/mainwindow.cpp ../Ripple/mainwindow.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextlayout.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qglyphrun.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qrawfont.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qfontdatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QSlider \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QEasingCurve
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Ripple\mainwindow.cpp
 
 release/menu.o: ../Ripple/menu.cpp ../Ripple/menu.h \
@@ -4353,36 +3979,7 @@ release/menu.o: ../Ripple/menu.cpp ../Ripple/menu.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		../Ripple/ui_menu.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractbutton.h
+		ui_menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menu.o ..\Ripple\menu.cpp
 
 release/moc_accident.o: release/moc_accident.cpp 

@@ -6,9 +6,6 @@
 #include <QtWidgets>
 #include <QUiLoader>
 #include "mainwindow.h"
-#include <QTableWidget>
-#include <QTableWidgetItem>
-
 
 namespace Ui {
     class Dashboard;
@@ -30,7 +27,7 @@ public:
     void onSortClicked();
     void onPdfClicked();
 
-public:
+private:
     Ui::Dashboard *ui;
     MainWindow mainWindowRef;
 };

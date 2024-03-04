@@ -547,6 +547,7 @@ public:
         tableClient->setObjectName(QStringLiteral("tableClient"));
         tableClient->setGeometry(QRect(400, 170, 501, 261));
         tableClient->setFont(font);
+        tableClient->setAutoFillBackground(true);
         tableClient->setShowGrid(true);
         tableClient->setSortingEnabled(true);
         tableClient->horizontalHeader()->setDefaultSectionSize(62);
