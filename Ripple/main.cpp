@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     Client c("email", "first_name", "last_name", "12345678", "address", QDate::currentDate());
     Employee e;
     contract ct(1,1,100,QDate::currentDate(),QDate::currentDate(),0,"test");
-    accident ac;
+    accident ac("type",100,QDate::currentDate(),"location",1);
     Connection con;
     Dashboard dash;
 
@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
     else
     {
         dash.show();
-        c.ReadClient();
        
         
     };
