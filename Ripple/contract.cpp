@@ -1,5 +1,9 @@
 #include "contract.h"
 #include "ui_contract.h"
+#include <QtDebug>
+#include <QDate>
+#include <QMessageBox>
+#include <QSqlError>
 //Constructeur paramété
 contract::contract(int USER_ID,int CLIENT_ID,int PREMIUM_AMOUNT,QDate EFFECTIVE_DATE,QDate EXPIRATION_DATE,int PAYMENT_STATUS,QString TYPE){
     this->USER_ID=USER_ID;
@@ -31,7 +35,6 @@ bool contract::ajouter(){
     query.prepare("INSERT INTO CONTRACTS(USER_ID,CLIENT_ID,PREMIUM_AMOUNT,EFFECTIVE_DATE,EXPIRATION_DATE,PAYMENT_STATUS,TYPE)" "values( :USER_ID, :CLIENT_ID, :PREMIUM_AMOUNT, :EFFECTIVE_DATE, :EXPIRATION_DATE, :PAYMENT_STATUS, :TYPE)");
 
     //création des variables liées
-
     query.bindValue(":USER_ID",USER_ID);
     query.bindValue(":CLIENT_ID",CLIENT_ID);
     query.bindValue(":PREMIUM_AMOUNT",PREMIUM_AMOUNT);
@@ -47,48 +50,33 @@ bool contract::ajouter(){
 
 
 //fonction supprimer
-bool contract::supprimer(){
+bool contract::supprimer(int id){
     QSqlQuery query;
-    query.prepare("DELETE FROM CONTRACTS WHERE CONTRACT_ID = CONTRACT_ID ");
-    query.bindValue(":CONTRACT_ID",CONTRACT_ID);
+    query.prepare("DELETE FROM CONTRACTS WHERE CONTRACT_ID = id ");
+    query.bindValue(":CONTRACT_ID",id);
     return query.exec();
 }
 
-
 //fonction lire
-bool contract::lire(){
+void contract::lire(){
     QSqlQuery query;
-    query.prepare("SELECT * FROM CONTRACTS WHERE CONTRACT_ID = :CONTRACT_ID");
-    query.bindValue(":CONTRACT_ID",CONTRACT_ID);
-    if(query.exec() && query.first()){
-        CONTRACT_ID = query.value("CONTRACT_ID").toInt();
-        USER_ID = query.value("USER_ID").toInt();
-        CLIENT_ID = query.value("CLIENT_ID").toInt();
-        PREMIUM_AMOUNT = query.value("PREMIUM_AMOUNT").toInt();
-        EFFECTIVE_DATE = query.value("EFFECTIVE_DATE").toDate();
-        EXPIRATION_DATE = query.value("EXPIRATION_DATE").toDate();
-        PAYMENT_STATUS = query.value("PAYMENT_STATUS").toInt();
-        TYPE = query.value("TYPE").toString();
-        return true;
-    }else {
-        return false;
+    query.prepare("SELECT * FROM CONTRACTS");
+    if(query.exec())
+    {
+        while (query.next())
+        {
+            qDebug() << "Contract ID :"<<query.value(0).toInt() <<"\nUser ID :"<<query.value(1).toInt() <<"\nClient ID :"<<query.value(2).toInt() <<"\nPremium Amount :"<<query.value(3).toInt() <<"\nEffective Date :"<<query.value(4).toDate() <<"\nExpiration Date :"<<query.value(5).toDate() <<"\nPayment Status :"<<query.value(6).toInt()<<"\nType :"<<query.value(7).toString();
+            qDebug() << "---------------------------------------";
+        }
+    }
+    else
+    {
+            qDebug() << "Error executing query:" << query.lastError().text();
     }
 }
 
-//fonction modifier
-bool contract::modifier(){
-    QSqlQuery query;
-    query.prepare("UPDATE CONTRACTS SET USER_ID = :USER_ID, CLIENT_ID = :CLIENT_ID, PREMIUM_AMOUNT = :PREMIUM_AMOUNT, EFFECTIVE_DATE = :EFFECTIVE_DATE, EXPIRATION_DATE = :EXPIRATION_DATE, PAYMENT_STATUS = :PAYMENT_STATUS, TYPE = :TYPE WHERE CONTRACT_ID = :CONTRACT_ID ");
-    query.bindValue(":USER_ID", USER_ID);
-    query.bindValue(":CLIENT_ID", CLIENT_ID);
-    query.bindValue(":PREMIUM_AMOUNT", PREMIUM_AMOUNT);
-    query.bindValue(":EFFECTIVE_DATE", EFFECTIVE_DATE);
-    query.bindValue(":EXPIRATION_DATE", EXPIRATION_DATE);
-    query.bindValue(":PAYMENT_STATUS", PAYMENT_STATUS);
-    query.bindValue(":TYPE", TYPE);
-    query.bindValue(":CONTRACT_ID", CONTRACT_ID);
-    return query.exec();
-}
+
+
 
 contract::contract(QWidget *parent) :
     QDialog(parent),
