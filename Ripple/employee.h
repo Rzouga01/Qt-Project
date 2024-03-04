@@ -17,7 +17,7 @@ private:
     Ui::Employee *ui;
     QString email;
     QString password;
-     int role;
+    QString role;
     QString first_name;
     QString last_name;
     QString phone_number;
@@ -26,28 +26,30 @@ private:
 
 public:
     explicit Employee(QWidget *parent = nullptr);
-    Employee(QString email, QString password, int role, QString first_name, QString last_name, QString phone_number, QString address, QDate dob);
+    Employee(const QString &email, const QString &password, const QString &role,
+                   const QString &first_name, const QString &last_name, const QString &phone_number,
+                   const QString &address, const QDate &dob, QWidget *parent = nullptr);
     ~Employee();
 
     // Getters
     QString getEmail() const;
     QString getPassword() const;
-    int getRole() const;
+    QString getRole() const;
     QString getFirstName() const;
     QString getLastName() const;
     QString getPhoneNumber() const;
     QString getAddress() const;
-    QDate getDob() const;
+    QDate getDOB() const;
 
     // Setters
     void setEmail(const QString &email);
     void setPassword(const QString &password);
-    void setRole(const int &role);
+    void setRole(const QString &role);
     void setFirstName(const QString &firstName);
     void setLastName(const QString &lastName);
     void setPhoneNumber(const QString &phoneNumber);
     void setAddress(const QString &address);
-    void setDob(const QDate &dob);
+    void setDOB(const QDate &dob);
 
     // CRUD
     bool createEmployee();
