@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     MainWindow w;
-    Client c("email", "first_name", "last_name", "12345678", "address", QDate::currentDate());
+    Client c("email", "first_name", "last_name", "12345678", "adress", QDate::currentDate());
     Employee e;
     contract ct(1,1,100,QDate::currentDate(),QDate::currentDate(),0,"test");
-    accident ac("type",100,QDate::currentDate(),"location",1);
+    accident ac;
     Connection con;
     Dashboard dash;
 
@@ -33,8 +33,11 @@ int main(int argc, char *argv[])
     else
     {
         dash.show();
-       
-        
+        ct.ajouter();
+        ct.supprimer(11);
+        ct.lire();
+
+
     };
 
 

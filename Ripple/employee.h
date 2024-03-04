@@ -15,17 +15,20 @@ class Employee : public QDialog {
     Q_OBJECT
 private:
     Ui::Employee *ui;
-    QString EMAIL;
-    QString PASSWORD;
-    QString ROLE;
-    QString FIRST_NAME;
-    QString LAST_NAME;
-    QString PHONE_NUMBER;
-    QString ADDRESS;
-    QDate DOB;
+    QString email;
+    QString password;
+    QString role;
+    QString first_name;
+    QString last_name;
+    QString phone_number;
+    QString address;
+    QDate dob;
 
 public:
     explicit Employee(QWidget *parent = nullptr);
+    Employee(const QString &email, const QString &password, const QString &role,
+                   const QString &first_name, const QString &last_name, const QString &phone_number,
+                   const QString &address, const QDate &dob, QWidget *parent = nullptr);
     ~Employee();
 
     // Getters
@@ -51,8 +54,8 @@ public:
     // CRUD
     bool createEmployee();
     void readEmployee();
-    bool updateEmployee();
-    bool deleteEmployee();
+    bool updateEmployee(int id);
+    bool deleteEmployee(int id);
 };
 
 #endif // EMPLOYEE_H

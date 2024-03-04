@@ -12,6 +12,7 @@ class contract;
 class contract : public QDialog
 {
     Q_OBJECT
+private:
     int CONTRACT_ID;
     int USER_ID;
     int CLIENT_ID;
@@ -50,7 +51,10 @@ public:
 
     //Fonctionnalités de Base relatives a l'entités contrat
     bool ajouter();
-    bool supprimer();
+    bool supprimer(int id);
+    void lire();
+
+
 
 
 
