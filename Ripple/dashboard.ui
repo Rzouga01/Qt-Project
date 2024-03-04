@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1600</width>
-    <height>900</height>
+    <width>1500</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -275,8 +275,8 @@ background-color: #171717;
     <rect>
      <x>0</x>
      <y>-1</y>
-     <width>1600</width>
-     <height>900</height>
+     <width>1500</width>
+     <height>800</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -288,8 +288,8 @@ background-color: #171717;
    <widget class="QLineEdit" name="role">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>30</y>
+      <x>1070</x>
+      <y>20</y>
       <width>281</width>
       <height>91</height>
      </rect>
@@ -384,7 +384,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -410,7 +410,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -436,7 +436,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -462,7 +462,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -488,7 +488,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -638,17 +638,17 @@ background-color: #171717;
      <widget class="QListWidget" name="readBox_2">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
+        <x>420</x>
+        <y>100</y>
+        <width>711</width>
+        <height>561</height>
        </rect>
       </property>
      </widget>
      <widget class="QLineEdit" name="searchBar_2">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>870</x>
         <y>120</y>
         <width>241</width>
         <height>41</height>
@@ -667,7 +667,7 @@ background-color: #171717;
         <x>10</x>
         <y>230</y>
         <width>371</width>
-        <height>231</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -690,9 +690,9 @@ background-color: #171717;
      <widget class="QFrame" name="featureBar_2">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>10</y>
-        <width>501</width>
+        <x>420</x>
+        <y>20</y>
+        <width>711</width>
         <height>61</height>
        </rect>
       </property>
@@ -702,32 +702,6 @@ background-color: #171717;
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-      <widget class="QPushButton" name="add_2">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>10</y>
-         <width>41</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>60</width>
-         <height>60</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QPushButton" name="del_2">
        <property name="geometry">
         <rect>
@@ -745,7 +719,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -771,7 +745,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -797,7 +771,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -823,7 +797,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -832,14 +806,40 @@ background-color: #171717;
         </size>
        </property>
       </widget>
+      <widget class="QPushButton" name="add_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QTableWidget" name="tableClient">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>170</y>
-        <width>501</width>
-        <height>261</height>
+        <x>430</x>
+        <y>180</y>
+        <width>681</width>
+        <height>461</height>
        </rect>
       </property>
       <property name="font">
@@ -997,7 +997,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1023,7 +1023,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1049,7 +1049,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1075,7 +1075,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1101,7 +1101,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1277,7 +1277,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1303,7 +1303,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1329,7 +1329,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1355,7 +1355,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1381,7 +1381,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
+         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1550,7 +1550,7 @@ background-color: #171717;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../Resources/Icons/logout.png</normaloff>../Resources/Icons/logout.png</iconset>
+      <normaloff>../../../../.designer/Resources/Icons/logout.png</normaloff>../../../../.designer/Resources/Icons/logout.png</iconset>
     </property>
     <property name="iconSize">
      <size>

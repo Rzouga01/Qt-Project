@@ -54,6 +54,7 @@ void Dashboard::update() {
     QObject::connect(ui->accidents, &QPushButton::clicked, this, [this](){ ui->stackedWidget->setCurrentIndex(3); });
 
     QObject::connect(ui->logoutButton, &QPushButton::clicked, this, &Dashboard::onLogoutButtonClicked);
+    this->repaint();
 }
 
 
