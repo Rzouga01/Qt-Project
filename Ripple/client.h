@@ -30,7 +30,7 @@ public:
    ~Client();
     Client();
     Client(const QString &email, const QString &first_name, const QString & last_name, const QString &phone_number, const QString &address, const QDate &dob);
-    Client(const Client& other);
+
 
     
 

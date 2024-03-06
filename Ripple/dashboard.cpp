@@ -13,13 +13,13 @@ Dashboard::Dashboard(QWidget *parent) :
     ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
-    Client client(ui->tableClient, this);
+    Client MasterClient(ui->tableClient, this);
 
     Connection con;
     if(!con.createconnect()) {
         qDebug() << "Not Connected";
     } else {
-        client.ReadClient();
+        MasterClient.ReadClient();
         update();
     }
 }
@@ -52,17 +52,8 @@ void Dashboard::update() {
     QObject::connect(ui->logoutButton, &QPushButton::clicked, this, &Dashboard::onLogoutButtonClicked);
 
     //Client
-    QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
-    QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
-    QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
+    ClientDashboardConnectUi();
 
-    QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
-    QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
-    QObject::connect(ui->ClientDeleteButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedClient);
-
-    QObject::connect(ui->ClientCreateCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedClient);
-    QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
-    QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 
 }
 
@@ -75,6 +66,58 @@ void Dashboard::onLogoutButtonClicked() {
 
 
 //Client
+
+void Dashboard::ClientDashboardConnectUi()
+{
+    QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
+    QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
+    QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
+
+    QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
+    QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
+    QObject::connect(ui->ClientDeleteButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedClient);
+
+    QObject::connect(ui->ClientCreateCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedClient);
+    QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
+    QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
+
+    ui->StackedClient->setCurrentIndex(0);
+
+    // Client stacked widget button background color change according to current index
+    //QObject::connect(ui->StackedClient, &QStackedWidget::currentChanged, this, &Dashboard::onStackedClientIndexChanged);
+
+
+}
+
+void Dashboard::onStackedClientIndexChanged(int index) {
+    switch(index) {
+    case 0:
+        ui->addClient->setStyleSheet("background-color: #D3D3D3;");
+        ui->updateClient->setStyleSheet("background-color: transparent;");
+        ui->deleteClient->setStyleSheet("background-color: transparent;");
+        break;
+
+    case 1:
+        ui->addClient->setStyleSheet("background-color: transparent;");
+        ui->updateClient->setStyleSheet("background-color: #D3D3D3;");
+        ui->deleteClient->setStyleSheet("background-color: transparent;");
+        break;
+
+    case 2:
+        ui->addClient->setStyleSheet("background-color: transparent;");
+        ui->updateClient->setStyleSheet("background-color: transparent;");
+        ui->deleteClient->setStyleSheet("background-color: #D3D3D3;");
+        break;
+
+    default:
+        ui->addClient->setStyleSheet("background-color: transparent;");
+        ui->updateClient->setStyleSheet("background-color: transparent;");
+        ui->deleteClient->setStyleSheet("background-color: transparent;");
+        break;
+    }
+}
+
+
 void Dashboard::onAddClickedClient() {
     Client MasterClient(ui->tableClient, this);
 
@@ -235,7 +278,7 @@ void Dashboard::onSortClickedClient() {
 void Dashboard::onPdfClickedClient() {
 }
 
-
+//----------------------------------------------------------------
 
 
 

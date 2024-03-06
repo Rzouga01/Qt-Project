@@ -12,12 +12,6 @@
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
-    id(-1),
-    email(""),
-    first_name(""),
-    last_name(""),
-    phone_number(""),
-    address(""),
     dob(QDate::currentDate()),
     ui(new Ui::Client),
     tableClient(nullptr)
@@ -27,16 +21,7 @@ Client::Client(QWidget* parent) :
 
 }
 
-Client::Client(const Client& other)
-{
-    this->id = other.id;
-    this->email = other.email;
-    this->first_name = other.first_name;
-    this->last_name = other.last_name;
-    this->phone_number = other.phone_number;
-    this->address = other.address;
-    this->dob = other.dob;
-}
+
 
 Client::Client(QTableWidget *tableWidget, QWidget *parent)
     : QDialog(parent), ui(new Ui::Client), tableClient(tableWidget)
@@ -158,7 +143,6 @@ void Client::DeleteClient(int id)
             if (qry.exec())
             {
                 qDebug() << "Client found. Deleting...";
-                QMessageBox::critical(this, tr("Deleted"), tr("Deleted"));
             }
             else
             {

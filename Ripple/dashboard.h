@@ -39,6 +39,10 @@ public:
     void onDeleteCancelClickedClient();
 
 
+    void ClientDashboardConnectUi();
+    void onStackedClientIndexChanged(int index);
+
+
 
     //------------------------------------
 
