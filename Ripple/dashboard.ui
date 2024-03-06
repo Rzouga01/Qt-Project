@@ -48,37 +48,6 @@ font-family:&quot;helvetica&quot;
 background-color: #171717;
 }
 
-/* Apply styles to the featureBar_2 */
-#featureBar_2 {
-    background-color: white;
-    border-radius: 25px;
-}
-
-/* Apply styles to the addFeature_2 */
-#addFeature_2 {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the stats_2 */
-#stats_2 {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the readBox_2 */
-#readBox_2 {
-    border: none;
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the searchBar_2 */
-#searchBar_2 {
-     background-color: white;
-
-
-}
 
 /* Apply styles to the featureBar_3 */
 #featureBar_3 {
@@ -199,9 +168,7 @@ background-color: #171717;
     border-radius: 20px;
 }
 
-#searchBar_2 {
-    border-radius: 20px;
-}
+
 
 #searchBar_3 {
     border-radius: 20px;
@@ -217,11 +184,6 @@ background-color: #171717;
 #pdf,
 #update,
 #sort ,
-#add_2,
-#del_2,
-#pdf_2,
-#update_2,
-#sort_2,
 #add_3,
 #del_3,
 #pdf_3,
@@ -288,8 +250,8 @@ background-color: #171717;
    <widget class="QLineEdit" name="role">
     <property name="geometry">
      <rect>
-      <x>1070</x>
-      <y>20</y>
+      <x>1160</x>
+      <y>10</y>
       <width>281</width>
       <height>91</height>
      </rect>
@@ -635,7 +597,94 @@ background-color: #171717;
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
-     <widget class="QListWidget" name="readBox_2">
+     <property name="styleSheet">
+      <string notr="true">
+#featureBarClient {
+    background-color: white;
+    border-radius: 25px;
+}
+
+#CrudClient,#CreateClient {
+    background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+#statsClient {
+    background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+#readBoxClient{
+    border: none;
+    background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+#searchBarClient{
+     background-color: white;
+ border-radius: 20px;
+}
+/*text ili 3al isar bta3 il inputs*/
+#ClientCreateIDLine,
+#ClientCreateEmailLine,
+#ClientCreateFirstNameLine,
+#ClientCreateLastNameLine,
+#ClientCreateAddressLine,
+#ClientCreatePhoneNumberLine,
+#ClientCreateDobLine {
+    background-color: #A7C34E;
+    font-family: &quot;helvetica&quot;;
+    font-size: 14px;
+    color: white;
+    font-style: bold;
+}
+
+#ClientCreateID,
+#ClientCreateEmail,
+#ClientCreateFirstName,
+#ClientCreateLastName,
+#ClientCreateAddress,
+#ClientCreatePhoneNumber,
+#ClientCreateDob {
+    background-color: #171717;
+    font-family: &quot;helvetica&quot;;
+    font-size: 14px;
+    color: white;
+    font-style: bold;
+border:none;
+border-radius:15px;
+}
+
+#addClient,
+#deleteClient,
+#pdfClient,
+#updateClient,
+#sortClient{
+border: none;
+    background-color: transparent;
+
+}
+
+#tableClient {
+    background-color: #f5f5f5; /* Light gray background */
+    border-radius: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tableClient th,
+#tableClient td {
+    border: 1px solid #ddd; /* Gray borders */
+    padding: 8px;
+    text-align: left;
+}
+
+
+
+
+</string>
+     </property>
+     <widget class="QListWidget" name="readBoxClient">
       <property name="geometry">
        <rect>
         <x>420</x>
@@ -645,12 +694,12 @@ background-color: #171717;
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="searchBar_2">
+     <widget class="QLineEdit" name="searchBarClient">
       <property name="geometry">
        <rect>
-        <x>870</x>
+        <x>720</x>
         <y>120</y>
-        <width>241</width>
+        <width>391</width>
         <height>41</height>
        </rect>
       </property>
@@ -661,7 +710,7 @@ background-color: #171717;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QFrame" name="stats_2">
+     <widget class="QFrame" name="CrudClient">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -673,8 +722,450 @@ background-color: #171717;
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
+      <widget class="QStackedWidget" name="StackedClient">
+       <property name="geometry">
+        <rect>
+         <x>-20</x>
+         <y>0</y>
+         <width>391</width>
+         <height>431</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="CreateClientPage">
+        <widget class="QFrame" name="CreateClient">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>0</y>
+           <width>371</width>
+           <height>431</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLineEdit" name="ClientCreateEmail">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>50</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string extracomment="Email"/>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientCreateFirstName">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>100</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientCreateLastName">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>150</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="ClientCreateDob">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>300</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientCreateAddress">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>200</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientCreatePhoneNumber">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>250</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ClientCreateButton">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>380</y>
+            <width>80</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Create Client</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ClientCreateCancel">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>380</y>
+            <width>80</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientCreateEmailLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>50</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Email</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientCreateFirstNameLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>100</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>First Name</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientCreateLastNameLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>150</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Last Name</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientCreateAddressLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>200</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Address</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientCreatePhoneNumberLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>250</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Phone Number</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientCreateDobLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>300</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Date Of Birth</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="UpdateClientPage">
+        <widget class="QFrame" name="UpdateClient">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>0</y>
+           <width>371</width>
+           <height>431</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLineEdit" name="ClientUpdateID">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>30</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientUpdateEmail">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>80</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientUpdateFirstName">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>130</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientUpdateLastName">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>180</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="ClientUpdateDob">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>330</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientUpdateAddress">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>230</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="ClientUpdatePhoneNumber">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>280</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ClientUpdateButton">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>380</y>
+            <width>80</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Update Client</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ClientUpdateCancel">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>380</y>
+            <width>80</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdateIDLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>30</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>ID</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdateEmailLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>80</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Email</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdateFirstNameLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>130</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>First Name</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdateLastNameLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>180</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Last Name</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdateAdressLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>230</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Adress</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdatePhoneNumberLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>280</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Phone Number</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="ClientUpdateDobLine">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>330</y>
+            <width>104</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="plainText">
+           <string>Date Of Birth</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
      </widget>
-     <widget class="QFrame" name="addFeature_2">
+     <widget class="QFrame" name="statsClient">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -687,12 +1178,12 @@ background-color: #171717;
        <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
-     <widget class="QFrame" name="featureBar_2">
+     <widget class="QFrame" name="featureBarClient">
       <property name="geometry">
        <rect>
-        <x>420</x>
+        <x>620</x>
         <y>20</y>
-        <width>711</width>
+        <width>501</width>
         <height>61</height>
        </rect>
       </property>
@@ -702,7 +1193,7 @@ background-color: #171717;
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-      <widget class="QPushButton" name="del_2">
+      <widget class="QPushButton" name="deleteClient">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -719,7 +1210,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -728,7 +1219,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="update_2">
+      <widget class="QPushButton" name="updateClient">
        <property name="geometry">
         <rect>
          <x>330</x>
@@ -745,7 +1236,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -754,7 +1245,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf_2">
+      <widget class="QPushButton" name="pdfClient">
        <property name="geometry">
         <rect>
          <x>430</x>
@@ -771,7 +1262,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -780,7 +1271,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="sort_2">
+      <widget class="QPushButton" name="sortClient">
        <property name="geometry">
         <rect>
          <x>230</x>
@@ -797,7 +1288,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -806,7 +1297,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="add_2">
+      <widget class="QPushButton" name="addClient">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -823,7 +1314,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -849,7 +1340,7 @@ background-color: #171717;
        </font>
       </property>
       <property name="autoFillBackground">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="showGrid">
        <bool>true</bool>
@@ -861,7 +1352,7 @@ background-color: #171717;
        <number>50</number>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>62</number>
+       <number>66</number>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -1466,8 +1957,8 @@ background-color: #171717;
    <widget class="QPushButton" name="employees">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>175</y>
+      <x>50</x>
+      <y>210</y>
       <width>200</width>
       <height>50</height>
      </rect>
@@ -1482,8 +1973,8 @@ background-color: #171717;
    <widget class="QPushButton" name="clients">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>275</y>
+      <x>50</x>
+      <y>310</y>
       <width>200</width>
       <height>50</height>
      </rect>
@@ -1498,8 +1989,8 @@ background-color: #171717;
    <widget class="QPushButton" name="contracts">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>375</y>
+      <x>50</x>
+      <y>410</y>
       <width>200</width>
       <height>50</height>
      </rect>
@@ -1514,8 +2005,8 @@ background-color: #171717;
    <widget class="QPushButton" name="accidents">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>475</y>
+      <x>50</x>
+      <y>510</y>
       <width>200</width>
       <height>50</height>
      </rect>
@@ -1530,8 +2021,8 @@ background-color: #171717;
    <widget class="QPushButton" name="logoutButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>575</y>
+      <x>50</x>
+      <y>610</y>
       <width>200</width>
       <height>50</height>
      </rect>
@@ -1550,7 +2041,7 @@ background-color: #171717;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../.designer/Resources/Icons/logout.png</normaloff>../../../../.designer/Resources/Icons/logout.png</iconset>
+      <normaloff>../Resources/Icons/logout.png</normaloff>../Resources/Icons/logout.png</iconset>
     </property>
     <property name="iconSize">
      <size>

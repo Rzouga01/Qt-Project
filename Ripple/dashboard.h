@@ -24,6 +24,19 @@ public:
 
     void update();
     void onLogoutButtonClicked();
+
+
+    //Client
+    void onAddClickedClient();
+    void onDeleteClickedClient();
+    void onUpdateClickedClient();
+    void onSortClickedClient();
+    void onPdfClickedClient();
+    void clearInputFields();
+
+    //------------------------------------
+
+
     void onAddClicked();
     void onDeleteClicked();
     void onUpdateClicked();
@@ -33,6 +46,7 @@ public:
 public:
     Ui::Dashboard *ui;
     MainWindow mainWindowRef;
+
 };
 
 #endif // DASHBOARD_H

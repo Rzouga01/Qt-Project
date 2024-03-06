@@ -12,8 +12,16 @@
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
+    id(-1),
+    email(""),
+    first_name(""),
+    last_name(""),
+    phone_number(""),
+    address(""),
+    dob(QDate::currentDate()),
     ui(new Ui::Client),
-    tableClient(nullptr){
+    tableClient(nullptr)
+{
     ui->setupUi(this);
 }
 
@@ -95,8 +103,10 @@ void Client::CreateClient()
     else
     {
         qDebug() << "Error Creating Client query:" << qry.lastError().text();
+        QMessageBox::critical(this, tr("Error"), qry.lastError().text());
     }
 }
+
 
 
 void Client::DeleteClient(int id)
@@ -118,13 +128,20 @@ void Client::DeleteClient(int id)
 
 void Client::ReadClient()
 {
+    if (tableClient == nullptr) {
+        qDebug() << "Error: tableClient is null";
+        return;
+    }
+
+    tableClient->clearContents();
+    tableClient->setRowCount(0); 
+
     QSqlQuery qry;
     qry.prepare("SELECT * FROM CLIENTS");
     if (qry.exec())
     {
         while (qry.next())
         {
-
             int row = tableClient->rowCount();
             tableClient->insertRow(row);
 
@@ -145,34 +162,52 @@ void Client::ReadClient()
 }
 
 
-void Client::UpdateClient(int clientID,Client NewClient)
+
+void Client::UpdateClient(int clientID, const Client& NewClient)
 {
     QSqlQuery qry;
 
-    qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = :dob WHERE CLIENT_ID = :id");
+    qry.prepare("SELECT * FROM CLIENTS WHERE CLIENT_ID = :id");
     qry.bindValue(":id", clientID);
-    qry.bindValue(":email", NewClient.email);
-    qry.bindValue(":first_name", NewClient.first_name);
-    qry.bindValue(":last_name", NewClient.last_name);
-    qry.bindValue(":phone_number", NewClient.phone_number);
-    qry.bindValue(":address", NewClient.address);
-    qry.bindValue(":dob", NewClient.dob);
 
     if (qry.exec())
     {
-        qDebug() <<"Client Updated successfully." << "Data:" <<
-            "\nEmail :" << NewClient.email <<
-            "\nFirst Name :" << NewClient.first_name <<
-            "\nLast Name :" << NewClient.last_name <<
-            "\nPhone Number :" << NewClient.phone_number <<
-            "\nAddress :" << NewClient.address <<
-            "\nDate of Birth :" << NewClient.dob.toString();
+        if (qry.next())
+        {
+            qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = :dob WHERE CLIENT_ID = :id");
+            qry.bindValue(":id", clientID);
+            qry.bindValue(":email", NewClient.getEmail());
+            qry.bindValue(":first_name", NewClient.getFirstName());
+            qry.bindValue(":last_name", NewClient.getLastName());
+            qry.bindValue(":phone_number", NewClient.getPhoneNumber());
+            qry.bindValue(":address", NewClient.getAddress());
+            qry.bindValue(":dob", NewClient.getDob().toString(Qt::ISODate));
 
+            if (qry.exec())
+            {
+                qDebug() << "Client Updated successfully." << "Data:" <<
+                    "\nEmail :" << NewClient.getEmail() <<
+                    "\nFirst Name :" << NewClient.getFirstName() <<
+                    "\nLast Name :" << NewClient.getLastName() <<
+                    "\nPhone Number :" << NewClient.getPhoneNumber() <<
+                    "\nAddress :" << NewClient.getAddress() <<
+                    "\nDate of Birth :" << NewClient.getDob().toString(Qt::ISODate);
+            }
+            else
+            {
+                qDebug() << "Error executing update query:" << qry.lastError().text();
+                QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+            }
+        }
+        else
+        {
+            QMessageBox::critical(this, tr("Error"), tr("Client not found"));
+        }
     }
     else
     {
-        qDebug() << "Error executing query:" << qry.lastError().text();
+        qDebug() << "Error executing select query:" << qry.lastError().text();
         QMessageBox::critical(this, tr("Error"), qry.lastError().text());
     }
-
 }
+

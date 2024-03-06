@@ -42,15 +42,15 @@ private:
 public:
     void CreateClient();
     void ReadClient();
-    void UpdateClient(int clientID,Client NewClient);
+    void UpdateClient(int clientID, const Client& NewClient);
     void DeleteClient(int id);
 
-    QString getEmail() { return email; };
-    QString getFirstName() { return first_name; };
-    QString getLastName() { return last_name; };
-    QString getPhoneNumber() { return phone_number; };
-    QString getAddress() { return address; };
-    QDate getDob() { return dob; };
+    QString getEmail() const { return email; };
+    QString getFirstName() const { return first_name; };
+    QString getLastName() const { return last_name; };
+    QString getPhoneNumber() const { return phone_number; };
+    QString getAddress() const  { return address; };
+    QDate getDob() const  { return dob; };
 
     void setEmail(QString email) { this->email = email; };
     void setFirstName(QString first_name) { this->first_name = first_name; };

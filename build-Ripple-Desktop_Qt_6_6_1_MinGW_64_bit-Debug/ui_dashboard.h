@@ -12,12 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableWidget>
@@ -47,16 +49,51 @@ public:
     QLineEdit *searchBar;
     QTableWidget *tableWidget;
     QWidget *page_2;
-    QListWidget *readBox_2;
-    QLineEdit *searchBar_2;
-    QFrame *stats_2;
-    QFrame *addFeature_2;
-    QFrame *featureBar_2;
-    QPushButton *del_2;
-    QPushButton *update_2;
-    QPushButton *pdf_2;
-    QPushButton *sort_2;
-    QPushButton *add_2;
+    QListWidget *readBoxClient;
+    QLineEdit *searchBarClient;
+    QFrame *CrudClient;
+    QStackedWidget *StackedClient;
+    QWidget *CreateClientPage;
+    QFrame *CreateClient;
+    QLineEdit *ClientCreateEmail;
+    QLineEdit *ClientCreateFirstName;
+    QLineEdit *ClientCreateLastName;
+    QDateEdit *ClientCreateDob;
+    QLineEdit *ClientCreateAddress;
+    QLineEdit *ClientCreatePhoneNumber;
+    QPushButton *ClientCreateButton;
+    QPushButton *ClientCreateCancel;
+    QPlainTextEdit *ClientCreateEmailLine;
+    QPlainTextEdit *ClientCreateFirstNameLine;
+    QPlainTextEdit *ClientCreateLastNameLine;
+    QPlainTextEdit *ClientCreateAddressLine;
+    QPlainTextEdit *ClientCreatePhoneNumberLine;
+    QPlainTextEdit *ClientCreateDobLine;
+    QWidget *UpdateClientPage;
+    QFrame *UpdateClient;
+    QLineEdit *ClientUpdateID;
+    QLineEdit *ClientUpdateEmail;
+    QLineEdit *ClientUpdateFirstName;
+    QLineEdit *ClientUpdateLastName;
+    QDateEdit *ClientUpdateDob;
+    QLineEdit *ClientUpdateAddress;
+    QLineEdit *ClientUpdatePhoneNumber;
+    QPushButton *ClientUpdateButton;
+    QPushButton *ClientUpdateCancel;
+    QPlainTextEdit *ClientUpdateIDLine;
+    QPlainTextEdit *ClientUpdateEmailLine;
+    QPlainTextEdit *ClientUpdateFirstNameLine;
+    QPlainTextEdit *ClientUpdateLastNameLine;
+    QPlainTextEdit *ClientUpdateAdressLine;
+    QPlainTextEdit *ClientUpdatePhoneNumberLine;
+    QPlainTextEdit *ClientUpdateDobLine;
+    QFrame *statsClient;
+    QFrame *featureBarClient;
+    QPushButton *deleteClient;
+    QPushButton *updateClient;
+    QPushButton *pdfClient;
+    QPushButton *sortClient;
+    QPushButton *addClient;
     QTableWidget *tableClient;
     QWidget *page_3;
     QFrame *addFeature_3;
@@ -127,38 +164,6 @@ public:
 "background-color: #171717;\n"
 "}\n"
 "\n"
-"/* Apply styles to the featureBar_2 */\n"
-"#featureBar_2 {\n"
-"    background-color: white;\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the addFeature_2 */\n"
-"#addFeature_2 {\n"
-"    background-color: #A7C34E;\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the stats_2 */\n"
-"#stats_2 {\n"
-"    background-color: #A7C34E;\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the readBox_2 */\n"
-"#readBox_2 {\n"
-"    border: none;\n"
-"    background-color: #A7C34E"
-                        ";\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the searchBar_2 */\n"
-"#searchBar_2 {\n"
-"     background-color: white;\n"
-"\n"
-"\n"
-"}\n"
 "\n"
 "/* Apply styles to the featureBar_3 */\n"
 "#featureBar_3 {\n"
@@ -181,7 +186,8 @@ public:
 "/* Apply styles to the readBox_3 */\n"
 "#readBox_3 {\n"
 "    border: none;\n"
-"    background-color: #A7C34E;\n"
+"    background-color: #A"
+                        "7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
@@ -199,8 +205,7 @@ public:
 "}\n"
 "\n"
 "/* Apply styles to the addFeature_4 */\n"
-"#addFeature_4"
-                        " {\n"
+"#addFeature_4 {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
@@ -233,7 +238,8 @@ public:
 "/* Apply styles to the addFeature */\n"
 "#addFeature {\n"
 "    background-color: #A7C34E;\n"
-"    border-radius: 25px;\n"
+" "
+                        "   border-radius: 25px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the stats */\n"
@@ -250,8 +256,7 @@ public:
 "}\n"
 "\n"
 "/* Apply styles to the searchBar */\n"
-"#sear"
-                        "chBar {\n"
+"#searchBar {\n"
 "    background-color: white;\n"
 "\n"
 "}\n"
@@ -281,16 +286,15 @@ public:
 "    border-radius: 20px;\n"
 "}\n"
 "\n"
-"#searchBar_2 {\n"
-"    border-radius: 20px;\n"
-"}\n"
+"\n"
 "\n"
 "#searchBar_3 {\n"
 "    border-radius: 20px;\n"
 "}\n"
 "\n"
 "#searchBar_4 {\n"
-"    border-radius: 20px;\n"
+" "
+                        "   border-radius: 20px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the add button */\n"
@@ -299,11 +303,6 @@ public:
 "#pdf,\n"
 "#update,\n"
 "#sort ,\n"
-"#add_2,\n"
-"#del_2,\n"
-"#pdf_2,\n"
-"#update_2,\n"
-"#sort_2,\n"
 "#add_3,\n"
 "#del_3,\n"
 "#pdf_3,\n"
@@ -312,8 +311,7 @@ public:
 "#add_4,\n"
 "#del_4,\n"
 "#pdf_4,\n"
-"#update_4,"
-                        "\n"
+"#update_4,\n"
 "#sort_4{\n"
 "    border: none; /* Remove default button border */\n"
 "    background-color: transparent; /* Make the background transparent */\n"
@@ -340,7 +338,8 @@ public:
 "}\n"
 "\n"
 "#pdf::icon {\n"
-"    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF button */\n"
+"    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF "
+                        "button */\n"
 "}\n"
 "\n"
 "#update::icon {\n"
@@ -348,8 +347,7 @@ public:
 "}\n"
 "\n"
 "#sort::icon {\n"
-"    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort butto"
-                        "n */\n"
+"    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort button */\n"
 "}\n"
 "\n"
 ""));
@@ -360,7 +358,7 @@ public:
         frame->setFrameShape(QFrame::NoFrame);
         role = new QLineEdit(frame);
         role->setObjectName("role");
-        role->setGeometry(QRect(1070, 20, 281, 91));
+        role->setGeometry(QRect(1160, 10, 281, 91));
         role->setCursor(QCursor(Qt::ArrowCursor));
         role->setReadOnly(true);
         logo = new QLabel(frame);
@@ -475,57 +473,275 @@ public:
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
-        readBox_2 = new QListWidget(page_2);
-        readBox_2->setObjectName("readBox_2");
-        readBox_2->setGeometry(QRect(420, 100, 711, 561));
-        searchBar_2 = new QLineEdit(page_2);
-        searchBar_2->setObjectName("searchBar_2");
-        searchBar_2->setGeometry(QRect(870, 120, 241, 41));
-        searchBar_2->setStyleSheet(QString::fromUtf8(""));
-        searchBar_2->setClearButtonEnabled(true);
-        stats_2 = new QFrame(page_2);
-        stats_2->setObjectName("stats_2");
-        stats_2->setGeometry(QRect(10, 230, 371, 431));
-        stats_2->setFrameShape(QFrame::NoFrame);
-        addFeature_2 = new QFrame(page_2);
-        addFeature_2->setObjectName("addFeature_2");
-        addFeature_2->setGeometry(QRect(10, 10, 371, 201));
-        addFeature_2->setFrameShape(QFrame::NoFrame);
-        featureBar_2 = new QFrame(page_2);
-        featureBar_2->setObjectName("featureBar_2");
-        featureBar_2->setGeometry(QRect(420, 20, 711, 61));
-        featureBar_2->setStyleSheet(QString::fromUtf8(""));
-        featureBar_2->setFrameShape(QFrame::NoFrame);
-        del_2 = new QPushButton(featureBar_2);
-        del_2->setObjectName("del_2");
-        del_2->setGeometry(QRect(130, 10, 41, 41));
-        del_2->setCursor(QCursor(Qt::PointingHandCursor));
-        del_2->setIcon(icon1);
-        del_2->setIconSize(QSize(40, 40));
-        update_2 = new QPushButton(featureBar_2);
-        update_2->setObjectName("update_2");
-        update_2->setGeometry(QRect(330, 10, 41, 41));
-        update_2->setCursor(QCursor(Qt::PointingHandCursor));
-        update_2->setIcon(icon2);
-        update_2->setIconSize(QSize(60, 60));
-        pdf_2 = new QPushButton(featureBar_2);
-        pdf_2->setObjectName("pdf_2");
-        pdf_2->setGeometry(QRect(430, 10, 41, 41));
-        pdf_2->setCursor(QCursor(Qt::PointingHandCursor));
-        pdf_2->setIcon(icon3);
-        pdf_2->setIconSize(QSize(50, 50));
-        sort_2 = new QPushButton(featureBar_2);
-        sort_2->setObjectName("sort_2");
-        sort_2->setGeometry(QRect(230, 10, 41, 41));
-        sort_2->setCursor(QCursor(Qt::PointingHandCursor));
-        sort_2->setIcon(icon4);
-        sort_2->setIconSize(QSize(50, 50));
-        add_2 = new QPushButton(featureBar_2);
-        add_2->setObjectName("add_2");
-        add_2->setGeometry(QRect(30, 10, 41, 41));
-        add_2->setCursor(QCursor(Qt::PointingHandCursor));
-        add_2->setIcon(icon);
-        add_2->setIconSize(QSize(60, 60));
+        page_2->setStyleSheet(QString::fromUtf8("\n"
+"#featureBarClient {\n"
+"    background-color: white;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"#CrudClient,#CreateClient {\n"
+"    background-color: #A7C34E;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"#statsClient {\n"
+"    background-color: #A7C34E;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"#readBoxClient{\n"
+"    border: none;\n"
+"    background-color: #A7C34E;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"#searchBarClient{\n"
+"     background-color: white;\n"
+" border-radius: 20px;\n"
+"}\n"
+"/*text ili 3al isar bta3 il inputs*/\n"
+"#ClientCreateIDLine,\n"
+"#ClientCreateEmailLine,\n"
+"#ClientCreateFirstNameLine,\n"
+"#ClientCreateLastNameLine,\n"
+"#ClientCreateAddressLine,\n"
+"#ClientCreatePhoneNumberLine,\n"
+"#ClientCreateDobLine {\n"
+"    background-color: #A7C34E;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"}\n"
+"\n"
+"#ClientCreateID,\n"
+"#ClientCreateEmail,\n"
+"#ClientCreateFirstName,\n"
+"#ClientCreateLastName,\n"
+"#ClientCreateA"
+                        "ddress,\n"
+"#ClientCreatePhoneNumber,\n"
+"#ClientCreateDob {\n"
+"    background-color: #171717;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"border:none;\n"
+"border-radius:15px;\n"
+"}\n"
+"\n"
+"#addClient,\n"
+"#deleteClient,\n"
+"#pdfClient,\n"
+"#updateClient,\n"
+"#sortClient{\n"
+"border: none;\n"
+"    background-color: transparent;\n"
+"\n"
+"}\n"
+"\n"
+"#tableClient {\n"
+"    background-color: #f5f5f5; /* Light gray background */\n"
+"    border-radius: 10px;\n"
+"    border-collapse: collapse;\n"
+"    width: 100%;\n"
+"}\n"
+"\n"
+"#tableClient th,\n"
+"#tableClient td {\n"
+"    border: 1px solid #ddd; /* Gray borders */\n"
+"    padding: 8px;\n"
+"    text-align: left;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+""));
+        readBoxClient = new QListWidget(page_2);
+        readBoxClient->setObjectName("readBoxClient");
+        readBoxClient->setGeometry(QRect(420, 100, 711, 561));
+        searchBarClient = new QLineEdit(page_2);
+        searchBarClient->setObjectName("searchBarClient");
+        searchBarClient->setGeometry(QRect(720, 120, 391, 41));
+        searchBarClient->setStyleSheet(QString::fromUtf8(""));
+        searchBarClient->setClearButtonEnabled(true);
+        CrudClient = new QFrame(page_2);
+        CrudClient->setObjectName("CrudClient");
+        CrudClient->setGeometry(QRect(10, 230, 371, 431));
+        CrudClient->setFrameShape(QFrame::NoFrame);
+        StackedClient = new QStackedWidget(CrudClient);
+        StackedClient->setObjectName("StackedClient");
+        StackedClient->setGeometry(QRect(-20, 0, 391, 431));
+        CreateClientPage = new QWidget();
+        CreateClientPage->setObjectName("CreateClientPage");
+        CreateClient = new QFrame(CreateClientPage);
+        CreateClient->setObjectName("CreateClient");
+        CreateClient->setGeometry(QRect(20, 0, 371, 431));
+        CreateClient->setFrameShape(QFrame::StyledPanel);
+        CreateClient->setFrameShadow(QFrame::Raised);
+        ClientCreateEmail = new QLineEdit(CreateClient);
+        ClientCreateEmail->setObjectName("ClientCreateEmail");
+        ClientCreateEmail->setGeometry(QRect(190, 50, 151, 31));
+        ClientCreateFirstName = new QLineEdit(CreateClient);
+        ClientCreateFirstName->setObjectName("ClientCreateFirstName");
+        ClientCreateFirstName->setGeometry(QRect(190, 100, 151, 31));
+        ClientCreateLastName = new QLineEdit(CreateClient);
+        ClientCreateLastName->setObjectName("ClientCreateLastName");
+        ClientCreateLastName->setGeometry(QRect(190, 150, 151, 31));
+        ClientCreateDob = new QDateEdit(CreateClient);
+        ClientCreateDob->setObjectName("ClientCreateDob");
+        ClientCreateDob->setGeometry(QRect(190, 300, 151, 31));
+        ClientCreateAddress = new QLineEdit(CreateClient);
+        ClientCreateAddress->setObjectName("ClientCreateAddress");
+        ClientCreateAddress->setGeometry(QRect(190, 200, 151, 31));
+        ClientCreatePhoneNumber = new QLineEdit(CreateClient);
+        ClientCreatePhoneNumber->setObjectName("ClientCreatePhoneNumber");
+        ClientCreatePhoneNumber->setGeometry(QRect(190, 250, 151, 31));
+        ClientCreateButton = new QPushButton(CreateClient);
+        ClientCreateButton->setObjectName("ClientCreateButton");
+        ClientCreateButton->setGeometry(QRect(60, 380, 80, 24));
+        ClientCreateCancel = new QPushButton(CreateClient);
+        ClientCreateCancel->setObjectName("ClientCreateCancel");
+        ClientCreateCancel->setGeometry(QRect(230, 380, 80, 24));
+        ClientCreateEmailLine = new QPlainTextEdit(CreateClient);
+        ClientCreateEmailLine->setObjectName("ClientCreateEmailLine");
+        ClientCreateEmailLine->setGeometry(QRect(50, 50, 104, 31));
+        ClientCreateEmailLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientCreateFirstNameLine = new QPlainTextEdit(CreateClient);
+        ClientCreateFirstNameLine->setObjectName("ClientCreateFirstNameLine");
+        ClientCreateFirstNameLine->setGeometry(QRect(50, 100, 104, 31));
+        ClientCreateFirstNameLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientCreateLastNameLine = new QPlainTextEdit(CreateClient);
+        ClientCreateLastNameLine->setObjectName("ClientCreateLastNameLine");
+        ClientCreateLastNameLine->setGeometry(QRect(50, 150, 104, 31));
+        ClientCreateLastNameLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientCreateAddressLine = new QPlainTextEdit(CreateClient);
+        ClientCreateAddressLine->setObjectName("ClientCreateAddressLine");
+        ClientCreateAddressLine->setGeometry(QRect(50, 200, 104, 31));
+        ClientCreateAddressLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientCreatePhoneNumberLine = new QPlainTextEdit(CreateClient);
+        ClientCreatePhoneNumberLine->setObjectName("ClientCreatePhoneNumberLine");
+        ClientCreatePhoneNumberLine->setGeometry(QRect(50, 250, 104, 31));
+        ClientCreatePhoneNumberLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientCreateDobLine = new QPlainTextEdit(CreateClient);
+        ClientCreateDobLine->setObjectName("ClientCreateDobLine");
+        ClientCreateDobLine->setGeometry(QRect(50, 300, 104, 31));
+        ClientCreateDobLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        StackedClient->addWidget(CreateClientPage);
+        UpdateClientPage = new QWidget();
+        UpdateClientPage->setObjectName("UpdateClientPage");
+        UpdateClient = new QFrame(UpdateClientPage);
+        UpdateClient->setObjectName("UpdateClient");
+        UpdateClient->setGeometry(QRect(20, 0, 371, 431));
+        UpdateClient->setFrameShape(QFrame::StyledPanel);
+        UpdateClient->setFrameShadow(QFrame::Raised);
+        ClientUpdateID = new QLineEdit(UpdateClient);
+        ClientUpdateID->setObjectName("ClientUpdateID");
+        ClientUpdateID->setGeometry(QRect(190, 30, 151, 31));
+        ClientUpdateEmail = new QLineEdit(UpdateClient);
+        ClientUpdateEmail->setObjectName("ClientUpdateEmail");
+        ClientUpdateEmail->setGeometry(QRect(190, 80, 151, 31));
+        ClientUpdateFirstName = new QLineEdit(UpdateClient);
+        ClientUpdateFirstName->setObjectName("ClientUpdateFirstName");
+        ClientUpdateFirstName->setGeometry(QRect(190, 130, 151, 31));
+        ClientUpdateLastName = new QLineEdit(UpdateClient);
+        ClientUpdateLastName->setObjectName("ClientUpdateLastName");
+        ClientUpdateLastName->setGeometry(QRect(190, 180, 151, 31));
+        ClientUpdateDob = new QDateEdit(UpdateClient);
+        ClientUpdateDob->setObjectName("ClientUpdateDob");
+        ClientUpdateDob->setGeometry(QRect(190, 330, 151, 31));
+        ClientUpdateAddress = new QLineEdit(UpdateClient);
+        ClientUpdateAddress->setObjectName("ClientUpdateAddress");
+        ClientUpdateAddress->setGeometry(QRect(190, 230, 151, 31));
+        ClientUpdatePhoneNumber = new QLineEdit(UpdateClient);
+        ClientUpdatePhoneNumber->setObjectName("ClientUpdatePhoneNumber");
+        ClientUpdatePhoneNumber->setGeometry(QRect(190, 280, 151, 31));
+        ClientUpdateButton = new QPushButton(UpdateClient);
+        ClientUpdateButton->setObjectName("ClientUpdateButton");
+        ClientUpdateButton->setGeometry(QRect(60, 380, 80, 24));
+        ClientUpdateCancel = new QPushButton(UpdateClient);
+        ClientUpdateCancel->setObjectName("ClientUpdateCancel");
+        ClientUpdateCancel->setGeometry(QRect(230, 380, 80, 24));
+        ClientUpdateIDLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateIDLine->setObjectName("ClientUpdateIDLine");
+        ClientUpdateIDLine->setGeometry(QRect(50, 30, 104, 31));
+        ClientUpdateIDLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdateEmailLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateEmailLine->setObjectName("ClientUpdateEmailLine");
+        ClientUpdateEmailLine->setGeometry(QRect(50, 80, 104, 31));
+        ClientUpdateEmailLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdateFirstNameLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateFirstNameLine->setObjectName("ClientUpdateFirstNameLine");
+        ClientUpdateFirstNameLine->setGeometry(QRect(50, 130, 104, 31));
+        ClientUpdateFirstNameLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdateLastNameLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateLastNameLine->setObjectName("ClientUpdateLastNameLine");
+        ClientUpdateLastNameLine->setGeometry(QRect(50, 180, 104, 31));
+        ClientUpdateLastNameLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdateAdressLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateAdressLine->setObjectName("ClientUpdateAdressLine");
+        ClientUpdateAdressLine->setGeometry(QRect(50, 230, 104, 31));
+        ClientUpdateAdressLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdatePhoneNumberLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdatePhoneNumberLine->setObjectName("ClientUpdatePhoneNumberLine");
+        ClientUpdatePhoneNumberLine->setGeometry(QRect(50, 280, 104, 31));
+        ClientUpdatePhoneNumberLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdateDobLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateDobLine->setObjectName("ClientUpdateDobLine");
+        ClientUpdateDobLine->setGeometry(QRect(50, 330, 104, 31));
+        ClientUpdateDobLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        StackedClient->addWidget(UpdateClientPage);
+        statsClient = new QFrame(page_2);
+        statsClient->setObjectName("statsClient");
+        statsClient->setGeometry(QRect(10, 10, 371, 201));
+        statsClient->setFrameShape(QFrame::NoFrame);
+        featureBarClient = new QFrame(page_2);
+        featureBarClient->setObjectName("featureBarClient");
+        featureBarClient->setGeometry(QRect(620, 20, 501, 61));
+        featureBarClient->setStyleSheet(QString::fromUtf8(""));
+        featureBarClient->setFrameShape(QFrame::NoFrame);
+        deleteClient = new QPushButton(featureBarClient);
+        deleteClient->setObjectName("deleteClient");
+        deleteClient->setGeometry(QRect(130, 10, 41, 41));
+        deleteClient->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8("../Resources/Icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        deleteClient->setIcon(icon5);
+        deleteClient->setIconSize(QSize(40, 40));
+        updateClient = new QPushButton(featureBarClient);
+        updateClient->setObjectName("updateClient");
+        updateClient->setGeometry(QRect(330, 10, 41, 41));
+        updateClient->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8("../Resources/Icons/update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        updateClient->setIcon(icon6);
+        updateClient->setIconSize(QSize(60, 60));
+        pdfClient = new QPushButton(featureBarClient);
+        pdfClient->setObjectName("pdfClient");
+        pdfClient->setGeometry(QRect(430, 10, 41, 41));
+        pdfClient->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8("../Resources/Icons/pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfClient->setIcon(icon7);
+        pdfClient->setIconSize(QSize(50, 50));
+        sortClient = new QPushButton(featureBarClient);
+        sortClient->setObjectName("sortClient");
+        sortClient->setGeometry(QRect(230, 10, 41, 41));
+        sortClient->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8("../Resources/Icons/sort.png"), QSize(), QIcon::Normal, QIcon::Off);
+        sortClient->setIcon(icon8);
+        sortClient->setIconSize(QSize(50, 50));
+        addClient = new QPushButton(featureBarClient);
+        addClient->setObjectName("addClient");
+        addClient->setGeometry(QRect(30, 10, 41, 41));
+        addClient->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8("../Resources/Icons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
+        addClient->setIcon(icon9);
+        addClient->setIconSize(QSize(60, 60));
         tableClient = new QTableWidget(page_2);
         if (tableClient->columnCount() < 7)
             tableClient->setColumnCount(7);
@@ -546,11 +762,11 @@ public:
         tableClient->setObjectName("tableClient");
         tableClient->setGeometry(QRect(430, 180, 681, 461));
         tableClient->setFont(font);
-        tableClient->setAutoFillBackground(true);
+        tableClient->setAutoFillBackground(false);
         tableClient->setShowGrid(true);
         tableClient->setSortingEnabled(true);
         tableClient->horizontalHeader()->setMinimumSectionSize(50);
-        tableClient->horizontalHeader()->setDefaultSectionSize(62);
+        tableClient->horizontalHeader()->setDefaultSectionSize(66);
         tableClient->verticalHeader()->setVisible(false);
         tableClient->verticalHeader()->setMinimumSectionSize(10);
         tableClient->verticalHeader()->setDefaultSectionSize(10);
@@ -722,34 +938,35 @@ public:
         stackedWidget->addWidget(page_4);
         employees = new QPushButton(frame);
         employees->setObjectName("employees");
-        employees->setGeometry(QRect(30, 175, 200, 50));
+        employees->setGeometry(QRect(50, 210, 200, 50));
         employees->setCursor(QCursor(Qt::PointingHandCursor));
         clients = new QPushButton(frame);
         clients->setObjectName("clients");
-        clients->setGeometry(QRect(30, 275, 200, 50));
+        clients->setGeometry(QRect(50, 310, 200, 50));
         clients->setCursor(QCursor(Qt::PointingHandCursor));
         contracts = new QPushButton(frame);
         contracts->setObjectName("contracts");
-        contracts->setGeometry(QRect(30, 375, 200, 50));
+        contracts->setGeometry(QRect(50, 410, 200, 50));
         contracts->setCursor(QCursor(Qt::PointingHandCursor));
         accidents = new QPushButton(frame);
         accidents->setObjectName("accidents");
-        accidents->setGeometry(QRect(30, 475, 200, 50));
+        accidents->setGeometry(QRect(50, 510, 200, 50));
         accidents->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton = new QPushButton(frame);
         logoutButton->setObjectName("logoutButton");
-        logoutButton->setGeometry(QRect(30, 575, 200, 50));
+        logoutButton->setGeometry(QRect(50, 610, 200, 50));
         logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8("../../../../.designer/Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon5);
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon10);
         logoutButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Dashboard);
 
         stackedWidget->setCurrentIndex(1);
+        StackedClient->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Dashboard);
@@ -782,11 +999,29 @@ public:
         ___qtablewidgetitem6->setText(QCoreApplication::translate("Dashboard", "Address", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
-        del_2->setText(QString());
-        update_2->setText(QString());
-        pdf_2->setText(QString());
-        sort_2->setText(QString());
-        add_2->setText(QString());
+        ClientCreateEmail->setPlaceholderText(QString());
+        ClientCreateButton->setText(QCoreApplication::translate("Dashboard", "Create Client", nullptr));
+        ClientCreateCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
+        ClientCreateEmailLine->setPlainText(QCoreApplication::translate("Dashboard", "Email", nullptr));
+        ClientCreateFirstNameLine->setPlainText(QCoreApplication::translate("Dashboard", "First Name", nullptr));
+        ClientCreateLastNameLine->setPlainText(QCoreApplication::translate("Dashboard", "Last Name", nullptr));
+        ClientCreateAddressLine->setPlainText(QCoreApplication::translate("Dashboard", "Address", nullptr));
+        ClientCreatePhoneNumberLine->setPlainText(QCoreApplication::translate("Dashboard", "Phone Number", nullptr));
+        ClientCreateDobLine->setPlainText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
+        ClientUpdateButton->setText(QCoreApplication::translate("Dashboard", "Update Client", nullptr));
+        ClientUpdateCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
+        ClientUpdateIDLine->setPlainText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        ClientUpdateEmailLine->setPlainText(QCoreApplication::translate("Dashboard", "Email", nullptr));
+        ClientUpdateFirstNameLine->setPlainText(QCoreApplication::translate("Dashboard", "First Name", nullptr));
+        ClientUpdateLastNameLine->setPlainText(QCoreApplication::translate("Dashboard", "Last Name", nullptr));
+        ClientUpdateAdressLine->setPlainText(QCoreApplication::translate("Dashboard", "Adress", nullptr));
+        ClientUpdatePhoneNumberLine->setPlainText(QCoreApplication::translate("Dashboard", "Phone Number", nullptr));
+        ClientUpdateDobLine->setPlainText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
+        deleteClient->setText(QString());
+        updateClient->setText(QString());
+        pdfClient->setText(QString());
+        sortClient->setText(QString());
+        addClient->setText(QString());
         QTableWidgetItem *___qtablewidgetitem8 = tableClient->horizontalHeaderItem(0);
         ___qtablewidgetitem8->setText(QCoreApplication::translate("Dashboard", " ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem9 = tableClient->horizontalHeaderItem(1);
