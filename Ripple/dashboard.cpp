@@ -58,6 +58,11 @@ void Dashboard::update() {
 
     QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
     QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
+    QObject::connect(ui->ClientDeleteButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedClient);
+
+    QObject::connect(ui->ClientCreateCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedClient);
+    QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
+    QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 
 }
 
@@ -178,8 +183,50 @@ void Dashboard::onUpdateClickedClient() {
 
 
 void Dashboard::onDeleteClickedClient() {
+    Client MasterClient(ui->tableClient, this);
 
+    if (ui->ClientDeleteID->text().isEmpty()) {
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
+    } else {
+        // Validate ID
+        QString id = ui->ClientDeleteID->text();
+        bool validId = id.toInt(&validId) && validId;
+
+        if (!validId) {
+            QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"),QMessageBox::Ok, QMessageBox::Ok);
+        } else {
+
+            MasterClient.DeleteClient(id.toInt());
+            MasterClient.ReadClient();
+
+            clearInputFields();
+
+            QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"),QMessageBox::Ok, QMessageBox::Ok);
+        }
+    }
 }
+
+void Dashboard::onAddCancelClickedClient()
+{
+    clearInputFields();
+}
+
+void Dashboard::onUpdateCancelClickedClient()
+{
+    ui->ClientUpdateID->clear();
+    ui->ClientUpdateEmail->clear();
+    ui->ClientUpdateFirstName->clear();
+    ui->ClientUpdateLastName->clear();
+    ui->ClientUpdatePhoneNumber->clear();
+    ui->ClientUpdateAddress->clear();
+    ui->ClientUpdateDob->setDate(QDate());
+}
+
+void Dashboard::onDeleteCancelClickedClient()
+{
+    ui->ClientDeleteID->clear();
+}
+
 
 void Dashboard::onSortClickedClient() {
 

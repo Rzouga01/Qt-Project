@@ -1,4 +1,5 @@
-﻿  client.cpp
+﻿  Uic'ing dashboard.ui...
+  client.cpp
   dashboard.cpp
   main.cpp
   moc_client.cpp

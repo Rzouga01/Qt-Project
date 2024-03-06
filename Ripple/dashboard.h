@@ -34,6 +34,12 @@ public:
     void onPdfClickedClient();
     void clearInputFields();
 
+    void onAddCancelClickedClient();
+    void onUpdateCancelClickedClient();
+    void onDeleteCancelClickedClient();
+
+
+
     //------------------------------------
 
 

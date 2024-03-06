@@ -88,6 +88,11 @@ public:
     QPlainTextEdit *ClientUpdatePhoneNumberLine;
     QPlainTextEdit *ClientUpdateDobLine;
     QWidget *DeleteClientPage;
+    QFrame *DeleteClient;
+    QLineEdit *ClientDeleteID;
+    QPushButton *ClientDeleteButton;
+    QPushButton *ClientDeleteCancel;
+    QPlainTextEdit *ClientDeleteIDLine;
     QFrame *statsClient;
     QFrame *featureBarClient;
     QPushButton *deleteClient;
@@ -480,7 +485,7 @@ public:
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
-"#CrudClient,#CreateClient,#UpdateClient {\n"
+"#CrudClient,#CreateClient,#UpdateClient,#DeleteClient {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
@@ -525,9 +530,9 @@ public:
 "    background-color: #A7C34E;\n"
 "    font-family: \"helvetica\";\n"
 "    font-size: 14px;\n"
-"    color: white;\n"
-"   "
-                        " font-style: bold;\n"
+"    color: "
+                        "white;\n"
+"    font-style: bold;\n"
 "}\n"
 "\n"
 "\n"
@@ -576,9 +581,9 @@ public:
 "#ClientUpdatePhoneNumberLine,\n"
 "#ClientUpdateDobLine {\n"
 "    background-color: #A7C34E;\n"
-"    font-family: \"helvetica\";\n"
-"    font-"
-                        "size: 14px;\n"
+"    font-family: \"helvetica\";"
+                        "\n"
+"    font-size: 14px;\n"
 "    color: white;\n"
 "    font-style: bold;\n"
 "}\n"
@@ -599,8 +604,28 @@ public:
 "	border-radius:15px;\n"
 "}\n"
 "\n"
+"/*Delete*/\n"
 "\n"
-""));
+"\n"
+"#ClientDeleteIDLine\n"
+" {\n"
+"    background-color: #A7C34E;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"}\n"
+"\n"
+"#ClientDeleteID\n"
+" {\n"
+"    background-color: #171717;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"	border:none;\n"
+"	border-radius:15px;\n"
+"}"));
         readBoxClient = new QListWidget(page_2);
         readBoxClient->setObjectName("readBoxClient");
         readBoxClient->setGeometry(QRect(420, 100, 711, 561));
@@ -737,6 +762,24 @@ public:
         StackedClient->addWidget(UpdateClientPage);
         DeleteClientPage = new QWidget();
         DeleteClientPage->setObjectName("DeleteClientPage");
+        DeleteClient = new QFrame(DeleteClientPage);
+        DeleteClient->setObjectName("DeleteClient");
+        DeleteClient->setGeometry(QRect(20, 0, 371, 431));
+        DeleteClient->setFrameShape(QFrame::StyledPanel);
+        DeleteClient->setFrameShadow(QFrame::Raised);
+        ClientDeleteID = new QLineEdit(DeleteClient);
+        ClientDeleteID->setObjectName("ClientDeleteID");
+        ClientDeleteID->setGeometry(QRect(190, 30, 151, 31));
+        ClientDeleteButton = new QPushButton(DeleteClient);
+        ClientDeleteButton->setObjectName("ClientDeleteButton");
+        ClientDeleteButton->setGeometry(QRect(60, 380, 80, 24));
+        ClientDeleteCancel = new QPushButton(DeleteClient);
+        ClientDeleteCancel->setObjectName("ClientDeleteCancel");
+        ClientDeleteCancel->setGeometry(QRect(230, 380, 80, 24));
+        ClientDeleteIDLine = new QPlainTextEdit(DeleteClient);
+        ClientDeleteIDLine->setObjectName("ClientDeleteIDLine");
+        ClientDeleteIDLine->setGeometry(QRect(50, 30, 104, 31));
+        ClientDeleteIDLine->setTextInteractionFlags(Qt::NoTextInteraction);
         StackedClient->addWidget(DeleteClientPage);
         statsClient = new QFrame(page_2);
         statsClient->setObjectName("statsClient");
@@ -1059,9 +1102,12 @@ public:
         ClientUpdateEmailLine->setPlainText(QCoreApplication::translate("Dashboard", "Email", nullptr));
         ClientUpdateFirstNameLine->setPlainText(QCoreApplication::translate("Dashboard", "First Name", nullptr));
         ClientUpdateLastNameLine->setPlainText(QCoreApplication::translate("Dashboard", "Last Name", nullptr));
-        ClientUpdateAddressLine->setPlainText(QCoreApplication::translate("Dashboard", "Adress", nullptr));
+        ClientUpdateAddressLine->setPlainText(QCoreApplication::translate("Dashboard", "Address", nullptr));
         ClientUpdatePhoneNumberLine->setPlainText(QCoreApplication::translate("Dashboard", "Phone Number", nullptr));
         ClientUpdateDobLine->setPlainText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
+        ClientDeleteButton->setText(QCoreApplication::translate("Dashboard", "Delete Client", nullptr));
+        ClientDeleteCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
+        ClientDeleteIDLine->setPlainText(QCoreApplication::translate("Dashboard", "ID", nullptr));
         deleteClient->setText(QString());
         updateClient->setText(QString());
         pdfClient->setText(QString());

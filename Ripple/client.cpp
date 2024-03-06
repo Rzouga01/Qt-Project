@@ -146,16 +146,37 @@ void Client::CreateClient(QString email,QString first_name,QString last_name,QSt
 void Client::DeleteClient(int id)
 {
     QSqlQuery qry;
-    qry.prepare("DELETE FROM CLIENTS WHERE CLIENT_ID = :id");
+    qry.prepare("SELECT * FROM CLIENTS WHERE CLIENT_ID = :id");
     qry.bindValue(":id", id);
+
     if (qry.exec())
     {
-        QMessageBox::critical(this, tr("Deleted"), tr("Deleted"));
+        if (qry.next())
+        {
+            qry.prepare("DELETE FROM CLIENTS WHERE CLIENT_ID = :id");
+            qry.bindValue(":id", id);
+            if (qry.exec())
+            {
+                qDebug() << "Client found. Deleting...";
+                QMessageBox::critical(this, tr("Deleted"), tr("Deleted"));
+            }
+            else
+            {
+                qDebug() << "Error executing query:" << qry.lastError().text();
+                QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+            }
+        }
+        else
+        {
+            qDebug() << "Client not found.";
+            return;
+        }
     }
     else
     {
         qDebug() << "Error executing query:" << qry.lastError().text();
         QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+        return;
     }
 }
 
