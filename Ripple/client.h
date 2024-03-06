@@ -27,9 +27,12 @@ private:
 public:
    explicit Client(QWidget* parent = nullptr);
    explicit Client(QTableWidget *tableWidget, QWidget *parent = nullptr);
-    ~Client();
+   ~Client();
     Client();
-    Client(QString email, QString first_name, QString last_name, QString phone_number, QString address, QDate dob);
+    Client(const QString &email, const QString &first_name, const QString & last_name, const QString &phone_number, const QString &address, const QDate &dob);
+    Client(const Client& other);
+
+    
 
 
 private:
@@ -39,7 +42,7 @@ private:
 public:
     void CreateClient();
     void ReadClient();
-    void UpdateClient(Client NewClient);
+    void UpdateClient(int clientID,Client NewClient);
     void DeleteClient(int id);
 
     QString getEmail() { return email; };

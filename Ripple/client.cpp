@@ -17,6 +17,16 @@ Client::Client(QWidget* parent) :
     ui->setupUi(this);
 }
 
+Client::Client(const Client& other)
+{
+    this->id = other.id;
+    this->email = other.email;
+    this->first_name = other.first_name;
+    this->last_name = other.last_name;
+    this->phone_number = other.phone_number;
+    this->address = other.address;
+    this->dob = other.dob;
+}
 
 Client::Client(QTableWidget *tableWidget, QWidget *parent)
     : QDialog(parent), ui(new Ui::Client), tableClient(tableWidget)
@@ -50,7 +60,7 @@ Client::Client()
     dob = QDate::currentDate();
 }
 
-Client::Client(QString email, QString first_name, QString last_name, QString phone_number, QString address, QDate dob)
+Client::Client(const QString& email, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob)
 {
     this->email = email;
     this->first_name = first_name;
@@ -135,12 +145,12 @@ void Client::ReadClient()
 }
 
 
-void Client::UpdateClient(Client NewClient)
+void Client::UpdateClient(int clientID,Client NewClient)
 {
     QSqlQuery qry;
 
     qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = :dob WHERE CLIENT_ID = :id");
-    qry.bindValue(":id", NewClient.id);
+    qry.bindValue(":id", clientID);
     qry.bindValue(":email", NewClient.email);
     qry.bindValue(":first_name", NewClient.first_name);
     qry.bindValue(":last_name", NewClient.last_name);
@@ -151,12 +161,13 @@ void Client::UpdateClient(Client NewClient)
     if (qry.exec())
     {
         qDebug() <<"Client Updated successfully." << "Data:" <<
-            "\nEmail :" << NewClient.id <<
+            "\nEmail :" << NewClient.email <<
             "\nFirst Name :" << NewClient.first_name <<
             "\nLast Name :" << NewClient.last_name <<
             "\nPhone Number :" << NewClient.phone_number <<
             "\nAddress :" << NewClient.address <<
             "\nDate of Birth :" << NewClient.dob.toString();
+
     }
     else
     {
