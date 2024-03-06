@@ -84,9 +84,10 @@ public:
     QPlainTextEdit *ClientUpdateEmailLine;
     QPlainTextEdit *ClientUpdateFirstNameLine;
     QPlainTextEdit *ClientUpdateLastNameLine;
-    QPlainTextEdit *ClientUpdateAdressLine;
+    QPlainTextEdit *ClientUpdateAddressLine;
     QPlainTextEdit *ClientUpdatePhoneNumberLine;
     QPlainTextEdit *ClientUpdateDobLine;
+    QWidget *DeleteClientPage;
     QFrame *statsClient;
     QFrame *featureBarClient;
     QPushButton *deleteClient;
@@ -479,7 +480,7 @@ public:
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
-"#CrudClient,#CreateClient {\n"
+"#CrudClient,#CreateClient,#UpdateClient {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
@@ -499,37 +500,6 @@ public:
 "     background-color: white;\n"
 " border-radius: 20px;\n"
 "}\n"
-"/*text ili 3al isar bta3 il inputs*/\n"
-"#ClientCreateIDLine,\n"
-"#ClientCreateEmailLine,\n"
-"#ClientCreateFirstNameLine,\n"
-"#ClientCreateLastNameLine,\n"
-"#ClientCreateAddressLine,\n"
-"#ClientCreatePhoneNumberLine,\n"
-"#ClientCreateDobLine {\n"
-"    background-color: #A7C34E;\n"
-"    font-family: \"helvetica\";\n"
-"    font-size: 14px;\n"
-"    color: white;\n"
-"    font-style: bold;\n"
-"}\n"
-"\n"
-"#ClientCreateID,\n"
-"#ClientCreateEmail,\n"
-"#ClientCreateFirstName,\n"
-"#ClientCreateLastName,\n"
-"#ClientCreateA"
-                        "ddress,\n"
-"#ClientCreatePhoneNumber,\n"
-"#ClientCreateDob {\n"
-"    background-color: #171717;\n"
-"    font-family: \"helvetica\";\n"
-"    font-size: 14px;\n"
-"    color: white;\n"
-"    font-style: bold;\n"
-"	border:none;\n"
-"	border-radius:15px;\n"
-"}\n"
 "\n"
 "#addClient,\n"
 "#deleteClient,\n"
@@ -542,6 +512,43 @@ public:
 "}\n"
 "\n"
 "\n"
+"\n"
+"\n"
+"/*Create*/\n"
+"\n"
+"#ClientCreateEmailLine,\n"
+"#ClientCreateFirstNameLine,\n"
+"#ClientCreateLastNameLine,\n"
+"#ClientCreateAddressLine,\n"
+"#ClientCreatePhoneNumberLine,\n"
+"#ClientCreateDobLine {\n"
+"    background-color: #A7C34E;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"   "
+                        " font-style: bold;\n"
+"}\n"
+"\n"
+"\n"
+"#ClientCreateEmail,\n"
+"#ClientCreateFirstName,\n"
+"#ClientCreateLastName,\n"
+"#ClientCreateAddress,\n"
+"#ClientCreatePhoneNumber,\n"
+"#ClientCreateDob {\n"
+"    background-color: #171717;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"	border:none;\n"
+"	border-radius:15px;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"/*Read*/\n"
 "#tableClient {\n"
 "    border-radius: 10px;\n"
 "    border-collapse: collapse;\n"
@@ -559,6 +566,38 @@ public:
 "color:black;\n"
 "}\n"
 "\n"
+"/*Update*/\n"
+"\n"
+"#ClientUpdateIDLine,\n"
+"#ClientUpdateEmailLine,\n"
+"#ClientUpdateFirstNameLine,\n"
+"#ClientUpdateLastNameLine,\n"
+"#ClientUpdateAddressLine,\n"
+"#ClientUpdatePhoneNumberLine,\n"
+"#ClientUpdateDobLine {\n"
+"    background-color: #A7C34E;\n"
+"    font-family: \"helvetica\";\n"
+"    font-"
+                        "size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"}\n"
+"\n"
+"#ClientUpdateID,\n"
+"#ClientUpdateEmail,\n"
+"#ClientUpdateFirstName,\n"
+"#ClientUpdateLastName,\n"
+"#ClientUpdateAddress,\n"
+"#ClientUpdatePhoneNumber,\n"
+"#ClientUpdateDob {\n"
+"    background-color: #171717;\n"
+"    font-family: \"helvetica\";\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"    font-style: bold;\n"
+"	border:none;\n"
+"	border-radius:15px;\n"
+"}\n"
 "\n"
 "\n"
 ""));
@@ -683,10 +722,10 @@ public:
         ClientUpdateLastNameLine->setObjectName("ClientUpdateLastNameLine");
         ClientUpdateLastNameLine->setGeometry(QRect(50, 180, 104, 31));
         ClientUpdateLastNameLine->setTextInteractionFlags(Qt::NoTextInteraction);
-        ClientUpdateAdressLine = new QPlainTextEdit(UpdateClient);
-        ClientUpdateAdressLine->setObjectName("ClientUpdateAdressLine");
-        ClientUpdateAdressLine->setGeometry(QRect(50, 230, 104, 31));
-        ClientUpdateAdressLine->setTextInteractionFlags(Qt::NoTextInteraction);
+        ClientUpdateAddressLine = new QPlainTextEdit(UpdateClient);
+        ClientUpdateAddressLine->setObjectName("ClientUpdateAddressLine");
+        ClientUpdateAddressLine->setGeometry(QRect(50, 230, 104, 31));
+        ClientUpdateAddressLine->setTextInteractionFlags(Qt::NoTextInteraction);
         ClientUpdatePhoneNumberLine = new QPlainTextEdit(UpdateClient);
         ClientUpdatePhoneNumberLine->setObjectName("ClientUpdatePhoneNumberLine");
         ClientUpdatePhoneNumberLine->setGeometry(QRect(50, 280, 104, 31));
@@ -696,6 +735,9 @@ public:
         ClientUpdateDobLine->setGeometry(QRect(50, 330, 104, 31));
         ClientUpdateDobLine->setTextInteractionFlags(Qt::NoTextInteraction);
         StackedClient->addWidget(UpdateClientPage);
+        DeleteClientPage = new QWidget();
+        DeleteClientPage->setObjectName("DeleteClientPage");
+        StackedClient->addWidget(DeleteClientPage);
         statsClient = new QFrame(page_2);
         statsClient->setObjectName("statsClient");
         statsClient->setGeometry(QRect(10, 10, 371, 201));
@@ -969,7 +1011,7 @@ public:
         retranslateUi(Dashboard);
 
         stackedWidget->setCurrentIndex(1);
-        StackedClient->setCurrentIndex(0);
+        StackedClient->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Dashboard);
@@ -1017,7 +1059,7 @@ public:
         ClientUpdateEmailLine->setPlainText(QCoreApplication::translate("Dashboard", "Email", nullptr));
         ClientUpdateFirstNameLine->setPlainText(QCoreApplication::translate("Dashboard", "First Name", nullptr));
         ClientUpdateLastNameLine->setPlainText(QCoreApplication::translate("Dashboard", "Last Name", nullptr));
-        ClientUpdateAdressLine->setPlainText(QCoreApplication::translate("Dashboard", "Adress", nullptr));
+        ClientUpdateAddressLine->setPlainText(QCoreApplication::translate("Dashboard", "Adress", nullptr));
         ClientUpdatePhoneNumberLine->setPlainText(QCoreApplication::translate("Dashboard", "Phone Number", nullptr));
         ClientUpdateDobLine->setPlainText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
         deleteClient->setText(QString());

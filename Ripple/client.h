@@ -44,6 +44,7 @@ public:
     void CreateClient(QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
     void ReadClient();
     void UpdateClient(int clientID, const Client& NewClient);
+    void UpdateClient(int clientID, QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
     void DeleteClient(int id);
 
     QString getEmail() const { return email; };

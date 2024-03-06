@@ -124,7 +124,6 @@ void Client::CreateClient(QString email,QString first_name,QString last_name,QSt
 
     if (qry.exec())
     {
-        // Retrieve the ID of the last inserted record
 
         qDebug() << "Client saved successfully." << "Data:" <<
             "\nEmail :" << email <<
@@ -209,14 +208,14 @@ void Client::UpdateClient(int clientID, const Client& NewClient)
     {
         if (qry.next())
         {
-            qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = :dob WHERE CLIENT_ID = :id");
+            qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = TO_DATE(:dob, 'YYYY-MM-DD') WHERE CLIENT_ID = :id");
             qry.bindValue(":id", clientID);
             qry.bindValue(":email", NewClient.getEmail());
             qry.bindValue(":first_name", NewClient.getFirstName());
             qry.bindValue(":last_name", NewClient.getLastName());
             qry.bindValue(":phone_number", NewClient.getPhoneNumber());
             qry.bindValue(":address", NewClient.getAddress());
-            qry.bindValue(":dob", NewClient.getDob().toString(Qt::ISODate));
+            qry.bindValue(":dob", NewClient.getDob().toString("yyyy-MM-dd")); // Ensure the date format matches 'YYYY-MM-DD'
 
             if (qry.exec())
             {
@@ -243,6 +242,54 @@ void Client::UpdateClient(int clientID, const Client& NewClient)
     {
         qDebug() << "Error executing select query:" << qry.lastError().text();
         QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+    }
+}
+
+void Client::UpdateClient(int clientID, QString email, QString first_name, QString last_name, QString phone_number, QString address, QDate dob)
+{
+    QSqlQuery qry;
+
+    qry.prepare("SELECT * FROM CLIENTS WHERE CLIENT_ID = :id");
+    qry.bindValue(":id", clientID);
+
+    if (qry.exec())
+    {
+        if (qry.next())
+        {
+            qry.prepare("UPDATE CLIENTS SET EMAIL = :email, FIRST_NAME = :first_name, LAST_NAME = :last_name, ADDRESS = :address, PHONE_NUMBER = :phone_number, DOB = TO_DATE(:dob, 'YYYY-MM-DD') WHERE CLIENT_ID = :id");
+            qry.bindValue(":id", clientID);
+            qry.bindValue(":email", email);
+            qry.bindValue(":first_name", first_name);
+            qry.bindValue(":last_name", last_name);
+            qry.bindValue(":phone_number", phone_number);
+            qry.bindValue(":address", address);
+            qry.bindValue(":dob", dob.toString("yyyy-MM-dd")); // Convert QDate to string in the 'YYYY-MM-DD' format
+
+            if (qry.exec())
+            {
+                qDebug() << "Client Updated successfully." << "Data:" <<
+                    "\nEmail :" << email <<
+                    "\nFirst Name :" << first_name <<
+                    "\nLast Name :" << last_name <<
+                    "\nPhone Number :" << phone_number <<
+                    "\nAddress :" << address <<
+                    "\nDate of Birth :" << dob.toString("yyyy-MM-dd");
+            }
+            else
+            {
+                qDebug() << "Error executing update query:" << qry.lastError().text();
+                QMessageBox::critical(nullptr, tr("Error"), qry.lastError().text()); // As this is not part of a QDialog, pass nullptr
+            }
+        }
+        else
+        {
+            QMessageBox::critical(nullptr, tr("Error"), tr("Client not found")); // As this is not part of a QDialog, pass nullptr
+        }
+    }
+    else
+    {
+        qDebug() << "Error executing select query:" << qry.lastError().text();
+        QMessageBox::critical(nullptr, tr("Error"), qry.lastError().text()); // As this is not part of a QDialog, pass nullptr
     }
 }
 
