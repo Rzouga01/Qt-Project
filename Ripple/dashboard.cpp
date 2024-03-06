@@ -14,18 +14,14 @@ Dashboard::Dashboard(QWidget *parent) :
 {
     ui->setupUi(this);
     Client client(ui->tableClient, this);
-    Connection con;
 
-    if(!con.createconnect())
-    {
+    Connection con;
+    if(!con.createconnect()) {
         qDebug() << "Not Connected";
-    }
-    else
-    {
+    } else {
         client.ReadClient();
         update();
     }
-
 }
 
 void Dashboard::update() {
@@ -63,9 +59,6 @@ void Dashboard::update() {
     QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
     QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
 
-
-
-    this->repaint();
 }
 
 
@@ -80,7 +73,7 @@ void Dashboard::onLogoutButtonClicked() {
 void Dashboard::onAddClickedClient() {
     Client readClient(ui->tableClient, this);
 
-    // Check if any of the input fields are empty or null
+
     if (ui->ClientCreateEmail->text().isEmpty() ||
         ui->ClientCreateFirstName->text().isEmpty() ||
         ui->ClientCreateLastName->text().isEmpty() ||
@@ -88,10 +81,8 @@ void Dashboard::onAddClickedClient() {
         ui->ClientCreateAddress->text().isEmpty() ||
         ui->ClientCreateDob->date().isNull()) {
 
-        // Display an error message to the user
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
 
-        // Clear all input fields
         clearInputFields();
     } else {
         // Validate phone number
@@ -107,18 +98,18 @@ void Dashboard::onAddClickedClient() {
         } else if (!validEmail) {
             QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"),QMessageBox::Ok, QMessageBox::Ok);
         } else {
-            // All input fields are valid, proceed with creating the client
-            Client client(ui->ClientCreateEmail->text(),
-                          ui->ClientCreateFirstName->text(),
-                          ui->ClientCreateLastName->text(),
-                          ui->ClientCreatePhoneNumber->text(),
-                          ui->ClientCreateAddress->text(),
-                          ui->ClientCreateDob->date());
 
-            client.CreateClient();
+            readClient.CreateClient(ui->ClientCreateEmail->text(),
+                                ui->ClientCreateFirstName->text(),
+                                ui->ClientCreateLastName->text(),
+                                ui->ClientCreatePhoneNumber->text(),
+                                ui->ClientCreateAddress->text(),
+                                ui->ClientCreateDob->date());
             readClient.ReadClient();
 
             clearInputFields();
+
+            QMessageBox::information(this, tr("Success"), tr("Client created successfully"),QMessageBox::Ok, QMessageBox::Ok);
         }
     }
 }

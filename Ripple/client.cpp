@@ -23,6 +23,8 @@ Client::Client(QWidget* parent) :
     tableClient(nullptr)
 {
     ui->setupUi(this);
+
+
 }
 
 Client::Client(const Client& other)
@@ -92,8 +94,10 @@ void Client::CreateClient()
 
     if (qry.exec())
     {
+        // Retrieve the ID of the last inserted record
+
         qDebug() << "Client saved successfully." << "Data:" <<
-            "\nEmail :" << this->id <<
+            "\nEmail :" << this->email <<
             "\nFirst Name :" << this->first_name <<
             "\nLast Name :" << this->last_name <<
             "\nPhone Number :" << this->phone_number <<
@@ -106,6 +110,37 @@ void Client::CreateClient()
         QMessageBox::critical(this, tr("Error"), qry.lastError().text());
     }
 }
+
+void Client::CreateClient(QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob)
+{
+    QSqlQuery qry;
+    qry.prepare("INSERT INTO CLIENTS (EMAIL, FIRST_NAME, LAST_NAME, ADDRESS, PHONE_NUMBER, DOB) VALUES (:email, :first_name, :last_name, :address, :phone_number, :dob)");
+    qry.bindValue(":email", email);
+    qry.bindValue(":first_name", first_name);
+    qry.bindValue(":last_name", last_name);
+    qry.bindValue(":phone_number", phone_number);
+    qry.bindValue(":address", address);
+    qry.bindValue(":dob", dob);
+
+    if (qry.exec())
+    {
+        // Retrieve the ID of the last inserted record
+
+        qDebug() << "Client saved successfully." << "Data:" <<
+            "\nEmail :" << email <<
+            "\nFirst Name :" << first_name <<
+            "\nLast Name :" << last_name <<
+            "\nPhone Number :" << phone_number <<
+            "\nAddress :" << address <<
+            "\nDate of Birth :" << dob.toString();
+    }
+    else
+    {
+        qDebug() << "Error Creating Client query:" << qry.lastError().text();
+        QMessageBox::critical(this, tr("Error"), qry.lastError().text());
+    }
+}
+
 
 
 

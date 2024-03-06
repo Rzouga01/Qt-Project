@@ -41,6 +41,7 @@ private:
 
 public:
     void CreateClient();
+    void CreateClient(QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
     void ReadClient();
     void UpdateClient(int clientID, const Client& NewClient);
     void DeleteClient(int id);
