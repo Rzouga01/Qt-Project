@@ -383,6 +383,8 @@ debug/moc_client.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStackedWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstackedwidget.h \
 		../Ripple/client.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -498,6 +500,25 @@ debug/moc_contract.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtablewidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		../Ripple/contract.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -1589,6 +1610,8 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStackedWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstackedwidget.h \
 		ui_client.h \
 		../Ripple/connection.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlDatabase \
@@ -1601,7 +1624,10 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/Qpushbutton \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\client.o ..\Ripple\client.cpp
 
 debug/connection.o: ../Ripple/connection.cpp ../Ripple/connection.h \
@@ -1786,12 +1812,32 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtablewidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		ui_contract.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\contract.o ..\Ripple\contract.cpp
 
 debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
@@ -2267,7 +2313,8 @@ debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquery.h \
 		../Ripple/client.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStackedWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dashboard.o ..\Ripple\dashboard.cpp
 
 debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
@@ -2855,6 +2902,7 @@ debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QStackedWidget \
 		../Ripple/employee.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
