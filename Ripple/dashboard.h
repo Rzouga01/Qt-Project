@@ -35,9 +35,9 @@ public:
 
 
 
-    void clearInputFieldsCreate();
-    void clearInputFieldsUpdate();
-    void clearInputFieldsDelete();
+    void clearInputFieldsCreateClient();
+    void clearInputFieldsUpdateClient();
+    void clearInputFieldsDeleteClient();
 
     void onAddCancelClickedClient();
     void onUpdateCancelClickedClient();

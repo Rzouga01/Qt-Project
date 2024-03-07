@@ -149,7 +149,7 @@ void Dashboard::onAddClickedClient() {
 
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
 
-        clearInputFieldsCreate();
+        clearInputFieldsCreateClient();
     } else {
         // Validate phone number
         QString phoneNumber = ui->ClientCreatePhoneNumber->text();
@@ -173,7 +173,7 @@ void Dashboard::onAddClickedClient() {
                                 ui->ClientCreateDob->date()))
             {            MasterClient.ReadClient();
 
-            clearInputFieldsCreate();
+            clearInputFieldsCreateClient();
 
             QMessageBox::information(this, tr("Success"), tr("Client created successfully"),QMessageBox::Ok, QMessageBox::Ok);
             }
@@ -199,7 +199,7 @@ void Dashboard::onUpdateClickedClient() {
 
             QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
 
-            clearInputFieldsUpdate();
+            clearInputFieldsUpdateClient();
         } else {
             // Validate ID
             QString id = ui->ClientUpdateID->text();
@@ -233,7 +233,7 @@ void Dashboard::onUpdateClickedClient() {
                 {
                     MasterClient.ReadClient();
 
-                    clearInputFieldsUpdate();
+                    clearInputFieldsUpdateClient();
 
                     QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
                 }
@@ -264,7 +264,7 @@ void Dashboard::onDeleteClickedClient() {
 
             {
                 MasterClient.ReadClient();
-                clearInputFieldsDelete();
+                clearInputFieldsDeleteClient();
                 QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else
@@ -292,7 +292,7 @@ void Dashboard::onDeleteCancelClickedClient()
     clearInputFieldsDelete();
 }
 
-void Dashboard::clearInputFieldsCreate() {
+void Dashboard::clearInputFieldsCreateClient() {
     ui->ClientCreateEmail->clear();
     ui->ClientCreateFirstName->clear();
     ui->ClientCreateLastName->clear();
@@ -302,7 +302,7 @@ void Dashboard::clearInputFieldsCreate() {
 }
 
 
-void Dashboard::clearInputFieldsUpdate() {
+void Dashboard::clearInputFieldsUpdateClient() {
     ui->ClientUpdateID->clear();
     ui->ClientUpdateEmail->clear();
     ui->ClientUpdateFirstName->clear();
@@ -312,7 +312,7 @@ void Dashboard::clearInputFieldsUpdate() {
     ui->ClientUpdateDob->setDate(QDate());
 }   
 
-void Dashboard::clearInputFieldsDelete() {
+void Dashboard::clearInputFieldsDeleteClient() {
 	ui->ClientDeleteID->clear();
 }
 
