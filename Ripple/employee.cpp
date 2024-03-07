@@ -19,22 +19,17 @@ Employee::Employee(QWidget *parent) :
     address = "";
     dob = QDate::currentDate();
 }
+Employee::Employee(QString email, QString password, QString role, QString first_name, QString last_name, QString phone_number, QString address, QDate dob)
 
-Employee::Employee(const QString &email, const QString &password, const QString &role,
-                   const QString &first_name, const QString &last_name, const QString &phone_number,
-                   const QString &address, const QDate &dob, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Employee),
-    email(email),
-    password(password),
-    role(role),
-    first_name(first_name),
-    last_name(last_name),
-    phone_number(phone_number),
-    address(address),
-    dob(dob)
 {
-    ui->setupUi(this);
+    this->email = email;
+    this->password = password;
+    this->role = role;
+    this->first_name = first_name;
+    this->last_name = last_name;
+    this->phone_number = phone_number;
+    this->address = address;
+    this->dob = dob;
 }
 
 Employee::~Employee()
@@ -73,7 +68,7 @@ bool Employee::createEmployee()
     }
     else
     {
-        qDebug() << "Error creating employee:" << qry.lastError().text(); // Changed error message
+        qDebug() << "Error creating employee:" << qry.lastError().text();
         return false;
     }
 }
