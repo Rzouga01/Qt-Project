@@ -4,6 +4,7 @@
 #include <QSqlQueryModel>
 #include <QDialog>
 #include <QDate>
+#include <QTableWidget>
 
 namespace Ui {
 class contract;
@@ -22,12 +23,19 @@ private:
     int PAYMENT_STATUS;
     QString TYPE;
 
+
+
 public:
     explicit contract(QWidget *parent = nullptr);
+    explicit contract(QTableWidget *tableWidget, QWidget *parent = nullptr);
     ~contract();
     //Constructeurs
     contract();
-    contract(int,int,int,QDate,QDate,int,QString );
+    contract(const int USER_ID, const int CLIENT_ID, const int PREMIUM_AMOUNT, const QDate EFFECTIVE_DATE, const QDate EXPIRATION_DATE, const int PAYMENT_STATUS, const QString TYPE);
+
+
+
+
 
    //Getters
     int getCONTRACT_ID(){return CONTRACT_ID;}
@@ -50,9 +58,14 @@ public:
     void setTYPE(QString T){TYPE=T;}
 
     //Fonctionnalités de Base relatives a l'entités contrat
-    bool ajouter();
-    bool supprimer(int id);
+    void ajouter( int USER_ID , int CLIENT_ID ,int PREMIUM_AMOUNT, QDate EFFECTIVE_DATE , QDate EXPIRATION_DATE , int PAYMENT_STATUS , QString TYPE);
+    void supprimer(int id);
     void lire();
+    void modifier(int contractID , int USER_ID , int CLIENT_ID ,int PREMIUM_AMOUNT, QDate EFFECTIVE_DATE , QDate EXPIRATION_DATE , int PAYMENT_STATUS , QString TYPE );
+
+
+    void setTableWidget(QTableWidget *tableWidget);
+
 
 
 
@@ -61,6 +74,7 @@ public:
 
 private:
     Ui::contract *ui;
+    QTableWidget *tableContract;
 };
 
 #endif // CONTRACT_H

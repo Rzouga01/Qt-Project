@@ -3,3 +3,5 @@
 *.vsidx
 *.ipch
 *.db
+*.o
+*.exe
