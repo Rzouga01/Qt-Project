@@ -1,6 +1,19 @@
-﻿  Uic'ing dashboard.ui...
+﻿  Reading Qt configuration (C:/Qt/Qt5.9.9/5.9.9/msvc2017_64/bin/qmake)
+  Generate moc_predefs.h
+  accident.cpp
   client.cpp
+  connection.cpp
+  contract.cpp
   dashboard.cpp
+  employee.cpp
   main.cpp
+  mainwindow.cpp
+  menu.cpp
+  moc_accident.cpp
   moc_client.cpp
-  Ripple.vcxproj -> C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\Ripple.exe
+  moc_contract.cpp
+  moc_dashboard.cpp
+  moc_employee.cpp
+  moc_mainwindow.cpp
+  moc_menu.cpp
+  Ripple.vcxproj -> C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\debug\Ripple.exe
