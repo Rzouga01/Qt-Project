@@ -13,7 +13,7 @@ Dashboard::Dashboard(QWidget *parent) :
     ui(new Ui::Dashboard)
 {
     ui->setupUi(this);
-    Client MasterClient(ui->tableClient, this);
+    Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
     Connection con;
     if(!con.createconnect()) {
@@ -69,6 +69,14 @@ void Dashboard::onLogoutButtonClicked() {
 
 void Dashboard::ClientDashboardConnectUi()
 {
+    Client MasterClient(ui->tableClient, ui->StackedClient, this);
+
+    
+
+    QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
+    QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
+
+
     QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
     QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
     QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
@@ -81,12 +89,22 @@ void Dashboard::ClientDashboardConnectUi()
     QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
     QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 
+    connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
+
     ui->StackedClient->setCurrentIndex(0);
 
     // Client stacked widget button background color change according to current index
     //QObject::connect(ui->StackedClient, &QStackedWidget::currentChanged, this, &Dashboard::onStackedClientIndexChanged);
 
 
+}
+
+void Dashboard::openDeletePage(int clientId) {
+    // Open the delete page in the stacked client widget
+    ui->StackedClient->setCurrentIndex(2); // Assuming the index of the delete page is 2
+
+    // Fill the input field with the client ID
+    ui->ClientDeleteID->setText(QString::number(clientId));
 }
 
 void Dashboard::onStackedClientIndexChanged(int index) {
@@ -119,7 +137,7 @@ void Dashboard::onStackedClientIndexChanged(int index) {
 
 
 void Dashboard::onAddClickedClient() {
-    Client MasterClient(ui->tableClient, this);
+    Client MasterClient(ui->tableClient,ui->StackedClient, this);
 
 
     if (ui->ClientCreateEmail->text().isEmpty() ||
@@ -131,7 +149,7 @@ void Dashboard::onAddClickedClient() {
 
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
 
-        clearInputFields();
+        clearInputFieldsCreate();
     } else {
         // Validate phone number
         QString phoneNumber = ui->ClientCreatePhoneNumber->text();
@@ -147,32 +165,29 @@ void Dashboard::onAddClickedClient() {
             QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"),QMessageBox::Ok, QMessageBox::Ok);
         } else {
 
-            MasterClient.CreateClient(ui->ClientCreateEmail->text(),
+            if(MasterClient.CreateClient(ui->ClientCreateEmail->text(),
                                 ui->ClientCreateFirstName->text(),
                                 ui->ClientCreateLastName->text(),
                                 ui->ClientCreatePhoneNumber->text(),
                                 ui->ClientCreateAddress->text(),
-                                ui->ClientCreateDob->date());
-            MasterClient.ReadClient();
+                                ui->ClientCreateDob->date()))
+            {            MasterClient.ReadClient();
 
-            clearInputFields();
+            clearInputFieldsCreate();
 
             QMessageBox::information(this, tr("Success"), tr("Client created successfully"),QMessageBox::Ok, QMessageBox::Ok);
+            }
+            else
+            {
+				QMessageBox::critical(this, tr("Error"), tr("Client not created"),QMessageBox::Ok, QMessageBox::Ok);
+			}
         }
     }
 }
 
-void Dashboard::clearInputFields() {
-    ui->ClientCreateEmail->clear();
-    ui->ClientCreateFirstName->clear();
-    ui->ClientCreateLastName->clear();
-    ui->ClientCreatePhoneNumber->clear();
-    ui->ClientCreateAddress->clear();
-    ui->ClientCreateDob->setDate(QDate());
-}
 
 void Dashboard::onUpdateClickedClient() {
-        Client MasterClient(ui->tableClient, this);
+    Client MasterClient(ui->tableClient, ui->StackedClient ,this);
 
 
         if (ui->ClientUpdateEmail->text().isEmpty() ||
@@ -184,7 +199,7 @@ void Dashboard::onUpdateClickedClient() {
 
             QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
 
-            clearInputFields();
+            clearInputFieldsUpdate();
         } else {
             // Validate ID
             QString id = ui->ClientUpdateID->text();
@@ -209,24 +224,30 @@ void Dashboard::onUpdateClickedClient() {
             }
             else {
 
-                MasterClient.UpdateClient(id.toInt(),ui->ClientUpdateEmail->text(),
-                                          ui->ClientUpdateFirstName->text(),
-                                          ui->ClientUpdateLastName->text(),
-                                          ui->ClientUpdatePhoneNumber->text(),
-                                          ui->ClientUpdateAddress->text(),
-                                          ui->ClientUpdateDob->date());
-                MasterClient.ReadClient();
+                if (MasterClient.UpdateClient(id.toInt(), ui->ClientUpdateEmail->text(),
+                    ui->ClientUpdateFirstName->text(),
+                    ui->ClientUpdateLastName->text(),
+                    ui->ClientUpdatePhoneNumber->text(),
+                    ui->ClientUpdateAddress->text(),
+                    ui->ClientUpdateDob->date()))
+                {
+                    MasterClient.ReadClient();
 
-                clearInputFields();
+                    clearInputFieldsUpdate();
 
-                QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"),QMessageBox::Ok, QMessageBox::Ok);
+                    QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
+                }
+                else
+                {
+					QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
+				}
             }
         }
     }
 
 
 void Dashboard::onDeleteClickedClient() {
-    Client MasterClient(ui->tableClient, this);
+    Client MasterClient(ui->tableClient,ui->StackedClient, this);
 
     if (ui->ClientDeleteID->text().isEmpty()) {
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"),QMessageBox::Ok, QMessageBox::Ok);
@@ -239,23 +260,49 @@ void Dashboard::onDeleteClickedClient() {
             QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"),QMessageBox::Ok, QMessageBox::Ok);
         } else {
 
-            MasterClient.DeleteClient(id.toInt());
-            MasterClient.ReadClient();
+            if (MasterClient.DeleteClient(id.toInt()))
 
-            clearInputFields();
+            {
+                MasterClient.ReadClient();
+                clearInputFieldsDelete();
+                QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+            }
+            else
+            {
+				QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
+			}
 
-            QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"),QMessageBox::Ok, QMessageBox::Ok);
         }
     }
 }
 
 void Dashboard::onAddCancelClickedClient()
 {
-    clearInputFields();
+    clearInputFieldsCreate();
 }
 
 void Dashboard::onUpdateCancelClickedClient()
 {
+    	clearInputFieldsUpdate();
+    
+}
+
+void Dashboard::onDeleteCancelClickedClient()
+{
+    clearInputFieldsDelete();
+}
+
+void Dashboard::clearInputFieldsCreate() {
+    ui->ClientCreateEmail->clear();
+    ui->ClientCreateFirstName->clear();
+    ui->ClientCreateLastName->clear();
+    ui->ClientCreatePhoneNumber->clear();
+    ui->ClientCreateAddress->clear();
+    ui->ClientCreateDob->setDate(QDate());
+}
+
+
+void Dashboard::clearInputFieldsUpdate() {
     ui->ClientUpdateID->clear();
     ui->ClientUpdateEmail->clear();
     ui->ClientUpdateFirstName->clear();
@@ -263,12 +310,12 @@ void Dashboard::onUpdateCancelClickedClient()
     ui->ClientUpdatePhoneNumber->clear();
     ui->ClientUpdateAddress->clear();
     ui->ClientUpdateDob->setDate(QDate());
+}   
+
+void Dashboard::clearInputFieldsDelete() {
+	ui->ClientDeleteID->clear();
 }
 
-void Dashboard::onDeleteCancelClickedClient()
-{
-    ui->ClientDeleteID->clear();
-}
 
 
 void Dashboard::onSortClickedClient() {

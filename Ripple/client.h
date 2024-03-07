@@ -5,6 +5,7 @@
 #include <QDialog>
 #include <QDate>
 #include <QTableWidget>
+#include <QStackedWidget>
 
 
 namespace Ui {
@@ -26,7 +27,7 @@ private:
 
 public:
    explicit Client(QWidget* parent = nullptr);
-   explicit Client(QTableWidget *tableWidget, QWidget *parent = nullptr);
+   explicit Client(QTableWidget *tableWidget, QStackedWidget* stackedWidget, QWidget *parent = nullptr);
    ~Client();
     Client();
     Client(const QString &email, const QString &first_name, const QString & last_name, const QString &phone_number, const QString &address, const QDate &dob);
@@ -36,16 +37,18 @@ public:
 
 
 private:
-    Ui::Client* ui;
+    Ui::Client* ui; 
     QTableWidget *tableClient;
+    QStackedWidget *stackedClient;
 
 public:
-    void CreateClient();
-    void CreateClient(QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
+    bool CreateClient();
+    bool CreateClient(QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
     void ReadClient();
-    void UpdateClient(int clientID, const Client& NewClient);
-    void UpdateClient(int clientID, QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
-    void DeleteClient(int id);
+    void ReadClient(QTableWidget* tableWidget);
+    bool UpdateClient(int clientID, const Client& NewClient);
+    bool UpdateClient(int clientID, QString email,QString first_name,QString last_name,QString phone_number,QString address,QDate dob);
+    bool DeleteClient(int id);
 
     QString getEmail() const { return email; };
     QString getFirstName() const { return first_name; };
@@ -63,6 +66,12 @@ public:
 
 
     void setTableWidget(QTableWidget *tableWidget);
+    void setStackedWidget(QStackedWidget *stackedWidget);
+
+signals:
+    void deleteClientRequested(int clientId);
+    void updateClientRequested(int clientId);
+
 };
 
 #endif // CLIENT_H

@@ -32,7 +32,12 @@ public:
     void onUpdateClickedClient();
     void onSortClickedClient();
     void onPdfClickedClient();
-    void clearInputFields();
+
+
+
+    void clearInputFieldsCreate();
+    void clearInputFieldsUpdate();
+    void clearInputFieldsDelete();
 
     void onAddCancelClickedClient();
     void onUpdateCancelClickedClient();
@@ -41,6 +46,8 @@ public:
 
     void ClientDashboardConnectUi();
     void onStackedClientIndexChanged(int index);
+
+    void openDeletePage(int clientId);
 
 
 
@@ -53,7 +60,7 @@ public:
     void onSortClicked();
     void onPdfClicked();
 
-public:
+private:
     Ui::Dashboard *ui;
     MainWindow mainWindowRef;
 
