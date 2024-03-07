@@ -5,3 +5,9 @@
 *.db
 *.o
 *.exe
+*.obj
+*.db-shm
+*.log
+*.obj
+*.obj
+*.log
