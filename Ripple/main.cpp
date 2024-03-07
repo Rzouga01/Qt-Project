@@ -23,6 +23,9 @@ int main(int argc, char *argv[])
     //accident ac; 
     Connection con;
     Dashboard dash;
+    //ct.ajouter(1,1,100,QDate::currentDate(),QDate::currentDate(),0,"test");
+    //ct.supprimer(42);
+    //ct.modifier( 52, 0 , 200 ,1, QDate(2003,2,3) , QDate(2013,2,3)  , 5 , "type");
 
    
 

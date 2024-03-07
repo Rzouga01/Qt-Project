@@ -144,10 +144,9 @@ debug/moc_predefs.h: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/data/dummy.
 compiler_moc_header_make_all: debug/moc_accident.cpp debug/moc_client.cpp debug/moc_contract.cpp debug/moc_dashboard.cpp debug/moc_employee.cpp debug/moc_mainwindow.cpp debug/moc_menu.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_accident.cpp debug\moc_client.cpp debug\moc_contract.cpp debug\moc_dashboard.cpp debug\moc_employee.cpp debug\moc_mainwindow.cpp debug\moc_menu.cpp
-debug/moc_accident.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+debug/moc_accident.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig.h \
@@ -169,62 +168,80 @@ debug/moc_accident.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearray.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qarraydata.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquery.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qtsqlglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqldatabase.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQueryModel \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquerymodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmargins.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrect.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpalette.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcolor.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgb.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgba64.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qmatrix.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpolygon.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qregion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qline.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtransform.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainterpath.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qimage.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixelformat.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfont.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontinfo.h \
@@ -232,13 +249,6 @@ debug/moc_accident.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcursor.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qkeysequence.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurl.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurlquery.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfile.h \
@@ -353,6 +363,26 @@ debug/moc_client.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtablewidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		../Ripple/client.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -933,6 +963,8 @@ debug/moc_dashboard.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialo
 		../Ripple/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPropertyAnimation \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		../Ripple/dashboard.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -1319,10 +1351,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig.h \
@@ -1344,62 +1375,80 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearray.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qarraydata.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquery.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qtsqlglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqldatabase.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQueryModel \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquerymodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmargins.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrect.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpalette.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcolor.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgb.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgba64.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qmatrix.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpolygon.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qregion.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qline.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtransform.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainterpath.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qimage.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixelformat.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfont.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontinfo.h \
@@ -1407,13 +1456,6 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcursor.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qkeysequence.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurl.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurlquery.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfile.h \
@@ -1527,6 +1569,26 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtablewidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		ui_client.h \
 		../Ripple/connection.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlDatabase \
@@ -1538,7 +1600,8 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquery.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\client.o ..\Ripple\client.cpp
 
 debug/connection.o: ../Ripple/connection.cpp ../Ripple/connection.h \
@@ -1723,7 +1786,12 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
-		ui_contract.h
+		ui_contract.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\contract.o ..\Ripple\contract.cpp
 
 debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
@@ -2187,7 +2255,19 @@ debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
 		../Ripple/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPropertyAnimation \
-		ui_dashboard.h
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
+		ui_dashboard.h \
+		../Ripple/connection.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlDatabase \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqldatabase.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qtsqlglobal.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquery.h \
+		../Ripple/client.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dashboard.o ..\Ripple\dashboard.cpp
 
 debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
@@ -2302,7 +2382,14 @@ debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
-		ui_employee.h
+		ui_employee.h \
+		../Ripple/connection.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlDatabase \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\employee.o ..\Ripple\employee.cpp
 
 debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
@@ -2767,6 +2854,7 @@ debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
 		../Ripple/client.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDate \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidget \
 		../Ripple/employee.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
@@ -2781,7 +2869,8 @@ debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlDatabase \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h \
-		../Ripple/dashboard.h
+		../Ripple/dashboard.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Ripple\main.cpp
 
 debug/mainwindow.o: ../Ripple/mainwindow.cpp ../Ripple/mainwindow.h \

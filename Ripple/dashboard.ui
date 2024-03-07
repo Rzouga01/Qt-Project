@@ -49,37 +49,7 @@ background-color: #171717;
 }
 
 
-/* Apply styles to the featureBar_3 */
-#featureBar_3 {
-    background-color: white;
-    border-radius: 25px;
-}
 
-/* Apply styles to the addFeature_3 */
-#addFeature_3 {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the stats_3 */
-#stats_3 {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the readBox_3 */
-#readBox_3 {
-    border: none;
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the searchBar_3 */
-#searchBar_3 {
-    background-color: white;
-
-
-}
 
 /* Apply styles to the featureBar_4 */
 #featureBar_4 {
@@ -170,9 +140,7 @@ background-color: #171717;
 
 
 
-#searchBar_3 {
-    border-radius: 20px;
-}
+
 
 #searchBar_4 {
     border-radius: 20px;
@@ -311,7 +279,7 @@ background-color: #171717;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="featureBar">
@@ -1534,48 +1502,368 @@ color:black;
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
-     <widget class="QFrame" name="addFeature_3">
+     <property name="styleSheet">
+      <string notr="true">/* Apply styles to the featureBarContract */
+#featureBarContract {
+    background-color: white;
+    border-radius: 25px;
+}
+
+/* Apply styles to the addContract */
+#CrudContract {
+    background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+/* Apply styles to the statsContract */
+#statsContract {
+    background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+/* Apply styles to the readBoxContract */
+#readBoxContract {
+    border: none;
+    background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+/* Apply styles to the searchBarContract */
+#searchBarContract {
+    background-color: white;
+
+
+}
+
+
+#searchBarContract {
+    border-radius: 20px;
+}
+
+#CreateContract{
+	background-color: #A7C34E;
+    border-radius: 25px;
+}
+
+#DeleteContract{
+		background-color: #A7C34E;
+   	    border-radius: 25px;
+}</string>
+     </property>
+     <widget class="QFrame" name="CrudContract">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>10</y>
         <width>371</width>
-        <height>201</height>
+        <height>641</height>
        </rect>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
+      <widget class="QStackedWidget" name="StackContract">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>371</width>
+         <height>641</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="page_5">
+        <widget class="QFrame" name="CreateContract">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>351</width>
+           <height>621</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLineEdit" name="LineEditExpirationDate">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>50</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditContractId">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>120</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditUserId">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>190</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditClientId">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>270</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditPremiumAmount">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>340</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_8">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>410</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditPaymentstatus">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>480</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelUserId">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>50</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>USER_ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelClientId">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>120</y>
+            <width>71</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>CLIENT_ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelPremiumAmount">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>200</y>
+            <width>121</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>PREMIUM_AMOUNT</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelEffectiveDate">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>270</y>
+            <width>121</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>EFFECTIVE_DATE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelExpirationDate">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>340</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>EXPIRATION_DATE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelPaymentStatus">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>410</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>PAYMENT_STATUS</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelType">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>490</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>TYPE</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="CancelContract">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>550</y>
+            <width>80</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="CreateContractButton">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>550</y>
+            <width>101</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Create Contract</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="page_6">
+        <widget class="QFrame" name="DeleteContract">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>0</y>
+           <width>351</width>
+           <height>671</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="LabelContractId">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>50</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Contract_Id</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditContractID">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>40</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButtonCancel">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>490</y>
+            <width>80</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButtonDelete">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>490</y>
+            <width>80</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>PushButton</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
      </widget>
-     <widget class="QFrame" name="stats_3">
+     <widget class="QListWidget" name="readBoxContract">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>371</width>
-        <height>231</height>
+        <x>390</x>
+        <y>80</y>
+        <width>741</width>
+        <height>581</height>
        </rect>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
      </widget>
-     <widget class="QListWidget" name="readBox_3">
+     <widget class="QLineEdit" name="searchBarContract">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="searchBar_3">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
+        <x>780</x>
         <y>120</y>
-        <width>241</width>
+        <width>331</width>
         <height>41</height>
        </rect>
       </property>
@@ -1586,10 +1874,10 @@ color:black;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QFrame" name="featureBar_3">
+     <widget class="QFrame" name="featureBarContract">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>620</x>
         <y>10</y>
         <width>501</width>
         <height>61</height>
@@ -1601,7 +1889,7 @@ color:black;
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-      <widget class="QPushButton" name="add_3">
+      <widget class="QPushButton" name="addContract">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -1627,7 +1915,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="del_3">
+      <widget class="QPushButton" name="delContract">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -1653,7 +1941,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="update_3">
+      <widget class="QPushButton" name="updateContract">
        <property name="geometry">
         <rect>
          <x>330</x>
@@ -1679,7 +1967,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf_3">
+      <widget class="QPushButton" name="pdfContract">
        <property name="geometry">
         <rect>
          <x>430</x>
@@ -1705,7 +1993,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="sort_3">
+      <widget class="QPushButton" name="sortContract">
        <property name="geometry">
         <rect>
          <x>230</x>
@@ -1732,13 +2020,13 @@ color:black;
        </property>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_3">
+     <widget class="QTableWidget" name="tableWidgetContract">
       <property name="geometry">
        <rect>
         <x>400</x>
-        <y>170</y>
-        <width>501</width>
-        <height>261</height>
+        <y>190</y>
+        <width>721</width>
+        <height>381</height>
        </rect>
       </property>
       <property name="font">
