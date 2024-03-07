@@ -53,6 +53,7 @@ public:
 
     bool create();
     QSqlQueryModel * read();
+    void update( QString type,int damage,QDate date,QString location,int client_id);
     bool Delete(int);
 
 private:
