@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
@@ -114,17 +115,54 @@ public:
     QPushButton *sort_3;
     QTableWidget *tableWidget_3;
     QWidget *page_4;
-    QListWidget *readBox_4;
-    QLineEdit *searchBar_4;
-    QFrame *stats_4;
-    QFrame *addFeature_4;
-    QFrame *featureBar_4;
-    QPushButton *add_4;
-    QPushButton *del_4;
-    QPushButton *update_4;
-    QPushButton *pdf_4;
-    QPushButton *sort_4;
-    QTableWidget *tableWidget_4;
+    QListWidget *readAccident;
+    QLineEdit *searchAccident;
+    QFrame *CrudAccident;
+    QStackedWidget *StackedAccident;
+    QWidget *CreateAccident;
+    QFrame *FrameCreateAccident;
+    QLabel *AccidentCreateTypeline;
+    QLineEdit *AccidentCreateType;
+    QLineEdit *AccidentCreateDamage;
+    QLineEdit *AccidentCreateDate;
+    QLineEdit *AccidentCreateLocation;
+    QLabel *AccidentCreateDamageline;
+    QLabel *AccidentCreateDateline;
+    QLabel *AccidentCreateLocationline;
+    QLabel *AccidentCreateClientIDline;
+    QLabel *AccidentCreateIDline;
+    QLineEdit *AccidentCreateID;
+    QPushButton *AccidentSubmit;
+    QPushButton *AccidentCancel;
+    QComboBox *AccidentCreateClientID;
+    QWidget *DeleteAccident;
+    QFrame *FrameCreateAccident_2;
+    QLabel *AccidentDeleteIDline;
+    QLineEdit *AccidentDeleteID;
+    QPushButton *AccidentDelete;
+    QWidget *UpdateAccident;
+    QFrame *frame_3;
+    QLabel *AccidentUpdateIDline;
+    QLabel *AccidentUpdateClientIDline;
+    QLabel *AccidentUpdateTypeline;
+    QLabel *AccidentUpdateDamageline;
+    QLabel *AccidentUpdateDateline;
+    QLabel *AccidentUpdateLocationline;
+    QLineEdit *AccidentUpdateID;
+    QLineEdit *AccidentUpdateType;
+    QLineEdit *AccidentUpdateDamage;
+    QLineEdit *AccidentUpdateDate;
+    QLineEdit *AccidentUpdateLocation;
+    QPushButton *AccidentUpdate;
+    QComboBox *AccidentUpdateClientID;
+    QFrame *StatsAccident;
+    QFrame *featureBarAccident;
+    QPushButton *AddAccident;
+    QPushButton *DeleteAccident_2;
+    QPushButton *UpdateAccident_2;
+    QPushButton *PdfAccident;
+    QPushButton *SortAccident;
+    QTableWidget *tableAccident;
     QPushButton *employees;
     QPushButton *clients;
     QPushButton *contracts;
@@ -204,36 +242,7 @@ public:
 "\n"
 "}\n"
 "\n"
-"/* Apply styles to the featureBar_4 */\n"
-"#featureBar_4 {\n"
-"    background-color: white;\n"
-"    border-radius: 25px;\n"
-"}\n"
 "\n"
-"/* Apply styles to the addFeature_4 */\n"
-"#addFeature_4 {\n"
-"    background-color: #A7C34E;\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the stats_4 */\n"
-"#stats_4 {\n"
-"    background-color: #A7C34E;\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the readBox_4 */\n"
-"#readBox_4 {\n"
-"    border: none;\n"
-"    background-color: #A7C34E;\n"
-"    border-radius: 25px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the searchBar_4 */\n"
-"#searchBar_4 {\n"
-"      background-color: white;\n"
-"\n"
-"}\n"
 "\n"
 "\n"
 "#featureBar {\n"
@@ -244,8 +253,7 @@ public:
 "/* Apply styles to the addFeature */\n"
 "#addFeature {\n"
 "    background-color: #A7C34E;\n"
-" "
-                        "   border-radius: 25px;\n"
+"    border-radius: 25px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the stats */\n"
@@ -275,7 +283,8 @@ public:
 "    font-weight: bold;\n"
 "    color: white; /* Set the default text color */\n"
 "        background-color: #444444;;\n"
-"        border-radius:15px;\n"
+"        border-"
+                        "radius:15px;\n"
 "\n"
 "}\n"
 "\n"
@@ -299,8 +308,7 @@ public:
 "}\n"
 "\n"
 "#searchBar_4 {\n"
-" "
-                        "   border-radius: 20px;\n"
+"    border-radius: 20px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the add button */\n"
@@ -333,7 +341,8 @@ public:
 "    width: 40px; /* Set icon width */\n"
 "    height: 40px; /* Set icon height */\n"
 "}\n"
-"\n"
+""
+                        "\n"
 "/* Set icons for the buttons */\n"
 "#add::icon {\n"
 "    image: url(../Resources/Icons/add.png); /* Set the icon for the add button */\n"
@@ -344,8 +353,7 @@ public:
 "}\n"
 "\n"
 "#pdf::icon {\n"
-"    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF "
-                        "button */\n"
+"    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF button */\n"
 "}\n"
 "\n"
 "#update::icon {\n"
@@ -950,83 +958,272 @@ public:
         stackedWidget->addWidget(page_3);
         page_4 = new QWidget();
         page_4->setObjectName("page_4");
-        readBox_4 = new QListWidget(page_4);
-        readBox_4->setObjectName("readBox_4");
-        readBox_4->setGeometry(QRect(400, 90, 501, 371));
-        searchBar_4 = new QLineEdit(page_4);
-        searchBar_4->setObjectName("searchBar_4");
-        searchBar_4->setGeometry(QRect(620, 120, 241, 41));
-        searchBar_4->setStyleSheet(QString::fromUtf8(""));
-        searchBar_4->setClearButtonEnabled(true);
-        stats_4 = new QFrame(page_4);
-        stats_4->setObjectName("stats_4");
-        stats_4->setGeometry(QRect(10, 230, 371, 231));
-        stats_4->setFrameShape(QFrame::NoFrame);
-        addFeature_4 = new QFrame(page_4);
-        addFeature_4->setObjectName("addFeature_4");
-        addFeature_4->setGeometry(QRect(10, 10, 371, 201));
-        addFeature_4->setFrameShape(QFrame::NoFrame);
-        featureBar_4 = new QFrame(page_4);
-        featureBar_4->setObjectName("featureBar_4");
-        featureBar_4->setGeometry(QRect(400, 10, 501, 61));
-        featureBar_4->setStyleSheet(QString::fromUtf8(""));
-        featureBar_4->setFrameShape(QFrame::NoFrame);
-        add_4 = new QPushButton(featureBar_4);
-        add_4->setObjectName("add_4");
-        add_4->setGeometry(QRect(30, 10, 41, 41));
-        add_4->setCursor(QCursor(Qt::PointingHandCursor));
-        add_4->setIcon(icon);
-        add_4->setIconSize(QSize(60, 60));
-        del_4 = new QPushButton(featureBar_4);
-        del_4->setObjectName("del_4");
-        del_4->setGeometry(QRect(130, 10, 41, 41));
-        del_4->setCursor(QCursor(Qt::PointingHandCursor));
-        del_4->setIcon(icon1);
-        del_4->setIconSize(QSize(40, 40));
-        update_4 = new QPushButton(featureBar_4);
-        update_4->setObjectName("update_4");
-        update_4->setGeometry(QRect(330, 10, 41, 41));
-        update_4->setCursor(QCursor(Qt::PointingHandCursor));
-        update_4->setIcon(icon2);
-        update_4->setIconSize(QSize(60, 60));
-        pdf_4 = new QPushButton(featureBar_4);
-        pdf_4->setObjectName("pdf_4");
-        pdf_4->setGeometry(QRect(430, 10, 41, 41));
-        pdf_4->setCursor(QCursor(Qt::PointingHandCursor));
-        pdf_4->setIcon(icon3);
-        pdf_4->setIconSize(QSize(50, 50));
-        sort_4 = new QPushButton(featureBar_4);
-        sort_4->setObjectName("sort_4");
-        sort_4->setGeometry(QRect(230, 10, 41, 41));
-        sort_4->setCursor(QCursor(Qt::PointingHandCursor));
-        sort_4->setIcon(icon4);
-        sort_4->setIconSize(QSize(50, 50));
-        tableWidget_4 = new QTableWidget(page_4);
-        if (tableWidget_4->columnCount() < 6)
-            tableWidget_4->setColumnCount(6);
+        page_4->setStyleSheet(QString::fromUtf8("/* Apply styles to the featureBar_4 */\n"
+"#CrudAccident {\n"
+"    background-color: white;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the addFeature_4 */\n"
+"#CrudAccident {\n"
+"    background-color: #A7C34E;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the stats_4 */\n"
+"#StatsAccident {\n"
+"    background-color: #A7C34E;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the readBox_4 */\n"
+"#readAccident {\n"
+"    border: none;\n"
+"    background-color: #A7C34E;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the searchBar_4 */\n"
+"#searchAccident {\n"
+"      background-color: white;\n"
+"\n"
+"}"));
+        readAccident = new QListWidget(page_4);
+        readAccident->setObjectName("readAccident");
+        readAccident->setGeometry(QRect(520, 110, 591, 541));
+        searchAccident = new QLineEdit(page_4);
+        searchAccident->setObjectName("searchAccident");
+        searchAccident->setGeometry(QRect(560, 140, 531, 41));
+        searchAccident->setStyleSheet(QString::fromUtf8(""));
+        searchAccident->setClearButtonEnabled(true);
+        CrudAccident = new QFrame(page_4);
+        CrudAccident->setObjectName("CrudAccident");
+        CrudAccident->setGeometry(QRect(30, 290, 471, 371));
+        CrudAccident->setFrameShape(QFrame::NoFrame);
+        StackedAccident = new QStackedWidget(CrudAccident);
+        StackedAccident->setObjectName("StackedAccident");
+        StackedAccident->setGeometry(QRect(10, 20, 441, 341));
+        CreateAccident = new QWidget();
+        CreateAccident->setObjectName("CreateAccident");
+        FrameCreateAccident = new QFrame(CreateAccident);
+        FrameCreateAccident->setObjectName("FrameCreateAccident");
+        FrameCreateAccident->setGeometry(QRect(0, 0, 451, 361));
+        FrameCreateAccident->setFrameShape(QFrame::StyledPanel);
+        FrameCreateAccident->setFrameShadow(QFrame::Raised);
+        AccidentCreateTypeline = new QLabel(FrameCreateAccident);
+        AccidentCreateTypeline->setObjectName("AccidentCreateTypeline");
+        AccidentCreateTypeline->setGeometry(QRect(60, 140, 56, 16));
+        AccidentCreateTypeline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}\n"
+""));
+        AccidentCreateType = new QLineEdit(FrameCreateAccident);
+        AccidentCreateType->setObjectName("AccidentCreateType");
+        AccidentCreateType->setGeometry(QRect(190, 140, 113, 22));
+        AccidentCreateDamage = new QLineEdit(FrameCreateAccident);
+        AccidentCreateDamage->setObjectName("AccidentCreateDamage");
+        AccidentCreateDamage->setGeometry(QRect(190, 190, 113, 22));
+        AccidentCreateDate = new QLineEdit(FrameCreateAccident);
+        AccidentCreateDate->setObjectName("AccidentCreateDate");
+        AccidentCreateDate->setGeometry(QRect(190, 240, 113, 22));
+        AccidentCreateLocation = new QLineEdit(FrameCreateAccident);
+        AccidentCreateLocation->setObjectName("AccidentCreateLocation");
+        AccidentCreateLocation->setGeometry(QRect(190, 290, 113, 22));
+        AccidentCreateDamageline = new QLabel(FrameCreateAccident);
+        AccidentCreateDamageline->setObjectName("AccidentCreateDamageline");
+        AccidentCreateDamageline->setGeometry(QRect(60, 190, 56, 16));
+        AccidentCreateDamageline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentCreateDateline = new QLabel(FrameCreateAccident);
+        AccidentCreateDateline->setObjectName("AccidentCreateDateline");
+        AccidentCreateDateline->setGeometry(QRect(60, 240, 56, 16));
+        AccidentCreateDateline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentCreateLocationline = new QLabel(FrameCreateAccident);
+        AccidentCreateLocationline->setObjectName("AccidentCreateLocationline");
+        AccidentCreateLocationline->setGeometry(QRect(60, 290, 56, 16));
+        AccidentCreateLocationline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentCreateClientIDline = new QLabel(FrameCreateAccident);
+        AccidentCreateClientIDline->setObjectName("AccidentCreateClientIDline");
+        AccidentCreateClientIDline->setGeometry(QRect(60, 100, 56, 16));
+        AccidentCreateClientIDline->setStyleSheet(QString::fromUtf8("QLabel \n"
+"{color:white\n"
+"}"));
+        AccidentCreateIDline = new QLabel(FrameCreateAccident);
+        AccidentCreateIDline->setObjectName("AccidentCreateIDline");
+        AccidentCreateIDline->setGeometry(QRect(60, 60, 56, 16));
+        AccidentCreateIDline->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"color:white;\n"
+"}"));
+        AccidentCreateID = new QLineEdit(FrameCreateAccident);
+        AccidentCreateID->setObjectName("AccidentCreateID");
+        AccidentCreateID->setGeometry(QRect(190, 60, 113, 22));
+        AccidentSubmit = new QPushButton(FrameCreateAccident);
+        AccidentSubmit->setObjectName("AccidentSubmit");
+        AccidentSubmit->setGeometry(QRect(362, 260, 71, 21));
+        AccidentCancel = new QPushButton(FrameCreateAccident);
+        AccidentCancel->setObjectName("AccidentCancel");
+        AccidentCancel->setGeometry(QRect(360, 290, 71, 21));
+        AccidentCreateClientID = new QComboBox(FrameCreateAccident);
+        AccidentCreateClientID->setObjectName("AccidentCreateClientID");
+        AccidentCreateClientID->setGeometry(QRect(190, 100, 113, 22));
+        StackedAccident->addWidget(CreateAccident);
+        DeleteAccident = new QWidget();
+        DeleteAccident->setObjectName("DeleteAccident");
+        FrameCreateAccident_2 = new QFrame(DeleteAccident);
+        FrameCreateAccident_2->setObjectName("FrameCreateAccident_2");
+        FrameCreateAccident_2->setGeometry(QRect(-1, -1, 451, 351));
+        FrameCreateAccident_2->setFrameShape(QFrame::StyledPanel);
+        FrameCreateAccident_2->setFrameShadow(QFrame::Raised);
+        AccidentDeleteIDline = new QLabel(FrameCreateAccident_2);
+        AccidentDeleteIDline->setObjectName("AccidentDeleteIDline");
+        AccidentDeleteIDline->setGeometry(QRect(50, 50, 56, 16));
+        AccidentDeleteIDline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentDeleteID = new QLineEdit(FrameCreateAccident_2);
+        AccidentDeleteID->setObjectName("AccidentDeleteID");
+        AccidentDeleteID->setGeometry(QRect(110, 50, 113, 22));
+        AccidentDelete = new QPushButton(FrameCreateAccident_2);
+        AccidentDelete->setObjectName("AccidentDelete");
+        AccidentDelete->setGeometry(QRect(310, 50, 93, 28));
+        StackedAccident->addWidget(DeleteAccident);
+        UpdateAccident = new QWidget();
+        UpdateAccident->setObjectName("UpdateAccident");
+        frame_3 = new QFrame(UpdateAccident);
+        frame_3->setObjectName("frame_3");
+        frame_3->setGeometry(QRect(0, -1, 441, 341));
+        frame_3->setStyleSheet(QString::fromUtf8(""));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        AccidentUpdateIDline = new QLabel(frame_3);
+        AccidentUpdateIDline->setObjectName("AccidentUpdateIDline");
+        AccidentUpdateIDline->setGeometry(QRect(60, 40, 56, 16));
+        AccidentUpdateIDline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentUpdateClientIDline = new QLabel(frame_3);
+        AccidentUpdateClientIDline->setObjectName("AccidentUpdateClientIDline");
+        AccidentUpdateClientIDline->setGeometry(QRect(60, 80, 56, 16));
+        AccidentUpdateClientIDline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentUpdateTypeline = new QLabel(frame_3);
+        AccidentUpdateTypeline->setObjectName("AccidentUpdateTypeline");
+        AccidentUpdateTypeline->setGeometry(QRect(60, 120, 56, 16));
+        AccidentUpdateTypeline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentUpdateDamageline = new QLabel(frame_3);
+        AccidentUpdateDamageline->setObjectName("AccidentUpdateDamageline");
+        AccidentUpdateDamageline->setGeometry(QRect(60, 160, 56, 16));
+        AccidentUpdateDamageline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentUpdateDateline = new QLabel(frame_3);
+        AccidentUpdateDateline->setObjectName("AccidentUpdateDateline");
+        AccidentUpdateDateline->setGeometry(QRect(60, 200, 56, 16));
+        AccidentUpdateDateline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentUpdateLocationline = new QLabel(frame_3);
+        AccidentUpdateLocationline->setObjectName("AccidentUpdateLocationline");
+        AccidentUpdateLocationline->setGeometry(QRect(60, 240, 56, 16));
+        AccidentUpdateLocationline->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color:white\n"
+"}"));
+        AccidentUpdateID = new QLineEdit(frame_3);
+        AccidentUpdateID->setObjectName("AccidentUpdateID");
+        AccidentUpdateID->setGeometry(QRect(160, 40, 113, 22));
+        AccidentUpdateType = new QLineEdit(frame_3);
+        AccidentUpdateType->setObjectName("AccidentUpdateType");
+        AccidentUpdateType->setGeometry(QRect(160, 120, 113, 22));
+        AccidentUpdateDamage = new QLineEdit(frame_3);
+        AccidentUpdateDamage->setObjectName("AccidentUpdateDamage");
+        AccidentUpdateDamage->setGeometry(QRect(160, 160, 113, 22));
+        AccidentUpdateDate = new QLineEdit(frame_3);
+        AccidentUpdateDate->setObjectName("AccidentUpdateDate");
+        AccidentUpdateDate->setGeometry(QRect(160, 200, 113, 22));
+        AccidentUpdateLocation = new QLineEdit(frame_3);
+        AccidentUpdateLocation->setObjectName("AccidentUpdateLocation");
+        AccidentUpdateLocation->setGeometry(QRect(160, 240, 113, 22));
+        AccidentUpdate = new QPushButton(frame_3);
+        AccidentUpdate->setObjectName("AccidentUpdate");
+        AccidentUpdate->setGeometry(QRect(330, 260, 93, 28));
+        AccidentUpdateClientID = new QComboBox(frame_3);
+        AccidentUpdateClientID->setObjectName("AccidentUpdateClientID");
+        AccidentUpdateClientID->setGeometry(QRect(160, 80, 113, 22));
+        StackedAccident->addWidget(UpdateAccident);
+        StatsAccident = new QFrame(page_4);
+        StatsAccident->setObjectName("StatsAccident");
+        StatsAccident->setGeometry(QRect(10, 10, 481, 251));
+        StatsAccident->setFrameShape(QFrame::NoFrame);
+        featureBarAccident = new QFrame(page_4);
+        featureBarAccident->setObjectName("featureBarAccident");
+        featureBarAccident->setGeometry(QRect(620, 30, 501, 61));
+        featureBarAccident->setStyleSheet(QString::fromUtf8(""));
+        featureBarAccident->setFrameShape(QFrame::NoFrame);
+        AddAccident = new QPushButton(featureBarAccident);
+        AddAccident->setObjectName("AddAccident");
+        AddAccident->setGeometry(QRect(30, 10, 41, 41));
+        AddAccident->setCursor(QCursor(Qt::PointingHandCursor));
+        AddAccident->setIcon(icon9);
+        AddAccident->setIconSize(QSize(60, 60));
+        DeleteAccident_2 = new QPushButton(featureBarAccident);
+        DeleteAccident_2->setObjectName("DeleteAccident_2");
+        DeleteAccident_2->setGeometry(QRect(130, 10, 41, 41));
+        DeleteAccident_2->setCursor(QCursor(Qt::PointingHandCursor));
+        DeleteAccident_2->setIcon(icon5);
+        DeleteAccident_2->setIconSize(QSize(40, 40));
+        UpdateAccident_2 = new QPushButton(featureBarAccident);
+        UpdateAccident_2->setObjectName("UpdateAccident_2");
+        UpdateAccident_2->setGeometry(QRect(330, 10, 41, 41));
+        UpdateAccident_2->setCursor(QCursor(Qt::PointingHandCursor));
+        UpdateAccident_2->setIcon(icon6);
+        UpdateAccident_2->setIconSize(QSize(60, 60));
+        PdfAccident = new QPushButton(featureBarAccident);
+        PdfAccident->setObjectName("PdfAccident");
+        PdfAccident->setGeometry(QRect(430, 10, 41, 41));
+        PdfAccident->setCursor(QCursor(Qt::PointingHandCursor));
+        PdfAccident->setIcon(icon7);
+        PdfAccident->setIconSize(QSize(50, 50));
+        SortAccident = new QPushButton(featureBarAccident);
+        SortAccident->setObjectName("SortAccident");
+        SortAccident->setGeometry(QRect(230, 10, 41, 41));
+        SortAccident->setCursor(QCursor(Qt::PointingHandCursor));
+        SortAccident->setIcon(icon8);
+        SortAccident->setIconSize(QSize(50, 50));
+        tableAccident = new QTableWidget(page_4);
+        if (tableAccident->columnCount() < 6)
+            tableAccident->setColumnCount(6);
         QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem25);
+        tableAccident->setHorizontalHeaderItem(0, __qtablewidgetitem25);
         QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(1, __qtablewidgetitem26);
+        tableAccident->setHorizontalHeaderItem(1, __qtablewidgetitem26);
         QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(2, __qtablewidgetitem27);
+        tableAccident->setHorizontalHeaderItem(2, __qtablewidgetitem27);
         QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(3, __qtablewidgetitem28);
+        tableAccident->setHorizontalHeaderItem(3, __qtablewidgetitem28);
         QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(4, __qtablewidgetitem29);
+        tableAccident->setHorizontalHeaderItem(4, __qtablewidgetitem29);
         QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(5, __qtablewidgetitem30);
-        tableWidget_4->setObjectName("tableWidget_4");
-        tableWidget_4->setGeometry(QRect(400, 170, 501, 261));
-        tableWidget_4->setFont(font);
-        tableWidget_4->setShowGrid(true);
-        tableWidget_4->setSortingEnabled(true);
-        tableWidget_4->horizontalHeader()->setMinimumSectionSize(50);
-        tableWidget_4->horizontalHeader()->setDefaultSectionSize(62);
-        tableWidget_4->verticalHeader()->setVisible(false);
-        tableWidget_4->verticalHeader()->setMinimumSectionSize(10);
-        tableWidget_4->verticalHeader()->setDefaultSectionSize(10);
-        tableWidget_4->verticalHeader()->setHighlightSections(false);
+        tableAccident->setHorizontalHeaderItem(5, __qtablewidgetitem30);
+        tableAccident->setObjectName("tableAccident");
+        tableAccident->setGeometry(QRect(540, 210, 551, 431));
+        tableAccident->setFont(font);
+        tableAccident->setShowGrid(true);
+        tableAccident->setSortingEnabled(true);
+        tableAccident->horizontalHeader()->setMinimumSectionSize(50);
+        tableAccident->horizontalHeader()->setDefaultSectionSize(62);
+        tableAccident->verticalHeader()->setVisible(false);
+        tableAccident->verticalHeader()->setMinimumSectionSize(10);
+        tableAccident->verticalHeader()->setDefaultSectionSize(10);
+        tableAccident->verticalHeader()->setHighlightSections(false);
         stackedWidget->addWidget(page_4);
         employees = new QPushButton(frame);
         employees->setObjectName("employees");
@@ -1058,7 +1255,8 @@ public:
         retranslateUi(Dashboard);
 
         stackedWidget->setCurrentIndex(1);
-        StackedClient->setCurrentIndex(1);
+        StackedClient->setCurrentIndex(0);
+        StackedAccident->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Dashboard);
@@ -1156,22 +1354,39 @@ public:
         ___qtablewidgetitem23->setText(QCoreApplication::translate("Dashboard", "Payment Status", nullptr));
         QTableWidgetItem *___qtablewidgetitem24 = tableWidget_3->horizontalHeaderItem(7);
         ___qtablewidgetitem24->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
-        add_4->setText(QString());
-        del_4->setText(QString());
-        update_4->setText(QString());
-        pdf_4->setText(QString());
-        sort_4->setText(QString());
-        QTableWidgetItem *___qtablewidgetitem25 = tableWidget_4->horizontalHeaderItem(0);
+        AccidentCreateTypeline->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
+        AccidentCreateDamageline->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
+        AccidentCreateDateline->setText(QCoreApplication::translate("Dashboard", "Date", nullptr));
+        AccidentCreateLocationline->setText(QCoreApplication::translate("Dashboard", "Location", nullptr));
+        AccidentCreateClientIDline->setText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
+        AccidentCreateIDline->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        AccidentSubmit->setText(QCoreApplication::translate("Dashboard", "SUBMIT", nullptr));
+        AccidentCancel->setText(QCoreApplication::translate("Dashboard", "CANCEL", nullptr));
+        AccidentDeleteIDline->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        AccidentDelete->setText(QCoreApplication::translate("Dashboard", "delete", nullptr));
+        AccidentUpdateIDline->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        AccidentUpdateClientIDline->setText(QCoreApplication::translate("Dashboard", "Client_ID", nullptr));
+        AccidentUpdateTypeline->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
+        AccidentUpdateDamageline->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
+        AccidentUpdateDateline->setText(QCoreApplication::translate("Dashboard", "date", nullptr));
+        AccidentUpdateLocationline->setText(QCoreApplication::translate("Dashboard", "location", nullptr));
+        AccidentUpdate->setText(QCoreApplication::translate("Dashboard", "update", nullptr));
+        AddAccident->setText(QString());
+        DeleteAccident_2->setText(QString());
+        UpdateAccident_2->setText(QString());
+        PdfAccident->setText(QString());
+        SortAccident->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem25 = tableAccident->horizontalHeaderItem(0);
         ___qtablewidgetitem25->setText(QCoreApplication::translate("Dashboard", " ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem26 = tableWidget_4->horizontalHeaderItem(1);
+        QTableWidgetItem *___qtablewidgetitem26 = tableAccident->horizontalHeaderItem(1);
         ___qtablewidgetitem26->setText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem27 = tableWidget_4->horizontalHeaderItem(2);
+        QTableWidgetItem *___qtablewidgetitem27 = tableAccident->horizontalHeaderItem(2);
         ___qtablewidgetitem27->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
-        QTableWidgetItem *___qtablewidgetitem28 = tableWidget_4->horizontalHeaderItem(3);
+        QTableWidgetItem *___qtablewidgetitem28 = tableAccident->horizontalHeaderItem(3);
         ___qtablewidgetitem28->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
-        QTableWidgetItem *___qtablewidgetitem29 = tableWidget_4->horizontalHeaderItem(4);
+        QTableWidgetItem *___qtablewidgetitem29 = tableAccident->horizontalHeaderItem(4);
         ___qtablewidgetitem29->setText(QCoreApplication::translate("Dashboard", "Date", nullptr));
-        QTableWidgetItem *___qtablewidgetitem30 = tableWidget_4->horizontalHeaderItem(5);
+        QTableWidgetItem *___qtablewidgetitem30 = tableAccident->horizontalHeaderItem(5);
         ___qtablewidgetitem30->setText(QCoreApplication::translate("Dashboard", "Location", nullptr));
         employees->setText(QCoreApplication::translate("Dashboard", "Employees", nullptr));
         clients->setText(QCoreApplication::translate("Dashboard", "Clients", nullptr));

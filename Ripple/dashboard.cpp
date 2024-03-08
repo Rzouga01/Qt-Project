@@ -159,11 +159,17 @@ void Dashboard::onAddClickedClient() {
         QString email = ui->ClientCreateEmail->text();
         bool validEmail = email.contains("@") && email.contains(".");
 
+        bool validDob = ui->ClientCreateDob->date().isValid() && ui->ClientCreateDob->date() <= QDate::currentDate();
+
         if (!validPhoneNumber) {
             QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"),QMessageBox::Ok, QMessageBox::Ok);
         } else if (!validEmail) {
             QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"),QMessageBox::Ok, QMessageBox::Ok);
-        } else {
+        }
+        else if (!validDob) {
+            QMessageBox::critical(this, tr("Error"), tr("Please enter a valid date of birth"), QMessageBox::Ok, QMessageBox::Ok);
+        }
+        else {
 
             if(MasterClient.CreateClient(ui->ClientCreateEmail->text(),
                                 ui->ClientCreateFirstName->text(),
@@ -212,6 +218,7 @@ void Dashboard::onUpdateClickedClient() {
             // Validate email
             QString email = ui->ClientUpdateEmail->text();
             bool validEmail = email.contains("@") && email.contains(".");
+            bool validDob = ui->ClientUpdateDob->date().isValid() && ui->ClientUpdateDob->date() <= QDate::currentDate();
 
             if (!validPhoneNumber) {
                 QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"),QMessageBox::Ok, QMessageBox::Ok);
@@ -222,7 +229,15 @@ void Dashboard::onUpdateClickedClient() {
             else if (!validId) {
                 QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"),QMessageBox::Ok, QMessageBox::Ok);
             }
+            else if (!validDob) {
+				QMessageBox::critical(this, tr("Error"), tr("Please enter a valid date of birth"),QMessageBox::Ok, QMessageBox::Ok);
+			}
             else {
+                QMessageBox::StandardButton reply;
+                reply = QMessageBox::question(this, "Update Client", "Are you sure you want to update this client?",
+                                              QMessageBox::Yes|QMessageBox::No);
+                if (reply == QMessageBox::Yes) {
+
 
                 if (MasterClient.UpdateClient(id.toInt(), ui->ClientUpdateEmail->text(),
                     ui->ClientUpdateFirstName->text(),
@@ -242,7 +257,14 @@ void Dashboard::onUpdateClickedClient() {
 					QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
 				}
             }
+            else
+            {
+                clearInputFieldsUpdateClient();
+                return;
+            }
         }
+        }
+
     }
 
 
@@ -260,6 +282,14 @@ void Dashboard::onDeleteClickedClient() {
             QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"),QMessageBox::Ok, QMessageBox::Ok);
         } else {
 
+            QMessageBox::StandardButton reply;
+            reply = QMessageBox::question(this, "Delete Client", "Are you sure you want to delete this client?", QMessageBox::Yes|QMessageBox::No);
+            if (reply == QMessageBox::No) {
+                clearInputFieldsDeleteClient();
+                return;
+            }
+            else{
+
             if (MasterClient.DeleteClient(id.toInt()))
 
             {
@@ -273,23 +303,23 @@ void Dashboard::onDeleteClickedClient() {
 			}
 
         }
-    }
+        }}
 }
 
 void Dashboard::onAddCancelClickedClient()
 {
-    clearInputFieldsCreate();
+    clearInputFieldsCreateClient();
 }
 
 void Dashboard::onUpdateCancelClickedClient()
 {
-    	clearInputFieldsUpdate();
+    	clearInputFieldsUpdateClient();
     
 }
 
 void Dashboard::onDeleteCancelClickedClient()
 {
-    clearInputFieldsDelete();
+    clearInputFieldsDeleteClient();
 }
 
 void Dashboard::clearInputFieldsCreateClient() {

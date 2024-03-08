@@ -282,7 +282,7 @@ background-color: #171717;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="featureBar">
@@ -763,7 +763,7 @@ color:black;
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="CreateClientPage">
         <widget class="QFrame" name="CreateClient">
@@ -1500,6 +1500,16 @@ color:black;
       <column>
        <property name="text">
         <string>Date Of Birth</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Update</string>
        </property>
       </column>
      </widget>

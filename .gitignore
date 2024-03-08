@@ -11,3 +11,7 @@
 *.obj
 *.obj
 *.log
+*.props
+*.stash
+*.log
+*.props

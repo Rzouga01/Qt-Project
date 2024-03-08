@@ -202,17 +202,17 @@ bool Client::DeleteClient(int id)
                 tableClient->setItem(row, col, item);
             }
 
-            // Set date
+
             QTableWidgetItem* dateItem = new QTableWidgetItem(qry.value(6).toDate().toString());
             tableClient->setItem(row, 6, dateItem);
 
-            // Add delete button
+
             QPushButton* deleteButton = new QPushButton("Delete");
             connect(deleteButton, &QPushButton::clicked, [this, row]() {
                 int clientId = tableClient->item(row, 0)->text().toInt();
-                stackedClient->setCurrentIndex(2); // Assuming the index of the delete page is 1
+                stackedClient->setCurrentIndex(2); 
                 });
-            tableClient->setCellWidget(row, 7, deleteButton); // Assuming delete button is in column 7
+            tableClient->setCellWidget(row, 7, deleteButton); 
 
             // Add update button
             QPushButton* updateButton = new QPushButton("Update");
@@ -220,7 +220,7 @@ bool Client::DeleteClient(int id)
                 // Handle the update button click event here
                 // You may want to open a dialog for updating client information
                 });
-            tableClient->setCellWidget(row, 8, updateButton); // Assuming update button is in column 8
+            tableClient->setCellWidget(row, 8, updateButton); 
         }
     }
     else {
@@ -430,7 +430,6 @@ bool Client::UpdateClient(int clientID, QString email, QString first_name, QStri
         }
         else
         {
-            QMessageBox::critical(nullptr, tr("Error"), tr("Client not found")); // As this is not part of a QDialog, pass nullptr
             return false;
         }
     }
