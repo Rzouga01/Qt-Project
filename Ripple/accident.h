@@ -51,9 +51,8 @@ public:
 
     // FONCTIONALITES DE BASE
 
-    bool create();
+    bool create(QString type  ,int damage ,QDate date,QString location,int client_id );
     QSqlQueryModel * read();
-    void update( QString type,int damage,QDate date,QString location,int client_id);
     bool Delete(int);
 
 private:

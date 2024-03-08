@@ -8,7 +8,7 @@
 #include "mainwindow.h"
 #include <QTableWidget>
 #include <QTableWidgetItem>
-
+#include "employee.h"
 
 namespace Ui {
     class Dashboard;
@@ -19,19 +19,19 @@ class Dashboard : public QDialog
     Q_OBJECT
 
 public:
-    explicit Dashboard(QWidget *parent = nullptr);
+    explicit Dashboard(QWidget* parent = nullptr);
     ~Dashboard();
 
     void update();
     void onLogoutButtonClicked();
 
-
-    //Client
+    // Client
     void onAddClickedClient();
     void onDeleteClickedClient();
     void onUpdateClickedClient();
     void onSortClickedClient();
     void onPdfClickedClient();
+<<<<<<< Updated upstream
 
 
 
@@ -39,29 +39,42 @@ public:
     void clearInputFieldsUpdateClient();
     void clearInputFieldsDeleteClient();
 
+=======
+    void clearInputFields();
+>>>>>>> Stashed changes
     void onAddCancelClickedClient();
     void onUpdateCancelClickedClient();
     void onDeleteCancelClickedClient();
-
-
     void ClientDashboardConnectUi();
     void onStackedClientIndexChanged(int index);
 
+<<<<<<< Updated upstream
     void openDeletePage(int clientId);
 
+=======
+    // Employee
+    void onAddEmployeeClicked();
+    void onDeleteEmployeeClicked();
+    void onUpdateEmployeeClicked();
+    void onSortEmployeeClicked();
+    void onPdfEmployeeClicked();
+    void onCancelClickedEmp_C();
+    void onCancelClickedEmp_U();
+    void onCancelClickedEmp_D();
+    void EmployeeDashboardConnectUi();
+>>>>>>> Stashed changes
 
+    void openUpdateForm();
+    void onComboboxIndexChanged(int index);
+    Employee* getEmployeeDataById(int id);
 
-    //------------------------------------
-
-
-    void onAddClicked();
-    void onDeleteClicked();
-    void onUpdateClicked();
-    void onSortClicked();
-    void onPdfClicked();
-
+<<<<<<< Updated upstream
 private:
     Ui::Dashboard *ui;
+=======
+public:
+    Ui::Dashboard* ui;
+>>>>>>> Stashed changes
     MainWindow mainWindowRef;
 
 };

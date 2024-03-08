@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QDate>
+#include <QTableWidget>
 
 namespace Ui {
     class Employee;
@@ -14,45 +15,56 @@ namespace Ui {
 class Employee : public QDialog {
     Q_OBJECT
 private:
-    Ui::Employee* ui;
+    int id;
     QString email;
     QString password;
-    QString role;
+    int role;
     QString first_name;
     QString last_name;
     QString phone_number;
     QString address;
     QDate dob;
+    Ui::Employee* ui;
+    QTableWidget* tableEmployee;
 
 public:
+    // Constructors
     explicit Employee(QWidget* parent = nullptr);
-    Employee( QString email, QString password,  QString role,	 QString first_name,  QString last_name,  QString phone_number, QString address,  QDate dob);
+    explicit Employee(QTableWidget* tableWidget, QWidget* parent = nullptr);
+    Employee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
+
+    // Destructor
     ~Employee();
 
     // Getters
+    int getId() const { return id; };
     QString getEmail() const { return email; };
     QString getPassword() const { return password; };
-    QString getRole() const { return role; };
+    int getRole() const { return role; };
     QString getFirstName() const { return first_name; };
     QString getLastName() const { return last_name; };
     QString getPhoneNumber() const { return phone_number; };
     QString getAddress() const { return address; };
     QDate getDOB() const { return dob; };
 
-    // Setter
-    void setPassword(const QString& password) { this->password = password; };
-    void setRole(const QString& role) { this->role = role; };
-    void setFirstName(const QString& firstName) { this->first_name = firstName; };
-    void setLastName(const QString& lastName) { this->last_name = lastName; };
-    void setPhoneNumber(const QString& phoneNumber) { this->phone_number = phoneNumber; };
-    void setAddress(const QString& address) { this->address = address; };
-    void setDOB(const QDate& dob) { this->dob = dob; };
+    // Setters
+    void setEmail(const QString& mail) { email = mail; };
+    void setPassword(const QString& newPassword) { password = newPassword; };
+    void setRole(int newRole) { role = newRole; };
+    void setFirstName(const QString& firstName) { first_name = firstName; };
+    void setLastName(const QString& lastName) { last_name = lastName; };
+    void setPhoneNumber(const QString& phoneNumber) { phone_number = phoneNumber; };
+    void setAddress(const QString& newAddress) { address = newAddress; };
+    void setDOB(const QDate& newDOB) { dob = newDOB; };
+    void setTableEmployee(QTableWidget* table) { tableEmployee = table; };
 
-    // CRUD
-    bool createEmployee();
+    // CRUD operations
+    bool createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
     void readEmployee();
-    bool updateEmployee(int id);
+    bool updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
     bool deleteEmployee(int id);
+    void readEmployeeById(int id);
+    QStringList getAllEmployeeIDs();
 };
 
 #endif // EMPLOYEE_H

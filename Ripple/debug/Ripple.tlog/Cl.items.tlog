@@ -1,16 +1,35 @@
-C:\Users\malek\Documents\Qt-Project\Ripple\accident.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\accident.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\client.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\client.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\connection.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\connection.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\contract.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\contract.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\dashboard.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\dashboard.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\employee.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\employee.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\main.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\main.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\mainwindow.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\mainwindow.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\menu.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\menu.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_accident.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_accident.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_client.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_client.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_contract.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_contract.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_dashboard.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_dashboard.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_employee.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_employee.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_mainwindow.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_mainwindow.obj
-C:\Users\malek\Documents\Qt-Project\Ripple\Debug\moc_menu.cpp;C:\Users\malek\Documents\Qt-Project\Ripple\debug\moc_menu.obj
+<<<<<<< Updated upstream
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\accident.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\accident.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\client.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\client.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\connection.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\connection.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\contract.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\contract.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\dashboard.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\employee.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\employee.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\main.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\main.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\mainwindow.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\mainwindow.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\menu.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\menu.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_accident.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_accident.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_client.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_client.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_contract.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_contract.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_dashboard.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_dashboard.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_employee.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_employee.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_mainwindow.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_mainwindow.obj
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\Debug\moc_menu.cpp;C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\moc_menu.obj
+=======
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\accident.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\accident.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\client.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\client.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\connection.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\connection.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\contract.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\contract.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\dashboard.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\dashboard.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\employee.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\employee.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\main.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\main.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\mainwindow.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\mainwindow.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\menu.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\menu.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_accident.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_accident.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_client.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_client.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_contract.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_contract.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_dashboard.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_dashboard.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_employee.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_employee.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_mainwindow.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_mainwindow.obj
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\Debug\moc_menu.cpp;C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\moc_menu.obj
+>>>>>>> Stashed changes

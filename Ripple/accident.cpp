@@ -1,5 +1,13 @@
 #include "accident.h"
 #include "ui_accident.h"
+#include <QMessageBox>
+#include <QtDebug>
+#include <QDate>
+#include <QSqlQuery>
+#include <QTableWidgetItem>
+#include <QTableWidget>
+#include <QSqlError>
+
 
 
 
@@ -39,7 +47,7 @@ accident::accident(QString type  ,int damage ,QDate date,QString location,int cl
     this->client_id=client_id;
 }
 
-bool accident::create()
+bool accident::create(QString type  ,int damage ,QDate date,QString location,int client_id )
 {
 QSqlQuery query;
 
@@ -51,8 +59,26 @@ query.bindValue(":date",date );
 query.bindValue(":location", location );
 query.bindValue(":client_id", client_id);
 
-  return query.exec();
+if (query.exec())
+{
+
+    qDebug() << "Accident saved successfully." << "Data:" <<
+                "\ntype :" << type <<
+                "\ndamage :" << damage <<
+                "\ndate :" << date.toString("yyyy-MM-dd") <<
+                "\nlocation :" << location <<
+                 "\nclient_id :" << client_id ;
+
+    return true;
 }
+else
+{
+    qDebug() << "Error Creating Accident query:" << query.lastError().text();
+    QMessageBox::critical(this, tr("Error"), query.lastError().text());
+    return false;
+}
+}
+
 
 QSqlQueryModel* accident::read()
 {
