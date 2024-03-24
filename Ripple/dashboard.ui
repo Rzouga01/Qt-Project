@@ -7,198 +7,64 @@
     <x>0</x>
     <y>0</y>
     <width>1500</width>
-    <height>800</height>
+    <height>872</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dashboard</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QFrame {
-         background-color:#171717;
-        border:none;
-     }
-
-#Dashboard
-{
-background-color: #171717;
+   <string notr="true"> QFrame {
+     background-color:#171717;
+     border:none;
+}
+ #Dashboard {
+     background-color: #171717;
+}
+ #helloBar{
+     border: none;
+     background-color:#171717;
+     font-size:30px;
+     color:white;
+     font-family:&quot;helvetica&quot; 
+}
+ #role{
+     font-size:30px;
+     background-color:#171717;
+     color:white;
+     border:none;
+     font-family:&quot;helvetica&quot; 
+}
+ #stackedWidget {
+     background-color: #171717;
 }
 
-#helloBar{
-border: none;
-background-color:#171717;
-font-size:30px;
-color:white;
-font-family:&quot;helvetica&quot;
-
+ #logoutButton, #employees, #clients, #contracts, #accidents {
+     font-size: 15px;
+     font-weight: bold;
+     color: white;
+     background-color: #444444;
+    ;
+     border-radius:15px;
+}
+ #logoutButton:hover, #employees:hover, #contracts:hover, #clients:hover, #accidents:hover {
+     background-color: #333;
 
 }
-
-#role{
-font-size:30px;
-background-color:#171717;
-color:white;
-border:none;
-font-family:&quot;helvetica&quot;
+ QMessageBox {
+     background-color: #333333;
+     border: none;
 }
-
-
-#stackedWidget
-{
-background-color: #171717;
+ QMessageBox QLabel {
+     color: #FFFFFF;
 }
-
-
-
-
-/* Apply styles to the featureBar_4 */
-#featureBar_4 {
-    background-color: white;
-    border-radius: 25px;
+ QTableWidget {
+     background-color: #444444;
+     border: 1px solid #444444;
+     color: #E0E1E3;
+     border-radius: 4px;
 }
-
-/* Apply styles to the addFeature_4 */
-#addFeature_4 {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the stats_4 */
-#stats_4 {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the readBox_4 */
-#readBox_4 {
-    border: none;
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the searchBar_4 */
-#searchBar_4 {
-      background-color: white;
-
-}
-
-
-#featureBar {
-    background-color: white;
-    border-radius: 25px;
-}
-
-/* Apply styles to the addFeature */
-#addFeature {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the stats */
-#stats {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the readBox */
-#readBox {
-    border: none;
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-/* Apply styles to the searchBar */
-#searchBar {
-    background-color: white;
-
-}
-#logoutButton,
-#employees,
-#clients,
-#contracts,
-#accidents {
-    font-size: 15px;
-    font-weight: bold;
-    color: white; /* Set the default text color */
-        background-color: #444444;;
-        border-radius:15px;
-
-}
-
-
-#logoutButton:hover,
-#employees:hover,
-#contracts:hover,
-#clients:hover,
-#accidents:hover {
-    background-color: #333; /* Darker color on hover */
-}
-
-#searchBar {
-    border-radius: 20px;
-}
-
-
-
-
-
-#searchBar_4 {
-    border-radius: 20px;
-}
-
-/* Apply styles to the add button */
-#add,
-#del,
-#pdf,
-#update,
-#sort ,
-#add_3,
-#del_3,
-#pdf_3,
-#update_3,
-#sort_3,
-#add_4,
-#del_4,
-#pdf_4,
-#update_4,
-#sort_4{
-    border: none; /* Remove default button border */
-    background-color: transparent; /* Make the background transparent */
-}
-
-/* Set styles for the icons */
-#add::icon,
-#del::icon,
-#pdf::icon,
-#update::icon,
-#sort::icon {
-    padding: 0; /* Remove padding */
-    width: 40px; /* Set icon width */
-    height: 40px; /* Set icon height */
-}
-
-/* Set icons for the buttons */
-#add::icon {
-    image: url(../Resources/Icons/add.png); /* Set the icon for the add button */
-}
-
-#del::icon {
-    image: url(../Resources/Icons/delete.png); /* Set the icon for the delete button */
-}
-
-#pdf::icon {
-    image: url(../Resources/Icons/pdf.png); /* Set the icon for the PDF button */
-}
-
-#update::icon {
-    image: url(../Resources/Icons/update.png); /* Set the icon for the update button */
-}
-
-#sort::icon {
-    image: url(../Resources/Icons/sort.png); /* Set the icon for the sort button */
-}
-
-</string>
+ </string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -272,25 +138,24 @@ background-color: #171717;
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>260</x>
       <y>120</y>
-      <width>1141</width>
+      <width>1231</width>
       <height>841</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
-<<<<<<< Updated upstream
-     <widget class="QFrame" name="featureBar">
-=======
      <property name="styleSheet">
-      <string notr="true">#featureBarEmployee {
+      <string notr="true">/* Feature Bar */
+#featureBarEmployee {
     background-color: white;
     border-radius: 25px;
 }
 
+/* CRUD Buttons */
 #CrudEmployee,
 #CreateEmployee,
 #UpdateEmployee,
@@ -299,22 +164,26 @@ background-color: #171717;
     border-radius: 25px;
 }
 
+/* Stats  */
 #statsEmployee {
     background-color: #A7C34E;
     border-radius: 25px;
 }
 
+/* Read Box */
 #readBoxEmployee {
     border: none;
     background-color: #A7C34E;
     border-radius: 25px;
 }
 
+/* Search Bar */
 #searchBarEmployee {
     background-color: white;
     border-radius: 20px;
 }
 
+/* Action Buttons */
 #addEmployee,
 #deleteEmployee,
 #pdfEmployee,
@@ -324,20 +193,50 @@ background-color: #171717;
     background-color: transparent;
 }
 
-#tableEmployee QTableWidget::item {
-    color: white;
-    font-family: &quot;Helvetica&quot;;
-    padding: 5px; 
-    min-height: 30px; 
-
-}
-#tableEmployee QHeaderView::section {
-    background-color: #f2f2f2;
-    border: 1px solid #dddddd;
-    min-width: 100px;
+/* Header styling */
+QHeaderView {
+    background-color: #444444;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
 }
 
-/*Create*/
+/* Row hover styling */
+QAbstractView:hover {
+    border: 1px solid #444444;
+    color: #E0E1E3;
+}
+
+/* Selected row styling */
+QAbstractView:selected {
+    background: #444444;
+    color: #E0E1E3;
+}
+
+/* Corner button styling */
+QTableCornerButton::section {
+    background-color: #444444;
+    border: 1px transparent #444444;
+    border-radius: 0;
+}
+
+/* Font size adjustment for table data */
+QTableWidget QTableWidget {
+    font-size: 10pt;
+}
+
+/* Create and Update Combobox Items */
+QComboBox#EmployeeRole_C QAbstractItemView,
+QComboBox#EmployeeRole_U QAbstractItemView,
+QComboBox#EmployeeSelectID_U QAbstractItemView,
+QComboBox#EmployeeSelectID_D QAbstractItemView {
+    color: white; 
+    background-color: #444444; 
+    selection-background-color: #A7C34E; 
+}
+
+/* Create  */
 #EmployeeEmailText_C,
 #EmployeePasswordText_C,
 #EmployeeFirstNameText_C,
@@ -347,8 +246,8 @@ background-color: #171717;
 #EmployeeDobText_C,
 #EmployeeRoleText_C,
 #EmployeeSelectIDText_U {
-    border: none; 
-    background-color: transparent; 
+    border: none;
+    background-color: transparent;
     font-family: &quot;Helvetica&quot;;
     font-size: 14px;
     color: white;
@@ -360,7 +259,7 @@ background-color: #171717;
 #EmployeeFirstName_C,
 #EmployeeLastName_C,
 #EmployeeAddress_C,
-#EmployeePhoneNumber_C,a
+#EmployeePhoneNumber_C,
 #EmployeeDob_C,
 #EmployeeRole_C,
 #EmployeeSelectID_U {
@@ -392,7 +291,7 @@ background-color: #171717;
     background-color: #333333;
 }
 
-/*Update*/
+/* Update */
 #EmployeeEmailText_U,
 #EmployeePasswordText_U,
 #EmployeeFirstNameText_U,
@@ -401,8 +300,8 @@ background-color: #171717;
 #EmployeePhoneNumberText_U,
 #EmployeeDobText_U,
 #EmployeeRoleText_U {
-    border: none; 
-    background-color: transparent; 
+    border: none;
+    background-color: transparent;
     font-family: &quot;Helvetica&quot;;
     font-size: 14px;
     color: white;
@@ -425,6 +324,7 @@ background-color: #171717;
     border: none;
     border-radius: 15px;
 }
+
 #EmployeeCancelBtn_U,
 #EmployeeUpdateBtn {
     background-color: #444444;
@@ -438,11 +338,13 @@ background-color: #171717;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 #EmployeeCancelBtn_U:hover,
 #EmployeeUpdateBtn:hover {
     background-color: #333333;
 }
-/*Delete*/
+
+/* Delete */
 #EmployeeSelectIDText_D {
     border: none;
     background-color: transparent;
@@ -483,11 +385,10 @@ background-color: #171717;
 </string>
      </property>
      <widget class="QFrame" name="featureBarEmployee">
->>>>>>> Stashed changes
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>10</y>
+        <x>700</x>
+        <y>20</y>
         <width>501</width>
         <height>61</height>
        </rect>
@@ -498,7 +399,7 @@ background-color: #171717;
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-      <widget class="QPushButton" name="add">
+      <widget class="QPushButton" name="addEmployee">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -515,7 +416,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -524,7 +425,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="del">
+      <widget class="QPushButton" name="deleteEmployee">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -541,7 +442,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -550,7 +451,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="update">
+      <widget class="QPushButton" name="updateEmployee">
        <property name="geometry">
         <rect>
          <x>330</x>
@@ -567,7 +468,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -576,7 +477,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf">
+      <widget class="QPushButton" name="pdfEmployee">
        <property name="geometry">
         <rect>
          <x>430</x>
@@ -593,7 +494,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -602,7 +503,7 @@ background-color: #171717;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="sort">
+      <widget class="QPushButton" name="sortEmployee">
        <property name="geometry">
         <rect>
          <x>230</x>
@@ -619,7 +520,7 @@ background-color: #171717;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -629,32 +530,20 @@ background-color: #171717;
        </property>
       </widget>
      </widget>
-     <widget class="QListWidget" name="readBox">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QFrame" name="stats">
+     <widget class="QStackedWidget" name="CrudEmployee">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>230</y>
-        <width>371</width>
-        <height>231</height>
+        <y>220</y>
+        <width>421</width>
+        <height>451</height>
        </rect>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-<<<<<<< Updated upstream
-=======
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="CreateEmployee">
        <widget class="QLineEdit" name="EmployeeEmail_C">
@@ -1215,34 +1104,11 @@ background-color: #171717;
        </widget>
       </widget>
       <widget class="QWidget" name="DeleteEmployee">
-       <widget class="QComboBox" name="EmployeeSelectID_D">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>110</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="EmployeeSelectIDText_D">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>110</y>
-          <width>113</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Select ID</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="EmployeeDeleteBtn">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>180</y>
+          <x>90</x>
+          <y>210</y>
           <width>111</width>
           <height>51</height>
          </rect>
@@ -1251,28 +1117,65 @@ background-color: #171717;
          <string>Delete</string>
         </property>
        </widget>
+       <widget class="QComboBox" name="EmployeeSelectID_D">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>140</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLineEdit" name="EmployeeSelectIDText_D">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>140</y>
+          <width>113</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Select ID</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="EmployeeCancelBtn_D">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>210</y>
+          <width>111</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
       </widget>
->>>>>>> Stashed changes
      </widget>
-     <widget class="QFrame" name="addFeature">
+     <widget class="QListWidget" name="readBoxEmployee">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>371</width>
-        <height>201</height>
+        <x>450</x>
+        <y>110</y>
+        <width>761</width>
+        <height>560</height>
        </rect>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
      </widget>
-     <widget class="QLineEdit" name="searchBar">
+     <widget class="QLineEdit" name="searchBarEmployee">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>120</y>
-        <width>241</width>
+        <x>760</x>
+        <y>170</y>
+        <width>431</width>
         <height>41</height>
        </rect>
       </property>
@@ -1283,69 +1186,43 @@ background-color: #171717;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="tableEmployee">
       <property name="geometry">
        <rect>
-<<<<<<< Updated upstream
-        <x>400</x>
-        <y>170</y>
-        <width>501</width>
-        <height>261</height>
-=======
-        <x>500</x>
-        <y>180</y>
-        <width>631</width>
-        <height>251</height>
->>>>>>> Stashed changes
+        <x>450</x>
+        <y>230</y>
+        <width>761</width>
+        <height>391</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Helvetica</family>
+        <family>JetBrains Mono</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="styleSheet">
-       <string notr="true">tableEmployee {
-    color: white;
-    font-family: &quot;Helvetica&quot;;
-}
-</string>
+       <string notr="true"/>
       </property>
       <property name="showGrid">
        <bool>true</bool>
       </property>
-      <property name="sortingEnabled">
-       <bool>true</bool>
-      </property>
-      <attribute name="horizontalHeaderCascadingSectionResizes">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="horizontalHeaderMinimumSectionSize">
-       <number>20</number>
-      </attribute>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>62</number>
-      </attribute>
-      <attribute name="verticalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="verticalHeaderMinimumSectionSize">
-       <number>10</number>
-      </attribute>
-      <attribute name="verticalHeaderDefaultSectionSize">
-       <number>10</number>
-      </attribute>
-      <attribute name="verticalHeaderHighlightSections">
-       <bool>false</bool>
-      </attribute>
       <column>
        <property name="text">
-        <string> ID</string>
+        <string>ID</string>
        </property>
       </column>
       <column>
        <property name="text">
         <string>Email</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Password</string>
        </property>
       </column>
       <column>
@@ -1379,154 +1256,134 @@ background-color: #171717;
        </property>
       </column>
      </widget>
+     <zorder>readBoxEmployee</zorder>
+     <zorder>featureBarEmployee</zorder>
+     <zorder>CrudEmployee</zorder>
+     <zorder>searchBarEmployee</zorder>
+     <zorder>tableEmployee</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
-      <string notr="true">
-#featureBarClient {
-    background-color: white;
-    border-radius: 25px;
-}
-
-#CrudClient,#CreateClient,#UpdateClient,#DeleteClient {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-#statsClient {
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-#readBoxClient{
-    border: none;
-    background-color: #A7C34E;
-    border-radius: 25px;
-}
-
-#searchBarClient{
+      <string notr="true"> #featureBarClient {
      background-color: white;
- border-radius: 20px;
+     border-radius: 25px;
 }
-
-#addClient,
+ #CrudClient,
+#CreateClient,
+#UpdateClient,
+#DeleteClient {
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #statsClient {
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #readBoxClient{
+     border: none;
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #searchBarClient{
+     background-color: white;
+     border-radius: 20px;
+}
+ #addClient, 
 #deleteClient,
-#pdfClient,
-#updateClient,
+ #pdfClient, 
+#updateClient, 
 #sortClient{
-border: none;
-    background-color: transparent;
-
+     border: none;
+     background-color: transparent;
 }
-
-
-
-
 /*Create*/
-
-#ClientCreateEmailLine,
-#ClientCreateFirstNameLine,
-#ClientCreateLastNameLine,
+ #ClientCreateEmailLine, 
+#ClientCreateFirstNameLine, 
+#ClientCreateLastNameLine, 
 #ClientCreateAddressLine,
-#ClientCreatePhoneNumberLine,
-#ClientCreateDobLine {
-    background-color: #A7C34E;
-    font-family: &quot;helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-style: bold;
+ #ClientCreatePhoneNumberLine,
+ #ClientCreateDobLine {
+     background-color: #A7C34E;
+     font-family: &quot;helvetica&quot;;
+     font-size: 14px;
+     color: white;
+     font-style: bold;
 }
-
-
-#ClientCreateEmail,
-#ClientCreateFirstName,
-#ClientCreateLastName,
+ #ClientCreateEmail, 
+#ClientCreateFirstName, 
+#ClientCreateLastName, 
 #ClientCreateAddress,
-#ClientCreatePhoneNumber,
+ #ClientCreatePhoneNumber, 
 #ClientCreateDob {
-    background-color: #171717;
-    font-family: &quot;helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-style: bold;
-	border:none;
-	border-radius:15px;
+     background-color: #171717;
+     font-family: &quot;helvetica&quot;;
+     font-size: 14px;
+     color: white;
+     font-style: bold;
+     border:none;
+     border-radius:15px;
 }
-
-
-
 /*Read*/
-#tableClient {
-    border-radius: 10px;
-    border-collapse: collapse;
-    width: 100%;
+ #tableClient {
+     border-radius: 10px;
+     border-collapse: collapse;
+     width: 100%;
 }
-
-#tableClient th,
-#tableClient td {
-    border: 1px solid #ddd; 
-    padding: 8px;
-    text-align: left;
+ #tableClient th, #tableClient td {
+     border: 1px solid #ddd;
+     padding: 8px;
+     text-align: left;
 }
-
-#tableClient td {
-color:black;
+ #tableClient td {
+     color:black;
 }
-
 /*Update*/
-
-#ClientUpdateIDLine,
-#ClientUpdateEmailLine,
-#ClientUpdateFirstNameLine,
-#ClientUpdateLastNameLine,
-#ClientUpdateAddressLine,
+ #ClientUpdateIDLine,
+ #ClientUpdateEmailLine, 
+#ClientUpdateFirstNameLine, 
+#ClientUpdateLastNameLine, 
+#ClientUpdateAddressLine, 
 #ClientUpdatePhoneNumberLine,
-#ClientUpdateDobLine {
-    background-color: #A7C34E;
-    font-family: &quot;helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-style: bold;
+ #ClientUpdateDobLine {
+     background-color: #A7C34E;
+     font-family: &quot;helvetica&quot;;
+     font-size: 14px;
+     color: white;
+     font-style: bold;
 }
-
-#ClientUpdateID,
-#ClientUpdateEmail,
-#ClientUpdateFirstName,
+ #ClientUpdateID, 
+#ClientUpdateEmail, 
+#ClientUpdateFirstName, 
 #ClientUpdateLastName,
-#ClientUpdateAddress,
-#ClientUpdatePhoneNumber,
+ #ClientUpdateAddress, 
+#ClientUpdatePhoneNumber, 
 #ClientUpdateDob {
-    background-color: #171717;
-    font-family: &quot;helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-style: bold;
-	border:none;
-	border-radius:15px;
+     background-color: #171717;
+     font-family: &quot;helvetica&quot;;
+     font-size: 14px;
+     color: white;
+     font-style: bold;
+     border:none;
+     border-radius:15px;
 }
-
 /*Delete*/
-
-
-#ClientDeleteIDLine
- {
-    background-color: #A7C34E;
-    font-family: &quot;helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-style: bold;
+ #ClientDeleteIDLine {
+     background-color: #A7C34E;
+     font-family: &quot;helvetica&quot;;
+     font-size: 14px;
+     color: white;
+     font-style: bold;
 }
-
-#ClientDeleteID
- {
-    background-color: #171717;
-    font-family: &quot;helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-style: bold;
-	border:none;
-	border-radius:15px;
-}</string>
+ #ClientDeleteID {
+     background-color: #171717;
+     font-family: &quot;helvetica&quot;;
+     font-size: 14px;
+     color: white;
+     font-style: bold;
+     border:none;
+     border-radius:15px;
+}
+ </string>
      </property>
      <widget class="QListWidget" name="readBoxClient">
       <property name="geometry">
@@ -2241,10 +2098,10 @@ color:black;
      <widget class="QTableWidget" name="tableClient">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>420</x>
         <y>180</y>
-        <width>681</width>
-        <height>461</height>
+        <width>711</width>
+        <height>441</height>
        </rect>
       </property>
       <property name="font">
@@ -2266,7 +2123,7 @@ color:black;
        <number>50</number>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>66</number>
+       <number>90</number>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -2275,14 +2132,14 @@ color:black;
        <number>10</number>
       </attribute>
       <attribute name="verticalHeaderDefaultSectionSize">
-       <number>10</number>
+       <number>20</number>
       </attribute>
       <attribute name="verticalHeaderHighlightSections">
        <bool>false</bool>
       </attribute>
       <column>
        <property name="text">
-        <string> ID</string>
+        <string>ID</string>
        </property>
       </column>
       <column>
@@ -2329,52 +2186,57 @@ color:black;
     </widget>
     <widget class="QWidget" name="page_3">
      <property name="styleSheet">
-      <string notr="true">/* Apply styles to the featureBarContract */
-#featureBarContract {
-    background-color: white;
-    border-radius: 25px;
+      <string notr="true"> 
+/* Apply styles to the featureBarContract */
+ #featureBarContract {
+     background-color: white;
+     border-radius: 25px;
 }
-
 /* Apply styles to the addContract */
-#CrudContract {
-    background-color: #A7C34E;
-    border-radius: 25px;
+ #CrudContract {
+     background-color: #A7C34E;
+     border-radius: 25px;
 }
-
 /* Apply styles to the statsContract */
-#statsContract {
-    background-color: #A7C34E;
-    border-radius: 25px;
+ #statsContract {
+     background-color: #A7C34E;
+     border-radius: 25px;
 }
-
 /* Apply styles to the readBoxContract */
-#readBoxContract {
-    border: none;
-    background-color: #A7C34E;
-    border-radius: 25px;
+ #readBoxContract {
+     border: none;
+     background-color: #A7C34E;
+     border-radius: 25px;
 }
-
 /* Apply styles to the searchBarContract */
-#searchBarContract {
-    background-color: white;
-
-
+ #searchBarContract {
+     background-color: white;
 }
-
-
-#searchBarContract {
-    border-radius: 20px;
+ #searchBarContract {
+     border-radius: 20px;
 }
-
-#CreateContract{
-	background-color: #A7C34E;
-    border-radius: 25px;
+ #CreateContract{
+     background-color: #A7C34E;
+     border-radius: 25px;
 }
-
-#DeleteContract{
-		background-color: #A7C34E;
-   	    border-radius: 25px;
-}</string>
+ #DeleteContract{
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #UpdateContract{
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+#addContract,
+#deleteContract,
+#pdfContract, 
+#updateContract, 
+#sortContract , 
+#excelContract{
+     border: none;
+     background-color: transparent;
+}
+ </string>
      </property>
      <widget class="QFrame" name="CrudContract">
       <property name="geometry">
@@ -2416,7 +2278,7 @@ color:black;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLineEdit" name="LineEditExpirationDate">
+         <widget class="QLineEdit" name="LineEditUserIdContract">
           <property name="geometry">
            <rect>
             <x>220</x>
@@ -2426,67 +2288,54 @@ color:black;
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="LineEditContractId">
+         <widget class="QLineEdit" name="LineEditClientIdContract">
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>120</y>
+            <y>100</y>
             <width>113</width>
             <height>24</height>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="LineEditUserId">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>190</y>
-            <width>113</width>
-            <height>24</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="LineEditClientId">
+         <widget class="QLineEdit" name="LineEditPremiumAmountContract">
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>270</y>
+            <y>160</y>
             <width>113</width>
             <height>24</height>
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="LineEditPremiumAmount">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>340</y>
-            <width>113</width>
-            <height>24</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEdit_8">
+         <widget class="QLineEdit" name="lineEditTypeContract">
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>410</y>
+            <y>380</y>
             <width>113</width>
             <height>24</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LineEditType {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
          </widget>
-         <widget class="QLineEdit" name="LineEditPaymentstatus">
+         <widget class="QLineEdit" name="LineEditPaymentstatusContract">
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>480</y>
+            <y>320</y>
             <width>113</width>
             <height>24</height>
            </rect>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelUserId">
+         <widget class="QLabel" name="LabelUserIdContract">
           <property name="geometry">
            <rect>
             <x>50</x>
@@ -2495,89 +2344,138 @@ color:black;
             <height>21</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelUserIdContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
           <property name="text">
            <string>USER_ID</string>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelClientId">
+         <widget class="QLabel" name="LabelClientIdContract">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>120</y>
+            <x>50</x>
+            <y>110</y>
             <width>71</width>
             <height>16</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelClientIdContract {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>CLIENT_ID</string>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelPremiumAmount">
+         <widget class="QLabel" name="LabelPremiumAmountContract">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>200</y>
+            <x>50</x>
+            <y>160</y>
             <width>121</width>
             <height>21</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelPremiumAmountContract {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>PREMIUM_AMOUNT</string>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelEffectiveDate">
+         <widget class="QLabel" name="LabelEffectiveDateContract">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>270</y>
+            <x>50</x>
+            <y>210</y>
             <width>121</width>
             <height>21</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelEffectiveDateContract {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>EFFECTIVE_DATE</string>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelExpirationDate">
+         <widget class="QLabel" name="LabelExpirationDateContract">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>340</y>
+            <x>50</x>
+            <y>260</y>
             <width>121</width>
             <height>16</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelExpirationDateContract {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>EXPIRATION_DATE</string>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelPaymentStatus">
+         <widget class="QLabel" name="LabelPaymentStatusContract">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>410</y>
+            <x>50</x>
+            <y>320</y>
             <width>121</width>
             <height>16</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelPaymentStatusContract {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>PAYMENT_STATUS</string>
           </property>
          </widget>
-         <widget class="QLabel" name="LabelType">
+         <widget class="QLabel" name="LabelTypeContract">
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>490</y>
+            <y>380</y>
             <width>56</width>
             <height>16</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelTypeContract {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>TYPE</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="CancelContract">
+         <widget class="QPushButton" name="CancelCreateContract">
           <property name="geometry">
            <rect>
             <x>240</x>
@@ -2603,6 +2501,26 @@ color:black;
            <string>Create Contract</string>
           </property>
          </widget>
+         <widget class="QDateEdit" name="dateEditEffectiveDateContract">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>210</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEditExpirationDateContract">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>260</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QWidget" name="page_6">
@@ -2624,11 +2542,18 @@ color:black;
          <widget class="QLabel" name="LabelContractId">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>50</y>
-            <width>71</width>
+            <width>91</width>
             <height>21</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelContractId {
+									   background-color: transparent;
+									   }
+								   </string>
           </property>
           <property name="text">
            <string>Contract_Id</string>
@@ -2637,18 +2562,75 @@ color:black;
          <widget class="QLineEdit" name="LineEditContractID">
           <property name="geometry">
            <rect>
-            <x>210</x>
-            <y>40</y>
+            <x>230</x>
+            <y>50</y>
             <width>113</width>
             <height>24</height>
            </rect>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButtonCancel">
+         <widget class="QPushButton" name="CancelDeleteContract">
           <property name="geometry">
            <rect>
-            <x>240</x>
-            <y>490</y>
+            <x>230</x>
+            <y>530</y>
+            <width>91</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="DeleteContractButton">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>530</y>
+            <width>111</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Delete Contract</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="page_7">
+        <widget class="QFrame" name="UpdateContract">
+         <property name="geometry">
+          <rect>
+           <x>-1</x>
+           <y>29</y>
+           <width>371</width>
+           <height>681</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="UpdateContractButton">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>540</y>
+            <width>111</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Update Contract</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="CancelUpdateContract">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>540</y>
             <width>80</width>
             <height>25</height>
            </rect>
@@ -2657,17 +2639,251 @@ color:black;
            <string>Cancel</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButtonDelete">
+         <widget class="QLabel" name="LabelUserIdContractUpdate">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>490</y>
-            <width>80</width>
+            <x>30</x>
+            <y>100</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelUserIdContractUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>USER_ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelClientIdContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>160</y>
+            <width>71</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelClientIdContractUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>CLIENT_ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelPremiumAmountContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>210</y>
+            <width>121</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelPremiumAmountContractUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>PREMIUM_AMOUNT</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelEffectiveDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>270</y>
+            <width>121</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelEffectiveDateContractUpdate{
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>EFFECTIVE_DATE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelExpirationDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>330</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelExpirationDateContractUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>EXPIRATION_DATE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelPaymentStatusContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>390</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelPaymentStatusContractUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>PAYMENT_STATUS</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelTypeContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>450</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelTypeContractUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>TYPE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditUserIdContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>90</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditClientIdContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>150</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEditEffectiveDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>270</y>
+            <width>110</width>
             <height>25</height>
            </rect>
           </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEditExpirationDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>320</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditPaymentstatusContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>390</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEditTypeContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>450</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LineEditType {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="LineEditPremiumAmountContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>210</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEditContractIDUpdate">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>40</y>
+            <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="labelContractIDUpdate">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>40</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #labelContractIDUpdate {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Contract_ID</string>
           </property>
          </widget>
         </widget>
@@ -2703,9 +2919,9 @@ color:black;
      <widget class="QFrame" name="featureBarContract">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>510</x>
         <y>10</y>
-        <width>501</width>
+        <width>611</width>
         <height>61</height>
        </rect>
       </property>
@@ -2718,7 +2934,7 @@ color:black;
       <widget class="QPushButton" name="addContract">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>150</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -2727,12 +2943,15 @@ color:black;
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2741,10 +2960,10 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="delContract">
+      <widget class="QPushButton" name="deleteContract">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>240</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -2753,12 +2972,15 @@ color:black;
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2770,7 +2992,7 @@ color:black;
       <widget class="QPushButton" name="updateContract">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>430</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -2779,12 +3001,15 @@ color:black;
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2796,7 +3021,7 @@ color:black;
       <widget class="QPushButton" name="pdfContract">
        <property name="geometry">
         <rect>
-         <x>430</x>
+         <x>520</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -2805,12 +3030,15 @@ color:black;
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2822,7 +3050,7 @@ color:black;
       <widget class="QPushButton" name="sortContract">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>330</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -2831,12 +3059,15 @@ color:black;
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2845,13 +3076,42 @@ color:black;
         </size>
        </property>
       </widget>
+      <widget class="QPushButton" name="excelContract">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>10</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/excel.png</normaloff>../Resources/Icons/excel.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
      </widget>
-     <widget class="QTableWidget" name="tableWidgetContract">
+     <widget class="QTableWidget" name="tableContract">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>190</y>
-        <width>721</width>
+        <x>390</x>
+        <y>200</y>
+        <width>741</width>
         <height>381</height>
        </rect>
       </property>
@@ -2871,7 +3131,7 @@ color:black;
        <number>50</number>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>62</number>
+       <number>104</number>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -2880,14 +3140,14 @@ color:black;
        <number>10</number>
       </attribute>
       <attribute name="verticalHeaderDefaultSectionSize">
-       <number>10</number>
+       <number>20</number>
       </attribute>
       <attribute name="verticalHeaderHighlightSections">
        <bool>false</bool>
       </attribute>
       <column>
        <property name="text">
-        <string> ID</string>
+        <string>ID</string>
        </property>
       </column>
       <column>
@@ -2928,22 +3188,59 @@ color:black;
      </widget>
     </widget>
     <widget class="QWidget" name="page_4">
-     <widget class="QListWidget" name="readBox_4">
+     <property name="styleSheet">
+      <string notr="true"> #CrudAccident {
+     background-color: white;
+     border-radius: 25px;
+}
+ #CrudAccident {
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #StatsAccident {
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #featureBarAccident {
+     background-color: white;
+     border-radius: 25px;
+}
+ #readAccident {
+     border: none;
+     background-color: #A7C34E;
+     border-radius: 25px;
+}
+ #searchAccident {
+     background-color: white;
+     border-radius: 20px;
+}
+#addAccident,
+#deleteAccident, 
+#pdfAccident, 
+#updateAccident,
+#sortAccident,
+#historyAccident {
+     border: none;
+     background-color: transparent;
+}
+ </string>
+     </property>
+     <widget class="QListWidget" name="readAccident">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>90</y>
-        <width>501</width>
-        <height>371</height>
+        <x>520</x>
+        <y>110</y>
+        <width>591</width>
+        <height>541</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="searchBar_4">
+     <widget class="QLineEdit" name="searchAccident">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>120</y>
-        <width>241</width>
+        <x>560</x>
+        <y>140</y>
+        <width>531</width>
         <height>41</height>
        </rect>
       </property>
@@ -2954,38 +3251,520 @@ color:black;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QFrame" name="stats_4">
+     <widget class="QFrame" name="CrudAccident">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>290</y>
+        <width>471</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <widget class="QStackedWidget" name="StackedAccident">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>441</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="CreateAccident">
+        <widget class="QFrame" name="FrameCreateAccident">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>451</width>
+           <height>361</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="AccidentCreateTypeline">
+          <property name="geometry">
+           <rect>
+            <x>58</x>
+            <y>97</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentCreateType">
+          <property name="geometry">
+           <rect>
+            <x>188</x>
+            <y>97</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentCreateDamage">
+          <property name="geometry">
+           <rect>
+            <x>188</x>
+            <y>147</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentCreateLocation">
+          <property name="geometry">
+           <rect>
+            <x>188</x>
+            <y>247</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentCreateDamageline">
+          <property name="geometry">
+           <rect>
+            <x>58</x>
+            <y>147</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Damage</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentCreateDateline">
+          <property name="geometry">
+           <rect>
+            <x>58</x>
+            <y>197</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Date</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentCreateLocationline">
+          <property name="geometry">
+           <rect>
+            <x>58</x>
+            <y>247</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Location</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentCreateClientIDline">
+          <property name="geometry">
+           <rect>
+            <x>58</x>
+            <y>57</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel
+									   {color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Client ID</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AccidentSubmit">
+          <property name="geometry">
+           <rect>
+            <x>348</x>
+            <y>207</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>SUBMIT</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AccidentCancel">
+          <property name="geometry">
+           <rect>
+            <x>348</x>
+            <y>237</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>CANCEL</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="AccidentCreateClientID">
+          <property name="geometry">
+           <rect>
+            <x>188</x>
+            <y>57</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="AccidentCreateDate">
+          <property name="geometry">
+           <rect>
+            <x>188</x>
+            <y>197</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="DeleteAccident">
+        <widget class="QFrame" name="FrameCreateAccident_2">
+         <property name="geometry">
+          <rect>
+           <x>-1</x>
+           <y>-1</y>
+           <width>451</width>
+           <height>351</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="AccidentDeleteIDline">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>50</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentDeleteID">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>50</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AccidentDelete">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>50</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>delete</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="UpdateAccident">
+        <widget class="QFrame" name="frame_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>-1</y>
+           <width>441</width>
+           <height>341</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="AccidentUpdateIDline">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>40</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentUpdateClientIDline">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>80</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Client_ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentUpdateTypeline">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>120</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentUpdateDamageline">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>160</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Damage</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentUpdateDateline">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>200</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>date</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="AccidentUpdateLocationline">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>240</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>location</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentUpdateID">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>40</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentUpdateType">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>120</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentUpdateDamage">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>160</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentUpdateLocation">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>240</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AccidentUpdate">
+          <property name="geometry">
+           <rect>
+            <x>330</x>
+            <y>260</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>update</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="AccidentUpdateClientID">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>80</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="AccidentUpdateDate">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>200</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="StatsAccident">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>230</y>
-        <width>371</width>
-        <height>231</height>
+        <y>10</y>
+        <width>481</width>
+        <height>251</height>
        </rect>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
-     <widget class="QFrame" name="addFeature_4">
+     <widget class="QFrame" name="featureBarAccident">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>371</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="featureBar_4">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>10</y>
-        <width>501</width>
+        <x>510</x>
+        <y>30</y>
+        <width>601</width>
         <height>61</height>
        </rect>
       </property>
@@ -2995,7 +3774,7 @@ color:black;
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
-      <widget class="QPushButton" name="add_4">
+      <widget class="QPushButton" name="addAccident">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -3012,7 +3791,7 @@ color:black;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/add.png</normaloff>../../../../.designer/Resources/Icons/add.png</iconset>
+         <normaloff>../Resources/Icons/add.png</normaloff>../Resources/Icons/add.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -3021,7 +3800,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="del_4">
+      <widget class="QPushButton" name="deleteAccident">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -3038,7 +3817,7 @@ color:black;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/delete.png</normaloff>../../../../.designer/Resources/Icons/delete.png</iconset>
+         <normaloff>../Resources/Icons/delete.png</normaloff>../Resources/Icons/delete.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -3047,7 +3826,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="update_4">
+      <widget class="QPushButton" name="updateAccident">
        <property name="geometry">
         <rect>
          <x>330</x>
@@ -3064,7 +3843,7 @@ color:black;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/update.png</normaloff>../../../../.designer/Resources/Icons/update.png</iconset>
+         <normaloff>../Resources/Icons/update.png</normaloff>../Resources/Icons/update.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -3073,7 +3852,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf_4">
+      <widget class="QPushButton" name="pdfAccident">
        <property name="geometry">
         <rect>
          <x>430</x>
@@ -3090,7 +3869,7 @@ color:black;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/pdf.png</normaloff>../../../../.designer/Resources/Icons/pdf.png</iconset>
+         <normaloff>../Resources/Icons/pdf.png</normaloff>../Resources/Icons/pdf.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -3099,7 +3878,7 @@ color:black;
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="sort_4">
+      <widget class="QPushButton" name="sortAccident">
        <property name="geometry">
         <rect>
          <x>230</x>
@@ -3116,7 +3895,7 @@ color:black;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../../.designer/Resources/Icons/sort.png</normaloff>../../../../.designer/Resources/Icons/sort.png</iconset>
+         <normaloff>../Resources/Icons/sort.png</normaloff>../Resources/Icons/sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -3125,14 +3904,37 @@ color:black;
         </size>
        </property>
       </widget>
+      <widget class="QPushButton" name="historyAccident">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/history.png</normaloff>../Resources/Icons/history.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_4">
+     <widget class="QTableWidget" name="tableAccident">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>170</y>
-        <width>501</width>
-        <height>261</height>
+        <x>520</x>
+        <y>210</y>
+        <width>591</width>
+        <height>421</height>
        </rect>
       </property>
       <property name="font">
@@ -3151,7 +3953,7 @@ color:black;
        <number>50</number>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>62</number>
+       <number>125</number>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -3160,14 +3962,14 @@ color:black;
        <number>10</number>
       </attribute>
       <attribute name="verticalHeaderDefaultSectionSize">
-       <number>10</number>
+       <number>20</number>
       </attribute>
       <attribute name="verticalHeaderHighlightSections">
        <bool>false</bool>
       </attribute>
       <column>
        <property name="text">
-        <string> ID</string>
+        <string>ID</string>
        </property>
       </column>
       <column>

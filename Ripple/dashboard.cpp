@@ -1,93 +1,72 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
-
 #include <QApplication>
 #include <QtWidgets>
 #include <QUiLoader>
+#include <QFileDialog>
 #include "mainwindow.h"
 #include "connection.h"
 #include "client.h"
 #include "employee.h"
 #include "accident.h"
 #include "contract.h"
+
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
 {
-<<<<<<< Updated upstream
-    ui->setupUi(this);
-    Client MasterClient(ui->tableClient, ui->StackedClient, this);
-
-    Connection con;
-    if(!con.createconnect()) {
-        qDebug() << "Not Connected";
-    } else {
-        MasterClient.ReadClient();
-        update();
-    }
-=======
 	ui->setupUi(this);
-	Client MasterClient(ui->tableClient, this);
+	Client MasterClient(ui->tableClient, ui->StackedClient, this);
+	accident MasterAccident(ui->tableAccident, this);
+	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	Employee Emp(ui->tableEmployee, this);
 	Connection con;
 	if (!con.createconnect()) {
 		qDebug() << "Not Connected";
 	}
 	else {
-		MasterClient.ReadClient();
 		Emp.readEmployee();
+		MasterClient.ReadClient();
+		MasterAccident.accidentRead();
+		MasterContract.ReadContract();
 		openUpdateForm();
 		update();
 	}
->>>>>>> Stashed changes
 }
 
 void Dashboard::update() {
-
-	//Dashboard Nav Buttons
+	// Dashboard Nav Buttons
 	QObject::connect(ui->employees, &QPushButton::clicked, this, [this]() { ui->stackedWidget->setCurrentIndex(0); });
 	QObject::connect(ui->clients, &QPushButton::clicked, this, [this]() { ui->stackedWidget->setCurrentIndex(1); });
 	QObject::connect(ui->contracts, &QPushButton::clicked, this, [this]() { ui->stackedWidget->setCurrentIndex(2); });
 	QObject::connect(ui->accidents, &QPushButton::clicked, this, [this]() { ui->stackedWidget->setCurrentIndex(3); });
 	QObject::connect(ui->logoutButton, &QPushButton::clicked, this, &Dashboard::onLogoutButtonClicked);
 
-	//Client
+	// Client
 	ClientDashboardConnectUi();
-	//Employee
+	// Employee
 	EmployeeDashboardConnectUi();
-
-
+	// Contract
+	ContractDashboardConnectUi();
+	// Accident
+	AccidentDashboardConnectUi();
 }
-
 
 void Dashboard::onLogoutButtonClicked() {
 	close();
 	mainWindowRef.show();
 }
+//--------------------------------------------------------------------------------------------------------------------------------
+// Client
+void Dashboard::ClientDashboardConnectUi() {
+	Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
+	QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
+	QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
 
-
-//Client
-
-void Dashboard::ClientDashboardConnectUi()
-{
-<<<<<<< Updated upstream
-    Client MasterClient(ui->tableClient, ui->StackedClient, this);
-
-    
-
-    QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
-    QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
-
-
-    QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
-    QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
-    QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
-=======
 	QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
 	QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
 	QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
->>>>>>> Stashed changes
 
 	QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
 	QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
@@ -97,26 +76,14 @@ void Dashboard::ClientDashboardConnectUi()
 	QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
 	QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 
-<<<<<<< Updated upstream
-    connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
+	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
-    ui->StackedClient->setCurrentIndex(0);
-=======
 	ui->StackedClient->setCurrentIndex(0);
->>>>>>> Stashed changes
-
-	// Client stacked widget button background color change according to current index
-	//QObject::connect(ui->StackedClient, &QStackedWidget::currentChanged, this, &Dashboard::onStackedClientIndexChanged);
-
-
 }
 
 void Dashboard::openDeletePage(int clientId) {
-    // Open the delete page in the stacked client widget
-    ui->StackedClient->setCurrentIndex(2); // Assuming the index of the delete page is 2
-
-    // Fill the input field with the client ID
-    ui->ClientDeleteID->setText(QString::number(clientId));
+	ui->StackedClient->setCurrentIndex(2); 
+	ui->ClientDeleteID->setText(QString::number(clientId));
 }
 
 void Dashboard::onStackedClientIndexChanged(int index) {
@@ -126,19 +93,16 @@ void Dashboard::onStackedClientIndexChanged(int index) {
 		ui->updateClient->setStyleSheet("background-color: transparent;");
 		ui->deleteClient->setStyleSheet("background-color: transparent;");
 		break;
-
 	case 1:
 		ui->addClient->setStyleSheet("background-color: transparent;");
 		ui->updateClient->setStyleSheet("background-color: #D3D3D3;");
 		ui->deleteClient->setStyleSheet("background-color: transparent;");
 		break;
-
 	case 2:
 		ui->addClient->setStyleSheet("background-color: transparent;");
 		ui->updateClient->setStyleSheet("background-color: transparent;");
 		ui->deleteClient->setStyleSheet("background-color: #D3D3D3;");
 		break;
-
 	default:
 		ui->addClient->setStyleSheet("background-color: transparent;");
 		ui->updateClient->setStyleSheet("background-color: transparent;");
@@ -147,14 +111,8 @@ void Dashboard::onStackedClientIndexChanged(int index) {
 	}
 }
 
-
 void Dashboard::onAddClickedClient() {
-<<<<<<< Updated upstream
-    Client MasterClient(ui->tableClient,ui->StackedClient, this);
-=======
-	Client MasterClient(ui->tableClient, this);
->>>>>>> Stashed changes
-
+	Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
 	if (ui->ClientCreateEmail->text().isEmpty() ||
 		ui->ClientCreateFirstName->text().isEmpty() ||
@@ -165,20 +123,12 @@ void Dashboard::onAddClickedClient() {
 
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
 
-<<<<<<< Updated upstream
-        clearInputFieldsCreateClient();
-    } else {
-        // Validate phone number
-        QString phoneNumber = ui->ClientCreatePhoneNumber->text();
-        bool validPhoneNumber = phoneNumber.length() == 8 && phoneNumber.toInt(&validPhoneNumber) && validPhoneNumber;
-=======
-		clearInputFields();
+		clearInputFieldsCreateClient();
 	}
 	else {
 		// Validate phone number
 		QString phoneNumber = ui->ClientCreatePhoneNumber->text();
 		bool validPhoneNumber = phoneNumber.length() == 8 && phoneNumber.toInt(&validPhoneNumber) && validPhoneNumber;
->>>>>>> Stashed changes
 
 		// Validate email
 		QString email = ui->ClientCreateEmail->text();
@@ -191,60 +141,25 @@ void Dashboard::onAddClickedClient() {
 			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok, QMessageBox::Ok);
 		}
 		else {
-
-<<<<<<< Updated upstream
-            if(MasterClient.CreateClient(ui->ClientCreateEmail->text(),
-                                ui->ClientCreateFirstName->text(),
-                                ui->ClientCreateLastName->text(),
-                                ui->ClientCreatePhoneNumber->text(),
-                                ui->ClientCreateAddress->text(),
-                                ui->ClientCreateDob->date()))
-            {            MasterClient.ReadClient();
-
-            clearInputFieldsCreateClient();
-
-            QMessageBox::information(this, tr("Success"), tr("Client created successfully"),QMessageBox::Ok, QMessageBox::Ok);
-            }
-            else
-            {
-				QMessageBox::critical(this, tr("Error"), tr("Client not created"),QMessageBox::Ok, QMessageBox::Ok);
-			}
-        }
-    }
-}
-
-
-void Dashboard::onUpdateClickedClient() {
-    Client MasterClient(ui->tableClient, ui->StackedClient ,this);
-=======
-			MasterClient.CreateClient(ui->ClientCreateEmail->text(),
+			if (MasterClient.CreateClient(ui->ClientCreateEmail->text(),
 				ui->ClientCreateFirstName->text(),
 				ui->ClientCreateLastName->text(),
 				ui->ClientCreatePhoneNumber->text(),
 				ui->ClientCreateAddress->text(),
-				ui->ClientCreateDob->date());
-			MasterClient.ReadClient();
-
-			clearInputFields();
-
-			QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok, QMessageBox::Ok);
+				ui->ClientCreateDob->date())) {
+				MasterClient.ReadClient();
+				clearInputFieldsCreateClient();
+				QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+			else {
+				QMessageBox::critical(this, tr("Error"), tr("Client not created"), QMessageBox::Ok, QMessageBox::Ok);
+			}
 		}
 	}
 }
 
-void Dashboard::clearInputFields() {
-	ui->ClientCreateEmail->clear();
-	ui->ClientCreateFirstName->clear();
-	ui->ClientCreateLastName->clear();
-	ui->ClientCreatePhoneNumber->clear();
-	ui->ClientCreateAddress->clear();
-	ui->ClientCreateDob->setDate(QDate());
-}
-
 void Dashboard::onUpdateClickedClient() {
-	Client MasterClient(ui->tableClient, this);
->>>>>>> Stashed changes
-
+	Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
 	if (ui->ClientUpdateEmail->text().isEmpty() ||
 		ui->ClientUpdateFirstName->text().isEmpty() ||
@@ -255,20 +170,12 @@ void Dashboard::onUpdateClickedClient() {
 
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
 
-<<<<<<< Updated upstream
-            clearInputFieldsUpdateClient();
-        } else {
-            // Validate ID
-            QString id = ui->ClientUpdateID->text();
-            bool validId = id.toInt(&validId) && validId;
-=======
-		clearInputFields();
+		clearInputFieldsUpdateClient();
 	}
 	else {
 		// Validate ID
 		QString id = ui->ClientUpdateID->text();
 		bool validId = id.toInt(&validId) && validId;
->>>>>>> Stashed changes
 
 		// Validate phone number
 		QString phoneNumber = ui->ClientUpdatePhoneNumber->text();
@@ -283,58 +190,30 @@ void Dashboard::onUpdateClickedClient() {
 		}
 		else if (!validEmail) {
 			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok, QMessageBox::Ok);
-
 		}
 		else if (!validId) {
 			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
 		}
 		else {
-
-<<<<<<< Updated upstream
-                if (MasterClient.UpdateClient(id.toInt(), ui->ClientUpdateEmail->text(),
-                    ui->ClientUpdateFirstName->text(),
-                    ui->ClientUpdateLastName->text(),
-                    ui->ClientUpdatePhoneNumber->text(),
-                    ui->ClientUpdateAddress->text(),
-                    ui->ClientUpdateDob->date()))
-                {
-                    MasterClient.ReadClient();
-
-                    clearInputFieldsUpdateClient();
-
-                    QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
-                }
-                else
-                {
-					QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
-				}
-            }
-        }
-    }
-
-
-void Dashboard::onDeleteClickedClient() {
-    Client MasterClient(ui->tableClient,ui->StackedClient, this);
-=======
-			MasterClient.UpdateClient(id.toInt(), ui->ClientUpdateEmail->text(),
+			if (MasterClient.UpdateClient(id.toInt(), ui->ClientUpdateEmail->text(),
 				ui->ClientUpdateFirstName->text(),
 				ui->ClientUpdateLastName->text(),
 				ui->ClientUpdatePhoneNumber->text(),
 				ui->ClientUpdateAddress->text(),
-				ui->ClientUpdateDob->date());
-			MasterClient.ReadClient();
-
-			clearInputFields();
-
-			QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
+				ui->ClientUpdateDob->date())) {
+				MasterClient.ReadClient();
+				clearInputFieldsUpdateClient();
+				QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+			else {
+				QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
+			}
 		}
 	}
 }
 
-
 void Dashboard::onDeleteClickedClient() {
-	Client MasterClient(ui->tableClient, this);
->>>>>>> Stashed changes
+	Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
 	if (ui->ClientDeleteID->text().isEmpty()) {
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
@@ -348,80 +227,40 @@ void Dashboard::onDeleteClickedClient() {
 			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
 		}
 		else {
-
-<<<<<<< Updated upstream
-            if (MasterClient.DeleteClient(id.toInt()))
-
-            {
-                MasterClient.ReadClient();
-                clearInputFieldsDeleteClient();
-                QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
-            }
-            else
-            {
+			if (MasterClient.DeleteClient(id.toInt())) {
+				MasterClient.ReadClient();
+				clearInputFieldsDeleteClient();
+				QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+			else {
 				QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
 			}
-
-        }
-    }
-=======
-			MasterClient.DeleteClient(id.toInt());
-			MasterClient.ReadClient();
-
-			clearInputFields();
-
-			QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
 		}
 	}
->>>>>>> Stashed changes
 }
 
-void Dashboard::onAddCancelClickedClient()
-{
-<<<<<<< Updated upstream
-    clearInputFieldsCreate();
-=======
-	clearInputFields();
->>>>>>> Stashed changes
+void Dashboard::onAddCancelClickedClient() {
+	clearInputFieldsCreateClient();
 }
 
-void Dashboard::onUpdateCancelClickedClient()
-{
-<<<<<<< Updated upstream
-    	clearInputFieldsUpdate();
-    
+void Dashboard::onUpdateCancelClickedClient() {
+	clearInputFieldsUpdateClient();
 }
 
-void Dashboard::onDeleteCancelClickedClient()
-{
-    clearInputFieldsDelete();
+void Dashboard::onDeleteCancelClickedClient() {
+	clearInputFieldsDeleteClient();
 }
 
 void Dashboard::clearInputFieldsCreateClient() {
-    ui->ClientCreateEmail->clear();
-    ui->ClientCreateFirstName->clear();
-    ui->ClientCreateLastName->clear();
-    ui->ClientCreatePhoneNumber->clear();
-    ui->ClientCreateAddress->clear();
-    ui->ClientCreateDob->setDate(QDate());
+	ui->ClientCreateEmail->clear();
+	ui->ClientCreateFirstName->clear();
+	ui->ClientCreateLastName->clear();
+	ui->ClientCreatePhoneNumber->clear();
+	ui->ClientCreateAddress->clear();
+	ui->ClientCreateDob->setDate(QDate());
 }
-
 
 void Dashboard::clearInputFieldsUpdateClient() {
-    ui->ClientUpdateID->clear();
-    ui->ClientUpdateEmail->clear();
-    ui->ClientUpdateFirstName->clear();
-    ui->ClientUpdateLastName->clear();
-    ui->ClientUpdatePhoneNumber->clear();
-    ui->ClientUpdateAddress->clear();
-    ui->ClientUpdateDob->setDate(QDate());
-}   
-
-void Dashboard::clearInputFieldsDeleteClient() {
-	ui->ClientDeleteID->clear();
-}
-
-=======
 	ui->ClientUpdateID->clear();
 	ui->ClientUpdateEmail->clear();
 	ui->ClientUpdateFirstName->clear();
@@ -431,42 +270,38 @@ void Dashboard::clearInputFieldsDeleteClient() {
 	ui->ClientUpdateDob->setDate(QDate());
 }
 
-void Dashboard::onDeleteCancelClickedClient()
-{
+void Dashboard::clearInputFieldsDeleteClient() {
 	ui->ClientDeleteID->clear();
 }
->>>>>>> Stashed changes
-
 
 void Dashboard::onSortClickedClient() {
-
 }
 
 void Dashboard::onPdfClickedClient() {
 }
-
-//----------------------------------------------------------------
-//Employee
-void Dashboard::EmployeeDashboardConnectUi()
-{
-	QObject::connect(ui->addEmployee, &QPushButton::clicked, this, [this]() {ui->CrudEmployee->setCurrentIndex(0); });
+//********************************************************************************************************************
+// Employee
+void Dashboard::EmployeeDashboardConnectUi() {
+	QObject::connect(ui->addEmployee, &QPushButton::clicked, this, [this]() { ui->CrudEmployee->setCurrentIndex(0); });
 	QObject::connect(ui->updateEmployee, &QPushButton::clicked, this, [this]() { ui->CrudEmployee->setCurrentIndex(1); });
-	QObject::connect(ui->deleteEmployee, &QPushButton::clicked, this, [this]() {ui->CrudEmployee->setCurrentIndex(2); });
+	QObject::connect(ui->deleteEmployee, &QPushButton::clicked, this, [this]() { ui->CrudEmployee->setCurrentIndex(2); });
 
 	QObject::connect(ui->EmployeeCreateBtn, &QPushButton::clicked, this, &Dashboard::onAddEmployeeClicked);
 	QObject::connect(ui->EmployeeUpdateBtn, &QPushButton::clicked, this, &Dashboard::onUpdateEmployeeClicked);
 	QObject::connect(ui->EmployeeDeleteBtn, &QPushButton::clicked, this, &Dashboard::onDeleteEmployeeClicked);
 
+	QObject::connect(ui->EmployeeCancelBtn_C, &QPushButton::clicked, this, &Dashboard::onCancelClickedEmp_C);
 
-	QObject::connect(ui->EmployeeCancelBtn_C, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedClient);
+	QObject::connect(ui->sortEmployee, &QPushButton::clicked, this, &Dashboard::onSortEmployeeClicked);
+	QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
+	QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
+
 
 
 	ui->CrudEmployee->setCurrentIndex(0);
-
 }
 
-int mapRoleToNumber(const QString& roleText)
-{
+int mapRoleToNumber(const QString& roleText) {
 	if (roleText == "Role 1")
 		return 0;
 	else if (roleText == "Role 2")
@@ -477,12 +312,8 @@ int mapRoleToNumber(const QString& roleText)
 		return -1;
 }
 
-
 void Dashboard::onAddEmployeeClicked() {
 	Employee emp(ui->tableEmployee, this);
-
-	ui->tableEmployee->setStyleSheet("QTableWidget { color: white; font-family: \"Helvetica\"; }"
-		"QTableWidget QTableWidget::item { min-height: 100px; }");
 
 	QString email = ui->EmployeeEmail_C->text();
 	QString password = ui->EmployeePassword_C->text();
@@ -497,32 +328,38 @@ void Dashboard::onAddEmployeeClicked() {
 
 	if (email.isEmpty() || password.isEmpty() || roleText.isEmpty() || firstName.isEmpty() ||
 		lastName.isEmpty() || phoneNumber.isEmpty() || address.isEmpty() || dob.isNull()) {
-
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
-		clearInputFields();
+		return;
 	}
-	else if (!email.contains('@') || !email.contains('.')) {
+
+	if (!email.contains('@') || !email.contains('.')) {
 		QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok, QMessageBox::Ok);
+		return;
 	}
-	else if (password.length() < 8) {
+
+	if (password.length() < 8) {
 		QMessageBox::critical(this, tr("Error"), tr("Password must be at least 8 characters long"), QMessageBox::Ok, QMessageBox::Ok);
+		return;
 	}
-	else if (phoneNumber.length() != 8 || !phoneNumber.toInt()) {
+
+	if (phoneNumber.length() != 8 || !phoneNumber.toInt()) {
 		QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"), QMessageBox::Ok, QMessageBox::Ok);
+		return;
 	}
-	else if (!firstName.contains(QRegularExpression("^[a-zA-Z]+$")) || !lastName.contains(QRegularExpression("^[a-zA-Z]+$"))) {
+
+	if (!firstName.contains(QRegularExpression("^[a-zA-Z]+$")) || !lastName.contains(QRegularExpression("^[a-zA-Z]+$"))) {
 		QMessageBox::critical(this, tr("Error"), tr("Please enter valid first and last names"), QMessageBox::Ok, QMessageBox::Ok);
+		return;
 	}
-	else {
-		emp.createEmployee(email, password, role, firstName, lastName, phoneNumber, address, dob);
-		emp.readEmployee();
 
-		clearInputFields();
+	emp.createEmployee(email, password, role, firstName, lastName, phoneNumber, address, dob);
 
-		QMessageBox::information(this, tr("Success"), tr("Employee created successfully"), QMessageBox::Ok, QMessageBox::Ok);
-	}
+	emp.readEmployee();
+
+	openUpdateForm();
+
+	QMessageBox::information(this, tr("Success"), tr("Employee created successfully"), QMessageBox::Ok, QMessageBox::Ok);
 }
-
 
 void Dashboard::onUpdateEmployeeClicked() {
 	int selectedId = ui->EmployeeSelectID_U->currentText().toInt();
@@ -563,61 +400,51 @@ void Dashboard::onUpdateEmployeeClicked() {
 	}
 
 	Employee emp;
+
 	if (emp.updateEmployee(selectedId, email, password, role, firstName, lastName, phoneNumber, address, dob)) {
+		Employee emp(ui->tableEmployee);
 		emp.readEmployee();
-		QMessageBox::information(this, "Success", "Employee  updated successfully.");
+		openUpdateForm();
+
+		QMessageBox::information(this, "Success", "Employee updated successfully.");
 	}
 	else {
-		QMessageBox::critical(this, "Error", "Failed to update employee .");
+		QMessageBox::critical(this, "Error", "Failed to update employee.");
 	}
 }
 
-
-
 void Dashboard::onDeleteEmployeeClicked() {
-
 	QString selectedId = ui->EmployeeSelectID_D->currentText();
 
 	if (!selectedId.isEmpty()) {
-
 		int idToDelete = selectedId.toInt();
 
-		
 		Employee e(ui->tableEmployee);
 		if (e.deleteEmployee(idToDelete)) {
-		
+			e.readEmployee();
+
 			openUpdateForm();
-			
-			QMessageBox::information(this, "Success", "Employee  deleted successfully.");
+
+			QMessageBox::information(this, "Success", "Employee deleted successfully.");
 		}
 		else {
-			
-			QMessageBox::critical(this, "Error", "Failed to delete employee .");
+			QMessageBox::critical(this, "Error", "Failed to delete employee.");
 		}
 	}
 }
 
-
-void Dashboard::onSortEmployeeClicked() {
-
-}
-
-void Dashboard::onPdfEmployeeClicked() {
-
-}
-void Dashboard::onCancelClickedEmp_C()
-{
-	clearInputFields();
-}
 void Dashboard::openUpdateForm() {
 	if (ui->EmployeeSelectID_U) {
 		Employee e(ui->tableEmployee);
 		QStringList ids = e.getAllEmployeeIDs();
+		ids.prepend("");
+
 		ui->EmployeeSelectID_U->clear();
 		ui->EmployeeSelectID_U->addItems(ids);
-		
-		QObject::connect(ui->EmployeeSelectID_U, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &Dashboard::onComboboxIndexChanged);
 
+		ui->EmployeeSelectID_U->setCurrentIndex(0);
+
+		QObject::connect(ui->EmployeeSelectID_U, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &Dashboard::onComboboxIndexChanged);
 	}
 	else {
 		qDebug() << "Error choosing update.";
@@ -626,18 +453,21 @@ void Dashboard::openUpdateForm() {
 	if (ui->EmployeeSelectID_D) {
 		Employee e(ui->tableEmployee);
 		QStringList ids = e.getAllEmployeeIDs();
+		ids.prepend("");
+
 		ui->EmployeeSelectID_D->clear();
 		ui->EmployeeSelectID_D->addItems(ids);
+
+		ui->EmployeeSelectID_D->setCurrentIndex(0);
 	}
 	else {
 		qDebug() << "Error choosing delete.";
 	}
+
+	// Clear role and birthday combo boxes initially
+	ui->EmployeeRole_U->clear();
+	ui->EmployeeDob_U->setDate(QDate());
 }
-
-
-
-
-
 
 void Dashboard::onComboboxIndexChanged(int index) {
 	if (index >= 0) {
@@ -647,18 +477,47 @@ void Dashboard::onComboboxIndexChanged(int index) {
 
 			ui->EmployeeEmail_U->setText(employeeData->getEmail());
 			ui->EmployeePassword_U->setText(employeeData->getPassword());
+
+
+			ui->EmployeeRole_U->clear();
+			ui->EmployeeRole_U->addItem("Role 1");
+			ui->EmployeeRole_U->addItem("Role 2");
+			ui->EmployeeRole_U->addItem("Role 3");
+
+
 			ui->EmployeeRole_U->setCurrentIndex(employeeData->getRole());
+
+			ui->EmployeeDob_U->setDate(employeeData->getDOB());
+
 			ui->EmployeeFirstName_U->setText(employeeData->getFirstName());
 			ui->EmployeeLastName_U->setText(employeeData->getLastName());
 			ui->EmployeePhoneNumber_U->setText(employeeData->getPhoneNumber());
 			ui->EmployeeAddress_U->setText(employeeData->getAddress());
-			ui->EmployeeDob_U->setDate(employeeData->getDOB());
 
 			delete employeeData;
 		}
 		else {
+			ui->EmployeeEmail_U->clear();
+			ui->EmployeePassword_U->clear();
+			ui->EmployeeRole_U->clear();
+			ui->EmployeeDob_U->setDate(QDate(2000, 1, 1));
+			ui->EmployeeFirstName_U->clear();
+			ui->EmployeeLastName_U->clear();
+			ui->EmployeePhoneNumber_U->clear();
+			ui->EmployeeAddress_U->clear();
 			qDebug() << "Error: Unable to retrieve employee data.";
 		}
+	}
+	else {
+
+		ui->EmployeeEmail_U->clear();
+		ui->EmployeePassword_U->clear();
+		ui->EmployeeRole_U->clear();
+		ui->EmployeeDob_U->setDate(QDate(2000, 1, 1));
+		ui->EmployeeFirstName_U->clear();
+		ui->EmployeeLastName_U->clear();
+		ui->EmployeePhoneNumber_U->clear();
+		ui->EmployeeAddress_U->clear();
 	}
 }
 
@@ -670,7 +529,7 @@ Employee* Dashboard::getEmployeeDataById(int id) {
 		Employee* data = new Employee(
 			query.value("email").toString(),
 			query.value("password").toString(),
-			query.value("role").toInt(),		
+			query.value("role").toInt(),
 			query.value("first_name").toString(),
 			query.value("last_name").toString(),
 			query.value("phone_number").toString(),
@@ -683,11 +542,479 @@ Employee* Dashboard::getEmployeeDataById(int id) {
 		qDebug() << "Error: Unable to retrieve employee data. Error details:" << query.lastError().text();
 		return nullptr;
 	}
+
 }
 
-//------------------------
+void Dashboard::clearInputFieldsEmployee() {
+	ui->EmployeeEmail_C->clear();
+	ui->EmployeePassword_C->clear();
+	ui->EmployeeRole_C->setCurrentIndex(0);
+	ui->EmployeeFirstName_C->clear();
+	ui->EmployeeLastName_C->clear();
+	ui->EmployeePhoneNumber_C->clear();
+	ui->EmployeeAddress_C->clear();
+	ui->EmployeeDob_C->setDate(QDate(2000, 1, 1));
+}
+
+void Dashboard::onCancelClickedEmp_C() {
+	clearInputFieldsEmployee();
+}
+
+void Dashboard::onSortEmployeeClicked() {
+	static bool isSorted = false;
+
+	if (!isSorted) {
+		Employee emp(ui->tableEmployee);
+		emp.sortEmployeesByAge();
+		isSorted = true;
+	}
+	else {
+		Employee emp(ui->tableEmployee);
+		emp.readEmployee();
+		isSorted = false;
+	}
+}
+
+void Dashboard::onPdfEmployeeClicked() {
+	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
+	if (!filePath.isEmpty()) {
+		Employee emp(ui->tableEmployee);
+		emp.ExportEmployeesToPdf(filePath);
+	}
+}
+
+void Dashboard::onSearchTextChanged(const QString& searchText) {
+
+	Employee emp(ui->tableEmployee);
+
+	QList<int> matchingEmployeeIDs = emp.searchEmployees(searchText);
+
+	if (!matchingEmployeeIDs.isEmpty()) {
+		emp.readEmployeeByIds(matchingEmployeeIDs);
+	}
+	else {
+
+		emp.readEmployee();
+	}
+}
+
+//********************************************************************************************************************
+// Contract
+void Dashboard::ContractDashboardConnectUi() {
+	contract MasterContract(ui->tableContract, ui->StackContract, this);
+
+
+	//QObject::connect(ui->sortContract,&QPushButton::clicked,this,&Dashboard::onSortClickedContract);
+	//QObject::connect(ui->pdfContract ,&QPushButton::clicked,this,&Dashboard::onPdfClickedContract);
+
+
+	QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
+	QObject::connect(ui->updateContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(2); });
+	QObject::connect(ui->deleteContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(1); });
+
+
+	QObject::connect(ui->CreateContractButton, &QPushButton::clicked, this, &Dashboard::onAddClickedContract);
+	QObject::connect(ui->UpdateContractButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedContract);
+	QObject::connect(ui->DeleteContractButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedContract);
+
+
+
+
+
+	ui->StackContract->setCurrentIndex(0);
+
+
+
+}
+
+void Dashboard::openDelPage(int contractId) {
+
+	ui->StackContract->setCurrentIndex(2);
+
+	ui->LineEditContractID->setText(QString::number(contractId));
+}
+
+void Dashboard::onStackedContractIndexChanged(int index) {
+	switch (index) {
+	case 0:
+		ui->addContract->setStyleSheet("background-color: #D3D3D3;");
+		ui->updateContract->setStyleSheet("background-color: transparent;");
+		ui->deleteContract->setStyleSheet("background-color: transparent;");
+		break;
+
+	case 1:
+		ui->addContract->setStyleSheet("background-color: transparent;");
+		ui->UpdateContract->setStyleSheet("background-color: #D3D3D3;");
+		ui->deleteContract->setStyleSheet("background-color: transparent;");
+		break;
+
+	case 2:
+		ui->addContract->setStyleSheet("background-color: transparent;");
+		ui->UpdateContract->setStyleSheet("background-color: transparent;");
+		ui->deleteContract->setStyleSheet("background-color: #D3D3D3;");
+		break;
+
+	default:
+		ui->addContract->setStyleSheet("background-color: transparent;");
+		ui->updateContract->setStyleSheet("background-color: transparent;");
+		ui->deleteContract->setStyleSheet("background-color: transparent;");
+		break;
+
+
+	}
+}
+
+void Dashboard::onAddClickedContract() {
+	contract MasterContract(ui->tableContract, ui->StackContract, this);
+
+	QString clientIdStr = ui->LineEditClientIdContract->text();
+	QString userIdStr = ui->LineEditUserIdContract->text();
+	QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
+	QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
+	QDate expirationDate = ui->dateEditExpirationDateContract->date();
+	QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
+	QString type = ui->lineEditTypeContract->text();
+
+	// Vérifier si les champs obligatoires ne sont pas vides
+	if (clientIdStr.isEmpty() || userIdStr.isEmpty() ||
+		premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() ||
+		effectiveDate.isNull() || expirationDate.isNull()) {
+
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
+		clearInputFieldsCreateContract();
+		return;
+	}
+
+	// Convertir les valeurs saisies en types appropriés
+	int clientId = clientIdStr.toInt();
+	int userId = userIdStr.toInt();
+	int premiumAmount = premiumAmountStr.toInt();
+	int paymentStatus = paymentStatusStr.toInt();
+
+	// Vérifier si les champs numériques sont valides
+	if (clientId <= 0 || userId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
+		QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
+		clearInputFieldsCreateContract();
+		return;
+	}
+
+	// Appeler la fonction CreateContract avec les valeurs extraites
+	if (MasterContract.CreateContract(userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
+		MasterContract.ReadContract();
+		clearInputFieldsCreateContract();
+		QMessageBox::information(this, tr("Success"), tr("Contract created successfully"), QMessageBox::Ok);
+	}
+	else {
+		QMessageBox::critical(this, tr("Error"), tr("Contract not created"), QMessageBox::Ok);
+	}
+}
+
+void Dashboard::clearInputFieldsContract() {
+	ui->LineEditUserIdContract->clear();
+	ui->LineEditClientIdContract->clear();
+	ui->LineEditPremiumAmountContract->clear();
+	ui->dateEditEffectiveDateContract->setDate(QDate());
+	ui->dateEditExpirationDateContract->setDate(QDate());
+	ui->LineEditPaymentstatusContract->clear();
+	ui->lineEditTypeContract->clear();
+}
+
+void Dashboard::onUpdateClickedContract() {
+	contract MasterContract(ui->tableContract, ui->StackContract, this);
+	int contractId = ui->lineEditContractIDUpdate->text().toInt();
+	QString clientIdStr = ui->LineEditClientIdContract->text();
+	QString userIdStr = ui->LineEditUserIdContract->text();
+	QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
+	QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
+	QDate expirationDate = ui->dateEditExpirationDateContract->date();
+	QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
+	QString type = ui->lineEditTypeContract->text();
+
+	// Vérifier si les champs obligatoires ne sont pas vides
+	if (clientIdStr.isEmpty() || userIdStr.isEmpty() ||
+		premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() ||
+		effectiveDate.isNull() || expirationDate.isNull()) {
+
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
+		clearInputFieldsUpdateContract();
+		return;
+	}
+
+	// Convertir les valeurs saisies en types appropriés
+	int clientId = clientIdStr.toInt();
+	int userId = userIdStr.toInt();
+	int premiumAmount = premiumAmountStr.toInt();
+	int paymentStatus = paymentStatusStr.toInt();
+
+	// Vérifier si les champs numériques sont valides
+	if (contractId <= 0 || clientId <= 0 || userId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
+		QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
+		clearInputFieldsUpdateContract();
+		return;
+	}
+
+	// Appeler la fonction UpdateContract avec les valeurs extraites
+	if (MasterContract.UpdateContract(contractId, userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
+		MasterContract.ReadContract();
+		clearInputFieldsUpdateContract();
+		QMessageBox::information(this, tr("Success"), tr("Contract updated successfully"), QMessageBox::Ok);
+	}
+	else {
+		QMessageBox::critical(this, tr("Error"), tr("Contract not updated"), QMessageBox::Ok);
+	}
+}
+
+void Dashboard::onDeleteClickedContract() {
+	contract MasterContract(ui->tableContract, ui->StackContract, this);
+	if (ui->LineEditContractID->text().isEmpty()) {
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+	}
+	else {
+		QString id = ui->LineEditContractID->text();
+		bool ValidId = id.toInt(&ValidId) && ValidId;
+
+		if (!ValidId) {
+			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
+		}
+		else {
+			if (MasterContract.DeleteContract(id.toInt())) {
+				MasterContract.ReadContract();
+				clearInputFieldsContract();
+				QMessageBox::information(this, tr("Success"), tr("Contract Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+			else {
+				QMessageBox::information(this, tr("Error"), tr("Contract Not found"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+		}
+	}
+}
+
+void Dashboard::onAddCancelClickedContract() {
+	clearInputFieldsCreateContract();
+}
+
+void Dashboard::onUpdateCancelClickedContract() {
+	clearInputFieldsUpdateContract();
+}
+
+void Dashboard::onDeleteCancelClickedContract() {
+	clearInputFieldsDeleteContract();
+}
+
+void Dashboard::clearInputFieldsCreateContract() {
+	ui->LineEditUserIdContract->clear();
+	ui->LineEditClientIdContract->clear();
+	ui->LineEditPremiumAmountContract->clear();
+	ui->dateEditEffectiveDateContract->setDate(QDate());
+	ui->dateEditExpirationDateContract->setDate(QDate());
+	ui->LineEditPaymentstatusContract->clear();
+	ui->lineEditTypeContract->clear();
+}
+
+void Dashboard::clearInputFieldsUpdateContract() {
+	ui->LineEditUserIdContractUpdate->clear();
+	ui->LineEditClientIdContractUpdate->clear();
+	ui->LineEditPremiumAmountContractUpdate->clear();
+	ui->dateEditEffectiveDateContractUpdate->setDate(QDate());
+	ui->dateEditExpirationDateContractUpdate->setDate(QDate());
+	ui->LineEditPaymentstatusContractUpdate->clear();
+	ui->lineEditTypeContractUpdate->clear();
+
+}
+
+void Dashboard::clearInputFieldsDeleteContract() {
+	ui->LineEditContractID->clear();
+}
+//********************************************************************************************************************
+//Accident
+void Dashboard::AccidentDashboardConnectUi()
+{
+	accident MasterAccident(ui->tableAccident, this);
+
+
+
+	QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
+	QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
+
+
+	QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
+	QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
+	QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
+
+	QObject::connect(ui->AccidentSubmit, &QPushButton::clicked, this, &Dashboard::onAddClickedAccident);
+	QObject::connect(ui->AccidentUpdate, &QPushButton::clicked, this, &Dashboard::onUpdateClickedAccident);
+	QObject::connect(ui->AccidentDelete, &QPushButton::clicked, this, &Dashboard::onDeleteClickedAccident);
+
+	QObject::connect(ui->AccidentCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedAccident);
+
+	QSqlQuery query;
+
+	if (!query.exec("SELECT * FROM CLIENTS")) {
+		qDebug() << "Error executing query:" << query.lastError().text();
+		return;
+	}
+
+	int rowCount = 0;  // Counter to track the number of rows fetched
+	while (query.next()) {
+		QString clientName = query.value(2).toString();
+		QVariant clientId = query.value(0).toInt();
+
+		qDebug() << "Adding item:" << clientName << "ID:" << clientId;
+
+		ui->AccidentCreateClientID->addItem(clientName, clientId);
+		ui->AccidentUpdateClientID->addItem(clientName, clientId);
+
+		rowCount++;
+	}
+
+	qDebug() << "Total rows fetched:" << rowCount;
+
+	ui->StackedAccident->setCurrentIndex(0);
+}
+
+void Dashboard::onAddCancelClickedAccident() {
+	clearInputFieldsAccidentCreate();
+}
+
+void Dashboard::onSortClickedAccident() {}
+
+void Dashboard::onPdfClickedAccient() {}
+
+void Dashboard::clearInputFieldsAccidentDelete() {
+	ui->AccidentDeleteID->clear();
+}
+
+void Dashboard::clearInputFieldsAccidentCreate() {
+	ui->AccidentCreateType->clear();
+	ui->AccidentCreateDamage->clear();
+	ui->AccidentCreateDate->clear();
+	ui->AccidentCreateLocation->clear();
+}
+
+void Dashboard::clearInputFieldsAccidentUpdate() {
+	ui->AccidentUpdateID->clear();
+	ui->AccidentUpdateType->clear();
+	ui->AccidentUpdateDamage->clear();
+	ui->AccidentUpdateDate->clear();
+	ui->AccidentUpdateLocation->clear();
+}
+
+void Dashboard::onDeleteClickedAccident() {
+
+
+	accident MasterAccident(ui->tableAccident, this);
+
+	if (ui->AccidentDeleteID->text().isEmpty()) {
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+	}
+	else {
+		// Validate ID
+		QString id = ui->AccidentDeleteID->text();
+		bool validId = id.toInt(&validId) && validId;
+
+		if (!validId) {
+			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
+		}
+		else {
+
+			if (MasterAccident.Delete(id.toInt()))
+
+			{
+				MasterAccident.accidentRead();
+				clearInputFieldsAccidentDelete();
+				QMessageBox::information(this, tr("Success"), tr("accident Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+			else
+			{
+				QMessageBox::critical(this, tr("Error"), tr("accident not found"), QMessageBox::Ok, QMessageBox::Ok);
+			}
+
+		}
+	}
+}
+
+void Dashboard::onAddClickedAccident() {
+	accident MasterAccident(ui->tableAccident, this);
+
+
+	if (ui->AccidentCreateType->text().isEmpty() ||
+		ui->AccidentCreateDamage->text().isEmpty() ||
+		ui->AccidentCreateDate->date().isNull() ||
+		ui->AccidentCreateClientID->currentData().isNull() ||
+		ui->AccidentCreateLocation->text().isEmpty())
+
+	{
+
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+
+		clearInputFieldsAccidentCreate();
+	}
+	else {
+
+		if (MasterAccident.create(
+			ui->AccidentCreateType->text(),
+			ui->AccidentCreateDamage->text().toInt(),
+			ui->AccidentCreateDate->date(),
+			ui->AccidentCreateLocation->text(),
+			ui->AccidentCreateClientID->currentData().toInt()))
+		{
+			MasterAccident.accidentRead();
+
+			clearInputFieldsAccidentCreate();
+
+			QMessageBox::information(this, tr("Success"), tr("Accident created successfully"), QMessageBox::Ok, QMessageBox::Ok);
+		}
+		else
+		{
+			QMessageBox::critical(this, tr("Error"), tr("accident not created"), QMessageBox::Ok, QMessageBox::Ok);
+		}
+	}
+}
+
+void Dashboard::onUpdateClickedAccident() {
+	accident MasterAccident(ui->tableAccident, this);
+
+
+	if (
+		ui->AccidentUpdateType->text().isEmpty() ||
+		ui->AccidentUpdateDamage->text().isEmpty() ||
+		ui->AccidentUpdateDate->text().isEmpty() ||
+		ui->AccidentUpdateLocation->text().isEmpty() ||
+		ui->AccidentUpdateClientID->currentData().isNull()) {
+
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+
+		clearInputFieldsAccidentUpdate();
+	}
+	else {
+		// Validate ID
+		QString id = ui->AccidentUpdateID->text();
+		bool validId = id.toInt(&validId) && validId;
+
+
+		if (!validId) {
+			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
+		}
+		else {
+
+			MasterAccident.update(id.toInt(),
+				ui->AccidentUpdateType->text(),
+				ui->AccidentUpdateDamage->text().toInt(),
+				ui->AccidentUpdateDate->date(),
+				ui->AccidentUpdateLocation->text(),
+				ui->AccidentUpdateClientID->currentData().toInt());
+
+			MasterAccident.accidentRead();
+
+			clearInputFieldsAccidentUpdate();
+
+			QMessageBox::information(this, tr("Success"), tr("Accident Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
+
+		}
+	}
+}
+//--------------------------------------------------------------------------------------------------------------------------------
+
 Dashboard::~Dashboard() {
 	delete ui;
 }
-
-

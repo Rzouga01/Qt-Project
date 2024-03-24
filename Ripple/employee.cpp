@@ -1,10 +1,20 @@
 ﻿#include "employee.h"
 #include "ui_employee.h"
 #include "connection.h"
+#include <QSqlQuery>
 #include <QMessageBox>
 #include <QtDebug>
 #include <QDate>
-
+#include <QTableWidget>
+#include <QHeaderView>
+#include <QFont>
+#include <QTableWidgetItem>
+#include <QTextDocument>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QPageSize>
+#include <QMarginsF>
+#include <QTextTable>
 Employee::Employee(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::Employee),
@@ -40,12 +50,11 @@ Employee::Employee(const QString& email, const QString& password, int role, cons
 	this->dob = dob;
 }
 
-
-
 Employee::~Employee()
 {
     delete ui;
 }
+
 QString mapNumberToRole(int role)
 {
     switch (role)
@@ -60,6 +69,7 @@ QString mapNumberToRole(int role)
         return "Unknown";
     }
 }
+
 bool Employee::createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob)
 {
     QSqlQuery qry;
@@ -109,21 +119,27 @@ void Employee::readEmployee()
     qry.prepare("SELECT * FROM employees");
     if (qry.exec())
     {
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
         while (qry.next())
         {
             int row = tableEmployee->rowCount();
             tableEmployee->insertRow(row);
 
-            tableEmployee->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));  
-            tableEmployee->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString())); 
-            tableEmployee->setItem(row, 2, new QTableWidgetItem(qry.value(2).toString())); 
+            tableEmployee->setFont(QFont("Helvetica", 10));
+
+            tableEmployee->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));
+            tableEmployee->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString()));
+            tableEmployee->setItem(row, 2, new QTableWidgetItem(qry.value(2).toString()));
             tableEmployee->setItem(row, 3, new QTableWidgetItem(mapNumberToRole(qry.value(3).toInt())));
-            tableEmployee->setItem(row, 4, new QTableWidgetItem(qry.value(4).toString())); 
-            tableEmployee->setItem(row, 5, new QTableWidgetItem(qry.value(5).toString())); 
-            tableEmployee->setItem(row, 6, new QTableWidgetItem(qry.value(6).toString())); 
-            tableEmployee->setItem(row, 7, new QTableWidgetItem(qry.value(7).toString())); 
-            tableEmployee->setItem(row, 8, new QTableWidgetItem(qry.value(8).toDate().toString())); 
+            tableEmployee->setItem(row, 4, new QTableWidgetItem(qry.value(4).toString()));
+            tableEmployee->setItem(row, 5, new QTableWidgetItem(qry.value(5).toString()));
+            tableEmployee->setItem(row, 6, new QTableWidgetItem(qry.value(6).toString()));
+            tableEmployee->setItem(row, 7, new QTableWidgetItem(qry.value(7).toString()));
+            tableEmployee->setItem(row, 8, new QTableWidgetItem(qry.value(8).toDate().toString()));
         }
+        tableEmployee->resizeColumnsToContents();
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive); 
         tableEmployee->repaint();
     }
     else
@@ -135,7 +151,7 @@ void Employee::readEmployee()
 bool Employee::updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob)
 {
     QSqlQuery qry;
-    qry.prepare("UPDATE employees SET EMAIL = :email, PASSWORD = :password, ROLE = :role, FIRST_NAME = :first_name, LAST_NAME = :last_name, PHONE_NUMBER = :phone_number, ADDRESS = :address, DOB = :dob WHERE USER_ID = :id");
+    qry.prepare("UPDATE employees  SET EMAIL = :email, PASSWORD = :password, ROLE = :role, FIRST_NAME = :first_name, LAST_NAME = :last_name, PHONE_NUMBER = :phone_number, ADDRESS = :address, DOB = :dob WHERE USER_ID = :id");
 
     qry.bindValue(":email", email);
     qry.bindValue(":password", password);
@@ -168,8 +184,6 @@ bool Employee::updateEmployee(int id, const QString& email, const QString& passw
     }
 }
 
-
-
 bool Employee::deleteEmployee(int id)
 {   
     QSqlQuery qry;
@@ -178,20 +192,18 @@ bool Employee::deleteEmployee(int id)
     qry.bindValue(":id", id);
     if (qry.exec())
     {
-        QMessageBox::critical(nullptr, tr("Deleted"), tr("Deleted"));
         return  true;
     }
     else
     {
         qDebug() << "Error executing query:" << qry.lastError().text();
-        QMessageBox::critical(nullptr, tr("Error"), qry.lastError().text());
         return false;
     }
 }
 
 void Employee::readEmployeeById(int id) {
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM employees WHERE employee_id = :id");
+    qry.prepare("SELECT * FROM employees WHERE user_id = :id");
     qry.bindValue(":id", id);
     if (qry.exec()) {
         if (qry.next()) {
@@ -209,6 +221,18 @@ void Employee::readEmployeeById(int id) {
     }
 }
 
+void Employee::readEmployeeByIds(const QList<int>& employeeIDs) {
+    if (tableEmployee == nullptr) {
+        qDebug() << "Error: tableEmployee is null";
+        return;
+    }
+
+    // Iterate over each employee ID and read the corresponding employee data
+    for (int employeeID : employeeIDs) {
+        readEmployeeById(employeeID);
+    }
+}
+
 QStringList Employee::getAllEmployeeIDs() {
     QStringList ids;
     QSqlQuery qry;
@@ -222,5 +246,163 @@ QStringList Employee::getAllEmployeeIDs() {
         qDebug() << "Error executing query:" << qry.lastError().text();
     }
     return ids;
+}
+
+void Employee::sortEmployeesByAge()
+{
+    if (tableEmployee == nullptr) {
+        qDebug() << "Error: tableEmployee is null";
+        return;
+    }
+
+    tableEmployee->clearContents();
+    tableEmployee->setRowCount(0);
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM employees ORDER BY DOB ASC");
+    if (qry.exec())
+    {
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+        while (qry.next())
+        {
+            int row = tableEmployee->rowCount();
+            tableEmployee->insertRow(row);
+
+            tableEmployee->setFont(QFont("Helvetica", 10));
+
+            tableEmployee->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));
+            tableEmployee->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString()));
+            tableEmployee->setItem(row, 2, new QTableWidgetItem(qry.value(2).toString()));
+            tableEmployee->setItem(row, 3, new QTableWidgetItem(mapNumberToRole(qry.value(3).toInt())));
+            tableEmployee->setItem(row, 4, new QTableWidgetItem(qry.value(4).toString()));
+            tableEmployee->setItem(row, 5, new QTableWidgetItem(qry.value(5).toString()));
+            tableEmployee->setItem(row, 6, new QTableWidgetItem(qry.value(6).toString()));
+            tableEmployee->setItem(row, 7, new QTableWidgetItem(qry.value(7).toString()));
+            tableEmployee->setItem(row, 8, new QTableWidgetItem(qry.value(8).toDate().toString()));
+        }
+        tableEmployee->resizeColumnsToContents();
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+        tableEmployee->repaint();
+    }
+    else
+    {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+    }
+}
+
+void Employee::ExportEmployeesToPdf(const QString& filePath)
+{
+    qDebug() << "Exporting employee data to PDF:" << filePath;
+
+    if (filePath.isEmpty()) {
+        qDebug() << "File path is empty.";
+        return;
+    }
+
+    if (!tableEmployee) {
+        qDebug() << "Table widget is invalid.";
+        return;
+    }
+
+    if (tableEmployee->rowCount() == 0 || tableEmployee->columnCount() == 0) {
+        qDebug() << "No data to export.";
+        return;
+    }
+
+    
+    QTextDocument doc;
+
+
+    QTextCursor cursor(&doc);
+
+    cursor.insertHtml("<h1 style='text-align: center; color: #333333;'>Employee List</h1><br>");
+
+    QTextTableFormat tableFormat;
+    tableFormat.setAlignment(Qt::AlignHCenter); 
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 95)); 
+    tableFormat.setCellPadding(8); 
+    tableFormat.setCellSpacing(0); 
+    tableFormat.setBorder(1); 
+    tableFormat.setBorderStyle(QTextFrameFormat::BorderStyle_Solid); 
+
+    QTextCharFormat headerFormat;
+    headerFormat.setBackground(QColor("#C0C0C0")); 
+    headerFormat.setForeground(Qt::black); 
+    headerFormat.setFontWeight(QFont::Bold); 
+    headerFormat.setFontPointSize(12); 
+
+    
+    QTextCharFormat altRowFormat;
+    altRowFormat.setBackground(Qt::lightGray);
+
+    int numRows = tableEmployee->rowCount();
+    int numCols = tableEmployee->columnCount();
+
+    
+    QTextTable* table = cursor.insertTable(numRows + 1, numCols, tableFormat);
+
+    
+    for (int col = 0; col < numCols; ++col) {
+        QTextTableCell headerCell = table->cellAt(0, col);
+        QTextCursor cellCursor = headerCell.firstCursorPosition();
+        cellCursor.setCharFormat(headerFormat); 
+        cellCursor.insertText(tableEmployee->horizontalHeaderItem(col)->text()); 
+    }
+
+    for (int row = 0; row < numRows; ++row) {
+        for (int col = 0; col < numCols; ++col) {
+            QTableWidgetItem* item = tableEmployee->item(row, col);
+            if (item) {
+                QTextTableCell dataCell = table->cellAt(row + 1, col);
+                QTextCursor cellCursor = dataCell.firstCursorPosition();
+                if (row % 2 == 1) {
+                    cellCursor.setCharFormat(altRowFormat); 
+                }
+                QTextCharFormat dataFormat;
+                dataFormat.setFontPointSize(10); 
+                cellCursor.setCharFormat(dataFormat);
+                cellCursor.insertText(item->text()); 
+            }
+        }
+    }
+
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::Letter)); 
+    pdfWriter.setResolution(150); 
+
+    QPainter painter(&pdfWriter);
+    painter.begin(&pdfWriter); 
+
+    doc.drawContents(&painter);
+
+    painter.end(); 
+
+    qDebug() << "PDF file successfully created:" << filePath;
+    QMessageBox::information(nullptr, "Export Successful", "Employee data has been successfully exported to PDF.\nFile saved to: " + filePath);
+}
+
+QList<int> Employee::searchEmployees(const QString& searchText)
+{
+    QList<int> matchingEmployeeIDs;
+
+    if (searchText.isEmpty()) {
+        return matchingEmployeeIDs; 
+    }
+
+   
+    QStringList employeeIDs = getAllEmployeeIDs();
+    for (const QString& employeeID : employeeIDs) {
+        readEmployeeById(employeeID.toInt());
+        QString firstName = getFirstName();
+        QString lastName = getLastName();
+
+        if (firstName.contains(searchText, Qt::CaseInsensitive) || lastName.contains(searchText, Qt::CaseInsensitive)) {
+            matchingEmployeeIDs.append(employeeID.toInt());
+        }
+    }
+
+    return matchingEmployeeIDs;
 }
 

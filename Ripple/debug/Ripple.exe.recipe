@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< Updated upstream
-      <FullPath>C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\Ripple.exe</FullPath>
-=======
-      <FullPath>C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\Ripple.exe</FullPath>
->>>>>>> Stashed changes
+      <FullPath>C:\Users\rzoug\Desktop\Qt-Project\Ripple\debug\Ripple.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -327,9 +327,29 @@ debug/moc_accident.cpp: ../Ripple/accident.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QSizeF \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/QTransform \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qnativeinterface.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtablewidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtableview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\accident.h -o debug\moc_accident.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\accident.h -o debug\moc_accident.cpp
 
 debug/moc_client.cpp: ../Ripple/client.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QDialog \
@@ -518,9 +538,11 @@ debug/moc_client.cpp: ../Ripple/client.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\client.h -o debug\moc_client.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\client.h -o debug\moc_client.cpp
 
 debug/moc_contract.cpp: ../Ripple/contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtSql/QSqlQuery \
@@ -699,9 +721,29 @@ debug/moc_contract.cpp: ../Ripple/contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qdatetime.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qcalendar.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qlocale.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtablewidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtableview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\contract.h -o debug\moc_contract.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\contract.h -o debug\moc_contract.cpp
 
 debug/moc_dashboard.cpp: ../Ripple/dashboard.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QDialog \
@@ -1249,7 +1291,7 @@ debug/moc_dashboard.cpp: ../Ripple/dashboard.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QDate \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\dashboard.h -o debug\moc_dashboard.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\dashboard.h -o debug\moc_dashboard.cpp
 
 debug/moc_employee.cpp: ../Ripple/employee.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QDialog \
@@ -1449,7 +1491,7 @@ debug/moc_employee.cpp: ../Ripple/employee.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\employee.h -o debug\moc_employee.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\employee.h -o debug\moc_employee.cpp
 
 debug/moc_mainwindow.cpp: ../Ripple/mainwindow.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -1623,7 +1665,7 @@ debug/moc_mainwindow.cpp: ../Ripple/mainwindow.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qeasingcurve.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\mainwindow.h -o debug\moc_mainwindow.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_menu.cpp: ../Ripple/menu.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QDialog \
@@ -1791,7 +1833,7 @@ debug/moc_menu.cpp: ../Ripple/menu.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qnativeinterface.h \
 		debug/moc_predefs.h \
 		D:/Qt/6.6.2/mingw_64/bin/moc.exe
-	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple" -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\menu.h -o debug\moc_menu.cpp
+	D:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/rzoug/Desktop/Qt-Project/build-Ripple-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/rzoug/Desktop/Qt-Project/Ripple -ID:/Qt/6.6.2/mingw_64/include -ID:/Qt/6.6.2/mingw_64/include/QtUiTools -ID:/Qt/6.6.2/mingw_64/include/QtOpenGLWidgets -ID:/Qt/6.6.2/mingw_64/include/QtWidgets -ID:/Qt/6.6.2/mingw_64/include/QtQuick -ID:/Qt/6.6.2/mingw_64/include/QtOpenGL -ID:/Qt/6.6.2/mingw_64/include/QtGui -ID:/Qt/6.6.2/mingw_64/include/QtSql -ID:/Qt/6.6.2/mingw_64/include/QtQmlModels -ID:/Qt/6.6.2/mingw_64/include/QtQml -ID:/Qt/6.6.2/mingw_64/include/QtQmlIntegration -ID:/Qt/6.6.2/mingw_64/include/QtNetwork -ID:/Qt/6.6.2/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\menu.h -o debug\moc_menu.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2018,6 +2060,26 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QSizeF \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/QTransform \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qnativeinterface.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtablewidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtableview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../Ripple/ui_accident.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QVariant \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
@@ -2042,7 +2104,6 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/qinputmethod.h \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QFrame \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QLabel \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qlabel.h \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/qpicture.h \
@@ -2056,22 +2117,15 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QListWidget \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qlistwidget.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qlistview.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemview.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/Qt/6.6.2/mingw_64/include/QtCore/qitemselectionmodel.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyleoption.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		D:/Qt/6.6.2/mingw_64/include/QtGui/qvalidator.h \
-		D:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qslider.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractslider.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyle.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTextEdit \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtextedit.h
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtextedit.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/QtDebug \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidgetItem \
+		D:/Qt/6.6.2/mingw_64/include/QtSql/QSqlError \
+		D:/Qt/6.6.2/mingw_64/include/QtSql/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\accident.o ..\Ripple\accident.cpp
 
 debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
@@ -2261,6 +2315,8 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../Ripple/ui_client.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QVariant \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
@@ -2314,7 +2370,10 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QtDebug \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidgetItem
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidgetItem \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/Qpushbutton \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\client.o ..\Ripple\client.cpp
 
 debug/connection.o: ../Ripple/connection.cpp ../Ripple/connection.h \
@@ -2616,6 +2675,26 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qdatetime.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qcalendar.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/qlocale.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtablewidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtableview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../Ripple/ui_contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QVariant \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
@@ -2640,7 +2719,6 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/qinputmethod.h \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QFrame \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QLineEdit \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qlineedit.h \
 		D:/Qt/6.6.2/mingw_64/include/QtGui/qtextcursor.h \
@@ -2651,20 +2729,6 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QListWidget \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qlistwidget.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qlistview.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemview.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/Qt/6.6.2/mingw_64/include/QtCore/qitemselectionmodel.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyleoption.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		D:/Qt/6.6.2/mingw_64/include/QtGui/qvalidator.h \
-		D:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qslider.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qabstractslider.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qstyle.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabbar.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
-		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qrubberband.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTextEdit \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qtextedit.h \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QtDebug \
@@ -2672,7 +2736,8 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		D:/Qt/6.6.2/mingw_64/include/QtSql/QSqlError \
-		D:/Qt/6.6.2/mingw_64/include/QtSql/qsqlerror.h
+		D:/Qt/6.6.2/mingw_64/include/QtSql/qsqlerror.h \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidgetItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\contract.o ..\Ripple\contract.cpp
 
 debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
@@ -3233,6 +3298,7 @@ debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTextEdit \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QFileDialog \
 		../Ripple/connection.h \
 		D:/Qt/6.6.2/mingw_64/include/QtSql/QSqlDatabase \
 		D:/Qt/6.6.2/mingw_64/include/QtSql/QSqlError \
@@ -3484,7 +3550,29 @@ debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QMessageBox \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		D:/Qt/6.6.2/mingw_64/include/QtCore/QtDebug
+		D:/Qt/6.6.2/mingw_64/include/QtCore/QtDebug \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QHeaderView \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/qheaderview.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/QFont \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidgetItem \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/QTextDocument \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/QPdfWriter \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qpdfwriter.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qpagedpaintdevice.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qpagelayout.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qpagesize.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qpageranges.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/QPainter \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qpainter.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/QPageSize \
+		D:/Qt/6.6.2/mingw_64/include/QtCore/QMarginsF \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/QTextTable \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qtexttable.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qtextobject.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qtextlayout.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qglyphrun.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qrawfont.h \
+		D:/Qt/6.6.2/mingw_64/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\employee.o ..\Ripple\employee.cpp
 
 debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
@@ -4021,6 +4109,7 @@ debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QDialog \
 		D:/Qt/6.6.2/mingw_64/include/QtCore/QDate \
 		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QTableWidget \
+		D:/Qt/6.6.2/mingw_64/include/QtWidgets/QStackedWidget \
 		../Ripple/employee.h \
 		D:/Qt/6.6.2/mingw_64/include/QtSql/QSqlQuery \
 		D:/Qt/6.6.2/mingw_64/include/QtSql/qsqlquery.h \

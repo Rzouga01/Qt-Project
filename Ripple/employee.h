@@ -7,7 +7,6 @@
 #include <QSqlQueryModel>
 #include <QDate>
 #include <QTableWidget>
-
 namespace Ui {
     class Employee;
 }
@@ -58,13 +57,19 @@ public:
     void setDOB(const QDate& newDOB) { dob = newDOB; };
     void setTableEmployee(QTableWidget* table) { tableEmployee = table; };
 
-    // CRUD operations
+    // CRUD 
     bool createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
     void readEmployee();
     bool updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
     bool deleteEmployee(int id);
     void readEmployeeById(int id);
+    void readEmployeeByIds(const QList<int>& ids);
     QStringList getAllEmployeeIDs();
+
+    //Metiers
+    void sortEmployeesByAge();
+    void ExportEmployeesToPdf(const QString& filePath);
+    QList<int> searchEmployees(const QString& searchText);
 };
 
 #endif // EMPLOYEE_H

@@ -5,6 +5,10 @@
 #include<QDate>
 #include<QSqlQueryModel>
 #include <QDialog>
+#include <QTableWidget>
+#include <QStackedWidget>
+
+
 
 namespace Ui {
 class accident;
@@ -23,6 +27,7 @@ private:
 
 public:
     explicit accident(QWidget *parent = nullptr);
+    explicit accident(QTableWidget*tablewidget,QWidget *parent = nullptr);
 
     // CONSTRUCTEUR
 
@@ -52,11 +57,22 @@ public:
     // FONCTIONALITES DE BASE
 
     bool create(QString type  ,int damage ,QDate date,QString location,int client_id );
-    QSqlQueryModel * read();
+    void accidentRead();
+    void update( int acc_id,QString type,int damage,QDate date,QString location,int client_id);
     bool Delete(int);
+    void setTableWidget(QTableWidget *tableWidget);
+    void setStackedWidget(QStackedWidget *stackedWidget);
+
+signals:
+    void deleteAccidentRequested(int Acc_id);
+    void updateAccidentRequested(int Acc_id);
+
 
 private:
     Ui::accident *ui;
+    QTableWidget * tableAccident;
+
 };
+
 
 #endif // ACCIDENT_H
