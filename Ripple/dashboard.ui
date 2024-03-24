@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -2644,7 +2644,7 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
            <rect>
             <x>30</x>
             <y>100</y>
-            <width>51</width>
+            <width>81</width>
             <height>21</height>
            </rect>
           </property>
@@ -4045,7 +4045,7 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
-     <string>Contrats</string>
+     <string>Contracts</string>
     </property>
    </widget>
    <widget class="QPushButton" name="accidents">

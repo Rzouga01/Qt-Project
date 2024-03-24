@@ -82,7 +82,7 @@ void Dashboard::ClientDashboardConnectUi() {
 }
 
 void Dashboard::openDeletePage(int clientId) {
-	ui->StackedClient->setCurrentIndex(2); 
+	ui->StackedClient->setCurrentIndex(2);
 	ui->ClientDeleteID->setText(QString::number(clientId));
 }
 
@@ -721,39 +721,46 @@ void Dashboard::clearInputFieldsContract() {
 
 void Dashboard::onUpdateClickedContract() {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
+
 	int contractId = ui->lineEditContractIDUpdate->text().toInt();
-	QString clientIdStr = ui->LineEditClientIdContract->text();
-	QString userIdStr = ui->LineEditUserIdContract->text();
-	QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
-	QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
-	QDate expirationDate = ui->dateEditExpirationDateContract->date();
-	QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
-	QString type = ui->lineEditTypeContract->text();
+	QString userIdStr = ui->LineEditUserIdContractUpdate->text().trimmed();
+	QString clientIdStr = ui->LineEditClientIdContractUpdate->text().trimmed();
+	QString premiumAmountStr = ui->LineEditPremiumAmountContractUpdate->text().trimmed();
+	QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
+	QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
+	QString paymentStatusStr = ui->LineEditPaymentstatusContractUpdate->text().trimmed();
+	QString type = ui->lineEditTypeContractUpdate->text().trimmed();
 
-	// Vérifier si les champs obligatoires ne sont pas vides
-	if (clientIdStr.isEmpty() || userIdStr.isEmpty() ||
-		premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() ||
-		effectiveDate.isNull() || expirationDate.isNull()) {
-
+	if (userIdStr.isEmpty() || clientIdStr.isEmpty() || premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
 		clearInputFieldsUpdateContract();
 		return;
 	}
 
-	// Convertir les valeurs saisies en types appropriés
-	int clientId = clientIdStr.toInt();
-	int userId = userIdStr.toInt();
-	int premiumAmount = premiumAmountStr.toInt();
-	int paymentStatus = paymentStatusStr.toInt();
+	bool conversionOk;
+	int userId = userIdStr.toInt(&conversionOk);
+	int clientId = clientIdStr.toInt(&conversionOk);
+	int premiumAmount = premiumAmountStr.toInt(&conversionOk);
+	int paymentStatus = paymentStatusStr.toInt(&conversionOk);
 
-	// Vérifier si les champs numériques sont valides
-	if (contractId <= 0 || clientId <= 0 || userId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
+	if (!conversionOk || contractId <= 0 || userId <= 0 || clientId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
 		QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
 		clearInputFieldsUpdateContract();
 		return;
 	}
 
-	// Appeler la fonction UpdateContract avec les valeurs extraites
+	if (!effectiveDate.isValid() || !expirationDate.isValid()) {
+		QMessageBox::critical(this, tr("Error"), tr("Invalid date format"), QMessageBox::Ok);
+		clearInputFieldsUpdateContract();
+		return;
+	}
+
+	if (effectiveDate > expirationDate) {
+		QMessageBox::critical(this, tr("Error"), tr("Effective date cannot be greater than expiration date"), QMessageBox::Ok);
+		clearInputFieldsUpdateContract();
+		return;
+	}
+
 	if (MasterContract.UpdateContract(contractId, userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
 		MasterContract.ReadContract();
 		clearInputFieldsUpdateContract();
@@ -900,35 +907,20 @@ void Dashboard::clearInputFieldsAccidentUpdate() {
 }
 
 void Dashboard::onDeleteClickedAccident() {
-
-
 	accident MasterAccident(ui->tableAccident, this);
 
 	if (ui->AccidentDeleteID->text().isEmpty()) {
-		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"));
 	}
 	else {
-		// Validate ID
 		QString id = ui->AccidentDeleteID->text();
-		bool validId = id.toInt(&validId) && validId;
-
-		if (!validId) {
-			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
+		if (MasterAccident.Delete(id.toInt())) {
+			MasterAccident.accidentRead();
+			clearInputFieldsAccidentDelete();
+			QMessageBox::information(this, tr("Success"), tr("Accident deleted successfully"));
 		}
 		else {
-
-			if (MasterAccident.Delete(id.toInt()))
-
-			{
-				MasterAccident.accidentRead();
-				clearInputFieldsAccidentDelete();
-				QMessageBox::information(this, tr("Success"), tr("accident Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
-			}
-			else
-			{
-				QMessageBox::critical(this, tr("Error"), tr("accident not found"), QMessageBox::Ok, QMessageBox::Ok);
-			}
-
+			QMessageBox::critical(this, tr("Error"), tr("Accident not found"));
 		}
 	}
 }
@@ -1014,7 +1006,6 @@ void Dashboard::onUpdateClickedAccident() {
 	}
 }
 //--------------------------------------------------------------------------------------------------------------------------------
-
 Dashboard::~Dashboard() {
 	delete ui;
 }

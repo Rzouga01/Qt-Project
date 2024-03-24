@@ -139,39 +139,23 @@ void accident::accidentRead()
 }
 
 
-bool accident::Delete(int id)
-{
+bool accident::Delete(int id) {
     QSqlQuery qry;
-    qry.prepare("delete from ACCIDENTS where ACCIDENT_ID=:acc_id");
+    qry.prepare("DELETE FROM ACCIDENTS WHERE ACCIDENT_ID = :acc_id");
     qry.bindValue(":acc_id", id);
-    if (qry.exec())
-    {
-        if (qry.next())
-        {
-            qry.prepare("DELETE FROM ACCIDENTS WHERE ACCIDENT_ID = :acc_id");
-            qry.bindValue(":id", id);
-            if (qry.exec())
-            {
-                qDebug() << "accident found. Deleting...";
-                return true;
-            }
-            else
-            {
-                qDebug() << "Error executing query:" << qry.lastError().text();
-                QMessageBox::critical(this, tr("Error"), qry.lastError().text());
-                return false;
-            }
+
+    if (qry.exec()) {
+        if (qry.numRowsAffected() > 0) {
+            qDebug() << "Accident found and deleted.";
+            return true;
         }
-        else
-        {
-            qDebug() << "accident not found.";
+        else {
+            qDebug() << "Accident not found.";
             return false;
         }
     }
-    else
-    {
+    else {
         qDebug() << "Error executing query:" << qry.lastError().text();
-        QMessageBox::critical(this, tr("Error"), qry.lastError().text());
         return false;
     }
 }
