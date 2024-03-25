@@ -1,24 +1,24 @@
-QT += widgets charts uitools sql core gui
-\
-    quick
+QT += widgets charts uitools sql core gui quick
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 
+include(../QZXing/src/QZXing.pri)
 
 CONFIG += c++11
 
+INCLUDEPATH += ../QZXing/src
+SOURCES += ../QZXing/src/QZXing.cpp
 
-# The following define makes your compiler emit warnings if you use
-# any Qt feature that has been marked deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
-DEFINES += QT_DEPRECATED_WARNINGS
+# The following line is not necessary if you are already including QZXing.pri,
+# as it should handle the necessary includes and configurations.
+# You can remove it unless you have specific reasons to keep it.
+# INCLUDEPATH += /path/to/QZXing/headers
 
-# You can also make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-# You can also select to disable deprecated APIs only up to a certain version of Qt.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+# Uncomment the following line if you want to disable deprecated APIs up to a certain version of Qt.
+# DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+# You may want to add more directories to the INCLUDEPATH if needed for your project.
 
 SOURCES += \
     accident.cpp \

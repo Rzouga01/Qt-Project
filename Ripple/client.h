@@ -5,6 +5,7 @@
 #include <QDate>
 #include <QTableWidget>
 #include <QStackedWidget>
+#include "zxing/ZXing.h"
 
 
 namespace Ui {
@@ -74,7 +75,9 @@ public:
     void sortClientFirstName(bool ascendingOrder = true);
     void statsByAge();
 
-    void showSliceTooltip(bool status);
+
+
+
 
 signals:
     void deleteClientRequested(int clientId);
