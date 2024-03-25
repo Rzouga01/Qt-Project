@@ -604,11 +604,11 @@ void Client::sortClientFirstName(bool ascendingOrder)
         tableClient->setFont(QFont("Helvetica", 10));
         tableClient->setColumnWidth(0, 10);//ID
         tableClient->setColumnWidth(1, 150);//EMAIL
-        tableClient->setColumnWidth(2, 50);//FIRST NAME
-        tableClient->setColumnWidth(3, 50);//LAST NAME
-        tableClient->setColumnWidth(4, 150);//ADDRESS
+        tableClient->setColumnWidth(2, 100);//FIRST NAME
+        tableClient->setColumnWidth(3, 100);//LAST NAME
+        tableClient->setColumnWidth(4, 100);//ADDRESS
         tableClient->setColumnWidth(5, 75);//PHONE NUMBER
-        tableClient->setColumnWidth(6, 50);//DOB
+        tableClient->setColumnWidth(6, 100);//DOB
 
 
         // Set data items for each column
