@@ -76,6 +76,7 @@ public:
 	void ContractDashboardConnectUi();
 	void onStackedContractIndexChanged(int index);
 	void openDelPage(int contractId);
+    void onSearchIdContract(QString searched);
 	//***********************************************************
 	//Accident
 	void onAddClickedAccident();

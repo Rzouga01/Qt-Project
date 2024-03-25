@@ -63,8 +63,9 @@ public:
     bool DeleteContract(int id);
     void ReadContract();
     bool UpdateContract(int contractID, int USER_ID, int CLIENT_ID, int PREMIUM_AMOUNT, QDate EFFECTIVE_DATE, QDate EXPIRATION_DATE, int PAYMENT_STATUS, QString TYPE);
-    bool searchContract(int id);
     void sortContractsByPremium(bool ascendingOrder);
+    void searchContract(QString id);
+    void toPdf(const QString& filePath);
 
     void setTableWidget(QTableWidget* tableWidget);
     void setStackedWidget(QStackedWidget* stackedWidget);

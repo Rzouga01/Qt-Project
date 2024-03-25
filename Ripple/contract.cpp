@@ -5,6 +5,12 @@
 #include <QMessageBox>
 #include <QSqlError>
 #include <QTableWidgetItem>
+#include <QTextTable>
+#include <QTextCursor>
+#include <QPdfWriter>
+#include <QTextDocument>
+#include <QPainter>
+#include <QSqlRecord>
 contract::contract(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::contract),
@@ -194,46 +200,76 @@ bool contract::UpdateContract(int contractID, int USER_ID, int CLIENT_ID, int PR
 		return false;
 	}
 }
+/*
+void contract::searchContract(QString id) {
+    QSqlQuery qry;
+    QString queryString;
 
-bool contract::searchContract(int id) {
-	QSqlQuery query;
-	query.prepare("SELECT * FROM CONTRACTS WHERE CONTRACT_ID = :id");
-	query.bindValue(":id", id);
+    if (id.isEmpty()) {
+        queryString = "SELECT * FROM CONTRACTS";
+    }
+    else {
+        queryString = "SELECT * FROM CONTRACTS WHERE CONTRACT_ID LIKE :id";
+    }
 
-	if (query.exec()) {
-		if (query.next()) {
-			// Contrat trouvé, récupérer les données
-			int USER_ID = query.value("USER_ID").toInt();
-			int CLIENT_ID = query.value("CLIENT_ID").toInt();
-			int PREMIUM_AMOUNT = query.value("PREMIUM_AMOUNT").toInt();
-			QDate EFFECTIVE_DATE = query.value("EFFECTIVE_DATE").toDate();
-			QDate EXPIRATION_DATE = query.value("EXPIRATION_DATE").toDate();
-			int PAYMENT_STATUS = query.value("PAYMENT_STATUS").toInt();
-			QString TYPE = query.value("TYPE").toString();
+    qry.prepare(queryString);
+    if (!id.isEmpty()) {
+        qry.bindValue(":id", "%" + id + "%");
+    }
 
-			// Afficher les données du contrat (vous pouvez faire d'autres actions ici)
-			qDebug() << "Contract found:" <<
-				"\nContract ID: " << CONTRACT_ID <<
-				"\nUser ID: " << USER_ID <<
-				"\nClient ID: " << CLIENT_ID <<
-				"\nPremium Amount: " << PREMIUM_AMOUNT <<
-				"\nEffective Date: " << EFFECTIVE_DATE <<
-				"\nExpiration Date: " << EXPIRATION_DATE <<
-				"\nPayment Status: " << PAYMENT_STATUS <<
-				"\nType: " << TYPE;
+    if (qry.exec()) {
+        tableContract->clearContents();
+        tableContract->setRowCount(0);
 
-			return true; // Succès, contrat trouvé
-		}
-		else {
-			qDebug() << "Contract with ID" << CONTRACT_ID << "not found";
-			return false; // Le contrat n'existe pas dans la base de données
-		}
-	}
-	else {
-		qDebug() << "Error executing search query:" << query.lastError().text();
-		return false; // Erreur lors de l'exécution de la requête
-	}
+        int row = 0;
+        while (qry.next()) {
+            tableContract->insertRow(row);
+            int col = 0;
+
+            tableContract->setRowHeight(row, 50);
+            tableContract->setFont(QFont("Helvetica", 10));
+            tableContract->setColumnWidth(0, 10);//ID
+            tableContract->setColumnWidth(1, 150);//USER ID
+            tableContract->setColumnWidth(2, 50);//CLIENT ID
+            tableContract->setColumnWidth(3, 50);//PREMIUM AMOUNT
+            tableContract->setColumnWidth(4, 150);//EFFECTIVE DATE
+            tableContract->setColumnWidth(5, 75);//EXPIRATION DATE
+            tableContract->setColumnWidth(6, 50);//PAYMENT STATUS
+            tableContract->setColumnWidth(7, 50);//TYPE
+
+            // Set data items for each column
+            QTableWidgetItem* contractIdItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* userIdItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* clientIdItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* premiumAmountItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* effectiveDateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+            QTableWidgetItem* expirationDateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+            QTableWidgetItem* paymentStatusItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* typeItem = new QTableWidgetItem(qry.value(col++).toString());
+
+
+            tableContract->setItem(row, 0, contractIdItem);
+            tableContract->setItem(row, 1, userIdItem);
+            tableContract->setItem(row, 2, clientIdItem);
+            tableContract->setItem(row, 3, premiumAmountItem);
+            tableContract->setItem(row, 4, effectiveDateItem);
+            tableContract->setItem(row, 5, expirationDateItem);
+            tableContract->setItem(row, 6, paymentStatusItem);
+            tableContract->setItem(row, 7, typeItem);
+
+            ++row;
+        }
+        tableContract->repaint();
+
+        if (row == 0) {
+            qDebug() << "Contract not found.";
+        }
+    }
+    else {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+    }
 }
+*/
 void contract::sortContractsByPremium(bool ascendingOrder)
 {
     QString sortOrder = ascendingOrder ? "ASC" : "DESC";
@@ -282,6 +318,114 @@ void contract::sortContractsByPremium(bool ascendingOrder)
 
     qDebug() << "Contract data sorted by premium amount in" << sortOrder << "order.";
 }
+void contract::toPdf(const QString& filePath)
+{
+    qDebug() << "Exporting contract data to PDF:" << filePath;
+
+    if (filePath.isEmpty()) {
+        qDebug() << "File path is empty.";
+        return;
+    }
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CONTRACTS");
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching data...";
+
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+
+    cursor.insertHtml("<h1 style='text-align: center; color: #333333;'>Contracts List</h1><br>");
+
+    QTextTableFormat tableFormat;
+    tableFormat.setAlignment(Qt::AlignHCenter);
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 95));
+    tableFormat.setCellPadding(8);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setBorder(1);
+    tableFormat.setBorderStyle(QTextFrameFormat::BorderStyle_Solid);
+
+    QTextCharFormat headerFormat;
+    headerFormat.setBackground(QColor("#C0C0C0"));
+    headerFormat.setForeground(Qt::black);
+    headerFormat.setFontWeight(QFont::Bold);
+    headerFormat.setFontPointSize(12);
+
+    QTextCharFormat altRowFormat;
+    altRowFormat.setBackground(Qt::lightGray);
+
+    int numCols = qry.record().count();
+
+
+    QTextTable* table = cursor.insertTable(1, numCols, tableFormat);
+    QTextCursor cellCursor = table->cellAt(0, 0).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("ID");
+
+    cellCursor = table->cellAt(0, 1).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("User ID");
+
+    cellCursor = table->cellAt(0, 2).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Client ID");
+
+    cellCursor = table->cellAt(0, 3).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Premium Amount");
+
+    cellCursor = table->cellAt(0, 4).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Effective Date");
+
+    cellCursor = table->cellAt(0, 5).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Expiration Date");
+
+    cellCursor = table->cellAt(0, 6).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Payment Status");
+
+    cellCursor = table->cellAt(0, 7).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Type");
+
+    int row = 1;
+    while (qry.next()) {
+        table->appendRows(1);
+        for (int col = 0; col < numCols; ++col) {
+            QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
+            QTextCharFormat dataFormat;
+            dataFormat.setFontPointSize(10);
+            if (row % 2 == 1) {
+                dataFormat.setBackground(Qt::lightGray);
+            }
+            cellCursor.setCharFormat(dataFormat);
+            cellCursor.insertText(qry.value(col).toString());
+        }
+        ++row;
+    }
+
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::Letter));
+    pdfWriter.setResolution(150);
+
+    QPainter painter(&pdfWriter);
+    painter.begin(&pdfWriter);
+
+    doc.drawContents(&painter);
+
+    painter.end();
+
+    qDebug() << "PDF file successfully created:" << filePath;
+    QMessageBox::information(nullptr, "Export Successful", "Contract Data has been successfully exported to PDF.\nFile saved to: " + filePath);
+}
+
 /*
 contract::contract(QWidget *parent) :
 	QDialog(parent),
