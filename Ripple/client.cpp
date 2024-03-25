@@ -285,13 +285,11 @@ void Client::ReadClient()
             tableClient->setFont(QFont("Helvetica", 10));
             tableClient->setColumnWidth(0, 10);//ID
             tableClient->setColumnWidth(1, 150);//EMAIL
-            tableClient->setColumnWidth(2, 50);//FIRST NAME
-            tableClient->setColumnWidth(3, 50);//LAST NAME
-            tableClient->setColumnWidth(4, 150);//ADDRESS
+            tableClient->setColumnWidth(2, 100);//FIRST NAME
+            tableClient->setColumnWidth(3, 100);//LAST NAME
+            tableClient->setColumnWidth(4, 100);//ADDRESS
             tableClient->setColumnWidth(5, 75);//PHONE NUMBER
-            tableClient->setColumnWidth(6, 50);//DOB
-            tableClient->setColumnWidth(7, 15);//DELETE BUTTON
-            tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+            tableClient->setColumnWidth(6, 100);//DOB
 
             tableClient->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));
             tableClient->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString()));
@@ -611,8 +609,7 @@ void Client::sortClientFirstName(bool ascendingOrder)
         tableClient->setColumnWidth(4, 150);//ADDRESS
         tableClient->setColumnWidth(5, 75);//PHONE NUMBER
         tableClient->setColumnWidth(6, 50);//DOB
-        tableClient->setColumnWidth(7, 15);//DELETE BUTTON
-        tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+
 
         // Set data items for each column
         QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
@@ -676,8 +673,7 @@ void Client::searchClientID(QString id) {
             tableClient->setColumnWidth(4, 150);//ADDRESS
             tableClient->setColumnWidth(5, 75);//PHONE NUMBER
             tableClient->setColumnWidth(6, 50);//DOB
-            tableClient->setColumnWidth(7, 15);//DELETE BUTTON
-            tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+
 
             // Set data items for each column
             QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
