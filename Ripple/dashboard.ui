@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -1272,6 +1272,7 @@ QTableWidget QTableWidget {
  #searchBarClient{
      background-color: white;
      border-radius: 20px;
+color:black;
 }
  #addClient, 
 #deleteClient,
@@ -2155,16 +2156,6 @@ QTableWidget QTableWidget {
       <column>
        <property name="text">
         <string>Date Of Birth</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Delete</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Update</string>
        </property>
       </column>
      </widget>

@@ -10,6 +10,31 @@
 #include <QTableWidgetItem>
 #include <QTableWidget>
 #include <Qpushbutton>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFileDialog>
+#include <QTextDocument>
+#include <QTextCursor>
+#include <QTextTable>
+#include <QTextTableFormat>
+#include <QTextCharFormat>
+#include <QTextLength>
+#include <QTextFrameFormat>
+#include <QPageSize>
+#include <QFont>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlRecord>
+/*
+#include <QtCharts>
+#include <QBarSet>
+#include <QBarSeries>
+#include <QBarCategoryAxis>
+#include <QValueAxis>
+#include <QChart>
+#include <QChartView>
+*/
+
 
 
 Client::Client(QWidget* parent) :
@@ -30,6 +55,13 @@ Client::Client(QTableWidget *tableWidget, QStackedWidget* stackedWidget ,QWidget
 {
     ui->setupUi(this);
 }
+
+Client::Client(QTableWidget* tableWidget,QWidget* parent)
+    : QDialog(parent), ui(new Ui::Client), tableClient(tableWidget)
+{
+    ui->setupUi(this);
+}
+
 void Client::setStackedWidget(QStackedWidget* stackedWidget)
 {
 	stackedClient = stackedWidget;
@@ -442,3 +474,283 @@ bool Client::UpdateClient(int clientID, QString email, QString first_name, QStri
     }
 }
 
+
+void Client::toPdf(const QString& filePath)
+{
+    qDebug() << "Exporting client data to PDF:" << filePath;
+
+    if (filePath.isEmpty()) {
+        qDebug() << "File path is empty.";
+        return;
+    }
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CLIENTS");
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching data...";
+
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+
+    cursor.insertHtml("<h1 style='text-align: center; color: #333333;'>Clients List</h1><br>");
+
+    QTextTableFormat tableFormat;
+    tableFormat.setAlignment(Qt::AlignHCenter);
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 95));
+    tableFormat.setCellPadding(8);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setBorder(1);
+    tableFormat.setBorderStyle(QTextFrameFormat::BorderStyle_Solid);
+
+    QTextCharFormat headerFormat;
+    headerFormat.setBackground(QColor("#C0C0C0"));
+    headerFormat.setForeground(Qt::black);
+    headerFormat.setFontWeight(QFont::Bold);
+    headerFormat.setFontPointSize(12);
+
+    QTextCharFormat altRowFormat;
+    altRowFormat.setBackground(Qt::lightGray);
+
+    int numCols = qry.record().count();
+
+
+    QTextTable* table = cursor.insertTable(1, numCols, tableFormat);
+    QTextCursor cellCursor = table->cellAt(0, 0).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("ID");
+
+    cellCursor = table->cellAt(0, 1).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Email");
+
+    cellCursor = table->cellAt(0, 2).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("First Name");
+
+    cellCursor = table->cellAt(0, 3).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Last Name");
+
+    cellCursor = table->cellAt(0, 4).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Phone Number");
+
+    cellCursor = table->cellAt(0, 5).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Address");
+
+    cellCursor = table->cellAt(0, 6).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("DOB");
+
+    int row = 1; 
+    while (qry.next()) {
+        table->appendRows(1); 
+        for (int col = 0; col < numCols; ++col) {
+            QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
+            QTextCharFormat dataFormat;
+            dataFormat.setFontPointSize(10);
+            if (row % 2 == 1) {
+                dataFormat.setBackground(Qt::lightGray);
+            }
+            cellCursor.setCharFormat(dataFormat);
+            cellCursor.insertText(qry.value(col).toString());
+        }
+        ++row;
+    }
+
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::Letter));
+    pdfWriter.setResolution(150);
+
+    QPainter painter(&pdfWriter);
+    painter.begin(&pdfWriter);
+
+    doc.drawContents(&painter);
+
+    painter.end();
+
+    qDebug() << "PDF file successfully created:" << filePath;
+    QMessageBox::information(nullptr, "Export Successful", "Client Data has been successfully exported to PDF.\nFile saved to: " + filePath);
+}
+
+
+void Client::sortClientFirstName(bool ascendingOrder)
+{
+    QString sortOrder = ascendingOrder ? "ASC" : "DESC";
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CLIENTS ORDER BY FIRST_NAME " + sortOrder);
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching sorted data...";
+
+    // Clear the existing table contents
+    tableClient->clearContents();
+    tableClient->setRowCount(0);
+
+    int row = 0;
+    while (qry.next()) {
+        int col = 0;
+        tableClient->insertRow(row);
+
+        tableClient->setRowHeight(row, 50);
+        tableClient->setFont(QFont("Helvetica", 10));
+        tableClient->setColumnWidth(0, 10);//ID
+        tableClient->setColumnWidth(1, 150);//EMAIL
+        tableClient->setColumnWidth(2, 50);//FIRST NAME
+        tableClient->setColumnWidth(3, 50);//LAST NAME
+        tableClient->setColumnWidth(4, 150);//ADDRESS
+        tableClient->setColumnWidth(5, 75);//PHONE NUMBER
+        tableClient->setColumnWidth(6, 50);//DOB
+        tableClient->setColumnWidth(7, 15);//DELETE BUTTON
+        tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+
+        // Set data items for each column
+        QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* emailItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* firstNameItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* lastNameItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* phoneNumberItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* addressItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* dobItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+
+        tableClient->setItem(row, 0, idItem);
+        tableClient->setItem(row, 1, emailItem);
+        tableClient->setItem(row, 2, firstNameItem);
+        tableClient->setItem(row, 3, lastNameItem);
+        tableClient->setItem(row, 4, phoneNumberItem);
+        tableClient->setItem(row, 5, addressItem);
+        tableClient->setItem(row, 6, dobItem);
+
+        ++row;
+    }
+    tableClient->repaint();
+
+    qDebug() << "Client data sorted by first name in" << sortOrder << "order.";
+}
+
+
+
+
+
+void Client::searchClientID(QString id) {
+    QSqlQuery qry;
+    QString queryString;
+
+    if (id.isEmpty()) {
+        queryString = "SELECT * FROM CLIENTS";
+    }
+    else {
+        queryString = "SELECT * FROM CLIENTS WHERE CLIENT_ID LIKE :id";
+    }
+
+    qry.prepare(queryString);
+    if (!id.isEmpty()) {
+        qry.bindValue(":id", "%" + id + "%");
+    }
+
+    if (qry.exec()) {
+        tableClient->clearContents();
+        tableClient->setRowCount(0);
+
+        int row = 0;
+        while (qry.next()) {
+            tableClient->insertRow(row);
+            int col = 0;
+
+            tableClient->setRowHeight(row, 50);
+            tableClient->setFont(QFont("Helvetica", 10));
+            tableClient->setColumnWidth(0, 10);//ID
+            tableClient->setColumnWidth(1, 150);//EMAIL
+            tableClient->setColumnWidth(2, 50);//FIRST NAME
+            tableClient->setColumnWidth(3, 50);//LAST NAME
+            tableClient->setColumnWidth(4, 150);//ADDRESS
+            tableClient->setColumnWidth(5, 75);//PHONE NUMBER
+            tableClient->setColumnWidth(6, 50);//DOB
+            tableClient->setColumnWidth(7, 15);//DELETE BUTTON
+            tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+
+            // Set data items for each column
+            QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* emailItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* firstNameItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* lastNameItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* phoneNumberItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* addressItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* dobItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+
+            tableClient->setItem(row, 0, idItem);
+            tableClient->setItem(row, 1, emailItem);
+            tableClient->setItem(row, 2, firstNameItem);
+            tableClient->setItem(row, 3, lastNameItem);
+            tableClient->setItem(row, 4, phoneNumberItem);
+            tableClient->setItem(row, 5, addressItem);
+            tableClient->setItem(row, 6, dobItem);
+
+            ++row;
+        }
+        tableClient->repaint();
+
+        if (row == 0) {
+            qDebug() << "Client not found.";
+        }
+    }
+    else {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+    }
+}
+
+/*
+void Client::statsByAge()
+{
+    QSqlQuery qry;
+	qry.prepare("SELECT EXTRACT(YEAR FROM DOB) AS BIRTH_YEAR, COUNT(*) AS CLIENT_COUNT FROM CLIENTS GROUP BY EXTRACT(YEAR FROM DOB) ORDER BY EXTRACT(YEAR FROM DOB)");
+    if (!qry.exec()) {
+		qDebug() << "Error executing query:" << qry.lastError().text();
+		return;
+	}
+
+	qDebug() << "Query executed successfully. Fetching data...";
+
+	QBarSet* barSet = new QBarSet("Clients by Age");
+	QBarSeries* barSeries = new QBarSeries();
+	barSeries->append(barSet);
+
+    while (qry.next()) {
+		int birthYear = qry.value(0).toInt();
+		int clientCount = qry.value(1).toInt();
+		*barSet << clientCount;
+		barSet->setLabel(QString::number(birthYear));
+	}
+
+	QChart* chart = new QChart();
+	chart->addSeries(barSeries);
+	chart->setTitle("Clients by Age");
+	chart->setAnimationOptions(QChart::SeriesAnimations);
+
+	QBarCategoryAxis* axisX = new QBarCategoryAxis();
+	chart->addAxis(axisX, Qt::AlignBottom);
+	barSeries->attachAxis(axisX);
+
+	QValueAxis* axisY = new QValueAxis();
+	chart->addAxis(axisY, Qt::AlignLeft);
+	barSeries->attachAxis(axisY);
+
+	QChartView* chartView = new QChartView(chart);
+	chartView->setRenderHint(QPainter::Antialiasing);
+
+	chartView->setMinimumSize(800, 600);
+    chartView->show();
+
+
+}
+*/

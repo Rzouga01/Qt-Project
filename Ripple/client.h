@@ -25,8 +25,9 @@ private:
     QDate dob;
 
 public:
-    explicit Client(QWidget* parent = nullptr);
-    explicit Client(QTableWidget* tableWidget, QStackedWidget* stackedWidget, QWidget* parent = nullptr);
+    Client(QWidget* parent = nullptr);
+    explicit Client(QTableWidget* tableWidget, QWidget* parent = nullptr);
+    Client(QTableWidget* tableWidget, QStackedWidget* stackedWidget, QWidget* parent = nullptr);
     ~Client();
     Client();
     Client(const QString& email, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
@@ -66,6 +67,12 @@ public:
 
     void setTableWidget(QTableWidget* tableWidget);
     void setStackedWidget(QStackedWidget* stackedWidget);
+
+
+    void toPdf(const QString& filePath);
+    void searchClientID(QString id);
+    void sortClientFirstName(bool ascendingOrder = true);
+    void statsByAge();
 
 signals:
     void deleteClientRequested(int clientId);

@@ -1,22 +1,7 @@
-﻿  Uic'ing dashboard.ui...
-  Moc'ing dashboard.h...
-  accident.cpp
+﻿  client.cpp
   dashboard.cpp
-  main.cpp
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5d9b that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5f48 that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5ffb that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6014 that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6712 that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x68bf that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6972 that is illegal in the current source character set (codepage 65001).
-C:\Users\rzoug\Desktop\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x698b that is illegal in the current source character set (codepage 65001).
-  moc_accident.cpp
-  moc_client.cpp
-  moc_contract.cpp
-  moc_employee.cpp
-  moc_mainwindow.cpp
-  moc_menu.cpp
-  moc_dashboard.cpp
-  LINK : debug\\Ripple.exe not found or not built by the last incremental link; performing full link
-  Ripple.vcxproj -> C:\Users\rzoug\Desktop\Qt-Project\Ripple\debug\Ripple.exe
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6103 that is illegal in the current source character set (codepage 65001).
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x62b0 that is illegal in the current source character set (codepage 65001).
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6363 that is illegal in the current source character set (codepage 65001).
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x637c that is illegal in the current source character set (codepage 65001).
+  Ripple.vcxproj -> C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\Ripple.exe

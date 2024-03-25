@@ -39,6 +39,8 @@ public:
 	void onUpdateCancelClickedClient();
 	void onDeleteCancelClickedClient();
 	void ClientDashboardConnectUi();
+	void onSearchIdClient(QString searched);
+	void onStatByAge();
 	void onStackedClientIndexChanged(int index);
 	void openDeletePage(int clientId);
 	//***********************************************************

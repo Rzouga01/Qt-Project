@@ -16,7 +16,7 @@ Dashboard::Dashboard(QWidget* parent) :
 	ui(new Ui::Dashboard)
 {
 	ui->setupUi(this);
-	Client MasterClient(ui->tableClient, ui->StackedClient, this);
+	Client MasterClient(ui->tableClient, this);
 	accident MasterAccident(ui->tableAccident, this);
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	Employee Emp(ui->tableEmployee, this);
@@ -61,20 +61,29 @@ void Dashboard::onLogoutButtonClicked() {
 void Dashboard::ClientDashboardConnectUi() {
 	Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
-	QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
+    QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
 	QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
+	QObject::connect(ui->searchBarClient, &QLineEdit::textChanged, this, &Dashboard::onSearchIdClient);
+
+
+
+
 
 	QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
 	QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
 	QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
 
-	QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
+    QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
 	QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
 	QObject::connect(ui->ClientDeleteButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedClient);
 
 	QObject::connect(ui->ClientCreateCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedClient);
 	QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
 	QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
+
+
+
+
 
 	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
@@ -274,11 +283,43 @@ void Dashboard::clearInputFieldsDeleteClient() {
 	ui->ClientDeleteID->clear();
 }
 
+
+
+
 void Dashboard::onSortClickedClient() {
+	static bool isSorted = false;
+
+	Client MasterClient(ui->tableClient, this);
+	MasterClient.sortClientFirstName(isSorted); // Pass the sorting order parameter
+
+	isSorted = !isSorted; // Toggle the sorting order for the next call
 }
 
+
 void Dashboard::onPdfClickedClient() {
+	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
+	if (!filePath.isEmpty()) {
+		Client MasterClient(ui->tableClient,this);
+		MasterClient.toPdf(filePath);
+	}
 }
+
+
+void Dashboard::onSearchIdClient(QString searched) {
+	Client MasterClient(ui->tableClient, this);
+	QString id = ui->searchBarClient->text();
+	MasterClient.searchClientID(id);
+}
+
+/*
+void Dashboard::onStatByAge() {
+	Client MasterClient(ui->tableClient, this);
+	MasterClient.statsByAge();
+}*/
+
+
+
+
 //********************************************************************************************************************
 // Employee
 void Dashboard::EmployeeDashboardConnectUi() {
@@ -481,7 +522,7 @@ void Dashboard::onComboboxIndexChanged(int index) {
 			ui->EmployeeRole_U->addItem("Role 1");
 			ui->EmployeeRole_U->addItem("Role 2");
 			ui->EmployeeRole_U->addItem("Role 3");
-
+			
 
 			ui->EmployeeRole_U->setCurrentIndex(employeeData->getRole());
 
