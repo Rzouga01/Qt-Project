@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -1287,6 +1287,7 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
  #searchBarClient{
      background-color: white;
      border-radius: 20px;
+color:black;
 }
  #addClient, 
 #deleteClient,

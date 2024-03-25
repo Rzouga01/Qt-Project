@@ -629,3 +629,73 @@ void Client::sortClientFirstName(bool ascendingOrder)
     qDebug() << "Client data sorted by first name in" << sortOrder << "order.";
 }
 
+
+
+
+
+void Client::searchClientID(QString id) {
+    QSqlQuery qry;
+    QString queryString;
+
+    if (id.isEmpty()) {
+        queryString = "SELECT * FROM CLIENTS";
+    }
+    else {
+        queryString = "SELECT * FROM CLIENTS WHERE CLIENT_ID LIKE :id";
+    }
+
+    qry.prepare(queryString);
+    if (!id.isEmpty()) {
+        qry.bindValue(":id", "%" + id + "%");
+    }
+
+    if (qry.exec()) {
+        tableClient->clearContents();
+        tableClient->setRowCount(0);
+
+        int row = 0;
+        while (qry.next()) {
+            tableClient->insertRow(row);
+            int col = 0;
+
+            tableClient->setRowHeight(row, 50);
+            tableClient->setFont(QFont("Helvetica", 10));
+            tableClient->setColumnWidth(0, 10);//ID
+            tableClient->setColumnWidth(1, 150);//EMAIL
+            tableClient->setColumnWidth(2, 50);//FIRST NAME
+            tableClient->setColumnWidth(3, 50);//LAST NAME
+            tableClient->setColumnWidth(4, 150);//ADDRESS
+            tableClient->setColumnWidth(5, 75);//PHONE NUMBER
+            tableClient->setColumnWidth(6, 50);//DOB
+            tableClient->setColumnWidth(7, 15);//DELETE BUTTON
+            tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+
+            // Set data items for each column
+            QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* emailItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* firstNameItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* lastNameItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* phoneNumberItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* addressItem = new QTableWidgetItem(qry.value(col++).toString());
+            QTableWidgetItem* dobItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+
+            tableClient->setItem(row, 0, idItem);
+            tableClient->setItem(row, 1, emailItem);
+            tableClient->setItem(row, 2, firstNameItem);
+            tableClient->setItem(row, 3, lastNameItem);
+            tableClient->setItem(row, 4, phoneNumberItem);
+            tableClient->setItem(row, 5, addressItem);
+            tableClient->setItem(row, 6, dobItem);
+
+            ++row;
+        }
+        tableClient->repaint();
+
+        if (row == 0) {
+            qDebug() << "Client not found.";
+        }
+    }
+    else {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+    }
+}

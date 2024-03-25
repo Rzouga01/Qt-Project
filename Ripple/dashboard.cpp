@@ -63,6 +63,11 @@ void Dashboard::ClientDashboardConnectUi() {
 
 	QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
 	QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
+	QObject::connect(ui->searchBarClient, &QLineEdit::textChanged, this, &Dashboard::onSearchIdClient);
+
+
+
+
 
 	QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
 	QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
@@ -298,6 +303,17 @@ void Dashboard::onPdfClickedClient() {
 		MasterClient.toPdf(filePath);
 	}
 }
+
+
+void Dashboard::onSearchIdClient(QString searched) {
+	Client MasterClient(ui->tableClient, this);
+	QString id = ui->searchBarClient->text();
+	MasterClient.searchClientID(id);
+}
+
+
+
+
 //********************************************************************************************************************
 // Employee
 void Dashboard::EmployeeDashboardConnectUi() {

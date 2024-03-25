@@ -70,7 +70,7 @@ public:
 
 
     void toPdf(const QString& filePath);
-    void searchClientID(int id);
+    void searchClientID(QString id);
     void sortClientFirstName(bool ascendingOrder = true);
     void stat();
 
