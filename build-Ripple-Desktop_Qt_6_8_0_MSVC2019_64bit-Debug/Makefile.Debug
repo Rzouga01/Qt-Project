@@ -2115,59 +2115,9 @@ debug\moc_client.cpp: ..\Ripple\client.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstackedwidget.h \
-		..\QZXing\src\QZxing \
-		..\QZXing\src\QZXing.h \
-		..\QZXing\src\QZXing_global.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QtGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QImage \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariantList \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariantlist.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QElapsedTimer \
-		..\QZXing\src\QZXingImageProvider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\QQuickImageProvider \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qquickimageprovider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqml-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetwork-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquick-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtimezone.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsmanagedvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsprimitivevalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsnumbercoercion.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmldebug.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqml.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlprivate.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmllist.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlparserstatus.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlpropertyvaluesource.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmetaobject.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpointer.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversionnumber.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtyperevision.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlregistration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQmlIntegration\qqmlintegration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlerror.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlabstracturlinterceptor.h \
-		..\QZXing\src\QZXingFilter.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QFuture \
-		..\QZXing\src\zxing\zxing\BarcodeFormat.h \
-		..\QZXing\src\zxing\zxing\common\BitMatrix.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
-		..\QZXing\src\zxing\zxing\common\BitArray.h \
 		..\QZXing\src\zxing\zxing\ZXing.h \
 		..\QZXing\src\zxing\zxing\common\Types.h \
-		..\QZXing\src\zxing\zxing\common\IllegalArgumentException.h \
-		..\QZXing\src\zxing\zxing\Exception.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
 		debug\moc_predefs.h \
 		C:\Qt\6.8.0\msvc2019_64\bin\moc.exe
 	C:\Qt\6.8.0\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_8_0_MSVC2019_64bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.0/msvc2019_64/mkspecs/win32-msvc -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src -IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src/zxing -IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src/zxing/win32/zxing -IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src/zxing/win32/zxing/msvc -IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src -IC:/Qt/6.8.0/msvc2019_64/include -IC:/Qt/6.8.0/msvc2019_64/include/QtCharts -IC:/Qt/6.8.0/msvc2019_64/include/QtUiTools -IC:/Qt/6.8.0/msvc2019_64/include/QtOpenGLWidgets -IC:/Qt/6.8.0/msvc2019_64/include/QtWidgets -IC:/Qt/6.8.0/msvc2019_64/include/QtQuick -IC:/Qt/6.8.0/msvc2019_64/include/QtOpenGL -IC:/Qt/6.8.0/msvc2019_64/include/QtGui -IC:/Qt/6.8.0/msvc2019_64/include/QtSql -IC:/Qt/6.8.0/msvc2019_64/include/QtQmlModels -IC:/Qt/6.8.0/msvc2019_64/include/QtQml -IC:/Qt/6.8.0/msvc2019_64/include/QtQmlIntegration -IC:/Qt/6.8.0/msvc2019_64/include/QtNetwork -IC:/Qt/6.8.0/msvc2019_64/include/QtCore -I. -I"E:\Visual Studio\VC\Tools\MSVC\14.38.33130\include" -I"E:\Visual Studio\VC\Tools\MSVC\14.38.33130\ATLMFC\include" -I"E:\Visual Studio\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" ..\Ripple\client.h -o debug\moc_client.cpp
@@ -19839,60 +19789,11 @@ debug\client.obj: ..\Ripple\client.cpp ..\Ripple\client.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstackedwidget.h \
-		..\QZXing\src\QZxing \
-		..\QZXing\src\QZXing.h \
-		..\QZXing\src\QZXing_global.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QtGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QImage \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariantList \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariantlist.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QElapsedTimer \
-		..\QZXing\src\QZXingImageProvider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\QQuickImageProvider \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qquickimageprovider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqml-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetwork-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquick-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtimezone.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsmanagedvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsprimitivevalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsnumbercoercion.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmldebug.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqml.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlprivate.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmllist.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlparserstatus.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlpropertyvaluesource.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmetaobject.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpointer.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversionnumber.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtyperevision.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlregistration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQmlIntegration\qqmlintegration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlerror.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlabstracturlinterceptor.h \
-		..\QZXing\src\QZXingFilter.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QFuture \
-		..\QZXing\src\zxing\zxing\BarcodeFormat.h \
-		..\QZXing\src\zxing\zxing\common\BitMatrix.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
-		..\QZXing\src\zxing\zxing\common\BitArray.h \
 		..\QZXing\src\zxing\zxing\ZXing.h \
 		..\QZXing\src\zxing\zxing\common\Types.h \
-		..\QZXing\src\zxing\zxing\common\IllegalArgumentException.h \
-		..\QZXing\src\zxing\zxing\Exception.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
 		..\Ripple\ui_client.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qapplication.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QFrame \
@@ -19943,6 +19844,7 @@ debug\client.obj: ..\Ripple\client.cpp ..\Ripple\client.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qfile.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qfiledevice.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qfileinfo.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtimezone.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QTextDocument \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QTextCursor \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QTextTable \
@@ -20975,52 +20877,9 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlError \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlerror.h \
 		..\Ripple\client.h \
-		..\QZXing\src\QZxing \
-		..\QZXing\src\QZXing.h \
-		..\QZXing\src\QZXing_global.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QtGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QImage \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariantList \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QElapsedTimer \
-		..\QZXing\src\QZXingImageProvider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\QQuickImageProvider \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qquickimageprovider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqml-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetwork-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquick-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsmanagedvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsprimitivevalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsnumbercoercion.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmldebug.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqml.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlprivate.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmllist.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlparserstatus.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlpropertyvaluesource.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlregistration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQmlIntegration\qqmlintegration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlerror.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlabstracturlinterceptor.h \
-		..\QZXing\src\QZXingFilter.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QFuture \
-		..\QZXing\src\zxing\zxing\BarcodeFormat.h \
-		..\QZXing\src\zxing\zxing\common\BitMatrix.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
-		..\QZXing\src\zxing\zxing\common\BitArray.h \
 		..\QZXing\src\zxing\zxing\ZXing.h \
 		..\QZXing\src\zxing\zxing\common\Types.h \
-		..\QZXing\src\zxing\zxing\common\IllegalArgumentException.h \
-		..\QZXing\src\zxing\zxing\Exception.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
 		..\Ripple\accident.h \
 		..\Ripple\contract.h
 
@@ -21842,52 +21701,9 @@ debug\main.obj: ..\Ripple\main.cpp ..\Ripple\mainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
-		..\QZXing\src\QZxing \
-		..\QZXing\src\QZXing.h \
-		..\QZXing\src\QZXing_global.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QtGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QImage \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariantList \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QElapsedTimer \
-		..\QZXing\src\QZXingImageProvider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\QQuickImageProvider \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qquickimageprovider.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqml-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetwork-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquick-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsengine.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsmanagedvalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsprimitivevalue.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsnumbercoercion.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmldebug.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqml.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlprivate.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmllist.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlparserstatus.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlpropertyvaluesource.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlregistration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQmlIntegration\qqmlintegration.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlerror.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlabstracturlinterceptor.h \
-		..\QZXing\src\QZXingFilter.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QFuture \
-		..\QZXing\src\zxing\zxing\BarcodeFormat.h \
-		..\QZXing\src\zxing\zxing\common\BitMatrix.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
-		..\QZXing\src\zxing\zxing\common\BitArray.h \
 		..\QZXing\src\zxing\zxing\ZXing.h \
 		..\QZXing\src\zxing\zxing\common\Types.h \
-		..\QZXing\src\zxing\zxing\common\IllegalArgumentException.h \
-		..\QZXing\src\zxing\zxing\Exception.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedPointer \
 		..\Ripple\employee.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
