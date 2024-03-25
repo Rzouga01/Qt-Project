@@ -64,6 +64,7 @@ void Dashboard::ClientDashboardConnectUi() {
     QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
 	QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
 	QObject::connect(ui->searchBarClient, &QLineEdit::textChanged, this, &Dashboard::onSearchIdClient);
+    QObject::connect(ui->pieChartClient, &QPushButton::clicked, this, &Dashboard::onStatByAge);
 
 
 

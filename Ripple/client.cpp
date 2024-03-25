@@ -33,7 +33,13 @@
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
+#include <QtCharts/QChart>
+#include <QBoxLayout>
 
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QtCharts/QChartView>
+#include <QtWidgets/QApplication>
 
 
 Client::Client(QWidget* parent) :
@@ -707,43 +713,49 @@ void Client::searchClientID(QString id) {
 void Client::statsByAge()
 {
     QSqlQuery qry;
-	qry.prepare("SELECT EXTRACT(YEAR FROM DOB) AS BIRTH_YEAR, COUNT(*) AS CLIENT_COUNT FROM CLIENTS GROUP BY EXTRACT(YEAR FROM DOB) ORDER BY EXTRACT(YEAR FROM DOB)");
+qry.prepare("SELECT AGE_GROUP, COUNT(*) AS CLIENT_COUNT \
+             FROM ( \
+                 SELECT CASE \
+                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 10 AND EXTRACT(YEAR FROM CURRENT_DATE) THEN '0-10' \
+                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 18 AND EXTRACT(YEAR FROM CURRENT_DATE) - 11 THEN '11-18' \
+                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 25 AND EXTRACT(YEAR FROM CURRENT_DATE) - 19 THEN '19-25' \
+                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 35 AND EXTRACT(YEAR FROM CURRENT_DATE) - 26 THEN '26-35' \
+                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 55 AND EXTRACT(YEAR FROM CURRENT_DATE) - 36 THEN '36-55' \
+                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 70 AND EXTRACT(YEAR FROM CURRENT_DATE) - 56 THEN '56-70' \
+                         ELSE '70+' \
+                     END AS AGE_GROUP \
+                 FROM CLIENTS \
+             ) AgeGroups \
+             GROUP BY AGE_GROUP \
+             ORDER BY AGE_GROUP");
+
+
+
     if (!qry.exec()) {
-		qDebug() << "Error executing query:" << qry.lastError().text();
-		return;
-	}
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
 
-	qDebug() << "Query executed successfully. Fetching data...";
+    qDebug() << "Query executed successfully. Fetching data...";
 
-	QBarSet* barSet = new QBarSet("Clients by Age");
-	QBarSeries* barSeries = new QBarSeries();
-	barSeries->append(barSet);
+    QPieSeries *pieSeries = new QPieSeries();
 
     while (qry.next()) {
-		int birthYear = qry.value(0).toInt();
-		int clientCount = qry.value(1).toInt();
-		*barSet << clientCount;
-		barSet->setLabel(QString::number(birthYear));
-	}
+        QString ageGroup = qry.value(0).toString();
+        int clientCount = qry.value(1).toInt();
 
-	QChart* chart = new QChart();
-	chart->addSeries(barSeries);
-	chart->setTitle("Clients by Age");
-	chart->setAnimationOptions(QChart::SeriesAnimations);
+        QPieSlice *slice = pieSeries->append(ageGroup, clientCount);
+        slice->setLabel(QString("%1: %2").arg(ageGroup).arg(clientCount));
+    }
 
-	QBarCategoryAxis* axisX = new QBarCategoryAxis();
-	chart->addAxis(axisX, Qt::AlignBottom);
-	barSeries->attachAxis(axisX);
+    QChart *chart = new QChart();
+    chart->addSeries(pieSeries);
+    chart->setTitle("Clients by Age Group");
 
-	QValueAxis* axisY = new QValueAxis();
-	chart->addAxis(axisY, Qt::AlignLeft);
-	barSeries->attachAxis(axisY);
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
 
-	QChartView* chartView = new QChartView(chart);
-	chartView->setRenderHint(QPainter::Antialiasing);
-
-	chartView->setMinimumSize(800, 600);
+    chartView->setMinimumSize(800, 600);
     chartView->show();
-
-
 }
+

@@ -147,6 +147,7 @@ public:
     QPushButton *pdfClient;
     QPushButton *sortClient;
     QPushButton *addClient;
+    QPushButton *pieChartClient;
     QTableWidget *tableClient;
     QWidget *page_3;
     QFrame *CrudContract;
@@ -828,7 +829,7 @@ public:
 "#deleteClient,\n"
 " #pdfClient, \n"
 "#updateClient, \n"
-"#sortClient{\n"
+"#sortClient,#pieChartClient{\n"
 "     border: none;\n"
 "     background-color: transparent;\n"
 "}\n"
@@ -841,9 +842,9 @@ public:
 " #ClientCreateDobLine {\n"
 "     background-color: #A7C34E;\n"
 "     font-family: \"helvetica\";\n"
-"     font-size: 14px;\n"
-" "
-                        "    color: white;\n"
+"     font-s"
+                        "ize: 14px;\n"
+"     color: white;\n"
 "     font-style: bold;\n"
 "}\n"
 " #ClientCreateEmail, \n"
@@ -883,8 +884,8 @@ public:
 "#ClientUpdatePhoneNumberLine,\n"
 " #ClientUpdateDobLine {\n"
 "     background-color: #A7C34E;\n"
-"     font-family: \"helvetic"
-                        "a\";\n"
+"     font-fa"
+                        "mily: \"helvetica\";\n"
 "     font-size: 14px;\n"
 "     color: white;\n"
 "     font-style: bold;\n"
@@ -1083,39 +1084,47 @@ public:
         statsClient->setFrameShape(QFrame::NoFrame);
         featureBarClient = new QFrame(page_2);
         featureBarClient->setObjectName("featureBarClient");
-        featureBarClient->setGeometry(QRect(620, 20, 501, 61));
+        featureBarClient->setGeometry(QRect(420, 20, 701, 61));
         featureBarClient->setStyleSheet(QString::fromUtf8(""));
         featureBarClient->setFrameShape(QFrame::NoFrame);
         deleteClient = new QPushButton(featureBarClient);
         deleteClient->setObjectName("deleteClient");
-        deleteClient->setGeometry(QRect(130, 10, 41, 41));
+        deleteClient->setGeometry(QRect(175, 10, 41, 41));
         deleteClient->setCursor(QCursor(Qt::PointingHandCursor));
         deleteClient->setIcon(icon1);
         deleteClient->setIconSize(QSize(40, 40));
         updateClient = new QPushButton(featureBarClient);
         updateClient->setObjectName("updateClient");
-        updateClient->setGeometry(QRect(330, 10, 41, 41));
+        updateClient->setGeometry(QRect(375, 10, 41, 41));
         updateClient->setCursor(QCursor(Qt::PointingHandCursor));
         updateClient->setIcon(icon2);
         updateClient->setIconSize(QSize(60, 60));
         pdfClient = new QPushButton(featureBarClient);
         pdfClient->setObjectName("pdfClient");
-        pdfClient->setGeometry(QRect(430, 10, 41, 41));
+        pdfClient->setGeometry(QRect(475, 10, 41, 41));
         pdfClient->setCursor(QCursor(Qt::PointingHandCursor));
         pdfClient->setIcon(icon3);
         pdfClient->setIconSize(QSize(50, 50));
         sortClient = new QPushButton(featureBarClient);
         sortClient->setObjectName("sortClient");
-        sortClient->setGeometry(QRect(230, 10, 41, 41));
+        sortClient->setGeometry(QRect(275, 10, 41, 41));
         sortClient->setCursor(QCursor(Qt::PointingHandCursor));
         sortClient->setIcon(icon4);
         sortClient->setIconSize(QSize(50, 50));
         addClient = new QPushButton(featureBarClient);
         addClient->setObjectName("addClient");
-        addClient->setGeometry(QRect(30, 10, 41, 41));
+        addClient->setGeometry(QRect(75, 10, 41, 41));
         addClient->setCursor(QCursor(Qt::PointingHandCursor));
         addClient->setIcon(icon);
         addClient->setIconSize(QSize(60, 60));
+        pieChartClient = new QPushButton(featureBarClient);
+        pieChartClient->setObjectName("pieChartClient");
+        pieChartClient->setGeometry(QRect(575, 5, 51, 51));
+        pieChartClient->setCursor(QCursor(Qt::PointingHandCursor));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8("../Resources/Icons/piechart.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pieChartClient->setIcon(icon5);
+        pieChartClient->setIconSize(QSize(50, 50));
         tableClient = new QTableWidget(page_2);
         if (tableClient->columnCount() < 7)
             tableClient->setColumnCount(7);
@@ -1488,9 +1497,9 @@ public:
         excelContract->setGeometry(QRect(50, 10, 51, 41));
         excelContract->setCursor(QCursor(Qt::PointingHandCursor));
         excelContract->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8("../Resources/Icons/excel.png"), QSize(), QIcon::Normal, QIcon::Off);
-        excelContract->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8("../Resources/Icons/excel.png"), QSize(), QIcon::Normal, QIcon::Off);
+        excelContract->setIcon(icon6);
         excelContract->setIconSize(QSize(60, 60));
         tableContract = new QTableWidget(page_3);
         if (tableContract->columnCount() < 8)
@@ -1786,9 +1795,9 @@ public:
         historyAccident = new QPushButton(featureBarAccident);
         historyAccident->setObjectName("historyAccident");
         historyAccident->setGeometry(QRect(530, 10, 41, 41));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
-        historyAccident->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
+        historyAccident->setIcon(icon7);
         historyAccident->setIconSize(QSize(40, 40));
         tableAccident = new QTableWidget(page_4);
         if (tableAccident->columnCount() < 6)
@@ -1839,9 +1848,9 @@ public:
         logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon8);
         logoutButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Dashboard);
@@ -1957,6 +1966,7 @@ public:
         pdfClient->setText(QString());
         sortClient->setText(QString());
         addClient->setText(QString());
+        pieChartClient->setText(QString());
         QTableWidgetItem *___qtablewidgetitem9 = tableClient->horizontalHeaderItem(0);
         ___qtablewidgetitem9->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem10 = tableClient->horizontalHeaderItem(1);

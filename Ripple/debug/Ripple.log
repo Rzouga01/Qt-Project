@@ -1,7 +1,36 @@
-﻿  client.cpp
+﻿  Uic'ing dashboard.ui...
+  client.cpp
+  contract.cpp
   dashboard.cpp
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6057 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6204 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x62b7 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x62d0 that is illegal in the current source character set (codepage 65001).
-  Ripple.vcxproj -> C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\Ripple.exe
+  main.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6124 that is illegal in the current source character set (codepage 65001).
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x62d1 that is illegal in the current source character set (codepage 65001).
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x6384 that is illegal in the current source character set (codepage 65001).
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(1,1): warning C4828: The file contains a character starting at offset 0x639d that is illegal in the current source character set (codepage 65001).
+  moc_contract.cpp
+  moc_dashboard.cpp
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl QChart::QChart(class QGraphicsItem *,class QFlags<enum Qt::WindowType>)" (__imp_??0QChart@@QEAA@PEAVQGraphicsItem@@V?$QFlags@W4WindowType@Qt@@@@@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl QChart::~QChart(void)" (__imp_??1QChart@@UEAA@XZ) referenced in function "public: virtual void * __cdecl QChart::`scalar deleting destructor'(unsigned int)" (??_GQChart@@UEAAPEAXI@Z)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl QChart::addSeries(class QAbstractSeries *)" (__imp_?addSeries@QChart@@QEAAXPEAVQAbstractSeries@@@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl QChart::setTitle(class QString const &)" (__imp_?setTitle@QChart@@QEAAXAEBVQString@@@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl QChartView::QChartView(class QChart *,class QWidget *)" (__imp_??0QChartView@@QEAA@PEAVQChart@@PEAVQWidget@@@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl QChartView::~QChartView(void)" (__imp_??1QChartView@@UEAA@XZ) referenced in function "public: virtual void * __cdecl QChartView::`scalar deleting destructor'(unsigned int)" (??_GQChartView@@UEAAPEAXI@Z)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl QPieSlice::setLabel(class QString)" (__imp_?setLabel@QPieSlice@@QEAAXVQString@@@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl QPieSeries::QPieSeries(class QObject *)" (__imp_??0QPieSeries@@QEAA@PEAVQObject@@@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl QPieSeries::~QPieSeries(void)" (__imp_??1QPieSeries@@UEAA@XZ) referenced in function "public: virtual void * __cdecl QPieSeries::`scalar deleting destructor'(unsigned int)" (??_GQPieSeries@@UEAAPEAXI@Z)
+client.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class QPieSlice * __cdecl QPieSeries::append(class QString const &,double)" (__imp_?append@QPieSeries@@QEAAPEAVQPieSlice@@AEBVQString@@N@Z) referenced in function "public: void __cdecl Client::statsByAge(void)" (?statsByAge@Client@@QEAAXXZ)
+client.obj : error LNK2001: unresolved external symbol "public: virtual struct QMetaObject const * __cdecl QPieSeries::metaObject(void)const " (?metaObject@QPieSeries@@UEBAPEBUQMetaObject@@XZ)
+client.obj : error LNK2001: unresolved external symbol "public: virtual void * __cdecl QPieSeries::qt_metacast(char const *)" (?qt_metacast@QPieSeries@@UEAAPEAXPEBD@Z)
+client.obj : error LNK2001: unresolved external symbol "public: virtual int __cdecl QPieSeries::qt_metacall(enum QMetaObject::Call,int,void * *)" (?qt_metacall@QPieSeries@@UEAAHW4Call@QMetaObject@@HPEAPEAX@Z)
+client.obj : error LNK2001: unresolved external symbol "public: virtual enum QAbstractSeries::SeriesType __cdecl QPieSeries::type(void)const " (?type@QPieSeries@@UEBA?AW4SeriesType@QAbstractSeries@@XZ)
+client.obj : error LNK2001: unresolved external symbol "public: virtual struct QMetaObject const * __cdecl QChartView::metaObject(void)const " (?metaObject@QChartView@@UEBAPEBUQMetaObject@@XZ)
+client.obj : error LNK2001: unresolved external symbol "public: virtual void * __cdecl QChartView::qt_metacast(char const *)" (?qt_metacast@QChartView@@UEAAPEAXPEBD@Z)
+client.obj : error LNK2001: unresolved external symbol "public: virtual int __cdecl QChartView::qt_metacall(enum QMetaObject::Call,int,void * *)" (?qt_metacall@QChartView@@UEAAHW4Call@QMetaObject@@HPEAPEAX@Z)
+client.obj : error LNK2001: unresolved external symbol "protected: virtual void __cdecl QChartView::resizeEvent(class QResizeEvent *)" (?resizeEvent@QChartView@@MEAAXPEAVQResizeEvent@@@Z)
+client.obj : error LNK2001: unresolved external symbol "protected: virtual void __cdecl QChartView::mousePressEvent(class QMouseEvent *)" (?mousePressEvent@QChartView@@MEAAXPEAVQMouseEvent@@@Z)
+client.obj : error LNK2001: unresolved external symbol "protected: virtual void __cdecl QChartView::mouseMoveEvent(class QMouseEvent *)" (?mouseMoveEvent@QChartView@@MEAAXPEAVQMouseEvent@@@Z)
+client.obj : error LNK2001: unresolved external symbol "protected: virtual void __cdecl QChartView::mouseReleaseEvent(class QMouseEvent *)" (?mouseReleaseEvent@QChartView@@MEAAXPEAVQMouseEvent@@@Z)
+client.obj : error LNK2001: unresolved external symbol "public: virtual struct QMetaObject const * __cdecl QChart::metaObject(void)const " (?metaObject@QChart@@UEBAPEBUQMetaObject@@XZ)
+client.obj : error LNK2001: unresolved external symbol "public: virtual void * __cdecl QChart::qt_metacast(char const *)" (?qt_metacast@QChart@@UEAAPEAXPEBD@Z)
+client.obj : error LNK2001: unresolved external symbol "public: virtual int __cdecl QChart::qt_metacall(enum QMetaObject::Call,int,void * *)" (?qt_metacall@QChart@@UEAAHW4Call@QMetaObject@@HPEAPEAX@Z)
+debug\\Ripple.exe : fatal error LNK1120: 24 unresolved externals
