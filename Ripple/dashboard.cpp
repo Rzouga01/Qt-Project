@@ -633,7 +633,7 @@ void Dashboard::ContractDashboardConnectUi() {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 
 
-	//QObject::connect(ui->sortContract,&QPushButton::clicked,this,&Dashboard::onSortClickedContract);
+    QObject::connect(ui->sortContract,&QPushButton::clicked,this,&Dashboard::onSortClickedContract);
 	//QObject::connect(ui->pdfContract ,&QPushButton::clicked,this,&Dashboard::onPdfClickedContract);
 
 
@@ -857,7 +857,14 @@ void Dashboard::clearInputFieldsUpdateContract() {
 	ui->lineEditTypeContractUpdate->clear();
 
 }
+void Dashboard::onSortClickedContract() {
+    static bool isSorted = false;
 
+    contract MasterContract(ui->tableContract,ui->StackContract, this);
+    MasterContract.sortContractsByPremium(isSorted);
+
+    isSorted = !isSorted;
+}
 void Dashboard::clearInputFieldsDeleteContract() {
 	ui->LineEditContractID->clear();
 }
