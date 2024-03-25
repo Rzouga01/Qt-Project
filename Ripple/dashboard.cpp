@@ -306,7 +306,7 @@ void Dashboard::onPdfClickedClient() {
 }
 
 
-void Dashboard::onSearchIdClient(QString searched) {
+void Dashboard::onSearchIdClient() {
 	Client MasterClient(ui->tableClient, this);
 	QString id = ui->searchBarClient->text();
 	MasterClient.searchClientID(id);

@@ -74,6 +74,8 @@ public:
     void sortClientFirstName(bool ascendingOrder = true);
     void statsByAge();
 
+    void showSliceTooltip(bool status);
+
 signals:
     void deleteClientRequested(int clientId);
     void updateClientRequested(int clientId);

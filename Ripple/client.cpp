@@ -38,7 +38,10 @@
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QtCharts/QChartView>
-#include <QtWidgets/QApplication>
+
+#include <QToolTip>
+#include <QCursor>
+
 
 
 Client::Client(QWidget* parent) :
@@ -741,22 +744,35 @@ void Client::statsByAge()
         QString ageGroup = qry.value(0).toString();
         int clientCount = qry.value(1).toInt();
 
-        QPieSlice *slice = pieSeries->append(ageGroup, clientCount);
-        slice->setLabel(QString("%1: %2").arg(ageGroup).arg(clientCount));
+        // Create a pie slice with label text indicating age group and client count
+        QPieSlice *slice = new QPieSlice(QString("%1: %2").arg(ageGroup).arg(clientCount), clientCount);
+        pieSeries->append(slice);
     }
 
     QChart *chart = new QChart();
     chart->addSeries(pieSeries);
     chart->setTitle("Clients by Age Group");
 
-    // Add animation to the chart
-    chart->setAnimationOptions(QChart::SeriesAnimations);
-
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Handle hover events for slices
+    QObject::connect(pieSeries, &QPieSeries::hovered, [pieSeries](QPieSlice *slice, bool state) {
+        if (state) {
+            slice->setExploded(true);
+            slice->setLabelVisible(true);
+        } else {
+            slice->setExploded(false);
+            slice->setLabelVisible(false);
+        }
+    });
 
     chartView->setMinimumSize(800, 600);
     chartView->show();
 }
+
+
+
+
 
 
