@@ -69,7 +69,7 @@ public:
     //Metiers
     void sortEmployeesByAge();
     void ExportEmployeesToPdf(const QString& filePath);
-    QList<int> searchEmployees(const QString& searchText);
+    void searchEmployee(const QString& searchText);
 };
 
 #endif // EMPLOYEE_H

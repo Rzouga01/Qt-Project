@@ -383,26 +383,55 @@ void Employee::ExportEmployeesToPdf(const QString& filePath)
     QMessageBox::information(nullptr, "Export Successful", "Employee data has been successfully exported to PDF.\nFile saved to: " + filePath);
 }
 
-QList<int> Employee::searchEmployees(const QString& searchText)
+void Employee::searchEmployee(const QString& search)
 {
-    QList<int> matchingEmployeeIDs;
-
-    if (searchText.isEmpty()) {
-        return matchingEmployeeIDs; 
+    if (tableEmployee == nullptr) {
+        qDebug() << "Error: tableEmployee is null";
+        return;
     }
 
-   
-    QStringList employeeIDs = getAllEmployeeIDs();
-    for (const QString& employeeID : employeeIDs) {
-        readEmployeeById(employeeID.toInt());
-        QString firstName = getFirstName();
-        QString lastName = getLastName();
+    tableEmployee->clearContents();
+    tableEmployee->setRowCount(0);
 
-        if (firstName.contains(searchText, Qt::CaseInsensitive) || lastName.contains(searchText, Qt::CaseInsensitive)) {
-            matchingEmployeeIDs.append(employeeID.toInt());
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM employees WHERE FIRST_NAME LIKE :search OR LAST_NAME LIKE :search");
+    qry.bindValue(":search", "%" + search + "%");
+
+    if (qry.exec())
+    {
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+        while (qry.next())
+        {
+            int row = tableEmployee->rowCount();
+            tableEmployee->insertRow(row);
+
+            tableEmployee->setFont(QFont("Helvetica", 10));
+
+            tableEmployee->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));
+            tableEmployee->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString()));
+            tableEmployee->setItem(row, 2, new QTableWidgetItem(qry.value(2).toString()));
+            tableEmployee->setItem(row, 3, new QTableWidgetItem(mapNumberToRole(qry.value(3).toInt())));
+            tableEmployee->setItem(row, 4, new QTableWidgetItem(qry.value(4).toString()));
+            tableEmployee->setItem(row, 5, new QTableWidgetItem(qry.value(5).toString()));
+            tableEmployee->setItem(row, 6, new QTableWidgetItem(qry.value(6).toString()));
+            tableEmployee->setItem(row, 7, new QTableWidgetItem(qry.value(7).toString()));
+            tableEmployee->setItem(row, 8, new QTableWidgetItem(qry.value(8).toDate().toString()));
+        }
+
+        tableEmployee->resizeColumnsToContents();
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+        tableEmployee->repaint();
+
+        if (tableEmployee->rowCount() == 0) {
+            qDebug() << "No matching records found for search:" << search;
         }
     }
+    else
+    {
+        qDebug() << "Error executing query:" << qry.lastError().text();
 
-    return matchingEmployeeIDs;
+    }
 }
+
 

@@ -296,8 +296,6 @@ void Dashboard::EmployeeDashboardConnectUi() {
 	QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
 	QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
 
-
-
 	ui->CrudEmployee->setCurrentIndex(0);
 }
 
@@ -584,18 +582,8 @@ void Dashboard::onPdfEmployeeClicked() {
 }
 
 void Dashboard::onSearchTextChanged(const QString& searchText) {
-
 	Employee emp(ui->tableEmployee);
-
-	QList<int> matchingEmployeeIDs = emp.searchEmployees(searchText);
-
-	if (!matchingEmployeeIDs.isEmpty()) {
-		emp.readEmployeeByIds(matchingEmployeeIDs);
-	}
-	else {
-
-		emp.readEmployee();
-	}
+	emp.searchEmployee(searchText);
 }
 
 //********************************************************************************************************************
