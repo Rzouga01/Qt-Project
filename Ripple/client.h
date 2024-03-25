@@ -5,7 +5,6 @@
 #include <QDate>
 #include <QTableWidget>
 #include <QStackedWidget>
-#include "zxing/ZXing.h"
 
 
 namespace Ui {

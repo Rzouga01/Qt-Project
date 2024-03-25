@@ -39,7 +39,8 @@ HEADERS += \
     dashboard.h \
     employee.h \
     mainwindow.h \
-    menu.h
+    menu.h\
+    ../QZXing/src/QZXing.h
 
 FORMS += \
     accident.ui \
