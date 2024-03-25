@@ -93,6 +93,8 @@ public:
     QListWidget *readBoxEmployee;
     QLineEdit *searchBarEmployee;
     QTableWidget *tableEmployee;
+    QFrame *statsEmployee;
+    QComboBox *EmployeeSelectStats;
     QWidget *page_2;
     QListWidget *readBoxClient;
     QLineEdit *searchBarClient;
@@ -353,7 +355,7 @@ public:
 "    border-radius: 25px;\n"
 "}\n"
 "\n"
-"/* Stats  */\n"
+"/* Stats Box  */\n"
 "#statsEmployee {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
@@ -388,8 +390,8 @@ public:
 "    border: 0;\n"
 "    padding: 0;\n"
 "    margin: 0;\n"
-"    border-radius: 0;"
-                        "\n"
+"    border-radius"
+                        ": 0;\n"
 "}\n"
 "\n"
 "/* Row hover styling */\n"
@@ -417,73 +419,38 @@ public:
 "}\n"
 "\n"
 "/* Create and Update Combobox Items */\n"
-"QComboBox#EmployeeRole_C QAbstractItemView,\n"
-"QComboBox#EmployeeRole_U QAbstractItemView,\n"
-"QComboBox#EmployeeSelectID_U QAbstractItemView,\n"
-"QComboBox#EmployeeSelectID_D QAbstractItemView {\n"
+"#EmployeeRole_C,\n"
+"#EmployeeRole_U,\n"
+"#EmployeeSelectID_U,\n"
+"#EmployeeSelectID_D {\n"
+"    background-color: #444444;\n"
+"    font-family: \"Helvetica\";\n"
+"    font-size: 12px;\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"#EmployeeRole_C QAbstractItemView,\n"
+"#EmployeeRole_U QAbstractItemView,\n"
+"#EmployeeSelectID_U QAbstractItemView,\n"
+"#EmployeeSelectID_D QAbstrac"
+                        "tItemView {\n"
 "    color: white; \n"
 "    background-color: #444444; \n"
 "    selection-background-color: #A7C34E; \n"
 "}\n"
 "\n"
-"/* Create  */\n"
+"/* Create and Update Text Inputs */\n"
 "#EmployeeEmailText_C,\n"
 "#EmployeePasswordText_C,\n"
 "#EmployeeFirstNameText_C,\n"
-"#Empl"
-                        "oyeeLastNameText_C,\n"
+"#EmployeeLastNameText_C,\n"
 "#EmployeeAddressText_C,\n"
 "#EmployeePhoneNumberText_C,\n"
 "#EmployeeDobText_C,\n"
 "#EmployeeRoleText_C,\n"
-"#EmployeeSelectIDText_U {\n"
-"    border: none;\n"
-"    background-color: transparent;\n"
-"    font-family: \"Helvetica\";\n"
-"    font-size: 14px;\n"
-"    color: white;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"#EmployeeEmail_C,\n"
-"#EmployeePassword_C,\n"
-"#EmployeeFirstName_C,\n"
-"#EmployeeLastName_C,\n"
-"#EmployeeAddress_C,\n"
-"#EmployeePhoneNumber_C,\n"
-"#EmployeeDob_C,\n"
-"#EmployeeRole_C,\n"
-"#EmployeeSelectID_U {\n"
-"    background-color: #444444;\n"
-"    font-family: \"Helvetica\";\n"
-"    font-size: 14px;\n"
-"    color: white;\n"
-"    font-weight: bold;\n"
-"    border: none;\n"
-"    border-radius: 15px;\n"
-"}\n"
-"\n"
-"#EmployeeCancelBtn_C,\n"
-"#EmployeeCreateBtn {\n"
-"    background-color: #444444;\n"
-"    color: white;\n"
-"    font-family: \"Helvetica\";\n"
-"    font-size: 14px;\n"
-"    font-weight: bold;\n"
-"    border: none;\n"
-"    border-radius: 15px;\n"
-"    paddi"
-                        "ng: 10px 20px;\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
-"}\n"
-"\n"
-"#EmployeeCancelBtn_C:hover,\n"
-"#EmployeeCreateBtn:hover {\n"
-"    background-color: #333333;\n"
-"}\n"
-"\n"
-"/* Update */\n"
+"#EmployeeSelectIDText_U,\n"
 "#EmployeeEmailText_U,\n"
 "#EmployeePasswordText_U,\n"
 "#EmployeeFirstNameText_U,\n"
@@ -491,53 +458,7 @@ public:
 "#EmployeeAddressText_U,\n"
 "#EmployeePhoneNumberText_U,\n"
 "#EmployeeDobText_U,\n"
-"#EmployeeRoleText_U {\n"
-"    border: none;\n"
-"    background-color: transparent;\n"
-"    font-family: \"Helvetica\";\n"
-"    font-size: 14px;\n"
-"    color: white;\n"
-"    font-weight: bold;\n"
-"}\n"
-"\n"
-"#EmployeeEmail_U,\n"
-"#EmployeePassword_U,\n"
-"#EmployeeFirstName_U,\n"
-"#EmployeeLastName_U,\n"
-"#EmployeeAddress_U,\n"
-"#EmployeePhoneNumber_U,\n"
-"#EmployeeDob_U,\n"
-"#EmployeeRole_U {\n"
-"    background-color: #444444;\n"
-"    font-family: \"Helvetica\";\n"
-"    font-size: 14px;\n"
-"    color: white;\n"
-"    font-weight: bold;\n"
-"    border: none;\n"
-"    border-radius: 15px;\n"
-"}\n"
-""
-                        "\n"
-"#EmployeeCancelBtn_U,\n"
-"#EmployeeUpdateBtn {\n"
-"    background-color: #444444;\n"
-"    color: white;\n"
-"    font-family: \"Helvetica\";\n"
-"    font-size: 14px;\n"
-"    font-weight: bold;\n"
-"    border: none;\n"
-"    border-radius: 15px;\n"
-"    padding: 10px 20px;\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
-"}\n"
-"\n"
-"#EmployeeCancelBtn_U:hover,\n"
-"#EmployeeUpdateBtn:hover {\n"
-"    background-color: #333333;\n"
-"}\n"
-"\n"
-"/* Delete */\n"
+"#EmployeeRoleText_U,\n"
 "#EmployeeSelectIDText_D {\n"
 "    border: none;\n"
 "    background-color: transparent;\n"
@@ -547,6 +468,25 @@ public:
 "    font-weight: bold;\n"
 "}\n"
 "\n"
+"/* Create, Update, and Delete Buttons */\n"
+"#EmployeeEmail_C,\n"
+"#EmployeePassword_C,\n"
+"#EmployeeFirstName_C,\n"
+"#EmployeeLastName_C,\n"
+"#EmployeeAddress_C,\n"
+""
+                        "#EmployeePhoneNumber_C,\n"
+"#EmployeeDob_C,\n"
+"#EmployeeRole_C,\n"
+"#EmployeeSelectID_U,\n"
+"#EmployeeEmail_U,\n"
+"#EmployeePassword_U,\n"
+"#EmployeeFirstName_U,\n"
+"#EmployeeLastName_U,\n"
+"#EmployeeAddress_U,\n"
+"#EmployeePhoneNumber_U,\n"
+"#EmployeeDob_U,\n"
+"#EmployeeRole_U,\n"
 "#EmployeeSelectID_D {\n"
 "    background-color: #444444;\n"
 "    font-family: \"Helvetica\";\n"
@@ -557,11 +497,15 @@ public:
 "    border-radius: 15px;\n"
 "}\n"
 "\n"
+"/* Cancel and Create/Update/Delete Buttons */\n"
+"#EmployeeCancelBtn_C,\n"
+"#EmployeeCreateBtn,\n"
+"#EmployeeCancelBtn_U,\n"
+"#EmployeeUpdateBtn,\n"
 "#EmployeeCancelBtn_D,\n"
 "#EmployeeDeleteBtn {\n"
 "    background-color: #444444;\n"
-"    "
-                        "color: white;\n"
+"    color: white;\n"
 "    font-family: \"Helvetica\";\n"
 "    font-size: 14px;\n"
 "    font-weight: bold;\n"
@@ -572,11 +516,24 @@ public:
 "    transition: background-color 0.3s ease;\n"
 "}\n"
 "\n"
+""
+                        "#EmployeeCancelBtn_C:hover,\n"
+"#EmployeeCreateBtn:hover,\n"
+"#EmployeeCancelBtn_U:hover,\n"
+"#EmployeeUpdateBtn:hover,\n"
 "#EmployeeCancelBtn_D:hover,\n"
 "#EmployeeDeleteBtn:hover {\n"
 "    background-color: #333333;\n"
 "}\n"
-""));
+"\n"
+"/*Stats*/\n"
+"#EmployeeSelectStats {\n"
+"    background-color: #444444;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    color: #444444;\n"
+"    font-size: 12px;\n"
+"}"));
         featureBarEmployee = new QFrame(page);
         featureBarEmployee->setObjectName("featureBarEmployee");
         featureBarEmployee->setGeometry(QRect(700, 20, 501, 61));
@@ -624,7 +581,7 @@ public:
         sortEmployee->setIconSize(QSize(50, 50));
         CrudEmployee = new QStackedWidget(page);
         CrudEmployee->setObjectName("CrudEmployee");
-        CrudEmployee->setGeometry(QRect(10, 220, 421, 451));
+        CrudEmployee->setGeometry(QRect(10, 240, 421, 431));
         CrudEmployee->setFrameShape(QFrame::NoFrame);
         CreateEmployee = new QWidget();
         CreateEmployee->setObjectName("CreateEmployee");
@@ -825,12 +782,21 @@ public:
         tableEmployee->setAutoFillBackground(false);
         tableEmployee->setStyleSheet(QString::fromUtf8(""));
         tableEmployee->setShowGrid(true);
+        statsEmployee = new QFrame(page);
+        statsEmployee->setObjectName("statsEmployee");
+        statsEmployee->setGeometry(QRect(10, 10, 431, 221));
+        statsEmployee->setFrameShape(QFrame::NoFrame);
+        EmployeeSelectStats = new QComboBox(statsEmployee);
+        EmployeeSelectStats->addItem(QString());
+        EmployeeSelectStats->setObjectName("EmployeeSelectStats");
+        EmployeeSelectStats->setGeometry(QRect(320, 10, 101, 21));
         stackedWidget->addWidget(page);
         readBoxEmployee->raise();
         featureBarEmployee->raise();
         CrudEmployee->raise();
         searchBarEmployee->raise();
         tableEmployee->raise();
+        statsEmployee->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         page_2->setStyleSheet(QString::fromUtf8(" #featureBarClient {\n"
@@ -1151,8 +1117,8 @@ public:
         addClient->setIcon(icon);
         addClient->setIconSize(QSize(60, 60));
         tableClient = new QTableWidget(page_2);
-        if (tableClient->columnCount() < 9)
-            tableClient->setColumnCount(9);
+        if (tableClient->columnCount() < 7)
+            tableClient->setColumnCount(7);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
         tableClient->setHorizontalHeaderItem(0, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
@@ -1167,10 +1133,6 @@ public:
         tableClient->setHorizontalHeaderItem(5, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
         tableClient->setHorizontalHeaderItem(6, __qtablewidgetitem15);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tableClient->setHorizontalHeaderItem(7, __qtablewidgetitem16);
-        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tableClient->setHorizontalHeaderItem(8, __qtablewidgetitem17);
         tableClient->setObjectName("tableClient");
         tableClient->setGeometry(QRect(420, 180, 711, 441));
         tableClient->setFont(font);
@@ -1533,22 +1495,22 @@ public:
         tableContract = new QTableWidget(page_3);
         if (tableContract->columnCount() < 8)
             tableContract->setColumnCount(8);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableContract->setHorizontalHeaderItem(0, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        tableContract->setHorizontalHeaderItem(1, __qtablewidgetitem17);
         QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(0, __qtablewidgetitem18);
+        tableContract->setHorizontalHeaderItem(2, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(1, __qtablewidgetitem19);
+        tableContract->setHorizontalHeaderItem(3, __qtablewidgetitem19);
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(2, __qtablewidgetitem20);
+        tableContract->setHorizontalHeaderItem(4, __qtablewidgetitem20);
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(3, __qtablewidgetitem21);
+        tableContract->setHorizontalHeaderItem(5, __qtablewidgetitem21);
         QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(4, __qtablewidgetitem22);
+        tableContract->setHorizontalHeaderItem(6, __qtablewidgetitem22);
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(5, __qtablewidgetitem23);
-        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(6, __qtablewidgetitem24);
-        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        tableContract->setHorizontalHeaderItem(7, __qtablewidgetitem25);
+        tableContract->setHorizontalHeaderItem(7, __qtablewidgetitem23);
         tableContract->setObjectName("tableContract");
         tableContract->setGeometry(QRect(390, 200, 741, 381));
         tableContract->setFont(font);
@@ -1831,18 +1793,18 @@ public:
         tableAccident = new QTableWidget(page_4);
         if (tableAccident->columnCount() < 6)
             tableAccident->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        tableAccident->setHorizontalHeaderItem(0, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        tableAccident->setHorizontalHeaderItem(1, __qtablewidgetitem25);
         QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
-        tableAccident->setHorizontalHeaderItem(0, __qtablewidgetitem26);
+        tableAccident->setHorizontalHeaderItem(2, __qtablewidgetitem26);
         QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
-        tableAccident->setHorizontalHeaderItem(1, __qtablewidgetitem27);
+        tableAccident->setHorizontalHeaderItem(3, __qtablewidgetitem27);
         QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
-        tableAccident->setHorizontalHeaderItem(2, __qtablewidgetitem28);
+        tableAccident->setHorizontalHeaderItem(4, __qtablewidgetitem28);
         QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
-        tableAccident->setHorizontalHeaderItem(3, __qtablewidgetitem29);
-        QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
-        tableAccident->setHorizontalHeaderItem(4, __qtablewidgetitem30);
-        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
-        tableAccident->setHorizontalHeaderItem(5, __qtablewidgetitem31);
+        tableAccident->setHorizontalHeaderItem(5, __qtablewidgetitem29);
         tableAccident->setObjectName("tableAccident");
         tableAccident->setGeometry(QRect(520, 210, 591, 421));
         tableAccident->setFont(font);
@@ -1885,7 +1847,7 @@ public:
         retranslateUi(Dashboard);
 
         stackedWidget->setCurrentIndex(1);
-        CrudEmployee->setCurrentIndex(0);
+        CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);
         StackedAccident->setCurrentIndex(0);
@@ -1967,6 +1929,8 @@ public:
         ___qtablewidgetitem7->setText(QCoreApplication::translate("Dashboard", "Address", nullptr));
         QTableWidgetItem *___qtablewidgetitem8 = tableEmployee->horizontalHeaderItem(8);
         ___qtablewidgetitem8->setText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
+        EmployeeSelectStats->setItemText(0, QString());
+
         ClientCreateEmail->setPlaceholderText(QString());
         ClientCreateButton->setText(QCoreApplication::translate("Dashboard", "Create Client", nullptr));
         ClientCreateCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
@@ -2007,10 +1971,6 @@ public:
         ___qtablewidgetitem14->setText(QCoreApplication::translate("Dashboard", "Phone Number", nullptr));
         QTableWidgetItem *___qtablewidgetitem15 = tableClient->horizontalHeaderItem(6);
         ___qtablewidgetitem15->setText(QCoreApplication::translate("Dashboard", "Date Of Birth", nullptr));
-        QTableWidgetItem *___qtablewidgetitem16 = tableClient->horizontalHeaderItem(7);
-        ___qtablewidgetitem16->setText(QCoreApplication::translate("Dashboard", "Delete", nullptr));
-        QTableWidgetItem *___qtablewidgetitem17 = tableClient->horizontalHeaderItem(8);
-        ___qtablewidgetitem17->setText(QCoreApplication::translate("Dashboard", "Update", nullptr));
         LabelUserIdContract->setText(QCoreApplication::translate("Dashboard", "USER_ID", nullptr));
         LabelClientIdContract->setText(QCoreApplication::translate("Dashboard", "CLIENT_ID", nullptr));
         LabelPremiumAmountContract->setText(QCoreApplication::translate("Dashboard", "PREMIUM_AMOUNT", nullptr));
@@ -2039,22 +1999,22 @@ public:
         pdfContract->setText(QString());
         sortContract->setText(QString());
         excelContract->setText(QString());
-        QTableWidgetItem *___qtablewidgetitem18 = tableContract->horizontalHeaderItem(0);
-        ___qtablewidgetitem18->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem19 = tableContract->horizontalHeaderItem(1);
-        ___qtablewidgetitem19->setText(QCoreApplication::translate("Dashboard", "User ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem20 = tableContract->horizontalHeaderItem(2);
-        ___qtablewidgetitem20->setText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem21 = tableContract->horizontalHeaderItem(3);
-        ___qtablewidgetitem21->setText(QCoreApplication::translate("Dashboard", "Premium Amount", nullptr));
-        QTableWidgetItem *___qtablewidgetitem22 = tableContract->horizontalHeaderItem(4);
-        ___qtablewidgetitem22->setText(QCoreApplication::translate("Dashboard", "Effective Date", nullptr));
-        QTableWidgetItem *___qtablewidgetitem23 = tableContract->horizontalHeaderItem(5);
-        ___qtablewidgetitem23->setText(QCoreApplication::translate("Dashboard", "Expiration Date", nullptr));
-        QTableWidgetItem *___qtablewidgetitem24 = tableContract->horizontalHeaderItem(6);
-        ___qtablewidgetitem24->setText(QCoreApplication::translate("Dashboard", "Payment Status", nullptr));
-        QTableWidgetItem *___qtablewidgetitem25 = tableContract->horizontalHeaderItem(7);
-        ___qtablewidgetitem25->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = tableContract->horizontalHeaderItem(0);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = tableContract->horizontalHeaderItem(1);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("Dashboard", "User ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = tableContract->horizontalHeaderItem(2);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = tableContract->horizontalHeaderItem(3);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("Dashboard", "Premium Amount", nullptr));
+        QTableWidgetItem *___qtablewidgetitem20 = tableContract->horizontalHeaderItem(4);
+        ___qtablewidgetitem20->setText(QCoreApplication::translate("Dashboard", "Effective Date", nullptr));
+        QTableWidgetItem *___qtablewidgetitem21 = tableContract->horizontalHeaderItem(5);
+        ___qtablewidgetitem21->setText(QCoreApplication::translate("Dashboard", "Expiration Date", nullptr));
+        QTableWidgetItem *___qtablewidgetitem22 = tableContract->horizontalHeaderItem(6);
+        ___qtablewidgetitem22->setText(QCoreApplication::translate("Dashboard", "Payment Status", nullptr));
+        QTableWidgetItem *___qtablewidgetitem23 = tableContract->horizontalHeaderItem(7);
+        ___qtablewidgetitem23->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
         AccidentCreateTypeline->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
         AccidentCreateDamageline->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
         AccidentCreateDateline->setText(QCoreApplication::translate("Dashboard", "Date", nullptr));
@@ -2077,18 +2037,18 @@ public:
         pdfAccident->setText(QString());
         sortAccident->setText(QString());
         historyAccident->setText(QString());
-        QTableWidgetItem *___qtablewidgetitem26 = tableAccident->horizontalHeaderItem(0);
-        ___qtablewidgetitem26->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem27 = tableAccident->horizontalHeaderItem(1);
-        ___qtablewidgetitem27->setText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem28 = tableAccident->horizontalHeaderItem(2);
-        ___qtablewidgetitem28->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
-        QTableWidgetItem *___qtablewidgetitem29 = tableAccident->horizontalHeaderItem(3);
-        ___qtablewidgetitem29->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
-        QTableWidgetItem *___qtablewidgetitem30 = tableAccident->horizontalHeaderItem(4);
-        ___qtablewidgetitem30->setText(QCoreApplication::translate("Dashboard", "Date", nullptr));
-        QTableWidgetItem *___qtablewidgetitem31 = tableAccident->horizontalHeaderItem(5);
-        ___qtablewidgetitem31->setText(QCoreApplication::translate("Dashboard", "Location", nullptr));
+        QTableWidgetItem *___qtablewidgetitem24 = tableAccident->horizontalHeaderItem(0);
+        ___qtablewidgetitem24->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem25 = tableAccident->horizontalHeaderItem(1);
+        ___qtablewidgetitem25->setText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem26 = tableAccident->horizontalHeaderItem(2);
+        ___qtablewidgetitem26->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
+        QTableWidgetItem *___qtablewidgetitem27 = tableAccident->horizontalHeaderItem(3);
+        ___qtablewidgetitem27->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
+        QTableWidgetItem *___qtablewidgetitem28 = tableAccident->horizontalHeaderItem(4);
+        ___qtablewidgetitem28->setText(QCoreApplication::translate("Dashboard", "Date", nullptr));
+        QTableWidgetItem *___qtablewidgetitem29 = tableAccident->horizontalHeaderItem(5);
+        ___qtablewidgetitem29->setText(QCoreApplication::translate("Dashboard", "Location", nullptr));
         employees->setText(QCoreApplication::translate("Dashboard", "Employees", nullptr));
         clients->setText(QCoreApplication::translate("Dashboard", "Clients", nullptr));
         contracts->setText(QCoreApplication::translate("Dashboard", "Contracts", nullptr));

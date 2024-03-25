@@ -402,6 +402,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\features\yacc.prf \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\features\lex.prf \
 		..\Ripple\Ripple.pro \
+		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Charts.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiTools.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgets.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgets.prl \
@@ -415,6 +416,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Core.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPoint.prl \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\features\build_pass.prf \
+		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Chartsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiToolsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgetsd.prl \
@@ -746,6 +748,7 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\features\exceptions.prf:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\features\yacc.prf:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\features\lex.prf:
 ..\Ripple\Ripple.pro:
+C:\Qt\6.8.0\msvc2019_64\lib\Qt6Charts.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiTools.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgets.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgets.prl:
@@ -759,6 +762,7 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6Network.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Core.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPoint.prl:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\features\build_pass.prf:
+C:\Qt\6.8.0\msvc2019_64\lib\Qt6Chartsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiToolsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgetsd.prl:

@@ -25,15 +25,14 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
-/*
-#include <QtCharts>
-#include <QBarSet>
-#include <QBarSeries>
-#include <QBarCategoryAxis>
-#include <QValueAxis>
-#include <QChart>
-#include <QChartView>
-*/
+
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
 
 
 
@@ -705,7 +704,6 @@ void Client::searchClientID(QString id) {
     }
 }
 
-/*
 void Client::statsByAge()
 {
     QSqlQuery qry;
@@ -749,4 +747,3 @@ void Client::statsByAge()
 
 
 }
-*/

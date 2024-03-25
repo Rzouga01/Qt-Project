@@ -311,11 +311,11 @@ void Dashboard::onSearchIdClient(QString searched) {
 	MasterClient.searchClientID(id);
 }
 
-/*
+
 void Dashboard::onStatByAge() {
 	Client MasterClient(ui->tableClient, this);
 	MasterClient.statsByAge();
-}*/
+}
 
 
 
