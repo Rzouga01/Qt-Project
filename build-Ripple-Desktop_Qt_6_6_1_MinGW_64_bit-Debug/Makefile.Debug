@@ -327,6 +327,26 @@ debug/moc_accident.cpp: ../Ripple/accident.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstackedwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\accident.h -o debug\moc_accident.cpp
@@ -518,6 +538,8 @@ debug/moc_client.cpp: ../Ripple/client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstackedwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\client.h -o debug\moc_client.cpp
@@ -699,6 +721,26 @@ debug/moc_contract.cpp: ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstackedwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\contract.h -o debug\moc_contract.cpp
@@ -1237,6 +1279,16 @@ debug/moc_dashboard.cpp: ../Ripple/dashboard.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QPropertyAnimation \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
+		../Ripple/employee.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\dashboard.h -o debug\moc_dashboard.cpp
@@ -1419,6 +1471,24 @@ debug/moc_employee.cpp: ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/GAMING/Documents/GitHub/Qt-Project/build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtUiTools -IC:/Qt/6.6.1/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtQuick -IC:/Qt/6.6.1/mingw_64/include/QtOpenGL -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtSql -IC:/Qt/6.6.1/mingw_64/include/QtQmlModels -IC:/Qt/6.6.1/mingw_64/include/QtQml -IC:/Qt/6.6.1/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Ripple\employee.h -o debug\moc_employee.cpp
@@ -1990,6 +2060,26 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../Ripple/ui_accident.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
@@ -2014,7 +2104,6 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
@@ -2028,22 +2117,14 @@ debug/accident.o: ../Ripple/accident.cpp ../Ripple/accident.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\accident.o ..\Ripple\accident.cpp
 
 debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
@@ -2233,6 +2314,8 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../Ripple/ui_client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
@@ -2285,7 +2368,42 @@ debug/client.o: ../Ripple/client.cpp ../Ripple/client.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/Qpushbutton \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QPdfWriter \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpdfwriter.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpagedpaintdevice.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpagelayout.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpagesize.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpageranges.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QPainter \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qtimezone.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextDocument \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextCursor \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextTable \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtexttable.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextobject.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextlayout.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qglyphrun.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qrawfont.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qfontdatabase.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextTableFormat \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextCharFormat \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextLength \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextFrameFormat \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QPageSize \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlRecord \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlrecord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\client.o ..\Ripple\client.cpp
 
 debug/connection.o: ../Ripple/connection.cpp ../Ripple/connection.h \
@@ -2587,6 +2705,26 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../Ripple/ui_contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
@@ -2611,7 +2749,6 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextcursor.h \
@@ -2622,27 +2759,14 @@ debug/contract.o: ../Ripple/contract.cpp ../Ripple/contract.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\contract.o ..\Ripple\contract.cpp
 
 debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
@@ -3179,29 +3303,38 @@ debug/dashboard.o: ../Ripple/dashboard.cpp ../Ripple/dashboard.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QPropertyAnimation \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
+		../Ripple/employee.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQueryModel \
+		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquerymodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
 		../Ripple/ui_dashboard.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QComboBox \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDateEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QHeaderView \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLineEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
 		../Ripple/connection.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlDatabase \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqldatabase.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qtsqlexports.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlError \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \
 		../Ripple/client.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate
+		../Ripple/accident.h \
+		../Ripple/contract.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dashboard.o ..\Ripple\dashboard.cpp
 
 debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
@@ -3382,6 +3515,24 @@ debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtableview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 		../Ripple/ui_employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
@@ -3406,7 +3557,6 @@ debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
@@ -3420,20 +3570,6 @@ debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTextEdit \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qtextedit.h \
 		../Ripple/connection.h \
@@ -3442,7 +3578,29 @@ debug/employee.o: ../Ripple/employee.cpp ../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug
+		C:/Qt/6.6.1/mingw_64/include/QtCore/QtDebug \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QHeaderView \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qheaderview.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidgetItem \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextDocument \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QPdfWriter \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpdfwriter.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpagedpaintdevice.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpagelayout.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpagesize.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpageranges.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QPainter \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QPageSize \
+		C:/Qt/6.6.1/mingw_64/include/QtCore/QMarginsF \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QTextTable \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtexttable.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextobject.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qtextlayout.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qglyphrun.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qrawfont.h \
+		C:/Qt/6.6.1/mingw_64/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\employee.o ..\Ripple\employee.cpp
 
 debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
@@ -3979,6 +4137,7 @@ debug/main.o: ../Ripple/main.cpp ../Ripple/mainwindow.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QDate \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QTableWidget \
+		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QStackedWidget \
 		../Ripple/employee.h \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/QSqlQuery \
 		C:/Qt/6.6.1/mingw_64/include/QtSql/qsqlquery.h \

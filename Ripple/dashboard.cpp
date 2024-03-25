@@ -61,7 +61,7 @@ void Dashboard::onLogoutButtonClicked() {
 void Dashboard::ClientDashboardConnectUi() {
 	Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
-	QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
+    QObject::connect(ui->sortClient, &QPushButton::clicked, this, &Dashboard::onSortClickedClient);
 	QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
 	QObject::connect(ui->searchBarClient, &QLineEdit::textChanged, this, &Dashboard::onSearchIdClient);
 
@@ -73,7 +73,7 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
 	QObject::connect(ui->deleteClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(2); });
 
-	QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
+    QObject::connect(ui->ClientCreateButton, &QPushButton::clicked, this, &Dashboard::onAddClickedClient);
 	QObject::connect(ui->ClientUpdateButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedClient);
 	QObject::connect(ui->ClientDeleteButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedClient);
 
@@ -310,6 +310,12 @@ void Dashboard::onSearchIdClient(QString searched) {
 	QString id = ui->searchBarClient->text();
 	MasterClient.searchClientID(id);
 }
+
+/*
+void Dashboard::onStatByAge() {
+	Client MasterClient(ui->tableClient, this);
+	MasterClient.statsByAge();
+}*/
 
 
 

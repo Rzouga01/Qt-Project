@@ -25,6 +25,15 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
+/*
+#include <QtCharts>
+#include <QBarSet>
+#include <QBarSeries>
+#include <QBarCategoryAxis>
+#include <QValueAxis>
+#include <QChart>
+#include <QChartView>
+*/
 
 
 
@@ -699,3 +708,49 @@ void Client::searchClientID(QString id) {
         qDebug() << "Error executing query:" << qry.lastError().text();
     }
 }
+
+/*
+void Client::statsByAge()
+{
+    QSqlQuery qry;
+	qry.prepare("SELECT EXTRACT(YEAR FROM DOB) AS BIRTH_YEAR, COUNT(*) AS CLIENT_COUNT FROM CLIENTS GROUP BY EXTRACT(YEAR FROM DOB) ORDER BY EXTRACT(YEAR FROM DOB)");
+    if (!qry.exec()) {
+		qDebug() << "Error executing query:" << qry.lastError().text();
+		return;
+	}
+
+	qDebug() << "Query executed successfully. Fetching data...";
+
+	QBarSet* barSet = new QBarSet("Clients by Age");
+	QBarSeries* barSeries = new QBarSeries();
+	barSeries->append(barSet);
+
+    while (qry.next()) {
+		int birthYear = qry.value(0).toInt();
+		int clientCount = qry.value(1).toInt();
+		*barSet << clientCount;
+		barSet->setLabel(QString::number(birthYear));
+	}
+
+	QChart* chart = new QChart();
+	chart->addSeries(barSeries);
+	chart->setTitle("Clients by Age");
+	chart->setAnimationOptions(QChart::SeriesAnimations);
+
+	QBarCategoryAxis* axisX = new QBarCategoryAxis();
+	chart->addAxis(axisX, Qt::AlignBottom);
+	barSeries->attachAxis(axisX);
+
+	QValueAxis* axisY = new QValueAxis();
+	chart->addAxis(axisY, Qt::AlignLeft);
+	barSeries->attachAxis(axisY);
+
+	QChartView* chartView = new QChartView(chart);
+	chartView->setRenderHint(QPainter::Antialiasing);
+
+	chartView->setMinimumSize(800, 600);
+    chartView->show();
+
+
+}
+*/
