@@ -394,8 +394,8 @@ void Employee::searchEmployee(const QString& search)
     tableEmployee->setRowCount(0);
 
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM employees WHERE FIRST_NAME LIKE :search OR LAST_NAME LIKE :search");
-    qry.bindValue(":search", "%" + search + "%");
+    qry.prepare("SELECT * FROM employees WHERE LOWER(FIRST_NAME) LIKE LOWER(:search) OR LOWER(LAST_NAME) LIKE LOWER(:search)");
+    qry.bindValue(":search", "%" + search.toLower() + "%");
 
     if (qry.exec())
     {
@@ -433,5 +433,6 @@ void Employee::searchEmployee(const QString& search)
 
     }
 }
+
 
 
