@@ -2173,16 +2173,6 @@ color:black;
         <string>Date Of Birth</string>
        </property>
       </column>
-      <column>
-       <property name="text">
-        <string>Delete</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Update</string>
-       </property>
-      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
