@@ -71,7 +71,7 @@ public:
 
     void toPdf(const QString& filePath);
     void searchClientID(int id);
-    void sortClientFirstName();
+    void sortClientFirstName(bool ascendingOrder = true);
     void stat();
 
 signals:

@@ -76,6 +76,10 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
 	QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 
+
+
+
+
 	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
 	ui->StackedClient->setCurrentIndex(0);
@@ -274,8 +278,18 @@ void Dashboard::clearInputFieldsDeleteClient() {
 	ui->ClientDeleteID->clear();
 }
 
+
+
+
 void Dashboard::onSortClickedClient() {
+	static bool isSorted = false;
+
+	Client MasterClient(ui->tableClient, this);
+	MasterClient.sortClientFirstName(isSorted); // Pass the sorting order parameter
+
+	isSorted = !isSorted; // Toggle the sorting order for the next call
 }
+
 
 void Dashboard::onPdfClickedClient() {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");

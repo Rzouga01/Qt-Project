@@ -571,7 +571,61 @@ void Client::toPdf(const QString& filePath)
 }
 
 
-void Client::sortClientFirstName()
+void Client::sortClientFirstName(bool ascendingOrder)
 {
+    QString sortOrder = ascendingOrder ? "ASC" : "DESC";
 
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CLIENTS ORDER BY FIRST_NAME " + sortOrder);
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching sorted data...";
+
+    // Clear the existing table contents
+    tableClient->clearContents();
+    tableClient->setRowCount(0);
+
+    int row = 0;
+    while (qry.next()) {
+        int col = 0;
+        tableClient->insertRow(row);
+
+        tableClient->setRowHeight(row, 50);
+        tableClient->setFont(QFont("Helvetica", 10));
+        tableClient->setColumnWidth(0, 10);//ID
+        tableClient->setColumnWidth(1, 150);//EMAIL
+        tableClient->setColumnWidth(2, 50);//FIRST NAME
+        tableClient->setColumnWidth(3, 50);//LAST NAME
+        tableClient->setColumnWidth(4, 150);//ADDRESS
+        tableClient->setColumnWidth(5, 75);//PHONE NUMBER
+        tableClient->setColumnWidth(6, 50);//DOB
+        tableClient->setColumnWidth(7, 15);//DELETE BUTTON
+        tableClient->setColumnWidth(8, 16);//UPDATE BUTTON
+
+        // Set data items for each column
+        QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* emailItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* firstNameItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* lastNameItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* phoneNumberItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* addressItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* dobItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+
+        tableClient->setItem(row, 0, idItem);
+        tableClient->setItem(row, 1, emailItem);
+        tableClient->setItem(row, 2, firstNameItem);
+        tableClient->setItem(row, 3, lastNameItem);
+        tableClient->setItem(row, 4, phoneNumberItem);
+        tableClient->setItem(row, 5, addressItem);
+        tableClient->setItem(row, 6, dobItem);
+
+        ++row;
+    }
+    tableClient->repaint();
+
+    qDebug() << "Client data sorted by first name in" << sortOrder << "order.";
 }
+
