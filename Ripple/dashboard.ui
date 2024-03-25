@@ -164,7 +164,7 @@
     border-radius: 25px;
 }
 
-/* Stats  */
+/* Stats Box  */
 #statsEmployee {
     background-color: #A7C34E;
     border-radius: 25px;
@@ -227,16 +227,28 @@ QTableWidget QTableWidget {
 }
 
 /* Create and Update Combobox Items */
-QComboBox#EmployeeRole_C QAbstractItemView,
-QComboBox#EmployeeRole_U QAbstractItemView,
-QComboBox#EmployeeSelectID_U QAbstractItemView,
-QComboBox#EmployeeSelectID_D QAbstractItemView {
+#EmployeeRole_C,
+#EmployeeRole_U,
+#EmployeeSelectID_U,
+#EmployeeSelectID_D {
+    background-color: #444444;
+    font-family: &quot;Helvetica&quot;;
+    font-size: 12px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#EmployeeRole_C QAbstractItemView,
+#EmployeeRole_U QAbstractItemView,
+#EmployeeSelectID_U QAbstractItemView,
+#EmployeeSelectID_D QAbstractItemView {
     color: white; 
     background-color: #444444; 
     selection-background-color: #A7C34E; 
 }
 
-/* Create  */
+/* Create and Update Text Inputs */
 #EmployeeEmailText_C,
 #EmployeePasswordText_C,
 #EmployeeFirstNameText_C,
@@ -245,53 +257,7 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
 #EmployeePhoneNumberText_C,
 #EmployeeDobText_C,
 #EmployeeRoleText_C,
-#EmployeeSelectIDText_U {
-    border: none;
-    background-color: transparent;
-    font-family: &quot;Helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-}
-
-#EmployeeEmail_C,
-#EmployeePassword_C,
-#EmployeeFirstName_C,
-#EmployeeLastName_C,
-#EmployeeAddress_C,
-#EmployeePhoneNumber_C,
-#EmployeeDob_C,
-#EmployeeRole_C,
-#EmployeeSelectID_U {
-    background-color: #444444;
-    font-family: &quot;Helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 15px;
-}
-
-#EmployeeCancelBtn_C,
-#EmployeeCreateBtn {
-    background-color: #444444;
-    color: white;
-    font-family: &quot;Helvetica&quot;;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#EmployeeCancelBtn_C:hover,
-#EmployeeCreateBtn:hover {
-    background-color: #333333;
-}
-
-/* Update */
+#EmployeeSelectIDText_U,
 #EmployeeEmailText_U,
 #EmployeePasswordText_U,
 #EmployeeFirstNameText_U,
@@ -299,52 +265,7 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
 #EmployeeAddressText_U,
 #EmployeePhoneNumberText_U,
 #EmployeeDobText_U,
-#EmployeeRoleText_U {
-    border: none;
-    background-color: transparent;
-    font-family: &quot;Helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-}
-
-#EmployeeEmail_U,
-#EmployeePassword_U,
-#EmployeeFirstName_U,
-#EmployeeLastName_U,
-#EmployeeAddress_U,
-#EmployeePhoneNumber_U,
-#EmployeeDob_U,
-#EmployeeRole_U {
-    background-color: #444444;
-    font-family: &quot;Helvetica&quot;;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 15px;
-}
-
-#EmployeeCancelBtn_U,
-#EmployeeUpdateBtn {
-    background-color: #444444;
-    color: white;
-    font-family: &quot;Helvetica&quot;;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#EmployeeCancelBtn_U:hover,
-#EmployeeUpdateBtn:hover {
-    background-color: #333333;
-}
-
-/* Delete */
+#EmployeeRoleText_U,
 #EmployeeSelectIDText_D {
     border: none;
     background-color: transparent;
@@ -354,6 +275,24 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
     font-weight: bold;
 }
 
+/* Create, Update, and Delete Buttons */
+#EmployeeEmail_C,
+#EmployeePassword_C,
+#EmployeeFirstName_C,
+#EmployeeLastName_C,
+#EmployeeAddress_C,
+#EmployeePhoneNumber_C,
+#EmployeeDob_C,
+#EmployeeRole_C,
+#EmployeeSelectID_U,
+#EmployeeEmail_U,
+#EmployeePassword_U,
+#EmployeeFirstName_U,
+#EmployeeLastName_U,
+#EmployeeAddress_U,
+#EmployeePhoneNumber_U,
+#EmployeeDob_U,
+#EmployeeRole_U,
 #EmployeeSelectID_D {
     background-color: #444444;
     font-family: &quot;Helvetica&quot;;
@@ -364,6 +303,11 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
     border-radius: 15px;
 }
 
+/* Cancel and Create/Update/Delete Buttons */
+#EmployeeCancelBtn_C,
+#EmployeeCreateBtn,
+#EmployeeCancelBtn_U,
+#EmployeeUpdateBtn,
 #EmployeeCancelBtn_D,
 #EmployeeDeleteBtn {
     background-color: #444444;
@@ -378,11 +322,23 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
     transition: background-color 0.3s ease;
 }
 
+#EmployeeCancelBtn_C:hover,
+#EmployeeCreateBtn:hover,
+#EmployeeCancelBtn_U:hover,
+#EmployeeUpdateBtn:hover,
 #EmployeeCancelBtn_D:hover,
 #EmployeeDeleteBtn:hover {
     background-color: #333333;
 }
-</string>
+
+/*Stats*/
+#EmployeeSelectStats {
+    background-color: #444444;
+    border-radius: 5px;
+    padding: 5px;
+    color: #444444;
+    font-size: 12px;
+}</string>
      </property>
      <widget class="QFrame" name="featureBarEmployee">
       <property name="geometry">
@@ -534,16 +490,16 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>220</y>
+        <y>240</y>
         <width>421</width>
-        <height>451</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="CreateEmployee">
        <widget class="QLineEdit" name="EmployeeEmail_C">
@@ -1256,11 +1212,40 @@ QComboBox#EmployeeSelectID_D QAbstractItemView {
        </property>
       </column>
      </widget>
+     <widget class="QFrame" name="statsEmployee">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>431</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <widget class="QComboBox" name="EmployeeSelectStats">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>10</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+      </widget>
+     </widget>
      <zorder>readBoxEmployee</zorder>
      <zorder>featureBarEmployee</zorder>
      <zorder>CrudEmployee</zorder>
      <zorder>searchBarEmployee</zorder>
      <zorder>tableEmployee</zorder>
+     <zorder>statsEmployee</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">

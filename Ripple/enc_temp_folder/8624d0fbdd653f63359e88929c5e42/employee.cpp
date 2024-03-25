@@ -15,7 +15,6 @@
 #include <QPageSize>
 #include <QMarginsF>
 #include <QTextTable>
-
 Employee::Employee(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::Employee),

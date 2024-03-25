@@ -234,7 +234,54 @@ bool contract::searchContract(int id) {
 		return false; // Erreur lors de l'exécution de la requête
 	}
 }
+void contract::sortContractsByPremium(bool ascendingOrder)
+{
+    QString sortOrder = ascendingOrder ? "ASC" : "DESC";
 
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CONTRACTS ORDER BY PREMIUM_AMOUNT " + sortOrder);
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching sorted data...";
+
+    // Clear the existing table contents
+    tableContract->clearContents();
+    tableContract->setRowCount(0);
+
+    int row = 0;
+    while (qry.next()) {
+        int col = 0;
+        tableContract->insertRow(row);
+
+        // Set data items for each column
+        QTableWidgetItem* contractIdItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* userIdItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* clientIdItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* premiumAmountItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* effectiveDateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+        QTableWidgetItem* expirationDateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+        QTableWidgetItem* paymentStatusItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* typeItem = new QTableWidgetItem(qry.value(col++).toString());
+
+        // Set items to the table
+        tableContract->setItem(row, 0, contractIdItem);
+        tableContract->setItem(row, 1, userIdItem);
+        tableContract->setItem(row, 2, clientIdItem);
+        tableContract->setItem(row, 3, premiumAmountItem);
+        tableContract->setItem(row, 4, effectiveDateItem);
+        tableContract->setItem(row, 5, expirationDateItem);
+        tableContract->setItem(row, 6, paymentStatusItem);
+        tableContract->setItem(row, 7, typeItem);
+
+        ++row;
+    }
+    tableContract->repaint();
+
+    qDebug() << "Contract data sorted by premium amount in" << sortOrder << "order.";
+}
 /*
 contract::contract(QWidget *parent) :
 	QDialog(parent),
