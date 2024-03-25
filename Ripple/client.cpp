@@ -26,8 +26,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QMainWindow>
+
 #include <QtCharts/QChartView>
 #include <QtCharts/QBarSeries>
 #include <QtCharts/QBarSet>

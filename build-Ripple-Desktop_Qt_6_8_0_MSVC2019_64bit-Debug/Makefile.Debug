@@ -2640,8 +2640,6 @@ debug\client.obj: ..\Ripple\client.cpp ..\Ripple\client.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QFont \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlRecord \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlrecord.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QMainWindow \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
