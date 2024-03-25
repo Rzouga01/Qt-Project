@@ -712,23 +712,21 @@ void Client::searchClientID(QString id) {
 void Client::statsByAge()
 {
     QSqlQuery qry;
-qry.prepare("SELECT AGE_GROUP, COUNT(*) AS CLIENT_COUNT \
-             FROM ( \
-                 SELECT CASE \
-                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 10 AND EXTRACT(YEAR FROM CURRENT_DATE) THEN '0-10' \
-                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 18 AND EXTRACT(YEAR FROM CURRENT_DATE) - 11 THEN '11-18' \
-                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 25 AND EXTRACT(YEAR FROM CURRENT_DATE) - 19 THEN '19-25' \
-                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 35 AND EXTRACT(YEAR FROM CURRENT_DATE) - 26 THEN '26-35' \
-                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 55 AND EXTRACT(YEAR FROM CURRENT_DATE) - 36 THEN '36-55' \
-                         WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 70 AND EXTRACT(YEAR FROM CURRENT_DATE) - 56 THEN '56-70' \
-                         ELSE '70+' \
-                     END AS AGE_GROUP \
-                 FROM CLIENTS \
-             ) AgeGroups \
-             GROUP BY AGE_GROUP \
-             ORDER BY AGE_GROUP");
-
-
+    qry.prepare("SELECT AGE_GROUP, COUNT(*) AS CLIENT_COUNT \
+                 FROM ( \
+                     SELECT CASE \
+                             WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 10 AND EXTRACT(YEAR FROM CURRENT_DATE) THEN '0-10' \
+                             WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 18 AND EXTRACT(YEAR FROM CURRENT_DATE) - 11 THEN '11-18' \
+                             WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 25 AND EXTRACT(YEAR FROM CURRENT_DATE) - 19 THEN '19-25' \
+                             WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 35 AND EXTRACT(YEAR FROM CURRENT_DATE) - 26 THEN '26-35' \
+                             WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 55 AND EXTRACT(YEAR FROM CURRENT_DATE) - 36 THEN '36-55' \
+                             WHEN EXTRACT(YEAR FROM DOB) BETWEEN EXTRACT(YEAR FROM CURRENT_DATE) - 70 AND EXTRACT(YEAR FROM CURRENT_DATE) - 56 THEN '56-70' \
+                             ELSE '70+' \
+                         END AS AGE_GROUP \
+                     FROM CLIENTS \
+                 ) AgeGroups \
+                 GROUP BY AGE_GROUP \
+                 ORDER BY AGE_GROUP");
 
     if (!qry.exec()) {
         qDebug() << "Error executing query:" << qry.lastError().text();
@@ -751,10 +749,14 @@ qry.prepare("SELECT AGE_GROUP, COUNT(*) AS CLIENT_COUNT \
     chart->addSeries(pieSeries);
     chart->setTitle("Clients by Age Group");
 
+    // Add animation to the chart
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
     chartView->setMinimumSize(800, 600);
     chartView->show();
 }
+
 
