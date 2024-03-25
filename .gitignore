@@ -11,3 +11,13 @@
 *.obj
 *.obj
 *.log
+*.idx
+*.idx
+*.o
+*.o
+*.o
+*.o
+build-Ripple-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/employee.o
+*.o
+*.cpp
+*.o

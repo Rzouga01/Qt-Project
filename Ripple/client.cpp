@@ -10,6 +10,22 @@
 #include <QTableWidgetItem>
 #include <QTableWidget>
 #include <Qpushbutton>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFileDialog>
+#include <QTextDocument>
+#include <QTextCursor>
+#include <QTextTable>
+#include <QTextTableFormat>
+#include <QTextCharFormat>
+#include <QTextLength>
+#include <QTextFrameFormat>
+#include <QPageSize>
+#include <QFont>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlRecord>
+
 
 
 Client::Client(QWidget* parent) :
@@ -30,6 +46,13 @@ Client::Client(QTableWidget *tableWidget, QStackedWidget* stackedWidget ,QWidget
 {
     ui->setupUi(this);
 }
+
+Client::Client(QTableWidget* tableWidget,QWidget* parent)
+    : QDialog(parent), ui(new Ui::Client), tableClient(tableWidget)
+{
+    ui->setupUi(this);
+}
+
 void Client::setStackedWidget(QStackedWidget* stackedWidget)
 {
 	stackedClient = stackedWidget;
@@ -442,3 +465,113 @@ bool Client::UpdateClient(int clientID, QString email, QString first_name, QStri
     }
 }
 
+
+void Client::toPdf(const QString& filePath)
+{
+    qDebug() << "Exporting client data to PDF:" << filePath;
+
+    if (filePath.isEmpty()) {
+        qDebug() << "File path is empty.";
+        return;
+    }
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM CLIENTS");
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching data...";
+
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+
+    cursor.insertHtml("<h1 style='text-align: center; color: #333333;'>Clients List</h1><br>");
+
+    QTextTableFormat tableFormat;
+    tableFormat.setAlignment(Qt::AlignHCenter);
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 95));
+    tableFormat.setCellPadding(8);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setBorder(1);
+    tableFormat.setBorderStyle(QTextFrameFormat::BorderStyle_Solid);
+
+    QTextCharFormat headerFormat;
+    headerFormat.setBackground(QColor("#C0C0C0"));
+    headerFormat.setForeground(Qt::black);
+    headerFormat.setFontWeight(QFont::Bold);
+    headerFormat.setFontPointSize(12);
+
+    QTextCharFormat altRowFormat;
+    altRowFormat.setBackground(Qt::lightGray);
+
+    int numCols = qry.record().count();
+
+
+    QTextTable* table = cursor.insertTable(1, numCols, tableFormat);
+    QTextCursor cellCursor = table->cellAt(0, 0).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("ID");
+
+    cellCursor = table->cellAt(0, 1).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Email");
+
+    cellCursor = table->cellAt(0, 2).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("First Name");
+
+    cellCursor = table->cellAt(0, 3).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Last Name");
+
+    cellCursor = table->cellAt(0, 4).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Phone Number");
+
+    cellCursor = table->cellAt(0, 5).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Address");
+
+    cellCursor = table->cellAt(0, 6).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("DOB");
+
+    int row = 1; 
+    while (qry.next()) {
+        table->appendRows(1); 
+        for (int col = 0; col < numCols; ++col) {
+            QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
+            QTextCharFormat dataFormat;
+            dataFormat.setFontPointSize(10);
+            if (row % 2 == 1) {
+                dataFormat.setBackground(Qt::lightGray);
+            }
+            cellCursor.setCharFormat(dataFormat);
+            cellCursor.insertText(qry.value(col).toString());
+        }
+        ++row;
+    }
+
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::Letter));
+    pdfWriter.setResolution(150);
+
+    QPainter painter(&pdfWriter);
+    painter.begin(&pdfWriter);
+
+    doc.drawContents(&painter);
+
+    painter.end();
+
+    qDebug() << "PDF file successfully created:" << filePath;
+    QMessageBox::information(nullptr, "Export Successful", "Client Data has been successfully exported to PDF.\nFile saved to: " + filePath);
+}
+
+
+void Client::sortClientFirstName()
+{
+
+}

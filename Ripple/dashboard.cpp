@@ -16,7 +16,7 @@ Dashboard::Dashboard(QWidget* parent) :
 	ui(new Ui::Dashboard)
 {
 	ui->setupUi(this);
-	Client MasterClient(ui->tableClient, ui->StackedClient, this);
+	Client MasterClient(ui->tableClient, this);
 	accident MasterAccident(ui->tableAccident, this);
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	Employee Emp(ui->tableEmployee, this);
@@ -278,6 +278,11 @@ void Dashboard::onSortClickedClient() {
 }
 
 void Dashboard::onPdfClickedClient() {
+	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
+	if (!filePath.isEmpty()) {
+		Client MasterClient(ui->tableClient,this);
+		MasterClient.toPdf(filePath);
+	}
 }
 //********************************************************************************************************************
 // Employee
@@ -483,7 +488,7 @@ void Dashboard::onComboboxIndexChanged(int index) {
 			ui->EmployeeRole_U->addItem("Role 1");
 			ui->EmployeeRole_U->addItem("Role 2");
 			ui->EmployeeRole_U->addItem("Role 3");
-
+			
 
 			ui->EmployeeRole_U->setCurrentIndex(employeeData->getRole());
 
