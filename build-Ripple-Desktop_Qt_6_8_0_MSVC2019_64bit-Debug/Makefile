@@ -406,13 +406,9 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiTools.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgets.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgets.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quick.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGL.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Gui.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sql.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModels.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qml.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Network.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Core.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPoint.prl \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\features\build_pass.prf \
@@ -420,13 +416,9 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiToolsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgetsd.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quickd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Guid.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sqld.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModelsd.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qmld.prl \
-		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Networkd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Cored.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPointd.prl
 	$(QMAKE) -o Makefile ..\Ripple\Ripple.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -752,13 +744,9 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6Charts.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiTools.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgets.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgets.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quick.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGL.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Gui.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sql.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModels.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qml.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6Network.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Core.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPoint.prl:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\features\build_pass.prf:
@@ -766,13 +754,9 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6Chartsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6UiToolsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgetsd.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quickd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Guid.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sqld.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModelsd.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qmld.prl:
-C:\Qt\6.8.0\msvc2019_64\lib\Qt6Networkd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Cored.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPointd.prl:
 qmake: FORCE

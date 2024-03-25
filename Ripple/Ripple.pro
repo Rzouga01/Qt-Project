@@ -1,4 +1,5 @@
-QT       += charts uitools sql  core gui\
+QT += widgets charts uitools sql core gui
+\
     quick
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
