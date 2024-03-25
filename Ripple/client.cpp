@@ -501,7 +501,14 @@ void Client::toPdf(const QString& filePath)
     QTextDocument doc;
     QTextCursor cursor(&doc);
 
-    cursor.insertHtml("<h1 style='text-align: center; color: #333333;'>Clients List</h1><br>");
+    cursor.insertHtml("<h1 style='text-align: center; color: #A7C34E; font-size: 24px;'>Clients List</h1><br>");
+
+    int numCols = qry.record().count();
+
+    if (numCols == 0) {
+        qDebug() << "Empty result set. No data to export.";
+        return;
+    }
 
     QTextTableFormat tableFormat;
     tableFormat.setAlignment(Qt::AlignHCenter);
@@ -518,51 +525,28 @@ void Client::toPdf(const QString& filePath)
     headerFormat.setFontWeight(QFont::Bold);
     headerFormat.setFontPointSize(12);
 
-    QTextCharFormat altRowFormat;
-    altRowFormat.setBackground(Qt::lightGray);
-
-    int numCols = qry.record().count();
-
+    QTextCharFormat dataFormat;
+    dataFormat.setFontPointSize(10);
+    dataFormat.setForeground(Qt::black); // Set text color to black
 
     QTextTable* table = cursor.insertTable(1, numCols, tableFormat);
-    QTextCursor cellCursor = table->cellAt(0, 0).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("ID");
+    if (!table) {
+        qDebug() << "Error creating table.";
+        return;
+    }
 
-    cellCursor = table->cellAt(0, 1).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("Email");
+    // Insert column headers
+    for (int col = 0; col < numCols; ++col) {
+        QTextCursor cellCursor = table->cellAt(0, col).firstCursorPosition();
+        cellCursor.setCharFormat(headerFormat);
+        cellCursor.insertText(qry.record().fieldName(col));
+    }
 
-    cellCursor = table->cellAt(0, 2).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("First Name");
-
-    cellCursor = table->cellAt(0, 3).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("Last Name");
-
-    cellCursor = table->cellAt(0, 4).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("Phone Number");
-
-    cellCursor = table->cellAt(0, 5).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("Address");
-
-    cellCursor = table->cellAt(0, 6).firstCursorPosition();
-    cellCursor.setCharFormat(headerFormat);
-    cellCursor.insertText("DOB");
-
-    int row = 1; 
+    int row = 1; // Start from row 1 to skip the header row
     while (qry.next()) {
-        table->appendRows(1); 
+        table->appendRows(1); // Append a new row
         for (int col = 0; col < numCols; ++col) {
             QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
-            QTextCharFormat dataFormat;
-            dataFormat.setFontPointSize(10);
-            if (row % 2 == 1) {
-                dataFormat.setBackground(Qt::lightGray);
-            }
             cellCursor.setCharFormat(dataFormat);
             cellCursor.insertText(qry.value(col).toString());
         }
@@ -583,6 +567,12 @@ void Client::toPdf(const QString& filePath)
     qDebug() << "PDF file successfully created:" << filePath;
     QMessageBox::information(nullptr, "Export Successful", "Client Data has been successfully exported to PDF.\nFile saved to: " + filePath);
 }
+
+
+
+
+
+
 
 
 void Client::sortClientFirstName(bool ascendingOrder)
@@ -755,6 +745,7 @@ void Client::statsByAge()
 
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
 
     // Handle hover events for slices
     QObject::connect(pieSeries, &QPieSeries::hovered, [pieSeries](QPieSlice *slice, bool state) {
