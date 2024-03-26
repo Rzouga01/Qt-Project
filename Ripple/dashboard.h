@@ -45,6 +45,7 @@ public:
 	void onStatByAge();
 	void onStackedClientIndexChanged(int index);
 	void openDeletePage(int clientId);
+    void sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName);
 
 	//***********************************************************
 	// Employee

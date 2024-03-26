@@ -9,6 +9,7 @@ CONFIG += c++11
 
 INCLUDEPATH += ../QZXing/src
 SOURCES += ../QZXing/src/QZXing.cpp \
+    mailer.cpp \
     qrcodedialog.cpp
 
 # The following line is not necessary if you are already including QZXing.pri,
@@ -39,6 +40,7 @@ HEADERS += \
     contract.h \
     dashboard.h \
     employee.h \
+    mailer.h \
     mainwindow.h \
     menu.h\
     ../QZXing/src/QZXing.h \

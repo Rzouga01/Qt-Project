@@ -1135,6 +1135,8 @@ public:
         QRCodeClientLabel = new QPlainTextEdit(QRCodeClient);
         QRCodeClientLabel->setObjectName("QRCodeClientLabel");
         QRCodeClientLabel->setGeometry(QRect(30, 80, 91, 31));
+        QRCodeClientLabel->setReadOnly(true);
+        QRCodeClientLabel->setTextInteractionFlags(Qt::NoTextInteraction);
         QRCodeClientGenerate = new QPushButton(QRCodeClient);
         QRCodeClientGenerate->setObjectName("QRCodeClientGenerate");
         QRCodeClientGenerate->setGeometry(QRect(60, 160, 80, 24));

@@ -1,15 +1,22 @@
 #include "client.h"
 
 #include "ui_client.h"
-#include "connection.h"
 
+//DATABASE CONNECTION
+#include "connection.h"
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlRecord>
+
+//GENERAL LIBRARIES
 #include <QMessageBox>
 #include <QtDebug>
 #include <QDate>
-#include <QSqlQuery>
 #include <QTableWidgetItem>
 #include <QTableWidget>
 #include <Qpushbutton>
+
+//PDF
 #include <QPdfWriter>
 #include <QPainter>
 #include <QFileDialog>
@@ -22,11 +29,9 @@
 #include <QTextFrameFormat>
 #include <QPageSize>
 #include <QFont>
-#include <QSqlError>
-#include <QSqlQuery>
-#include <QSqlRecord>
 
 
+//STATS
 #include <QtCharts/QChartView>
 #include <QtCharts/QBarSeries>
 #include <QtCharts/QBarSet>
@@ -34,21 +39,27 @@
 #include <QtCharts/QValueAxis>
 #include <QtCharts/QChart>
 #include <QBoxLayout>
-
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QtCharts/QChartView>
-
 #include <QToolTip>
 #include <QCursor>
 
+
+//QR CODE
 #include "QZXing.h"
 #include <QImage>
 #include <QPixmap>
 #include <QByteArray>
 #include <QLabel>
-
 #include "qrcodedialog.h"
+
+
+//EMAIL
+#include <QTcpSocket>
+#include <QTextStream>
+
+
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
@@ -761,17 +772,14 @@ void Client::statsByAge()
 
 
 
-
-// Assuming QLabel* qrCodeLabel; is declared in the Client class header
-
 void Client::generateQRCode(const QString& data)
 {
     QrCodeDialog qrCodeDialog;
 
     QImage qrImage = QZXing::encodeData(data);
     if (qrImage.isNull()) {
-        qDebug() << "Failed to generate QR code.";
-        QMessageBox::critical(this, tr("Error"), tr("Failed to generate QR code."), QMessageBox::Ok);
+        qDebug() << "Failed to Generate QR code.";
+        QMessageBox::critical(this, tr("Error"), tr("Failed to Generate QR Code."), QMessageBox::Ok);
         return;
     }
 
@@ -782,9 +790,20 @@ void Client::generateQRCode(const QString& data)
     qrCodeDialog.setQrCodeImage(pixmap);
     qrCodeDialog.exec();
 
-    qDebug() << "QR Code generated Successfully.";
+    qDebug() << "QR Code Generated Successfully.";
 }
 
+QImage Client::getQRCode(const QString& data)
+{
+
+    QImage qrImage = QZXing::encodeData(data);
+    if (qrImage.isNull()) {
+        qDebug() << "Failed to Generate QR code.";
+        return QImage();
+    }
+
+    return qrImage;
+}
 
 
 

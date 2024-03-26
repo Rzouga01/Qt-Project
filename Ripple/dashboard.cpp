@@ -10,6 +10,7 @@
 #include "employee.h"
 #include "accident.h"
 #include "contract.h"
+#include "mailer.h"
 
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
@@ -140,51 +141,69 @@ void Dashboard::onStackedClientIndexChanged(int index) {
 }
 
 void Dashboard::onAddClickedClient() {
-	Client MasterClient(ui->tableClient, ui->StackedClient, this);
+    Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
-	if (ui->ClientCreateEmail->text().isEmpty() ||
-		ui->ClientCreateFirstName->text().isEmpty() ||
-		ui->ClientCreateLastName->text().isEmpty() ||
-		ui->ClientCreatePhoneNumber->text().isEmpty() ||
-		ui->ClientCreateAddress->text().isEmpty() ||
-		ui->ClientCreateDob->date().isNull()) {
+    if (ui->ClientCreateEmail->text().isEmpty() ||
+        ui->ClientCreateFirstName->text().isEmpty() ||
+        ui->ClientCreateLastName->text().isEmpty() ||
+        ui->ClientCreatePhoneNumber->text().isEmpty() ||
+        ui->ClientCreateAddress->text().isEmpty() ||
+        ui->ClientCreateDob->date().isNull()) {
 
-		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
+        clearInputFieldsCreateClient();
+    } else {
+        // Validate phone number
+        QString phoneNumber = ui->ClientCreatePhoneNumber->text();
+        bool validPhoneNumber = phoneNumber.length() == 8 && phoneNumber.toInt(&validPhoneNumber) && validPhoneNumber;
 
-		clearInputFieldsCreateClient();
-	}
-	else {
-		// Validate phone number
-		QString phoneNumber = ui->ClientCreatePhoneNumber->text();
-		bool validPhoneNumber = phoneNumber.length() == 8 && phoneNumber.toInt(&validPhoneNumber) && validPhoneNumber;
+        // Validate email
+        QString email = ui->ClientCreateEmail->text();
+        bool validEmail = email.contains("@") && email.contains(".");
 
-		// Validate email
-		QString email = ui->ClientCreateEmail->text();
-		bool validEmail = email.contains("@") && email.contains(".");
+        if (!validPhoneNumber) {
+            QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"), QMessageBox::Ok);
+        } else if (!validEmail) {
+            QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok);
+        } else {
+            if (MasterClient.CreateClient(ui->ClientCreateEmail->text(),
+                                          ui->ClientCreateFirstName->text(),
+                                          ui->ClientCreateLastName->text(),
+                                          ui->ClientCreatePhoneNumber->text(),
+                                          ui->ClientCreateAddress->text(),
+                                          ui->ClientCreateDob->date())) {
 
-		if (!validPhoneNumber) {
-			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"), QMessageBox::Ok, QMessageBox::Ok);
-		}
-		else if (!validEmail) {
-			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok, QMessageBox::Ok);
-		}
-		else {
-			if (MasterClient.CreateClient(ui->ClientCreateEmail->text(),
-				ui->ClientCreateFirstName->text(),
-				ui->ClientCreateLastName->text(),
-				ui->ClientCreatePhoneNumber->text(),
-				ui->ClientCreateAddress->text(),
-				ui->ClientCreateDob->date())) {
-				MasterClient.ReadClient();
-				clearInputFieldsCreateClient();
-				QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok, QMessageBox::Ok);
-			}
-			else {
-				QMessageBox::critical(this, tr("Error"), tr("Client not created"), QMessageBox::Ok, QMessageBox::Ok);
-			}
-		}
-	}
+                QSqlQuery idQuery("SELECT LAST_INSERT_ID()");
+                // Client created successfully
+                if (idQuery.exec() && idQuery.next()) {
+                    QString id = idQuery.value(0).toString();
+                    QString firstName = ui->ClientCreateFirstName->text();
+                    QString lastName = ui->ClientCreateLastName->text();
+                    QString phoneNumber = ui->ClientCreatePhoneNumber->text();
+                    QString address = ui->ClientCreateAddress->text();
+                    QString dob = ui->ClientCreateDob->date().toString("yyyy-MM-dd");
+
+                    QString clientData = "ID: " + id + "\nEmail: " + email + "\nFirst Name: " + firstName +
+                                         "\nLast Name: " + lastName + "\nPhone Number: " + phoneNumber +
+                                         "\nAddress: " + address + "\nDate of Birth: " + dob;
+
+                    sendEmailWithQRCode(email, clientData, firstName, lastName);
+
+                    MasterClient.ReadClient();
+                    clearInputFieldsCreateClient();
+
+                    QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
+                } else {
+                    QMessageBox::critical(this, tr("Error"), tr("Failed to retrieve client ID"), QMessageBox::Ok);
+                }
+            } else {
+                QMessageBox::critical(this, tr("Error"), tr("Client not created"), QMessageBox::Ok);
+            }
+        }
+    }
 }
+
+
 
 void Dashboard::onUpdateClickedClient() {
 	Client MasterClient(ui->tableClient, ui->StackedClient, this);
@@ -394,6 +413,48 @@ void Dashboard::onQRCodeClickClient()
     }
 }
 
+
+void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
+{
+    // Create an instance of the Mailer class
+    Mailer mailer;
+    Client MasterClient;
+
+    // Set up SMTP server, login credentials, sender, and recipient
+    mailer.setSmtpServer("your_smtp_server.com", 587);
+    mailer.setLoginCredentials("your_username", "your_password");
+    mailer.setSender("your_email@example.com");
+    mailer.setRecipient(recipientEmail); // Use the provided recipient email
+
+    // Set email subject and body
+    mailer.setSubject("Your Account Information");
+    mailer.setBody("Dear "+firstName+" "+lastName+",\n\nWe are pleased to inform you that your account has been created in Ripple Insurance.\n\nPlease find your account details attached below.\n\nBest regards,\nRipple Insurance Team");
+
+    // Generate the QR code image using the Client class
+    QImage qrCodeImage = MasterClient.getQRCode(clientData);
+
+    if (qrCodeImage.isNull()) {
+        // Handle the case where QR code generation failed
+        QMessageBox::critical(this, tr("Error"), tr("Failed to generate QR code"), QMessageBox::Ok);
+        return;
+    }
+
+    // Convert the QImage to a QByteArray for attachment
+    QByteArray qrCodeData;
+    QBuffer buffer(&qrCodeData);
+    buffer.open(QIODevice::WriteOnly);
+    qrCodeImage.save(&buffer, "PNG"); // Save the QR code image data to the QByteArray
+
+    // Add the QR code image data as an attachment
+    mailer.addAttachment(qrCodeData);
+
+    // Send the email with the QR code image attachment
+    if (mailer.sendMail()) {
+        QMessageBox::information(this, tr("Success"), tr("Email sent successfully"), QMessageBox::Ok);
+    } else {
+        QMessageBox::critical(this, tr("Error"), tr("Failed to send email"), QMessageBox::Ok);
+    }
+}
 
 
 

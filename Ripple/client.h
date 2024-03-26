@@ -75,7 +75,9 @@ public:
     void searchClientID(QString id);
     void sortClientFirstName(bool ascendingOrder = true);
     void statsByAge();
+
     void generateQRCode(const QString& data);
+    QImage getQRCode(const QString& data);
 
 
 signals:
