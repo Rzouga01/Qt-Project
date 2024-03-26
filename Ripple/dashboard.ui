@@ -2017,8 +2017,14 @@ font-family: &quot;helvetica&quot;;
          <height>31</height>
         </rect>
        </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
        <property name="plainText">
         <string>Client ID</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::NoTextInteraction</set>
        </property>
       </widget>
       <widget class="QPushButton" name="QRCodeClientGenerate">
