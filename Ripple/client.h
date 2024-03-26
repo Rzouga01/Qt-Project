@@ -26,10 +26,9 @@ private:
 
 public:
     Client(QWidget* parent = nullptr);
-    explicit Client(QTableWidget* tableWidget, QWidget* parent = nullptr);
+    Client(QTableWidget* tableWidget, QWidget* parent = nullptr);
     Client(QTableWidget* tableWidget, QStackedWidget* stackedWidget, QWidget* parent = nullptr);
     ~Client();
-    Client();
     Client(const QString& email, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
 
 
@@ -50,6 +49,7 @@ public:
     bool UpdateClient(int clientID, QString email, QString first_name, QString last_name, QString phone_number, QString address, QDate dob);
     bool DeleteClient(int id);
 
+    int getId() const { return id; };
     QString getEmail() const { return email; };
     QString getFirstName() const { return first_name; };
     QString getLastName() const { return last_name; };
@@ -57,6 +57,8 @@ public:
     QString getAddress() const { return address; };
     QDate getDob() const { return dob; };
 
+
+    void setId(int id) { this->id = id; };
     void setEmail(QString email) { this->email = email; };
     void setFirstName(QString first_name) { this->first_name = first_name; };
     void setLastName(QString last_name) { this->last_name = last_name; };
@@ -73,9 +75,7 @@ public:
     void searchClientID(QString id);
     void sortClientFirstName(bool ascendingOrder = true);
     void statsByAge();
-
-
-
+    void generateQRCode(const QString& data);
 
 
 signals:

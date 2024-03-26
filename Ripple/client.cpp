@@ -42,7 +42,13 @@
 #include <QToolTip>
 #include <QCursor>
 
+#include "QZXing.h"
+#include <QImage>
+#include <QPixmap>
+#include <QByteArray>
+#include <QLabel>
 
+#include "qrcodedialog.h"
 
 Client::Client(QWidget* parent) :
     QDialog(parent),
@@ -87,25 +93,16 @@ Client::~Client()
 }
 
 
-Client::Client()
-{
-    id = -1;
-    email = "";
-    first_name = "";
-    last_name = "";
-    phone_number = "";
-    address = "";
-    dob = QDate::currentDate();
-}
 
 Client::Client(const QString& email, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob)
 {
-    this->email = email;
-    this->first_name = first_name;
-    this->last_name = last_name;
-    this->phone_number = phone_number;
-    this->address = address;
-    this->dob = dob;
+   setEmail(email);
+   setFirstName(first_name);
+   setLastName(last_name);
+   setPhoneNumber(phone_number);
+   setAddress(address);
+   setDob(dob);
+
 }
 
 
@@ -748,7 +745,7 @@ void Client::statsByAge()
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
     // Handle hover events for slices
-    QObject::connect(pieSeries, &QPieSeries::hovered, [pieSeries](QPieSlice *slice, bool state) {
+    QObject::connect(pieSeries, &QPieSeries::hovered, [chartView](QPieSlice *slice, bool state) {
         if (state) {
             slice->setExploded(true);
             slice->setLabelVisible(true);
@@ -756,11 +753,38 @@ void Client::statsByAge()
             slice->setExploded(false);
             slice->setLabelVisible(false);
         }
+        chartView->update();
     });
-
     chartView->setMinimumSize(800, 600);
     chartView->show();
 }
+
+
+
+
+// Assuming QLabel* qrCodeLabel; is declared in the Client class header
+
+void Client::generateQRCode(const QString& data)
+{
+    QrCodeDialog qrCodeDialog;
+
+    QImage qrImage = QZXing::encodeData(data);
+    if (qrImage.isNull()) {
+        qDebug() << "Failed to generate QR code.";
+        QMessageBox::critical(this, tr("Error"), tr("Failed to generate QR code."), QMessageBox::Ok);
+        return;
+    }
+
+    qDebug()<<qrImage.size();
+
+    QPixmap pixmap = QPixmap::fromImage(qrImage);
+
+    qrCodeDialog.setQrCodeImage(pixmap);
+    qrCodeDialog.exec();
+
+    qDebug() << "QR Code generated Successfully.";
+}
+
 
 
 

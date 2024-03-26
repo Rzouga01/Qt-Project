@@ -8,7 +8,8 @@ include(../QZXing/src/QZXing.pri)
 CONFIG += c++11
 
 INCLUDEPATH += ../QZXing/src
-SOURCES += ../QZXing/src/QZXing.cpp
+SOURCES += ../QZXing/src/QZXing.cpp \
+    qrcodedialog.cpp
 
 # The following line is not necessary if you are already including QZXing.pri,
 # as it should handle the necessary includes and configurations.
@@ -40,7 +41,8 @@ HEADERS += \
     employee.h \
     mainwindow.h \
     menu.h\
-    ../QZXing/src/QZXing.h
+    ../QZXing/src/QZXing.h \
+    qrcodedialog.h
 
 FORMS += \
     accident.ui \
@@ -49,7 +51,8 @@ FORMS += \
     dashboard.ui \
     employee.ui \
     mainwindow.ui \
-    menu.ui
+    menu.ui \
+    qrcodedialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

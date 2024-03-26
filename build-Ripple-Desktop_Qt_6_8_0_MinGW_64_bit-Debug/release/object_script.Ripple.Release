@@ -148,6 +148,7 @@ release/EncodeHint.o
 release/UnsupportedEncodingException.o
 release/ReedSolomonEncoder.o
 release/win_iconv.o
+release/QZXing.o
 release/accident.o
 release/client.o
 release/connection.o

@@ -10,6 +10,7 @@
 #include <QTableWidgetItem>
 #include "employee.h"
 
+
 namespace Ui {
 	class Dashboard;
 }
@@ -40,9 +41,11 @@ public:
 	void onDeleteCancelClickedClient();
 	void ClientDashboardConnectUi();
     void onSearchIdClient();
+    void onQRCodeClickClient();
 	void onStatByAge();
 	void onStackedClientIndexChanged(int index);
 	void openDeletePage(int clientId);
+
 	//***********************************************************
 	// Employee
 	void onAddEmployeeClicked();

@@ -81,12 +81,30 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->ClientCreateCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedClient);
 	QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
 	QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
+    QObject::connect(ui->QRCodeClientGenerate, &QPushButton::clicked, this, &Dashboard::onQRCodeClickClient);
+    QObject::connect(ui->QRCodeClientCancel, &QPushButton::clicked, this, [this](){
+        ui->QRCodeClientCombo->setCurrentIndex(0);
+        ui->QRCodeClientInput->clear();
+    });
+
+        connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
+
+        QSqlQuery query;
 
 
+        if (!query.exec("SELECT * FROM CLIENTS")) {
+            qDebug() << "Error executing query:" << query.lastError().text();
+            return;
+        }
 
+        while (query.next()) {
+            QString clientName = query.value(2).toString();
+            QVariant clientId = query.value(0).toInt();
 
+            qDebug() << "Adding item:" << clientName << "ID:" << clientId;
+            ui->QRCodeClientCombo->addItem(clientName, clientId);
+        }
 
-	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
 	ui->StackedClient->setCurrentIndex(0);
 }
@@ -317,6 +335,65 @@ void Dashboard::onStatByAge() {
 	Client MasterClient(ui->tableClient, this);
 	MasterClient.statsByAge();
 }
+
+
+void Dashboard::onQRCodeClickClient()
+{
+    Client MasterClient;
+
+    QString querySQL;
+    if (ui->QRCodeClientCombo->currentIndex() == 0 && ui->QRCodeClientInput->text().isEmpty()) {
+        QMessageBox::critical(this, tr("Error"), tr("Please fill an option"), QMessageBox::Ok);
+        return;
+    }
+
+    int idCombo = ui->QRCodeClientCombo->currentData().toInt();
+    int idInput = ui->QRCodeClientInput->text().toInt();
+
+    if (ui->QRCodeClientCombo->currentIndex() != 0 && ui->QRCodeClientInput->text().isEmpty()) {
+        querySQL = "SELECT * FROM CLIENTS WHERE CLIENT_ID=" + QString::number(idCombo);
+        ui->QRCodeClientCombo->setCurrentIndex(0);
+    }
+
+    if (ui->QRCodeClientCombo->currentIndex() == 0 && !ui->QRCodeClientInput->text().isEmpty()) {
+        querySQL = "SELECT * FROM CLIENTS WHERE CLIENT_ID=" + QString::number(idInput);
+        ui->QRCodeClientInput->clear();
+    }
+
+    if (ui->QRCodeClientCombo->currentIndex() != 0 && !ui->QRCodeClientInput->text().isEmpty()) {
+        querySQL = "SELECT * FROM CLIENTS WHERE CLIENT_ID=" + QString::number(idCombo);
+        ui->QRCodeClientInput->clear();
+    }
+
+    qDebug() << "Query SQL:" << querySQL; // Debug output to check the SQL query
+
+    QSqlQuery query;
+    query.prepare(querySQL);
+    if (query.exec()) {
+        if (query.next()) {
+            QString id = query.value(0).toString();
+            QString email = query.value(1).toString();
+            QString firstName = query.value(2).toString();
+            QString lastName = query.value(3).toString();
+            QString phoneNumber = query.value(4).toString();
+            QString address = query.value(5).toString();
+            QString dob = query.value(6).toString();
+
+            QString data = "ID: " + id + "\nEmail: " + email + "\nFirst Name: " + firstName +
+                           "\nLast Name: " + lastName + "\nPhone Number: " + phoneNumber +
+                           "\nAddress: " + address + "\nDate of Birth: " + dob;
+
+            qDebug() << "QR Code Data:" << data; // Debug output to check the QR code data
+
+            MasterClient.generateQRCode(data);
+        } else {
+            QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok);
+        }
+    } else {
+        QMessageBox::critical(this, tr("Error"), tr("Query failed: %1").arg(query.lastError().text()), QMessageBox::Ok);
+    }
+}
+
 
 
 

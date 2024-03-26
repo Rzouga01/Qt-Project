@@ -148,6 +148,7 @@ debug/EncodeHint.o
 debug/UnsupportedEncodingException.o
 debug/ReedSolomonEncoder.o
 debug/win_iconv.o
+debug/QZXing.o
 debug/accident.o
 debug/client.o
 debug/connection.o

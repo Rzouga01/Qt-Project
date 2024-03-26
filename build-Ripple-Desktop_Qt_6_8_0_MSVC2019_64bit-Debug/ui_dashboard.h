@@ -140,7 +140,13 @@ public:
     QPushButton *ClientDeleteButton;
     QPushButton *ClientDeleteCancel;
     QPlainTextEdit *ClientDeleteIDLine;
-    QFrame *statsClient;
+    QFrame *QRCodeClient;
+    QComboBox *QRCodeClientCombo;
+    QLineEdit *QRCodeClientInput;
+    QPlainTextEdit *QRCodeClientTitle;
+    QPlainTextEdit *QRCodeClientLabel;
+    QPushButton *QRCodeClientGenerate;
+    QPushButton *QRCodeClientCancel;
     QFrame *featureBarClient;
     QPushButton *deleteClient;
     QPushButton *updateClient;
@@ -811,7 +817,7 @@ public:
 "     background-color: #A7C34E;\n"
 "     border-radius: 25px;\n"
 "}\n"
-" #statsClient {\n"
+" #QRCodeClient {\n"
 "     background-color: #A7C34E;\n"
 "     border-radius: 25px;\n"
 "}\n"
@@ -842,8 +848,8 @@ public:
 " #ClientCreateDobLine {\n"
 "     background-color: #A7C34E;\n"
 "     font-family: \"helvetica\";\n"
-"     font-s"
-                        "ize: 14px;\n"
+"     font-"
+                        "size: 14px;\n"
 "     color: white;\n"
 "     font-style: bold;\n"
 "}\n"
@@ -884,8 +890,8 @@ public:
 "#ClientUpdatePhoneNumberLine,\n"
 " #ClientUpdateDobLine {\n"
 "     background-color: #A7C34E;\n"
-"     font-fa"
-                        "mily: \"helvetica\";\n"
+"     font-f"
+                        "amily: \"helvetica\";\n"
 "     font-size: 14px;\n"
 "     color: white;\n"
 "     font-style: bold;\n"
@@ -922,6 +928,40 @@ public:
 "     border:none;\n"
 "     border-radius:15px;\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*QR Code*/\n"
+"\n"
+"#QRCodeClientTitle{\n"
+"background-color:transparent;\n"
+"color"
+                        ":black;\n"
+"font:25px bold;\n"
+"}\n"
+"\n"
+"#QRCodeClientLabel{\n"
+"background-color:transparent;\n"
+"font-family: \"helvetica\";\n"
+" font-size: 14px;\n"
+" color: white;\n"
+" font-style: bold;\n"
+"}\n"
+"\n"
+"#QRCodeClientInput{\n"
+"	  background-color: #171717;\n"
+"     font-family: \"helvetica\";\n"
+"     font-size: 14px;\n"
+"     color: white;\n"
+"     font-style: bold;\n"
+"     border:none;\n"
+"     border-radius:15px;\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"\n"
 " "));
         readBoxClient = new QListWidget(page_2);
         readBoxClient->setObjectName("readBoxClient");
@@ -1078,10 +1118,29 @@ public:
         ClientDeleteIDLine->setGeometry(QRect(50, 30, 104, 31));
         ClientDeleteIDLine->setTextInteractionFlags(Qt::NoTextInteraction);
         StackedClient->addWidget(DeleteClientPage);
-        statsClient = new QFrame(page_2);
-        statsClient->setObjectName("statsClient");
-        statsClient->setGeometry(QRect(10, 10, 371, 201));
-        statsClient->setFrameShape(QFrame::NoFrame);
+        QRCodeClient = new QFrame(page_2);
+        QRCodeClient->setObjectName("QRCodeClient");
+        QRCodeClient->setGeometry(QRect(10, 10, 371, 201));
+        QRCodeClient->setFrameShape(QFrame::NoFrame);
+        QRCodeClientCombo = new QComboBox(QRCodeClient);
+        QRCodeClientCombo->addItem(QString());
+        QRCodeClientCombo->setObjectName("QRCodeClientCombo");
+        QRCodeClientCombo->setGeometry(QRect(150, 100, 171, 24));
+        QRCodeClientInput = new QLineEdit(QRCodeClient);
+        QRCodeClientInput->setObjectName("QRCodeClientInput");
+        QRCodeClientInput->setGeometry(QRect(150, 60, 171, 24));
+        QRCodeClientTitle = new QPlainTextEdit(QRCodeClient);
+        QRCodeClientTitle->setObjectName("QRCodeClientTitle");
+        QRCodeClientTitle->setGeometry(QRect(130, 0, 141, 51));
+        QRCodeClientLabel = new QPlainTextEdit(QRCodeClient);
+        QRCodeClientLabel->setObjectName("QRCodeClientLabel");
+        QRCodeClientLabel->setGeometry(QRect(30, 80, 91, 31));
+        QRCodeClientGenerate = new QPushButton(QRCodeClient);
+        QRCodeClientGenerate->setObjectName("QRCodeClientGenerate");
+        QRCodeClientGenerate->setGeometry(QRect(60, 160, 80, 24));
+        QRCodeClientCancel = new QPushButton(QRCodeClient);
+        QRCodeClientCancel->setObjectName("QRCodeClientCancel");
+        QRCodeClientCancel->setGeometry(QRect(200, 160, 80, 24));
         featureBarClient = new QFrame(page_2);
         featureBarClient->setObjectName("featureBarClient");
         featureBarClient->setGeometry(QRect(420, 20, 701, 61));
@@ -1961,6 +2020,13 @@ public:
         ClientDeleteButton->setText(QCoreApplication::translate("Dashboard", "Delete Client", nullptr));
         ClientDeleteCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
         ClientDeleteIDLine->setPlainText(QCoreApplication::translate("Dashboard", "ID", nullptr));
+        QRCodeClientCombo->setItemText(0, QCoreApplication::translate("Dashboard", "Select a Client", nullptr));
+
+        QRCodeClientCombo->setPlaceholderText(QString());
+        QRCodeClientTitle->setPlainText(QCoreApplication::translate("Dashboard", "QR Code", nullptr));
+        QRCodeClientLabel->setPlainText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
+        QRCodeClientGenerate->setText(QCoreApplication::translate("Dashboard", "Generate", nullptr));
+        QRCodeClientCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
         deleteClient->setText(QString());
         updateClient->setText(QString());
         pdfClient->setText(QString());
