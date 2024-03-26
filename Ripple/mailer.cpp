@@ -1,6 +1,8 @@
 #include "mailer.h"
 #include <QTextStream>
 #include <QDebug>
+#include <QSslSocket>
+
 
 Mailer::Mailer(QObject *parent) : QObject(parent), smtpPort(587), socket(new QTcpSocket(this))
 {
@@ -51,32 +53,42 @@ void Mailer::addAttachment(const QString &filePath)
     attachments.append(filePath);
 }
 
+
+
 bool Mailer::sendMail()
 {
-    if (!connectToSmtpServer()) {
+    // Create an SSL socket for encrypted communication
+    QSslSocket sslSocket;
+    sslSocket.connectToHostEncrypted(smtpServer, smtpPort);
+
+    if (!sslSocket.waitForConnected()) {
         qDebug() << "Failed to connect to SMTP server.";
         return false;
     }
 
-    QTextStream stream(socket);
+    QTextStream stream(&sslSocket);
 
     // Send email data
     stream << "HELO " << smtpServer << "\r\n";
     stream << "AUTH LOGIN\r\n";
-    stream << username.toUtf8().toBase64() << "\r\n";
-    stream << password.toUtf8().toBase64() << "\r\n";
+    stream << "" << "\r\n";  // Your full Gmail address
+    stream << "" << "\r\n";    // Your app-specific password
     stream << "MAIL FROM:<" << senderEmail << ">\r\n";
     stream << "RCPT TO:<" << recipientEmail << ">\r\n";
     stream << "DATA\r\n";
     stream << "Subject:" << subject << "\r\n";
-    stream << "From:" << senderEmail << ">\r\n";
+    stream << "From:" << senderEmail << "\r\n";
     stream << "To:" << recipientEmail << "\r\n";
     stream << "\r\n";
     stream << body << "\r\n";
     stream << ".\r\n";
     stream << "QUIT\r\n";
+    stream.flush();
 
-    if (!readResponse().startsWith("250")) {
+    QString response = readResponse();
+    qDebug() << "SMTP Response:" << response;
+
+    if (!response.startsWith("250")) {
         qDebug() << "Failed to send email.";
         return false;
     }
@@ -84,15 +96,27 @@ bool Mailer::sendMail()
     return true;
 }
 
+
+
 bool Mailer::connectToSmtpServer()
 {
-    socket->connectToHost(smtpServer, smtpPort);
-    if (!socket->waitForConnected()) {
+    // Use QSslSocket for encrypted connection
+    QSslSocket* sslSocket = new QSslSocket(this);
+    socket->reset(); // Reset the socket to use the QSslSocket
+
+    connect(socket, &QSslSocket::readyRead, this, &Mailer::onReadyRead);
+    connect(socket, &QSslSocket::disconnected, this, &Mailer::onDisconnected);
+
+    sslSocket->connectToHostEncrypted(smtpServer, smtpPort);
+    if (!sslSocket->waitForConnected()) {
         qDebug() << "Failed to connect to SMTP server.";
         return false;
     }
     return true;
 }
+
+
+
 
 QString Mailer::readResponse()
 {

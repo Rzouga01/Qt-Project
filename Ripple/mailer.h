@@ -7,19 +7,24 @@
 class Mailer : public QObject
 {
     Q_OBJECT
+
 public:
     explicit Mailer(QObject *parent = nullptr);
     ~Mailer();
 
-    void setSmtpServer(const QString &server, int port = 587);
+    void setSmtpServer(const QString &server, int port);
     void setLoginCredentials(const QString &username, const QString &password);
     void setSender(const QString &senderEmail);
     void setRecipient(const QString &recipientEmail);
     void setSubject(const QString &subject);
     void setBody(const QString &body);
     void addAttachment(const QString &filePath);
-
     bool sendMail();
+    QString readResponse(); // Public function to read server response
+
+signals:
+    void readyRead();
+    void disconnected();
 
 private:
     QString smtpServer;
@@ -34,12 +39,12 @@ private:
     QTcpSocket *socket;
 
     bool connectToSmtpServer();
-    QString readResponse();
     bool sendData(const QByteArray &data);
 
 private slots:
     void onReadyRead();
     void onDisconnected();
 };
+
 
 #endif // MAILER_H

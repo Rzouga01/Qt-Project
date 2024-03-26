@@ -173,17 +173,13 @@ void Dashboard::onAddClickedClient() {
                                           ui->ClientCreateAddress->text(),
                                           ui->ClientCreateDob->date())) {
 
-                QSqlQuery idQuery("SELECT LAST_INSERT_ID()");
-                // Client created successfully
-                if (idQuery.exec() && idQuery.next()) {
-                    QString id = idQuery.value(0).toString();
                     QString firstName = ui->ClientCreateFirstName->text();
                     QString lastName = ui->ClientCreateLastName->text();
                     QString phoneNumber = ui->ClientCreatePhoneNumber->text();
                     QString address = ui->ClientCreateAddress->text();
                     QString dob = ui->ClientCreateDob->date().toString("yyyy-MM-dd");
 
-                    QString clientData = "ID: " + id + "\nEmail: " + email + "\nFirst Name: " + firstName +
+                    QString clientData = "\nEmail: " + email + "\nFirst Name: " + firstName +
                                          "\nLast Name: " + lastName + "\nPhone Number: " + phoneNumber +
                                          "\nAddress: " + address + "\nDate of Birth: " + dob;
 
@@ -193,9 +189,7 @@ void Dashboard::onAddClickedClient() {
                     clearInputFieldsCreateClient();
 
                     QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
-                } else {
-                    QMessageBox::critical(this, tr("Error"), tr("Failed to retrieve client ID"), QMessageBox::Ok);
-                }
+
             } else {
                 QMessageBox::critical(this, tr("Error"), tr("Client not created"), QMessageBox::Ok);
             }
@@ -421,9 +415,9 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     Client MasterClient;
 
     // Set up SMTP server, login credentials, sender, and recipient
-    mailer.setSmtpServer("your_smtp_server.com", 587);
-    mailer.setLoginCredentials("your_username", "your_password");
-    mailer.setSender("your_email@example.com");
+    mailer.setSmtpServer("smtp.gmail.com", 587);
+    mailer.setLoginCredentials("", "etqt yumn darx viah");
+    mailer.setSender("");
     mailer.setRecipient(recipientEmail); // Use the provided recipient email
 
     // Set email subject and body
@@ -448,13 +442,20 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     // Add the QR code image data as an attachment
     mailer.addAttachment(qrCodeData);
 
-    // Send the email with the QR code image attachment
-    if (mailer.sendMail()) {
+    // Send the email and check for errors
+    bool sentSuccessfully = mailer.sendMail();
+    if (sentSuccessfully) {
         QMessageBox::information(this, tr("Success"), tr("Email sent successfully"), QMessageBox::Ok);
     } else {
+        // Check the server response for debugging
+        QString response = mailer.readResponse();
+        qDebug() << "Server Response:" << response;
+
         QMessageBox::critical(this, tr("Error"), tr("Failed to send email"), QMessageBox::Ok);
     }
 }
+
+
 
 
 
