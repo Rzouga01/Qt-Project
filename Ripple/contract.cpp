@@ -200,7 +200,7 @@ bool contract::UpdateContract(int contractID, int USER_ID, int CLIENT_ID, int PR
 		return false;
 	}
 }
-/*
+
 void contract::searchContract(QString id) {
     QSqlQuery qry;
     QString queryString;
@@ -269,7 +269,8 @@ void contract::searchContract(QString id) {
         qDebug() << "Error executing query:" << qry.lastError().text();
     }
 }
-*/
+
+
 void contract::sortContractsByPremium(bool ascendingOrder)
 {
     QString sortOrder = ascendingOrder ? "ASC" : "DESC";

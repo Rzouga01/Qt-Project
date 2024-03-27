@@ -787,7 +787,7 @@ void Dashboard::ContractDashboardConnectUi() {
 
     QObject::connect(ui->sortContract,&QPushButton::clicked,this,&Dashboard::onSortClickedContract);
     QObject::connect(ui->pdfContract ,&QPushButton::clicked,this,&Dashboard::onPdfClickedContract);
-    //QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
+    QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
 
 
     QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
@@ -1018,13 +1018,15 @@ void Dashboard::onSortClickedContract() {
 
     isSorted = !isSorted;
 }
-/*
+
 void Dashboard::onSearchIdContract(QString searched) {
-    contract MasterContract(ui->tableClient,ui->StackContract, this); // Utilisation de la classe contract au lieu de Client
+    contract MasterContract(ui->tableContract,ui->StackContract, this); // Utilisation de la classe contract au lieu de Client
     QString id = ui->searchBarContract->text();
     MasterContract.searchContract(id); // Appel de la fonction searchContractID pour rechercher les contrats
 }
-*/
+
+
+
 void Dashboard::onPdfClickedContract() {
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
     if (!filePath.isEmpty()) {
