@@ -187,7 +187,7 @@ void Dashboard::onAddClickedClient() {
 
                     MasterClient.ReadClient();
                     clearInputFieldsCreateClient();
-                    ui->QrCodeClientCombo->repaint();
+                    ui->QRCodeClientCombo->repaint();
 
                     QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
 
@@ -245,7 +245,7 @@ void Dashboard::onUpdateClickedClient() {
                 ui->ClientUpdateDob->date())) {
                 MasterClient.ReadClient();
                 clearInputFieldsUpdateClient();
-                ui->QrCodeClientCombo->repaint();
+                ui->QRCodeClientCombo->repaint();
                 QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else {
@@ -273,7 +273,7 @@ void Dashboard::onDeleteClickedClient() {
             if (MasterClient.DeleteClient(id.toInt())) {
                 MasterClient.ReadClient();
                 clearInputFieldsDeleteClient();
-                ui->QrCodeClientCombo->repaint();
+                ui->QRCodeClientCombo->repaint();
                 QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else {
