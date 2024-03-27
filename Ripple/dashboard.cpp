@@ -88,23 +88,9 @@ void Dashboard::ClientDashboardConnectUi() {
         ui->QRCodeClientInput->clear();
     });
 
-        connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
+     connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
-        QSqlQuery query;
-
-
-        if (!query.exec("SELECT * FROM CLIENTS")) {
-            qDebug() << "Error executing query:" << query.lastError().text();
-            return;
-        }
-
-        while (query.next()) {
-            QString clientName = query.value(2).toString();
-            QVariant clientId = query.value(0).toInt();
-
-            qDebug() << "Adding item:" << clientName << "ID:" << clientId;
-            ui->QRCodeClientCombo->addItem(clientName, clientId);
-        }
+    fillComboBoxClient();
 
 
     ui->StackedClient->setCurrentIndex(0);
@@ -187,7 +173,8 @@ void Dashboard::onAddClickedClient() {
 
                     MasterClient.ReadClient();
                     clearInputFieldsCreateClient();
-                    ui->QRCodeClientCombo->repaint();
+                    fillComboBoxClient();
+
 
                     QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
 
@@ -245,7 +232,7 @@ void Dashboard::onUpdateClickedClient() {
                 ui->ClientUpdateDob->date())) {
                 MasterClient.ReadClient();
                 clearInputFieldsUpdateClient();
-                ui->QRCodeClientCombo->repaint();
+                fillComboBoxClient();
                 QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else {
@@ -273,7 +260,7 @@ void Dashboard::onDeleteClickedClient() {
             if (MasterClient.DeleteClient(id.toInt())) {
                 MasterClient.ReadClient();
                 clearInputFieldsDeleteClient();
-                ui->QRCodeClientCombo->repaint();
+                fillComboBoxClient();
                 QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else {
@@ -379,6 +366,7 @@ void Dashboard::onQRCodeClickClient()
     if (ui->QRCodeClientCombo->currentIndex() != 0 && !ui->QRCodeClientInput->text().isEmpty()) {
         querySQL = "SELECT * FROM CLIENTS WHERE CLIENT_ID=" + QString::number(idCombo);
         ui->QRCodeClientInput->clear();
+        ui->QRCodeClientCombo->setCurrentIndex(0);
     }
 
     qDebug() << "Query SQL:" << querySQL; // Debug output to check the SQL query
@@ -458,7 +446,28 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     }
 }
 
+void Dashboard::fillComboBoxClient()
+{
+    QSqlQuery query;
 
+
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    else{
+
+    ui->QRCodeClientCombo->clear();
+    ui->QRCodeClientCombo->addItem("Select Client", 0);
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+
+        qDebug() << "Adding item:" << clientName << "ID:" << clientId;
+        ui->QRCodeClientCombo->addItem(clientName, clientId);
+    }
+    }
+}
 
 
 
