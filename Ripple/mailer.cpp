@@ -71,8 +71,8 @@ bool Mailer::sendMail()
     // Send email data
     stream << "HELO " << smtpServer << "\r\n";
     stream << "AUTH LOGIN\r\n";
-    stream << "" << "\r\n";  // Your full Gmail address
-    stream << "" << "\r\n";    // Your app-specific password
+    stream <<  username <<"\r\n";  // Your full Gmail address
+    stream << password << "\r\n";    // Your app-specific password
     stream << "MAIL FROM:<" << senderEmail << ">\r\n";
     stream << "RCPT TO:<" << recipientEmail << ">\r\n";
     stream << "DATA\r\n";

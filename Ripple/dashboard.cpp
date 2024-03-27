@@ -407,7 +407,7 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
 
     // Set up SMTP server, login credentials, sender, and recipient
     mailer.setSmtpServer("smtp.gmail.com", 587);
-    mailer.setLoginCredentials("", "etqt yumn darx viah");
+    mailer.setLoginCredentials("", "xmib fgck jiwd pmyk");
     mailer.setSender("");
     mailer.setRecipient(recipientEmail); // Use the provided recipient email
 
@@ -1064,21 +1064,17 @@ void Dashboard::AccidentDashboardConnectUi()
         qDebug() << "Error executing query:" << query.lastError().text();
         return;
     }
-
-    int rowCount = 0;  // Counter to track the number of rows fetched
+ // Counter to track the number of rows fetched
     while (query.next()) {
         QString clientName = query.value(2).toString();
         QVariant clientId = query.value(0).toInt();
 
-        qDebug() << "Adding item:" << clientName << "ID:" << clientId;
 
         ui->AccidentCreateClientID->addItem(clientName, clientId);
         ui->AccidentUpdateClientID->addItem(clientName, clientId);
 
-        rowCount++;
     }
 
-    qDebug() << "Total rows fetched:" << rowCount;
 
     ui->StackedAccident->setCurrentIndex(0);
 }
