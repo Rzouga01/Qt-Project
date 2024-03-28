@@ -2,14 +2,10 @@
 *.idx
 *.vsidx
 *.ipch
-*.exe
-*.obj
 *.log
-*.obj
 *.obj
 *.log
 *.idx
 *.idx
 *.o
 *.db-wal
-*.opendb
