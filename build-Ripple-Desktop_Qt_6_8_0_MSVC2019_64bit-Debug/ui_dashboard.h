@@ -9,6 +9,7 @@
 #ifndef UI_DASHBOARD_H
 #define UI_DASHBOARD_H
 
+#include <QtCharts/QChartView>
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
@@ -93,8 +94,9 @@ public:
     QListWidget *readBoxEmployee;
     QLineEdit *searchBarEmployee;
     QTableWidget *tableEmployee;
-    QFrame *statsEmployee;
+    QFrame *statsBoxEmployee;
     QComboBox *EmployeeSelectStats;
+    QChartView *EmployeeStats;
     QWidget *page_2;
     QListWidget *readBoxClient;
     QLineEdit *searchBarClient;
@@ -363,7 +365,7 @@ public:
 "}\n"
 "\n"
 "/* Stats Box  */\n"
-"#statsEmployee {\n"
+"#statsBoxEmployee {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
@@ -397,8 +399,8 @@ public:
 "    border: 0;\n"
 "    padding: 0;\n"
 "    margin: 0;\n"
-"    border-radius"
-                        ": 0;\n"
+"    border-rad"
+                        "ius: 0;\n"
 "}\n"
 "\n"
 "/* Row hover styling */\n"
@@ -441,8 +443,8 @@ public:
 "#EmployeeRole_C QAbstractItemView,\n"
 "#EmployeeRole_U QAbstractItemView,\n"
 "#EmployeeSelectID_U QAbstractItemView,\n"
-"#EmployeeSelectID_D QAbstrac"
-                        "tItemView {\n"
+"#EmployeeSelectID_D QAbst"
+                        "ractItemView {\n"
 "    color: white; \n"
 "    background-color: #444444; \n"
 "    selection-background-color: #A7C34E; \n"
@@ -789,21 +791,24 @@ public:
         tableEmployee->setAutoFillBackground(false);
         tableEmployee->setStyleSheet(QString::fromUtf8(""));
         tableEmployee->setShowGrid(true);
-        statsEmployee = new QFrame(page);
-        statsEmployee->setObjectName("statsEmployee");
-        statsEmployee->setGeometry(QRect(10, 10, 431, 221));
-        statsEmployee->setFrameShape(QFrame::NoFrame);
-        EmployeeSelectStats = new QComboBox(statsEmployee);
+        statsBoxEmployee = new QFrame(page);
+        statsBoxEmployee->setObjectName("statsBoxEmployee");
+        statsBoxEmployee->setGeometry(QRect(10, 10, 431, 221));
+        statsBoxEmployee->setFrameShape(QFrame::NoFrame);
+        EmployeeSelectStats = new QComboBox(statsBoxEmployee);
         EmployeeSelectStats->addItem(QString());
         EmployeeSelectStats->setObjectName("EmployeeSelectStats");
         EmployeeSelectStats->setGeometry(QRect(320, 10, 101, 21));
+        EmployeeStats = new QChartView(statsBoxEmployee);
+        EmployeeStats->setObjectName("EmployeeStats");
+        EmployeeStats->setGeometry(QRect(10, 40, 411, 171));
         stackedWidget->addWidget(page);
         readBoxEmployee->raise();
         featureBarEmployee->raise();
         CrudEmployee->raise();
         searchBarEmployee->raise();
         tableEmployee->raise();
-        statsEmployee->raise();
+        statsBoxEmployee->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         page_2->setStyleSheet(QString::fromUtf8(" #featureBarClient {\n"
@@ -1916,7 +1921,7 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);

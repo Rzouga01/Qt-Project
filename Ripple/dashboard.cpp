@@ -885,7 +885,7 @@ void Dashboard::onAddClickedContract() {
     QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
     QDate expirationDate = ui->dateEditExpirationDateContract->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
-    QString type = ui->lineEditTypeContract->text();
+    QString type = ui->lineEditTypeContract->text().toLower();
 
     // Vérifier si les champs obligatoires ne sont pas vides
     if (clientIdStr.isEmpty() || userIdStr.isEmpty() ||
@@ -906,6 +906,12 @@ void Dashboard::onAddClickedContract() {
     // Vérifier si les champs numériques sont valides
     if (clientId <= 0 || userId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
+        clearInputFieldsCreateContract();
+        return;
+    }
+    // Vérifier si le type est parmi les valeurs autorisées
+    if (type != "maison" && type != "voiture" && type != "vie" && type != "tous risque") {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
         return;
     }
@@ -941,7 +947,7 @@ void Dashboard::onUpdateClickedContract() {
     QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
     QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContractUpdate->text().trimmed();
-    QString type = ui->lineEditTypeContractUpdate->text().trimmed();
+    QString type = ui->lineEditTypeContractUpdate->text().trimmed().toLower(); // Convertir en minuscules pour être insensible à la casse
 
     if (userIdStr.isEmpty() || clientIdStr.isEmpty() || premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
@@ -972,7 +978,12 @@ void Dashboard::onUpdateClickedContract() {
         clearInputFieldsUpdateContract();
         return;
     }
-
+    // Vérifier si le type est parmi les valeurs autorisées
+    if (type != "maison" && type != "voiture" && type != "vie" && type != "tous risque") {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
+        clearInputFieldsUpdateContract();
+        return;
+    }
     if (MasterContract.UpdateContract(contractId, userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
         MasterContract.ReadContract();
         clearInputFieldsUpdateContract();
