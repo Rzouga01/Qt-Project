@@ -7,6 +7,8 @@
 #include <QSqlQueryModel>
 #include <QDate>
 #include <QTableWidget>
+#include <QObject>
+#include <QMap>
 namespace Ui {
     class Employee;
 }
@@ -70,6 +72,8 @@ public:
     void sortEmployeesByAge();
     void ExportEmployeesToPdf(const QString& filePath);
     void searchEmployee(const QString& searchText);
+    QMap<QString, qreal> calculateEmployeeStats(const QString& employeeID);
+   
 };
 
 #endif // EMPLOYEE_H

@@ -435,5 +435,45 @@ void Employee::searchEmployee(const QString& search)
     }
 }
 
+QMap<QString, qreal> Employee::calculateEmployeeStats(const QString& employeeID) {
+    QMap<QString, qreal> stats;
+
+  
+    QString queryStr;
+    QSqlQuery query;
+
+    // Query to calculate total working days for the specified employee
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeID + "'";
+    query.exec(queryStr);
+    query.next();
+    int totalWorkingDays = query.value(0).toInt();
+
+    // Query to calculate late arrival frequency for the specified employee
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeID + "' AND ARRIVAL_STATUS = 'Late'";
+    query.exec(queryStr);
+    query.next();
+    int lateArrivals = query.value(0).toInt();
+
+    // Query to calculate early departure frequency for the specified employee
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeID + "' AND ARRIVAL_STATUS = 'Early Departure'";
+    query.exec(queryStr);
+    query.next();
+    int earlyDepartures = query.value(0).toInt();
+
+    // Calculate absenteeism rate
+    int absenteeismDays = totalWorkingDays - lateArrivals - earlyDepartures;
+    qreal absenteeismRate = static_cast<qreal>(absenteeismDays) / totalWorkingDays * 100.0;
+
+    stats["Total Working Days"] = totalWorkingDays;
+    stats["Late Arrivals"] = lateArrivals;
+    stats["Early Departures"] = earlyDepartures;
+    stats["Absenteeism Rate"] = absenteeismRate;
+
+    return stats;
+}
+
+
+
+
 
 

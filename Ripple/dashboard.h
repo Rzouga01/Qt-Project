@@ -64,6 +64,7 @@ public:
 	void onComboboxIndexChanged(int index);
 	Employee* getEmployeeDataById(int id);
 	void onSearchTextChanged(const QString& text);
+	void displayEmployeeStats(int employeeID);
 	//***********************************************************
 	//Contract
 	void onAddClickedContract();

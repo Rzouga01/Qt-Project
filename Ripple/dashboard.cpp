@@ -4,6 +4,7 @@
 #include <QtWidgets>
 #include <QUiLoader>
 #include <QFileDialog>
+#include <QtCharts>
 #include "mainwindow.h"
 #include "connection.h"
 #include "client.h"
@@ -47,6 +48,7 @@ void Dashboard::update() {
     ClientDashboardConnectUi();
     // Employee
     EmployeeDashboardConnectUi();
+    displayEmployeeStats(22);
     // Contract
     ContractDashboardConnectUi();
     // Accident
@@ -650,7 +652,7 @@ void Dashboard::openUpdateForm() {
         ui->EmployeeSelectID_D->addItems(ids);
 
         ui->EmployeeSelectID_D->setCurrentIndex(0);
-    }
+        }
     else {
         qDebug() << "Error choosing delete.";
     }
@@ -778,6 +780,34 @@ void Dashboard::onSearchTextChanged(const QString& searchText) {
     Employee emp(ui->tableEmployee);
     emp.searchEmployee(searchText);
 }
+
+void Dashboard::displayEmployeeStats(int employeeID)
+{
+    Employee employees;
+    QMap<QString, qreal> stats = employees.calculateEmployeeStats(QString::number(employeeID));
+    QBarSeries* series = new QBarSeries();
+
+    QChart* chart = new QChart();
+
+    QBarSet* set = new QBarSet("Statistics");
+
+    *set << stats.value("Total Working Days")
+        << stats.value("Late Arrivals")
+        << stats.value("Early Departures")
+        << stats.value("Absenteeism Rate");
+    series->append(set);
+    chart->addSeries(series);
+    chart->setTitle("Employee Statistics");
+    QChartView* chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    QChartView* employeeStatsView = findChild<QChartView*>("EmployeeStats");
+    if (employeeStatsView) {
+        employeeStatsView->setChart(chart);
+    }
+}
+
+
+
 
 //********************************************************************************************************************
 // Contract

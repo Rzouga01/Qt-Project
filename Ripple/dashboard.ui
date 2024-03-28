@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -165,7 +165,7 @@
 }
 
 /* Stats Box  */
-#statsEmployee {
+#statsBoxEmployee {
     background-color: #A7C34E;
     border-radius: 25px;
 }
@@ -1212,7 +1212,7 @@ QTableWidget QTableWidget {
        </property>
       </column>
      </widget>
-     <widget class="QFrame" name="statsEmployee">
+     <widget class="QFrame" name="statsBoxEmployee">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1239,13 +1239,23 @@ QTableWidget QTableWidget {
         </property>
        </item>
       </widget>
+      <widget class="QChartView" name="EmployeeStats" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>411</width>
+         <height>171</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <zorder>readBoxEmployee</zorder>
      <zorder>featureBarEmployee</zorder>
      <zorder>CrudEmployee</zorder>
      <zorder>searchBarEmployee</zorder>
      <zorder>tableEmployee</zorder>
-     <zorder>statsEmployee</zorder>
+     <zorder>statsBoxEmployee</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -4219,6 +4229,13 @@ font-family: &quot;helvetica&quot;;
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QWidget</extends>
+   <header>qchartview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
