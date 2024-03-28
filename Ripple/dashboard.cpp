@@ -944,7 +944,7 @@ void Dashboard::onAddClickedContract() {
     }
 
     // Vérifier si le type est parmi les valeurs autorisées
-    if (type != "maison" && type != "voiture" && type != "vie" && type != "tous risque") {
+    if (type != "house" && type != "car" && type != "life" && type != "all risk") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
         return;
@@ -1014,7 +1014,7 @@ void Dashboard::onUpdateClickedContract() {
     }
 
     // Vérifier si le type est parmi les valeurs autorisées
-    if (type != "maison" && type != "voiture" && type != "vie" && type != "tous risque") {
+    if (type != "house" && type != "car" && type != "life" && type != "all risk") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
