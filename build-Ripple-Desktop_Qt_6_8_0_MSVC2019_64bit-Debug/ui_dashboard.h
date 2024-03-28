@@ -162,8 +162,6 @@ public:
     QStackedWidget *StackContract;
     QWidget *page_5;
     QFrame *CreateContract;
-    QLineEdit *LineEditUserIdContract;
-    QLineEdit *LineEditClientIdContract;
     QLineEdit *LineEditPremiumAmountContract;
     QLineEdit *lineEditTypeContract;
     QLineEdit *LineEditPaymentstatusContract;
@@ -178,6 +176,8 @@ public:
     QPushButton *CreateContractButton;
     QDateEdit *dateEditEffectiveDateContract;
     QDateEdit *dateEditExpirationDateContract;
+    QComboBox *comboBoxUserIDCreateContract;
+    QComboBox *comboBoxClientIDCreateContract;
     QWidget *page_6;
     QFrame *DeleteContract;
     QLabel *LabelContractId;
@@ -195,8 +195,6 @@ public:
     QLabel *LabelExpirationDateContractUpdate;
     QLabel *LabelPaymentStatusContractUpdate;
     QLabel *LabelTypeContractUpdate;
-    QLineEdit *LineEditUserIdContractUpdate;
-    QLineEdit *LineEditClientIdContractUpdate;
     QDateEdit *dateEditEffectiveDateContractUpdate;
     QDateEdit *dateEditExpirationDateContractUpdate;
     QLineEdit *LineEditPaymentstatusContractUpdate;
@@ -204,6 +202,8 @@ public:
     QLineEdit *LineEditPremiumAmountContractUpdate;
     QLineEdit *lineEditContractIDUpdate;
     QLabel *labelContractIDUpdate;
+    QComboBox *comboBoxUserIDUpdateContract;
+    QComboBox *comboBoxClientIDUpdateContract;
     QListWidget *readBoxContract;
     QLineEdit *searchBarContract;
     QFrame *featureBarContract;
@@ -1289,12 +1289,6 @@ public:
         CreateContract->setGeometry(QRect(10, 10, 351, 621));
         CreateContract->setFrameShape(QFrame::StyledPanel);
         CreateContract->setFrameShadow(QFrame::Raised);
-        LineEditUserIdContract = new QLineEdit(CreateContract);
-        LineEditUserIdContract->setObjectName("LineEditUserIdContract");
-        LineEditUserIdContract->setGeometry(QRect(220, 50, 113, 24));
-        LineEditClientIdContract = new QLineEdit(CreateContract);
-        LineEditClientIdContract->setObjectName("LineEditClientIdContract");
-        LineEditClientIdContract->setGeometry(QRect(220, 100, 113, 24));
         LineEditPremiumAmountContract = new QLineEdit(CreateContract);
         LineEditPremiumAmountContract->setObjectName("LineEditPremiumAmountContract");
         LineEditPremiumAmountContract->setGeometry(QRect(220, 160, 113, 24));
@@ -1377,6 +1371,12 @@ public:
         dateEditExpirationDateContract = new QDateEdit(CreateContract);
         dateEditExpirationDateContract->setObjectName("dateEditExpirationDateContract");
         dateEditExpirationDateContract->setGeometry(QRect(220, 260, 110, 25));
+        comboBoxUserIDCreateContract = new QComboBox(CreateContract);
+        comboBoxUserIDCreateContract->setObjectName("comboBoxUserIDCreateContract");
+        comboBoxUserIDCreateContract->setGeometry(QRect(221, 50, 111, 28));
+        comboBoxClientIDCreateContract = new QComboBox(CreateContract);
+        comboBoxClientIDCreateContract->setObjectName("comboBoxClientIDCreateContract");
+        comboBoxClientIDCreateContract->setGeometry(QRect(221, 100, 111, 28));
         StackContract->addWidget(page_5);
         page_6 = new QWidget();
         page_6->setObjectName("page_6");
@@ -1472,12 +1472,6 @@ public:
 "									   background-color: transparent;\n"
 "									   }\n"
 "								   "));
-        LineEditUserIdContractUpdate = new QLineEdit(UpdateContract);
-        LineEditUserIdContractUpdate->setObjectName("LineEditUserIdContractUpdate");
-        LineEditUserIdContractUpdate->setGeometry(QRect(250, 90, 113, 24));
-        LineEditClientIdContractUpdate = new QLineEdit(UpdateContract);
-        LineEditClientIdContractUpdate->setObjectName("LineEditClientIdContractUpdate");
-        LineEditClientIdContractUpdate->setGeometry(QRect(250, 150, 113, 24));
         dateEditEffectiveDateContractUpdate = new QDateEdit(UpdateContract);
         dateEditEffectiveDateContractUpdate->setObjectName("dateEditEffectiveDateContractUpdate");
         dateEditEffectiveDateContractUpdate->setGeometry(QRect(250, 270, 110, 25));
@@ -1509,6 +1503,12 @@ public:
 "									   background-color: transparent;\n"
 "									   }\n"
 "								   "));
+        comboBoxUserIDUpdateContract = new QComboBox(UpdateContract);
+        comboBoxUserIDUpdateContract->setObjectName("comboBoxUserIDUpdateContract");
+        comboBoxUserIDUpdateContract->setGeometry(QRect(251, 100, 111, 28));
+        comboBoxClientIDUpdateContract = new QComboBox(UpdateContract);
+        comboBoxClientIDUpdateContract->setObjectName("comboBoxClientIDUpdateContract");
+        comboBoxClientIDUpdateContract->setGeometry(QRect(251, 160, 111, 28));
         StackContract->addWidget(page_7);
         readBoxContract = new QListWidget(page_3);
         readBoxContract->setObjectName("readBoxContract");
@@ -1921,11 +1921,11 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
-        StackContract->setCurrentIndex(0);
-        StackedAccident->setCurrentIndex(0);
+        StackContract->setCurrentIndex(2);
+        StackedAccident->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Dashboard);

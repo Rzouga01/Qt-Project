@@ -829,6 +829,37 @@ void Dashboard::ContractDashboardConnectUi() {
     QObject::connect(ui->UpdateContractButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedContract);
     QObject::connect(ui->DeleteContractButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedContract);
 
+    QSqlQuery query;
+
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    // Counter to track the number of rows fetched
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+
+
+        ui->comboBoxClientIDCreateContract->addItem(clientName, clientId);
+        ui->comboBoxClientIDUpdateContract->addItem(clientName, clientId);
+
+    }
+
+
+    if (!query.exec("SELECT * FROM EMPLOYEES")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    // Counter to track the number of rows fetched
+    while (query.next()) {
+        QString UserName = query.value(2).toString(); // Supposons que le nom de l'employé est à l'index 2
+        QVariant UserId = query.value(0);
+
+        ui->comboBoxUserIDCreateContract->addItem(UserName, UserId);
+        ui->comboBoxUserIDUpdateContract->addItem(UserName, UserId);
+    }
+
 
 
 
@@ -879,16 +910,18 @@ void Dashboard::onStackedContractIndexChanged(int index) {
 void Dashboard::onAddClickedContract() {
     contract MasterContract(ui->tableContract, ui->StackContract, this);
 
-    QString clientIdStr = ui->LineEditClientIdContract->text();
-    QString userIdStr = ui->LineEditUserIdContract->text();
     QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
     QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
     QDate expirationDate = ui->dateEditExpirationDateContract->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
     QString type = ui->lineEditTypeContract->text().toLower();
 
+    // Récupérer les valeurs sélectionnées dans les combobox pour le client ID et le user ID
+    QVariant clientIdVar = ui->comboBoxClientIDCreateContract->currentData();
+    QVariant userIdVar = ui->comboBoxUserIDCreateContract->currentData();
+
     // Vérifier si les champs obligatoires ne sont pas vides
-    if (clientIdStr.isEmpty() || userIdStr.isEmpty() ||
+    if (clientIdVar.isNull() || userIdVar.isNull() ||
         premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() ||
         effectiveDate.isNull() || expirationDate.isNull()) {
 
@@ -898,8 +931,8 @@ void Dashboard::onAddClickedContract() {
     }
 
     // Convertir les valeurs saisies en types appropriés
-    int clientId = clientIdStr.toInt();
-    int userId = userIdStr.toInt();
+    int clientId = clientIdVar.toInt();
+    int userId = userIdVar.toInt();
     int premiumAmount = premiumAmountStr.toInt();
     int paymentStatus = paymentStatusStr.toInt();
 
@@ -909,6 +942,7 @@ void Dashboard::onAddClickedContract() {
         clearInputFieldsCreateContract();
         return;
     }
+
     // Vérifier si le type est parmi les valeurs autorisées
     if (type != "maison" && type != "voiture" && type != "vie" && type != "tous risque") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
@@ -927,9 +961,8 @@ void Dashboard::onAddClickedContract() {
     }
 }
 
+
 void Dashboard::clearInputFieldsContract() {
-    ui->LineEditUserIdContract->clear();
-    ui->LineEditClientIdContract->clear();
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
@@ -941,27 +974,28 @@ void Dashboard::onUpdateClickedContract() {
     contract MasterContract(ui->tableContract, ui->StackContract, this);
 
     int contractId = ui->lineEditContractIDUpdate->text().toInt();
-    QString userIdStr = ui->LineEditUserIdContractUpdate->text().trimmed();
-    QString clientIdStr = ui->LineEditClientIdContractUpdate->text().trimmed();
     QString premiumAmountStr = ui->LineEditPremiumAmountContractUpdate->text().trimmed();
     QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
     QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContractUpdate->text().trimmed();
     QString type = ui->lineEditTypeContractUpdate->text().trimmed().toLower(); // Convertir en minuscules pour être insensible à la casse
 
-    if (userIdStr.isEmpty() || clientIdStr.isEmpty() || premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
+    // Assurez-vous de récupérer les valeurs sélectionnées dans les combobox pour le client ID et le user ID
+    QVariant clientId = ui->comboBoxClientIDUpdateContract->currentData();
+    QVariant userId = ui->comboBoxUserIDUpdateContract->currentData();
+
+    // Vérifier si les champs obligatoires ne sont pas vides
+    if (premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
     }
 
     bool conversionOk;
-    int userId = userIdStr.toInt(&conversionOk);
-    int clientId = clientIdStr.toInt(&conversionOk);
     int premiumAmount = premiumAmountStr.toInt(&conversionOk);
     int paymentStatus = paymentStatusStr.toInt(&conversionOk);
 
-    if (!conversionOk || contractId <= 0 || userId <= 0 || clientId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
+    if (!conversionOk || contractId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
@@ -978,13 +1012,15 @@ void Dashboard::onUpdateClickedContract() {
         clearInputFieldsUpdateContract();
         return;
     }
+
     // Vérifier si le type est parmi les valeurs autorisées
     if (type != "maison" && type != "voiture" && type != "vie" && type != "tous risque") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
     }
-    if (MasterContract.UpdateContract(contractId, userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
+
+    if (MasterContract.UpdateContract(contractId, userId.toInt(), clientId.toInt(), premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
         MasterContract.ReadContract();
         clearInputFieldsUpdateContract();
         QMessageBox::information(this, tr("Success"), tr("Contract updated successfully"), QMessageBox::Ok);
@@ -993,6 +1029,7 @@ void Dashboard::onUpdateClickedContract() {
         QMessageBox::critical(this, tr("Error"), tr("Contract not updated"), QMessageBox::Ok);
     }
 }
+
 
 void Dashboard::onDeleteClickedContract() {
     contract MasterContract(ui->tableContract, ui->StackContract, this);
@@ -1032,8 +1069,6 @@ void Dashboard::onDeleteCancelClickedContract() {
 }
 
 void Dashboard::clearInputFieldsCreateContract() {
-    ui->LineEditUserIdContract->clear();
-    ui->LineEditClientIdContract->clear();
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
@@ -1042,8 +1077,6 @@ void Dashboard::clearInputFieldsCreateContract() {
 }
 
 void Dashboard::clearInputFieldsUpdateContract() {
-    ui->LineEditUserIdContractUpdate->clear();
-    ui->LineEditClientIdContractUpdate->clear();
     ui->LineEditPremiumAmountContractUpdate->clear();
     ui->dateEditEffectiveDateContractUpdate->setDate(QDate());
     ui->dateEditExpirationDateContractUpdate->setDate(QDate());
