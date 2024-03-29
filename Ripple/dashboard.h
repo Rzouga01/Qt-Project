@@ -84,6 +84,7 @@ public:
 	void onStackedContractIndexChanged(int index);
 	void openDelPage(int contractId);
     void onSearchIdContract(QString searched);
+    void onStatByPremiumAmount();
 	//***********************************************************
 	//Accident
 	void onAddClickedAccident();

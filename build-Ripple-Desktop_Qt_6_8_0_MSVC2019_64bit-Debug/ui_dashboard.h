@@ -213,6 +213,7 @@ public:
     QPushButton *pdfContract;
     QPushButton *sortContract;
     QPushButton *excelContract;
+    QPushButton *statsContract;
     QTableWidget *tableContract;
     QWidget *page_4;
     QListWidget *readAccident;
@@ -1521,7 +1522,7 @@ public:
         searchBarContract->setClearButtonEnabled(true);
         featureBarContract = new QFrame(page_3);
         featureBarContract->setObjectName("featureBarContract");
-        featureBarContract->setGeometry(QRect(510, 10, 611, 61));
+        featureBarContract->setGeometry(QRect(450, 10, 671, 61));
         featureBarContract->setStyleSheet(QString::fromUtf8(""));
         featureBarContract->setFrameShape(QFrame::NoFrame);
         addContract = new QPushButton(featureBarContract);
@@ -1568,6 +1569,15 @@ public:
         icon6.addFile(QString::fromUtf8("../Resources/Icons/excel.png"), QSize(), QIcon::Normal, QIcon::Off);
         excelContract->setIcon(icon6);
         excelContract->setIconSize(QSize(60, 60));
+        statsContract = new QPushButton(featureBarContract);
+        statsContract->setObjectName("statsContract");
+        statsContract->setGeometry(QRect(600, 10, 41, 41));
+        statsContract->setCursor(QCursor(Qt::PointingHandCursor));
+        statsContract->setStyleSheet(QString::fromUtf8(""));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8("../Resources/Icons/bar-chart.png"), QSize(), QIcon::Normal, QIcon::Off);
+        statsContract->setIcon(icon7);
+        statsContract->setIconSize(QSize(50, 50));
         tableContract = new QTableWidget(page_3);
         if (tableContract->columnCount() < 8)
             tableContract->setColumnCount(8);
@@ -1862,9 +1872,9 @@ public:
         historyAccident = new QPushButton(featureBarAccident);
         historyAccident->setObjectName("historyAccident");
         historyAccident->setGeometry(QRect(530, 10, 41, 41));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
-        historyAccident->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
+        historyAccident->setIcon(icon8);
         historyAccident->setIconSize(QSize(40, 40));
         tableAccident = new QTableWidget(page_4);
         if (tableAccident->columnCount() < 6)
@@ -1915,14 +1925,14 @@ public:
         logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon8;
-        icon8.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon8);
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon9);
         logoutButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
         CrudEmployee->setCurrentIndex(0);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(2);
@@ -2083,6 +2093,7 @@ public:
         pdfContract->setText(QString());
         sortContract->setText(QString());
         excelContract->setText(QString());
+        statsContract->setText(QString());
         QTableWidgetItem *___qtablewidgetitem16 = tableContract->horizontalHeaderItem(0);
         ___qtablewidgetitem16->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem17 = tableContract->horizontalHeaderItem(1);

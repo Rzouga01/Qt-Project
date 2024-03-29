@@ -11,6 +11,18 @@
 #include <QTextDocument>
 #include <QPainter>
 #include <QSqlRecord>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
+#include <QtCharts/QChart>
+#include <QBoxLayout>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QtCharts/QChartView>
+#include <QToolTip>
+#include <QCursor>
 contract::contract(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::contract),
@@ -426,7 +438,66 @@ void contract::toPdf(const QString& filePath)
     qDebug() << "PDF file successfully created:" << filePath;
     QMessageBox::information(nullptr, "Export Successful", "Contract Data has been successfully exported to PDF.\nFile saved to: " + filePath);
 }
+void contract::statsByPremiumAmount()
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT PREMIUM_AMOUNT_GROUP, COUNT(*) AS CONTRACT_COUNT \
+                 FROM ( \
+                     SELECT CASE \
+                             WHEN PREMIUM_AMOUNT BETWEEN 0 AND 100 THEN '0-100' \
+                             WHEN PREMIUM_AMOUNT BETWEEN 101 AND 500 THEN '101-500' \
+                             WHEN PREMIUM_AMOUNT BETWEEN 501 AND 1000 THEN '501-1000' \
+                             ELSE '1000+' \
+                         END AS PREMIUM_AMOUNT_GROUP \
+                     FROM CONTRACTS \
+                 ) PremiumAmountGroups \
+                 GROUP BY PREMIUM_AMOUNT_GROUP \
+                 ORDER BY PREMIUM_AMOUNT_GROUP");
 
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching data...";
+
+    QBarSeries *barSeries = new QBarSeries();
+
+    while (qry.next()) {
+        QString premiumAmountGroup = qry.value(0).toString();
+        int contractCount = qry.value(1).toInt();
+
+        // Create a bar set with label text indicating premium amount group and contract count
+        QBarSet *barSet = new QBarSet(premiumAmountGroup);
+        *barSet << contractCount;
+        barSeries->append(barSet);
+    }
+
+    QChart *chart = new QChart();
+    chart->addSeries(barSeries);
+    chart->setTitle("Contracts by Premium Amount");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    QStringList categories;
+    categories << "0-100" << "101-500" << "501-1000" << "1000+"; // Define categories for x-axis
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    barSeries->attachAxis(axisX);
+
+    QValueAxis *axisY = new QValueAxis();
+    axisY->setTickCount(5); // Set number of ticks on y-axis
+    chart->addAxis(axisY, Qt::AlignLeft);
+    barSeries->attachAxis(axisY);
+
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setMinimumSize(800, 600);
+    chartView->show();
+}
 /*
 contract::contract(QWidget *parent) :
 	QDialog(parent),

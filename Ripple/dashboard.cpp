@@ -876,6 +876,7 @@ void Dashboard::ContractDashboardConnectUi() {
     QObject::connect(ui->sortContract,&QPushButton::clicked,this,&Dashboard::onSortClickedContract);
     QObject::connect(ui->pdfContract ,&QPushButton::clicked,this,&Dashboard::onPdfClickedContract);
     QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
+    QObject::connect(ui->statsContract, &QPushButton::clicked, this, &Dashboard::onStatByPremiumAmount);
 
 
     QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
@@ -1157,7 +1158,10 @@ void Dashboard::onSearchIdContract(QString searched) {
     MasterContract.searchContract(id); // Appel de la fonction searchContractID pour rechercher les contrats
 }
 
-
+void Dashboard::onStatByPremiumAmount() {
+    contract MasterContract(ui->tableContract, ui->StackContract, this);
+    MasterContract.statsByPremiumAmount(); // Appelle statsByPremiumAmount de la classe Contract
+}
 
 void Dashboard::onPdfClickedContract() {
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");

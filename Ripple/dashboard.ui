@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -3053,9 +3053,9 @@ font-family: &quot;helvetica&quot;;
      <widget class="QFrame" name="featureBarContract">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>450</x>
         <y>10</y>
-        <width>611</width>
+        <width>671</width>
         <height>61</height>
        </rect>
       </property>
@@ -3236,6 +3236,35 @@ font-family: &quot;helvetica&quot;;
         <size>
          <width>60</width>
          <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="statsContract">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/bar-chart.png</normaloff>../Resources/Icons/bar-chart.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
         </size>
        </property>
       </widget>
