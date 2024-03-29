@@ -7,7 +7,16 @@
 #include <QDialog>
 #include <QTableWidget>
 #include <QStackedWidget>
-
+#include <QtCore>
+#include <QtWidgets>
+#include <QtGui>
+#include <QChart>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
+#include <QtCharts/QChart>
 
 
 namespace Ui {
@@ -62,6 +71,10 @@ public:
     bool Delete(int);
     void setTableWidget(QTableWidget *tableWidget);
     void setStackedWidget(QStackedWidget *stackedWidget);
+    void accidentstatsByDamage();
+    void searchAccident(const QString& search);
+    void AccidenttoPdf(const QString& filePath);
+    void sortAccidentByDamage(bool ascendingOrder);
 
 signals:
     void deleteAccidentRequested(int Acc_id);

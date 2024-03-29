@@ -100,6 +100,7 @@ public:
 	void onDeleteCancelClickedAccident();
 	void AccidentDashboardConnectUi();
 	void openDeletePageaccident(int acc_id);
+    void onAccidentSearchTextChanged(const QString& searchText);
 	//------------------------------------------------------------------------------------------------------------------
 public:
 	Ui::Dashboard* ui;

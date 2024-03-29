@@ -1181,9 +1181,9 @@ void Dashboard::AccidentDashboardConnectUi()
     accident MasterAccident(ui->tableAccident, this);
 
 
-
     QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
+    QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
 
 
     QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
@@ -1202,28 +1202,40 @@ void Dashboard::AccidentDashboardConnectUi()
         qDebug() << "Error executing query:" << query.lastError().text();
         return;
     }
- // Counter to track the number of rows fetched
+
+    int rowCount = 0;  // Counter to track the number of rows fetched
     while (query.next()) {
         QString clientName = query.value(2).toString();
         QVariant clientId = query.value(0).toInt();
 
+        qDebug() << "Adding item:" << clientName << "ID:" << clientId;
 
         ui->AccidentCreateClientID->addItem(clientName, clientId);
         ui->AccidentUpdateClientID->addItem(clientName, clientId);
 
+        rowCount++;
     }
 
+    qDebug() << "Total rows fetched:" << rowCount;
 
     ui->StackedAccident->setCurrentIndex(0);
+    MasterAccident.accidentstatsByDamage();
 }
 
 void Dashboard::onAddCancelClickedAccident() {
     clearInputFieldsAccidentCreate();
 }
 
-void Dashboard::onSortClickedAccident() {}
 
-void Dashboard::onPdfClickedAccient() {}
+void Dashboard::onPdfClickedAccient() {
+
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
+    if (!filePath.isEmpty()) {
+        accident MasterAccident(ui->tableAccident,this); // Utilisation de 'accident' au lieu de 'Client'
+        MasterAccident.AccidenttoPdf(filePath); // Appel de la fonction toPdf() de l'objet accident
+    }
+}
+
 
 void Dashboard::clearInputFieldsAccidentDelete() {
     ui->AccidentDeleteID->clear();
@@ -1282,11 +1294,11 @@ void Dashboard::onAddClickedAccident() {
     else {
 
         if (MasterAccident.create(
-            ui->AccidentCreateType->text(),
-            ui->AccidentCreateDamage->text().toInt(),
-            ui->AccidentCreateDate->date(),
-            ui->AccidentCreateLocation->text(),
-            ui->AccidentCreateClientID->currentData().toInt()))
+                ui->AccidentCreateType->text(),
+                ui->AccidentCreateDamage->text().toInt(),
+                ui->AccidentCreateDate->date(),
+                ui->AccidentCreateLocation->text(),
+                ui->AccidentCreateClientID->currentData().toInt()))
         {
             MasterAccident.accidentRead();
 
@@ -1328,11 +1340,11 @@ void Dashboard::onUpdateClickedAccident() {
         else {
 
             MasterAccident.update(id.toInt(),
-                ui->AccidentUpdateType->text(),
-                ui->AccidentUpdateDamage->text().toInt(),
-                ui->AccidentUpdateDate->date(),
-                ui->AccidentUpdateLocation->text(),
-                ui->AccidentUpdateClientID->currentData().toInt());
+                                  ui->AccidentUpdateType->text(),
+                                  ui->AccidentUpdateDamage->text().toInt(),
+                                  ui->AccidentUpdateDate->date(),
+                                  ui->AccidentUpdateLocation->text(),
+                                  ui->AccidentUpdateClientID->currentData().toInt());
 
             MasterAccident.accidentRead();
 
@@ -1343,6 +1355,19 @@ void Dashboard::onUpdateClickedAccident() {
         }
     }
 }
+void Dashboard::onSortClickedAccident() {
+    static bool isSorted = false;
+
+    accident MasterAccident(ui->tableAccident, this);
+    MasterAccident.sortAccidentByDamage(isSorted);
+
+    isSorted = !isSorted;
+}
+void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
+    accident MasterAccident(ui->tableAccident);
+    MasterAccident.searchAccident(searchText);
+}
+
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

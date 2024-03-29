@@ -43,3 +43,6 @@
 *.pdb
 *.ilk
 *.pdb
+*.obj
+*.pdb
+*.pdb
