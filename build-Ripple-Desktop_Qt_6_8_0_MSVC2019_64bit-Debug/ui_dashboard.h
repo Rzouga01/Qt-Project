@@ -1573,7 +1573,10 @@ public:
         statsContract->setObjectName("statsContract");
         statsContract->setGeometry(QRect(600, 10, 41, 41));
         statsContract->setCursor(QCursor(Qt::PointingHandCursor));
-        statsContract->setStyleSheet(QString::fromUtf8(""));
+        statsContract->setStyleSheet(QString::fromUtf8("\n"
+"									   #statsContract {\n"
+"									   background-color: transparent;\n"
+"									   }"));
         QIcon icon7;
         icon7.addFile(QString::fromUtf8("../Resources/Icons/bar-chart.png"), QSize(), QIcon::Normal, QIcon::Off);
         statsContract->setIcon(icon7);
@@ -1935,7 +1938,7 @@ public:
         stackedWidget->setCurrentIndex(2);
         CrudEmployee->setCurrentIndex(0);
         StackedClient->setCurrentIndex(1);
-        StackContract->setCurrentIndex(2);
+        StackContract->setCurrentIndex(0);
         StackedAccident->setCurrentIndex(2);
 
 

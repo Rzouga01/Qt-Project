@@ -2394,7 +2394,7 @@ font-family: &quot;helvetica&quot;;
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="page_5">
         <widget class="QFrame" name="CreateContract">
@@ -3252,7 +3252,10 @@ font-family: &quot;helvetica&quot;;
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">
+									   #statsContract {
+									   background-color: transparent;
+									   }</string>
        </property>
        <property name="text">
         <string/>
