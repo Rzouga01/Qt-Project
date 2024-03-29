@@ -187,8 +187,6 @@ void Dashboard::onAddClickedClient() {
     }
 }
 
-
-
 void Dashboard::onUpdateClickedClient() {
     Client MasterClient(ui->tableClient, ui->StackedClient, this);
 
@@ -307,9 +305,6 @@ void Dashboard::clearInputFieldsDeleteClient() {
     ui->ClientDeleteID->clear();
 }
 
-
-
-
 void Dashboard::onSortClickedClient() {
     static bool isSorted = false;
 
@@ -319,7 +314,6 @@ void Dashboard::onSortClickedClient() {
     isSorted = !isSorted; // Toggle the sorting order for the next call
 }
 
-
 void Dashboard::onPdfClickedClient() {
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
     if (!filePath.isEmpty()) {
@@ -328,19 +322,16 @@ void Dashboard::onPdfClickedClient() {
     }
 }
 
-
 void Dashboard::onSearchIdClient() {
     Client MasterClient(ui->tableClient, this);
     QString id = ui->searchBarClient->text();
     MasterClient.searchClientID(id);
 }
 
-
 void Dashboard::onStatByAge() {
     Client MasterClient(ui->tableClient, this);
     MasterClient.statsByAge();
 }
-
 
 void Dashboard::onQRCodeClickClient()
 {
@@ -399,7 +390,6 @@ void Dashboard::onQRCodeClickClient()
         QMessageBox::critical(this, tr("Error"), tr("Query failed: %1").arg(query.lastError().text()), QMessageBox::Ok);
     }
 }
-
 
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
@@ -473,7 +463,6 @@ void Dashboard::fillComboBoxClient()
 
 
 
-
 //********************************************************************************************************************
 // Employee
 void Dashboard::EmployeeDashboardConnectUi() {
@@ -490,7 +479,8 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->sortEmployee, &QPushButton::clicked, this, &Dashboard::onSortEmployeeClicked);
     QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
     QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
-
+    
+  
     ui->CrudEmployee->setCurrentIndex(0);
 }
 
@@ -783,28 +773,96 @@ void Dashboard::onSearchTextChanged(const QString& searchText) {
 
 void Dashboard::displayEmployeeStats(int employeeID)
 {
-    Employee employees;
-    QMap<QString, qreal> stats = employees.calculateEmployeeStats(QString::number(employeeID));
+    // Sample data for testing
+    QMap<QString, qreal> stats;
+    stats["Total Working Days"] = 20;
+    stats["Late Arrivals"] = 5;
+    stats["Early Departures"] = 3;
+    stats["Absenteeism Rate"] = 10.0;
+
+    // Create a QBarSeries
     QBarSeries* series = new QBarSeries();
 
+    // Create a QChart
     QChart* chart = new QChart();
 
+    // Create a QBarSet
     QBarSet* set = new QBarSet("Statistics");
 
+    // Populate the QBarSet with sample data
     *set << stats.value("Total Working Days")
         << stats.value("Late Arrivals")
         << stats.value("Early Departures")
         << stats.value("Absenteeism Rate");
+
+    // Add the QBarSet to the QBarSeries
     series->append(set);
+
+    // Add the QBarSeries to the QChart
     chart->addSeries(series);
+
+    // Set the title of the chart
     chart->setTitle("Employee Statistics");
+
+    // Set the background of the chart to transparent
+    chart->setBackgroundBrush(QBrush(Qt::transparent));
+
+    // Create axes
+    QBarCategoryAxis* xAxis = new QBarCategoryAxis();
+    xAxis->append("Total Working Days");
+    xAxis->append("Late Arrivals");
+    xAxis->append("Early Departures");
+    xAxis->append("Absenteeism Rate");
+    xAxis->setLabelsFont(QFont("Arial", 10)); // Adjust font size as needed
+
+    QValueAxis* yAxis = new QValueAxis();
+    yAxis->setTitleText("Value");
+    yAxis->setLabelsFont(QFont("Arial", 10)); // Adjust font size as needed
+
+    // Add axes to the chart
+    chart->addAxis(xAxis, Qt::AlignBottom);
+    chart->addAxis(yAxis, Qt::AlignLeft);
+    series->attachAxis(xAxis);
+    series->attachAxis(yAxis);
+
+    // Hide the legend
+    chart->legend()->setVisible(false);
+
+    // Create a QChartView
     QChartView* chartView = new QChartView(chart);
+
+    // Set the size policy and minimum size of the QChartView
+    chartView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    chartView->setMinimumSize(400, 200); // Adjust the size as needed
+
+    // Set the render hint for antialiasing
     chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Find the EmployeeStats widget in the UI
     QChartView* employeeStatsView = findChild<QChartView*>("EmployeeStats");
+
+    // Set the chart view to the EmployeeStats widget
     if (employeeStatsView) {
         employeeStatsView->setChart(chart);
     }
 }
+
+void Dashboard::onEmployeeSelectStatsChanged(const QString& employeeName) {
+    // Create an instance of the Employee class
+    Employee emp;
+
+    // Retrieve the employee ID using the selected name
+    int employeeId = emp.getEmployeeIdByName(employeeName);
+    if (employeeId != -1) {
+        // Display statistics for the selected employee
+        displayEmployeeStats(employeeId);
+    }
+    else {
+        qDebug() << "Error: Unable to retrieve employee ID for selected name.";
+    }
+}
+
+
 
 
 
@@ -853,7 +911,7 @@ void Dashboard::ContractDashboardConnectUi() {
     }
     // Counter to track the number of rows fetched
     while (query.next()) {
-        QString UserName = query.value(2).toString(); // Supposons que le nom de l'employé est à l'index 2
+        QString UserName = query.value(2).toString(); // Supposons que le nom de l'employï¿½ est ï¿½ l'index 2
         QVariant UserId = query.value(0);
 
         ui->comboBoxUserIDCreateContract->addItem(UserName, UserId);
@@ -916,11 +974,11 @@ void Dashboard::onAddClickedContract() {
     QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
     QString type = ui->lineEditTypeContract->text().toLower();
 
-    // Récupérer les valeurs sélectionnées dans les combobox pour le client ID et le user ID
+    // Rï¿½cupï¿½rer les valeurs sï¿½lectionnï¿½es dans les combobox pour le client ID et le user ID
     QVariant clientIdVar = ui->comboBoxClientIDCreateContract->currentData();
     QVariant userIdVar = ui->comboBoxUserIDCreateContract->currentData();
 
-    // Vérifier si les champs obligatoires ne sont pas vides
+    // Vï¿½rifier si les champs obligatoires ne sont pas vides
     if (clientIdVar.isNull() || userIdVar.isNull() ||
         premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() ||
         effectiveDate.isNull() || expirationDate.isNull()) {
@@ -930,20 +988,20 @@ void Dashboard::onAddClickedContract() {
         return;
     }
 
-    // Convertir les valeurs saisies en types appropriés
+    // Convertir les valeurs saisies en types appropriï¿½s
     int clientId = clientIdVar.toInt();
     int userId = userIdVar.toInt();
     int premiumAmount = premiumAmountStr.toInt();
     int paymentStatus = paymentStatusStr.toInt();
 
-    // Vérifier si les champs numériques sont valides
+    // Vï¿½rifier si les champs numï¿½riques sont valides
     if (clientId <= 0 || userId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
         return;
     }
 
-    // Vérifier si le type est parmi les valeurs autorisées
+    // Vï¿½rifier si le type est parmi les valeurs autorisï¿½es
     if (type != "house" && type != "car" && type != "life" && type != "all risk") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
@@ -978,13 +1036,13 @@ void Dashboard::onUpdateClickedContract() {
     QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
     QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContractUpdate->text().trimmed();
-    QString type = ui->lineEditTypeContractUpdate->text().trimmed().toLower(); // Convertir en minuscules pour être insensible à la casse
+    QString type = ui->lineEditTypeContractUpdate->text().trimmed().toLower(); // Convertir en minuscules pour ï¿½tre insensible ï¿½ la casse
 
-    // Assurez-vous de récupérer les valeurs sélectionnées dans les combobox pour le client ID et le user ID
+    // Assurez-vous de rï¿½cupï¿½rer les valeurs sï¿½lectionnï¿½es dans les combobox pour le client ID et le user ID
     QVariant clientId = ui->comboBoxClientIDUpdateContract->currentData();
     QVariant userId = ui->comboBoxUserIDUpdateContract->currentData();
 
-    // Vérifier si les champs obligatoires ne sont pas vides
+    // Vï¿½rifier si les champs obligatoires ne sont pas vides
     if (premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
@@ -1013,7 +1071,7 @@ void Dashboard::onUpdateClickedContract() {
         return;
     }
 
-    // Vérifier si le type est parmi les valeurs autorisées
+    // Vï¿½rifier si le type est parmi les valeurs autorisï¿½es
     if (type != "house" && type != "car" && type != "life" && type != "all risk") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();

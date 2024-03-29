@@ -249,6 +249,22 @@ QStringList Employee::getAllEmployeeIDs() {
     return ids;
 }
 
+QStringList Employee::getEmployeeNames() {
+    QStringList names;
+    QSqlQuery query;
+    query.prepare("SELECT first_name, last_name FROM EMPLOYEES");
+    if (query.exec()) {
+        while (query.next()) {
+            QString fullName = query.value("first_name").toString() + " " + query.value("last_name").toString();
+            names << fullName;
+        }
+    }
+    else {
+        qDebug() << "Error fetching employee names:" << query.lastError().text();
+    }
+    return names;
+}
+
 void Employee::sortEmployeesByAge()
 {
     if (tableEmployee == nullptr) {
@@ -472,7 +488,18 @@ QMap<QString, qreal> Employee::calculateEmployeeStats(const QString& employeeID)
     return stats;
 }
 
-
+int Employee::getEmployeeIdByName(const QString& name) {
+    QSqlQuery query;
+    query.prepare("SELECT user_id FROM EMPLOYEES WHERE first_name || ' ' || last_name = ?");
+    query.bindValue(0, name);
+    if (query.exec() && query.next()) {
+        return query.value("user_id").toInt();
+    }
+    else {
+        qDebug() << "Error fetching employee ID by name:" << query.lastError().text();
+        return -1; // Return a default value or handle the error as needed
+    }
+}
 
 
 

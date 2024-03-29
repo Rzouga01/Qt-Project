@@ -65,6 +65,7 @@ public:
 	Employee* getEmployeeDataById(int id);
 	void onSearchTextChanged(const QString& text);
 	void displayEmployeeStats(int employeeID);
+	void onEmployeeSelectStatsChanged(const QString& employeeName);
 	//***********************************************************
 	//Contract
 	void onAddClickedContract();
