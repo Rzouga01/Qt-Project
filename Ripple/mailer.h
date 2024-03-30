@@ -1,8 +1,11 @@
 #ifndef MAILER_H
 #define MAILER_H
 
-#include <QObject>
+#include <QCoreApplication>
+#include <QDebug>
 #include <QTcpSocket>
+#include <QFile>
+#include <QByteArray>
 
 class Mailer : public QObject
 {

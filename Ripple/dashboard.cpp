@@ -12,6 +12,12 @@
 #include "accident.h"
 #include "contract.h"
 #include "mailer.h"
+#include <QCoreApplication>
+#include <QDebug>
+#include <QTcpSocket>
+#include <QFile>
+#include <QTextStream>
+#include <QSslSocket>
 
 Dashboard::Dashboard(QWidget* parent) :
     QDialog(parent),
@@ -172,6 +178,7 @@ void Dashboard::onAddClickedClient() {
                                          "\nAddress: " + address + "\nDate of Birth: " + dob;
 
                     sendEmailWithQRCode(email, clientData, firstName, lastName);
+
 
                     MasterClient.ReadClient();
                     clearInputFieldsCreateClient();
@@ -393,50 +400,87 @@ void Dashboard::onQRCodeClickClient()
 
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
-    // Create an instance of the Mailer class
-    Mailer mailer;
+    QString emailRipple = "";
+    QString passwordRipple = "";
     Client MasterClient;
 
-    // Set up SMTP server, login credentials, sender, and recipient
-    mailer.setSmtpServer("smtp.gmail.com", 587);
-    mailer.setLoginCredentials("", "xmib fgck jiwd pmyk");
-    mailer.setSender("");
-    mailer.setRecipient(recipientEmail); // Use the provided recipient email
-
-    // Set email subject and body
-    mailer.setSubject("Your Account Information");
-    mailer.setBody("Dear "+firstName+" "+lastName+",\n\nWe are pleased to inform you that your account has been created in Ripple Insurance.\n\nPlease find your account details attached below.\n\nBest regards,\nRipple Insurance Team");
-
-    // Generate the QR code image using the Client class
-    QImage qrCodeImage = MasterClient.getQRCode(clientData);
-
-    if (qrCodeImage.isNull()) {
-        // Handle the case where QR code generation failed
-        QMessageBox::critical(this, tr("Error"), tr("Failed to generate QR code"), QMessageBox::Ok);
+    // Get QR code image data
+    QByteArray imageData = MasterClient.getQRCodeData(clientData);
+    if (imageData.isEmpty()) {
+        qWarning() << "Failed to get QR code image data.";
         return;
     }
 
-    // Convert the QImage to a QByteArray for attachment
-    QByteArray qrCodeData;
-    QBuffer buffer(&qrCodeData);
-    buffer.open(QIODevice::WriteOnly);
-    qrCodeImage.save(&buffer, "PNG"); // Save the QR code image data to the QByteArray
-
-    // Add the QR code image data as an attachment
-    mailer.addAttachment(qrCodeData);
-
-    // Send the email and check for errors
-    bool sentSuccessfully = mailer.sendMail();
-    if (sentSuccessfully) {
-        QMessageBox::information(this, tr("Success"), tr("Email sent successfully"), QMessageBox::Ok);
-    } else {
-        // Check the server response for debugging
-        QString response = mailer.readResponse();
-        qDebug() << "Server Response:" << response;
-
-        QMessageBox::critical(this, tr("Error"), tr("Failed to send email"), QMessageBox::Ok);
+    QSslSocket socket;
+    socket.connectToHostEncrypted("smtp.gmail.com", 465); // Gmail SMTP server and port (SSL)
+    if (!socket.waitForConnected()) {
+        qWarning() << "Failed to connect to SMTP server";
+        return;
     }
+
+    socket.waitForEncrypted(); // Wait for the SSL/TLS handshake to complete
+    QString response = socket.readAll();
+    qDebug() << "Server response:" << response;
+
+    // Send EHLO command to initiate SMTP session
+    socket.write("EHLO localhost\r\n");
+    socket.waitForBytesWritten();
+
+    // Authenticate with your email credentials
+    socket.write("AUTH LOGIN\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write(QByteArray().append(emailRipple.toUtf8()).toBase64() + "\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write(QByteArray().append(passwordRipple.toUtf8()).toBase64() + "\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+
+    // Send email with attachment
+    socket.write("MAIL FROM:<"+emailRipple.toUtf8()+">\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write("RCPT TO:<" + recipientEmail.toUtf8() + ">\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write("DATA\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write("Subject: Your QR Code\r\n");
+    socket.write("From: ripple.insurance123@gmail.com\r\n");
+    socket.write("To: " + recipientEmail.toUtf8() + "\r\n");
+    socket.write("Content-Type: multipart/mixed; boundary=boundary1\r\n");
+    socket.write("\r\n");
+    socket.write("--boundary1\r\n");
+    socket.write("Content-Type: text/plain\r\n\r\n");
+    socket.write("Hello " + firstName.toUtf8() + " " + lastName.toUtf8() + ",\r\n");
+    socket.write("Please find your QR code attached to this email.\r\n");
+    socket.write("\r\n");
+
+    // Attach QR code image data
+    socket.write("--boundary1\r\n");
+    socket.write("Content-Type: image/png\r\n");
+    socket.write("Content-Disposition: attachment; filename=qr_code.png\r\n");
+    socket.write("Content-Transfer-Encoding: base64\r\n\r\n");
+    socket.write(imageData.toBase64());
+    socket.write("\r\n");
+
+    // End email data
+    socket.write("--boundary1--\r\n");
+    socket.write(".\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+
+    // Quit SMTP session
+    socket.write("QUIT\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+
+    socket.close();
+    qDebug() << "Email with attachment sent successfully!";
 }
+
 
 void Dashboard::fillComboBoxClient()
 {

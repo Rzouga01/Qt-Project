@@ -9,6 +9,7 @@
 #include "accident.h"
 #include "connection.h"
 #include "dashboard.h"
+#include "mailer.h"
 
 
 
@@ -20,6 +21,8 @@ int main(int argc, char *argv[])
     MainWindow w;
     Connection con;
     Dashboard dash;
+
+
 
    
 
