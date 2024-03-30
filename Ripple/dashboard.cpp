@@ -18,6 +18,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QSslSocket>
+#include <QtCore/QProcessEnvironment>
 
 Dashboard::Dashboard(QWidget* parent) :
     QDialog(parent),
@@ -400,8 +401,12 @@ void Dashboard::onQRCodeClickClient()
 
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
-    QString emailRipple = "";
-    QString passwordRipple = "";
+    QString emailRipple = "ripple.insurance123@gmail.com";
+    QString passwordRipple = QProcessEnvironment::systemEnvironment().value("RIPPLE_EMAIL_PASSWORD");
+    if (passwordRipple.isEmpty()) {
+        qWarning() << "Password environment variable (RIPPLE_EMAIL_PASSWORD) is not set.";
+        return;
+    }
     Client MasterClient;
 
     // Get QR code image data
