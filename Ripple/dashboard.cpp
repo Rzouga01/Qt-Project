@@ -401,16 +401,20 @@ void Dashboard::onQRCodeClickClient()
 
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
-    QString emailRipple = "ripple.insurance123@gmail.com";
-    QString passwordRipple = QProcessEnvironment::systemEnvironment().value("RIPPLE_EMAIL_PASSWORD");
+    // Email credentials
+    const QString emailRipple = "ripple.insurance123@gmail.com";
+    const QString passwordRipple = QProcessEnvironment::systemEnvironment().value("RIPPLE_EMAIL_PASSWORD");
+
+    // Check if the password environment variable is set
     if (passwordRipple.isEmpty()) {
         qWarning() << "Password environment variable (RIPPLE_EMAIL_PASSWORD) is not set.";
         return;
     }
-    Client MasterClient;
+
+    Client masterClient;
 
     // Get QR code image data
-    QByteArray imageData = MasterClient.getQRCodeData(clientData);
+    QByteArray imageData = masterClient.getQRCodeData(clientData);
     if (imageData.isEmpty()) {
         qWarning() << "Failed to get QR code image data.";
         return;
@@ -424,14 +428,13 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     }
 
     socket.waitForEncrypted(); // Wait for the SSL/TLS handshake to complete
-    QString response = socket.readAll();
-    qDebug() << "Server response:" << response;
+    qDebug() << "Connected to SMTP server.";
 
     // Send EHLO command to initiate SMTP session
     socket.write("EHLO localhost\r\n");
     socket.waitForBytesWritten();
 
-    // Authenticate with your email credentials
+    // Authenticate with email credentials
     socket.write("AUTH LOGIN\r\n");
     socket.waitForBytesWritten();
     socket.waitForReadyRead();
@@ -443,7 +446,7 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     socket.waitForReadyRead();
 
     // Send email with attachment
-    socket.write("MAIL FROM:<"+emailRipple.toUtf8()+">\r\n");
+    socket.write("MAIL FROM:<" + emailRipple.toUtf8() + ">\r\n");
     socket.waitForBytesWritten();
     socket.waitForReadyRead();
     socket.write("RCPT TO:<" + recipientEmail.toUtf8() + ">\r\n");
@@ -452,15 +455,17 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     socket.write("DATA\r\n");
     socket.waitForBytesWritten();
     socket.waitForReadyRead();
-    socket.write("Subject: Your QR Code\r\n");
-    socket.write("From: ripple.insurance123@gmail.com\r\n");
+
+    // Email headers and body
+    socket.write("Subject: Your Ripple Insurance Account Has Been Created\r\n");
+    socket.write("From: " + emailRipple.toUtf8() + "\r\n");
     socket.write("To: " + recipientEmail.toUtf8() + "\r\n");
     socket.write("Content-Type: multipart/mixed; boundary=boundary1\r\n");
     socket.write("\r\n");
     socket.write("--boundary1\r\n");
-    socket.write("Content-Type: text/plain\r\n\r\n");
-    socket.write("Hello " + firstName.toUtf8() + " " + lastName.toUtf8() + ",\r\n");
-    socket.write("Please find your QR code attached to this email.\r\n");
+    socket.write("Content-Type: text/html\r\n\r\n");
+    socket.write("<p style=\"font-family: Arial, sans-serif; font-size: 14px; color: #333333;\">Hello " + firstName.toHtmlEscaped().toUtf8() + " " + lastName.toHtmlEscaped().toUtf8() + "</p>");
+    socket.write("Please find your QR code with your Information attached to this Email.\r\n");
     socket.write("\r\n");
 
     // Attach QR code image data
@@ -485,6 +490,10 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     socket.close();
     qDebug() << "Email with attachment sent successfully!";
 }
+
+
+
+
 
 
 void Dashboard::fillComboBoxClient()
