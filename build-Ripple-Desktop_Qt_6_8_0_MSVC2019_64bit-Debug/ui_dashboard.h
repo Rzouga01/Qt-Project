@@ -9,6 +9,7 @@
 #ifndef UI_DASHBOARD_H
 #define UI_DASHBOARD_H
 
+#include <QtCharts/QChartView>
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
@@ -93,7 +94,8 @@ public:
     QListWidget *readBoxEmployee;
     QLineEdit *searchBarEmployee;
     QTableWidget *tableEmployee;
-    QFrame *statsEmployee;
+    QFrame *statsBoxEmployee;
+    QChartView *EmployeeStats;
     QComboBox *EmployeeSelectStats;
     QWidget *page_2;
     QListWidget *readBoxClient;
@@ -160,8 +162,6 @@ public:
     QStackedWidget *StackContract;
     QWidget *page_5;
     QFrame *CreateContract;
-    QLineEdit *LineEditUserIdContract;
-    QLineEdit *LineEditClientIdContract;
     QLineEdit *LineEditPremiumAmountContract;
     QLineEdit *lineEditTypeContract;
     QLineEdit *LineEditPaymentstatusContract;
@@ -176,6 +176,8 @@ public:
     QPushButton *CreateContractButton;
     QDateEdit *dateEditEffectiveDateContract;
     QDateEdit *dateEditExpirationDateContract;
+    QComboBox *comboBoxUserIDCreateContract;
+    QComboBox *comboBoxClientIDCreateContract;
     QWidget *page_6;
     QFrame *DeleteContract;
     QLabel *LabelContractId;
@@ -193,8 +195,6 @@ public:
     QLabel *LabelExpirationDateContractUpdate;
     QLabel *LabelPaymentStatusContractUpdate;
     QLabel *LabelTypeContractUpdate;
-    QLineEdit *LineEditUserIdContractUpdate;
-    QLineEdit *LineEditClientIdContractUpdate;
     QDateEdit *dateEditEffectiveDateContractUpdate;
     QDateEdit *dateEditExpirationDateContractUpdate;
     QLineEdit *LineEditPaymentstatusContractUpdate;
@@ -202,6 +202,8 @@ public:
     QLineEdit *LineEditPremiumAmountContractUpdate;
     QLineEdit *lineEditContractIDUpdate;
     QLabel *labelContractIDUpdate;
+    QComboBox *comboBoxUserIDUpdateContract;
+    QComboBox *comboBoxClientIDUpdateContract;
     QListWidget *readBoxContract;
     QLineEdit *searchBarContract;
     QFrame *featureBarContract;
@@ -211,6 +213,7 @@ public:
     QPushButton *pdfContract;
     QPushButton *sortContract;
     QPushButton *excelContract;
+    QPushButton *statsContract;
     QTableWidget *tableContract;
     QWidget *page_4;
     QListWidget *readAccident;
@@ -363,7 +366,7 @@ public:
 "}\n"
 "\n"
 "/* Stats Box  */\n"
-"#statsEmployee {\n"
+"#statsBoxEmployee {\n"
 "    background-color: #A7C34E;\n"
 "    border-radius: 25px;\n"
 "}\n"
@@ -397,8 +400,8 @@ public:
 "    border: 0;\n"
 "    padding: 0;\n"
 "    margin: 0;\n"
-"    border-radius"
-                        ": 0;\n"
+"    border-rad"
+                        "ius: 0;\n"
 "}\n"
 "\n"
 "/* Row hover styling */\n"
@@ -441,8 +444,9 @@ public:
 "#EmployeeRole_C QAbstractItemView,\n"
 "#EmployeeRole_U QAbstractItemView,\n"
 "#EmployeeSelectID_U QAbstractItemView,\n"
-"#EmployeeSelectID_D QAbstrac"
-                        "tItemView {\n"
+"#EmployeeSelectID_D QAbst"
+                        "ractItemView,\n"
+"#EmployeeSelectStats QAbstractItemView{\n"
 "    color: white; \n"
 "    background-color: #444444; \n"
 "    selection-background-color: #A7C34E; \n"
@@ -479,10 +483,10 @@ public:
 "#EmployeeEmail_C,\n"
 "#EmployeePassword_C,\n"
 "#EmployeeFirstName_C,\n"
-"#EmployeeLastName_C,\n"
+"#E"
+                        "mployeeLastName_C,\n"
 "#EmployeeAddress_C,\n"
-""
-                        "#EmployeePhoneNumber_C,\n"
+"#EmployeePhoneNumber_C,\n"
 "#EmployeeDob_C,\n"
 "#EmployeeRole_C,\n"
 "#EmployeeSelectID_U,\n"
@@ -520,11 +524,11 @@ public:
 "    border-radius: 15px;\n"
 "    padding: 10px 20px;\n"
 "    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
+"    transi"
+                        "tion: background-color 0.3s ease;\n"
 "}\n"
 "\n"
-""
-                        "#EmployeeCancelBtn_C:hover,\n"
+"#EmployeeCancelBtn_C:hover,\n"
 "#EmployeeCreateBtn:hover,\n"
 "#EmployeeCancelBtn_U:hover,\n"
 "#EmployeeUpdateBtn:hover,\n"
@@ -536,10 +540,11 @@ public:
 "/*Stats*/\n"
 "#EmployeeSelectStats {\n"
 "    background-color: #444444;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    color: #444444;\n"
+"    font-family: \"Helvetica\";\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
 "}"));
         featureBarEmployee = new QFrame(page);
         featureBarEmployee->setObjectName("featureBarEmployee");
@@ -588,54 +593,54 @@ public:
         sortEmployee->setIconSize(QSize(50, 50));
         CrudEmployee = new QStackedWidget(page);
         CrudEmployee->setObjectName("CrudEmployee");
-        CrudEmployee->setGeometry(QRect(10, 240, 421, 431));
+        CrudEmployee->setGeometry(QRect(8, 250, 481, 431));
         CrudEmployee->setFrameShape(QFrame::NoFrame);
         CreateEmployee = new QWidget();
         CreateEmployee->setObjectName("CreateEmployee");
         EmployeeEmail_C = new QLineEdit(CreateEmployee);
         EmployeeEmail_C->setObjectName("EmployeeEmail_C");
-        EmployeeEmail_C->setGeometry(QRect(44, 65, 160, 30));
+        EmployeeEmail_C->setGeometry(QRect(53, 70, 160, 30));
         EmployeeLastNameText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeLastNameText_C->setObjectName("EmployeeLastNameText_C");
-        EmployeeLastNameText_C->setGeometry(QRect(284, 115, 104, 31));
+        EmployeeLastNameText_C->setGeometry(QRect(293, 120, 104, 31));
         EmployeeLastNameText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeAddress_C = new QLineEdit(CreateEmployee);
         EmployeeAddress_C->setObjectName("EmployeeAddress_C");
-        EmployeeAddress_C->setGeometry(QRect(44, 225, 160, 30));
+        EmployeeAddress_C->setGeometry(QRect(53, 230, 160, 30));
         EmployeeAddressText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeAddressText_C->setObjectName("EmployeeAddressText_C");
-        EmployeeAddressText_C->setGeometry(QRect(84, 195, 104, 31));
+        EmployeeAddressText_C->setGeometry(QRect(93, 200, 104, 31));
         EmployeeAddressText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeFirstName_C = new QLineEdit(CreateEmployee);
         EmployeeFirstName_C->setObjectName("EmployeeFirstName_C");
-        EmployeeFirstName_C->setGeometry(QRect(44, 145, 160, 30));
+        EmployeeFirstName_C->setGeometry(QRect(53, 150, 160, 30));
         EmployeePhoneNumber_C = new QLineEdit(CreateEmployee);
         EmployeePhoneNumber_C->setObjectName("EmployeePhoneNumber_C");
-        EmployeePhoneNumber_C->setGeometry(QRect(244, 225, 160, 30));
+        EmployeePhoneNumber_C->setGeometry(QRect(253, 230, 160, 30));
         EmployeeCreateBtn = new QPushButton(CreateEmployee);
         EmployeeCreateBtn->setObjectName("EmployeeCreateBtn");
-        EmployeeCreateBtn->setGeometry(QRect(55, 355, 160, 40));
+        EmployeeCreateBtn->setGeometry(QRect(64, 360, 160, 40));
         EmployeeDob_C = new QDateEdit(CreateEmployee);
         EmployeeDob_C->setObjectName("EmployeeDob_C");
-        EmployeeDob_C->setGeometry(QRect(44, 305, 160, 30));
+        EmployeeDob_C->setGeometry(QRect(53, 310, 160, 30));
         EmployeeLastName_C = new QLineEdit(CreateEmployee);
         EmployeeLastName_C->setObjectName("EmployeeLastName_C");
-        EmployeeLastName_C->setGeometry(QRect(244, 145, 160, 30));
+        EmployeeLastName_C->setGeometry(QRect(253, 150, 160, 30));
         EmployeeEmailText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeEmailText_C->setObjectName("EmployeeEmailText_C");
-        EmployeeEmailText_C->setGeometry(QRect(98, 35, 61, 31));
+        EmployeeEmailText_C->setGeometry(QRect(107, 40, 61, 31));
         EmployeeEmailText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeePhoneNumberText_C = new QPlainTextEdit(CreateEmployee);
         EmployeePhoneNumberText_C->setObjectName("EmployeePhoneNumberText_C");
-        EmployeePhoneNumberText_C->setGeometry(QRect(264, 195, 141, 31));
+        EmployeePhoneNumberText_C->setGeometry(QRect(273, 200, 141, 31));
         EmployeePhoneNumberText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeFirstNameText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeFirstNameText_C->setObjectName("EmployeeFirstNameText_C");
-        EmployeeFirstNameText_C->setGeometry(QRect(84, 115, 91, 31));
+        EmployeeFirstNameText_C->setGeometry(QRect(93, 120, 91, 31));
         EmployeeFirstNameText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeDobText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeDobText_C->setObjectName("EmployeeDobText_C");
-        EmployeeDobText_C->setGeometry(QRect(84, 275, 104, 31));
+        EmployeeDobText_C->setGeometry(QRect(93, 280, 104, 31));
         EmployeeDobText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeRole_C = new QComboBox(CreateEmployee);
         EmployeeRole_C->addItem(QString());
@@ -643,97 +648,97 @@ public:
         EmployeeRole_C->addItem(QString());
         EmployeeRole_C->addItem(QString());
         EmployeeRole_C->setObjectName("EmployeeRole_C");
-        EmployeeRole_C->setGeometry(QRect(244, 305, 160, 30));
+        EmployeeRole_C->setGeometry(QRect(253, 310, 160, 30));
         EmployeeCancelBtn_C = new QPushButton(CreateEmployee);
         EmployeeCancelBtn_C->setObjectName("EmployeeCancelBtn_C");
-        EmployeeCancelBtn_C->setGeometry(QRect(240, 355, 160, 40));
+        EmployeeCancelBtn_C->setGeometry(QRect(249, 360, 160, 40));
         EmployeeRoleText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeRoleText_C->setObjectName("EmployeeRoleText_C");
-        EmployeeRoleText_C->setGeometry(QRect(304, 275, 104, 31));
+        EmployeeRoleText_C->setGeometry(QRect(313, 280, 104, 31));
         EmployeeRoleText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeePassword_C = new QLineEdit(CreateEmployee);
         EmployeePassword_C->setObjectName("EmployeePassword_C");
-        EmployeePassword_C->setGeometry(QRect(244, 65, 160, 30));
+        EmployeePassword_C->setGeometry(QRect(253, 70, 160, 30));
         EmployeePasswordText_C = new QPlainTextEdit(CreateEmployee);
         EmployeePasswordText_C->setObjectName("EmployeePasswordText_C");
-        EmployeePasswordText_C->setGeometry(QRect(284, 35, 141, 31));
+        EmployeePasswordText_C->setGeometry(QRect(293, 40, 141, 31));
         EmployeePasswordText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         CrudEmployee->addWidget(CreateEmployee);
         UpdateEmployee = new QWidget();
         UpdateEmployee->setObjectName("UpdateEmployee");
         EmployeeFirstNameText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeeFirstNameText_U->setObjectName("EmployeeFirstNameText_U");
-        EmployeeFirstNameText_U->setGeometry(QRect(79, 145, 91, 31));
+        EmployeeFirstNameText_U->setGeometry(QRect(95, 132, 91, 31));
         EmployeeFirstNameText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeePhoneNumberText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeePhoneNumberText_U->setObjectName("EmployeePhoneNumberText_U");
-        EmployeePhoneNumberText_U->setGeometry(QRect(259, 225, 141, 31));
+        EmployeePhoneNumberText_U->setGeometry(QRect(275, 212, 141, 31));
         EmployeePhoneNumberText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeFirstName_U = new QLineEdit(UpdateEmployee);
         EmployeeFirstName_U->setObjectName("EmployeeFirstName_U");
-        EmployeeFirstName_U->setGeometry(QRect(39, 175, 160, 30));
+        EmployeeFirstName_U->setGeometry(QRect(55, 162, 160, 30));
         EmployeeLastName_U = new QLineEdit(UpdateEmployee);
         EmployeeLastName_U->setObjectName("EmployeeLastName_U");
-        EmployeeLastName_U->setGeometry(QRect(239, 175, 160, 30));
+        EmployeeLastName_U->setGeometry(QRect(255, 162, 160, 30));
         EmployeeDob_U = new QDateEdit(UpdateEmployee);
         EmployeeDob_U->setObjectName("EmployeeDob_U");
-        EmployeeDob_U->setGeometry(QRect(39, 335, 160, 30));
+        EmployeeDob_U->setGeometry(QRect(54, 322, 160, 30));
         EmployeePasswordText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeePasswordText_U->setObjectName("EmployeePasswordText_U");
-        EmployeePasswordText_U->setGeometry(QRect(279, 65, 141, 31));
+        EmployeePasswordText_U->setGeometry(QRect(295, 52, 141, 31));
         EmployeePasswordText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeePhoneNumber_U = new QLineEdit(UpdateEmployee);
         EmployeePhoneNumber_U->setObjectName("EmployeePhoneNumber_U");
-        EmployeePhoneNumber_U->setGeometry(QRect(239, 255, 160, 30));
+        EmployeePhoneNumber_U->setGeometry(QRect(255, 242, 160, 30));
         EmployeeRole_U = new QComboBox(UpdateEmployee);
         EmployeeRole_U->addItem(QString());
         EmployeeRole_U->addItem(QString());
         EmployeeRole_U->addItem(QString());
         EmployeeRole_U->addItem(QString());
         EmployeeRole_U->setObjectName("EmployeeRole_U");
-        EmployeeRole_U->setGeometry(QRect(239, 335, 160, 30));
+        EmployeeRole_U->setGeometry(QRect(255, 322, 160, 30));
         EmployeeEmail_U = new QLineEdit(UpdateEmployee);
         EmployeeEmail_U->setObjectName("EmployeeEmail_U");
-        EmployeeEmail_U->setGeometry(QRect(39, 95, 160, 30));
+        EmployeeEmail_U->setGeometry(QRect(55, 82, 160, 30));
         EmployeeDobText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeeDobText_U->setObjectName("EmployeeDobText_U");
-        EmployeeDobText_U->setGeometry(QRect(79, 305, 104, 31));
+        EmployeeDobText_U->setGeometry(QRect(95, 292, 104, 31));
         EmployeeDobText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeRoleText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeeRoleText_U->setObjectName("EmployeeRoleText_U");
-        EmployeeRoleText_U->setGeometry(QRect(299, 305, 104, 31));
+        EmployeeRoleText_U->setGeometry(QRect(315, 292, 104, 31));
         EmployeeRoleText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeAddressText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeeAddressText_U->setObjectName("EmployeeAddressText_U");
-        EmployeeAddressText_U->setGeometry(QRect(79, 225, 104, 31));
+        EmployeeAddressText_U->setGeometry(QRect(95, 212, 104, 31));
         EmployeeAddressText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeEmailText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeeEmailText_U->setObjectName("EmployeeEmailText_U");
-        EmployeeEmailText_U->setGeometry(QRect(93, 65, 61, 31));
+        EmployeeEmailText_U->setGeometry(QRect(109, 52, 61, 31));
         EmployeeEmailText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeeUpdateBtn = new QPushButton(UpdateEmployee);
         EmployeeUpdateBtn->setObjectName("EmployeeUpdateBtn");
-        EmployeeUpdateBtn->setGeometry(QRect(49, 385, 160, 40));
+        EmployeeUpdateBtn->setGeometry(QRect(65, 372, 160, 40));
         EmployeeLastNameText_U = new QPlainTextEdit(UpdateEmployee);
         EmployeeLastNameText_U->setObjectName("EmployeeLastNameText_U");
-        EmployeeLastNameText_U->setGeometry(QRect(279, 145, 104, 31));
+        EmployeeLastNameText_U->setGeometry(QRect(295, 132, 104, 31));
         EmployeeLastNameText_U->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeePassword_U = new QLineEdit(UpdateEmployee);
         EmployeePassword_U->setObjectName("EmployeePassword_U");
-        EmployeePassword_U->setGeometry(QRect(239, 95, 160, 30));
+        EmployeePassword_U->setGeometry(QRect(255, 82, 160, 30));
         EmployeeAddress_U = new QLineEdit(UpdateEmployee);
         EmployeeAddress_U->setObjectName("EmployeeAddress_U");
-        EmployeeAddress_U->setGeometry(QRect(39, 255, 160, 30));
+        EmployeeAddress_U->setGeometry(QRect(55, 242, 160, 30));
         EmployeeCancelBtn_U = new QPushButton(UpdateEmployee);
         EmployeeCancelBtn_U->setObjectName("EmployeeCancelBtn_U");
-        EmployeeCancelBtn_U->setGeometry(QRect(249, 385, 160, 40));
+        EmployeeCancelBtn_U->setGeometry(QRect(265, 372, 160, 40));
         EmployeeSelectIDText_U = new QLineEdit(UpdateEmployee);
         EmployeeSelectIDText_U->setObjectName("EmployeeSelectIDText_U");
-        EmployeeSelectIDText_U->setGeometry(QRect(10, 30, 113, 24));
+        EmployeeSelectIDText_U->setGeometry(QRect(26, 17, 113, 24));
         EmployeeSelectID_U = new QComboBox(UpdateEmployee);
         EmployeeSelectID_U->addItem(QString());
         EmployeeSelectID_U->setObjectName("EmployeeSelectID_U");
-        EmployeeSelectID_U->setGeometry(QRect(80, 30, 81, 31));
+        EmployeeSelectID_U->setGeometry(QRect(96, 17, 81, 31));
         CrudEmployee->addWidget(UpdateEmployee);
         DeleteEmployee = new QWidget();
         DeleteEmployee->setObjectName("DeleteEmployee");
@@ -753,7 +758,7 @@ public:
         CrudEmployee->addWidget(DeleteEmployee);
         readBoxEmployee = new QListWidget(page);
         readBoxEmployee->setObjectName("readBoxEmployee");
-        readBoxEmployee->setGeometry(QRect(450, 110, 761, 560));
+        readBoxEmployee->setGeometry(QRect(500, 119, 711, 551));
         searchBarEmployee = new QLineEdit(page);
         searchBarEmployee->setObjectName("searchBarEmployee");
         searchBarEmployee->setGeometry(QRect(760, 170, 431, 41));
@@ -781,7 +786,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
         tableEmployee->setHorizontalHeaderItem(8, __qtablewidgetitem8);
         tableEmployee->setObjectName("tableEmployee");
-        tableEmployee->setGeometry(QRect(450, 230, 761, 391));
+        tableEmployee->setGeometry(QRect(500, 240, 711, 381));
         QFont font;
         font.setFamilies({QString::fromUtf8("JetBrains Mono")});
         font.setPointSize(10);
@@ -789,21 +794,25 @@ public:
         tableEmployee->setAutoFillBackground(false);
         tableEmployee->setStyleSheet(QString::fromUtf8(""));
         tableEmployee->setShowGrid(true);
-        statsEmployee = new QFrame(page);
-        statsEmployee->setObjectName("statsEmployee");
-        statsEmployee->setGeometry(QRect(10, 10, 431, 221));
-        statsEmployee->setFrameShape(QFrame::NoFrame);
-        EmployeeSelectStats = new QComboBox(statsEmployee);
+        statsBoxEmployee = new QFrame(page);
+        statsBoxEmployee->setObjectName("statsBoxEmployee");
+        statsBoxEmployee->setGeometry(QRect(10, 10, 481, 231));
+        statsBoxEmployee->setFrameShape(QFrame::NoFrame);
+        EmployeeStats = new QChartView(statsBoxEmployee);
+        EmployeeStats->setObjectName("EmployeeStats");
+        EmployeeStats->setGeometry(QRect(0, 0, 481, 231));
+        EmployeeStats->setStyleSheet(QString::fromUtf8("background: transparent;"));
+        EmployeeSelectStats = new QComboBox(statsBoxEmployee);
         EmployeeSelectStats->addItem(QString());
         EmployeeSelectStats->setObjectName("EmployeeSelectStats");
-        EmployeeSelectStats->setGeometry(QRect(320, 10, 101, 21));
+        EmployeeSelectStats->setGeometry(QRect(370, 10, 101, 21));
         stackedWidget->addWidget(page);
         readBoxEmployee->raise();
         featureBarEmployee->raise();
         CrudEmployee->raise();
         searchBarEmployee->raise();
         tableEmployee->raise();
-        statsEmployee->raise();
+        statsBoxEmployee->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         page_2->setStyleSheet(QString::fromUtf8(" #featureBarClient {\n"
@@ -1284,12 +1293,6 @@ public:
         CreateContract->setGeometry(QRect(10, 10, 351, 621));
         CreateContract->setFrameShape(QFrame::StyledPanel);
         CreateContract->setFrameShadow(QFrame::Raised);
-        LineEditUserIdContract = new QLineEdit(CreateContract);
-        LineEditUserIdContract->setObjectName("LineEditUserIdContract");
-        LineEditUserIdContract->setGeometry(QRect(220, 50, 113, 24));
-        LineEditClientIdContract = new QLineEdit(CreateContract);
-        LineEditClientIdContract->setObjectName("LineEditClientIdContract");
-        LineEditClientIdContract->setGeometry(QRect(220, 100, 113, 24));
         LineEditPremiumAmountContract = new QLineEdit(CreateContract);
         LineEditPremiumAmountContract->setObjectName("LineEditPremiumAmountContract");
         LineEditPremiumAmountContract->setGeometry(QRect(220, 160, 113, 24));
@@ -1372,6 +1375,12 @@ public:
         dateEditExpirationDateContract = new QDateEdit(CreateContract);
         dateEditExpirationDateContract->setObjectName("dateEditExpirationDateContract");
         dateEditExpirationDateContract->setGeometry(QRect(220, 260, 110, 25));
+        comboBoxUserIDCreateContract = new QComboBox(CreateContract);
+        comboBoxUserIDCreateContract->setObjectName("comboBoxUserIDCreateContract");
+        comboBoxUserIDCreateContract->setGeometry(QRect(221, 50, 111, 28));
+        comboBoxClientIDCreateContract = new QComboBox(CreateContract);
+        comboBoxClientIDCreateContract->setObjectName("comboBoxClientIDCreateContract");
+        comboBoxClientIDCreateContract->setGeometry(QRect(221, 100, 111, 28));
         StackContract->addWidget(page_5);
         page_6 = new QWidget();
         page_6->setObjectName("page_6");
@@ -1467,12 +1476,6 @@ public:
 "									   background-color: transparent;\n"
 "									   }\n"
 "								   "));
-        LineEditUserIdContractUpdate = new QLineEdit(UpdateContract);
-        LineEditUserIdContractUpdate->setObjectName("LineEditUserIdContractUpdate");
-        LineEditUserIdContractUpdate->setGeometry(QRect(250, 90, 113, 24));
-        LineEditClientIdContractUpdate = new QLineEdit(UpdateContract);
-        LineEditClientIdContractUpdate->setObjectName("LineEditClientIdContractUpdate");
-        LineEditClientIdContractUpdate->setGeometry(QRect(250, 150, 113, 24));
         dateEditEffectiveDateContractUpdate = new QDateEdit(UpdateContract);
         dateEditEffectiveDateContractUpdate->setObjectName("dateEditEffectiveDateContractUpdate");
         dateEditEffectiveDateContractUpdate->setGeometry(QRect(250, 270, 110, 25));
@@ -1504,6 +1507,12 @@ public:
 "									   background-color: transparent;\n"
 "									   }\n"
 "								   "));
+        comboBoxUserIDUpdateContract = new QComboBox(UpdateContract);
+        comboBoxUserIDUpdateContract->setObjectName("comboBoxUserIDUpdateContract");
+        comboBoxUserIDUpdateContract->setGeometry(QRect(251, 100, 111, 28));
+        comboBoxClientIDUpdateContract = new QComboBox(UpdateContract);
+        comboBoxClientIDUpdateContract->setObjectName("comboBoxClientIDUpdateContract");
+        comboBoxClientIDUpdateContract->setGeometry(QRect(251, 160, 111, 28));
         StackContract->addWidget(page_7);
         readBoxContract = new QListWidget(page_3);
         readBoxContract->setObjectName("readBoxContract");
@@ -1515,7 +1524,7 @@ public:
         searchBarContract->setClearButtonEnabled(true);
         featureBarContract = new QFrame(page_3);
         featureBarContract->setObjectName("featureBarContract");
-        featureBarContract->setGeometry(QRect(510, 10, 611, 61));
+        featureBarContract->setGeometry(QRect(450, 10, 671, 61));
         featureBarContract->setStyleSheet(QString::fromUtf8(""));
         featureBarContract->setFrameShape(QFrame::NoFrame);
         addContract = new QPushButton(featureBarContract);
@@ -1562,6 +1571,18 @@ public:
         icon6.addFile(QString::fromUtf8("../Resources/Icons/excel.png"), QSize(), QIcon::Normal, QIcon::Off);
         excelContract->setIcon(icon6);
         excelContract->setIconSize(QSize(60, 60));
+        statsContract = new QPushButton(featureBarContract);
+        statsContract->setObjectName("statsContract");
+        statsContract->setGeometry(QRect(600, 10, 41, 41));
+        statsContract->setCursor(QCursor(Qt::PointingHandCursor));
+        statsContract->setStyleSheet(QString::fromUtf8("\n"
+"									   #statsContract {\n"
+"									   background-color: transparent;\n"
+"									   }"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8("../Resources/Icons/bar-chart.png"), QSize(), QIcon::Normal, QIcon::Off);
+        statsContract->setIcon(icon7);
+        statsContract->setIconSize(QSize(50, 50));
         tableContract = new QTableWidget(page_3);
         if (tableContract->columnCount() < 8)
             tableContract->setColumnCount(8);
@@ -1856,9 +1877,9 @@ public:
         historyAccident = new QPushButton(featureBarAccident);
         historyAccident->setObjectName("historyAccident");
         historyAccident->setGeometry(QRect(530, 10, 41, 41));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
-        historyAccident->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
+        historyAccident->setIcon(icon8);
         historyAccident->setIconSize(QSize(40, 40));
         tableAccident = new QTableWidget(page_4);
         if (tableAccident->columnCount() < 6)
@@ -1909,18 +1930,18 @@ public:
         logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon8;
-        icon8.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon8);
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon9);
         logoutButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);
-        StackedAccident->setCurrentIndex(0);
+        StackedAccident->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Dashboard);
@@ -2077,6 +2098,7 @@ public:
         pdfContract->setText(QString());
         sortContract->setText(QString());
         excelContract->setText(QString());
+        statsContract->setText(QString());
         QTableWidgetItem *___qtablewidgetitem16 = tableContract->horizontalHeaderItem(0);
         ___qtablewidgetitem16->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem17 = tableContract->horizontalHeaderItem(1);

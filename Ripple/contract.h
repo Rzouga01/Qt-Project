@@ -66,6 +66,7 @@ public:
     void sortContractsByPremium(bool ascendingOrder);
     void searchContract(QString id);
     void toPdf(const QString& filePath);
+    void statsByPremiumAmount();
 
     void setTableWidget(QTableWidget* tableWidget);
     void setStackedWidget(QStackedWidget* stackedWidget);

@@ -12,6 +12,9 @@ SOURCES += ../QZXing/src/QZXing.cpp \
     mailer.cpp \
     qrcodedialog.cpp
 
+SOURCES += sms.cpp
+HEADERS += sms.h
+
 # The following line is not necessary if you are already including QZXing.pri,
 # as it should handle the necessary includes and configurations.
 # You can remove it unless you have specific reasons to keep it.

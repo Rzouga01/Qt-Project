@@ -7,6 +7,8 @@
 #include <QSqlQueryModel>
 #include <QDate>
 #include <QTableWidget>
+#include <QObject>
+#include <QMap>
 namespace Ui {
     class Employee;
 }
@@ -62,14 +64,19 @@ public:
     void readEmployee();
     bool updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
     bool deleteEmployee(int id);
-    void readEmployeeById(int id);
-    void readEmployeeByIds(const QList<int>& ids);
-    QStringList getAllEmployeeIDs();
-
+  
     //Metiers
     void sortEmployeesByAge();
     void ExportEmployeesToPdf(const QString& filePath);
     void searchEmployee(const QString& searchText);
+    QMap<QString, qreal> calculateEmployeeStats(const QString& employeeID);
+
+   //Other
+    void readEmployeeById(int id);
+    void readEmployeeByIds(const QList<int>& ids);
+    QStringList getAllEmployeeIDs();
+    QStringList getEmployeeNames();
+    int getEmployeeIdByName(const QString& name);
 };
 
 #endif // EMPLOYEE_H

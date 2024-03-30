@@ -7,6 +7,14 @@
 #include <QTableWidgetItem>
 #include <QTableWidget>
 #include <QSqlError>
+#include <QTextTable>
+#include <QTextCursor>
+#include <QPdfWriter>
+#include <QTextDocument>
+#include <QPainter>
+#include <QSqlRecord>
+#include <QHeaderView>
+
 
 
 
@@ -106,7 +114,7 @@ bool accident::create(QString type, int damage, QDate date, QString location, in
 void accident::accidentRead()
 {
     if (tableAccident == nullptr) {
-        qDebug() << "Error: tableClient is null";
+        qDebug() << "Error: tableClien is null";
         return;
     }
 
@@ -220,5 +228,260 @@ void accident::update(int acc_id, QString type, int damage, QDate date, QString 
       query.bindValue(":client_id",client_id);
       query.exec();*/
 }
+void accident::sortAccidentByDamage(bool ascendingOrder)
+{
+    QString sortOrder = ascendingOrder ? "ASC" : "DESC";
 
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM accidents ORDER BY damage " + sortOrder);
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching sorted data...";
+
+    // Clear the existing table contents
+    tableAccident->clearContents();
+    tableAccident->setRowCount(0);
+
+    int row = 0;
+    while (qry.next()) {
+        int col = 0;
+        tableAccident->insertRow(row);
+
+        // Set data items for each column
+        QTableWidgetItem* accidentIdItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* clientIdItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* typeItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* damageItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* DateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+        QTableWidgetItem* locationItem = new QTableWidgetItem(qry.value(col++).toString());
+
+        // Set items to the table
+        tableAccident->setItem(row, 0, accidentIdItem);
+        tableAccident->setItem(row, 1, clientIdItem);
+        tableAccident->setItem(row, 2, typeItem);
+        tableAccident->setItem(row, 3, damageItem);
+        tableAccident->setItem(row, 4, DateItem);
+        tableAccident->setItem(row, 5, locationItem);
+
+        ++row;
+    }
+    tableAccident->repaint();
+
+    qDebug() << "Accident data sorted by damage in" << sortOrder << "order.";
+}
+void accident::AccidenttoPdf(const QString& filePath)
+{
+    qDebug() << "Exporting accident data to PDF:" << filePath;
+
+    if (filePath.isEmpty()) {
+        qDebug() << "File path is empty.";
+        return;
+    }
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM accidents");
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching data...";
+
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+
+    cursor.insertHtml("<h1 style='text-align: center; color: #333333;'>Accidents List</h1><br>");
+
+    QTextTableFormat tableFormat;
+    tableFormat.setAlignment(Qt::AlignHCenter);
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 95));
+    tableFormat.setCellPadding(8);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setBorder(1);
+    tableFormat.setBorderStyle(QTextFrameFormat::BorderStyle_Solid);
+
+    QTextCharFormat headerFormat;
+    headerFormat.setBackground(QColor("#C0C0C0"));
+    headerFormat.setForeground(Qt::black);
+    headerFormat.setFontWeight(QFont::Bold);
+    headerFormat.setFontPointSize(12);
+
+    QTextCharFormat altRowFormat;
+    altRowFormat.setBackground(Qt::lightGray);
+
+    int numCols = qry.record().count();
+
+
+    QTextTable* table = cursor.insertTable(1, numCols, tableFormat);
+    QTextCursor cellCursor = table->cellAt(0, 0).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("ID");
+
+    cellCursor = table->cellAt(0, 1).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Client ID");
+
+    cellCursor = table->cellAt(0, 2).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Type");
+
+    cellCursor = table->cellAt(0, 3).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Damage");
+
+    cellCursor = table->cellAt(0, 4).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Date");
+
+    cellCursor = table->cellAt(0, 5).firstCursorPosition();
+    cellCursor.setCharFormat(headerFormat);
+    cellCursor.insertText("Location");
+
+
+    int row = 1;
+    while (qry.next()) {
+        table->appendRows(1);
+        for (int col = 0; col < numCols; ++col) {
+            QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
+            QTextCharFormat dataFormat;
+            dataFormat.setFontPointSize(10);
+            if (row % 2 == 1) {
+                dataFormat.setBackground(Qt::lightGray);
+            }
+            cellCursor.setCharFormat(dataFormat);
+            cellCursor.insertText(qry.value(col).toString());
+        }
+        ++row;
+    }
+
+    QPdfWriter pdfWriter(filePath);
+    pdfWriter.setPageSize(QPageSize(QPageSize::Letter));
+    pdfWriter.setResolution(150);
+
+    QPainter painter(&pdfWriter);
+    painter.begin(&pdfWriter);
+
+    doc.drawContents(&painter);
+
+    painter.end();
+
+    qDebug() << "PDF file successfully created:" << filePath;
+    QMessageBox::information(nullptr, "Export Successful", "accident Data has been successfully exported to PDF.\nFile saved to: " + filePath);
+}
+
+void accident::searchAccident(const QString& search)
+{
+    if (tableAccident == nullptr) {
+        qDebug() << "Error: tableAccident is null";
+        return;
+    }
+
+    tableAccident->clearContents();
+    tableAccident->setRowCount(0);
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM accidents WHERE LOWER(LOCATION) LIKE LOWER(:search) ");
+    qry.bindValue(":search", "%" + search.toLower() + "%");
+
+    if (qry.exec())
+    {
+        tableAccident->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+        while (qry.next())
+        {
+            int row = tableAccident->rowCount();
+            tableAccident->insertRow(row);
+
+            tableAccident->setFont(QFont("Helvetica", 10));
+
+            tableAccident->setItem(row, 0, new QTableWidgetItem(qry.value(0).toString()));
+            tableAccident->setItem(row, 1, new QTableWidgetItem(qry.value(1).toString()));
+            tableAccident->setItem(row, 2, new QTableWidgetItem(qry.value(2).toString()));
+            tableAccident->setItem(row, 3, new QTableWidgetItem(qry.value(3).toString()));
+            tableAccident->setItem(row, 4, new QTableWidgetItem(qry.value(4).toString()));
+            tableAccident->setItem(row, 5, new QTableWidgetItem(qry.value(5).toString()));
+            tableAccident->setItem(row, 6, new QTableWidgetItem(qry.value(6).toDate().toString()));
+
+        }
+
+        tableAccident->resizeColumnsToContents();
+        tableAccident->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+        tableAccident->repaint();
+
+        if (tableAccident->rowCount() == 0) {
+            qDebug() << "No matching records found for search:" << search;
+        }
+    }
+    else
+    {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+
+    }
+}
+void accident::accidentstatsByDamage()
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT DAMAGE_GROUP, COUNT(*) AS ACCIDENT_COUNT \
+                 FROM ( \
+                     SELECT CASE \
+                             WHEN DAMAGE BETWEEN 0 AND 3000 THEN '0-3000' \
+                             WHEN DAMAGE BETWEEN 3001 AND 5000 THEN '3001-5000' \
+                             ELSE '5001+' \
+                         END AS DAMAGE_GROUP \
+                     FROM ACCIDENTS \
+                 ) DamageGroups \
+                 GROUP BY DAMAGE_GROUP \
+                 ORDER BY DAMAGE_GROUP");
+
+    if (!qry.exec()) {
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return;
+    }
+
+    qDebug() << "Query executed successfully. Fetching data...";
+
+    QBarSeries *barSeries = new QBarSeries();
+
+    while (qry.next()) {
+        QString damageGroup = qry.value("DAMAGE_GROUP").toString();
+        int accidentCount = qry.value("ACCIDENT_COUNT").toInt();
+
+        // Create a bar set representing each damage category and its accident count
+        QBarSet *barSet = new QBarSet(damageGroup);
+        *barSet << accidentCount;
+        barSeries->append(barSet);
+    }
+
+    QChart *chart = new QChart();
+    chart->addSeries(barSeries);
+    chart->setTitle("Accidents by Damage Group");
+
+    QStringList categories; // X-axis categories
+
+    // Adding categories based on damage groups
+    categories << "0-3000" << "3001-5000" << "5001+";
+
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    barSeries->attachAxis(axisX);
+
+    QValueAxis *axisY = new QValueAxis();
+    axisY->setLabelFormat("%i");
+    chart->addAxis(axisY, Qt::AlignLeft);
+    barSeries->attachAxis(axisY);
+
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    chartView->setMinimumSize(800, 600);
+    chartView->show();
+}
 

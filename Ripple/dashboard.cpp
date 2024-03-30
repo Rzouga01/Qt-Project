@@ -4,6 +4,7 @@
 #include <QtWidgets>
 #include <QUiLoader>
 #include <QFileDialog>
+#include <QtCharts>
 #include "mainwindow.h"
 #include "connection.h"
 #include "client.h"
@@ -47,6 +48,7 @@ void Dashboard::update() {
     ClientDashboardConnectUi();
     // Employee
     EmployeeDashboardConnectUi();
+    displayEmployeeStats(22);
     // Contract
     ContractDashboardConnectUi();
     // Accident
@@ -88,23 +90,9 @@ void Dashboard::ClientDashboardConnectUi() {
         ui->QRCodeClientInput->clear();
     });
 
-        connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
+     connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
-        QSqlQuery query;
-
-
-        if (!query.exec("SELECT * FROM CLIENTS")) {
-            qDebug() << "Error executing query:" << query.lastError().text();
-            return;
-        }
-
-        while (query.next()) {
-            QString clientName = query.value(2).toString();
-            QVariant clientId = query.value(0).toInt();
-
-            qDebug() << "Adding item:" << clientName << "ID:" << clientId;
-            ui->QRCodeClientCombo->addItem(clientName, clientId);
-        }
+    fillComboBoxClient();
 
 
     ui->StackedClient->setCurrentIndex(0);
@@ -187,7 +175,8 @@ void Dashboard::onAddClickedClient() {
 
                     MasterClient.ReadClient();
                     clearInputFieldsCreateClient();
-                    ui->QrCodeClientCombo->repaint();
+                    fillComboBoxClient();
+
 
                     QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
 
@@ -197,8 +186,6 @@ void Dashboard::onAddClickedClient() {
         }
     }
 }
-
-
 
 void Dashboard::onUpdateClickedClient() {
     Client MasterClient(ui->tableClient, ui->StackedClient, this);
@@ -245,7 +232,7 @@ void Dashboard::onUpdateClickedClient() {
                 ui->ClientUpdateDob->date())) {
                 MasterClient.ReadClient();
                 clearInputFieldsUpdateClient();
-                ui->QrCodeClientCombo->repaint();
+                fillComboBoxClient();
                 QMessageBox::information(this, tr("Success"), tr("Client Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else {
@@ -273,7 +260,7 @@ void Dashboard::onDeleteClickedClient() {
             if (MasterClient.DeleteClient(id.toInt())) {
                 MasterClient.ReadClient();
                 clearInputFieldsDeleteClient();
-                ui->QrCodeClientCombo->repaint();
+                fillComboBoxClient();
                 QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
             }
             else {
@@ -318,9 +305,6 @@ void Dashboard::clearInputFieldsDeleteClient() {
     ui->ClientDeleteID->clear();
 }
 
-
-
-
 void Dashboard::onSortClickedClient() {
     static bool isSorted = false;
 
@@ -330,7 +314,6 @@ void Dashboard::onSortClickedClient() {
     isSorted = !isSorted; // Toggle the sorting order for the next call
 }
 
-
 void Dashboard::onPdfClickedClient() {
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
     if (!filePath.isEmpty()) {
@@ -339,19 +322,16 @@ void Dashboard::onPdfClickedClient() {
     }
 }
 
-
 void Dashboard::onSearchIdClient() {
     Client MasterClient(ui->tableClient, this);
     QString id = ui->searchBarClient->text();
     MasterClient.searchClientID(id);
 }
 
-
 void Dashboard::onStatByAge() {
     Client MasterClient(ui->tableClient, this);
     MasterClient.statsByAge();
 }
-
 
 void Dashboard::onQRCodeClickClient()
 {
@@ -379,6 +359,7 @@ void Dashboard::onQRCodeClickClient()
     if (ui->QRCodeClientCombo->currentIndex() != 0 && !ui->QRCodeClientInput->text().isEmpty()) {
         querySQL = "SELECT * FROM CLIENTS WHERE CLIENT_ID=" + QString::number(idCombo);
         ui->QRCodeClientInput->clear();
+        ui->QRCodeClientCombo->setCurrentIndex(0);
     }
 
     qDebug() << "Query SQL:" << querySQL; // Debug output to check the SQL query
@@ -410,7 +391,6 @@ void Dashboard::onQRCodeClickClient()
     }
 }
 
-
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
     // Create an instance of the Mailer class
@@ -419,7 +399,7 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
 
     // Set up SMTP server, login credentials, sender, and recipient
     mailer.setSmtpServer("smtp.gmail.com", 587);
-    mailer.setLoginCredentials("", "etqt yumn darx viah");
+    mailer.setLoginCredentials("", "xmib fgck jiwd pmyk");
     mailer.setSender("");
     mailer.setRecipient(recipientEmail); // Use the provided recipient email
 
@@ -458,8 +438,28 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
     }
 }
 
+void Dashboard::fillComboBoxClient()
+{
+    QSqlQuery query;
 
 
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    else{
+
+    ui->QRCodeClientCombo->clear();
+    ui->QRCodeClientCombo->addItem("Select Client", 0);
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+
+        qDebug() << "Adding item:" << clientName << "ID:" << clientId;
+        ui->QRCodeClientCombo->addItem(clientName, clientId);
+    }
+    }
+}
 
 
 
@@ -479,6 +479,15 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->sortEmployee, &QPushButton::clicked, this, &Dashboard::onSortEmployeeClicked);
     QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
     QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
+
+    Employee employee; 
+
+    QStringList employeeNames = employee.getEmployeeNames(); 
+    ui->EmployeeSelectStats->addItems(employeeNames);
+
+   QObject::connect(ui->EmployeeSelectStats, QOverload<int>::of(&QComboBox::currentIndexChanged),
+    [=](int index) { this->onEmployeeSelectStatsChanged(ui->EmployeeSelectStats->currentText()); });
+
 
     ui->CrudEmployee->setCurrentIndex(0);
 }
@@ -641,7 +650,7 @@ void Dashboard::openUpdateForm() {
         ui->EmployeeSelectID_D->addItems(ids);
 
         ui->EmployeeSelectID_D->setCurrentIndex(0);
-    }
+        }
     else {
         qDebug() << "Error choosing delete.";
     }
@@ -770,6 +779,97 @@ void Dashboard::onSearchTextChanged(const QString& searchText) {
     emp.searchEmployee(searchText);
 }
 
+void Dashboard::displayEmployeeStats(int employeeID)
+{
+    // Sample data for testing
+    QMap<QString, qreal> stats;
+    stats["Total Working Days"] = 20;
+    stats["Late Arrivals"] = 5;
+    stats["Early Departures"] = 3;
+    stats["Absenteeism Rate"] = 10.0;
+
+    // Create a QBarSeries
+    QBarSeries* series = new QBarSeries();
+
+    // Create a QChart
+    QChart* chart = new QChart();
+
+    // Create a QBarSet
+    QBarSet* set = new QBarSet("Statistics");
+
+    // Populate the QBarSet with sample data
+    *set << stats.value("Total Working Days")
+        << stats.value("Late Arrivals")
+        << stats.value("Early Departures")
+        << stats.value("Absenteeism Rate");
+
+    // Add the QBarSet to the QBarSeries
+    series->append(set);
+
+    // Add the QBarSeries to the QChart
+    chart->addSeries(series);
+
+    // Set the title of the chart
+    chart->setTitle("Employee Statistics");
+
+    // Set the background of the chart to transparent
+    chart->setBackgroundBrush(QBrush(Qt::transparent));
+
+    // Create axes
+    QBarCategoryAxis* xAxis = new QBarCategoryAxis();
+    xAxis->append("Total Working Days");
+    xAxis->append("Late Arrivals");
+    xAxis->append("Early Departures");
+    xAxis->append("Absenteeism Rate");
+    xAxis->setLabelsFont(QFont("Arial", 10)); // Adjust font size as needed
+
+    QValueAxis* yAxis = new QValueAxis();
+    yAxis->setTitleText("Value");
+    yAxis->setLabelsFont(QFont("Arial", 10)); // Adjust font size as needed
+
+    // Add axes to the chart
+    chart->addAxis(xAxis, Qt::AlignBottom);
+    chart->addAxis(yAxis, Qt::AlignLeft);
+    series->attachAxis(xAxis);
+    series->attachAxis(yAxis);
+
+    // Hide the legend
+    chart->legend()->setVisible(false);
+
+    // Create a QChartView
+    QChartView* chartView = new QChartView(chart);
+
+    // Set the size policy and minimum size of the QChartView
+    chartView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    chartView->setMinimumSize(400, 200); // Adjust the size as needed
+
+    // Set the render hint for antialiasing
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Find the EmployeeStats widget in the UI
+    QChartView* employeeStatsView = findChild<QChartView*>("EmployeeStats");
+
+    // Set the chart view to the EmployeeStats widget
+    if (employeeStatsView) {
+        employeeStatsView->setChart(chart);
+    }
+}
+
+void Dashboard::onEmployeeSelectStatsChanged(const QString& employeeName) {
+    Employee employee; 
+
+  
+    int employeeId = employee.getEmployeeIdByName(employeeName);
+    if (employeeId != -1) {
+    
+        displayEmployeeStats(employeeId);
+    }
+    else {
+        qDebug() << "Error: Unable to retrieve employee ID for selected name.";
+    }
+}
+
+
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -778,7 +878,8 @@ void Dashboard::ContractDashboardConnectUi() {
 
     QObject::connect(ui->sortContract,&QPushButton::clicked,this,&Dashboard::onSortClickedContract);
     QObject::connect(ui->pdfContract ,&QPushButton::clicked,this,&Dashboard::onPdfClickedContract);
-    //QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
+    QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
+    QObject::connect(ui->statsContract, &QPushButton::clicked, this, &Dashboard::onStatByPremiumAmount);
 
 
     QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
@@ -789,6 +890,37 @@ void Dashboard::ContractDashboardConnectUi() {
     QObject::connect(ui->CreateContractButton, &QPushButton::clicked, this, &Dashboard::onAddClickedContract);
     QObject::connect(ui->UpdateContractButton, &QPushButton::clicked, this, &Dashboard::onUpdateClickedContract);
     QObject::connect(ui->DeleteContractButton, &QPushButton::clicked, this, &Dashboard::onDeleteClickedContract);
+
+    QSqlQuery query;
+
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    // Counter to track the number of rows fetched
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+
+
+        ui->comboBoxClientIDCreateContract->addItem(clientName, clientId);
+        ui->comboBoxClientIDUpdateContract->addItem(clientName, clientId);
+
+    }
+
+
+    if (!query.exec("SELECT * FROM EMPLOYEES")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    // Counter to track the number of rows fetched
+    while (query.next()) {
+        QString UserName = query.value(2).toString(); // Supposons que le nom de l'employï¿½ est ï¿½ l'index 2
+        QVariant UserId = query.value(0);
+
+        ui->comboBoxUserIDCreateContract->addItem(UserName, UserId);
+        ui->comboBoxUserIDUpdateContract->addItem(UserName, UserId);
+    }
 
 
 
@@ -840,16 +972,18 @@ void Dashboard::onStackedContractIndexChanged(int index) {
 void Dashboard::onAddClickedContract() {
     contract MasterContract(ui->tableContract, ui->StackContract, this);
 
-    QString clientIdStr = ui->LineEditClientIdContract->text();
-    QString userIdStr = ui->LineEditUserIdContract->text();
     QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
     QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
     QDate expirationDate = ui->dateEditExpirationDateContract->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
-    QString type = ui->lineEditTypeContract->text();
+    QString type = ui->lineEditTypeContract->text().toLower();
 
-    // Vérifier si les champs obligatoires ne sont pas vides
-    if (clientIdStr.isEmpty() || userIdStr.isEmpty() ||
+    // Rï¿½cupï¿½rer les valeurs sï¿½lectionnï¿½es dans les combobox pour le client ID et le user ID
+    QVariant clientIdVar = ui->comboBoxClientIDCreateContract->currentData();
+    QVariant userIdVar = ui->comboBoxUserIDCreateContract->currentData();
+
+    // Vï¿½rifier si les champs obligatoires ne sont pas vides
+    if (clientIdVar.isNull() || userIdVar.isNull() ||
         premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() ||
         effectiveDate.isNull() || expirationDate.isNull()) {
 
@@ -858,15 +992,22 @@ void Dashboard::onAddClickedContract() {
         return;
     }
 
-    // Convertir les valeurs saisies en types appropriés
-    int clientId = clientIdStr.toInt();
-    int userId = userIdStr.toInt();
+    // Convertir les valeurs saisies en types appropriï¿½s
+    int clientId = clientIdVar.toInt();
+    int userId = userIdVar.toInt();
     int premiumAmount = premiumAmountStr.toInt();
     int paymentStatus = paymentStatusStr.toInt();
 
-    // Vérifier si les champs numériques sont valides
+    // Vï¿½rifier si les champs numï¿½riques sont valides
     if (clientId <= 0 || userId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
+        clearInputFieldsCreateContract();
+        return;
+    }
+
+    // Vï¿½rifier si le type est parmi les valeurs autorisï¿½es
+    if (type != "house" && type != "car" && type != "life" && type != "all risk") {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
         return;
     }
@@ -882,9 +1023,8 @@ void Dashboard::onAddClickedContract() {
     }
 }
 
+
 void Dashboard::clearInputFieldsContract() {
-    ui->LineEditUserIdContract->clear();
-    ui->LineEditClientIdContract->clear();
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
@@ -896,27 +1036,28 @@ void Dashboard::onUpdateClickedContract() {
     contract MasterContract(ui->tableContract, ui->StackContract, this);
 
     int contractId = ui->lineEditContractIDUpdate->text().toInt();
-    QString userIdStr = ui->LineEditUserIdContractUpdate->text().trimmed();
-    QString clientIdStr = ui->LineEditClientIdContractUpdate->text().trimmed();
     QString premiumAmountStr = ui->LineEditPremiumAmountContractUpdate->text().trimmed();
     QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
     QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
     QString paymentStatusStr = ui->LineEditPaymentstatusContractUpdate->text().trimmed();
-    QString type = ui->lineEditTypeContractUpdate->text().trimmed();
+    QString type = ui->lineEditTypeContractUpdate->text().trimmed().toLower(); // Convertir en minuscules pour ï¿½tre insensible ï¿½ la casse
 
-    if (userIdStr.isEmpty() || clientIdStr.isEmpty() || premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
+    // Assurez-vous de rï¿½cupï¿½rer les valeurs sï¿½lectionnï¿½es dans les combobox pour le client ID et le user ID
+    QVariant clientId = ui->comboBoxClientIDUpdateContract->currentData();
+    QVariant userId = ui->comboBoxUserIDUpdateContract->currentData();
+
+    // Vï¿½rifier si les champs obligatoires ne sont pas vides
+    if (premiumAmountStr.isEmpty() || paymentStatusStr.isEmpty() || type.isEmpty()) {
         QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
     }
 
     bool conversionOk;
-    int userId = userIdStr.toInt(&conversionOk);
-    int clientId = clientIdStr.toInt(&conversionOk);
     int premiumAmount = premiumAmountStr.toInt(&conversionOk);
     int paymentStatus = paymentStatusStr.toInt(&conversionOk);
 
-    if (!conversionOk || contractId <= 0 || userId <= 0 || clientId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
+    if (!conversionOk || contractId <= 0 || premiumAmount <= 0 || (paymentStatus != 0 && paymentStatus != 1)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for numeric fields or payment status"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
@@ -934,7 +1075,14 @@ void Dashboard::onUpdateClickedContract() {
         return;
     }
 
-    if (MasterContract.UpdateContract(contractId, userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
+    // Vï¿½rifier si le type est parmi les valeurs autorisï¿½es
+    if (type != "house" && type != "car" && type != "life" && type != "all risk") {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
+        clearInputFieldsUpdateContract();
+        return;
+    }
+
+    if (MasterContract.UpdateContract(contractId, userId.toInt(), clientId.toInt(), premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
         MasterContract.ReadContract();
         clearInputFieldsUpdateContract();
         QMessageBox::information(this, tr("Success"), tr("Contract updated successfully"), QMessageBox::Ok);
@@ -943,6 +1091,7 @@ void Dashboard::onUpdateClickedContract() {
         QMessageBox::critical(this, tr("Error"), tr("Contract not updated"), QMessageBox::Ok);
     }
 }
+
 
 void Dashboard::onDeleteClickedContract() {
     contract MasterContract(ui->tableContract, ui->StackContract, this);
@@ -982,8 +1131,6 @@ void Dashboard::onDeleteCancelClickedContract() {
 }
 
 void Dashboard::clearInputFieldsCreateContract() {
-    ui->LineEditUserIdContract->clear();
-    ui->LineEditClientIdContract->clear();
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
@@ -992,8 +1139,6 @@ void Dashboard::clearInputFieldsCreateContract() {
 }
 
 void Dashboard::clearInputFieldsUpdateContract() {
-    ui->LineEditUserIdContractUpdate->clear();
-    ui->LineEditClientIdContractUpdate->clear();
     ui->LineEditPremiumAmountContractUpdate->clear();
     ui->dateEditEffectiveDateContractUpdate->setDate(QDate());
     ui->dateEditExpirationDateContractUpdate->setDate(QDate());
@@ -1009,13 +1154,18 @@ void Dashboard::onSortClickedContract() {
 
     isSorted = !isSorted;
 }
-/*
+
 void Dashboard::onSearchIdContract(QString searched) {
-    contract MasterContract(ui->tableClient,ui->StackContract, this); // Utilisation de la classe contract au lieu de Client
+    contract MasterContract(ui->tableContract,ui->StackContract, this); // Utilisation de la classe contract au lieu de Client
     QString id = ui->searchBarContract->text();
     MasterContract.searchContract(id); // Appel de la fonction searchContractID pour rechercher les contrats
 }
-*/
+
+void Dashboard::onStatByPremiumAmount() {
+    contract MasterContract(ui->tableContract, ui->StackContract, this);
+    MasterContract.statsByPremiumAmount(); // Appelle statsByPremiumAmount de la classe Contract
+}
+
 void Dashboard::onPdfClickedContract() {
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
     if (!filePath.isEmpty()) {
@@ -1034,9 +1184,9 @@ void Dashboard::AccidentDashboardConnectUi()
     accident MasterAccident(ui->tableAccident, this);
 
 
-
     QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
+    QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
 
 
     QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
@@ -1072,15 +1222,23 @@ void Dashboard::AccidentDashboardConnectUi()
     qDebug() << "Total rows fetched:" << rowCount;
 
     ui->StackedAccident->setCurrentIndex(0);
+    MasterAccident.accidentstatsByDamage();
 }
 
 void Dashboard::onAddCancelClickedAccident() {
     clearInputFieldsAccidentCreate();
 }
 
-void Dashboard::onSortClickedAccident() {}
 
-void Dashboard::onPdfClickedAccient() {}
+void Dashboard::onPdfClickedAccient() {
+
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
+    if (!filePath.isEmpty()) {
+        accident MasterAccident(ui->tableAccident,this); // Utilisation de 'accident' au lieu de 'Client'
+        MasterAccident.AccidenttoPdf(filePath); // Appel de la fonction toPdf() de l'objet accident
+    }
+}
+
 
 void Dashboard::clearInputFieldsAccidentDelete() {
     ui->AccidentDeleteID->clear();
@@ -1139,11 +1297,11 @@ void Dashboard::onAddClickedAccident() {
     else {
 
         if (MasterAccident.create(
-            ui->AccidentCreateType->text(),
-            ui->AccidentCreateDamage->text().toInt(),
-            ui->AccidentCreateDate->date(),
-            ui->AccidentCreateLocation->text(),
-            ui->AccidentCreateClientID->currentData().toInt()))
+                ui->AccidentCreateType->text(),
+                ui->AccidentCreateDamage->text().toInt(),
+                ui->AccidentCreateDate->date(),
+                ui->AccidentCreateLocation->text(),
+                ui->AccidentCreateClientID->currentData().toInt()))
         {
             MasterAccident.accidentRead();
 
@@ -1185,11 +1343,11 @@ void Dashboard::onUpdateClickedAccident() {
         else {
 
             MasterAccident.update(id.toInt(),
-                ui->AccidentUpdateType->text(),
-                ui->AccidentUpdateDamage->text().toInt(),
-                ui->AccidentUpdateDate->date(),
-                ui->AccidentUpdateLocation->text(),
-                ui->AccidentUpdateClientID->currentData().toInt());
+                                  ui->AccidentUpdateType->text(),
+                                  ui->AccidentUpdateDamage->text().toInt(),
+                                  ui->AccidentUpdateDate->date(),
+                                  ui->AccidentUpdateLocation->text(),
+                                  ui->AccidentUpdateClientID->currentData().toInt());
 
             MasterAccident.accidentRead();
 
@@ -1200,6 +1358,19 @@ void Dashboard::onUpdateClickedAccident() {
         }
     }
 }
+void Dashboard::onSortClickedAccident() {
+    static bool isSorted = false;
+
+    accident MasterAccident(ui->tableAccident, this);
+    MasterAccident.sortAccidentByDamage(isSorted);
+
+    isSorted = !isSorted;
+}
+void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
+    accident MasterAccident(ui->tableAccident);
+    MasterAccident.searchAccident(searchText);
+}
+
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

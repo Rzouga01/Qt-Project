@@ -46,6 +46,7 @@ public:
 	void onStackedClientIndexChanged(int index);
 	void openDeletePage(int clientId);
     void sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName);
+    void fillComboBoxClient();
 
 	//***********************************************************
 	// Employee
@@ -63,6 +64,8 @@ public:
 	void onComboboxIndexChanged(int index);
 	Employee* getEmployeeDataById(int id);
 	void onSearchTextChanged(const QString& text);
+	void displayEmployeeStats(int employeeID);
+	void onEmployeeSelectStatsChanged(const QString& employeeName);
 	//***********************************************************
 	//Contract
 	void onAddClickedContract();
@@ -81,6 +84,7 @@ public:
 	void onStackedContractIndexChanged(int index);
 	void openDelPage(int contractId);
     void onSearchIdContract(QString searched);
+    void onStatByPremiumAmount();
 	//***********************************************************
 	//Accident
 	void onAddClickedAccident();
@@ -96,6 +100,7 @@ public:
 	void onDeleteCancelClickedAccident();
 	void AccidentDashboardConnectUi();
 	void openDeletePageaccident(int acc_id);
+    void onAccidentSearchTextChanged(const QString& searchText);
 	//------------------------------------------------------------------------------------------------------------------
 public:
 	Ui::Dashboard* ui;
