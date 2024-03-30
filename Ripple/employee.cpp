@@ -497,7 +497,7 @@ int Employee::getEmployeeIdByName(const QString& name) {
     }
     else {
         qDebug() << "Error fetching employee ID by name:" << query.lastError().text();
-        return -1; // Return a default value or handle the error as needed
+        return -1; 
     }
 }
 

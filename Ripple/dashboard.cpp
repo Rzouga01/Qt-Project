@@ -479,8 +479,16 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->sortEmployee, &QPushButton::clicked, this, &Dashboard::onSortEmployeeClicked);
     QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
     QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
-    
-  
+
+    Employee employee; 
+
+    QStringList employeeNames = employee.getEmployeeNames(); 
+    ui->EmployeeSelectStats->addItems(employeeNames);
+
+   QObject::connect(ui->EmployeeSelectStats, QOverload<int>::of(&QComboBox::currentIndexChanged),
+    [=](int index) { this->onEmployeeSelectStatsChanged(ui->EmployeeSelectStats->currentText()); });
+
+
     ui->CrudEmployee->setCurrentIndex(0);
 }
 
@@ -848,23 +856,18 @@ void Dashboard::displayEmployeeStats(int employeeID)
 }
 
 void Dashboard::onEmployeeSelectStatsChanged(const QString& employeeName) {
-    // Create an instance of the Employee class
-    Employee emp;
+    Employee employee; 
 
-    // Retrieve the employee ID using the selected name
-    int employeeId = emp.getEmployeeIdByName(employeeName);
+  
+    int employeeId = employee.getEmployeeIdByName(employeeName);
     if (employeeId != -1) {
-        // Display statistics for the selected employee
+    
         displayEmployeeStats(employeeId);
     }
     else {
         qDebug() << "Error: Unable to retrieve employee ID for selected name.";
     }
 }
-
-
-
-
 
 
 //********************************************************************************************************************

@@ -445,7 +445,8 @@ public:
 "#EmployeeRole_U QAbstractItemView,\n"
 "#EmployeeSelectID_U QAbstractItemView,\n"
 "#EmployeeSelectID_D QAbst"
-                        "ractItemView {\n"
+                        "ractItemView,\n"
+"#EmployeeSelectStats QAbstractItemView{\n"
 "    color: white; \n"
 "    background-color: #444444; \n"
 "    selection-background-color: #A7C34E; \n"
@@ -482,10 +483,10 @@ public:
 "#EmployeeEmail_C,\n"
 "#EmployeePassword_C,\n"
 "#EmployeeFirstName_C,\n"
-"#EmployeeLastName_C,\n"
+"#E"
+                        "mployeeLastName_C,\n"
 "#EmployeeAddress_C,\n"
-""
-                        "#EmployeePhoneNumber_C,\n"
+"#EmployeePhoneNumber_C,\n"
 "#EmployeeDob_C,\n"
 "#EmployeeRole_C,\n"
 "#EmployeeSelectID_U,\n"
@@ -523,11 +524,11 @@ public:
 "    border-radius: 15px;\n"
 "    padding: 10px 20px;\n"
 "    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
+"    transi"
+                        "tion: background-color 0.3s ease;\n"
 "}\n"
 "\n"
-""
-                        "#EmployeeCancelBtn_C:hover,\n"
+"#EmployeeCancelBtn_C:hover,\n"
 "#EmployeeCreateBtn:hover,\n"
 "#EmployeeCancelBtn_U:hover,\n"
 "#EmployeeUpdateBtn:hover,\n"
@@ -539,10 +540,11 @@ public:
 "/*Stats*/\n"
 "#EmployeeSelectStats {\n"
 "    background-color: #444444;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    color: #444444;\n"
+"    font-family: \"Helvetica\";\n"
 "    font-size: 12px;\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
 "}"));
         featureBarEmployee = new QFrame(page);
         featureBarEmployee->setObjectName("featureBarEmployee");
@@ -1935,8 +1937,8 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(2);
-        CrudEmployee->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(0);
+        CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);
         StackedAccident->setCurrentIndex(2);

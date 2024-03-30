@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -242,7 +242,8 @@ QTableWidget QTableWidget {
 #EmployeeRole_C QAbstractItemView,
 #EmployeeRole_U QAbstractItemView,
 #EmployeeSelectID_U QAbstractItemView,
-#EmployeeSelectID_D QAbstractItemView {
+#EmployeeSelectID_D QAbstractItemView,
+#EmployeeSelectStats QAbstractItemView{
     color: white; 
     background-color: #444444; 
     selection-background-color: #A7C34E; 
@@ -334,10 +335,11 @@ QTableWidget QTableWidget {
 /*Stats*/
 #EmployeeSelectStats {
     background-color: #444444;
-    border-radius: 5px;
-    padding: 5px;
-    color: #444444;
+    font-family: &quot;Helvetica&quot;;
     font-size: 12px;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }</string>
      </property>
      <widget class="QFrame" name="featureBarEmployee">
@@ -499,7 +501,7 @@ QTableWidget QTableWidget {
        <enum>QFrame::NoFrame</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="CreateEmployee">
        <widget class="QLineEdit" name="EmployeeEmail_C">
