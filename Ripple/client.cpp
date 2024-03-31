@@ -58,6 +58,9 @@
 //EMAIL
 #include <QTcpSocket>
 #include <QTextStream>
+#include <QDataStream>
+#include <QByteArray>
+#include <QBuffer>
 
 
 
@@ -793,16 +796,21 @@ void Client::generateQRCode(const QString& data)
     qDebug() << "QR Code Generated Successfully.";
 }
 
-QImage Client::getQRCode(const QString& data)
+QByteArray Client::getQRCodeData(const QString& data)
 {
-
     QImage qrImage = QZXing::encodeData(data);
     if (qrImage.isNull()) {
         qDebug() << "Failed to Generate QR code.";
-        return QImage();
+        return QByteArray(); // Return an empty QByteArray if QR code generation fails
     }
 
-    return qrImage;
+    // Convert QR code image to QByteArray
+    QByteArray imageData;
+    QBuffer buffer(&imageData);
+    buffer.open(QIODevice::WriteOnly);
+    qrImage.save(&buffer, "PNG");
+
+    return imageData;
 }
 
 

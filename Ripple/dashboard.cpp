@@ -14,6 +14,13 @@
 #include "contract.h"
 #include "mailer.h"
 #include "chatbox.h"
+#include <QCoreApplication>
+#include <QDebug>
+#include <QTcpSocket>
+#include <QFile>
+#include <QTextStream>
+#include <QSslSocket>
+#include <QtCore/QProcessEnvironment>
 
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
@@ -177,9 +184,10 @@ void Dashboard::onAddClickedClient() {
 
 				sendEmailWithQRCode(email, clientData, firstName, lastName);
 
-				MasterClient.ReadClient();
-				clearInputFieldsCreateClient();
-				fillComboBoxClient();
+
+                    MasterClient.ReadClient();
+                    clearInputFieldsCreateClient();
+                    fillComboBoxClient();
 
 
 				QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
@@ -400,51 +408,100 @@ void Dashboard::onQRCodeClickClient()
 
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
-	// Create an instance of the Mailer class
-	Mailer mailer;
-	Client MasterClient;
+    // Email credentials
+    const QString emailRipple = "ripple.insurance123@gmail.com";
+    const QString passwordRipple = QProcessEnvironment::systemEnvironment().value("RIPPLE_EMAIL_PASSWORD");
 
-	// Set up SMTP server, login credentials, sender, and recipient
-	mailer.setSmtpServer("smtp.gmail.com", 587);
-	mailer.setLoginCredentials("", "xmib fgck jiwd pmyk");
-	mailer.setSender("");
-	mailer.setRecipient(recipientEmail); // Use the provided recipient email
+    // Check if the password environment variable is set
+    if (passwordRipple.isEmpty()) {
+        qWarning() << "Password environment variable (RIPPLE_EMAIL_PASSWORD) is not set.";
+        return;
+    }
 
-	// Set email subject and body
-	mailer.setSubject("Your Account Information");
-	mailer.setBody("Dear " + firstName + " " + lastName + ",\n\nWe are pleased to inform you that your account has been created in Ripple Insurance.\n\nPlease find your account details attached below.\n\nBest regards,\nRipple Insurance Team");
+    Client masterClient;
 
-	// Generate the QR code image using the Client class
-	QImage qrCodeImage = MasterClient.getQRCode(clientData);
+    // Get QR code image data
+    QByteArray imageData = masterClient.getQRCodeData(clientData);
+    if (imageData.isEmpty()) {
+        qWarning() << "Failed to get QR code image data.";
+        return;
+    }
 
-	if (qrCodeImage.isNull()) {
-		// Handle the case where QR code generation failed
-		QMessageBox::critical(this, tr("Error"), tr("Failed to generate QR code"), QMessageBox::Ok);
-		return;
-	}
+    QSslSocket socket;
+    socket.connectToHostEncrypted("smtp.gmail.com", 465); // Gmail SMTP server and port (SSL)
+    if (!socket.waitForConnected()) {
+        qWarning() << "Failed to connect to SMTP server";
+        return;
+    }
 
-	// Convert the QImage to a QByteArray for attachment
-	QByteArray qrCodeData;
-	QBuffer buffer(&qrCodeData);
-	buffer.open(QIODevice::WriteOnly);
-	qrCodeImage.save(&buffer, "PNG"); // Save the QR code image data to the QByteArray
+    socket.waitForEncrypted(); // Wait for the SSL/TLS handshake to complete
+    qDebug() << "Connected to SMTP server.";
 
-	// Add the QR code image data as an attachment
-	mailer.addAttachment(qrCodeData);
+    // Send EHLO command to initiate SMTP session
+    socket.write("EHLO localhost\r\n");
+    socket.waitForBytesWritten();
 
-	// Send the email and check for errors
-	bool sentSuccessfully = mailer.sendMail();
-	if (sentSuccessfully) {
-		QMessageBox::information(this, tr("Success"), tr("Email sent successfully"), QMessageBox::Ok);
-	}
-	else {
-		// Check the server response for debugging
-		QString response = mailer.readResponse();
-		qDebug() << "Server Response:" << response;
+    // Authenticate with email credentials
+    socket.write("AUTH LOGIN\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write(QByteArray().append(emailRipple.toUtf8()).toBase64() + "\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write(QByteArray().append(passwordRipple.toUtf8()).toBase64() + "\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
 
-		QMessageBox::critical(this, tr("Error"), tr("Failed to send email"), QMessageBox::Ok);
-	}
+    // Send email with attachment
+    socket.write("MAIL FROM:<" + emailRipple.toUtf8() + ">\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write("RCPT TO:<" + recipientEmail.toUtf8() + ">\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+    socket.write("DATA\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+
+    // Email headers and body
+    socket.write("Subject: Your Ripple Insurance Account Has Been Created\r\n");
+    socket.write("From: " + emailRipple.toUtf8() + "\r\n");
+    socket.write("To: " + recipientEmail.toUtf8() + "\r\n");
+    socket.write("Content-Type: multipart/mixed; boundary=boundary1\r\n");
+    socket.write("\r\n");
+    socket.write("--boundary1\r\n");
+    socket.write("Content-Type: text/html\r\n\r\n");
+    socket.write("<p style=\"font-family: Arial, sans-serif; font-size: 14px; color: #333333;\">Hello " + firstName.toHtmlEscaped().toUtf8() + " " + lastName.toHtmlEscaped().toUtf8() + "</p>");
+    socket.write("Please find your QR code with your Information attached to this Email.\r\n");
+    socket.write("\r\n");
+
+    // Attach QR code image data
+    socket.write("--boundary1\r\n");
+    socket.write("Content-Type: image/png\r\n");
+    socket.write("Content-Disposition: attachment; filename=qr_code.png\r\n");
+    socket.write("Content-Transfer-Encoding: base64\r\n\r\n");
+    socket.write(imageData.toBase64());
+    socket.write("\r\n");
+
+    // End email data
+    socket.write("--boundary1--\r\n");
+    socket.write(".\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+
+    // Quit SMTP session
+    socket.write("QUIT\r\n");
+    socket.waitForBytesWritten();
+    socket.waitForReadyRead();
+
+    socket.close();
+    qDebug() << "Email with attachment sent successfully!";
 }
+
+
+
+
+
 
 void Dashboard::fillComboBoxClient()
 {
@@ -1306,9 +1363,10 @@ void Dashboard::AccidentDashboardConnectUi()
 	accident MasterAccident(ui->tableAccident, this);
 
 
-	QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
-	QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
-	QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
+    QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
+    QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
+    QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
+    QObject::connect(ui->historyAccident_2, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
 
 
 	QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
@@ -1343,8 +1401,7 @@ void Dashboard::AccidentDashboardConnectUi()
 
 	qDebug() << "Total rows fetched:" << rowCount;
 
-	ui->StackedAccident->setCurrentIndex(0);
-	MasterAccident.accidentstatsByDamage();
+    ui->StackedAccident->setCurrentIndex(0);
 }
 
 void Dashboard::onAddCancelClickedAccident() {
@@ -1492,6 +1549,53 @@ void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
 	accident MasterAccident(ui->tableAccident);
 	MasterAccident.searchAccident(searchText);
 }
+void Dashboard::onstatsClickedAccident() {
+    accident MasterAccident(ui->tableAccident,this);
+    MasterAccident.accidentstatsByDamage();
+
+}
+
+/*void Dashboard::onHistoriqueAccidentclicked()
+
+{
+
+    QSqlQuery query = accident.rechercherall();
+
+    if (query.exec())
+    {
+
+        QFile file("resultats.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+        {
+
+            QTextStream out(&file);
+
+
+            while (query.next())
+            {
+                out << "acc_id: " << query.value("acc_id").toInt() << "\n";
+                out << "type " << query.value("type").toString() << "\n";
+                out << "damage: " << query.value("damage").toString() << "\n";
+                out << "date: " << query.value("date").toString() << "\n\n";
+                out << "location: " << query.value("location").toString() << "\n\n";
+                out << "client_id: " << query.value("client_id").toString() << "\n\n";
+
+
+            }
+            file.close();
+        }
+        else
+        {
+            qDebug() << "Erreur d'ouverture du fichier";
+        }
+    }
+    else
+    {
+        qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
+    }
+}
+*/
+
 
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {

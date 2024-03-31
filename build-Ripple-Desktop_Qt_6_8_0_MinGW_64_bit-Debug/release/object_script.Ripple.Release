@@ -149,6 +149,8 @@ release/UnsupportedEncodingException.o
 release/ReedSolomonEncoder.o
 release/win_iconv.o
 release/QZXing.o
+release/qrcodedialog.o
+release/sms.o
 release/accident.o
 release/client.o
 release/connection.o
@@ -167,3 +169,4 @@ release/moc_dashboard.o
 release/moc_employee.o
 release/moc_mainwindow.o
 release/moc_menu.o
+release/moc_qrcodedialog.o

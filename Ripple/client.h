@@ -77,7 +77,7 @@ public:
     void statsByAge();
 
     void generateQRCode(const QString& data);
-    QImage getQRCode(const QString& data);
+    QByteArray getQRCodeData(const QString& data);
 
 
 signals:

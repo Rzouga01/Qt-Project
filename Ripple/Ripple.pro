@@ -1,4 +1,4 @@
-QT += widgets charts uitools sql core gui quick
+QT += widgets charts uitools sql core gui quick network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,7 +9,6 @@ CONFIG += c++11
 
 INCLUDEPATH += ../QZXing/src
 SOURCES += ../QZXing/src/QZXing.cpp \
-    mailer.cpp \
     qrcodedialog.cpp
 
 SOURCES += sms.cpp
@@ -43,7 +42,6 @@ HEADERS += \
     contract.h \
     dashboard.h \
     employee.h \
-    mailer.h \
     mainwindow.h \
     menu.h\
     ../QZXing/src/QZXing.h \

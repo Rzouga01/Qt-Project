@@ -104,6 +104,8 @@ public:
 	void AccidentDashboardConnectUi();
 	void openDeletePageaccident(int acc_id);
     void onAccidentSearchTextChanged(const QString& searchText);
+    void onHistoriqueAccidentclicked();
+    void onstatsClickedAccident();
 	//------------------------------------------------------------------------------------------------------------------
 public:
 	Ui::Dashboard* ui;

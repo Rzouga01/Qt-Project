@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -4012,7 +4012,7 @@ font-family: &quot;helvetica&quot;;
        <rect>
         <x>510</x>
         <y>30</y>
-        <width>601</width>
+        <width>651</width>
         <height>61</height>
        </rect>
       </property>
@@ -4167,6 +4167,29 @@ font-family: &quot;helvetica&quot;;
        <property name="icon">
         <iconset>
          <normaloff>../Resources/Icons/history.png</normaloff>../Resources/Icons/history.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="historyAccident_2">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>10</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/Icons/bar-chart.png</normaloff>../Resources/Icons/bar-chart.png</iconset>
        </property>
        <property name="iconSize">
         <size>
