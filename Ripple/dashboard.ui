@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -2389,6 +2389,16 @@ font-family: &quot;helvetica&quot;;
         <string>Date Of Birth</string>
        </property>
       </column>
+     </widget>
+     <widget class="QComboBox" name="SearchComboClient">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>130</y>
+        <width>151</width>
+        <height>24</height>
+       </rect>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">

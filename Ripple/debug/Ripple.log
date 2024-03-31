@@ -1,17 +1,16 @@
-﻿  Uic'ing chatbot.ui...
-  Uic'ing dashboard.ui...
+﻿  Uic'ing dashboard.ui...
   chatbot.cpp
   dashboard.cpp
-C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\chatbot.cpp(6,8): error C2027: use of undefined type 'Ui::chatbot'
-  C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\chatbot.h(7,7):
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\chatbot.cpp(6,8): error C2027: use of undefined type 'Ui::chatbot'
+  C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\chatbot.h(7,7):
   see declaration of 'Ui::chatbot'
   
-C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\chatbot.cpp(8,5): error C2027: use of undefined type 'Ui::chatbot'
-  C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\chatbot.h(7,7):
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\chatbot.cpp(8,5): error C2027: use of undefined type 'Ui::chatbot'
+  C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\chatbot.h(7,7):
   see declaration of 'Ui::chatbot'
   
-C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\chatbot.cpp(13,5): warning C4150: deletion of pointer to incomplete type 'Ui::chatbot'; no destructor called
-  C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\chatbot.h(7,7):
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\chatbot.cpp(13,5): warning C4150: deletion of pointer to incomplete type 'Ui::chatbot'; no destructor called
+  C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\chatbot.h(7,7):
   see declaration of 'Ui::chatbot'
   
-C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\dashboard.cpp(555,11): warning C4100: 'index': unreferenced formal parameter
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(559,11): warning C4100: 'index': unreferenced formal parameter

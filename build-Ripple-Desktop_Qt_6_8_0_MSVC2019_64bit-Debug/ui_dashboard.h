@@ -160,6 +160,7 @@ public:
     QPushButton *addClient;
     QPushButton *pieChartClient;
     QTableWidget *tableClient;
+    QComboBox *SearchComboClient;
     QWidget *page_3;
     QFrame *CrudContract;
     QStackedWidget *StackContract;
@@ -1261,6 +1262,9 @@ public:
         tableClient->verticalHeader()->setMinimumSectionSize(10);
         tableClient->verticalHeader()->setDefaultSectionSize(20);
         tableClient->verticalHeader()->setHighlightSections(false);
+        SearchComboClient = new QComboBox(page_2);
+        SearchComboClient->setObjectName("SearchComboClient");
+        SearchComboClient->setGeometry(QRect(500, 130, 151, 24));
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName("page_3");
@@ -1973,7 +1977,7 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);

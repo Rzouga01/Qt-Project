@@ -647,20 +647,20 @@ void Client::sortClientFirstName(bool ascendingOrder)
 
 
 
-void Client::searchClientID(QString id) {
+void Client::searchClientID(QString search, QString searchBy) {
     QSqlQuery qry;
-    QString queryString;
+    QString queryString = "SELECT ID, EMAIL, FIRST_NAME, LAST_NAME, PHONE_NUMBER, ADDRESS, DOB FROM CLIENTS";
 
-    if (id.isEmpty()) {
+
+    if (search.isEmpty()) {
         queryString = "SELECT * FROM CLIENTS";
-    }
-    else {
-        queryString = "SELECT * FROM CLIENTS WHERE CLIENT_ID LIKE :id";
+    } else {
+        queryString = "SELECT * FROM CLIENTS WHERE UPPER(" + searchBy + ") LIKE UPPER(:id)";
     }
 
     qry.prepare(queryString);
-    if (!id.isEmpty()) {
-        qry.bindValue(":id", "%" + id + "%");
+    if (!search.isEmpty()) {
+        qry.bindValue(":id", "%" + search + "%");
     }
 
     if (qry.exec()) {
@@ -672,17 +672,6 @@ void Client::searchClientID(QString id) {
             tableClient->insertRow(row);
             int col = 0;
 
-            tableClient->setRowHeight(row, 50);
-            tableClient->setFont(QFont("Helvetica", 10));
-            tableClient->setColumnWidth(0, 10);//ID
-            tableClient->setColumnWidth(1, 150);//EMAIL
-            tableClient->setColumnWidth(2, 50);//FIRST NAME
-            tableClient->setColumnWidth(3, 50);//LAST NAME
-            tableClient->setColumnWidth(4, 150);//ADDRESS
-            tableClient->setColumnWidth(5, 75);//PHONE NUMBER
-            tableClient->setColumnWidth(6, 50);//DOB
-
-
             // Set data items for each column
             QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
             QTableWidgetItem* emailItem = new QTableWidgetItem(qry.value(col++).toString());
@@ -691,6 +680,16 @@ void Client::searchClientID(QString id) {
             QTableWidgetItem* phoneNumberItem = new QTableWidgetItem(qry.value(col++).toString());
             QTableWidgetItem* addressItem = new QTableWidgetItem(qry.value(col++).toString());
             QTableWidgetItem* dobItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+
+            tableClient->setRowHeight(row, 50);
+            tableClient->setFont(QFont("Helvetica", 10));
+            tableClient->setColumnWidth(0, 10);//ID
+            tableClient->setColumnWidth(1, 150);//EMAIL
+            tableClient->setColumnWidth(2, 100);//FIRST NAME
+            tableClient->setColumnWidth(3, 100);//LAST NAME
+            tableClient->setColumnWidth(4, 100);//ADDRESS
+            tableClient->setColumnWidth(5, 75);//PHONE NUMBER
+            tableClient->setColumnWidth(6, 100);//DOB
 
             tableClient->setItem(row, 0, idItem);
             tableClient->setItem(row, 1, emailItem);
@@ -706,12 +705,14 @@ void Client::searchClientID(QString id) {
 
         if (row == 0) {
             qDebug() << "Client not found.";
+            // Display a message or update UI to indicate no results found
         }
-    }
-    else {
+    } else {
         qDebug() << "Error executing query:" << qry.lastError().text();
+        // Handle error, display message, or log it
     }
 }
+
 
 void Client::statsByAge()
 {

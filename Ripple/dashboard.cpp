@@ -93,16 +93,18 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
 	QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 	QObject::connect(ui->QRCodeClientGenerate, &QPushButton::clicked, this, &Dashboard::onQRCodeClickClient);
-	QObject::connect(ui->QRCodeClientCancel, &QPushButton::clicked, this, [this]() {
-		ui->QRCodeClientCombo->setCurrentIndex(0);
-		ui->QRCodeClientInput->clear();
-		});
+	QObject::connect(ui->QRCodeClientCancel, &QPushButton::clicked, this, [this]() {ui->QRCodeClientCombo->setCurrentIndex(0);ui->QRCodeClientInput->clear();});
 
 	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
+    ui->SearchComboClient->addItem("ID", "CLIENT_ID");
+    ui->SearchComboClient->addItem("First Name", "FIRST_NAME");
+    ui->SearchComboClient->addItem("Last Name", "LAST_NAME");
+    ui->SearchComboClient->addItem("Email", "EMAIL");
+    ui->SearchComboClient->addItem("Phone Number", "PHONE_NUMBER");
+    ui->SearchComboClient->addItem("Address", "ADDRESS");
+
 	fillComboBoxClient();
-
-
 	ui->StackedClient->setCurrentIndex(0);
 }
 
@@ -336,9 +338,11 @@ void Dashboard::onPdfClickedClient() {
 }
 
 void Dashboard::onSearchIdClient() {
-	Client MasterClient(ui->tableClient, this);
-	QString id = ui->searchBarClient->text();
-	MasterClient.searchClientID(id);
+    Client MasterClient(ui->tableClient, this);
+    QString search = ui->searchBarClient->text();
+    QString searchBy = ui->SearchComboClient->currentData().toString();
+    MasterClient.searchClientID(search, searchBy);
+
 }
 
 void Dashboard::onStatByAge() {
