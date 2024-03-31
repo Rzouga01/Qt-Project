@@ -1,28 +1,20 @@
-﻿  dashboard.cpp
-  employee.cpp
-  mailer.cpp
-  main.cpp
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x82f0 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x82f6 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8afc that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8b00 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8b12 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8b1b that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8bf6 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8dc8 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8e8a that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8ea3 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x8ff1 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9021 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9712 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9722 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9748 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x974c that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x975e that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9767 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x983c that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9d20 that is illegal in the current source character set (codepage 65001).
-C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(721,1): warning C4828: The file contains a character starting at offset 0x9d50 that is illegal in the current source character set (codepage 65001).
+﻿  chatbot.cpp
+  win_iconv.c
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(762,25): warning C4100: 'cd': unreferenced formal parameter
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1086,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1256,48): warning C4100: 'bufsize': unreferenced formal parameter
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1256,39): warning C4100: 'buf': unreferenced formal parameter
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1256,22): warning C4100: 'cv': unreferenced formal parameter
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1293,22): warning C4100: 'cv': unreferenced formal parameter
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1312,23): warning C4100: 'cv': unreferenced formal parameter
+  moc_ImageHandler.cpp
+  moc_QZXing.cpp
+  moc_accident.cpp
+  moc_chatbot.cpp
+  moc_client.cpp
+  moc_contract.cpp
   moc_dashboard.cpp
   moc_employee.cpp
-  Ripple.vcxproj -> C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\debug\Ripple.exe
+  moc_mainwindow.cpp
+  moc_qrcodedialog.cpp
+  Ripple.vcxproj -> C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\Ripple.exe

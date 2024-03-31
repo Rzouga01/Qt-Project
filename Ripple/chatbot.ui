@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>window</class>
+ <widget class="QWidget" name="window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>967</width>
+    <height>524</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="chatbox" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>0</y>
+     <width>981</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+        background-color: #333333; /* Dark background color */
+        color: #FFFFFF; /* White text color */
+}
+
+QLineEdit {
+    border: 1px solid #A7C34E; /* Green border color */
+    border-radius: 5px;
+    padding: 5px 15px;
+    background-color: #222222; /* Dark background color */
+    color: #FFFFFF; /* White text color */
+    font-size: 12px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #A7C34E; /* Green border color */
+}
+
+QLineEdit:disabled {
+    background-color: #444444; /* Darker background color for disabled state */
+    color: #A0A0A0; /* Light gray text color */
+}
+
+QLineEdit:read-only {
+    background-color: #444444; /* Darker background color for read-only state */
+    color: #A0A0A0; /* Light gray text color */
+}
+
+QLineEdit::hover {
+    border: 1px solid #A7C34E; /* Green border color */
+}
+
+QLineEdit::selected {
+    background-color: #A7C34E; /* Green background color for selected text */
+    color: #FFFFFF; /* White text color */
+}
+
+QTextEdit {
+    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #A7C34E, stop:1 #A7C34E); /* Green gradient border */
+    border-radius: 12px;
+    background-color: #222222; /* Dark background color */
+    color: #FFFFFF; /* White text color */
+}
+
+QPushButton {
+    border: 1px solid #A7C34E; /* Green border color */
+    border-radius: 10px;
+    padding: 5px 15px;
+    background: #A7C34E; /* Dark background color */
+    color: #A7C34E; /* Green text color */
+    font-size: 12px;
+}
+
+QPushButton:hover {
+    background-color: #A7C34E; /* Green background color on hover */
+        color: #FFFFFF; /* White text color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #A7C34E; /* Green background color when pressed */
+    border: 2px solid #A7C34E; /* Green border color when pressed */
+    padding: 4px 14px 6px 16px;
+}
+
+QPushButton:disabled {
+    background: #444444; /* Darker background color for disabled state */
+    color: #A0A0A0; /* Light gray text color */
+}
+
+QPushButton:checked {
+    background: #A7C34E; /* Green background color when checked */
+    color: #FFFFFF; /* White text color when checked */
+}
+</string>
+   </property>
+   <widget class="QTextEdit" name="conversation">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>63</x>
+      <y>102</y>
+      <width>851</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="messageBar">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>430</y>
+      <width>681</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Your message...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sendButton">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>440</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
+    </property>
+   </widget>
+   <widget class="QLabel" name="chat">
+    <property name="geometry">
+     <rect>
+      <x>61</x>
+      <y>118</y>
+      <width>851</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="voiceButton">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>440</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../Resources/Icons/microphone.png</normaloff>../Resources/Icons/microphone.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>40</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans</family>
+      <pointsize>18</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>ChatBot</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="poweredBy">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>70</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans SemiBold</family>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Powered by Google Gemini</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

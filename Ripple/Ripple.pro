@@ -9,10 +9,12 @@ CONFIG += c++11
 
 INCLUDEPATH += ../QZXing/src
 SOURCES += ../QZXing/src/QZXing.cpp \
+    chatbot.cpp \
     qrcodedialog.cpp
 
 SOURCES += sms.cpp
-HEADERS += sms.h
+HEADERS += sms.h \
+    chatbot.h
 
 # The following line is not necessary if you are already including QZXing.pri,
 # as it should handle the necessary includes and configurations.
@@ -32,8 +34,8 @@ SOURCES += \
     dashboard.cpp \
     employee.cpp \
     main.cpp \
-    mainwindow.cpp \
-    menu.cpp
+    mainwindow.cpp
+
 
 HEADERS += \
     accident.h \
@@ -43,18 +45,17 @@ HEADERS += \
     dashboard.h \
     employee.h \
     mainwindow.h \
-    menu.h\
     ../QZXing/src/QZXing.h \
     qrcodedialog.h
 
 FORMS += \
     accident.ui \
+    chatbot.ui \
     client.ui \
     contract.ui \
     dashboard.ui \
     employee.ui \
     mainwindow.ui \
-    menu.ui \
     qrcodedialog.ui
 
 # Default rules for deployment.

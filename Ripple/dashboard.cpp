@@ -13,7 +13,7 @@
 #include "accident.h"
 #include "contract.h"
 #include "mailer.h"
-#include "chatbox.h"
+#include "chatbot.h"
 #include <QCoreApplication>
 #include <QDebug>
 #include <QTcpSocket>
@@ -1044,8 +1044,8 @@ void Dashboard::clearEmployeeStats()
 }
 
 void Dashboard::openChatBox() {
-	chatbox* chatboxWidget = new chatbox(this);
-	chatboxWidget->show();
+    chatbot* chat = new chatbot(this);
+    chat->show();
 }
 
 
@@ -1366,7 +1366,7 @@ void Dashboard::AccidentDashboardConnectUi()
     QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
     QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
-    QObject::connect(ui->historyAccident_2, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
+    QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
 
 
 	QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });

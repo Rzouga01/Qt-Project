@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\",
+  "WorkspaceRootPath": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\USERS\\RZOUG\\ONEDRIVE\\BUREAU\\SCHOOL\\2A\\SEM 2\\QT\\QT-PROJECT\\RIPPLE\\UI_CHATBOT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:UI_CHATBOT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|solutionrelative:dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\ui_dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui_dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,28 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dashboard.h",
-              "DocumentMoniker": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\dashboard.h",
-              "RelativeDocumentMoniker": "dashboard.h",
-              "ToolTip": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\dashboard.h",
-              "RelativeToolTip": "dashboard.h",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAAGIAAAAOAAAA",
+              "DocumentIndex": 0,
+              "Title": "ui_chatbot.h",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\ui_chatbot.h",
+              "RelativeDocumentMoniker": "ui_chatbot.h",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\ui_chatbot.h",
+              "RelativeToolTip": "ui_chatbot.h",
+              "ViewState": "AQIAAJ0AAAAAAAAAAAAwwLUAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-24T21:36:00.296Z"
+              "WhenOpened": "2024-03-31T18:39:45.636Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "dashboard.cpp",
-              "DocumentMoniker": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\dashboard.cpp",
-              "RelativeDocumentMoniker": "dashboard.cpp",
-              "ToolTip": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\dashboard.cpp",
-              "RelativeToolTip": "dashboard.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAmAAAA",
+              "DocumentIndex": 1,
+              "Title": "chatbot.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp",
+              "RelativeDocumentMoniker": "chatbot.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp",
+              "RelativeToolTip": "chatbot.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-24T21:30:46.161Z",
+              "WhenOpened": "2024-03-31T18:39:43.348Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ui_dashboard.h",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\ui_dashboard.h",
+              "RelativeDocumentMoniker": "ui_dashboard.h",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\ui_dashboard.h",
+              "RelativeToolTip": "ui_dashboard.h",
+              "ViewState": "AQIAACgDAAAAAAAAAAAcwJUCAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-31T18:33:56.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dashboard.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp",
+              "RelativeDocumentMoniker": "dashboard.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp",
+              "RelativeToolTip": "dashboard.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-24T21:30:46.161Z"
             }
           ]
         }
