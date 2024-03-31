@@ -484,4 +484,11 @@ void accident::accidentstatsByDamage()
     chartView->setMinimumSize(800, 600);
     chartView->show();
 }
+QSqlQuery accident::rechercherall()
+{
+    QSqlQuery query;
+    query.prepare("SELECT * from accidents  ");
+
+    return query;
+}
 

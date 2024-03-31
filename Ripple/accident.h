@@ -75,7 +75,7 @@ public:
     void searchAccident(const QString& search);
     void AccidenttoPdf(const QString& filePath);
     void sortAccidentByDamage(bool ascendingOrder);
-
+    QSqlQuery rechercherall();
 signals:
     void deleteAccidentRequested(int Acc_id);
     void updateAccidentRequested(int Acc_id);

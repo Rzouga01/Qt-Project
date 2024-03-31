@@ -149,7 +149,6 @@ debug/UnsupportedEncodingException.o
 debug/ReedSolomonEncoder.o
 debug/win_iconv.o
 debug/QZXing.o
-debug/mailer.o
 debug/qrcodedialog.o
 debug/sms.o
 debug/accident.o
@@ -168,7 +167,6 @@ debug/moc_client.o
 debug/moc_contract.o
 debug/moc_dashboard.o
 debug/moc_employee.o
-debug/moc_mailer.o
 debug/moc_mainwindow.o
 debug/moc_menu.o
 debug/moc_qrcodedialog.o

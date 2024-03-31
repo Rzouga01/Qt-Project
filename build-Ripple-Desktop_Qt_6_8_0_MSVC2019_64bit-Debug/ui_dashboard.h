@@ -262,6 +262,7 @@ public:
     QPushButton *pdfAccident;
     QPushButton *sortAccident;
     QPushButton *historyAccident;
+    QPushButton *historyAccident_2;
     QTableWidget *tableAccident;
     QPushButton *employees;
     QPushButton *clients;
@@ -1841,7 +1842,7 @@ public:
         StatsAccident->setFrameShape(QFrame::NoFrame);
         featureBarAccident = new QFrame(page_4);
         featureBarAccident->setObjectName("featureBarAccident");
-        featureBarAccident->setGeometry(QRect(510, 30, 601, 61));
+        featureBarAccident->setGeometry(QRect(510, 30, 651, 61));
         featureBarAccident->setStyleSheet(QString::fromUtf8(""));
         featureBarAccident->setFrameShape(QFrame::NoFrame);
         addAccident = new QPushButton(featureBarAccident);
@@ -1881,6 +1882,11 @@ public:
         icon8.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
         historyAccident->setIcon(icon8);
         historyAccident->setIconSize(QSize(40, 40));
+        historyAccident_2 = new QPushButton(featureBarAccident);
+        historyAccident_2->setObjectName("historyAccident_2");
+        historyAccident_2->setGeometry(QRect(590, 10, 41, 41));
+        historyAccident_2->setIcon(icon7);
+        historyAccident_2->setIconSize(QSize(40, 40));
         tableAccident = new QTableWidget(page_4);
         if (tableAccident->columnCount() < 6)
             tableAccident->setColumnCount(6);
@@ -1937,7 +1943,7 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(3);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);
@@ -2137,6 +2143,7 @@ public:
         pdfAccident->setText(QString());
         sortAccident->setText(QString());
         historyAccident->setText(QString());
+        historyAccident_2->setText(QString());
         QTableWidgetItem *___qtablewidgetitem24 = tableAccident->horizontalHeaderItem(0);
         ___qtablewidgetitem24->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem25 = tableAccident->horizontalHeaderItem(1);

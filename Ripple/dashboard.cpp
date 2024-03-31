@@ -1245,6 +1245,7 @@ void Dashboard::AccidentDashboardConnectUi()
     QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
     QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
+    QObject::connect(ui->historyAccident_2, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
 
 
     QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
@@ -1280,7 +1281,6 @@ void Dashboard::AccidentDashboardConnectUi()
     qDebug() << "Total rows fetched:" << rowCount;
 
     ui->StackedAccident->setCurrentIndex(0);
-    MasterAccident.accidentstatsByDamage();
 }
 
 void Dashboard::onAddCancelClickedAccident() {
@@ -1428,6 +1428,53 @@ void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
     accident MasterAccident(ui->tableAccident);
     MasterAccident.searchAccident(searchText);
 }
+void Dashboard::onstatsClickedAccident() {
+    accident MasterAccident(ui->tableAccident,this);
+    MasterAccident.accidentstatsByDamage();
+
+}
+
+/*void Dashboard::onHistoriqueAccidentclicked()
+
+{
+
+    QSqlQuery query = accident.rechercherall();
+
+    if (query.exec())
+    {
+
+        QFile file("resultats.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+        {
+
+            QTextStream out(&file);
+
+
+            while (query.next())
+            {
+                out << "acc_id: " << query.value("acc_id").toInt() << "\n";
+                out << "type " << query.value("type").toString() << "\n";
+                out << "damage: " << query.value("damage").toString() << "\n";
+                out << "date: " << query.value("date").toString() << "\n\n";
+                out << "location: " << query.value("location").toString() << "\n\n";
+                out << "client_id: " << query.value("client_id").toString() << "\n\n";
+
+
+            }
+            file.close();
+        }
+        else
+        {
+            qDebug() << "Erreur d'ouverture du fichier";
+        }
+    }
+    else
+    {
+        qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
+    }
+}
+*/
+
 
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
