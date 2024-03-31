@@ -180,7 +180,7 @@ public:
 };
 
 namespace Ui {
-    class Dialog: public Ui_Dialog {};
+    class chatbot: public Ui_Dialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE
