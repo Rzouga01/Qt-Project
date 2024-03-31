@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="[https://github.com/Rzouga01/Qt-Project](https://github.com/Rzouga01/Qt-Project)">
-    <img src="logo.png" alt="Logo">
+    <img src="Resources/Logo/icon ripple.png" alt="Logo">
   </a>
 
   <h3 align="center">Ripple Insurance: Smart Insurance Management System</h3>
