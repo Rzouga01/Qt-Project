@@ -1,10 +1,9 @@
-#include "ui_chatbot.h"
 #include "chatbot.h"
+#include "ui_chatbot.h"
 
-
-chatbot::chatbot(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::chatbot)
+chatbot::chatbot(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::chatbot)
 {
     ui->setupUi(this);
 }

@@ -1,13 +1,13 @@
 #ifndef CHATBOT_H
 #define CHATBOT_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class chatbot;
 }
 
-class chatbot : public QWidget
+class chatbot : public QDialog
 {
     Q_OBJECT
 
