@@ -66,6 +66,9 @@ public:
 	void onSearchTextChanged(const QString& text);
 	void displayEmployeeStats(int employeeID);
 	void onEmployeeSelectStatsChanged(const QString& employeeName);
+	void clearEmployeeStats();
+	void displayGeneralStats();
+	void openChatBox();
 	//***********************************************************
 	//Contract
 	void onAddClickedContract();

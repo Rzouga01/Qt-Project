@@ -249,21 +249,21 @@ QStringList Employee::getAllEmployeeIDs() {
     return ids;
 }
 
-QStringList Employee::getEmployeeNames() {
-    QStringList names;
-    QSqlQuery query;
-    query.prepare("SELECT first_name, last_name FROM EMPLOYEES");
-    if (query.exec()) {
-        while (query.next()) {
-            QString fullName = query.value("first_name").toString() + " " + query.value("last_name").toString();
-            names << fullName;
+    QStringList Employee::getEmployeeNames() {
+        QStringList names;
+        QSqlQuery query;
+        query.prepare("SELECT first_name, last_name FROM EMPLOYEES");
+        if (query.exec()) {
+            while (query.next()) {
+                QString fullName = query.value("first_name").toString() + " " + query.value("last_name").toString();
+                names << fullName;
+            }
         }
+        else {
+            qDebug() << "Error fetching employee names:" << query.lastError().text();
+        }
+        return names;
     }
-    else {
-        qDebug() << "Error fetching employee names:" << query.lastError().text();
-    }
-    return names;
-}
 
 void Employee::sortEmployeesByAge()
 {
@@ -451,27 +451,40 @@ void Employee::searchEmployee(const QString& search)
     }
 }
 
-QMap<QString, qreal> Employee::calculateEmployeeStats(const QString& employeeID) {
+QMap<QString, qreal> Employee::calculateEmployeeStats(int employeeID) {
     QMap<QString, qreal> stats;
 
-  
+    // Convert the employee ID to a string
+    QString employeeIDStr = QString::number(employeeID);
+
     QString queryStr;
     QSqlQuery query;
 
+    // Query to check if there are any records for the specified employee
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "'";
+    query.exec(queryStr);
+    query.next();
+    int numRecords = query.value(0).toInt();
+
+    // If no records are found, return an empty map
+    if (numRecords == 0) {
+        return stats;
+    }
+
     // Query to calculate total working days for the specified employee
-    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeID + "'";
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "'";
     query.exec(queryStr);
     query.next();
     int totalWorkingDays = query.value(0).toInt();
 
     // Query to calculate late arrival frequency for the specified employee
-    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeID + "' AND ARRIVAL_STATUS = 'Late'";
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'Late'";
     query.exec(queryStr);
     query.next();
     int lateArrivals = query.value(0).toInt();
 
     // Query to calculate early departure frequency for the specified employee
-    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeID + "' AND ARRIVAL_STATUS = 'Early Departure'";
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'Early Departure'";
     query.exec(queryStr);
     query.next();
     int earlyDepartures = query.value(0).toInt();
@@ -486,6 +499,63 @@ QMap<QString, qreal> Employee::calculateEmployeeStats(const QString& employeeID)
     stats["Absenteeism Rate"] = absenteeismRate;
 
     return stats;
+}
+
+QMap<QString, qreal> Employee::calculateGeneralStats() {
+    QMap<QString, qreal> generalStats;
+
+    QString queryStr;
+    QSqlQuery query;
+
+    // Query to count the total number of employees
+    queryStr = "SELECT COUNT(*) FROM employees";
+    query.exec(queryStr);
+    query.next();
+    int totalEmployees = query.value(0).toInt();
+
+    // Query to calculate total working hours for all employees
+    queryStr = "SELECT SUM(TOTAL_HOURS) FROM employees_presence";
+    query.exec(queryStr);
+    query.next();
+    qreal totalWorkingHours = query.value(0).toReal();
+
+    // Query to calculate the total number of late arrivals for all employees
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Late'";
+    query.exec(queryStr);
+    query.next();
+    int totalLateArrivals = query.value(0).toInt();
+
+    // Query to calculate the total number of early departures for all employees
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Early Departure'";
+    query.exec(queryStr);
+    query.next();
+    int totalEarlyDepartures = query.value(0).toInt();
+
+    // Calculate absenteeism rate for all employees
+    qreal totalAbsenteeismRate = 0.0;
+    if (totalEmployees > 0) {
+        // Query to count the total number of absences for all employees
+        queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Absent'";
+        query.exec(queryStr);
+        query.next();
+        int totalAbsences = query.value(0).toInt();
+
+        // Calculate absenteeism rate
+        totalAbsenteeismRate = static_cast<qreal>(totalAbsences) / totalEmployees * 100.0;
+    }
+
+    // Calculate average attendance rate
+    qreal averageAttendanceRate = 100.0 - totalAbsenteeismRate;
+
+    // Insert calculated values into the generalStats map
+    generalStats["Total Employees"] = totalEmployees;
+    generalStats["Average Attendance Rate"] = averageAttendanceRate;
+    generalStats["Total Working Hours"] = totalWorkingHours;
+    generalStats["Total Late Arrivals"] = totalLateArrivals;
+    generalStats["Total Early Departures"] = totalEarlyDepartures;
+    generalStats["Absenteeism Rate"] = totalAbsenteeismRate;
+
+    return generalStats;
 }
 
 int Employee::getEmployeeIdByName(const QString& name) {

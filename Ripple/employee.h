@@ -47,7 +47,6 @@ public:
     QString getPhoneNumber() const { return phone_number; };
     QString getAddress() const { return address; };
     QDate getDOB() const { return dob; };
-
     // Setters
     void setEmail(const QString& mail) { email = mail; };
     void setPassword(const QString& newPassword) { password = newPassword; };
@@ -69,7 +68,8 @@ public:
     void sortEmployeesByAge();
     void ExportEmployeesToPdf(const QString& filePath);
     void searchEmployee(const QString& searchText);
-    QMap<QString, qreal> calculateEmployeeStats(const QString& employeeID);
+    QMap<QString, qreal> calculateEmployeeStats(int employeeID);
+    QMap<QString, qreal> calculateGeneralStats();
 
    //Other
     void readEmployeeById(int id);
