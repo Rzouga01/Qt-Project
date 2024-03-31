@@ -1,11 +1,11 @@
-# ![Ripple Insurance Logo](Resources/Logo/icon ripple.png) Ripple Insurance: Smart Insurace Agency Management System
+# ![Ripple Insurance Logo](Resources/Logo/icon ripple.png) Ripple Insurance: Smart Insurance Agency Management System
 
 ## About The Project
 This project is a desktop application built with C++ and Qt. It provides comprehensive tools for managing the operations of a smart insurance agency efficiently.
 
 ## Built With
-- ![C++ Logo](cpp.png)
-- ![Qt Logo](qt.png)
+- ![C++ Logo](Resources/cpp.png)
+- ![Qt Logo](Resources/qt.png)
 
 ## Getting Started
 
@@ -25,4 +25,4 @@ This application is currently under active development. Please come back later a
 
 ---
 
-For more details or inquiries, please contact us at [info@rippleinsurance.com](mailto:ripplecontact@gmail.com).
+For more details or inquiries, please contact us at [ripplecontact@gmail.com](mailto:ripplecontact@gmail.com).
