@@ -67,6 +67,7 @@ public:
     void searchContract(QString id);
     void toPdf(const QString& filePath);
     void statsByPremiumAmount();
+    void exportToExcel(int clientId, const QString& filePath);
 
     void setTableWidget(QTableWidget* tableWidget);
     void setStackedWidget(QStackedWidget* stackedWidget);

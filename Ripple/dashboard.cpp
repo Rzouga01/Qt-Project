@@ -1061,6 +1061,7 @@ void Dashboard::ContractDashboardConnectUi() {
 	QObject::connect(ui->pdfContract, &QPushButton::clicked, this, &Dashboard::onPdfClickedContract);
 	QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
 	QObject::connect(ui->statsContract, &QPushButton::clicked, this, &Dashboard::onStatByPremiumAmount);
+    //QObject::connect(ui->excelContract, &QPushButton::clicked, this, &Dashboard::onExcelClickedContract);
 
 
 	QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
@@ -1337,7 +1338,7 @@ void Dashboard::onSortClickedContract() {
 }
 
 void Dashboard::onSearchIdContract(QString searched) {
-	contract MasterContract(ui->tableContract, ui->StackContract, this); // Utilisation de la classe contract au lieu de Client
+    contract MasterContract(ui->tableContract, ui->StackContract, this);
 	QString id = ui->searchBarContract->text();
 	MasterContract.searchContract(id); // Appel de la fonction searchContractID pour rechercher les contrats
 }
@@ -1350,10 +1351,23 @@ void Dashboard::onStatByPremiumAmount() {
 void Dashboard::onPdfClickedContract() {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
 	if (!filePath.isEmpty()) {
-		contract MasterContract(ui->tableContract, ui->StackContract, this); // Utilisation de 'contract' au lieu de 'Client'
+        contract MasterContract(ui->tableContract, ui->StackContract, this);
 		MasterContract.toPdf(filePath); // Appel de la fonction toPdf() de l'objet contract
 	}
 }
+
+/*
+void Dashboard::onExcelClickedContract() {
+    // Demander à l'utilisateur de sélectionner un fichier pour enregistrer le fichier Excel
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
+    if (!filePath.isEmpty()) {
+        contract MasterContract(ui->tableContract, ui->StackContract, this);
+        MasterContract.exportToExcel(filePath);
+    }
+
+
+}
+*/
 
 void Dashboard::clearInputFieldsDeleteContract() {
 	ui->LineEditContractID->clear();
