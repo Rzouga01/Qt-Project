@@ -23,7 +23,7 @@
 #include <QtCharts/QChartView>
 #include <QToolTip>
 #include <QCursor>
-#include "xlsxdocument.h"
+//#include "xlsxdocument.h"
 contract::contract(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::contract),
