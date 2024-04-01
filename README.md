@@ -22,7 +22,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This project is a desktop application built with C++ and Qt. It provides comprehensive tools for managing the operations of a smart insurance agency efficiently.
+This project is a desktop application built with C++ and Qt framework. It provides comprehensive tools for managing the operations of a smart insurance agency efficiently.
 
 ### Built With
 - <img src="cpp.png" width="50" height="50">
