@@ -64,6 +64,8 @@ public:
 	void clearInputFieldsEmployee();
 	void EmployeeDashboardConnectUi();
 	void openUpdateForm();
+	QString mapRoleToString(int role);
+	int  mapRoleToNumber(const QString& roleText);
 	void onComboboxIndexChanged(int index);
 	Employee* getEmployeeDataById(int id);
 	void onSearchTextChanged(const QString& text);

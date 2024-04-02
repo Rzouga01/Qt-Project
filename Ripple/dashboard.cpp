@@ -65,8 +65,9 @@ void Dashboard::update() {
 void Dashboard::onLogoutButtonClicked() {
 	close();
 	mainWindowRef.show();
-	
+
 }
+
 void Dashboard::showPageForRole(int role)
 {
 	switch (role) {
@@ -93,7 +94,9 @@ void Dashboard::createSession(Employee* employee) {
 	this->user = employee;
 	ui->helloBar->setText("Hello, " + user->getFirstName() + " " + user->getLastName());
 	qDebug() << "Session created for " << user->getFirstName() << " " << user->getLastName();
-
+	QString role = mapRoleToString(user->getRole());
+	ui->role->setText(role);
+	qDebug() << "Role: " << role;
 }
 //--------------------------------------------------------------------------------------------------------------------------------
 // Client
@@ -104,10 +107,6 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->pdfClient, &QPushButton::clicked, this, &Dashboard::onPdfClickedClient);
 	QObject::connect(ui->searchBarClient, &QLineEdit::textChanged, this, &Dashboard::onSearchIdClient);
 	QObject::connect(ui->pieChartClient, &QPushButton::clicked, this, &Dashboard::onStatByAge);
-
-
-
-
 
 	QObject::connect(ui->addClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(0); });
 	QObject::connect(ui->updateClient, &QPushButton::clicked, this, [this]() { ui->StackedClient->setCurrentIndex(1); });
@@ -629,7 +628,7 @@ void Dashboard::EmployeeDashboardConnectUi() {
 	chartView->chart()->setBackgroundBrush(Qt::transparent);
 }
 
-int mapRoleToNumber(const QString& roleText) {
+int  Dashboard::mapRoleToNumber(const QString& roleText) {
 	if (roleText == "General Director")
 		return 0;
 	else if (roleText == "Customer Relationship Director")
@@ -640,6 +639,21 @@ int mapRoleToNumber(const QString& roleText) {
 		return 3;
 	else
 		return -1;
+}
+
+QString Dashboard::mapRoleToString(int role) {
+	switch (role) {
+	case 0:
+		return "General Director";
+	case 1:
+		return "Customer Relationship Director";
+	case 2:
+		return "Contract Administrator";
+	case 3:
+		return "Accident Investigation Manager";
+	default:
+		return "Unknown ";
+	}
 }
 
 void Dashboard::onAddEmployeeClicked() {
@@ -687,23 +701,15 @@ void Dashboard::onAddEmployeeClicked() {
 	emp.readEmployee();
 
 	openUpdateForm();
-	// Store the first two items
+
 	QString firstItem = ui->EmployeeSelectStats->itemText(0);
 	QString secondItem = ui->EmployeeSelectStats->itemText(1);
-
-
-
-	// Get the new employee names
 	QStringList newNames = emp.getEmployeeNames();
 
-	// Clear the combobox
 	ui->EmployeeSelectStats->clear();
 
-	// Add back the preserved items
 	ui->EmployeeSelectStats->addItem(firstItem);
 	ui->EmployeeSelectStats->addItem(secondItem);
-
-	// Add the new names
 	ui->EmployeeSelectStats->addItems(newNames);
 
 
@@ -1706,7 +1712,6 @@ void Dashboard::onstatsClickedAccident() {
 	}
 }
 */
-
 
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {

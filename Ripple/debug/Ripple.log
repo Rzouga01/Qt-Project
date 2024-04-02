@@ -1,3 +1,4 @@
-﻿  dashboard.cpp
-C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\dashboard.cpp(623,11): warning C4100: 'index': unreferenced formal parameter
+﻿  Uic'ing dashboard.ui...
+  dashboard.cpp
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\dashboard.cpp(622,11): warning C4100: 'index': unreferenced formal parameter
   Ripple.vcxproj -> C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\Ripple.exe
