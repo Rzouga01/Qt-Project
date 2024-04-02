@@ -61,13 +61,13 @@ QString mapNumberToRole(int role)
     switch (role)
     {
     case 0:
-        return "Role 1";
+        return "General Director";
     case 1:
-        return "Role 2";
+        return "Customer relationship director";
     case 2:
-        return "Role 3";
+        return "Contract Administrator";
     default:
-        return "Unknown";
+        return "Accident investigation manager";
     }
 }
 

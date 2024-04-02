@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>967</width>
-    <height>524</height>
+    <width>1000</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1011</width>
-     <height>531</height>
+     <width>1000</width>
+     <height>500</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -108,9 +108,9 @@ QPushButton:checked {
     </property>
     <property name="geometry">
      <rect>
-      <x>63</x>
+      <x>23</x>
       <y>102</y>
-      <width>851</width>
+      <width>951</width>
       <height>281</height>
      </rect>
     </property>
@@ -121,8 +121,8 @@ QPushButton:checked {
    <widget class="QLineEdit" name="messageBar">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>400</y>
+      <x>110</x>
+      <y>390</y>
       <width>681</width>
       <height>41</height>
      </rect>
@@ -134,8 +134,8 @@ QPushButton:checked {
    <widget class="QPushButton" name="sendButton">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>400</y>
+      <x>900</x>
+      <y>390</y>
       <width>50</width>
       <height>30</height>
      </rect>
@@ -151,8 +151,8 @@ QPushButton:checked {
    <widget class="QPushButton" name="voiceButton">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>400</y>
+      <x>820</x>
+      <y>390</y>
       <width>50</width>
       <height>30</height>
      </rect>
@@ -174,7 +174,7 @@ QPushButton:checked {
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>410</x>
       <y>20</y>
       <width>311</width>
       <height>51</height>
@@ -194,7 +194,7 @@ QPushButton:checked {
    <widget class="QLabel" name="poweredBy">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>820</x>
       <y>70</y>
       <width>181</width>
       <height>20</height>
@@ -213,9 +213,9 @@ QPushButton:checked {
    <widget class="QListWidget" name="chat">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>10</x>
       <y>111</y>
-      <width>841</width>
+      <width>951</width>
       <height>261</height>
      </rect>
     </property>

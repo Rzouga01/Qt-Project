@@ -561,14 +561,16 @@ void Dashboard::EmployeeDashboardConnectUi() {
 }
 
 int mapRoleToNumber(const QString& roleText) {
-	if (roleText == "Role 1")
-		return 0;
-	else if (roleText == "Role 2")
-		return 1;
-	else if (roleText == "Role 3")
-		return 2;
-	else
-		return -1;
+    if (roleText == "General Director")
+        return 0;
+    else if (roleText == "Customer Relationship Director")
+        return 1;
+    else if (roleText == "Contract Administrator")
+        return 2;
+    else if (roleText == "Accident investigation manager")
+        return 3;
+    else
+        return -1;
 }
 
 void Dashboard::onAddEmployeeClicked() {
@@ -616,6 +618,25 @@ void Dashboard::onAddEmployeeClicked() {
 	emp.readEmployee();
 
 	openUpdateForm();
+	// Store the first two items
+	QString firstItem = ui->EmployeeSelectStats->itemText(0);
+	QString secondItem = ui->EmployeeSelectStats->itemText(1);
+
+
+
+	// Get the new employee names
+	QStringList newNames = emp.getEmployeeNames();
+
+	// Clear the combobox
+	ui->EmployeeSelectStats->clear();
+
+	// Add back the preserved items
+	ui->EmployeeSelectStats->addItem(firstItem);
+	ui->EmployeeSelectStats->addItem(secondItem);
+
+	// Add the new names
+	ui->EmployeeSelectStats->addItems(newNames);
+
 
 	QMessageBox::information(this, tr("Success"), tr("Employee created successfully"), QMessageBox::Ok, QMessageBox::Ok);
 }
@@ -664,7 +685,6 @@ void Dashboard::onUpdateEmployeeClicked() {
 		Employee emp(ui->tableEmployee);
 		emp.readEmployee();
 		openUpdateForm();
-
 		QMessageBox::information(this, "Success", "Employee updated successfully.");
 	}
 	else {
@@ -683,6 +703,7 @@ void Dashboard::onDeleteEmployeeClicked() {
 			e.readEmployee();
 
 			openUpdateForm();
+	
 
 			QMessageBox::information(this, "Success", "Employee deleted successfully.");
 		}
@@ -718,6 +739,13 @@ void Dashboard::openUpdateForm() {
 		ui->EmployeeSelectID_D->addItems(ids);
 
 		ui->EmployeeSelectID_D->setCurrentIndex(0);
+		QString firstItem = ui->EmployeeSelectStats->itemText(0);
+		QString secondItem = ui->EmployeeSelectStats->itemText(1);
+		QStringList updatedNames = e.getEmployeeNames();
+		ui->EmployeeSelectStats->clear();
+		ui->EmployeeSelectStats->addItem(firstItem);
+		ui->EmployeeSelectStats->addItem(secondItem);
+		ui->EmployeeSelectStats->addItems(updatedNames);
 	}
 	else {
 		qDebug() << "Error choosing delete.";
@@ -739,9 +767,11 @@ void Dashboard::onComboboxIndexChanged(int index) {
 
 
 			ui->EmployeeRole_U->clear();
-			ui->EmployeeRole_U->addItem("Role 1");
-			ui->EmployeeRole_U->addItem("Role 2");
-			ui->EmployeeRole_U->addItem("Role 3");
+			ui->EmployeeRole_U->addItem("General Director");
+			ui->EmployeeRole_U->addItem("Customer relationship director");
+			ui->EmployeeRole_U->addItem("Contract administrator");
+			ui->EmployeeRole_U->addItem("Accident investigation manager");
+			
 
 
 			ui->EmployeeRole_U->setCurrentIndex(employeeData->getRole());
@@ -753,7 +783,6 @@ void Dashboard::onComboboxIndexChanged(int index) {
 			ui->EmployeePhoneNumber_U->setText(employeeData->getPhoneNumber());
 			ui->EmployeeAddress_U->setText(employeeData->getAddress());
 
-			delete employeeData;
 		}
 		else {
 			ui->EmployeeEmail_U->clear();

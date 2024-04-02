@@ -20822,7 +20822,7 @@ release\qrcodedialog.obj: ..\Ripple\qrcodedialog.cpp ..\Ripple\qrcodedialog.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qframe.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtGui\qpicture.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtGui\qtextdocument.h \
-		ui_qrcodedialog.h \
+		..\Ripple\ui_qrcodedialog.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qapplication.h \
@@ -21585,7 +21585,7 @@ release\accident.obj: ..\Ripple\accident.cpp ..\Ripple\accident.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarcategoryaxis.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCharts\QValueAxis \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCharts\qvalueaxis.h \
-		ui_accident.h \
+		..\Ripple\ui_accident.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QFrame \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QLabel \
@@ -21819,7 +21819,7 @@ release\client.obj: ..\Ripple\client.cpp ..\Ripple\client.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstackedwidget.h \
-		ui_client.h \
+		..\Ripple\ui_client.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qapplication.h \
@@ -22305,7 +22305,7 @@ release\contract.obj: ..\Ripple\contract.cpp ..\Ripple\contract.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstackedwidget.h \
-		ui_contract.h \
+		..\Ripple\ui_contract.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qapplication.h \
@@ -22955,7 +22955,7 @@ release\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
 		D:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
-		ui_dashboard.h \
+		..\Ripple\ui_dashboard.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
@@ -23357,7 +23357,7 @@ release\employee.obj: ..\Ripple\employee.cpp ..\Ripple\employee.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabwidget.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QMap \
-		ui_employee.h \
+		..\Ripple\ui_employee.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qapplication.h \
@@ -24209,7 +24209,7 @@ release\mainwindow.obj: ..\Ripple\mainwindow.cpp ..\Ripple\mainwindow.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariantanimation.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\qabstractanimation.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\qeasingcurve.h \
-		ui_mainwindow.h \
+		..\Ripple\ui_mainwindow.h \
 		D:\Qt\6.8.0\msvc2019_64\include\QtCore\QVariant \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qapplication.h \

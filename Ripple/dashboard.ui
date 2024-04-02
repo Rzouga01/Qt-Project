@@ -545,15 +545,15 @@ QTableWidget QTableWidget {
        <enum>QFrame::NoFrame</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="CreateEmployee">
        <widget class="QLineEdit" name="EmployeeEmail_C">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>68</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -564,7 +564,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeLastNameText_C">
         <property name="geometry">
          <rect>
-          <x>346</x>
+          <x>380</x>
           <y>118</y>
           <width>104</width>
           <height>31</height>
@@ -580,9 +580,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeAddress_C">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>228</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -590,7 +590,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeAddressText_C">
         <property name="geometry">
          <rect>
-          <x>146</x>
+          <x>150</x>
           <y>198</y>
           <width>104</width>
           <height>31</height>
@@ -606,9 +606,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeFirstName_C">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>148</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -616,9 +616,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeePhoneNumber_C">
         <property name="geometry">
          <rect>
-          <x>306</x>
-          <y>228</y>
-          <width>160</width>
+          <x>320</x>
+          <y>230</y>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -629,9 +629,9 @@ QTableWidget QTableWidget {
        <widget class="QPushButton" name="EmployeeCreateBtn">
         <property name="geometry">
          <rect>
-          <x>117</x>
+          <x>110</x>
           <y>358</y>
-          <width>160</width>
+          <width>150</width>
           <height>40</height>
          </rect>
         </property>
@@ -642,9 +642,9 @@ QTableWidget QTableWidget {
        <widget class="QDateEdit" name="EmployeeDob_C">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>308</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -652,9 +652,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeLastName_C">
         <property name="geometry">
          <rect>
-          <x>306</x>
+          <x>320</x>
           <y>148</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -678,7 +678,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeePhoneNumberText_C">
         <property name="geometry">
          <rect>
-          <x>326</x>
+          <x>370</x>
           <y>198</y>
           <width>141</width>
           <height>31</height>
@@ -710,7 +710,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeDobText_C">
         <property name="geometry">
          <rect>
-          <x>146</x>
+          <x>140</x>
           <y>278</y>
           <width>104</width>
           <height>31</height>
@@ -726,9 +726,9 @@ QTableWidget QTableWidget {
        <widget class="QComboBox" name="EmployeeRole_C">
         <property name="geometry">
          <rect>
-          <x>306</x>
+          <x>320</x>
           <y>308</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -739,26 +739,31 @@ QTableWidget QTableWidget {
         </item>
         <item>
          <property name="text">
-          <string>Role 1</string>
+          <string>General Director</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Role 3</string>
+          <string>Customer relationship director</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Role 2</string>
+          <string>Contract administrator</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Accident investigation manager</string>
          </property>
         </item>
        </widget>
        <widget class="QPushButton" name="EmployeeCancelBtn_C">
         <property name="geometry">
          <rect>
-          <x>302</x>
+          <x>350</x>
           <y>358</y>
-          <width>160</width>
+          <width>150</width>
           <height>40</height>
          </rect>
         </property>
@@ -769,7 +774,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeRoleText_C">
         <property name="geometry">
          <rect>
-          <x>366</x>
+          <x>400</x>
           <y>278</y>
           <width>104</width>
           <height>31</height>
@@ -785,9 +790,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeePassword_C">
         <property name="geometry">
          <rect>
-          <x>306</x>
+          <x>320</x>
           <y>68</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -798,7 +803,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeePasswordText_C">
         <property name="geometry">
          <rect>
-          <x>346</x>
+          <x>380</x>
           <y>38</y>
           <width>141</width>
           <height>31</height>
@@ -832,7 +837,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeePhoneNumberText_U">
         <property name="geometry">
          <rect>
-          <x>326</x>
+          <x>370</x>
           <y>198</y>
           <width>141</width>
           <height>31</height>
@@ -848,9 +853,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeFirstName_U">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>148</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -858,9 +863,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeLastName_U">
         <property name="geometry">
          <rect>
-          <x>306</x>
+          <x>320</x>
           <y>148</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -868,9 +873,9 @@ QTableWidget QTableWidget {
        <widget class="QDateEdit" name="EmployeeDob_U">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>308</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -878,7 +883,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeePasswordText_U">
         <property name="geometry">
          <rect>
-          <x>346</x>
+          <x>380</x>
           <y>38</y>
           <width>141</width>
           <height>31</height>
@@ -894,9 +899,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeePhoneNumber_U">
         <property name="geometry">
          <rect>
-          <x>306</x>
-          <y>228</y>
-          <width>160</width>
+          <x>320</x>
+          <y>230</y>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -907,9 +912,9 @@ QTableWidget QTableWidget {
        <widget class="QComboBox" name="EmployeeRole_U">
         <property name="geometry">
          <rect>
-          <x>306</x>
+          <x>320</x>
           <y>308</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -937,9 +942,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeEmail_U">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>68</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -950,7 +955,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeDobText_U">
         <property name="geometry">
          <rect>
-          <x>146</x>
+          <x>140</x>
           <y>278</y>
           <width>104</width>
           <height>31</height>
@@ -966,7 +971,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeRoleText_U">
         <property name="geometry">
          <rect>
-          <x>366</x>
+          <x>400</x>
           <y>278</y>
           <width>104</width>
           <height>31</height>
@@ -982,7 +987,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeAddressText_U">
         <property name="geometry">
          <rect>
-          <x>146</x>
+          <x>150</x>
           <y>198</y>
           <width>104</width>
           <height>31</height>
@@ -1014,9 +1019,9 @@ QTableWidget QTableWidget {
        <widget class="QPushButton" name="EmployeeUpdateBtn">
         <property name="geometry">
          <rect>
-          <x>117</x>
+          <x>110</x>
           <y>358</y>
-          <width>160</width>
+          <width>150</width>
           <height>40</height>
          </rect>
         </property>
@@ -1027,7 +1032,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeLastNameText_U">
         <property name="geometry">
          <rect>
-          <x>346</x>
+          <x>380</x>
           <y>118</y>
           <width>104</width>
           <height>31</height>
@@ -1043,9 +1048,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeePassword_U">
         <property name="geometry">
          <rect>
-          <x>306</x>
+          <x>320</x>
           <y>68</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -1056,9 +1061,9 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeAddress_U">
         <property name="geometry">
          <rect>
-          <x>106</x>
+          <x>83</x>
           <y>228</y>
-          <width>160</width>
+          <width>200</width>
           <height>30</height>
          </rect>
         </property>
@@ -1066,9 +1071,9 @@ QTableWidget QTableWidget {
        <widget class="QPushButton" name="EmployeeCancelBtn_U">
         <property name="geometry">
          <rect>
-          <x>302</x>
+          <x>350</x>
           <y>358</y>
-          <width>160</width>
+          <width>150</width>
           <height>40</height>
          </rect>
         </property>
@@ -1079,7 +1084,7 @@ QTableWidget QTableWidget {
        <widget class="QLineEdit" name="EmployeeSelectIDText_U">
         <property name="geometry">
          <rect>
-          <x>77</x>
+          <x>10</x>
           <y>3</y>
           <width>113</width>
           <height>24</height>
@@ -1092,7 +1097,7 @@ QTableWidget QTableWidget {
        <widget class="QComboBox" name="EmployeeSelectID_U">
         <property name="geometry">
          <rect>
-          <x>147</x>
+          <x>80</x>
           <y>3</y>
           <width>81</width>
           <height>31</height>
