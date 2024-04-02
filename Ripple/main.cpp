@@ -17,6 +17,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setWindowIcon(QIcon("../Resources/Logo/icon ripple.png"));
 
     MainWindow w;
     Connection con;
