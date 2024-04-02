@@ -12,7 +12,6 @@
 #include "employee.h"
 #include "accident.h"
 #include "contract.h"
-#include "mailer.h"
 #include "chatbot.h"
 #include <QCoreApplication>
 #include <QDebug>
@@ -259,7 +258,18 @@ void Dashboard::onUpdateClickedClient() {
 
 void Dashboard::onDeleteClickedClient() {
 	Client MasterClient(ui->tableClient, ui->StackedClient, this);
-
+    if(ui->tableClient->selectedItems().count()>0)
+    {
+        while (ui->tableClient->selectedItems().count() > 0) {
+            int row = ui->tableClient->selectedItems().at(0)->row();
+            MasterClient.DeleteClient(ui->tableClient->item(row, 0)->text().toInt());
+            ui->tableClient->removeRow(row);
+        }
+        MasterClient.ReadClient();
+        fillComboBoxClient();
+        QMessageBox::information(this, tr("Success"), tr("Clients Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+    }
+    else{
 	if (ui->ClientDeleteID->text().isEmpty()) {
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
 	}
@@ -282,7 +292,7 @@ void Dashboard::onDeleteClickedClient() {
 				QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
 			}
 		}
-	}
+    }}
 }
 
 void Dashboard::onAddCancelClickedClient() {

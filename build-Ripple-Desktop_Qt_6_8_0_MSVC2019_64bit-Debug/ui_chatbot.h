@@ -15,30 +15,31 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Dialog
+class Ui_chatbot
 {
 public:
     QWidget *chatbox;
     QTextEdit *conversation;
     QLineEdit *messageBar;
     QPushButton *sendButton;
-    QLabel *chat;
     QPushButton *voiceButton;
     QLabel *title;
     QLabel *poweredBy;
+    QListWidget *chat;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QDialog *chatbot)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName("Dialog");
-        Dialog->resize(967, 524);
-        chatbox = new QWidget(Dialog);
+        if (chatbot->objectName().isEmpty())
+            chatbot->setObjectName("chatbot");
+        chatbot->resize(967, 524);
+        chatbox = new QWidget(chatbot);
         chatbox->setObjectName("chatbox");
         chatbox->setGeometry(QRect(0, 0, 1011, 531));
         chatbox->setStyleSheet(QString::fromUtf8("QWidget{\n"
@@ -78,6 +79,10 @@ public:
                         "und color for selected text */\n"
 "    color: #FFFFFF; /* White text color */\n"
 "}\n"
+"QListWidget{\n"
+"background-color:transparent;\n"
+"border:none;\n"
+"}\n"
 "\n"
 "QTextEdit {\n"
 "    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #A7C34E, stop:1 #A7C34E); /* Green gradient border */\n"
@@ -102,9 +107,9 @@ public:
 "\n"
 "QPushButton:pressed {\n"
 "    background-color: #A7C34E; /* Green background color when pressed */\n"
-"    border: 2px solid #A7C34E; /* Green border color when pressed */\n"
-"    padding: 4px 14px"
-                        " 6px 16px;\n"
+"    border: 2px soli"
+                        "d #A7C34E; /* Green border color when pressed */\n"
+"    padding: 4px 14px 6px 16px;\n"
 "}\n"
 "\n"
 "QPushButton:disabled {\n"
@@ -131,12 +136,6 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8("../Resources/Icons/send.png"), QSize(), QIcon::Normal, QIcon::Off);
         sendButton->setIcon(icon);
-        chat = new QLabel(chatbox);
-        chat->setObjectName("chat");
-        chat->setGeometry(QRect(61, 118, 851, 281));
-        chat->setAutoFillBackground(false);
-        chat->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
-        chat->setScaledContents(true);
         voiceButton = new QPushButton(chatbox);
         voiceButton->setObjectName("voiceButton");
         voiceButton->setGeometry(QRect(800, 400, 50, 30));
@@ -160,27 +159,29 @@ public:
         font1.setFamilies({QString::fromUtf8("Open Sans SemiBold")});
         font1.setBold(true);
         poweredBy->setFont(font1);
+        chat = new QListWidget(chatbox);
+        chat->setObjectName("chat");
+        chat->setGeometry(QRect(70, 111, 841, 261));
 
-        retranslateUi(Dialog);
+        retranslateUi(chatbot);
 
-        QMetaObject::connectSlotsByName(Dialog);
+        QMetaObject::connectSlotsByName(chatbot);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QDialog *chatbot)
     {
-        Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Chat bot for employees", nullptr));
-        messageBar->setPlaceholderText(QCoreApplication::translate("Dialog", "Your message...", nullptr));
+        chatbot->setWindowTitle(QCoreApplication::translate("chatbot", "Chat bot for employees", nullptr));
+        messageBar->setPlaceholderText(QCoreApplication::translate("chatbot", "Your message...", nullptr));
         sendButton->setText(QString());
-        chat->setText(QString());
         voiceButton->setText(QString());
-        title->setText(QCoreApplication::translate("Dialog", "ChatBot", nullptr));
-        poweredBy->setText(QCoreApplication::translate("Dialog", "Powered by Google Gemini", nullptr));
+        title->setText(QCoreApplication::translate("chatbot", "ChatBot", nullptr));
+        poweredBy->setText(QCoreApplication::translate("chatbot", "Powered by Google Gemini", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class chatbot: public Ui_Dialog {};
+    class chatbot: public Ui_chatbot {};
 } // namespace Ui
 
 QT_END_NAMESPACE
