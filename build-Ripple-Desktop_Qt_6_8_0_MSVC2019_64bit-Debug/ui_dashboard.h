@@ -549,8 +549,6 @@ public:
 "    border: none;\n"
 "    border-radius: 15px;\n"
 "    padding: 10px 20px;\n"
-"    cursor: pointer;\n"
-"    transition: background-color 0.3s ease;\n"
 "}\n"
 "\n"
 "#EmployeeCancelBtn_C:hover,\n"
@@ -661,7 +659,7 @@ public:
         EmployeeLastName_C->setGeometry(QRect(306, 148, 160, 30));
         EmployeeEmailText_C = new QPlainTextEdit(CreateEmployee);
         EmployeeEmailText_C->setObjectName("EmployeeEmailText_C");
-        EmployeeEmailText_C->setGeometry(QRect(160, 38, 61, 31));
+        EmployeeEmailText_C->setGeometry(QRect(158, 38, 61, 31));
         EmployeeEmailText_C->setTextInteractionFlags(Qt::NoTextInteraction);
         EmployeePhoneNumberText_C = new QPlainTextEdit(CreateEmployee);
         EmployeePhoneNumberText_C->setObjectName("EmployeePhoneNumberText_C");
@@ -1977,8 +1975,8 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(1);
-        CrudEmployee->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
+        CrudEmployee->setCurrentIndex(0);
         StackedClient->setCurrentIndex(1);
         StackContract->setCurrentIndex(0);
         StackedAccident->setCurrentIndex(2);

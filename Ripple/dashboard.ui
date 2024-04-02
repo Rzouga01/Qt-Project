@@ -145,7 +145,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -339,8 +339,6 @@ QTableWidget QTableWidget {
     border: none;
     border-radius: 15px;
     padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 #EmployeeCancelBtn_C:hover,
@@ -547,7 +545,7 @@ QTableWidget QTableWidget {
        <enum>QFrame::NoFrame</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="CreateEmployee">
        <widget class="QLineEdit" name="EmployeeEmail_C">
@@ -664,7 +662,7 @@ QTableWidget QTableWidget {
        <widget class="QPlainTextEdit" name="EmployeeEmailText_C">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>158</x>
           <y>38</y>
           <width>61</width>
           <height>31</height>

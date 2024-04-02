@@ -14,3 +14,5 @@
 *.ilk
 
 Ripple.pdb
+build-Ripple-Desktop_Qt_6_8_0_MSVC2019_64bit-Debug/debug/Ripple.pdb
+*.pdb
