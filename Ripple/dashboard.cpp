@@ -30,18 +30,14 @@ Dashboard::Dashboard(QWidget* parent) :
 	accident MasterAccident(ui->tableAccident, this);
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	Employee Emp(ui->tableEmployee, this);
-	Connection con;
-	if (!con.createconnect()) {
-		qDebug() << "Not Connected";
-	}
-	else {
+
 		Emp.readEmployee();
 		MasterClient.ReadClient();
 		MasterAccident.accidentRead();
 		MasterContract.ReadContract();
 		openUpdateForm();
 		update();
-	}
+
 }
 
 void Dashboard::update() {
@@ -89,15 +85,26 @@ void Dashboard::showPageForRole(int role)
 		break;
 	}
 }
-
 void Dashboard::createSession(Employee* employee) {
-	this->user = employee;
-	ui->helloBar->setText("Hello, " + user->getFirstName() + " " + user->getLastName());
-	qDebug() << "Session created for " << user->getFirstName() << " " << user->getLastName();
-	QString role = mapRoleToString(user->getRole());
-	ui->role->setText(role);
-	qDebug() << "Role: " << role;
+    this->user = employee;
+    QString firstName = user->getFirstName().trimmed();
+    QString lastName = user->getLastName().trimmed();
+    QString fullName = firstName + " " + lastName;
+    QString helloText = fullName;
+    ui->helloBar->setText(helloText);
+    ui->helloBar->setMaximumWidth(1000);
+
+    qDebug() << "Session created for " << fullName;
+
+    QString role = mapRoleToString(user->getRole());
+    ui->role->setText(role);
+    ui->role->setMaximumWidth(1000);
+
+    qDebug() << "Role: " << role;
 }
+
+
+
 //--------------------------------------------------------------------------------------------------------------------------------
 // Client
 void Dashboard::ClientDashboardConnectUi() {

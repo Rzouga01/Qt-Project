@@ -364,6 +364,7 @@ Makefile: ../Ripple/Ripple.pro C:/Qt/6.8.0/mingw_64/mkspecs/win32-g++/qmake.conf
 		C:/Qt/6.8.0/mingw_64/mkspecs/features/win32/default_pre.prf \
 		../QZXing/src/QZXing-components.pri \
 		../QZXing/src/QZXing.pri \
+		../qtxlsx/QXlsx/QXlsx.pri \
 		C:/Qt/6.8.0/mingw_64/mkspecs/features/resolve_config.prf \
 		C:/Qt/6.8.0/mingw_64/mkspecs/features/exclusive_builds_post.prf \
 		C:/Qt/6.8.0/mingw_64/mkspecs/features/default_post.prf \
@@ -694,6 +695,7 @@ C:/Qt/6.8.0/mingw_64/mkspecs/features/default_pre.prf:
 C:/Qt/6.8.0/mingw_64/mkspecs/features/win32/default_pre.prf:
 ../QZXing/src/QZXing-components.pri:
 ../QZXing/src/QZXing.pri:
+../qtxlsx/QXlsx/QXlsx.pri:
 C:/Qt/6.8.0/mingw_64/mkspecs/features/resolve_config.prf:
 C:/Qt/6.8.0/mingw_64/mkspecs/features/exclusive_builds_post.prf:
 C:/Qt/6.8.0/mingw_64/mkspecs/features/default_post.prf:

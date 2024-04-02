@@ -21,7 +21,7 @@
  #Dashboard {
      background-color: #171717;
 }
- #helloBar{
+ #helloBar,#helloTextBar{
      border: none;
      background-color:#171717;
      font-size:30px;
@@ -117,22 +117,6 @@
     </property>
     <property name="scaledContents">
      <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="helloBar">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>30</y>
-      <width>311</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::NoTextInteraction</set>
-    </property>
-    <property name="placeholderText">
-     <string>Hello,First Name Last Name</string>
     </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
@@ -4352,6 +4336,35 @@ font-family: &quot;helvetica&quot;;
       <width>20</width>
       <height>20</height>
      </size>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="helloTextBar">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>10</y>
+      <width>91</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hello,</string>
+    </property>
+    <property name="placeholderText">
+     <string>Hello,First Name Last Name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="helloBar">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>60</y>
+      <width>541</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>First Name Last Name</string>
     </property>
    </widget>
   </widget>

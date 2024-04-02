@@ -25,7 +25,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableWidget>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -36,7 +35,6 @@ public:
     QFrame *frame;
     QLineEdit *role;
     QLabel *logo;
-    QTextEdit *helloBar;
     QStackedWidget *stackedWidget;
     QWidget *page;
     QFrame *featureBarEmployee;
@@ -273,6 +271,8 @@ public:
     QPushButton *contracts;
     QPushButton *accidents;
     QPushButton *logoutButton;
+    QLineEdit *helloTextBar;
+    QLineEdit *helloBar;
 
     void setupUi(QDialog *Dashboard)
     {
@@ -286,7 +286,7 @@ public:
 " #Dashboard {\n"
 "     background-color: #171717;\n"
 "}\n"
-" #helloBar{\n"
+" #helloBar,#helloTextBar{\n"
 "     border: none;\n"
 "     background-color:#171717;\n"
 "     font-size:30px;\n"
@@ -321,9 +321,9 @@ public:
 "     border: none;\n"
 "}\n"
 " QMessageBox QLabel {\n"
-"     color: #FFFFFF;\n"
-""
-                        "}\n"
+"     col"
+                        "or: #FFFFFF;\n"
+"}\n"
 " QTableWidget {\n"
 "     background-color: #444444;\n"
 "     border: 1px solid #444444;\n"
@@ -338,7 +338,7 @@ public:
         frame->setFrameShape(QFrame::NoFrame);
         role = new QLineEdit(frame);
         role->setObjectName("role");
-        role->setGeometry(QRect(1160, 10, 281, 91));
+        role->setGeometry(QRect(990, 10, 501, 91));
         role->setCursor(QCursor(Qt::ArrowCursor));
         role->setReadOnly(true);
         logo = new QLabel(frame);
@@ -346,10 +346,6 @@ public:
         logo->setGeometry(QRect(20, 20, 111, 101));
         logo->setPixmap(QPixmap(QString::fromUtf8("../Resources/Logo/icon ripple.png")));
         logo->setScaledContents(true);
-        helloBar = new QTextEdit(frame);
-        helloBar->setObjectName("helloBar");
-        helloBar->setGeometry(QRect(130, 30, 311, 91));
-        helloBar->setTextInteractionFlags(Qt::NoTextInteraction);
         stackedWidget = new QStackedWidget(frame);
         stackedWidget->setObjectName("stackedWidget");
         stackedWidget->setGeometry(QRect(260, 120, 1231, 841));
@@ -1974,6 +1970,12 @@ public:
         icon10.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
         logoutButton->setIcon(icon10);
         logoutButton->setIconSize(QSize(20, 20));
+        helloTextBar = new QLineEdit(frame);
+        helloTextBar->setObjectName("helloTextBar");
+        helloTextBar->setGeometry(QRect(130, 10, 91, 71));
+        helloBar = new QLineEdit(frame);
+        helloBar->setObjectName("helloBar");
+        helloBar->setGeometry(QRect(130, 60, 541, 51));
 
         retranslateUi(Dashboard);
 
@@ -1992,7 +1994,6 @@ public:
         Dashboard->setWindowTitle(QCoreApplication::translate("Dashboard", "Dashboard", nullptr));
         role->setPlaceholderText(QCoreApplication::translate("Dashboard", "Role", nullptr));
         logo->setText(QString());
-        helloBar->setPlaceholderText(QCoreApplication::translate("Dashboard", "Hello,First Name Last Name", nullptr));
         addEmployee->setText(QString());
         deleteEmployee->setText(QString());
         updateEmployee->setText(QString());
@@ -2200,6 +2201,9 @@ public:
         contracts->setText(QCoreApplication::translate("Dashboard", "Contracts", nullptr));
         accidents->setText(QCoreApplication::translate("Dashboard", "Accidents", nullptr));
         logoutButton->setText(QCoreApplication::translate("Dashboard", "Logout", nullptr));
+        helloTextBar->setText(QCoreApplication::translate("Dashboard", "Hello,", nullptr));
+        helloTextBar->setPlaceholderText(QCoreApplication::translate("Dashboard", "Hello,First Name Last Name", nullptr));
+        helloBar->setPlaceholderText(QCoreApplication::translate("Dashboard", "First Name Last Name", nullptr));
     } // retranslateUi
 
 };

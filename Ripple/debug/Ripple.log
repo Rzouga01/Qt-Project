@@ -1,4 +1,261 @@
-﻿  Uic'ing dashboard.ui...
+﻿  Moc'ing ..\QZXing\src\ImageHandler.h...
+  Moc'ing ..\QZXing\src\QZXing.h...
+  Moc'ing accident.h...
+  Moc'ing chatbot.h...
+  Moc'ing client.h...
+  Moc'ing contract.h...
+  Moc'ing dashboard.h...
+  Moc'ing employee.h...
+  Moc'ing mainwindow.h...
+  Moc'ing qrcodedialog.h...
+  AI013103decoder.cpp
+  AI01320xDecoder.cpp
+  AI01392xDecoder.cpp
+  AI01393xDecoder.cpp
+  AI013x0x1xDecoder.cpp
+  AI013x0xDecoder.cpp
+  AI01AndOtherAIs.cpp
+  AI01decoder.cpp
+  AI01weightDecoder.cpp
+  AbstractExpandedDecoder.cpp
+  AbstractRSSReader.cpp
+  AnyAIDecoder.cpp
+  AztecDecoder.cpp
+  AztecDetector.cpp
+  AztecDetectorResult.cpp
+  AztecReader.cpp
+  BarcodeFormat.cpp
+  BigInteger.cc
+  BigIntegerAlgorithms.cc
+  BigIntegerUtils.cc
+  BigUnsigned.cc
+  BigUnsignedInABase.cc
+  Binarizer.cpp
+  BinaryBitmap.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\aztec\decoder\AztecDecoder.cpp(176,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  BitArray.cpp
+  BitArrayBuilder.cpp
+  BitArrayIO.cpp
+  BitMatrix.cpp
+  BitSource.cpp
+  BlockParsedResult.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\BitArray.cpp(69,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\BitMatrix.cpp(150,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ByQuadrantReader.cpp
+  ByteMatrix.cpp
+  CameraImageWrapper.cpp
+  CharacterSetECI.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\BitSource.cpp(74,45): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  ChecksumException.cpp
+  CodaBarReader.cpp
+  Code128Reader.cpp
+  Code39Reader.cpp
+  Code93Reader.cpp
+  CurrentParsingState.cpp
+  DataCharacter.cpp
+  DataMatrixBitMatrixParser.cpp
+  DataMatrixCornerPoint.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\Code128Reader.cpp(514,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\Code128Reader.cpp(533,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  DataMatrixDataBlock.cpp
+  DataMatrixDecodedBitStreamParser.cpp
+  DataMatrixDecoder.cpp
+  DataMatrixDetector.cpp
+  DataMatrixDetectorException.cpp
+  DataMatrixReader.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp(69,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp(72,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp(97,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDecoder.cpp(46,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  DataMatrixVersion.cpp
+  DecodeHints.cpp
+  DecodedChar.cpp
+  DecodedInformation.cpp
+  DecodedNumeric.cpp
+  DecodedObject.cpp
+  DecoderResult.cpp
+  DetectorResult.cpp
+  EAN13Reader.cpp
+  EAN8Reader.cpp
+  EANManufacturerOrgSupport.cpp
+  EncodeHint.cpp
+  ErrorCorrection.cpp
+  Exception.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\EAN13Reader.cpp(50,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\EAN13Reader.cpp(70,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\EAN8Reader.cpp(56,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ExpandedPair.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp(66,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp(89,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp(204,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ExpandedRow.cpp
+  FieldParser.cpp
+  FinderPattern.cpp
+  FormatException.cpp
+  GeneralAppIdDecoder.cpp
+  GenericGF.cpp
+  GenericGFPoly.cpp
+  GenericMultipleBarcodeReader.cpp
+  GlobalHistogramBinarizer.cpp
+  GreyscaleLuminanceSource.cpp
+  GreyscaleRotatedLuminanceSource.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:         with
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:         [
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:             _Ty=int
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:         ]
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:         with
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:         [
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:             _Ty=int
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:         ]
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(40,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(65,32): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(82,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(118,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(142,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(145,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(166,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(181,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GridSampler.cpp
+  HybridBinarizer.cpp
+  ITFReader.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\GlobalHistogramBinarizer.cpp(69,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\GlobalHistogramBinarizer.cpp(138,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  IllegalArgumentException.cpp
+  IllegalStateException.cpp
+  ImageHandler.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\ITFReader.cpp(104,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  InvertedLuminanceSource.cpp
+  LinesSampler.cpp
+  LuminanceSource.cpp
+  MaskUtil.cpp
+  MatrixUtil.cpp
+  ModulusGF.cpp
+  ModulusPoly.cpp
+  MonochromeRectangleDetector.cpp
+  MultiDetector.cpp
+  MultiFinderPatternFinder.cpp
+  MultiFormatOneDReader.cpp
+  MultiFormatReader.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(39,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(50,69): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(88,32): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(118,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(161,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(201,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(203,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(218,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(237,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp(256,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  MultiFormatUPCEANReader.cpp
+  MultipleBarcodeReader.cpp
+  NotFoundException.cpp
+  OneDReader.cpp
+  OneDResultPoint.cpp
+  PDF417BitMatrixParser.cpp
+  PDF417DecodedBitStreamParser.cpp
+  PDF417Decoder.cpp
+  PDF417Detector.cpp
+  PDF417Reader.cpp
+  Pair.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\detector\PDF417Detector.cpp(360,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417Decoder.cpp(71,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  PerspectiveTransform.cpp
+  QRAlignmentPattern.cpp
+  QRAlignmentPatternFinder.cpp
+  QRBitMatrixParser.cpp
+  QRCode.cpp
+  QRCodeMultiReader.cpp
+  QRCodeReader.cpp
+  QRDataBlock.cpp
+  QRDataMask.cpp
+  QRDecodedBitStreamParser.cpp
+  QRDecoder.cpp
+  QRDetector.cpp
+  QREncoder.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataBlock.cpp(71,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataBlock.cpp(74,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataBlock.cpp(99,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  QRErrorCorrectionLevel.cpp
+  QRFinderPattern.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDecoder.cpp(49,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  QRFinderPatternFinder.cpp
+  QRFinderPatternInfo.cpp
+  QRFormatInformation.cpp
+  QRMode.cpp
+  QRVersion.cpp
+  QZXing.cpp
+  RSS14Reader.cpp
+  RSSExpandedReader.cpp
+  RSSUtils.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\rss\RSSUtils.cpp(15,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Reader.cpp
+  ReaderException.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\RSSExpandedReader.cpp(607,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\RSSExpandedReader.cpp(615,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ReedSolomonDecoder.cpp
+  ReedSolomonEncoder.cpp
+  ReedSolomonException.cpp
+  Result.cpp
+  ResultIO.cpp
+  ResultMetadata.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonDecoder.cpp(64,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonDecoder.cpp(142,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonDecoder.cpp(143,37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonDecoder.cpp(155,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ResultPoint.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonEncoder.cpp(61,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ResultPointCallback.cpp
+  Str.cpp
+  StringUtils.cpp
+  UPCAReader.cpp
+  UPCEANExtension2Support.cpp
+  UPCEANExtension5Support.cpp
+  UPCEANExtensionSupport.cpp
+  UPCEANReader.cpp
+  UPCEReader.cpp
+  UnsupportedEncodingException.cpp
+  WhiteRectangleDetector.cpp
+  WriterException.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEReader.cpp(68,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  accident.cpp
+  chatbot.cpp
+  client.cpp
+  connection.cpp
+  contract.cpp
   dashboard.cpp
-C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\dashboard.cpp(622,11): warning C4100: 'index': unreferenced formal parameter
-  Ripple.vcxproj -> C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\Ripple.exe
+  employee.cpp
+  main.cpp
+  mainwindow.cpp
+  qrcodedialog.cpp
+  sms.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\Ripple\dashboard.cpp(633,11): warning C4100: 'index': unreferenced formal parameter
+  win_iconv.c
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(762,25): warning C4100: 'cd': unreferenced formal parameter
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1086,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1256,48): warning C4100: 'bufsize': unreferenced formal parameter
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1256,39): warning C4100: 'buf': unreferenced formal parameter
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1256,22): warning C4100: 'cv': unreferenced formal parameter
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1293,22): warning C4100: 'cv': unreferenced formal parameter
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c(1312,23): warning C4100: 'cv': unreferenced formal parameter
+  moc_ImageHandler.cpp
+  moc_QZXing.cpp
+  moc_accident.cpp
+  moc_chatbot.cpp
+  moc_client.cpp
+  moc_contract.cpp
+  moc_dashboard.cpp
+  moc_employee.cpp
+  moc_mainwindow.cpp
+  moc_qrcodedialog.cpp
+contract.obj : error LNK2019: unresolved external symbol "public: __cdecl QXlsx::Format::Format(void)" (??0Format@QXlsx@@QEAA@XZ) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: __cdecl QXlsx::Format::~Format(void)" (??1Format@QXlsx@@QEAA@XZ) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: __cdecl QXlsx::CellReference::CellReference(char const *)" (??0CellReference@QXlsx@@QEAA@PEBD@Z) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: __cdecl QXlsx::CellReference::~CellReference(void)" (??1CellReference@QXlsx@@QEAA@XZ) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: __cdecl QXlsx::Document::Document(class QObject *)" (??0Document@QXlsx@@QEAA@PEAVQObject@@@Z) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl QXlsx::Document::~Document(void)" (??1Document@QXlsx@@UEAA@XZ) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: bool __cdecl QXlsx::Document::write(class QXlsx::CellReference const &,class QVariant const &,class QXlsx::Format const &)" (?write@Document@QXlsx@@QEAA_NAEBVCellReference@2@AEBVQVariant@@AEBVFormat@2@@Z) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: bool __cdecl QXlsx::Document::write(int,int,class QVariant const &,class QXlsx::Format const &)" (?write@Document@QXlsx@@QEAA_NHHAEBVQVariant@@AEBVFormat@2@@Z) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+contract.obj : error LNK2019: unresolved external symbol "public: bool __cdecl QXlsx::Document::saveAs(class QString const &)const " (?saveAs@Document@QXlsx@@QEBA_NAEBVQString@@@Z) referenced in function "public: void __cdecl contract::exportToExcel(int,class QString const &)" (?exportToExcel@contract@@QEAAXHAEBVQString@@@Z)
+debug\\Ripple.exe : fatal error LNK1120: 9 unresolved externals
