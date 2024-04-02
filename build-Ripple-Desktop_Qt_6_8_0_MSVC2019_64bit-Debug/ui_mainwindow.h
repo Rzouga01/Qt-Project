@@ -16,6 +16,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QWidget>
 
@@ -32,6 +33,7 @@ public:
     QSlider *themeSlider;
     QPlainTextEdit *dark_theme;
     QPlainTextEdit *light_theme;
+    QPushButton *loginButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -52,21 +54,19 @@ public:
         centralwidget->setObjectName("centralwidget");
         LoginPage = new QFrame(centralwidget);
         LoginPage->setObjectName("LoginPage");
-        LoginPage->setGeometry(QRect(0, 0, 1200, 650));
+        LoginPage->setGeometry(QRect(-11, 0, 1211, 650));
         LoginPage->setStyleSheet(QString::fromUtf8("#email, #password {\n"
 "    border-radius: 25px;\n"
 "    background-color: white;\n"
 "    font-size: 30px;\n"
 "    margin: 0 auto; \n"
 "    color: #171717;\n"
-"\n"
 "}\n"
 "\n"
 "#dark_theme,#light_theme{\n"
 "border:none;\n"
 "background-color:rgba(0, 0, 0, 0);\n"
 "color:white;\n"
-"\n"
 "}\n"
 "\n"
 ""));
@@ -82,7 +82,11 @@ public:
         email->setGeometry(QRect(360, 330, 501, 70));
         password = new QLineEdit(LoginPage);
         password->setObjectName("password");
-        password->setGeometry(QRect(360, 440, 501, 70));
+        password->setGeometry(QRect(360, 420, 501, 70));
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Open Sans")});
+        password->setFont(font);
+        password->setEchoMode(QLineEdit::Password);
         themeSlider = new QSlider(LoginPage);
         themeSlider->setObjectName("themeSlider");
         themeSlider->setGeometry(QRect(80, 520, 111, 71));
@@ -99,6 +103,22 @@ public:
         light_theme->setObjectName("light_theme");
         light_theme->setGeometry(QRect(170, 600, 91, 61));
         light_theme->setReadOnly(true);
+        loginButton = new QPushButton(LoginPage);
+        loginButton->setObjectName("loginButton");
+        loginButton->setGeometry(QRect(490, 510, 231, 41));
+        QFont font1;
+        font1.setPointSize(14);
+        font1.setBold(true);
+        loginButton->setFont(font1);
+        loginButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255));\n"
+"        border-radius: 10px;\n"
+"        color: white;\n"
+"     }\n"
+"     QPushButton:hover {\n"
+"        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(70, 123, 54, 255));\n"
+"     }\n"
+"     "));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -116,6 +136,7 @@ public:
 "", nullptr));
         light_theme->setPlainText(QCoreApplication::translate("MainWindow", "Light\n"
 "", nullptr));
+        loginButton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
     } // retranslateUi
 
 };

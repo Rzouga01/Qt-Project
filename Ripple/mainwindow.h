@@ -19,6 +19,7 @@ public:
     void handleThemeChange(int value);
     void animation();
     void resetLogoSize(const QRect &size);
+    void onLoginButtonClicked();
 
 private:
     Ui::MainWindow *ui;

@@ -65,6 +65,35 @@ void Dashboard::update() {
 void Dashboard::onLogoutButtonClicked() {
 	close();
 	mainWindowRef.show();
+	
+}
+void Dashboard::showPageForRole(int role)
+{
+	switch (role) {
+	case 0:
+		// Employee
+		ui->stackedWidget->setCurrentIndex(0);
+		break;
+	case 1:
+		// Client
+		ui->stackedWidget->setCurrentIndex(1);
+		break;
+	case 2:
+		// Contract
+		ui->stackedWidget->setCurrentIndex(2);
+		break;
+	case 3:
+		// Accident
+		ui->stackedWidget->setCurrentIndex(3);
+		break;
+	}
+}
+
+void Dashboard::createSession(Employee* employee) {
+	this->user = employee;
+	ui->helloBar->setText("Hello, " + user->getFirstName() + " " + user->getLastName());
+	qDebug() << "Session created for " << user->getFirstName() << " " << user->getLastName();
+
 }
 //--------------------------------------------------------------------------------------------------------------------------------
 // Client
@@ -92,18 +121,18 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->ClientUpdateCancel, &QPushButton::clicked, this, &Dashboard::onUpdateCancelClickedClient);
 	QObject::connect(ui->ClientDeleteCancel, &QPushButton::clicked, this, &Dashboard::onDeleteCancelClickedClient);
 	QObject::connect(ui->QRCodeClientGenerate, &QPushButton::clicked, this, &Dashboard::onQRCodeClickClient);
-	QObject::connect(ui->QRCodeClientCancel, &QPushButton::clicked, this, [this]() {ui->QRCodeClientCombo->setCurrentIndex(0);ui->QRCodeClientInput->clear();});
+	QObject::connect(ui->QRCodeClientCancel, &QPushButton::clicked, this, [this]() {ui->QRCodeClientCombo->setCurrentIndex(0); ui->QRCodeClientInput->clear(); });
 
 	QObject::connect(ui->tableClient, &QTableWidget::doubleClicked, this, &Dashboard::UpdateClientByClick);
 
 	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
-    ui->SearchComboClient->addItem("ID", "CLIENT_ID");
-    ui->SearchComboClient->addItem("First Name", "FIRST_NAME");
-    ui->SearchComboClient->addItem("Last Name", "LAST_NAME");
-    ui->SearchComboClient->addItem("Email", "EMAIL");
-    ui->SearchComboClient->addItem("Phone Number", "PHONE_NUMBER");
-    ui->SearchComboClient->addItem("Address", "ADDRESS");
+	ui->SearchComboClient->addItem("ID", "CLIENT_ID");
+	ui->SearchComboClient->addItem("First Name", "FIRST_NAME");
+	ui->SearchComboClient->addItem("Last Name", "LAST_NAME");
+	ui->SearchComboClient->addItem("Email", "EMAIL");
+	ui->SearchComboClient->addItem("Phone Number", "PHONE_NUMBER");
+	ui->SearchComboClient->addItem("Address", "ADDRESS");
 
 	fillComboBoxClient();
 	ui->StackedClient->setCurrentIndex(0);
@@ -188,9 +217,9 @@ void Dashboard::onAddClickedClient() {
 				sendEmailWithQRCode(email, clientData, firstName, lastName);
 
 
-                    MasterClient.ReadClient();
-                    clearInputFieldsCreateClient();
-                    fillComboBoxClient();
+				MasterClient.ReadClient();
+				clearInputFieldsCreateClient();
+				fillComboBoxClient();
 
 
 				QMessageBox::information(this, tr("Success"), tr("Client created successfully"), QMessageBox::Ok);
@@ -260,45 +289,46 @@ void Dashboard::onUpdateClickedClient() {
 
 void Dashboard::onDeleteClickedClient() {
 	Client MasterClient(ui->tableClient, ui->StackedClient, this);
-    if(ui->tableClient->selectedItems().count()>0)
-    {
-        QString rowsModified=QString::number(ui->tableClient->selectedItems().count());
-        while (ui->tableClient->selectedItems().count() > 0) {
-            int row = ui->tableClient->selectedItems().at(0)->row();
-            MasterClient.DeleteClient(ui->tableClient->item(row, 0)->text().toInt());
-            ui->tableClient->removeRow(row);
-        }
-        MasterClient.ReadClient();
-        fillComboBoxClient();
-        QString message = tr("Success") + " " + rowsModified + " Clients Deleted successfully";
-        QMessageBox::information(this, tr("Success"), qPrintable(message), QMessageBox::Ok, QMessageBox::Ok);
-    }
-    else
-    {
-
-	if (ui->ClientDeleteID->text().isEmpty()) {
-		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+	if (ui->tableClient->selectedItems().count() > 0)
+	{
+		QString rowsModified = QString::number(ui->tableClient->selectedItems().count());
+		while (ui->tableClient->selectedItems().count() > 0) {
+			int row = ui->tableClient->selectedItems().at(0)->row();
+			MasterClient.DeleteClient(ui->tableClient->item(row, 0)->text().toInt());
+			ui->tableClient->removeRow(row);
+		}
+		MasterClient.ReadClient();
+		fillComboBoxClient();
+		QString message = tr("Success") + " " + rowsModified + " Clients Deleted successfully";
+		QMessageBox::information(this, tr("Success"), qPrintable(message), QMessageBox::Ok, QMessageBox::Ok);
 	}
-	else {
-		// Validate ID
-		QString id = ui->ClientDeleteID->text();
-		bool validId = id.toInt(&validId) && validId;
+	else
+	{
 
-		if (!validId) {
-			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
+		if (ui->ClientDeleteID->text().isEmpty()) {
+			QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
 		}
 		else {
-			if (MasterClient.DeleteClient(id.toInt())) {
-				MasterClient.ReadClient();
-				clearInputFieldsDeleteClient();
-				fillComboBoxClient();
-				QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+			// Validate ID
+			QString id = ui->ClientDeleteID->text();
+			bool validId = id.toInt(&validId) && validId;
+
+			if (!validId) {
+				QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
 			}
 			else {
-				QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
+				if (MasterClient.DeleteClient(id.toInt())) {
+					MasterClient.ReadClient();
+					clearInputFieldsDeleteClient();
+					fillComboBoxClient();
+					QMessageBox::information(this, tr("Success"), tr("Client Deleted successfully"), QMessageBox::Ok, QMessageBox::Ok);
+				}
+				else {
+					QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
+				}
 			}
 		}
-    }}
+	}
 }
 
 void Dashboard::onAddCancelClickedClient() {
@@ -354,10 +384,10 @@ void Dashboard::onPdfClickedClient() {
 }
 
 void Dashboard::onSearchIdClient() {
-    Client MasterClient(ui->tableClient, this);
-    QString search = ui->searchBarClient->text();
-    QString searchBy = ui->SearchComboClient->currentData().toString();
-    MasterClient.searchClientID(search, searchBy);
+	Client MasterClient(ui->tableClient, this);
+	QString search = ui->searchBarClient->text();
+	QString searchBy = ui->SearchComboClient->currentData().toString();
+	MasterClient.searchClientID(search, searchBy);
 
 }
 
@@ -428,94 +458,94 @@ void Dashboard::onQRCodeClickClient()
 
 void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName)
 {
-    // Email credentials
-    const QString emailRipple = "ripple.insurance123@gmail.com";
-    const QString passwordRipple = QProcessEnvironment::systemEnvironment().value("RIPPLE_EMAIL_PASSWORD");
+	// Email credentials
+	const QString emailRipple = "ripple.insurance123@gmail.com";
+	const QString passwordRipple = QProcessEnvironment::systemEnvironment().value("RIPPLE_EMAIL_PASSWORD");
 
-    // Check if the password environment variable is set
-    if (passwordRipple.isEmpty()) {
-        qWarning() << "Password environment variable (RIPPLE_EMAIL_PASSWORD) is not set.";
-        return;
-    }
+	// Check if the password environment variable is set
+	if (passwordRipple.isEmpty()) {
+		qWarning() << "Password environment variable (RIPPLE_EMAIL_PASSWORD) is not set.";
+		return;
+	}
 
-    Client masterClient;
+	Client masterClient;
 
-    // Get QR code image data
-    QByteArray imageData = masterClient.getQRCodeData(clientData);
-    if (imageData.isEmpty()) {
-        qWarning() << "Failed to get QR code image data.";
-        return;
-    }
+	// Get QR code image data
+	QByteArray imageData = masterClient.getQRCodeData(clientData);
+	if (imageData.isEmpty()) {
+		qWarning() << "Failed to get QR code image data.";
+		return;
+	}
 
-    QSslSocket socket;
-    socket.connectToHostEncrypted("smtp.gmail.com", 465); // Gmail SMTP server and port (SSL)
-    if (!socket.waitForConnected()) {
-        qWarning() << "Failed to connect to SMTP server";
-        return;
-    }
+	QSslSocket socket;
+	socket.connectToHostEncrypted("smtp.gmail.com", 465); // Gmail SMTP server and port (SSL)
+	if (!socket.waitForConnected()) {
+		qWarning() << "Failed to connect to SMTP server";
+		return;
+	}
 
-    socket.waitForEncrypted(); // Wait for the SSL/TLS handshake to complete
-    qDebug() << "Connected to SMTP server.";
+	socket.waitForEncrypted(); // Wait for the SSL/TLS handshake to complete
+	qDebug() << "Connected to SMTP server.";
 
-    // Send EHLO command to initiate SMTP session
-    socket.write("EHLO localhost\r\n");
-    socket.waitForBytesWritten();
+	// Send EHLO command to initiate SMTP session
+	socket.write("EHLO localhost\r\n");
+	socket.waitForBytesWritten();
 
-    // Authenticate with email credentials
-    socket.write("AUTH LOGIN\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
-    socket.write(QByteArray().append(emailRipple.toUtf8()).toBase64() + "\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
-    socket.write(QByteArray().append(passwordRipple.toUtf8()).toBase64() + "\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
+	// Authenticate with email credentials
+	socket.write("AUTH LOGIN\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
+	socket.write(QByteArray().append(emailRipple.toUtf8()).toBase64() + "\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
+	socket.write(QByteArray().append(passwordRipple.toUtf8()).toBase64() + "\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
 
-    // Send email with attachment
-    socket.write("MAIL FROM:<" + emailRipple.toUtf8() + ">\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
-    socket.write("RCPT TO:<" + recipientEmail.toUtf8() + ">\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
-    socket.write("DATA\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
+	// Send email with attachment
+	socket.write("MAIL FROM:<" + emailRipple.toUtf8() + ">\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
+	socket.write("RCPT TO:<" + recipientEmail.toUtf8() + ">\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
+	socket.write("DATA\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
 
-    // Email headers and body
-    socket.write("Subject: Your Ripple Insurance Account Has Been Created\r\n");
-    socket.write("From: " + emailRipple.toUtf8() + "\r\n");
-    socket.write("To: " + recipientEmail.toUtf8() + "\r\n");
-    socket.write("Content-Type: multipart/mixed; boundary=boundary1\r\n");
-    socket.write("\r\n");
-    socket.write("--boundary1\r\n");
-    socket.write("Content-Type: text/html\r\n\r\n");
-    socket.write("<p style=\"font-family: Arial, sans-serif; font-size: 14px; color: #333333;\">Hello " + firstName.toHtmlEscaped().toUtf8() + " " + lastName.toHtmlEscaped().toUtf8() + "</p>");
-    socket.write("Please find your QR code with your Information attached to this Email.\r\n");
-    socket.write("\r\n");
+	// Email headers and body
+	socket.write("Subject: Your Ripple Insurance Account Has Been Created\r\n");
+	socket.write("From: " + emailRipple.toUtf8() + "\r\n");
+	socket.write("To: " + recipientEmail.toUtf8() + "\r\n");
+	socket.write("Content-Type: multipart/mixed; boundary=boundary1\r\n");
+	socket.write("\r\n");
+	socket.write("--boundary1\r\n");
+	socket.write("Content-Type: text/html\r\n\r\n");
+	socket.write("<p style=\"font-family: Arial, sans-serif; font-size: 14px; color: #333333;\">Hello " + firstName.toHtmlEscaped().toUtf8() + " " + lastName.toHtmlEscaped().toUtf8() + "</p>");
+	socket.write("Please find your QR code with your Information attached to this Email.\r\n");
+	socket.write("\r\n");
 
-    // Attach QR code image data
-    socket.write("--boundary1\r\n");
-    socket.write("Content-Type: image/png\r\n");
-    socket.write("Content-Disposition: attachment; filename=qr_code.png\r\n");
-    socket.write("Content-Transfer-Encoding: base64\r\n\r\n");
-    socket.write(imageData.toBase64());
-    socket.write("\r\n");
+	// Attach QR code image data
+	socket.write("--boundary1\r\n");
+	socket.write("Content-Type: image/png\r\n");
+	socket.write("Content-Disposition: attachment; filename=qr_code.png\r\n");
+	socket.write("Content-Transfer-Encoding: base64\r\n\r\n");
+	socket.write(imageData.toBase64());
+	socket.write("\r\n");
 
-    // End email data
-    socket.write("--boundary1--\r\n");
-    socket.write(".\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
+	// End email data
+	socket.write("--boundary1--\r\n");
+	socket.write(".\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
 
-    // Quit SMTP session
-    socket.write("QUIT\r\n");
-    socket.waitForBytesWritten();
-    socket.waitForReadyRead();
+	// Quit SMTP session
+	socket.write("QUIT\r\n");
+	socket.waitForBytesWritten();
+	socket.waitForReadyRead();
 
-    socket.close();
-    qDebug() << "Email with attachment sent successfully!";
+	socket.close();
+	qDebug() << "Email with attachment sent successfully!";
 }
 
 
@@ -600,16 +630,16 @@ void Dashboard::EmployeeDashboardConnectUi() {
 }
 
 int mapRoleToNumber(const QString& roleText) {
-    if (roleText == "General Director")
-        return 0;
-    else if (roleText == "Customer Relationship Director")
-        return 1;
-    else if (roleText == "Contract Administrator")
-        return 2;
-    else if (roleText == "Accident investigation manager")
-        return 3;
-    else
-        return -1;
+	if (roleText == "General Director")
+		return 0;
+	else if (roleText == "Customer Relationship Director")
+		return 1;
+	else if (roleText == "Contract Administrator")
+		return 2;
+	else if (roleText == "Accident investigation manager")
+		return 3;
+	else
+		return -1;
 }
 
 void Dashboard::onAddEmployeeClicked() {
@@ -742,7 +772,7 @@ void Dashboard::onDeleteEmployeeClicked() {
 			e.readEmployee();
 
 			openUpdateForm();
-	
+
 
 			QMessageBox::information(this, "Success", "Employee deleted successfully.");
 		}
@@ -810,7 +840,7 @@ void Dashboard::onComboboxIndexChanged(int index) {
 			ui->EmployeeRole_U->addItem("Customer relationship director");
 			ui->EmployeeRole_U->addItem("Contract administrator");
 			ui->EmployeeRole_U->addItem("Accident investigation manager");
-			
+
 
 
 			ui->EmployeeRole_U->setCurrentIndex(employeeData->getRole());
@@ -1029,17 +1059,24 @@ void Dashboard::displayGeneralStats() {
 				QString totalEmployeesText = "Total Employees: " + QString::number(generalStats["Total Employees"]);
 				employeeStatsLabel->setText(totalEmployeesText);
 			}
+
 			QChart* chart = new QChart();
 			chart->setBackgroundBrush(QBrush(Qt::transparent));
 			QPieSeries* series = new QPieSeries();
+
 			for (auto it = generalStats.begin(); it != generalStats.end(); ++it) {
+				// Skip adding the "Total Employees" to the chart series
+				if (it.key() == "Total Employees") {
+					continue;
+				}
 				QPieSlice* slice = series->append(it.key(), it.value());
 				slice->setLabel(QString("%1: %2").arg(it.key()).arg(it.value()));
 			}
+
 			chart->addSeries(series);
 			chart->setTitle("General Statistics");
-
 			chart->setAnimationOptions(QChart::AllAnimations);
+
 			connect(series, &QPieSeries::hovered, this, [=](QPieSlice* slice, bool state) {
 				if (state) {
 					slice->setExploded(true);
@@ -1050,6 +1087,7 @@ void Dashboard::displayGeneralStats() {
 					slice->setLabelVisible(false);
 				}
 				});
+
 			QChartView* chartView = new QChartView(chart);
 			chartView->setRenderHint(QPainter::Antialiasing);
 			chartView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
@@ -1114,8 +1152,8 @@ void Dashboard::clearEmployeeStats()
 }
 
 void Dashboard::openChatBox() {
-    chatbot* chat = new chatbot(this);
-    chat->show();
+	chatbot* chat = new chatbot(this);
+	chat->show();
 }
 
 
@@ -1129,7 +1167,7 @@ void Dashboard::ContractDashboardConnectUi() {
 	QObject::connect(ui->pdfContract, &QPushButton::clicked, this, &Dashboard::onPdfClickedContract);
 	QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
 	QObject::connect(ui->statsContract, &QPushButton::clicked, this, &Dashboard::onStatByPremiumAmount);
-    QObject::connect(ui->excelContract, &QPushButton::clicked, this, &Dashboard::onExcelClickedContract);
+	QObject::connect(ui->excelContract, &QPushButton::clicked, this, &Dashboard::onExcelClickedContract);
 
 
 	QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
@@ -1406,7 +1444,7 @@ void Dashboard::onSortClickedContract() {
 }
 
 void Dashboard::onSearchIdContract(QString searched) {
-    contract MasterContract(ui->tableContract, ui->StackContract, this);
+	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	QString id = ui->searchBarContract->text();
 	MasterContract.searchContract(id); // Appel de la fonction searchContractID pour rechercher les contrats
 }
@@ -1419,18 +1457,18 @@ void Dashboard::onStatByPremiumAmount() {
 void Dashboard::onPdfClickedContract() {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
 	if (!filePath.isEmpty()) {
-        contract MasterContract(ui->tableContract, ui->StackContract, this);
+		contract MasterContract(ui->tableContract, ui->StackContract, this);
 		MasterContract.toPdf(filePath); // Appel de la fonction toPdf() de l'objet contract
 	}
 }
 
 void Dashboard::onExcelClickedContract(int clientId) {
-    // Demander à l'utilisateur de sélectionner un fichier pour enregistrer le fichier Excel
-    QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
-    if (!filePath.isEmpty()) {
-        contract MasterContract(ui->tableContract, ui->StackContract, this);
-        MasterContract.exportToExcel(clientId,filePath);
-    }
+	// Demander à l'utilisateur de sélectionner un fichier pour enregistrer le fichier Excel
+	QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
+	if (!filePath.isEmpty()) {
+		contract MasterContract(ui->tableContract, ui->StackContract, this);
+		MasterContract.exportToExcel(clientId, filePath);
+	}
 
 }
 
@@ -1444,10 +1482,10 @@ void Dashboard::AccidentDashboardConnectUi()
 	accident MasterAccident(ui->tableAccident, this);
 
 
-    QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
-    QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
-    QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
-    QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
+	QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
+	QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
+	QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
+	QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
 
 
 	QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
@@ -1466,7 +1504,7 @@ void Dashboard::AccidentDashboardConnectUi()
 		qDebug() << "Error executing query:" << query.lastError().text();
 		return;
 	}
- // Counter to track the number of rows fetched
+	// Counter to track the number of rows fetched
 	while (query.next()) {
 		QString clientName = query.value(2).toString();
 		QVariant clientId = query.value(0).toInt();
@@ -1474,7 +1512,7 @@ void Dashboard::AccidentDashboardConnectUi()
 		ui->AccidentUpdateClientID->addItem(clientName, clientId);
 	}
 
-    ui->StackedAccident->setCurrentIndex(0);
+	ui->StackedAccident->setCurrentIndex(0);
 }
 
 void Dashboard::onAddCancelClickedAccident() {
@@ -1623,8 +1661,8 @@ void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
 	MasterAccident.searchAccident(searchText);
 }
 void Dashboard::onstatsClickedAccident() {
-    accident MasterAccident(ui->tableAccident,this);
-    MasterAccident.accidentstatsByDamage();
+	accident MasterAccident(ui->tableAccident, this);
+	MasterAccident.accidentstatsByDamage();
 
 }
 
@@ -1632,40 +1670,40 @@ void Dashboard::onstatsClickedAccident() {
 
 {
 
-    QSqlQuery query = accident.rechercherall();
+	QSqlQuery query = accident.rechercherall();
 
-    if (query.exec())
-    {
+	if (query.exec())
+	{
 
-        QFile file("resultats.txt");
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
-        {
+		QFile file("resultats.txt");
+		if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+		{
 
-            QTextStream out(&file);
-
-
-            while (query.next())
-            {
-                out << "acc_id: " << query.value("acc_id").toInt() << "\n";
-                out << "type " << query.value("type").toString() << "\n";
-                out << "damage: " << query.value("damage").toString() << "\n";
-                out << "date: " << query.value("date").toString() << "\n\n";
-                out << "location: " << query.value("location").toString() << "\n\n";
-                out << "client_id: " << query.value("client_id").toString() << "\n\n";
+			QTextStream out(&file);
 
 
-            }
-            file.close();
-        }
-        else
-        {
-            qDebug() << "Erreur d'ouverture du fichier";
-        }
-    }
-    else
-    {
-        qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
-    }
+			while (query.next())
+			{
+				out << "acc_id: " << query.value("acc_id").toInt() << "\n";
+				out << "type " << query.value("type").toString() << "\n";
+				out << "damage: " << query.value("damage").toString() << "\n";
+				out << "date: " << query.value("date").toString() << "\n\n";
+				out << "location: " << query.value("location").toString() << "\n\n";
+				out << "client_id: " << query.value("client_id").toString() << "\n\n";
+
+
+			}
+			file.close();
+		}
+		else
+		{
+			qDebug() << "Erreur d'ouverture du fichier";
+		}
+	}
+	else
+	{
+		qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
+	}
 }
 */
 

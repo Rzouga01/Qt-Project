@@ -1,5 +1,3 @@
 ﻿  dashboard.cpp
-  main.cpp
-C:\Users\malek\Documents\Qt-Project\Ripple\dashboard.cpp(594,11): warning C4100: 'index': unreferenced formal parameter
-  moc_dashboard.cpp
-  Ripple.vcxproj -> C:\Users\malek\Documents\Qt-Project\Ripple\debug\Ripple.exe
+C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\dashboard.cpp(623,11): warning C4100: 'index': unreferenced formal parameter
+  Ripple.vcxproj -> C:\Users\rzoug\OneDrive\Bureau\School\2A\SEM 2\Qt\Qt-Project\Ripple\debug\Ripple.exe

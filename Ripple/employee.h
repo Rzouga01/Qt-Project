@@ -77,6 +77,7 @@ public:
     QStringList getAllEmployeeIDs();
     QStringList getEmployeeNames();
     int getEmployeeIdByName(const QString& name);
+    bool login(const QString& email, const QString& password);
 };
 
 #endif // EMPLOYEE_H

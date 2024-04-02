@@ -25,6 +25,8 @@ public:
 
 	void update();
 	void onLogoutButtonClicked();
+	void showPageForRole(int role);
+	void createSession(Employee* employee);
 	//------------------------------------------------------------------------------------------------------------------
 	// Client
 	void onAddClickedClient();
@@ -112,6 +114,7 @@ public:
 public:
 	Ui::Dashboard* ui;
 	MainWindow mainWindowRef;
+	Employee *user;
 };
 
 #endif // DASHBOARD_H

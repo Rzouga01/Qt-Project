@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 
 
-    dash.show();
+  w.show();
 
 
     return a.exec();

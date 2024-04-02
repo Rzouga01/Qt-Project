@@ -571,6 +571,31 @@ int Employee::getEmployeeIdByName(const QString& name) {
     }
 }
 
+bool Employee::login(const QString& email, const QString& password) {
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM employees WHERE EMAIL = :email AND PASSWORD = :password");
+    qry.bindValue(":email", email);
+    qry.bindValue(":password", password);
+
+    if (qry.exec() && qry.next()) {
+        
+        setEmail(qry.value("EMAIL").toString());
+        setPassword(qry.value("PASSWORD").toString());
+        setRole(qry.value("ROLE").toInt());
+        setFirstName(qry.value("FIRST_NAME").toString());
+        setLastName(qry.value("LAST_NAME").toString());
+        setPhoneNumber(qry.value("PHONE_NUMBER").toString());
+        setAddress(qry.value("ADDRESS").toString());
+        setDOB(qry.value("DOB").toDate());
+        return true;
+    }
+    else {
+       
+        return false;
+    }
+}
+
+
 
 
 

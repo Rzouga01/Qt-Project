@@ -1,17 +1,44 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\",
+  "WorkspaceRootPath": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\employee.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:employee.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\employee.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:employee.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\qtxlsx\\QXlsx\\source\\xlsxzipwriter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Qt\\6.8.0\\msvc2019_64\\include\\QtCore\\qrunnable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,32 +48,126 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d3750d8a-574b-4fb3-b7e2-aa8af40e8231}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mainwindow.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\mainwindow.cpp",
+              "RelativeDocumentMoniker": "mainwindow.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\mainwindow.cpp",
+              "RelativeToolTip": "mainwindow.cpp",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAwwGgAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-02T11:15:21.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "xlsxzipwriter.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\qtxlsx\\QXlsx\\source\\xlsxzipwriter.cpp",
+              "RelativeDocumentMoniker": "..\\qtxlsx\\QXlsx\\source\\xlsxzipwriter.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\qtxlsx\\QXlsx\\source\\xlsxzipwriter.cpp",
+              "RelativeToolTip": "..\\qtxlsx\\QXlsx\\source\\xlsxzipwriter.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-02T12:43:48.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dashboard.h",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.h",
+              "RelativeDocumentMoniker": "dashboard.h",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.h",
+              "RelativeToolTip": "dashboard.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAQwBsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-02T11:39:05.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "mainwindow.h",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\mainwindow.h",
+              "RelativeDocumentMoniker": "mainwindow.h",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\mainwindow.h",
+              "RelativeToolTip": "mainwindow.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-02T11:36:14.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "employee.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\employee.cpp",
+              "RelativeDocumentMoniker": "employee.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\employee.cpp",
+              "RelativeToolTip": "employee.cpp",
+              "ViewState": "AQIAABQCAAAAAAAAAAAgwC4CAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-02T11:23:47.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "employee.h",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\employee.h",
+              "RelativeDocumentMoniker": "employee.h",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\employee.h",
+              "RelativeToolTip": "employee.h",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAgwAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-02T11:25:22.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxsAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-02T11:15:18.417Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "dashboard.cpp",
-              "DocumentMoniker": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\dashboard.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp",
               "RelativeDocumentMoniker": "dashboard.cpp",
-              "ToolTip": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\dashboard.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp",
               "RelativeToolTip": "dashboard.cpp",
-              "ViewState": "AQIAABgCAAAAAAAAAAAkwDQCAAAnAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-31T19:12:32.13Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "chatbot.cpp",
-              "DocumentMoniker": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\chatbot.cpp",
+              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeDocumentMoniker": "chatbot.cpp",
-              "ToolTip": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\chatbot.cpp",
+              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeToolTip": "chatbot.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -54,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "qrunnable.h",
               "DocumentMoniker": "D:\\Qt\\6.8.0\\msvc2019_64\\include\\QtCore\\qrunnable.h",
               "ToolTip": "D:\\Qt\\6.8.0\\msvc2019_64\\include\\QtCore\\qrunnable.h",
