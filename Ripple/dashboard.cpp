@@ -259,6 +259,21 @@ void Dashboard::onUpdateClickedClient() {
 
 void Dashboard::onDeleteClickedClient() {
 	Client MasterClient(ui->tableClient, ui->StackedClient, this);
+    if(ui->tableClient->selectedItems().count()>0)
+    {
+        QString rowsModified=QString::number(ui->tableClient->selectedItems().count());
+        while (ui->tableClient->selectedItems().count() > 0) {
+            int row = ui->tableClient->selectedItems().at(0)->row();
+            MasterClient.DeleteClient(ui->tableClient->item(row, 0)->text().toInt());
+            ui->tableClient->removeRow(row);
+        }
+        MasterClient.ReadClient();
+        fillComboBoxClient();
+        QString message = tr("Success") + " " + rowsModified + " Clients Deleted successfully";
+        QMessageBox::information(this, tr("Success"), qPrintable(message), QMessageBox::Ok, QMessageBox::Ok);
+    }
+    else
+    {
 
 	if (ui->ClientDeleteID->text().isEmpty()) {
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
@@ -282,7 +297,7 @@ void Dashboard::onDeleteClickedClient() {
 				QMessageBox::critical(this, tr("Error"), tr("Client not found"), QMessageBox::Ok, QMessageBox::Ok);
 			}
 		}
-	}
+    }}
 }
 
 void Dashboard::onAddCancelClickedClient() {

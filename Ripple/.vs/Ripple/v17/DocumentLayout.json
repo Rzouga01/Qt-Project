@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\",
+  "WorkspaceRootPath": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Qt\\6.8.0\\msvc2019_64\\include\\QtCore\\qrunnable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A5E2C742-CF4A-31E2-A0CC-B7F91E8076F3}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,11 +31,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "dashboard.cpp",
-              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp",
+              "DocumentMoniker": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\dashboard.cpp",
               "RelativeDocumentMoniker": "dashboard.cpp",
-              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\dashboard.cpp",
+              "ToolTip": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\dashboard.cpp",
               "RelativeToolTip": "dashboard.cpp",
-              "ViewState": "AQIAAA8CAAAAAAAAAAAAADICAAA5AAAA",
+              "ViewState": "AQIAAA8CAAAAAAAAAAAkwDICAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-31T19:12:32.13Z",
               "EditorCaption": ""
@@ -44,9 +44,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "chatbot.cpp",
-              "DocumentMoniker": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp",
+              "DocumentMoniker": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeDocumentMoniker": "chatbot.cpp",
-              "ToolTip": "C:\\Users\\rzoug\\OneDrive\\Bureau\\School\\2A\\SEM 2\\Qt\\Qt-Project\\Ripple\\chatbot.cpp",
+              "ToolTip": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeToolTip": "chatbot.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
