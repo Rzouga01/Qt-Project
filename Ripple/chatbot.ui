@@ -213,9 +213,9 @@ QPushButton:checked {
    <widget class="QListWidget" name="chat">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>111</y>
-      <width>951</width>
+      <width>931</width>
       <height>261</height>
      </rect>
     </property>

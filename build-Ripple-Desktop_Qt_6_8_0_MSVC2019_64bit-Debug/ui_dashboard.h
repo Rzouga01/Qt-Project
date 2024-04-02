@@ -834,7 +834,8 @@ public:
         EmployeeStats->setObjectName("EmployeeStats");
         EmployeeStats->setEnabled(true);
         EmployeeStats->setGeometry(QRect(-30, 0, 651, 271));
-        EmployeeStats->setStyleSheet(QString::fromUtf8("background: transparent;"));
+        EmployeeStats->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"border:none;"));
         EmployeeSelectStats = new QComboBox(statsBoxEmployee);
         EmployeeSelectStats->addItem(QString());
         EmployeeSelectStats->addItem(QString());

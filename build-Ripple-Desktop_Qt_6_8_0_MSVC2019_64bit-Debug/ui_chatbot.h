@@ -161,7 +161,7 @@ public:
         poweredBy->setFont(font1);
         chat = new QListWidget(chatbox);
         chat->setObjectName("chat");
-        chat->setGeometry(QRect(10, 111, 951, 261));
+        chat->setGeometry(QRect(30, 111, 931, 261));
 
         retranslateUi(chatbot);
 

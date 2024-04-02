@@ -558,6 +558,9 @@ void Dashboard::EmployeeDashboardConnectUi() {
 
 
 	ui->CrudEmployee->setCurrentIndex(0);
+
+	QChartView* chartView = ui->EmployeeStats;
+	chartView->chart()->setBackgroundBrush(Qt::transparent);
 }
 
 int mapRoleToNumber(const QString& roleText) {

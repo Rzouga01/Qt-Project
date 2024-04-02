@@ -1288,7 +1288,8 @@ QTableWidget QTableWidget {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: transparent;</string>
+        <string notr="true">background: transparent;
+border:none;</string>
        </property>
       </widget>
       <widget class="QComboBox" name="EmployeeSelectStats">
