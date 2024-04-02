@@ -12,7 +12,6 @@
 #include "employee.h"
 #include "accident.h"
 #include "contract.h"
-#include "mailer.h"
 #include "chatbot.h"
 #include <QCoreApplication>
 #include <QDebug>
@@ -1130,7 +1129,7 @@ void Dashboard::ContractDashboardConnectUi() {
 	QObject::connect(ui->pdfContract, &QPushButton::clicked, this, &Dashboard::onPdfClickedContract);
 	QObject::connect(ui->searchBarContract, &QLineEdit::textChanged, this, &Dashboard::onSearchIdContract);
 	QObject::connect(ui->statsContract, &QPushButton::clicked, this, &Dashboard::onStatByPremiumAmount);
-    //QObject::connect(ui->excelContract, &QPushButton::clicked, this, &Dashboard::onExcelClickedContract);
+    QObject::connect(ui->excelContract, &QPushButton::clicked, this, &Dashboard::onExcelClickedContract);
 
 
 	QObject::connect(ui->addContract, &QPushButton::clicked, this, [this]() {ui->StackContract->setCurrentIndex(0); });
@@ -1425,18 +1424,15 @@ void Dashboard::onPdfClickedContract() {
 	}
 }
 
-/*
-void Dashboard::onExcelClickedContract() {
+void Dashboard::onExcelClickedContract(int clientId) {
     // Demander à l'utilisateur de sélectionner un fichier pour enregistrer le fichier Excel
     QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
     if (!filePath.isEmpty()) {
         contract MasterContract(ui->tableContract, ui->StackContract, this);
-        MasterContract.exportToExcel(filePath);
+        MasterContract.exportToExcel(clientId,filePath);
     }
 
-
 }
-*/
 
 void Dashboard::clearInputFieldsDeleteContract() {
 	ui->LineEditContractID->clear();

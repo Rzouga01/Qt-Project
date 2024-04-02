@@ -89,7 +89,7 @@ public:
 	void openDelPage(int contractId);
     void onSearchIdContract(QString searched);
     void onStatByPremiumAmount();
-    void onExcelClickedContract();
+    void onExcelClickedContract(int clientId);
 	//***********************************************************
 	//Accident
 	void onAddClickedAccident();

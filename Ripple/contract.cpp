@@ -23,7 +23,7 @@
 #include <QtCharts/QChartView>
 #include <QToolTip>
 #include <QCursor>
-//#include "xlsxdocument.h"
+#include "xlsxdocument.h"
 contract::contract(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::contract),
@@ -499,7 +499,6 @@ void contract::statsByPremiumAmount()
     chartView->setMinimumSize(800, 600);
     chartView->show();
 }
-/*
 void contract::exportToExcel(int clientId, const QString& filePath) {
     qDebug() << "Exportation des données des contrats client vers Excel :" << filePath;
 
@@ -523,7 +522,7 @@ void contract::exportToExcel(int clientId, const QString& filePath) {
 
     // Exécuter la requête SQL pour récupérer les contrats du client spécifié
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM CONTRATS WHERE ClientID = :clientId");
+    qry.prepare("SELECT * FROM CONTRACTS WHERE CLIENT_ID = :clientId");
     qry.bindValue(":clientId", clientId);
     if (!qry.exec()) {
         qDebug() << "Erreur lors de l'exécution de la requête :" << qry.lastError().text();
@@ -550,7 +549,7 @@ void contract::exportToExcel(int clientId, const QString& filePath) {
 
         // Incrémenter totalContracts et ajouter à totalPremiumAmount
         totalContracts++;
-        totalPremiumAmount += qry.value(3).toDouble(); // Montant de la prime
+        totalPremiumAmount += qry.value(3).toDouble(); // premium amount
 
         // Passer à la ligne suivante
         rowIndex++;
@@ -567,7 +566,7 @@ void contract::exportToExcel(int clientId, const QString& filePath) {
                               "Montant total  : %2 $").arg(totalContracts).arg(totalPremiumAmount);
     QMessageBox::information(nullptr, "Exportation réussie", message);
 }
-*/
+
 /*
 contract::contract(QWidget *parent) :
 	QDialog(parent),

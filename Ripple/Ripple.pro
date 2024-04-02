@@ -5,7 +5,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 include(../QZXing/src/QZXing.pri)
 
-#include(../qtxlsx/src/xlsx/qtxlsx.pri)
+include(../qtxlsx/QXlsx/QXlsx.pri)
 
 
 CONFIG += c++11
