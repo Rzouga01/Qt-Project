@@ -1485,235 +1485,237 @@ void Dashboard::clearInputFieldsDeleteContract() {
 //Accident
 void Dashboard::AccidentDashboardConnectUi()
 {
-	accident MasterAccident(ui->tableAccident, this);
+    accident MasterAccident(ui->tableAccident, this);
 
 
-	QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
-	QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
-	QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
-	QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
+    QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
+    QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
+    QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
+    QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
+    QObject::connect(ui->historyAccident, &QPushButton::clicked, this, &Dashboard::onHistoriqueAccidentclicked);
 
 
-	QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
-	QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
-	QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
+    QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
+    QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
+    QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
 
-	QObject::connect(ui->AccidentSubmit, &QPushButton::clicked, this, &Dashboard::onAddClickedAccident);
-	QObject::connect(ui->AccidentUpdate, &QPushButton::clicked, this, &Dashboard::onUpdateClickedAccident);
-	QObject::connect(ui->AccidentDelete, &QPushButton::clicked, this, &Dashboard::onDeleteClickedAccident);
+    QObject::connect(ui->AccidentSubmit, &QPushButton::clicked, this, &Dashboard::onAddClickedAccident);
+    QObject::connect(ui->AccidentUpdate, &QPushButton::clicked, this, &Dashboard::onUpdateClickedAccident);
+    QObject::connect(ui->AccidentDelete, &QPushButton::clicked, this, &Dashboard::onDeleteClickedAccident);
 
-	QObject::connect(ui->AccidentCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedAccident);
+    QObject::connect(ui->AccidentCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedAccident);
 
-	QSqlQuery query;
+    QSqlQuery query;
 
-	if (!query.exec("SELECT * FROM CLIENTS")) {
-		qDebug() << "Error executing query:" << query.lastError().text();
-		return;
-	}
-	// Counter to track the number of rows fetched
-	while (query.next()) {
-		QString clientName = query.value(2).toString();
-		QVariant clientId = query.value(0).toInt();
-		ui->AccidentCreateClientID->addItem(clientName, clientId);
-		ui->AccidentUpdateClientID->addItem(clientName, clientId);
-	}
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    // Counter to track the number of rows fetched
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+        ui->AccidentCreateClientID->addItem(clientName, clientId);
+        ui->AccidentUpdateClientID->addItem(clientName, clientId);
+    }
 
-	ui->StackedAccident->setCurrentIndex(0);
+    ui->StackedAccident->setCurrentIndex(0);
 }
 
 void Dashboard::onAddCancelClickedAccident() {
-	clearInputFieldsAccidentCreate();
+    clearInputFieldsAccidentCreate();
 }
 
 
 void Dashboard::onPdfClickedAccient() {
 
-	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
-	if (!filePath.isEmpty()) {
-		accident MasterAccident(ui->tableAccident, this); // Utilisation de 'accident' au lieu de 'Client'
-		MasterAccident.AccidenttoPdf(filePath); // Appel de la fonction toPdf() de l'objet accident
-	}
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
+    if (!filePath.isEmpty()) {
+        accident MasterAccident(ui->tableAccident, this); // Utilisation de 'accident' au lieu de 'Client'
+        MasterAccident.AccidenttoPdf(filePath); // Appel de la fonction toPdf() de l'objet accident
+    }
 }
 
 
 void Dashboard::clearInputFieldsAccidentDelete() {
-	ui->AccidentDeleteID->clear();
+    ui->AccidentDeleteID->clear();
 }
 
 void Dashboard::clearInputFieldsAccidentCreate() {
-	ui->AccidentCreateType->clear();
-	ui->AccidentCreateDamage->clear();
-	ui->AccidentCreateDate->clear();
-	ui->AccidentCreateLocation->clear();
+    ui->AccidentCreateType->clear();
+    ui->AccidentCreateDamage->clear();
+    ui->AccidentCreateDate->clear();
+    ui->AccidentCreateLocation->clear();
 }
 
 void Dashboard::clearInputFieldsAccidentUpdate() {
-	ui->AccidentUpdateID->clear();
-	ui->AccidentUpdateType->clear();
-	ui->AccidentUpdateDamage->clear();
-	ui->AccidentUpdateDate->clear();
-	ui->AccidentUpdateLocation->clear();
+    ui->AccidentUpdateID->clear();
+    ui->AccidentUpdateType->clear();
+    ui->AccidentUpdateDamage->clear();
+    ui->AccidentUpdateDate->clear();
+    ui->AccidentUpdateLocation->clear();
 }
 
 void Dashboard::onDeleteClickedAccident() {
-	accident MasterAccident(ui->tableAccident, this);
+    accident MasterAccident(ui->tableAccident, this);
 
-	if (ui->AccidentDeleteID->text().isEmpty()) {
-		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"));
-	}
-	else {
-		QString id = ui->AccidentDeleteID->text();
-		if (MasterAccident.Delete(id.toInt())) {
-			MasterAccident.accidentRead();
-			clearInputFieldsAccidentDelete();
-			QMessageBox::information(this, tr("Success"), tr("Accident deleted successfully"));
-		}
-		else {
-			QMessageBox::critical(this, tr("Error"), tr("Accident not found"));
-		}
-	}
+    if (ui->AccidentDeleteID->text().isEmpty()) {
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"));
+    }
+    else {
+        QString id = ui->AccidentDeleteID->text();
+        if (MasterAccident.Delete(id.toInt())) {
+            MasterAccident.accidentRead();
+            clearInputFieldsAccidentDelete();
+            QMessageBox::information(this, tr("Success"), tr("Accident deleted successfully"));
+        }
+        else {
+            QMessageBox::critical(this, tr("Error"), tr("Accident not found"));
+        }
+    }
 }
 
 void Dashboard::onAddClickedAccident() {
-	accident MasterAccident(ui->tableAccident, this);
+    accident MasterAccident(ui->tableAccident, this);
 
 
-	if (ui->AccidentCreateType->text().isEmpty() ||
-		ui->AccidentCreateDamage->text().isEmpty() ||
-		ui->AccidentCreateDate->date().isNull() ||
-		ui->AccidentCreateClientID->currentData().isNull() ||
-		ui->AccidentCreateLocation->text().isEmpty())
+    if (ui->AccidentCreateType->text().isEmpty() ||
+        ui->AccidentCreateDamage->text().isEmpty() ||
+        ui->AccidentCreateDate->date().isNull() ||
+        ui->AccidentCreateClientID->currentData().isNull() ||
+        ui->AccidentCreateLocation->text().isEmpty())
 
-	{
+    {
 
-		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
 
-		clearInputFieldsAccidentCreate();
-	}
-	else {
+        clearInputFieldsAccidentCreate();
+    }
+    else {
 
-		if (MasterAccident.create(
-			ui->AccidentCreateType->text(),
-			ui->AccidentCreateDamage->text().toInt(),
-			ui->AccidentCreateDate->date(),
-			ui->AccidentCreateLocation->text(),
-			ui->AccidentCreateClientID->currentData().toInt()))
-		{
-			MasterAccident.accidentRead();
+        if (MasterAccident.create(
+                ui->AccidentCreateType->text(),
+                ui->AccidentCreateDamage->text().toInt(),
+                ui->AccidentCreateDate->date(),
+                ui->AccidentCreateLocation->text(),
+                ui->AccidentCreateClientID->currentData().toInt()))
+        {
+            MasterAccident.accidentRead();
 
-			clearInputFieldsAccidentCreate();
+            clearInputFieldsAccidentCreate();
 
-			QMessageBox::information(this, tr("Success"), tr("Accident created successfully"), QMessageBox::Ok, QMessageBox::Ok);
-		}
-		else
-		{
-			QMessageBox::critical(this, tr("Error"), tr("accident not created"), QMessageBox::Ok, QMessageBox::Ok);
-		}
-	}
+            QMessageBox::information(this, tr("Success"), tr("Accident created successfully"), QMessageBox::Ok, QMessageBox::Ok);
+        }
+        else
+        {
+            QMessageBox::critical(this, tr("Error"), tr("accident not created"), QMessageBox::Ok, QMessageBox::Ok);
+        }
+    }
 }
 
 void Dashboard::onUpdateClickedAccident() {
-	accident MasterAccident(ui->tableAccident, this);
+    accident MasterAccident(ui->tableAccident, this);
 
 
-	if (
-		ui->AccidentUpdateType->text().isEmpty() ||
-		ui->AccidentUpdateDamage->text().isEmpty() ||
-		ui->AccidentUpdateDate->text().isEmpty() ||
-		ui->AccidentUpdateLocation->text().isEmpty() ||
-		ui->AccidentUpdateClientID->currentData().isNull()) {
+    if (
+        ui->AccidentUpdateType->text().isEmpty() ||
+        ui->AccidentUpdateDamage->text().isEmpty() ||
+        ui->AccidentUpdateDate->text().isEmpty() ||
+        ui->AccidentUpdateLocation->text().isEmpty() ||
+        ui->AccidentUpdateClientID->currentData().isNull()) {
 
-		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
 
-		clearInputFieldsAccidentUpdate();
-	}
-	else {
-		// Validate ID
-		QString id = ui->AccidentUpdateID->text();
-		bool validId = id.toInt(&validId) && validId;
+        clearInputFieldsAccidentUpdate();
+    }
+    else {
+        // Validate ID
+        QString id = ui->AccidentUpdateID->text();
+        bool validId = id.toInt(&validId) && validId;
 
 
-		if (!validId) {
-			QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
-		}
-		else {
+        if (!validId) {
+            QMessageBox::critical(this, tr("Error"), tr("Please enter a valid ID"), QMessageBox::Ok, QMessageBox::Ok);
+        }
+        else {
 
-			MasterAccident.update(id.toInt(),
-				ui->AccidentUpdateType->text(),
-				ui->AccidentUpdateDamage->text().toInt(),
-				ui->AccidentUpdateDate->date(),
-				ui->AccidentUpdateLocation->text(),
-				ui->AccidentUpdateClientID->currentData().toInt());
+            MasterAccident.update(id.toInt(),
+                                  ui->AccidentUpdateType->text(),
+                                  ui->AccidentUpdateDamage->text().toInt(),
+                                  ui->AccidentUpdateDate->date(),
+                                  ui->AccidentUpdateLocation->text(),
+                                  ui->AccidentUpdateClientID->currentData().toInt());
 
-			MasterAccident.accidentRead();
+            MasterAccident.accidentRead();
 
-			clearInputFieldsAccidentUpdate();
+            clearInputFieldsAccidentUpdate();
 
-			QMessageBox::information(this, tr("Success"), tr("Accident Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
+            QMessageBox::information(this, tr("Success"), tr("Accident Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
 
-		}
-	}
+        }
+    }
 }
 void Dashboard::onSortClickedAccident() {
-	static bool isSorted = false;
+    static bool isSorted = false;
 
-	accident MasterAccident(ui->tableAccident, this);
-	MasterAccident.sortAccidentByDamage(isSorted);
+    accident MasterAccident(ui->tableAccident, this);
+    MasterAccident.sortAccidentByDamage(isSorted);
 
-	isSorted = !isSorted;
+    isSorted = !isSorted;
 }
 void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
-	accident MasterAccident(ui->tableAccident);
-	MasterAccident.searchAccident(searchText);
+    accident MasterAccident(ui->tableAccident);
+    MasterAccident.searchAccident(searchText);
 }
 void Dashboard::onstatsClickedAccident() {
-	accident MasterAccident(ui->tableAccident, this);
-	MasterAccident.accidentstatsByDamage();
+    accident MasterAccident(ui->tableAccident,this);
+    MasterAccident.accidentstatsByDamage();
 
 }
 
-/*void Dashboard::onHistoriqueAccidentclicked()
+void Dashboard::onHistoriqueAccidentclicked()
 
 {
+    accident accident(ui->tableAccident, this) ;
+    QSqlQuery query = accident.rechercherall();
 
-	QSqlQuery query = accident.rechercherall();
+    if (query.exec())
+    {
 
-	if (query.exec())
-	{
+        QFile file("resultats.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+        {
 
-		QFile file("resultats.txt");
-		if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
-		{
-
-			QTextStream out(&file);
-
-
-			while (query.next())
-			{
-				out << "acc_id: " << query.value("acc_id").toInt() << "\n";
-				out << "type " << query.value("type").toString() << "\n";
-				out << "damage: " << query.value("damage").toString() << "\n";
-				out << "date: " << query.value("date").toString() << "\n\n";
-				out << "location: " << query.value("location").toString() << "\n\n";
-				out << "client_id: " << query.value("client_id").toString() << "\n\n";
+            QTextStream out(&file);
 
 
-			}
-			file.close();
-		}
-		else
-		{
-			qDebug() << "Erreur d'ouverture du fichier";
-		}
-	}
-	else
-	{
-		qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
-	}
+            while (query.next())
+            {
+                out << "acc_id: " << query.value("acc_id").toInt() << "\n";
+                out << "type " << query.value("type").toString() << "\n";
+                out << "damage: " << query.value("damage").toString() << "\n";
+                out << "date: " << query.value("date").toDate().toString() << "\n\n";
+                out << "location: " << query.value("location").toString() << "\n\n";
+                out << "client_id: " << query.value("client_id").toString() << "\n\n";
+
+
+            }
+            file.close();
+        }
+        else
+        {
+            qDebug() << "Erreur d'ouverture du fichier";
+        }
+    }
+    else
+    {
+        qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
+    }
 }
-*/
+
+
 
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
-	delete ui;
+    delete ui;
 }
