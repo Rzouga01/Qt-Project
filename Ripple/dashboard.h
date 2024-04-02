@@ -47,6 +47,7 @@ public:
 	void openDeletePage(int clientId);
     void sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName);
     void fillComboBoxClient();
+    void UpdateClientByClick();
 
 	//***********************************************************
 	// Employee

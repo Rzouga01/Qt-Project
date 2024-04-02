@@ -95,6 +95,8 @@ void Dashboard::ClientDashboardConnectUi() {
 	QObject::connect(ui->QRCodeClientGenerate, &QPushButton::clicked, this, &Dashboard::onQRCodeClickClient);
 	QObject::connect(ui->QRCodeClientCancel, &QPushButton::clicked, this, [this]() {ui->QRCodeClientCombo->setCurrentIndex(0);ui->QRCodeClientInput->clear();});
 
+	QObject::connect(ui->tableClient, &QTableWidget::doubleClicked, this, &Dashboard::UpdateClientByClick);
+
 	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
     ui->SearchComboClient->addItem("ID", "CLIENT_ID");
@@ -541,6 +543,26 @@ void Dashboard::fillComboBoxClient()
 			ui->QRCodeClientCombo->addItem(clientName, clientId);
 		}
 	}
+}
+
+void Dashboard::UpdateClientByClick()
+{
+	Client MasterClient(ui->tableClient, this);
+	QTableWidgetItem* item = ui->tableClient->item(ui->tableClient->currentRow(), 0);
+	QString id = item->text();
+	QSqlQuery query;
+	query.prepare("SELECT * FROM CLIENTS WHERE CLIENT_ID = ?");
+	query.addBindValue(id);
+	if (query.exec() && query.next()) {
+		ui->ClientUpdateID->setText(query.value(0).toString());
+		ui->ClientUpdateEmail->setText(query.value(1).toString());
+		ui->ClientUpdateFirstName->setText(query.value(2).toString());
+		ui->ClientUpdateLastName->setText(query.value(3).toString());
+		ui->ClientUpdatePhoneNumber->setText(query.value(5).toString());
+		ui->ClientUpdateAddress->setText(query.value(4).toString());
+		ui->ClientUpdateDob->setDate(query.value(6).toDate());
+	}
+	ui->StackedClient->setCurrentIndex(1);
 }
 
 
