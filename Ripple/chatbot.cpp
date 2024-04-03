@@ -1,142 +1,137 @@
+// chatbot.cpp
 #include "chatbot.h"
 #include "ui_chatbot.h"
+#include <QMessageBox> 
 
 chatbot::chatbot(QWidget* parent) :
-	QDialog(parent),
-	ui(new Ui::chatbot)
+    QDialog(parent),
+    ui(new Ui::chatbot),
+    m_audioInput(nullptr)
 {
-	ui->setupUi(this);
-	connect(ui->sendButton, &QPushButton::clicked, this, &chatbot::onSendMessageClicked);
-	loadingMovie = new QMovie("../Resources/Gifs/chatloading.gif", QByteArray(), this);
+    ui->setupUi(this);
+    connect(ui->sendButton, &QPushButton::clicked, this, &chatbot::onSendMessageClicked);
+
+    // Set word wrap mode
+    ui->chat->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+
+    // Load CSS style
+    QFile styleFile("../Resources/Css/chat.css");
+    if (styleFile.open(QFile::ReadOnly | QFile::Text)) {
+        QTextStream stream(&styleFile);
+        QString cssStyle = stream.readAll();
+        styleFile.close();
+        ui->chat->document()->setDefaultStyleSheet(cssStyle);
+    }
+    else {
+        qDebug() << "Failed to open style file";
+    }
 
 }
 
 chatbot::~chatbot()
 {
-	delete ui;
+    delete ui;
 }
 
 void chatbot::sendUserMessage(const QString& message)
 {
-	if (message.isEmpty())
-		return;
+    if (message.isEmpty())
+        return;
 
-	// Create a label to measure the size of the text
-	QLabel label;
-	label.setWordWrap(true);
-	label.setText(message);
-	QSize size = label.sizeHint();
+    // Display loading animation
+    LoadingWidget* loadingWidget = new LoadingWidget(this);
+    loadingWidget->move(geometry().center() - loadingWidget->rect().center());
+    loadingWidget->show();
 
-	// Append user input to conversation with appropriate styling
-	QListWidgetItem* userItem = new QListWidgetItem(message);
-	userItem->setTextAlignment(Qt::AlignRight);
-	userItem->setSizeHint(size); // Set dynamic size based on text content
-	ui->chat->addItem(userItem);
+    // Create network manager
+    QNetworkAccessManager* manager = new QNetworkAccessManager(this);
+    const QString apiKey = QProcessEnvironment::systemEnvironment().value("GEMINI_API");
 
-	// Display a loading message immediately after sending
-	QListWidgetItem* loadingItem = new QListWidgetItem;
-	loadingItem->setSizeHint(QSize(0, 50)); // Adjust size if needed
-	ui->chat->addItem(loadingItem);
-	ui->chat->setItemWidget(loadingItem, createLoadingWidget());
+    if (apiKey.isEmpty()) {
+        qWarning() << "Password environment variable (GEMINI_API) is not set.";
+        return;
+    }
 
-	ui->chat->scrollToBottom();
+    // Prepare request
+    QUrl url("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey);
+    QNetworkRequest request(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-	// Prepare API request
-	QNetworkAccessManager* manager = new QNetworkAccessManager(this);
-	const QString apiKey = QProcessEnvironment::systemEnvironment().value("GEMINI_API");
+    // Prepare request body
+    QJsonObject requestBody;
+    QJsonArray contentsArray;
 
-	if (apiKey.isEmpty()) {
-		qWarning() << "Password environment variable (GEMINI_API) is not set.";
-		return;
-	}
-	QUrl url("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey);
-	QNetworkRequest request(url);
-	request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QJsonObject userPart;
+    userPart["role"] = "user";
+    QJsonArray userPartsArray;
+    userPartsArray.append(QJsonObject{ {"text", message} });
+    userPart["parts"] = userPartsArray;
+    contentsArray.append(userPart);
 
-	QJsonObject requestBody;
-	QJsonArray contentsArray;
+    requestBody["contents"] = contentsArray;
 
-	QJsonObject userPart;
-	userPart["role"] = "user";
-	QJsonArray userPartsArray;
-	userPartsArray.append(QJsonObject{ {"text", message} });
-	userPart["parts"] = userPartsArray;
-	contentsArray.append(userPart);
+    QJsonDocument doc(requestBody);
+    QByteArray postData = doc.toJson();
 
-	requestBody["contents"] = contentsArray;
-
-	QJsonDocument doc(requestBody);
-	QByteArray postData = doc.toJson();
-
-	// Send API request
-	QNetworkReply* reply = manager->post(request, postData);
-	connect(reply, &QNetworkReply::finished, [=]() {
-		handleBotResponse(reply);
-		reply->deleteLater();
-		});
+    // Send request
+    QNetworkReply* reply = manager->post(request, postData);
+    connect(reply, &QNetworkReply::finished, [=]() {
+        handleBotResponse(reply);
+        loadingWidget->close();
+        reply->deleteLater();
+        });
 }
 
 void chatbot::handleBotResponse(QNetworkReply* reply)
 {
-	QString botResponse;
-	if (reply->error() == QNetworkReply::NoError) {
-		QByteArray responseData = reply->readAll();
-		QJsonDocument responseDoc = QJsonDocument::fromJson(responseData);
-		QJsonObject responseObj = responseDoc.object();
-		if (responseObj.contains("candidates") && responseObj["candidates"].isArray()) {
-			QJsonArray candidatesArray = responseObj["candidates"].toArray();
-			if (!candidatesArray.isEmpty()) {
-				QJsonObject contentObj = candidatesArray.first().toObject()["content"].toObject();
-				if (contentObj.contains("parts") && contentObj["parts"].isArray()) {
-					QJsonArray partsArray = contentObj["parts"].toArray();
-					if (!partsArray.isEmpty()) {
-						botResponse = partsArray.first().toObject()["text"].toString();
-					}
-				}
-			}
-		}
-	}
-	else {
-		qDebug() << "Error:" << reply->errorString();
-	}
+    QString botResponse;
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray responseData = reply->readAll();
+        QJsonDocument responseDoc = QJsonDocument::fromJson(responseData);
+        QJsonObject responseObj = responseDoc.object();
+        if (responseObj.contains("candidates") && responseObj["candidates"].isArray()) {
+            QJsonArray candidatesArray = responseObj["candidates"].toArray();
+            if (!candidatesArray.isEmpty()) {
+                QJsonObject contentObj = candidatesArray.first().toObject()["content"].toObject();
+                if (contentObj.contains("parts") && contentObj["parts"].isArray()) {
+                    QJsonArray partsArray = contentObj["parts"].toArray();
+                    if (!partsArray.isEmpty()) {
+                        botResponse = partsArray.first().toObject()["text"].toString();
+                    }
+                }
+            }
+        }
+    }
+    else {
+        qDebug() << "Error:" << reply->errorString();
+        botResponse = "Sorry, an error occurred while processing your request.";
+    }
 
-	// Remove the loading message
-	QListWidgetItem* loadingItem = ui->chat->item(ui->chat->count() - 1);
-	delete loadingItem;
+    // Append bot's response with formatting
+    ui->chat->append("<div class=\"bot-response\">Bot: " + botResponse + "</div><br></br>");
 
-	// Create a label to measure the size of the text
-	QLabel label;
-	label.setWordWrap(true);
-	label.setText(botResponse);
-	QSize size = label.sizeHint();
-
-	// Display the bot's actual response with appropriate styling
-	QListWidgetItem* botItem = new QListWidgetItem(botResponse);
-	botItem->setTextAlignment(Qt::AlignLeft);
-	botItem->setSizeHint(size); // Set dynamic size based on text content
-	ui->chat->addItem(botItem);
-
-	ui->chat->scrollToBottom();
-}
-
-QWidget* chatbot::createLoadingWidget()
-{
-	QWidget* loadingWidget = new QWidget;
-	QLabel* loadingLabel = new QLabel;
-	loadingLabel->setMovie(loadingMovie);
-	loadingMovie->start();
-
-	QHBoxLayout* layout = new QHBoxLayout(loadingWidget);
-	layout->addWidget(loadingLabel, 0, Qt::AlignCenter);
-	loadingWidget->setLayout(layout);
-
-	return loadingWidget;
+    // Scroll to the bottom
+    ui->chat->verticalScrollBar()->setValue(ui->chat->verticalScrollBar()->maximum());
 }
 
 void chatbot::onSendMessageClicked()
 {
-	QString userMessage = ui->messageBar->text();
-	sendUserMessage(userMessage);
-	ui->messageBar->clear();
-	ui->messageBar->setFocus();
+    QString userMessage = ui->messageBar->text().trimmed();
+
+    if (userMessage.isEmpty())
+        return;
+
+    // Append user's message with formatting
+    ui->chat->append("<div class=\"user-message\">You: " + userMessage + "</div><br></br>");
+    // Send user's message
+    sendUserMessage(userMessage);
+
+    // Clear input field
+    ui->messageBar->clear();
+
+    // Set focus back to input field
+    ui->messageBar->setFocus();
+
+    // Scroll to the bottom
+    ui->chat->verticalScrollBar()->setValue(ui->chat->verticalScrollBar()->maximum());
 }

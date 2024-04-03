@@ -15,7 +15,6 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
@@ -26,13 +25,12 @@ class Ui_chatbot
 {
 public:
     QWidget *chatbox;
-    QTextEdit *conversation;
     QLineEdit *messageBar;
     QPushButton *sendButton;
     QPushButton *voiceButton;
     QLabel *title;
     QLabel *poweredBy;
-    QListWidget *chat;
+    QTextEdit *chat;
 
     void setupUi(QDialog *chatbot)
     {
@@ -122,11 +120,6 @@ public:
 "    color: #FFFFFF; /* White text color when checked */\n"
 "}\n"
 ""));
-        conversation = new QTextEdit(chatbox);
-        conversation->setObjectName("conversation");
-        conversation->setEnabled(true);
-        conversation->setGeometry(QRect(23, 102, 951, 281));
-        conversation->setReadOnly(true);
         messageBar = new QLineEdit(chatbox);
         messageBar->setObjectName("messageBar");
         messageBar->setGeometry(QRect(110, 390, 681, 41));
@@ -159,9 +152,12 @@ public:
         font1.setFamilies({QString::fromUtf8("Open Sans SemiBold")});
         font1.setBold(true);
         poweredBy->setFont(font1);
-        chat = new QListWidget(chatbox);
+        chat = new QTextEdit(chatbox);
         chat->setObjectName("chat");
-        chat->setGeometry(QRect(30, 111, 931, 261));
+        chat->setGeometry(QRect(50, 110, 901, 261));
+        chat->setLayoutDirection(Qt::LeftToRight);
+        chat->setLineWrapMode(QTextEdit::NoWrap);
+        chat->setReadOnly(true);
 
         retranslateUi(chatbot);
 
@@ -174,8 +170,8 @@ public:
         messageBar->setPlaceholderText(QCoreApplication::translate("chatbot", "Your message...", nullptr));
         sendButton->setText(QString());
         voiceButton->setText(QString());
-        title->setText(QCoreApplication::translate("chatbot", "ChatBot", nullptr));
-        poweredBy->setText(QCoreApplication::translate("chatbot", "Powered by Google Gemini", nullptr));
+        title->setText(QCoreApplication::translate("chatbot", "RippleAssist", nullptr));
+        poweredBy->setText(QCoreApplication::translate("chatbot", "Powered by Google Gemini \302\251", nullptr));
     } // retranslateUi
 
 };

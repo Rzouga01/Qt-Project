@@ -102,22 +102,6 @@ QPushButton:checked {
 }
 </string>
    </property>
-   <widget class="QTextEdit" name="conversation">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>23</x>
-      <y>102</y>
-      <width>951</width>
-      <height>281</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="messageBar">
     <property name="geometry">
      <rect>
@@ -188,7 +172,7 @@ QPushButton:checked {
      </font>
     </property>
     <property name="text">
-     <string>ChatBot</string>
+     <string>RippleAssist</string>
     </property>
    </widget>
    <widget class="QLabel" name="poweredBy">
@@ -207,17 +191,26 @@ QPushButton:checked {
      </font>
     </property>
     <property name="text">
-     <string>Powered by Google Gemini</string>
+     <string>Powered by Google Gemini ©</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="chat">
+   <widget class="QTextEdit" name="chat">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>111</y>
-      <width>931</width>
+      <x>50</x>
+      <y>110</y>
+      <width>901</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="lineWrapMode">
+     <enum>QTextEdit::NoWrap</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

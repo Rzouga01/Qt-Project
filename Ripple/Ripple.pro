@@ -1,4 +1,4 @@
-QT += widgets charts uitools sql core gui quick network widgets-private
+QT += widgets charts uitools sql core gui quick network widgets-private multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

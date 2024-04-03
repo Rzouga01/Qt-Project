@@ -1,0 +1,41 @@
+-ID:/Qt/6.8.0/msvc2019_64/mkspecs/win32-msvc
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/Ripple
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/QZXing/src
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/QZXing/src/zxing
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/QZXing/src/zxing/win32/zxing
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/qtxlsx/QXlsx
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/qtxlsx
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/qtxlsx/QXlsx/header
+-IC:/Users/rzoug/OneDrive/Bureau/School/2A/SEM 2/Qt/Qt-Project/QZXing/src
+-ID:/Qt/6.8.0/msvc2019_64/include
+-ID:/Qt/6.8.0/msvc2019_64/include/QtCharts
+-ID:/Qt/6.8.0/msvc2019_64/include/QtUiTools
+-ID:/Qt/6.8.0/msvc2019_64/include/QtOpenGLWidgets
+-ID:/Qt/6.8.0/msvc2019_64/include/QtWidgets/6.8.0
+-ID:/Qt/6.8.0/msvc2019_64/include/QtWidgets/6.8.0/QtWidgets
+-ID:/Qt/6.8.0/msvc2019_64/include/QtWidgets
+-ID:/Qt/6.8.0/msvc2019_64/include/QtQuick
+-ID:/Qt/6.8.0/msvc2019_64/include/QtOpenGL
+-ID:/Qt/6.8.0/msvc2019_64/include/QtGui/6.8.0
+-ID:/Qt/6.8.0/msvc2019_64/include/QtGui/6.8.0/QtGui
+-ID:/Qt/6.8.0/msvc2019_64/include/QtMultimedia
+-ID:/Qt/6.8.0/msvc2019_64/include/QtGui
+-ID:/Qt/6.8.0/msvc2019_64/include/QtSql
+-ID:/Qt/6.8.0/msvc2019_64/include/QtQmlModels
+-ID:/Qt/6.8.0/msvc2019_64/include/QtQml
+-ID:/Qt/6.8.0/msvc2019_64/include/QtQmlIntegration
+-ID:/Qt/6.8.0/msvc2019_64/include/QtNetwork
+-ID:/Qt/6.8.0/msvc2019_64/include/QtCore/6.8.0
+-ID:/Qt/6.8.0/msvc2019_64/include/QtCore/6.8.0/QtCore
+-ID:/Qt/6.8.0/msvc2019_64/include/QtCore
+-I.
+-IE:\Visual Studio\VC\Tools\MSVC\14.38.33130\include
+-IE:\Visual Studio\VC\Tools\MSVC\14.38.33130\ATLMFC\include
+-IE:\Visual Studio\VC\Auxiliary\VS\include
+-IC:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt
+-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um
+-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared
+-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt
+-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt
+-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um

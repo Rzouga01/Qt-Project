@@ -1,0 +1,14 @@
+/* chat.css */
+
+/* User Message Style */
+.user-message {
+ 
+ font-weight: bold;  
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bot Response Style */
+.bot-response {
+  font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

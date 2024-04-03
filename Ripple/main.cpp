@@ -3,7 +3,7 @@
 #include <QtWidgets>
 #include <QUiLoader>
 
-
+#include "chatbot.h"
 #include "connection.h"
 
 
@@ -16,9 +16,12 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     Connection con;
+    chatbot c;
+    
 
     if (con.createconnect()) {
         w.show();
+        //c.show();
     }
 
     return a.exec();
