@@ -501,34 +501,37 @@ void contract::statsByPremiumAmount()
     chartView->show();
 }
 void contract::exportToExcel(int clientId, const QString& filePath) {
-    // Exécuter la requête SQL pour récupérer les montants des contrats du client spécifié
+    // Execute SQL query to retrieve total contract amounts for the specified client
     QSqlQuery qry;
     qry.prepare("SELECT SUM(PREMIUM_AMOUNT) FROM CONTRACTS WHERE CLIENT_ID = :clientId");
     qry.bindValue(":clientId", clientId);
     if (!qry.exec()) {
-        qDebug() << "Erreur lors de l'exécution de la requête :" << qry.lastError().text();
-        return; // Sortie de la fonction en cas d'erreur
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return; // Exit the function in case of error
     }
 
-    // Vérifier si la requête a renvoyé des résultats
+    // Check if the query returned results
     if (qry.next()) {
-        double totalAmount = qry.value(0).toDouble(); // Récupérer la somme des montants des contrats
+        double totalAmount = qry.value(0).toDouble(); // Retrieve total contract amounts
 
-        // Ouvrir le fichier Excel
+        // Open the Excel file
         QXlsx::Document xlsx;
 
-        // Ajouter l'en-tête avec l'ID du client
+        // Add header with the client ID
         xlsx.write("A1", "Client ID");
         xlsx.write("B1", "Total Contract Amount");
-        xlsx.write("A2", clientId); // ID du client
-        xlsx.write("B2", totalAmount); // Montant total des contrats
+        xlsx.write("A2", clientId); // Client ID
+        xlsx.write("B2", totalAmount); // Total contract amount
 
-        // Enregistrer le fichier Excel
+        // Save the Excel file
         xlsx.saveAs(filePath);
 
-        qDebug() << "Fichier Excel créé avec succès :" << filePath;
+        qDebug() << "Excel file created successfully:" << filePath;
+
+        // Display a message after saving
+        QMessageBox::information(nullptr, "Export Successful", "Data exported to Excel successfully.");
     } else {
-        qDebug() << "Aucun contrat trouvé pour le client ID:" << clientId;
+        qDebug() << "No contracts found for client ID:" << clientId;
     }
 }
 
