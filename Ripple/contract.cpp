@@ -535,26 +535,7 @@ void contract::exportToExcel(int clientId, const QString& filePath) {
     }
 }
 
-void contract::notifyContractExpiration(const QDate& expirationDate) {
-    // Obtenez la date actuelle
-    QDate currentDate = QDate::currentDate();
 
-    // Définir la période d'avertissement, par exemple, 7 jours avant l'expiration
-    int warningDays = 7;
-
-    // Calculer la date d'avertissement
-    QDate warningDate = expirationDate.addDays(-warningDays);
-
-    // Vérifier si la date actuelle est dans la période d'avertissement
-    if (currentDate >= warningDate && currentDate <= expirationDate) {
-        // Créer le message de notification
-        QString message = QString("Attention : La date d'expiration du contrat est proche !\n"
-                                  "Date d'expiration du contrat : %1").arg(expirationDate.toString(Qt::ISODate));
-
-        // Afficher la notification à l'utilisateur
-        QMessageBox::warning(nullptr, "Avertissement de date d'expiration", message);
-    }
-}
 
 /*
 contract::contract(QWidget *parent) :

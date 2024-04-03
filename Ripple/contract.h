@@ -68,7 +68,7 @@ public:
     void toPdf(const QString& filePath);
     void statsByPremiumAmount();
     void exportToExcel(int clientId, const QString& filePath);
-    void notifyContractExpiration(const QDate& expirationDate);
+
 
     void setTableWidget(QTableWidget* tableWidget);
     void setStackedWidget(QStackedWidget* stackedWidget);
