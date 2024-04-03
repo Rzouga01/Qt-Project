@@ -1480,7 +1480,7 @@ void Dashboard::onExcelClickedContract(int clientId) {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
 	if (!filePath.isEmpty()) {
 		contract MasterContract(ui->tableContract, ui->StackContract, this);
-		MasterContract.exportToExcel(clientId, filePath);
+        MasterContract.exportToExcel(clientId, filePath);
 	}
 
 }
