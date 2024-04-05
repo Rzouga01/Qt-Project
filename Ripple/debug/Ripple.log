@@ -1,6 +1,122 @@
-﻿  Uic'ing chatbot.ui...
-  chatbot.cpp
-E:\Qt-Project\Ripple\chatbot.cpp(179,11): warning C4100: 'userData': unreferenced formal parameter
-E:\Qt-Project\Ripple\chatbot.cpp(176,19): warning C4100: 'framesPerBuffer': unreferenced formal parameter
-E:\Qt-Project\Ripple\chatbot.cpp(175,41): warning C4100: 'inputBuffer': unreferenced formal parameter
-  Ripple.vcxproj -> E:\Qt-Project\Ripple\debug\Ripple.exe
+﻿  Generate moc_predefs.h
+  AI013103decoder.cpp
+  AI01320xDecoder.cpp
+  AI01392xDecoder.cpp
+  AI01393xDecoder.cpp
+  AI013x0x1xDecoder.cpp
+  AI013x0xDecoder.cpp
+  AI01AndOtherAIs.cpp
+  AI01decoder.cpp
+  AI01weightDecoder.cpp
+  AbstractExpandedDecoder.cpp
+  AbstractRSSReader.cpp
+  AnyAIDecoder.cpp
+  AztecDecoder.cpp
+  AztecDetector.cpp
+  AztecDetectorResult.cpp
+  AztecReader.cpp
+  BarcodeFormat.cpp
+  BigInteger.cc
+  BigIntegerAlgorithms.cc
+  BigIntegerUtils.cc
+  BigUnsigned.cc
+  BigUnsignedInABase.cc
+  Binarizer.cpp
+  BinaryBitmap.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\aztec\decoder\AztecDecoder.cpp(176,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  BitArray.cpp
+  BitArrayBuilder.cpp
+  BitArrayIO.cpp
+  BitMatrix.cpp
+  BitSource.cpp
+  BlockParsedResult.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\BitArray.cpp(69,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ByQuadrantReader.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\BitMatrix.cpp(150,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ByteMatrix.cpp
+  CameraImageWrapper.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\BitSource.cpp(74,45): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  CharacterSetECI.cpp
+  ChecksumException.cpp
+  CodaBarReader.cpp
+  Code128Reader.cpp
+  Code39Reader.cpp
+  Code93Reader.cpp
+  CurrentParsingState.cpp
+  DataCharacter.cpp
+  DataMatrixBitMatrixParser.cpp
+  DataMatrixCornerPoint.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\Code128Reader.cpp(514,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\Code128Reader.cpp(533,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  DataMatrixDataBlock.cpp
+  DataMatrixDecodedBitStreamParser.cpp
+  DataMatrixDecoder.cpp
+  DataMatrixDetector.cpp
+  DataMatrixDetectorException.cpp
+  DataMatrixReader.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp(69,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp(72,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp(97,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDecoder.cpp(46,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  DataMatrixVersion.cpp
+  DecodeHints.cpp
+  DecodedChar.cpp
+  DecodedInformation.cpp
+  DecodedNumeric.cpp
+  DecodedObject.cpp
+  DecoderResult.cpp
+  DetectorResult.cpp
+  EAN13Reader.cpp
+  EAN8Reader.cpp
+  EANManufacturerOrgSupport.cpp
+  EncodeHint.cpp
+  ErrorCorrection.cpp
+  Exception.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\EAN13Reader.cpp(50,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\EAN13Reader.cpp(70,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ExpandedPair.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\EAN8Reader.cpp(56,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ExpandedRow.cpp
+  FieldParser.cpp
+  FinderPattern.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp(66,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp(89,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp(204,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  FormatException.cpp
+  GeneralAppIdDecoder.cpp
+  GenericGF.cpp
+  GenericGFPoly.cpp
+  GenericMultipleBarcodeReader.cpp
+  GlobalHistogramBinarizer.cpp
+  GreyscaleLuminanceSource.cpp
+  GreyscaleRotatedLuminanceSource.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:         with
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:         [
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:             _Ty=int
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(63,19): warning C4267:         ]
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:         with
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:         [
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:             _Ty=int
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp(71,35): warning C4267:         ]
+  GridSampler.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(40,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(65,32): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(82,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(118,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(142,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(145,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(166,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp(181,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  HybridBinarizer.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\GlobalHistogramBinarizer.cpp(69,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ITFReader.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\common\GlobalHistogramBinarizer.cpp(138,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  IllegalArgumentException.cpp
+  IllegalStateException.cpp
+  ImageHandler.cpp
+  InvertedLuminanceSource.cpp
+C:\Users\GAMING\Documents\GitHub\Qt-Project\QZXing\src\zxing\zxing\oned\ITFReader.cpp(104,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  LinesSampler.cpp
+  LuminanceSource.cpp

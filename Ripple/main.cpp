@@ -17,12 +17,10 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     sqlConn con;
-    chatbot bot;
     
 
     if (con.createconnect()) {
-        //w.show();
-        bot.show();
+        w.show();
     }
 
     return a.exec();
