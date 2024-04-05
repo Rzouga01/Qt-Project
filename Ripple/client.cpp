@@ -557,9 +557,18 @@ void Client::toPdf(const QString& filePath)
     while (qry.next()) {
         table->appendRows(1); // Append a new row
         for (int col = 0; col < numCols; ++col) {
-            QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
-            cellCursor.setCharFormat(dataFormat);
-            cellCursor.insertText(qry.value(col).toString());
+            if (col == 6)
+            {
+                QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
+                cellCursor.setCharFormat(dataFormat);
+                cellCursor.insertText(qry.value(col).toDate().toString("yyyy-MM-dd"));
+            }
+            else
+            {
+                QTextCursor cellCursor = table->cellAt(row, col).firstCursorPosition();
+                cellCursor.setCharFormat(dataFormat);
+                cellCursor.insertText(qry.value(col).toString());
+            }
         }
         ++row;
     }

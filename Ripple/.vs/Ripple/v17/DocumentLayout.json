@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\client.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|solutionrelative:client.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6F5B044B-AC40-3C64-BBDD-B3AF2F3A2837}|Ripple.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "client.cpp",
+              "DocumentMoniker": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\client.cpp",
+              "RelativeDocumentMoniker": "client.cpp",
+              "ToolTip": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\client.cpp*",
+              "RelativeToolTip": "client.cpp*",
+              "ViewState": "AQIAAOYBAAAAAAAAAAAuwAoCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-05T06:16:20.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\GAMING\\Documents\\GitHub\\Qt-Project\\Ripple\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
