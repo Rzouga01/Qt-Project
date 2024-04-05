@@ -1475,14 +1475,20 @@ void Dashboard::onPdfClickedContract() {
 	}
 }
 
-void Dashboard::onExcelClickedContract(int clientId) {
+void Dashboard::onExcelClickedContract() {
+	// Demander à l'utilisateur de sélectionner un client
+	bool ok;
+	int clientId = QInputDialog::getInt(this, tr("Sélectionner un client"),
+		tr("ID du client:"), 0, 0, 100000, 1, &ok);
+	if (!ok) return; // Si l'utilisateur annule, arrêtez le processus
+
 	// Demander à l'utilisateur de sélectionner un fichier pour enregistrer le fichier Excel
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
 	if (!filePath.isEmpty()) {
+		// Créer une instance de la classe contract et exporter vers Excel
 		contract MasterContract(ui->tableContract, ui->StackContract, this);
-        MasterContract.exportToExcel(clientId, filePath);
+		MasterContract.exportToExcel(clientId, filePath);
 	}
-
 }
 
 void Dashboard::clearInputFieldsDeleteContract() {
