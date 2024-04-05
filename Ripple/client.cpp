@@ -3,7 +3,7 @@
 #include "ui_client.h"
 
 //DATABASE CONNECTION
-#include "connection.h"
+#include "sqlConn.h"
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -772,6 +772,7 @@ void Client::statsByAge()
     });
     chartView->setMinimumSize(800, 600);
     chartView->show();
+
 }
 
 

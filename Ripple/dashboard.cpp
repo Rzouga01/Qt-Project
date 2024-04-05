@@ -7,7 +7,7 @@
 #include <QtCharts>
 #include <QtDebug>
 #include "mainwindow.h"
-#include "connection.h"
+#include "sqlConn.h"
 #include "client.h"
 #include "employee.h"
 #include "accident.h"

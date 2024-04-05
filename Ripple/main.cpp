@@ -4,7 +4,8 @@
 #include <QUiLoader>
 
 #include "chatbot.h"
-#include "connection.h"
+#include "sqlConn.h"
+#include "dashboard.h"
 
 
 
@@ -15,13 +16,13 @@ int main(int argc, char *argv[])
     a.setWindowIcon(QIcon("../Resources/Logo/icon ripple.png"));
 
     MainWindow w;
-    Connection con;
-    chatbot c;
+    sqlConn con;
+    chatbot bot;
     
 
     if (con.createconnect()) {
-        w.show();
-        //c.show();
+        //w.show();
+        bot.show();
     }
 
     return a.exec();

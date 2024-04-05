@@ -59,6 +59,8 @@ QLineEdit::selected {
     background-color: #A7C34E; /* Green background color for selected text */
     color: #FFFFFF; /* White text color */
 }
+
+
 QListWidget{
 background-color:transparent;
 border:none;
@@ -70,7 +72,74 @@ QTextEdit {
     background-color: #222222; /* Dark background color */
     color: #FFFFFF; /* White text color */
 }
+/*Scroll bar*/
+QScrollBar:vertical {
+    border: none;
+    background: #333333;
+    width: 14px;
+    margin: 15px 0 15px 0;
+    border-radius: 0px;
+}
+QScrollBar::handle:vertical {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #A7C34E, stop:1 #9AB447); /* Gradient handle */
+    min-height: 30px;
+    border-radius: 7px;
+}
 
+QScrollBar::handle:vertical:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #A7C34E, stop:1 #5D762E); /* Darker color on hover */
+}
+
+QScrollBar::handle:vertical:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #A7C34E, stop:1 #3A511F); /* Darker color when pressed */
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+    border: none;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #9AB447, stop:1 #A7C34E); /* Light green button top */
+    height: 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #5D762E, stop:1 #A7C34E); /* Darker green when hovered */
+}
+
+QScrollBar::sub-line:vertical:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #3A511F, stop:1 #A7C34E); /* Darker green when pressed */
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+    border: none;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #9AB447, stop:1 #A7C34E); /* Light green button bottom */
+    height: 15px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #5D762E, stop:1 #A7C34E); /* Darker green when hovered */
+}
+
+QScrollBar::add-line:vertical:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #3A511F, stop:1 #A7C34E); /* Darker green when pressed */
+}
 QPushButton {
     border: 1px solid #A7C34E; /* Green border color */
     border-radius: 10px;
@@ -105,7 +174,7 @@ QPushButton:checked {
    <widget class="QLineEdit" name="messageBar">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>100</x>
       <y>390</y>
       <width>681</width>
       <height>41</height>
@@ -135,7 +204,7 @@ QPushButton:checked {
    <widget class="QPushButton" name="voiceButton">
     <property name="geometry">
      <rect>
-      <x>820</x>
+      <x>830</x>
       <y>390</y>
       <width>50</width>
       <height>30</height>
@@ -158,7 +227,7 @@ QPushButton:checked {
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>390</x>
       <y>20</y>
       <width>311</width>
       <height>51</height>
@@ -197,17 +266,17 @@ QPushButton:checked {
    <widget class="QTextEdit" name="chat">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>110</y>
-      <width>901</width>
-      <height>261</height>
+      <x>20</x>
+      <y>100</y>
+      <width>961</width>
+      <height>281</height>
      </rect>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="lineWrapMode">
-     <enum>QTextEdit::NoWrap</enum>
+     <enum>QTextEdit::WidgetWidth</enum>
     </property>
     <property name="readOnly">
      <bool>true</bool>
