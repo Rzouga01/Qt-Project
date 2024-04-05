@@ -146,10 +146,10 @@ public:
     QFrame *QRCodeClient;
     QComboBox *QRCodeClientCombo;
     QLineEdit *QRCodeClientInput;
-    QPlainTextEdit *QRCodeClientTitle;
     QPlainTextEdit *QRCodeClientLabel;
     QPushButton *QRCodeClientGenerate;
     QPushButton *QRCodeClientCancel;
+    QLabel *QRCodeClientTitle;
     QFrame *featureBarClient;
     QPushButton *deleteClient;
     QPushButton *updateClient;
@@ -990,7 +990,7 @@ public:
 "\n"
 "#QRCodeClientLabel{\n"
 "background-color:transparent;\n"
-"font-family: \"helvetica\";\n"
+"font-family: \"Roboto\";\n"
 " font-size: 14px;\n"
 " color: white;\n"
 " font-style: bold;\n"
@@ -1174,9 +1174,6 @@ public:
         QRCodeClientInput = new QLineEdit(QRCodeClient);
         QRCodeClientInput->setObjectName("QRCodeClientInput");
         QRCodeClientInput->setGeometry(QRect(150, 60, 171, 24));
-        QRCodeClientTitle = new QPlainTextEdit(QRCodeClient);
-        QRCodeClientTitle->setObjectName("QRCodeClientTitle");
-        QRCodeClientTitle->setGeometry(QRect(80, 10, 281, 51));
         QRCodeClientLabel = new QPlainTextEdit(QRCodeClient);
         QRCodeClientLabel->setObjectName("QRCodeClientLabel");
         QRCodeClientLabel->setGeometry(QRect(30, 70, 91, 31));
@@ -1188,6 +1185,9 @@ public:
         QRCodeClientCancel = new QPushButton(QRCodeClient);
         QRCodeClientCancel->setObjectName("QRCodeClientCancel");
         QRCodeClientCancel->setGeometry(QRect(200, 160, 80, 24));
+        QRCodeClientTitle = new QLabel(QRCodeClient);
+        QRCodeClientTitle->setObjectName("QRCodeClientTitle");
+        QRCodeClientTitle->setGeometry(QRect(70, 10, 241, 31));
         featureBarClient = new QFrame(page_2);
         featureBarClient->setObjectName("featureBarClient");
         featureBarClient->setGeometry(QRect(420, 20, 781, 61));
@@ -2104,12 +2104,10 @@ public:
 
         QRCodeClientCombo->setPlaceholderText(QString());
         QRCodeClientInput->setPlaceholderText(QCoreApplication::translate("Dashboard", "Type Client ID", nullptr));
-        QRCodeClientTitle->setPlainText(QCoreApplication::translate("Dashboard", "Generate Qr Code\n"
-"\n"
-"", nullptr));
         QRCodeClientLabel->setPlainText(QCoreApplication::translate("Dashboard", "Client ID", nullptr));
         QRCodeClientGenerate->setText(QCoreApplication::translate("Dashboard", "Generate", nullptr));
         QRCodeClientCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
+        QRCodeClientTitle->setText(QCoreApplication::translate("Dashboard", "Generate Qr Code", nullptr));
         deleteClient->setText(QString());
         updateClient->setText(QString());
         pdfClient->setText(QString());

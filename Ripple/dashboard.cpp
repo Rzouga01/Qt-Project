@@ -20,6 +20,7 @@
 #include <QTextStream>
 #include <QSslSocket>
 #include <QtCore/QProcessEnvironment>
+#include <QToolTip>
 
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
@@ -142,6 +143,21 @@ void Dashboard::ClientDashboardConnectUi() {
 
 	fillComboBoxClient();
 	ui->StackedClient->setCurrentIndex(0);
+	ui->sortClient->setToolTip("Sort Clients");
+
+	// Tooltips for generating PDF button
+	ui->pdfClient->setToolTip("Generate PDF");
+
+	// Tooltips for search bar employee
+	ui->searchBarClient->setToolTip("Search Clients");
+
+	// Tooltips for chat employee button
+	ui->pieChartClient->setToolTip("Show Stats Clients By Age");
+
+	// Tooltips for CRUD buttons
+	ui->addClient->setToolTip("Add Client");
+	ui->updateClient->setToolTip("Update Client");
+	ui->deleteClient->setToolTip("Delete Client");
 }
 
 void Dashboard::openDeletePage(int clientId) {
@@ -373,13 +389,41 @@ void Dashboard::clearInputFieldsDeleteClient() {
 }
 
 void Dashboard::onSortClickedClient() {
-	static bool isSorted = false;
+	QDialog dialog(this); // Create a dialog
+	dialog.setWindowTitle(tr("Select a Column to sort"));
 
-	Client MasterClient(ui->tableClient, this);
-	MasterClient.sortClientFirstName(isSorted); // Pass the sorting order parameter
+	QComboBox* comboBox = new QComboBox(&dialog);
+	comboBox->addItem(tr("Select a Column to sort"), QVariant("")); // Placeholder item
+	comboBox->addItem(tr("ID"), QVariant("CLIENT_ID"));
+	comboBox->addItem(tr("EMAIL"), QVariant("EMAIL"));
+	comboBox->addItem(tr("FIRST_NAME"), QVariant("FIRST_NAME"));
+	comboBox->addItem(tr("LAST_NAME"), QVariant("LAST_NAME"));
+	comboBox->addItem(tr("ADDRESS"), QVariant("ADDRESS"));
+	comboBox->addItem(tr("PHONE_NUMBER"), QVariant("PHONE_NUMBER"));
+	comboBox->addItem(tr("DOB"), QVariant("DOB"));
 
-	isSorted = !isSorted; // Toggle the sorting order for the next call
+	QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, &dialog);
+	connect(&buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+	connect(&buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+
+	QVBoxLayout layout(&dialog);
+	layout.addWidget(comboBox);
+	layout.addWidget(&buttonBox);
+
+	if (dialog.exec() == QDialog::Accepted) {
+		QString searchBy = comboBox->currentData().toString();
+		if (!searchBy.isEmpty()) {
+			static bool isSorted = false;
+			Client MasterClient(ui->tableClient, this);
+			MasterClient.sortClient(isSorted, searchBy); // Pass the sorting order parameter
+			isSorted = !isSorted; // Toggle the sorting order for the next call
+		}
+		else {
+			// Placeholder item or no column selected, handle accordingly
+		}
+	}
 }
+
 
 void Dashboard::onPdfClickedClient() {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");

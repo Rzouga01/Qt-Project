@@ -591,16 +591,11 @@ void Client::toPdf(const QString& filePath)
 
 
 
-
-
-
-
-void Client::sortClientFirstName(bool ascendingOrder)
-{
+void Client::sortClient(bool ascendingOrder, QString searchBy) {
     QString sortOrder = ascendingOrder ? "ASC" : "DESC";
 
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM CLIENTS ORDER BY FIRST_NAME " + sortOrder);
+    qry.prepare("SELECT * FROM CLIENTS ORDER BY " + searchBy + " " + sortOrder);
     if (!qry.exec()) {
         qDebug() << "Error executing query:" << qry.lastError().text();
         return;
@@ -619,38 +614,36 @@ void Client::sortClientFirstName(bool ascendingOrder)
 
         tableClient->setRowHeight(row, 50);
         tableClient->setFont(QFont("Helvetica", 10));
-        tableClient->setColumnWidth(0, 10);//ID
-        tableClient->setColumnWidth(1, 150);//EMAIL
-        tableClient->setColumnWidth(2, 100);//FIRST NAME
-        tableClient->setColumnWidth(3, 100);//LAST NAME
-        tableClient->setColumnWidth(4, 100);//ADDRESS
-        tableClient->setColumnWidth(5, 75);//PHONE NUMBER
-        tableClient->setColumnWidth(6, 100);//DOB
-
 
         // Set data items for each column
-        QTableWidgetItem* idItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* emailItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* firstNameItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* lastNameItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* phoneNumberItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* addressItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* dobItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
+        for (int col = 0; col < qry.record().count(); ++col) {
+            QTableWidgetItem* item = new QTableWidgetItem(qry.value(col).toString());
+            tableClient->setItem(row, col, item);
+        }
 
-        tableClient->setItem(row, 0, idItem);
-        tableClient->setItem(row, 1, emailItem);
-        tableClient->setItem(row, 2, firstNameItem);
-        tableClient->setItem(row, 3, lastNameItem);
-        tableClient->setItem(row, 4, phoneNumberItem);
-        tableClient->setItem(row, 5, addressItem);
-        tableClient->setItem(row, 6, dobItem);
+        // Format date of birth (assuming it's in the 7th column (index 6))
+        QTableWidgetItem* dobItem = tableClient->item(row, 6);
+        if (dobItem) {
+            QString dobString = dobItem->text();
+            QDate dobDate = QDate::fromString(dobString, "yyyy-MM-dd"); // Adjust the format as per your data
+            if (dobDate.isValid()) {
+                dobItem->setText(dobDate.toString("MMM dd, yyyy")); // Set the formatted date
+                qDebug() << "Parsed DOB:" << dobDate; // Debug output for parsed date
+            }
+            else {
+                qDebug() << "Invalid date format:" << dobString;
+            }
+        }
 
         ++row;
     }
     tableClient->repaint();
 
-    qDebug() << "Client data sorted by first name in" << sortOrder << "order.";
+    qDebug() << "Client data sorted by" << searchBy << "in" << sortOrder << "order.";
 }
+
+
+
 
 
 

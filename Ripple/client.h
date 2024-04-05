@@ -73,7 +73,7 @@ public:
 
     void toPdf(const QString& filePath);
     void searchClientID(QString search,QString searchBy);
-    void sortClientFirstName(bool ascendingOrder = true);
+    void sortClient(bool ascendingOrder = true, QString sortBY = "");
     void statsByAge();
 
     void generateQRCode(const QString& data);
