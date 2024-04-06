@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -192,7 +192,8 @@ text-align:center;
 #pdfEmployee,
 #updateEmployee,
 #sortEmployee,
-#chatEmployee {
+#chatEmployee,
+#searchEmployee {
     border: none;
     background-color: transparent;
 }
@@ -1323,12 +1324,30 @@ border:none;</string>
        </property>
       </widget>
      </widget>
+     <widget class="QPushButton" name="searchEmployee">
+      <property name="geometry">
+       <rect>
+        <x>1140</x>
+        <y>170</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Resources/Icons/search.png</normaloff>../Resources/Icons/search.png</iconset>
+      </property>
+     </widget>
      <zorder>statsBoxEmployee</zorder>
      <zorder>readBoxEmployee</zorder>
      <zorder>featureBarEmployee</zorder>
      <zorder>CrudEmployee</zorder>
      <zorder>searchBarEmployee</zorder>
      <zorder>tableEmployee</zorder>
+     <zorder>searchEmployee</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">

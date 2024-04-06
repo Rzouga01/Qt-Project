@@ -1,59 +1,89 @@
 #include "chatbot.h"
 #include "ui_chatbot.h"
-#include <QFile>
-#include <QTextStream>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QNetworkAccessManager>
-#include <QTemporaryFile>
-#include <QProcessEnvironment>
+
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
+
+#define SAMPLE_RATE  (44100)
+#define FRAMES_PER_BUFFER (512)
+#define NUM_SECONDS     (5)
+#define NUM_CHANNELS    (2)
+#define DITHER_FLAG     (0)
+#define WRITE_TO_FILE   (1) // Set to 1 to enable writing to file
+#define FILE_NAME ".wav" 
+
+// Define sample type
+#define PA_SAMPLE_TYPE  paFloat32
+typedef float SAMPLE;
+
+// Define sample silence and print format
+#define SAMPLE_SILENCE  (0.0f)
+#define PRINTF_S_FORMAT "%.8f"
+
+
+// PortAudio callback function for recording
+static int recordCallback(const void* inputBuffer, void* outputBuffer,
+    unsigned long framesPerBuffer,
+    const PaStreamCallbackTimeInfo* timeInfo,
+    PaStreamCallbackFlags statusFlags,
+    void* userData)
+{
+    paTestData* data = (paTestData*)userData;
+    const SAMPLE* rptr = (const SAMPLE*)inputBuffer;
+    SAMPLE* wptr = &data->recordedSamples[data->frameIndex * NUM_CHANNELS];
+    long framesToCalc;
+    long i;
+    int finished;
+    unsigned long framesLeft = data->maxFrameIndex - data->frameIndex;
+
+    // Check if recording is complete
+    if (framesLeft < framesPerBuffer)
+    {
+        framesToCalc = framesLeft;
+        finished = paComplete;
+    }
+    else
+    {
+        framesToCalc = framesPerBuffer;
+        finished = paContinue;
+    }
+
+    // Copy input buffer to recorded samples
+    if (inputBuffer == NULL)
+    {
+        for (i = 0; i < framesToCalc; i++)
+        {
+            *wptr++ = SAMPLE_SILENCE;
+            if (NUM_CHANNELS == 2)
+                *wptr++ = SAMPLE_SILENCE;
+        }
+    }
+    else
+    {
+        for (i = 0; i < framesToCalc; i++)
+        {
+            *wptr++ = *rptr++;
+            if (NUM_CHANNELS == 2)
+                *wptr++ = *rptr++;
+        }
+    }
+    data->frameIndex += framesToCalc;
+    return finished;
+}
+
 chatbot::chatbot(QWidget* parent) :
     QDialog(parent),
-    ui(new Ui::chatbot),    
-    m_paStream(nullptr),
-    m_recordedBuffer(),
-    m_recordedFrames(0)
+    ui(new Ui::chatbot),
+    m_paStream(nullptr)
 {
     ui->setupUi(this);
     connect(ui->sendButton, &QPushButton::clicked, this, &chatbot::onSendMessageClicked);
     connect(ui->voiceButton, &QPushButton::clicked, this, &chatbot::onVoiceButtonClicked);
-
-    // Set word wrap mode
-    ui->chat->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    ui->chat->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
-
-    PaError err = Pa_Initialize();
-    if (err != paNoError) {
-        qWarning() << "Error initializing PortAudio:" << Pa_GetErrorText(err);
-    }
-
-    // Load CSS style
-    QFile styleFile(":/Resources/Css/chat.css");
-    if (styleFile.open(QFile::ReadOnly | QFile::Text)) {
-        QTextStream stream(&styleFile);
-        QString cssStyle = stream.readAll();
-        styleFile.close();
-        ui->chat->document()->setDefaultStyleSheet(cssStyle);
-    }
-    else {
-        qDebug() << "Failed to open style file";
-    }
 }
 
 chatbot::~chatbot()
 {
     delete ui;
-    if (m_paStream) {
-        Pa_StopStream(m_paStream);
-        Pa_CloseStream(m_paStream);
-        m_paStream = nullptr;
-    }
-    Pa_Terminate();
 }
 
 void chatbot::sendUserMessage(const QString& message)
@@ -162,50 +192,32 @@ void chatbot::onSendMessageClicked()
 
 void chatbot::onVoiceButtonClicked()
 {
-    // Choose audio file using QFileDialog
-    QString audioFilePath = QFileDialog::getOpenFileName(this, "Choose Audio File", "", "Audio Files (*.wav)");
-
-    // Check if a file was selected
-    if (!audioFilePath.isEmpty()) {
-        // Send the selected audio file to the chatbot for recognition
-        sendAudioToChatbot(audioFilePath);
-    }
+    // Start recording voice
+    recordVoice();
 }
 
-int chatbot::recordCallback(const void* inputBuffer, void* /*outputBuffer*/,
-    unsigned long framesPerBuffer,
-    const PaStreamCallbackTimeInfo* /*timeInfo*/,
-    PaStreamCallbackFlags /*statusFlags*/,
-    void* userData)
-{/*
-    chatbot* chatbotInstance = static_cast<chatbot*>(userData);
-    if (inputBuffer != nullptr) {
-        // Convert the input buffer data to float
-        const float* input = static_cast<const float*>(inputBuffer);
+void chatbot::recordVoice()
+{
+    PaError err;
+    SNDFILE* outfile;
+    SF_INFO sfinfo;
+    paTestData data;
+    data.maxFrameIndex = NUM_SECONDS * SAMPLE_RATE;
+    data.frameIndex = 0;
+    int numSamples = data.maxFrameIndex * NUM_CHANNELS;
+    data.recordedSamples = new SAMPLE[numSamples];
 
-        // Calculate the total number of samples
-        int numSamples = framesPerBuffer * NUM_CHANNELS;
-
-        // Convert the float buffer to QByteArray
-        QByteArray byteArray(reinterpret_cast<const char*>(input), numSamples * sizeof(float));
-
-        // Append the QByteArray to the recorded buffer
-        chatbotInstance->m_recordedBuffer.append(byteArray);
-
-        // Increment the recorded frames count
-        chatbotInstance->m_recordedFrames += framesPerBuffer;
+    err = Pa_Initialize();
+    if (err != paNoError) {
+        QMessageBox::critical(this, "Error", QString("Failed to initialize PortAudio: %1").arg(Pa_GetErrorText(err)));
+        return;
     }
-    return paContinue;
-    */
-    return 0;
-}
 
-void chatbot::startRecording()
-{/*
     PaStreamParameters inputParameters;
     inputParameters.device = Pa_GetDefaultInputDevice();
     if (inputParameters.device == paNoDevice) {
-        qWarning() << "Error: No default input device.";
+        QMessageBox::critical(this, "Error", "Error: No default input device.");
+        Pa_Terminate();
         return;
     }
     inputParameters.channelCount = NUM_CHANNELS;
@@ -213,96 +225,81 @@ void chatbot::startRecording()
     inputParameters.suggestedLatency = Pa_GetDeviceInfo(inputParameters.device)->defaultLowInputLatency;
     inputParameters.hostApiSpecificStreamInfo = nullptr;
 
-    // Open the stream for recording
-    PaError err = Pa_OpenStream(&m_paStream, &inputParameters, nullptr, SAMPLE_RATE,
-        FRAMES_PER_BUFFER, paClipOff, recordCallback, this);
+    err = Pa_OpenStream(&m_paStream, &inputParameters, nullptr, SAMPLE_RATE, FRAMES_PER_BUFFER, paClipOff, recordCallback, &data);
     if (err != paNoError) {
-        qWarning() << "Error opening PortAudio stream:" << Pa_GetErrorText(err);
+        QMessageBox::critical(this, "Error", QString("Failed to open PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+        Pa_Terminate();
         return;
     }
 
-    // Start recording
     err = Pa_StartStream(m_paStream);
     if (err != paNoError) {
-        qWarning() << "Error starting PortAudio stream:" << Pa_GetErrorText(err);
+        QMessageBox::critical(this, "Error", QString("Failed to start PortAudio stream: %1").arg(Pa_GetErrorText(err)));
         Pa_CloseStream(m_paStream);
-        m_paStream = nullptr;
+        Pa_Terminate();
         return;
     }
-    */
+
+    std::cout << "\n=== Now recording!! Please speak into the microphone. ===" << std::endl;
+
+    // Wait until recording is complete
+    while ((err = Pa_IsStreamActive(m_paStream)) == 1)
+    {
+        Pa_Sleep(1000);
+        std::cout << "index = " << data.frameIndex << std::endl;
+    }
+    if (err < 0) {
+        QMessageBox::critical(this, "Error", QString("Error during recording: %1").arg(Pa_GetErrorText(err)));
+        Pa_CloseStream(m_paStream);
+        Pa_Terminate();
+        return;
+    }
+
+    err = Pa_StopStream(m_paStream);
+    if (err != paNoError) {
+        QMessageBox::critical(this, "Error", QString("Failed to stop PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+    }
+
+    err = Pa_CloseStream(m_paStream);
+    if (err != paNoError) {
+        QMessageBox::critical(this, "Error", QString("Failed to close PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+    }
+
+    err = Pa_Terminate();
+    if (err != paNoError) {
+        QMessageBox::critical(this, "Error", QString("Failed to terminate PortAudio: %1").arg(Pa_GetErrorText(err)));
+    }
+
+    // Initialize libsndfile info structure
+    sfinfo.channels = NUM_CHANNELS;
+    sfinfo.samplerate = SAMPLE_RATE;
+    sfinfo.format = SF_FORMAT_WAV | SF_FORMAT_FLOAT; // Use SF_FORMAT_FLOAT for floating-point samples
+
+    // Open WAV file for writing
+    outfile = sf_open(FILE_NAME, SFM_WRITE, &sfinfo);
+    if (!outfile) {
+        QMessageBox::critical(this, "Error", "Error opening output file.");
+        return;
+    }
+
+    // Write recorded data to WAV file
+    sf_writef_float(outfile, data.recordedSamples, data.maxFrameIndex);
+
+    // Close WAV file
+    sf_close(outfile);
+    std::cout << "Wrote data to '" << FILE_NAME << "'" << std::endl;
+    sendAudioToChatbot(QString(FILE_NAME));
+    delete[] data.recordedSamples;
 }
 
-void chatbot::stopRecording()
-{/*
-    if (m_paStream) {
-        // Stop the PortAudio stream
-        PaError err = Pa_StopStream(m_paStream);
-        if (err != paNoError) {
-            qWarning() << "Error stopping PortAudio stream:" << Pa_GetErrorText(err);
-        }
-
-        // Close the PortAudio stream
-        err = Pa_CloseStream(m_paStream);
-        if (err != paNoError) {
-            qWarning() << "Error closing PortAudio stream:" << Pa_GetErrorText(err);
-        }
-
-        m_paStream = nullptr;
-
-        // Send the recorded audio to the chatbot for recognition
-        sendRecordedAudio();
-    }
-    else {
-        qWarning() << "PortAudio stream is not initialized.";
-    }
-    */
-}
-
-void chatbot::sendRecordedAudio()
-{/*
-    // Create a temporary file to store the recorded audio
-    QTemporaryFile tempFile;
-    if (!tempFile.open()) {
-        qWarning() << "Failed to create temporary file:" << tempFile.errorString();
-        return;
-    }
-
-    // Write the recorded audio to the temporary file
-    QFile audioFile(tempFile.fileName());
-    if (!audioFile.open(QIODevice::WriteOnly)) {
-        qWarning() << "Failed to open temporary file for writing:" << audioFile.errorString();
-        return;
-    }
-
-    // Calculate the total number of bytes in the recorded buffer
-    qint64 totalBytes = m_recordedBuffer.size();
-
-    // Write the recorded audio data to the temporary file
-    qint64 bytesWritten = audioFile.write(m_recordedBuffer);
-
-    // Check if all bytes were written
-    if (bytesWritten != totalBytes) {
-        qWarning() << "Error writing to temporary file:" << audioFile.errorString();
-        return;
-    }
-
-    // Close the temporary file
-    audioFile.close();
-
-    // Send the recorded audio to the chatbot for recognition
-    sendAudioToChatbot(tempFile.fileName());
-    */
-}
-
-
-void chatbot::sendAudioToChatbot(const QString& audioFilePath)
+void chatbot::sendAudioToChatbot(const QString& audioFilePath)  
 {
     // Retrieve Azure Speech subscription key and region from environment variables
     const QString speechKey = QProcessEnvironment::systemEnvironment().value("SPEECH_KEY");
     const QString speechRegion = QProcessEnvironment::systemEnvironment().value("SPEECH_REGION");
 
     if (speechKey.isEmpty() || speechRegion.isEmpty()) {
-        qWarning() << "Please set both SPEECH_KEY and SPEECH_REGION environment variables.";
+        QMessageBox::critical(this, "Error", "Please set both SPEECH_KEY and SPEECH_REGION environment variables.");
         return;
     }
 
@@ -313,7 +310,7 @@ void chatbot::sendAudioToChatbot(const QString& audioFilePath)
     // Check if the audio file exists
     QFile audioFile(audioFilePath);
     if (!audioFile.exists()) {
-        qWarning() << "Audio file does not exist:" << audioFilePath;
+        QMessageBox::critical(this, "Error", QString("Audio file does not exist: %1").arg(audioFilePath));
         return;
     }
 
@@ -327,20 +324,17 @@ void chatbot::sendAudioToChatbot(const QString& audioFilePath)
     auto result = speechRecognizer->RecognizeOnceAsync().get();
 
     // Process recognition result
-    if (result->Reason == ResultReason::RecognizedSpeech)
-    {
+    if (result->Reason == ResultReason::RecognizedSpeech) {
         QString recognizedText = QString::fromStdString(result->Text);
-        // Assuming ui->chat->append appends text to a chat interface
         ui->chat->append("<div class=\"user-message\">You (Voice): " + recognizedText + "</div><br></br>");
-        // Assuming sendUserMessage sends the recognized text to your chatbot
         sendUserMessage(recognizedText);
+      
+       
     }
-    else if (result->Reason == ResultReason::NoMatch)
-    {
+    else if (result->Reason == ResultReason::NoMatch) {
         ui->chat->append("<div class=\"bot-response\">Bot: Speech could not be recognized.</div><br></br>");
     }
-    else if (result->Reason == ResultReason::Canceled)
-    {
+    else if (result->Reason == ResultReason::Canceled) {
         auto cancellation = CancellationDetails::FromResult(result);
         QString errorMessage = "Error: ";
         errorMessage += QString::number(static_cast<int>(cancellation->Reason));

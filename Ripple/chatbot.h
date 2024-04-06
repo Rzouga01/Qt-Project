@@ -24,17 +24,35 @@
 #include <QtMultimedia>
 #include <QAudioInput>
 #include <QAudioFormat>
-#include <QMediaFormat>
 #include <QMediaRecorder>
 #include <QMessageBox>
-#include "portaudio.h"
-#include <QProcessEnvironment>
+#include <portaudio.h>
+#include <sndfile.h>
 #include <speechapi_cxx.h>
+// Define constants
+#define SAMPLE_RATE  (44100)
+#define FRAMES_PER_BUFFER (512)
+#define NUM_SECONDS     (5)
+#define NUM_CHANNELS    (2)
+#define DITHER_FLAG     (0)
+#define WRITE_TO_FILE   (1) // Set to 1 to enable writing to file
+#define FILE_NAME "recorded.wav" // Output WAV file name
 
-#define SAMPLE_RATE         (44100)
-#define PA_SAMPLE_TYPE      paFloat32
-#define NUM_CHANNELS        (1)
-#define FRAMES_PER_BUFFER   (512)
+// Define sample type
+#define PA_SAMPLE_TYPE  paFloat32
+typedef float SAMPLE;
+
+// Define sample silence and print format
+#define SAMPLE_SILENCE  (0.0f)
+#define PRINTF_S_FORMAT "%.8f"
+
+// Define data structure for recording
+typedef struct
+{
+    int          frameIndex;  /* Index into sample array. */
+    int          maxFrameIndex;
+    SAMPLE* recordedSamples;
+} paTestData;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class chatbot; }
@@ -47,29 +65,20 @@ class chatbot : public QDialog
 public:
     chatbot(QWidget* parent = nullptr);
     ~chatbot();
-    static int recordCallback(const void* inputBuffer, void* outputBuffer,
-        unsigned long framesPerBuffer,
-        const PaStreamCallbackTimeInfo* timeInfo,
-        PaStreamCallbackFlags statusFlags,
-        void* userData);
+
 private slots:
     void onSendMessageClicked();
     void onVoiceButtonClicked();
     void handleBotResponse(QNetworkReply* reply);
-    void sendAudioToChatbot(const QString& audioFilePath);
-    void startRecording();
-    void stopRecording();
-    void sendRecordedAudio();
-
+    void recordVoice();
 private:
     Ui::chatbot* ui;
     QNetworkAccessManager m_manager;
-    QBuffer m_audioBuffer;
-    PaStream* m_paStream;
-    int m_recordedFrames;
-    QByteArray m_recordedBuffer;
+    paTestData m_paTestData; // Declare m_paTestData
+    PaStream* m_paStream; // Declare m_paStream
 
     void sendUserMessage(const QString& message);
+    void sendAudioToChatbot(const QString& audioFilePath);
 };
 class LoadingWidget : public QWidget {
     Q_OBJECT
@@ -97,5 +106,4 @@ private:
     QLabel* loadingLabel;
     QMovie* loadingMovie;
 };
-
 #endif // CHATBOT_H

@@ -21,7 +21,6 @@
 #include <QSslSocket>
 #include <QtCore/QProcessEnvironment>
 #include <QToolTip>
-
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
@@ -86,6 +85,7 @@ void Dashboard::showPageForRole(int role)
 		break;
 	}
 }
+
 void Dashboard::createSession(Employee* employee) {
     this->user = employee;
     QString firstName = user->getFirstName().trimmed();
@@ -103,9 +103,6 @@ void Dashboard::createSession(Employee* employee) {
 
     qDebug() << "Role: " << role;
 }
-
-
-
 //--------------------------------------------------------------------------------------------------------------------------------
 // Client
 void Dashboard::ClientDashboardConnectUi() {
@@ -424,7 +421,6 @@ void Dashboard::onSortClickedClient() {
 	}
 }
 
-
 void Dashboard::onPdfClickedClient() {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
 	if (!filePath.isEmpty()) {
@@ -598,11 +594,6 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
 	qDebug() << "Email with attachment sent successfully!";
 }
 
-
-
-
-
-
 void Dashboard::fillComboBoxClient()
 {
 	QSqlQuery query;
@@ -643,9 +634,6 @@ void Dashboard::UpdateClientByClick()
 	}
 	ui->StackedClient->setCurrentIndex(1);
 }
-
-
-
 //********************************************************************************************************************
 // Employee
 void Dashboard::EmployeeDashboardConnectUi() {
@@ -663,6 +651,14 @@ void Dashboard::EmployeeDashboardConnectUi() {
 	QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
 	QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
 	QObject::connect(ui->chatEmployee, &QPushButton::clicked, this, &Dashboard::openChatBox);
+
+	ui->sortEmployee->setToolTip("Sort Employees By Age");
+	ui->pdfEmployee->setToolTip("Generate Employees List To  PDF");
+	ui->searchBarEmployee->setToolTip("Search Employees By Name");
+	ui->chatEmployee->setToolTip("Open RippleAssistant");
+	ui->addEmployee->setToolTip("Add Employee");
+	ui->updateEmployee->setToolTip("Update Employee");
+	ui->deleteEmployee->setToolTip("Delete Employee");
 
 	Employee employee;
 
@@ -1000,6 +996,9 @@ void Dashboard::onPdfEmployeeClicked() {
 void Dashboard::onSearchTextChanged(const QString& searchText) {
 	Employee emp(ui->tableEmployee);
 	emp.searchEmployee(searchText);
+	ui->searchEmployee->hide();
+	if(searchText.isEmpty())
+		ui->searchEmployee->show();
 }
 
 void Dashboard::displayEmployeeStats(int employeeID) {
@@ -1212,8 +1211,6 @@ void Dashboard::openChatBox() {
 	chatbot* chat = new chatbot(this);
 	chat->show();
 }
-
-
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -1368,7 +1365,6 @@ void Dashboard::onAddClickedContract() {
 	}
 }
 
-
 void Dashboard::clearInputFieldsContract() {
 	ui->LineEditPremiumAmountContract->clear();
 	ui->dateEditEffectiveDateContract->setDate(QDate());
@@ -1437,7 +1433,6 @@ void Dashboard::onUpdateClickedContract() {
 	}
 }
 
-
 void Dashboard::onDeleteClickedContract() {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	if (ui->LineEditContractID->text().isEmpty()) {
@@ -1491,6 +1486,7 @@ void Dashboard::clearInputFieldsUpdateContract() {
 	ui->lineEditTypeContractUpdate->clear();
 
 }
+
 void Dashboard::onSortClickedContract() {
 	static bool isSorted = false;
 
@@ -1583,7 +1579,6 @@ void Dashboard::onAddCancelClickedAccident() {
     clearInputFieldsAccidentCreate();
 }
 
-
 void Dashboard::onPdfClickedAccient() {
 
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
@@ -1592,7 +1587,6 @@ void Dashboard::onPdfClickedAccient() {
         MasterAccident.AccidenttoPdf(filePath); // Appel de la fonction toPdf() de l'objet accident
     }
 }
-
 
 void Dashboard::clearInputFieldsAccidentDelete() {
     ui->AccidentDeleteID->clear();
@@ -1712,6 +1706,7 @@ void Dashboard::onUpdateClickedAccident() {
         }
     }
 }
+
 void Dashboard::onSortClickedAccident() {
     static bool isSorted = false;
 
@@ -1720,10 +1715,12 @@ void Dashboard::onSortClickedAccident() {
 
     isSorted = !isSorted;
 }
+
 void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
     accident MasterAccident(ui->tableAccident);
     MasterAccident.searchAccident(searchText);
 }
+
 void Dashboard::onstatsClickedAccident() {
     accident MasterAccident(ui->tableAccident,this);
     MasterAccident.accidentstatsByDamage();
@@ -1769,9 +1766,6 @@ void Dashboard::onHistoriqueAccidentclicked()
         qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
     }
 }
-
-
-
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

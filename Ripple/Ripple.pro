@@ -7,6 +7,7 @@ include(../qtxlsx/QXlsx/QXlsx.pri)
 
 CONFIG += c++11
 INCLUDEPATH += $$PWD/portaudio/include
+INCLUDEPATH += $$PWD/libsndfile/include
 INCLUDEPATH += ../QZXing/src
 INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/c_api
 DEPENDPATH  += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/c_api
@@ -27,6 +28,20 @@ x64:CONFIG(release, debug|release) {
     LIBS += -L$$PWD/portaudio/build/Release -lportaudio
 } else:x64:CONFIG(debug, debug|release) {
     LIBS += -L$$PWD/portaudio/build/Debug -lportaudio
+}
+LIBS += -L$$PWD/libsndfile/lib
+
+# Add library files for different configurations
+win32:CONFIG(release, debug|release) {
+    LIBS += -lsndfile
+} else:win32:CONFIG(debug, debug|release) {
+    LIBS += -lsndfile
+}
+
+x64:CONFIG(release, debug|release) {
+    LIBS += -lsndfile
+} else:x64:CONFIG(debug, debug|release) {
+    LIBS += -lsndfile
 }
 
 TEMPLATE = app

@@ -195,7 +195,6 @@ E:\Qt-Project\qtxlsx\QXlsx\source\xlsxzipwriter.cpp;E:\Qt-Project\Ripple\debug\x
 E:\Qt-Project\Ripple\Debug\moc_ImageHandler.cpp;E:\Qt-Project\Ripple\debug\moc_ImageHandler.obj
 E:\Qt-Project\Ripple\Debug\moc_QZXing.cpp;E:\Qt-Project\Ripple\debug\moc_QZXing.obj
 E:\Qt-Project\Ripple\Debug\moc_accident.cpp;E:\Qt-Project\Ripple\debug\moc_accident.obj
-E:\Qt-Project\Ripple\Debug\moc_chatbot.cpp;E:\Qt-Project\Ripple\debug\moc_chatbot.obj
 E:\Qt-Project\Ripple\Debug\moc_client.cpp;E:\Qt-Project\Ripple\debug\moc_client.obj
 E:\Qt-Project\Ripple\Debug\moc_contract.cpp;E:\Qt-Project\Ripple\debug\moc_contract.obj
 E:\Qt-Project\Ripple\Debug\moc_dashboard.cpp;E:\Qt-Project\Ripple\debug\moc_dashboard.obj
@@ -203,3 +202,4 @@ E:\Qt-Project\Ripple\Debug\moc_employee.cpp;E:\Qt-Project\Ripple\debug\moc_emplo
 E:\Qt-Project\Ripple\Debug\moc_mainwindow.cpp;E:\Qt-Project\Ripple\debug\moc_mainwindow.obj
 E:\Qt-Project\Ripple\Debug\moc_qrcodedialog.cpp;E:\Qt-Project\Ripple\debug\moc_qrcodedialog.obj
 E:\Qt-Project\Ripple\Debug\moc_xlsxdocument.cpp;E:\Qt-Project\Ripple\debug\moc_xlsxdocument.obj
+E:\Qt-Project\Ripple\Debug\moc_chatbot.cpp;E:\Qt-Project\Ripple\debug\moc_chatbot.obj
