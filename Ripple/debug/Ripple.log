@@ -1,14 +1,11 @@
-﻿  Moc'ing chatbot.h...
-  chatbot.cpp
-  dashboard.cpp
-  main.cpp
-E:\Qt-Project\Ripple\chatbot.cpp(13,1): warning C4005: 'FILE_NAME': macro redefinition
-  E:\Qt-Project\Ripple\chatbot.h(39,1):
+﻿  chatbot.cpp
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp(1,1): warning C4828: The file contains a character starting at offset 0xd2c that is illegal in the current source character set (codepage 65001).
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1099 that is illegal in the current source character set (codepage 65001).
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp(13,1): warning C4005: 'FILE_NAME': macro redefinition
+  E:\touskié formatik\Qt-Project\Ripple\chatbot.h(39,1):
   see previous definition of 'FILE_NAME'
   
-E:\Qt-Project\Ripple\chatbot.cpp(28,27): warning C4100: 'statusFlags': unreferenced formal parameter
-E:\Qt-Project\Ripple\chatbot.cpp(27,37): warning C4100: 'timeInfo': unreferenced formal parameter
-E:\Qt-Project\Ripple\chatbot.cpp(25,58): warning C4100: 'outputBuffer': unreferenced formal parameter
-E:\Qt-Project\Ripple\dashboard.cpp(637,11): warning C4100: 'index': unreferenced formal parameter
-  moc_chatbot.cpp
-  Ripple.vcxproj -> E:\Qt-Project\Ripple\debug\Ripple.exe
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp(28,27): warning C4100: 'statusFlags': unreferenced formal parameter
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp(27,37): warning C4100: 'timeInfo': unreferenced formal parameter
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp(25,58): warning C4100: 'outputBuffer': unreferenced formal parameter
+  Ripple.vcxproj -> E:\touskié formatik\Qt-Project\Ripple\debug\Ripple.exe

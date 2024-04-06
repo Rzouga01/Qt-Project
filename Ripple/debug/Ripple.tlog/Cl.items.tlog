@@ -1,205 +1,205 @@
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI013103decoder.cpp;E:\Qt-Project\Ripple\debug\AI013103decoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01320xDecoder.cpp;E:\Qt-Project\Ripple\debug\AI01320xDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01392xDecoder.cpp;E:\Qt-Project\Ripple\debug\AI01392xDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01393xDecoder.cpp;E:\Qt-Project\Ripple\debug\AI01393xDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI013x0x1xDecoder.cpp;E:\Qt-Project\Ripple\debug\AI013x0x1xDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI013x0xDecoder.cpp;E:\Qt-Project\Ripple\debug\AI013x0xDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01AndOtherAIs.cpp;E:\Qt-Project\Ripple\debug\AI01AndOtherAIs.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01decoder.cpp;E:\Qt-Project\Ripple\debug\AI01decoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01weightDecoder.cpp;E:\Qt-Project\Ripple\debug\AI01weightDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.cpp;E:\Qt-Project\Ripple\debug\AbstractExpandedDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\AbstractRSSReader.cpp;E:\Qt-Project\Ripple\debug\AbstractRSSReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AnyAIDecoder.cpp;E:\Qt-Project\Ripple\debug\AnyAIDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\aztec\decoder\AztecDecoder.cpp;E:\Qt-Project\Ripple\debug\AztecDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\aztec\detector\AztecDetector.cpp;E:\Qt-Project\Ripple\debug\AztecDetector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\aztec\AztecDetectorResult.cpp;E:\Qt-Project\Ripple\debug\AztecDetectorResult.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\aztec\AztecReader.cpp;E:\Qt-Project\Ripple\debug\AztecReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\BarcodeFormat.cpp;E:\Qt-Project\Ripple\debug\BarcodeFormat.obj
-E:\Qt-Project\QZXing\src\zxing\bigint\BigInteger.cc;E:\Qt-Project\Ripple\debug\BigInteger.obj
-E:\Qt-Project\QZXing\src\zxing\bigint\BigIntegerAlgorithms.cc;E:\Qt-Project\Ripple\debug\BigIntegerAlgorithms.obj
-E:\Qt-Project\QZXing\src\zxing\bigint\BigIntegerUtils.cc;E:\Qt-Project\Ripple\debug\BigIntegerUtils.obj
-E:\Qt-Project\QZXing\src\zxing\bigint\BigUnsigned.cc;E:\Qt-Project\Ripple\debug\BigUnsigned.obj
-E:\Qt-Project\QZXing\src\zxing\bigint\BigUnsignedInABase.cc;E:\Qt-Project\Ripple\debug\BigUnsignedInABase.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\Binarizer.cpp;E:\Qt-Project\Ripple\debug\Binarizer.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\BinaryBitmap.cpp;E:\Qt-Project\Ripple\debug\BinaryBitmap.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\BitArray.cpp;E:\Qt-Project\Ripple\debug\BitArray.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\BitArrayBuilder.cpp;E:\Qt-Project\Ripple\debug\BitArrayBuilder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\BitArrayIO.cpp;E:\Qt-Project\Ripple\debug\BitArrayIO.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\BitMatrix.cpp;E:\Qt-Project\Ripple\debug\BitMatrix.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\BitSource.cpp;E:\Qt-Project\Ripple\debug\BitSource.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\BlockParsedResult.cpp;E:\Qt-Project\Ripple\debug\BlockParsedResult.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\multi\ByQuadrantReader.cpp;E:\Qt-Project\Ripple\debug\ByQuadrantReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\ByteMatrix.cpp;E:\Qt-Project\Ripple\debug\ByteMatrix.obj
-E:\Qt-Project\QZXing\src\CameraImageWrapper.cpp;E:\Qt-Project\Ripple\debug\CameraImageWrapper.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\CharacterSetECI.cpp;E:\Qt-Project\Ripple\debug\CharacterSetECI.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\ChecksumException.cpp;E:\Qt-Project\Ripple\debug\ChecksumException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\CodaBarReader.cpp;E:\Qt-Project\Ripple\debug\CodaBarReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\Code128Reader.cpp;E:\Qt-Project\Ripple\debug\Code128Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\Code39Reader.cpp;E:\Qt-Project\Ripple\debug\Code39Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\Code93Reader.cpp;E:\Qt-Project\Ripple\debug\Code93Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\CurrentParsingState.cpp;E:\Qt-Project\Ripple\debug\CurrentParsingState.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\DataCharacter.cpp;E:\Qt-Project\Ripple\debug\DataCharacter.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixBitMatrixParser.cpp;E:\Qt-Project\Ripple\debug\DataMatrixBitMatrixParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\detector\DataMatrixCornerPoint.cpp;E:\Qt-Project\Ripple\debug\DataMatrixCornerPoint.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp;E:\Qt-Project\Ripple\debug\DataMatrixDataBlock.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDecodedBitStreamParser.cpp;E:\Qt-Project\Ripple\debug\DataMatrixDecodedBitStreamParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDecoder.cpp;E:\Qt-Project\Ripple\debug\DataMatrixDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\detector\DataMatrixDetector.cpp;E:\Qt-Project\Ripple\debug\DataMatrixDetector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\detector\DataMatrixDetectorException.cpp;E:\Qt-Project\Ripple\debug\DataMatrixDetectorException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\DataMatrixReader.cpp;E:\Qt-Project\Ripple\debug\DataMatrixReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\datamatrix\DataMatrixVersion.cpp;E:\Qt-Project\Ripple\debug\DataMatrixVersion.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\DecodeHints.cpp;E:\Qt-Project\Ripple\debug\DecodeHints.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedChar.cpp;E:\Qt-Project\Ripple\debug\DecodedChar.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedInformation.cpp;E:\Qt-Project\Ripple\debug\DecodedInformation.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedNumeric.cpp;E:\Qt-Project\Ripple\debug\DecodedNumeric.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedObject.cpp;E:\Qt-Project\Ripple\debug\DecodedObject.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\DecoderResult.cpp;E:\Qt-Project\Ripple\debug\DecoderResult.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\DetectorResult.cpp;E:\Qt-Project\Ripple\debug\DetectorResult.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\EAN13Reader.cpp;E:\Qt-Project\Ripple\debug\EAN13Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\EAN8Reader.cpp;E:\Qt-Project\Ripple\debug\EAN8Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\EANManufacturerOrgSupport.cpp;E:\Qt-Project\Ripple\debug\EANManufacturerOrgSupport.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\EncodeHint.cpp;E:\Qt-Project\Ripple\debug\EncodeHint.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp;E:\Qt-Project\Ripple\debug\ErrorCorrection.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\Exception.cpp;E:\Qt-Project\Ripple\debug\Exception.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\ExpandedPair.cpp;E:\Qt-Project\Ripple\debug\ExpandedPair.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\ExpandedRow.cpp;E:\Qt-Project\Ripple\debug\ExpandedRow.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\FieldParser.cpp;E:\Qt-Project\Ripple\debug\FieldParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\FinderPattern.cpp;E:\Qt-Project\Ripple\debug\FinderPattern.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\FormatException.cpp;E:\Qt-Project\Ripple\debug\FormatException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\GeneralAppIdDecoder.cpp;E:\Qt-Project\Ripple\debug\GeneralAppIdDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp;E:\Qt-Project\Ripple\debug\GenericGF.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp;E:\Qt-Project\Ripple\debug\GenericGFPoly.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\multi\GenericMultipleBarcodeReader.cpp;E:\Qt-Project\Ripple\debug\GenericMultipleBarcodeReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\GlobalHistogramBinarizer.cpp;E:\Qt-Project\Ripple\debug\GlobalHistogramBinarizer.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\GreyscaleLuminanceSource.cpp;E:\Qt-Project\Ripple\debug\GreyscaleLuminanceSource.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\GreyscaleRotatedLuminanceSource.cpp;E:\Qt-Project\Ripple\debug\GreyscaleRotatedLuminanceSource.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\GridSampler.cpp;E:\Qt-Project\Ripple\debug\GridSampler.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\HybridBinarizer.cpp;E:\Qt-Project\Ripple\debug\HybridBinarizer.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\ITFReader.cpp;E:\Qt-Project\Ripple\debug\ITFReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\IllegalArgumentException.cpp;E:\Qt-Project\Ripple\debug\IllegalArgumentException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\IllegalStateException.cpp;E:\Qt-Project\Ripple\debug\IllegalStateException.obj
-E:\Qt-Project\QZXing\src\ImageHandler.cpp;E:\Qt-Project\Ripple\debug\ImageHandler.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\InvertedLuminanceSource.cpp;E:\Qt-Project\Ripple\debug\InvertedLuminanceSource.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\detector\LinesSampler.cpp;E:\Qt-Project\Ripple\debug\LinesSampler.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\LuminanceSource.cpp;E:\Qt-Project\Ripple\debug\LuminanceSource.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\MaskUtil.cpp;E:\Qt-Project\Ripple\debug\MaskUtil.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\MatrixUtil.cpp;E:\Qt-Project\Ripple\debug\MatrixUtil.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusGF.cpp;E:\Qt-Project\Ripple\debug\ModulusGF.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp;E:\Qt-Project\Ripple\debug\ModulusPoly.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\detector\MonochromeRectangleDetector.cpp;E:\Qt-Project\Ripple\debug\MonochromeRectangleDetector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\multi\qrcode\detector\MultiDetector.cpp;E:\Qt-Project\Ripple\debug\MultiDetector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\multi\qrcode\detector\MultiFinderPatternFinder.cpp;E:\Qt-Project\Ripple\debug\MultiFinderPatternFinder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\MultiFormatOneDReader.cpp;E:\Qt-Project\Ripple\debug\MultiFormatOneDReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\MultiFormatReader.cpp;E:\Qt-Project\Ripple\debug\MultiFormatReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\MultiFormatUPCEANReader.cpp;E:\Qt-Project\Ripple\debug\MultiFormatUPCEANReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\multi\MultipleBarcodeReader.cpp;E:\Qt-Project\Ripple\debug\MultipleBarcodeReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\NotFoundException.cpp;E:\Qt-Project\Ripple\debug\NotFoundException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\OneDReader.cpp;E:\Qt-Project\Ripple\debug\OneDReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\OneDResultPoint.cpp;E:\Qt-Project\Ripple\debug\OneDResultPoint.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417BitMatrixParser.cpp;E:\Qt-Project\Ripple\debug\PDF417BitMatrixParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417DecodedBitStreamParser.cpp;E:\Qt-Project\Ripple\debug\PDF417DecodedBitStreamParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417Decoder.cpp;E:\Qt-Project\Ripple\debug\PDF417Decoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\detector\PDF417Detector.cpp;E:\Qt-Project\Ripple\debug\PDF417Detector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\pdf417\PDF417Reader.cpp;E:\Qt-Project\Ripple\debug\PDF417Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\Pair.cpp;E:\Qt-Project\Ripple\debug\Pair.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\PerspectiveTransform.cpp;E:\Qt-Project\Ripple\debug\PerspectiveTransform.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRAlignmentPattern.cpp;E:\Qt-Project\Ripple\debug\QRAlignmentPattern.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRAlignmentPatternFinder.cpp;E:\Qt-Project\Ripple\debug\QRAlignmentPatternFinder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRBitMatrixParser.cpp;E:\Qt-Project\Ripple\debug\QRBitMatrixParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\QRCode.cpp;E:\Qt-Project\Ripple\debug\QRCode.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\multi\qrcode\QRCodeMultiReader.cpp;E:\Qt-Project\Ripple\debug\QRCodeMultiReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRCodeReader.cpp;E:\Qt-Project\Ripple\debug\QRCodeReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataBlock.cpp;E:\Qt-Project\Ripple\debug\QRDataBlock.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataMask.cpp;E:\Qt-Project\Ripple\debug\QRDataMask.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDecodedBitStreamParser.cpp;E:\Qt-Project\Ripple\debug\QRDecodedBitStreamParser.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDecoder.cpp;E:\Qt-Project\Ripple\debug\QRDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRDetector.cpp;E:\Qt-Project\Ripple\debug\QRDetector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\QREncoder.cpp;E:\Qt-Project\Ripple\debug\QREncoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRErrorCorrectionLevel.cpp;E:\Qt-Project\Ripple\debug\QRErrorCorrectionLevel.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRFinderPattern.cpp;E:\Qt-Project\Ripple\debug\QRFinderPattern.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRFinderPatternFinder.cpp;E:\Qt-Project\Ripple\debug\QRFinderPatternFinder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRFinderPatternInfo.cpp;E:\Qt-Project\Ripple\debug\QRFinderPatternInfo.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRFormatInformation.cpp;E:\Qt-Project\Ripple\debug\QRFormatInformation.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRMode.cpp;E:\Qt-Project\Ripple\debug\QRMode.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRVersion.cpp;E:\Qt-Project\Ripple\debug\QRVersion.obj
-E:\Qt-Project\QZXing\src\QZXing.cpp;E:\Qt-Project\Ripple\debug\QZXing.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\RSS14Reader.cpp;E:\Qt-Project\Ripple\debug\RSS14Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\RSSExpandedReader.cpp;E:\Qt-Project\Ripple\debug\RSSExpandedReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\rss\RSSUtils.cpp;E:\Qt-Project\Ripple\debug\RSSUtils.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\Reader.cpp;E:\Qt-Project\Ripple\debug\Reader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\ReaderException.cpp;E:\Qt-Project\Ripple\debug\ReaderException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonDecoder.cpp;E:\Qt-Project\Ripple\debug\ReedSolomonDecoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonEncoder.cpp;E:\Qt-Project\Ripple\debug\ReedSolomonEncoder.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonException.cpp;E:\Qt-Project\Ripple\debug\ReedSolomonException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\Result.cpp;E:\Qt-Project\Ripple\debug\Result.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\ResultIO.cpp;E:\Qt-Project\Ripple\debug\ResultIO.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\ResultMetadata.cpp;E:\Qt-Project\Ripple\debug\ResultMetadata.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\ResultPoint.cpp;E:\Qt-Project\Ripple\debug\ResultPoint.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\ResultPointCallback.cpp;E:\Qt-Project\Ripple\debug\ResultPointCallback.obj
-E:\Qt-Project\Ripple\SqlConn.cpp;E:\Qt-Project\Ripple\debug\SqlConn.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\Str.cpp;E:\Qt-Project\Ripple\debug\Str.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\StringUtils.cpp;E:\Qt-Project\Ripple\debug\StringUtils.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\UPCAReader.cpp;E:\Qt-Project\Ripple\debug\UPCAReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANExtension2Support.cpp;E:\Qt-Project\Ripple\debug\UPCEANExtension2Support.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANExtension5Support.cpp;E:\Qt-Project\Ripple\debug\UPCEANExtension5Support.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANExtensionSupport.cpp;E:\Qt-Project\Ripple\debug\UPCEANExtensionSupport.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANReader.cpp;E:\Qt-Project\Ripple\debug\UPCEANReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEReader.cpp;E:\Qt-Project\Ripple\debug\UPCEReader.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\UnsupportedEncodingException.cpp;E:\Qt-Project\Ripple\debug\UnsupportedEncodingException.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\common\detector\WhiteRectangleDetector.cpp;E:\Qt-Project\Ripple\debug\WhiteRectangleDetector.obj
-E:\Qt-Project\QZXing\src\zxing\zxing\WriterException.cpp;E:\Qt-Project\Ripple\debug\WriterException.obj
-E:\Qt-Project\Ripple\accident.cpp;E:\Qt-Project\Ripple\debug\accident.obj
-E:\Qt-Project\Ripple\chatbot.cpp;E:\Qt-Project\Ripple\debug\chatbot.obj
-E:\Qt-Project\Ripple\client.cpp;E:\Qt-Project\Ripple\debug\client.obj
-E:\Qt-Project\Ripple\contract.cpp;E:\Qt-Project\Ripple\debug\contract.obj
-E:\Qt-Project\Ripple\dashboard.cpp;E:\Qt-Project\Ripple\debug\dashboard.obj
-E:\Qt-Project\Ripple\employee.cpp;E:\Qt-Project\Ripple\debug\employee.obj
-E:\Qt-Project\Ripple\main.cpp;E:\Qt-Project\Ripple\debug\main.obj
-E:\Qt-Project\Ripple\mainwindow.cpp;E:\Qt-Project\Ripple\debug\mainwindow.obj
-E:\Qt-Project\Ripple\qrcodedialog.cpp;E:\Qt-Project\Ripple\debug\qrcodedialog.obj
-E:\Qt-Project\Ripple\sms.cpp;E:\Qt-Project\Ripple\debug\sms.obj
-E:\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c;E:\Qt-Project\Ripple\debug\win_iconv.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxabstractooxmlfile.cpp;E:\Qt-Project\Ripple\debug\xlsxabstractooxmlfile.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxabstractsheet.cpp;E:\Qt-Project\Ripple\debug\xlsxabstractsheet.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcell.cpp;E:\Qt-Project\Ripple\debug\xlsxcell.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcellformula.cpp;E:\Qt-Project\Ripple\debug\xlsxcellformula.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcelllocation.cpp;E:\Qt-Project\Ripple\debug\xlsxcelllocation.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcellrange.cpp;E:\Qt-Project\Ripple\debug\xlsxcellrange.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcellreference.cpp;E:\Qt-Project\Ripple\debug\xlsxcellreference.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxchart.cpp;E:\Qt-Project\Ripple\debug\xlsxchart.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxchartsheet.cpp;E:\Qt-Project\Ripple\debug\xlsxchartsheet.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcolor.cpp;E:\Qt-Project\Ripple\debug\xlsxcolor.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxconditionalformatting.cpp;E:\Qt-Project\Ripple\debug\xlsxconditionalformatting.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxcontenttypes.cpp;E:\Qt-Project\Ripple\debug\xlsxcontenttypes.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdatavalidation.cpp;E:\Qt-Project\Ripple\debug\xlsxdatavalidation.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdatetype.cpp;E:\Qt-Project\Ripple\debug\xlsxdatetype.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdocpropsapp.cpp;E:\Qt-Project\Ripple\debug\xlsxdocpropsapp.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdocpropscore.cpp;E:\Qt-Project\Ripple\debug\xlsxdocpropscore.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdocument.cpp;E:\Qt-Project\Ripple\debug\xlsxdocument.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdrawing.cpp;E:\Qt-Project\Ripple\debug\xlsxdrawing.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxdrawinganchor.cpp;E:\Qt-Project\Ripple\debug\xlsxdrawinganchor.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxformat.cpp;E:\Qt-Project\Ripple\debug\xlsxformat.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxmediafile.cpp;E:\Qt-Project\Ripple\debug\xlsxmediafile.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxnumformatparser.cpp;E:\Qt-Project\Ripple\debug\xlsxnumformatparser.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxrelationships.cpp;E:\Qt-Project\Ripple\debug\xlsxrelationships.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxrichstring.cpp;E:\Qt-Project\Ripple\debug\xlsxrichstring.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxsharedstrings.cpp;E:\Qt-Project\Ripple\debug\xlsxsharedstrings.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxsimpleooxmlfile.cpp;E:\Qt-Project\Ripple\debug\xlsxsimpleooxmlfile.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxstyles.cpp;E:\Qt-Project\Ripple\debug\xlsxstyles.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxtheme.cpp;E:\Qt-Project\Ripple\debug\xlsxtheme.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxutility.cpp;E:\Qt-Project\Ripple\debug\xlsxutility.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxworkbook.cpp;E:\Qt-Project\Ripple\debug\xlsxworkbook.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxworksheet.cpp;E:\Qt-Project\Ripple\debug\xlsxworksheet.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxzipreader.cpp;E:\Qt-Project\Ripple\debug\xlsxzipreader.obj
-E:\Qt-Project\qtxlsx\QXlsx\source\xlsxzipwriter.cpp;E:\Qt-Project\Ripple\debug\xlsxzipwriter.obj
-E:\Qt-Project\Ripple\Debug\moc_ImageHandler.cpp;E:\Qt-Project\Ripple\debug\moc_ImageHandler.obj
-E:\Qt-Project\Ripple\Debug\moc_QZXing.cpp;E:\Qt-Project\Ripple\debug\moc_QZXing.obj
-E:\Qt-Project\Ripple\Debug\moc_accident.cpp;E:\Qt-Project\Ripple\debug\moc_accident.obj
-E:\Qt-Project\Ripple\Debug\moc_client.cpp;E:\Qt-Project\Ripple\debug\moc_client.obj
-E:\Qt-Project\Ripple\Debug\moc_contract.cpp;E:\Qt-Project\Ripple\debug\moc_contract.obj
-E:\Qt-Project\Ripple\Debug\moc_dashboard.cpp;E:\Qt-Project\Ripple\debug\moc_dashboard.obj
-E:\Qt-Project\Ripple\Debug\moc_employee.cpp;E:\Qt-Project\Ripple\debug\moc_employee.obj
-E:\Qt-Project\Ripple\Debug\moc_mainwindow.cpp;E:\Qt-Project\Ripple\debug\moc_mainwindow.obj
-E:\Qt-Project\Ripple\Debug\moc_qrcodedialog.cpp;E:\Qt-Project\Ripple\debug\moc_qrcodedialog.obj
-E:\Qt-Project\Ripple\Debug\moc_xlsxdocument.cpp;E:\Qt-Project\Ripple\debug\moc_xlsxdocument.obj
-E:\Qt-Project\Ripple\Debug\moc_chatbot.cpp;E:\Qt-Project\Ripple\debug\moc_chatbot.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI013103decoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI013103decoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01320xDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI01320xDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01392xDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI01392xDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01393xDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI01393xDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI013x0x1xDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI013x0x1xDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI013x0xDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI013x0xDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01AndOtherAIs.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI01AndOtherAIs.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01decoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI01decoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AI01weightDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AI01weightDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AbstractExpandedDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\AbstractRSSReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AbstractRSSReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\AnyAIDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AnyAIDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\aztec\decoder\AztecDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AztecDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\aztec\detector\AztecDetector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AztecDetector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\aztec\AztecDetectorResult.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AztecDetectorResult.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\aztec\AztecReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\AztecReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\BarcodeFormat.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BarcodeFormat.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\bigint\BigInteger.cc;E:\touskié formatik\Qt-Project\Ripple\debug\BigInteger.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\bigint\BigIntegerAlgorithms.cc;E:\touskié formatik\Qt-Project\Ripple\debug\BigIntegerAlgorithms.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\bigint\BigIntegerUtils.cc;E:\touskié formatik\Qt-Project\Ripple\debug\BigIntegerUtils.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\bigint\BigUnsigned.cc;E:\touskié formatik\Qt-Project\Ripple\debug\BigUnsigned.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\bigint\BigUnsignedInABase.cc;E:\touskié formatik\Qt-Project\Ripple\debug\BigUnsignedInABase.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\Binarizer.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Binarizer.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\BinaryBitmap.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BinaryBitmap.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\BitArray.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BitArray.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\BitArrayBuilder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BitArrayBuilder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\BitArrayIO.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BitArrayIO.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\BitMatrix.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BitMatrix.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\BitSource.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BitSource.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\BlockParsedResult.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\BlockParsedResult.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\multi\ByQuadrantReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ByQuadrantReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\ByteMatrix.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ByteMatrix.obj
+E:\touskié formatik\Qt-Project\QZXing\src\CameraImageWrapper.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\CameraImageWrapper.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\CharacterSetECI.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\CharacterSetECI.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\ChecksumException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ChecksumException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\CodaBarReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\CodaBarReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\Code128Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Code128Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\Code39Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Code39Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\Code93Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Code93Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\CurrentParsingState.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\CurrentParsingState.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\DataCharacter.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataCharacter.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixBitMatrixParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixBitMatrixParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\detector\DataMatrixCornerPoint.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixCornerPoint.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDataBlock.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixDataBlock.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDecodedBitStreamParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixDecodedBitStreamParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\decoder\DataMatrixDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\detector\DataMatrixDetector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixDetector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\detector\DataMatrixDetectorException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixDetectorException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\DataMatrixReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\datamatrix\DataMatrixVersion.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DataMatrixVersion.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\DecodeHints.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DecodeHints.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedChar.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DecodedChar.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedInformation.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DecodedInformation.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedNumeric.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DecodedNumeric.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\DecodedObject.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DecodedObject.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\DecoderResult.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DecoderResult.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\DetectorResult.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\DetectorResult.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\EAN13Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\EAN13Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\EAN8Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\EAN8Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\EANManufacturerOrgSupport.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\EANManufacturerOrgSupport.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\EncodeHint.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\EncodeHint.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ErrorCorrection.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ErrorCorrection.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\Exception.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Exception.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\ExpandedPair.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ExpandedPair.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\ExpandedRow.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ExpandedRow.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\FieldParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\FieldParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\FinderPattern.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\FinderPattern.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\FormatException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\FormatException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\decoders\GeneralAppIdDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GeneralAppIdDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGF.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GenericGF.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\GenericGFPoly.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GenericGFPoly.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\multi\GenericMultipleBarcodeReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GenericMultipleBarcodeReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\GlobalHistogramBinarizer.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GlobalHistogramBinarizer.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\GreyscaleLuminanceSource.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GreyscaleLuminanceSource.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\GreyscaleRotatedLuminanceSource.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GreyscaleRotatedLuminanceSource.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\GridSampler.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\GridSampler.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\HybridBinarizer.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\HybridBinarizer.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\ITFReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ITFReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\IllegalArgumentException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\IllegalArgumentException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\IllegalStateException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\IllegalStateException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\ImageHandler.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ImageHandler.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\InvertedLuminanceSource.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\InvertedLuminanceSource.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\detector\LinesSampler.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\LinesSampler.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\LuminanceSource.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\LuminanceSource.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\MaskUtil.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MaskUtil.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\MatrixUtil.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MatrixUtil.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusGF.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ModulusGF.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\ec\ModulusPoly.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ModulusPoly.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\detector\MonochromeRectangleDetector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MonochromeRectangleDetector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\multi\qrcode\detector\MultiDetector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MultiDetector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\multi\qrcode\detector\MultiFinderPatternFinder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MultiFinderPatternFinder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\MultiFormatOneDReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MultiFormatOneDReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\MultiFormatReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MultiFormatReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\MultiFormatUPCEANReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MultiFormatUPCEANReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\multi\MultipleBarcodeReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\MultipleBarcodeReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\NotFoundException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\NotFoundException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\OneDReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\OneDReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\OneDResultPoint.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\OneDResultPoint.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417BitMatrixParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\PDF417BitMatrixParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417DecodedBitStreamParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\PDF417DecodedBitStreamParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\decoder\PDF417Decoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\PDF417Decoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\detector\PDF417Detector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\PDF417Detector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\pdf417\PDF417Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\PDF417Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\Pair.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Pair.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\PerspectiveTransform.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\PerspectiveTransform.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRAlignmentPattern.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRAlignmentPattern.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRAlignmentPatternFinder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRAlignmentPatternFinder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRBitMatrixParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRBitMatrixParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\QRCode.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRCode.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\multi\qrcode\QRCodeMultiReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRCodeMultiReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRCodeReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRCodeReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataBlock.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRDataBlock.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDataMask.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRDataMask.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDecodedBitStreamParser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRDecodedBitStreamParser.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRDetector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRDetector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\encoder\QREncoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QREncoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRErrorCorrectionLevel.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRErrorCorrectionLevel.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRFinderPattern.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRFinderPattern.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRFinderPatternFinder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRFinderPatternFinder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\detector\QRFinderPatternInfo.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRFinderPatternInfo.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRFormatInformation.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRFormatInformation.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\decoder\QRMode.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRMode.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\qrcode\QRVersion.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QRVersion.obj
+E:\touskié formatik\Qt-Project\QZXing\src\QZXing.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\QZXing.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\RSS14Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\RSS14Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\expanded\RSSExpandedReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\RSSExpandedReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\rss\RSSUtils.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\RSSUtils.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\Reader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Reader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\ReaderException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ReaderException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonDecoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ReedSolomonDecoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonEncoder.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ReedSolomonEncoder.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\reedsolomon\ReedSolomonException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ReedSolomonException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\Result.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Result.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\ResultIO.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ResultIO.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\ResultMetadata.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ResultMetadata.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\ResultPoint.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ResultPoint.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\ResultPointCallback.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\ResultPointCallback.obj
+E:\touskié formatik\Qt-Project\Ripple\SqlConn.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\SqlConn.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\Str.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\Str.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\StringUtils.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\StringUtils.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\UPCAReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UPCAReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANExtension2Support.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UPCEANExtension2Support.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANExtension5Support.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UPCEANExtension5Support.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANExtensionSupport.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UPCEANExtensionSupport.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEANReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UPCEANReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\oned\UPCEReader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UPCEReader.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\UnsupportedEncodingException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\UnsupportedEncodingException.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\common\detector\WhiteRectangleDetector.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\WhiteRectangleDetector.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\zxing\WriterException.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\WriterException.obj
+E:\touskié formatik\Qt-Project\Ripple\accident.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\accident.obj
+E:\touskié formatik\Qt-Project\Ripple\chatbot.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\chatbot.obj
+E:\touskié formatik\Qt-Project\Ripple\client.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\client.obj
+E:\touskié formatik\Qt-Project\Ripple\contract.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\contract.obj
+E:\touskié formatik\Qt-Project\Ripple\dashboard.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\dashboard.obj
+E:\touskié formatik\Qt-Project\Ripple\employee.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\employee.obj
+E:\touskié formatik\Qt-Project\Ripple\main.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\main.obj
+E:\touskié formatik\Qt-Project\Ripple\mainwindow.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\mainwindow.obj
+E:\touskié formatik\Qt-Project\Ripple\qrcodedialog.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\qrcodedialog.obj
+E:\touskié formatik\Qt-Project\Ripple\sms.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\sms.obj
+E:\touskié formatik\Qt-Project\QZXing\src\zxing\win32\zxing\win_iconv.c;E:\touskié formatik\Qt-Project\Ripple\debug\win_iconv.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxabstractooxmlfile.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxabstractooxmlfile.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxabstractsheet.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxabstractsheet.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcell.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcell.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcellformula.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcellformula.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcelllocation.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcelllocation.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcellrange.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcellrange.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcellreference.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcellreference.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxchart.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxchart.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxchartsheet.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxchartsheet.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcolor.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcolor.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxconditionalformatting.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxconditionalformatting.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxcontenttypes.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxcontenttypes.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdatavalidation.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdatavalidation.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdatetype.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdatetype.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdocpropsapp.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdocpropsapp.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdocpropscore.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdocpropscore.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdocument.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdocument.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdrawing.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdrawing.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxdrawinganchor.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxdrawinganchor.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxformat.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxformat.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxmediafile.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxmediafile.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxnumformatparser.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxnumformatparser.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxrelationships.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxrelationships.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxrichstring.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxrichstring.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxsharedstrings.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxsharedstrings.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxsimpleooxmlfile.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxsimpleooxmlfile.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxstyles.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxstyles.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxtheme.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxtheme.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxutility.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxutility.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxworkbook.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxworkbook.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxworksheet.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxworksheet.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxzipreader.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxzipreader.obj
+E:\touskié formatik\Qt-Project\qtxlsx\QXlsx\source\xlsxzipwriter.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\xlsxzipwriter.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_ImageHandler.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_ImageHandler.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_QZXing.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_QZXing.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_accident.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_accident.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_chatbot.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_chatbot.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_client.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_client.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_contract.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_contract.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_dashboard.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_dashboard.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_employee.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_employee.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_mainwindow.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_mainwindow.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_qrcodedialog.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_qrcodedialog.obj
+E:\touskié formatik\Qt-Project\Ripple\Debug\moc_xlsxdocument.cpp;E:\touskié formatik\Qt-Project\Ripple\debug\moc_xlsxdocument.obj

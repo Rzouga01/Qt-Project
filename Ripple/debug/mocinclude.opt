@@ -1,17 +1,17 @@
 -ID:/Qt/6.8.0/msvc2019_64/mkspecs/win32-msvc
--IE:/Qt-Project/Ripple
--IE:/Qt-Project/QZXing/src
--IE:/Qt-Project/QZXing/src/zxing
--IE:/Qt-Project/QZXing/src/zxing/win32/zxing
--IE:/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
--IE:/Qt-Project/qtxlsx/QXlsx
--IE:/Qt-Project/qtxlsx
--IE:/Qt-Project/qtxlsx/QXlsx/header
--IE:/Qt-Project/Ripple/portaudio/include
--IE:/Qt-Project/Ripple/libsndfile/include
--IE:/Qt-Project/QZXing/src
--IE:/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/c_api
--IE:/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/cxx_api
+-IE:/touskié formatik/Qt-Project/Ripple
+-IE:/touskié formatik/Qt-Project/QZXing/src
+-IE:/touskié formatik/Qt-Project/QZXing/src/zxing
+-IE:/touskié formatik/Qt-Project/QZXing/src/zxing/win32/zxing
+-IE:/touskié formatik/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
+-IE:/touskié formatik/Qt-Project/qtxlsx/QXlsx
+-IE:/touskié formatik/Qt-Project/qtxlsx
+-IE:/touskié formatik/Qt-Project/qtxlsx/QXlsx/header
+-IE:/touskié formatik/Qt-Project/Ripple/portaudio/include
+-IE:/touskié formatik/Qt-Project/Ripple/libsndfile/include
+-IE:/touskié formatik/Qt-Project/QZXing/src
+-IE:/touskié formatik/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/c_api
+-IE:/touskié formatik/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/cxx_api
 -ID:/Qt/6.8.0/msvc2019_64/include
 -ID:/Qt/6.8.0/msvc2019_64/include/QtCharts
 -ID:/Qt/6.8.0/msvc2019_64/include/QtUiTools

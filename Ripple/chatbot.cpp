@@ -91,48 +91,116 @@ void chatbot::sendUserMessage(const QString& message)
     if (message.isEmpty())
         return;
 
-    // Display loading animation
+   
     LoadingWidget* loadingWidget = new LoadingWidget(this);
     loadingWidget->move(geometry().center() - loadingWidget->rect().center());
     loadingWidget->show();
 
-    // Create network manager
-    QNetworkAccessManager* manager = new QNetworkAccessManager(this);
     const QString apiKey = QProcessEnvironment::systemEnvironment().value("GEMINI_API");
-
     if (apiKey.isEmpty()) {
-        qWarning() << "Password environment variable (GEMINI_API) is not set.";
+        qWarning() << "API Key environment variable (GEMINI_API) is not set.";
+        loadingWidget->close();
+        delete loadingWidget;
         return;
     }
 
-    // Prepare request
-    QUrl url("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey);
-    QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    // Prepare request body
-    QJsonObject requestBody;
+    QJsonObject requestJson;
     QJsonArray contentsArray;
 
-    QJsonObject userPart;
-    userPart["role"] = "user";
-    QJsonArray userPartsArray;
-    userPartsArray.append(QJsonObject{ {"text", message} });
-    userPart["parts"] = userPartsArray;
-    contentsArray.append(userPart);
+    QJsonObject content1;
+    QJsonArray parts1;
+    QJsonObject part1_1;
+    part1_1["text"] = QString("You are RippleAssist, a valued assistant in the dynamic world of Ripple Insurance, a smart insurance agency focused on excellence. Your role is pivotal – you're here to lend a helping hand to our dedicated employees. Now, let's talk about our insurance desktop app. It's the backbone of our operations, managing four vital entities: employees, clients, contracts, and accidents. Here's the drill: for verification purposes , When someone reaches out to you, your first task is to inquire about their name and their role within our agency. We've got four main roles here: the General Director (who's also overseeing our employees), the Customer Relationship Director, the Contract Administrator, and the Accident Investigation Administrator. Once you've got that info, it's all about tailoring your assistance to their needs. If they're the General Director, focus on matters related to our dedicated employees. For the Customer Relationship Director, it's all about client interactions. The Contract Administrator? You've got it – handle contract management. And last but not least, for the Accident Investigation Administrator, your expertise will be invaluable in addressing accident-related inquiries. Your support is absolutely crucial in keeping our operations running smoothly. Ready to step up and make a difference, RippleAssist? Let's dive in together");
+    parts1.append(part1_1);
+    content1["role"] = QString("user");
+    content1["parts"] = parts1;
+    contentsArray.append(content1);
 
-    requestBody["contents"] = contentsArray;
+    QJsonObject content2;
+    QJsonArray parts2;
+    QJsonObject part2_1;
+    part2_1["text"] = QString("Absolutely, I'm RippleAssist and I'm fully prepared to assist the incredible team at Ripple Insurance! Let's ensure everything runs seamlessly. To best support you, may I please know your name and your role within Ripple Insurance? Remember, whether you're the General Director, Customer Relationship Director, Contract Administrator, or Accident Investigation Administrator, I'm here to provide tailored assistance.");
+    parts2.append(part2_1);
+    content2["role"] = QString("model");
+    content2["parts"] = parts2;
+    contentsArray.append(content2);
 
-    QJsonDocument doc(requestBody);
-    QByteArray postData = doc.toJson();
+ 
+    QJsonObject content3;
+    QJsonArray parts3;
+    QJsonObject part3_1;
+    part3_1["text"] = message;
+    parts3.append(part3_1);
+    content3["role"] = QString("user");
+    content3["parts"] = parts3;
+    contentsArray.append(content3);
 
-    // Send request
-    QNetworkReply* reply = manager->post(request, postData);
-    connect(reply, &QNetworkReply::finished, [=]() {
+    requestJson["contents"] = contentsArray;
+
+    QJsonObject generationConfig;
+    generationConfig["temperature"] = 1;
+    generationConfig["topK"] = 1;
+    generationConfig["topP"] = 1;
+    generationConfig["maxOutputTokens"] = 2048;
+    generationConfig["stopSequences"] = QJsonArray();
+    requestJson["generationConfig"] = generationConfig;
+
+    QJsonArray safetySettings;
+    QJsonObject safetySetting1;
+    safetySetting1["category"] = QString("HARM_CATEGORY_HARASSMENT");
+    safetySetting1["threshold"] = QString("BLOCK_MEDIUM_AND_ABOVE");
+    safetySettings.append(safetySetting1);
+
+    QJsonObject safetySetting2;
+    safetySetting2["category"] = QString("HARM_CATEGORY_HATE_SPEECH");
+    safetySetting2["threshold"] = QString("BLOCK_MEDIUM_AND_ABOVE");
+    safetySettings.append(safetySetting2);
+
+    QJsonObject safetySetting3;
+    safetySetting3["category"] = QString("HARM_CATEGORY_SEXUALLY_EXPLICIT");
+    safetySetting3["threshold"] = QString("BLOCK_MEDIUM_AND_ABOVE");
+    safetySettings.append(safetySetting3);
+
+    QJsonObject safetySetting4;
+    safetySetting4["category"] = QString("HARM_CATEGORY_DANGEROUS_CONTENT");
+    safetySetting4["threshold"] = QString("BLOCK_MEDIUM_AND_ABOVE");
+    safetySettings.append(safetySetting4);
+
+    requestJson["safetySettings"] = safetySettings;
+
+    QJsonDocument jsonDocument(requestJson);
+    QByteArray jsonData = jsonDocument.toJson();
+
+    QNetworkRequest request(QUrl("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=" + apiKey));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+  
+    QNetworkAccessManager* manager = new QNetworkAccessManager(this);
+
+
+    QNetworkReply* reply = manager->post(request, jsonData);
+
+    QObject::connect(reply, &QNetworkReply::finished, [=]() {
         handleBotResponse(reply);
         loadingWidget->close();
         reply->deleteLater();
+        loadingWidget->deleteLater();
         });
+
+    QEventLoop loop;
+    QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray responseData = reply->readAll();
+        QString responseString(responseData);
+        qDebug() << "Response: " << responseString;
+    }
+    else {
+        qDebug() << "Error: " << reply->errorString();
+    }
+
+  
 }
 
 void chatbot::handleBotResponse(QNetworkReply* reply)
@@ -174,19 +242,19 @@ void chatbot::onSendMessageClicked()
     if (userMessage.isEmpty())
         return;
 
-    // Append user's message with formatting
+    
     ui->chat->append("<div align=\"right\"><b>You:</b> " + userMessage + "</div>");
 
-    // Send user's message
+   
     sendUserMessage(userMessage);
 
-    // Clear input field
+    
     ui->messageBar->clear();
-
-    // Set focus back to input field
+        
+    
     ui->messageBar->setFocus();
 
-    // Scroll to the bottom
+    
     ui->chat->verticalScrollBar()->setValue(ui->chat->verticalScrollBar()->maximum());
 }
 
