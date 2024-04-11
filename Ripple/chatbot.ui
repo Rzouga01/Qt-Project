@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
+    <width>1057</width>
     <height>500</height>
    </rect>
   </property>
@@ -16,62 +16,51 @@
   <widget class="QWidget" name="chatbox" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-100</x>
      <y>0</y>
-     <width>1000</width>
-     <height>500</height>
+     <width>1231</width>
+     <height>541</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
-        background-color: #333333; /* Dark background color */
+        background-color: #222222; /* Dark background color */
         color: #FFFFFF; /* White text color */
 }
-
-QLineEdit {
-    border: 1px solid #A7C34E; /* Green border color */
+QFrame{
+   border: 1px solid #A7C34E; /* Green border color */
     border-radius: 5px;
+    background-color: #222222; /* Dark background color */
+}
+QFrame:focus {
+    border: 1px solid #A7C34E; /* Green border color */
+}
+
+QFrame:disabled {
+    background-color: #444444; /* Darker background color for disabled state */
+    color: #A0A0A0; /* Light gray text color */
+}
+
+QLabel{
+background-color:transparent;
+border:none;
+}
+QLineEdit {
+	border:none;
     padding: 5px 15px;
     background-color: #222222; /* Dark background color */
     color: #FFFFFF; /* White text color */
     font-size: 12px;
 }
 
-QLineEdit:focus {
-    border: 1px solid #A7C34E; /* Green border color */
-}
 
-QLineEdit:disabled {
-    background-color: #444444; /* Darker background color for disabled state */
-    color: #A0A0A0; /* Light gray text color */
-}
-
-QLineEdit:read-only {
-    background-color: #444444; /* Darker background color for read-only state */
-    color: #A0A0A0; /* Light gray text color */
-}
-
-QLineEdit::hover {
-    border: 1px solid #A7C34E; /* Green border color */
-}
-
-QLineEdit::selected {
-    background-color: #A7C34E; /* Green background color for selected text */
+QListWidget {
+    background-color: #22222; /* Dark background color */
     color: #FFFFFF; /* White text color */
+	border:none;
 }
 
 
-QListWidget{
-background-color:transparent;
-border:none;
-}
-
-QTextEdit {
-    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #A7C34E, stop:1 #A7C34E); /* Green gradient border */
-    border-radius: 12px;
-    background-color: #222222; /* Dark background color */
-    color: #FFFFFF; /* White text color */
-}
 /*Scroll bar*/
 QScrollBar:vertical {
     border: none;
@@ -171,72 +160,19 @@ QPushButton:checked {
 }
 </string>
    </property>
-   <widget class="QLineEdit" name="messageBar">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>390</y>
-      <width>681</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Your message...</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sendButton">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>390</y>
-      <width>50</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="voiceButton">
-    <property name="geometry">
-     <rect>
-      <x>830</x>
-      <y>390</y>
-      <width>50</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../Resources/Icons/microphone.png</normaloff>../Resources/Icons/microphone.png</iconset>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>20</y>
-      <width>311</width>
-      <height>51</height>
+      <x>130</x>
+      <y>0</y>
+      <width>281</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Open Sans</family>
-      <pointsize>30</pointsize>
+      <pointsize>20</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -247,9 +183,9 @@ QPushButton:checked {
    <widget class="QLabel" name="poweredBy">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>70</y>
-      <width>181</width>
+      <x>130</x>
+      <y>470</y>
+      <width>221</width>
       <height>20</height>
      </rect>
     </property>
@@ -263,25 +199,110 @@ QPushButton:checked {
      <string>Powered by Google Gemini ©</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="chat">
+   <widget class="QListWidget" name="chat">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
-      <width>961</width>
-      <height>281</height>
+      <x>420</x>
+      <y>40</y>
+      <width>681</width>
+      <height>371</height>
      </rect>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="lineWrapMode">
-     <enum>QTextEdit::WidgetWidth</enum>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
+   <widget class="QFrame" name="messageBar">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>430</y>
+      <width>681</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="sendButton">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>20</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="voiceButton">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>20</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Resources/Icons/microphone.png</normaloff>../Resources/Icons/microphone.png</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="messageInput">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>511</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Your message...</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QListWidget" name="histroy">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>1</y>
+      <width>271</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"> background-color:#333333;
+    color: #FFFFFF; /* White text color */
+	border:none;
+border-radius:10px;
+</string>
+    </property>
+   </widget>
+   <zorder>histroy</zorder>
+   <zorder>chat</zorder>
+   <zorder>title</zorder>
+   <zorder>poweredBy</zorder>
+   <zorder>messageBar</zorder>
   </widget>
  </widget>
  <resources/>

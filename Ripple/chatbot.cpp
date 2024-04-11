@@ -20,7 +20,6 @@ typedef float SAMPLE;
 #define SAMPLE_SILENCE  (0.0f)
 #define PRINTF_S_FORMAT "%.8f"
 
-
 // PortAudio callback function for recording
 static int recordCallback(const void* inputBuffer, void* outputBuffer,
     unsigned long framesPerBuffer,
@@ -110,7 +109,7 @@ void chatbot::sendUserMessage(const QString& message)
     QJsonObject content1;
     QJsonArray parts1;
     QJsonObject part1_1;
-    part1_1["text"] = QString("You are RippleAssist, a valued assistant in the dynamic world of Ripple Insurance, a smart insurance agency focused on excellence. Your role is pivotal – you're here to lend a helping hand to our dedicated employees. Now, let's talk about our insurance desktop app. It's the backbone of our operations, managing four vital entities: employees, clients, contracts, and accidents. Here's the drill: for verification purposes , When someone reaches out to you, your first task is to inquire about their name and their role within our agency. We've got four main roles here: the General Director (who's also overseeing our employees), the Customer Relationship Director, the Contract Administrator, and the Accident Investigation Administrator. Once you've got that info, it's all about tailoring your assistance to their needs. If they're the General Director, focus on matters related to our dedicated employees. For the Customer Relationship Director, it's all about client interactions. The Contract Administrator? You've got it – handle contract management. And last but not least, for the Accident Investigation Administrator, your expertise will be invaluable in addressing accident-related inquiries. Your support is absolutely crucial in keeping our operations running smoothly. Ready to step up and make a difference, RippleAssist? Let's dive in together");
+    part1_1["text"] = QString("You are RippleAssist, a valued assistant in the dynamic world of Ripple Insurance, a smart insurance agency focused on excellence. Your role is pivotal ï¿½ you're here to lend a helping hand to our dedicated employees. Now, let's talk about our insurance desktop app. It's the backbone of our operations, managing four vital entities: employees, clients, contracts, and accidents. Here's the drill: for verification purposes , When someone reaches out to you, your first task is to inquire about their name and their role within our agency. We've got four main roles here: the General Director (who's also overseeing our employees), the Customer Relationship Director, the Contract Administrator, and the Accident Investigation Administrator. Once you've got that info, it's all about tailoring your assistance to their needs. If they're the General Director, focus on matters related to our dedicated employees. For the Customer Relationship Director, it's all about client interactions. The Contract Administrator? You've got it ï¿½ handle contract management. And last but not least, for the Accident Investigation Administrator, your expertise will be invaluable in addressing accident-related inquiries. Your support is absolutely crucial in keeping our operations running smoothly. Ready to step up and make a difference, RippleAssist? Let's dive in together");
     parts1.append(part1_1);
     content1["role"] = QString("user");
     content1["parts"] = parts1;
@@ -228,34 +227,48 @@ void chatbot::handleBotResponse(QNetworkReply* reply)
         botResponse = "Sorry, an error occurred while processing your request.";
     }
 
-    // Append bot's response with formatting
-    ui->chat->append("<div><b>Bot:</b> " + botResponse + "</div>");
+    QListWidgetItem* item = new QListWidgetItem(botResponse);
+   
+    item->setData(Qt::UserRole, false);
 
-    // Scroll to the bottom
-    ui->chat->verticalScrollBar()->setValue(ui->chat->verticalScrollBar()->maximum());
+    // Add item to chat widget
+    ui->chat->addItem(item);
+
+    // Clear message input field
+    ui->messageInput->clear();
+
+    // Set focus back to message input field
+    ui->messageInput->setFocus();
+
+    // Scroll to bottom of chat
+    ui->chat->scrollToBottom();
 }
 
 void chatbot::onSendMessageClicked()
 {
-    QString userMessage = ui->messageBar->text().trimmed();
+    QString userMessage = ui->messageInput->text().trimmed();
 
-    if (userMessage.isEmpty())
-        return;
+    if (!userMessage.isEmpty()) {
 
-    
-    ui->chat->append("<div align=\"right\"><b>You:</b> " + userMessage + "</div>");
+        // Create a new QListWidgetItem for the user's message
+        QListWidgetItem* item = new QListWidgetItem(userMessage);
 
-   
-    sendUserMessage(userMessage);
+        // Set the UserRole to identify user messages in the delegate
+        item->setData(Qt::UserRole, true);
 
-    
-    ui->messageBar->clear();
-        
-    
-    ui->messageBar->setFocus();
+        // Add the item to the chat widget
+        ui->chat->addItem(item);
 
-    
-    ui->chat->verticalScrollBar()->setValue(ui->chat->verticalScrollBar()->maximum());
+        // Clear the message input field
+        ui->messageInput->clear();
+
+        // Set focus back to the message input field
+        ui->messageInput->setFocus();
+
+        // Scroll to the bottom of the chat
+        ui->chat->scrollToBottom();
+
+    }
 }
 
 void chatbot::onVoiceButtonClicked()
@@ -360,7 +373,7 @@ void chatbot::recordVoice()
     delete[] data.recordedSamples;
 }
 
-void chatbot::sendAudioToChatbot(const QString& audioFilePath)  
+void chatbot::sendAudioToChatbot(const QString& audioFilePath)
 {
     // Retrieve Azure Speech subscription key and region from environment variables
     const QString speechKey = QProcessEnvironment::systemEnvironment().value("SPEECH_KEY");
@@ -394,18 +407,43 @@ void chatbot::sendAudioToChatbot(const QString& audioFilePath)
     // Process recognition result
     if (result->Reason == ResultReason::RecognizedSpeech) {
         QString recognizedText = QString::fromStdString(result->Text);
-        ui->chat->append("<div class=\"user-message\">You (Voice): " + recognizedText + "</div><br></br>");
+
+        // Create a QListWidgetItem to represent the recognized text
+        QListWidgetItem* item = new QListWidgetItem(recognizedText);
+
+        // Set the UserRole to identify user messages in the delegate
+        item->setData(Qt::UserRole, true);
+
+        // Add the item to the chat widget
+        ui->chat->addItem(item);
+
+        // Clear the message input field
+        ui->messageInput->clear();
+
+        // Set focus back to the message input field
+        ui->messageInput->setFocus();
+
+        // Scroll to the bottom of the chat
+        ui->chat->scrollToBottom();
         sendUserMessage(recognizedText);
-      
-       
     }
     else if (result->Reason == ResultReason::NoMatch) {
-        ui->chat->append("<div class=\"bot-response\">Bot: Speech could not be recognized.</div><br></br>");
+        // Create a QListWidgetItem to inform the user that speech could not be recognized
+        QListWidgetItem* item = new QListWidgetItem("Speech could not be recognized.");
+
+        // Add the item to the chat widget
+        ui->chat->addItem(item);
     }
     else if (result->Reason == ResultReason::Canceled) {
+        // Handle cancellation errors
         auto cancellation = CancellationDetails::FromResult(result);
         QString errorMessage = "Error: ";
         errorMessage += QString::number(static_cast<int>(cancellation->Reason));
-        ui->chat->append("<div class=\"bot-response\">" + errorMessage + "</div><br></br>");
+
+        // Create a QListWidgetItem to represent the error message
+        QListWidgetItem* item = new QListWidgetItem(errorMessage);
+
+        // Add the item to the chat widget
+        ui->chat->addItem(item);
     }
 }

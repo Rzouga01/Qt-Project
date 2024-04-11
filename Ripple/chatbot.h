@@ -10,6 +10,12 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QVBoxLayout>
+#include <QStyledItemDelegate>
+#include <QPainter>
+#include <QStyleOptionViewItem>
+#include <QModelIndex>
+#include <QFontMetrics>
+#include <QTextDocument>
 #include <QLabel>
 #include <QListWidget>
 #include <QPushButton>
@@ -29,6 +35,7 @@
 #include <portaudio.h>
 #include <sndfile.h>
 #include <speechapi_cxx.h>
+
 // Define constants
 #define SAMPLE_RATE  (44100)
 #define FRAMES_PER_BUFFER (512)
@@ -80,6 +87,7 @@ private:
     void sendUserMessage(const QString& message);
     void sendAudioToChatbot(const QString& audioFilePath);
 };
+
 class LoadingWidget : public QWidget {
     Q_OBJECT
 
@@ -105,5 +113,51 @@ public:
 private:
     QLabel* loadingLabel;
     QMovie* loadingMovie;
+};
+
+class MessageBubbleDelegate : public QStyledItemDelegate {
+public:
+    MessageBubbleDelegate(QObject* parent = nullptr) : QStyledItemDelegate(parent) {}
+
+    void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override {
+        QString text = index.data(Qt::DisplayRole).toString();
+        bool isSentByUser = index.data(Qt::UserRole).toBool(); // Assuming you set UserRole to identify if the message is sent by the user
+
+        // Define colors and margins
+        QColor bubbleColor = isSentByUser ? QColor("#A7C34E") : QColor("#333333");
+        QColor textColor = isSentByUser ? Qt::white : Qt::white; // Adjust text color
+        int bubbleMargin = 10;
+        int bubblePadding = 10;
+        int borderRadius = 10;
+
+        // Set the background color and other properties based on whether the message is sent by the user or not
+        painter->setRenderHint(QPainter::Antialiasing);
+        painter->setBrush(bubbleColor);
+        painter->setPen(Qt::NoPen);
+
+        // Calculate the size of the bubble
+        QFontMetrics metrics(option.font);
+        QSize bubbleSize = metrics.boundingRect(QRect(0, 0, option.rect.width() - 2 * bubbleMargin, 0), Qt::AlignLeft | Qt::TextWordWrap, text).size() + QSize(2 * bubblePadding, 2 * bubblePadding);
+
+        // Calculate the position of the bubble
+        int bubbleX = isSentByUser ? option.rect.right() - bubbleSize.width() - bubbleMargin : option.rect.left() + bubbleMargin;
+        int bubbleY = option.rect.top() + bubbleMargin;
+
+        // Draw the bubble rectangle
+        QRect bubbleRect(bubbleX, bubbleY, bubbleSize.width(), bubbleSize.height());
+        painter->drawRoundedRect(bubbleRect, borderRadius, borderRadius);
+
+        // Draw the text inside the bubble
+        QTextDocument doc;
+        doc.setDefaultFont(option.font);
+        doc.setDefaultStyleSheet(QString("body { color: %1; }").arg(textColor.name()));
+        doc.setHtml("<body>" + text + "</body>");
+
+        // Draw the text with proper alignment
+        QRect textRect = bubbleRect.adjusted(bubblePadding, bubblePadding, -bubblePadding, -bubblePadding);
+        painter->translate(textRect.topLeft());
+        doc.drawContents(painter);
+        painter->translate(-textRect.topLeft());
+    }
 };
 #endif // CHATBOT_H
