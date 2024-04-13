@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1057</width>
-    <height>500</height>
+    <width>1200</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,48 +18,34 @@
     <rect>
      <x>-100</x>
      <y>0</y>
-     <width>1231</width>
-     <height>541</height>
+     <width>1301</width>
+     <height>601</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
-        background-color: #222222; /* Dark background color */
-        color: #FFFFFF; /* White text color */
+        background-color: #222222;
+        color: #FFFFFF;
+	
 }
 QFrame{
-   border: 1px solid #A7C34E; /* Green border color */
+   border: 1px solid #A7C34E;
     border-radius: 5px;
-    background-color: #222222; /* Dark background color */
-}
-QFrame:focus {
-    border: 1px solid #A7C34E; /* Green border color */
-}
-
-QFrame:disabled {
-    background-color: #444444; /* Darker background color for disabled state */
-    color: #A0A0A0; /* Light gray text color */
+    background-color: #222222;
 }
 
 QLabel{
 background-color:transparent;
 border:none;
 }
+
 QLineEdit {
-	border:none;
+        border:none;
     padding: 5px 15px;
-    background-color: #222222; /* Dark background color */
-    color: #FFFFFF; /* White text color */
+    background-color: #222222;
+    color: #FFFFFF;
     font-size: 12px;
 }
-
-
-QListWidget {
-    background-color: #22222; /* Dark background color */
-    color: #FFFFFF; /* White text color */
-	border:none;
-}
-
 
 /*Scroll bar*/
 QScrollBar:vertical {
@@ -71,26 +57,26 @@ QScrollBar:vertical {
 }
 QScrollBar::handle:vertical {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #A7C34E, stop:1 #9AB447); /* Gradient handle */
+                                      stop:0 #A7C34E, stop:1 #9AB447);
     min-height: 30px;
     border-radius: 7px;
 }
 
 QScrollBar::handle:vertical:hover {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #A7C34E, stop:1 #5D762E); /* Darker color on hover */
+                                      stop:0 #A7C34E, stop:1 #5D762E);
 }
 
 QScrollBar::handle:vertical:pressed {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #A7C34E, stop:1 #3A511F); /* Darker color when pressed */
+                                      stop:0 #A7C34E, stop:1 #3A511F);
 }
 
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:vertical {
     border: none;
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #9AB447, stop:1 #A7C34E); /* Light green button top */
+                                      stop:0 #9AB447, stop:1 #A7C34E);
     height: 15px;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -100,19 +86,19 @@ QScrollBar::sub-line:vertical {
 
 QScrollBar::sub-line:vertical:hover {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #5D762E, stop:1 #A7C34E); /* Darker green when hovered */
+                                      stop:0 #5D762E, stop:1 #A7C34E);
 }
 
 QScrollBar::sub-line:vertical:pressed {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #3A511F, stop:1 #A7C34E); /* Darker green when pressed */
+                                      stop:0 #3A511F, stop:1 #A7C34E);
 }
 
 /* BTN BOTTOM - SCROLLBAR */
 QScrollBar::add-line:vertical {
     border: none;
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #9AB447, stop:1 #A7C34E); /* Light green button bottom */
+                                      stop:0 #9AB447, stop:1 #A7C34E);
     height: 15px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
@@ -122,49 +108,49 @@ QScrollBar::add-line:vertical {
 
 QScrollBar::add-line:vertical:hover {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #5D762E, stop:1 #A7C34E); /* Darker green when hovered */
+                                      stop:0 #5D762E, stop:1 #A7C34E);
 }
 
 QScrollBar::add-line:vertical:pressed {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-                                      stop:0 #3A511F, stop:1 #A7C34E); /* Darker green when pressed */
+                                      stop:0 #3A511F, stop:1 #A7C34E);
 }
 QPushButton {
-    border: 1px solid #A7C34E; /* Green border color */
+    border: 1px solid #A7C34E;
     border-radius: 10px;
     padding: 5px 15px;
-    background: #A7C34E; /* Dark background color */
-    color: #A7C34E; /* Green text color */
+    background: #A7C34E;
+    color: #A7C34E;
     font-size: 12px;
 }
 
 QPushButton:hover {
-    background-color: #A7C34E; /* Green background color on hover */
-        color: #FFFFFF; /* White text color on hover */
+    background-color: #A7C34E;
+        color: #FFFFFF;
 }
 
 QPushButton:pressed {
-    background-color: #A7C34E; /* Green background color when pressed */
-    border: 2px solid #A7C34E; /* Green border color when pressed */
+    background-color: #A7C34E;
+    border: 2px solid #A7C34E;
     padding: 4px 14px 6px 16px;
 }
 
 QPushButton:disabled {
-    background: #444444; /* Darker background color for disabled state */
-    color: #A0A0A0; /* Light gray text color */
+    background: #444444;
+    color: #A0A0A0;
 }
 
 QPushButton:checked {
-    background: #A7C34E; /* Green background color when checked */
-    color: #FFFFFF; /* White text color when checked */
+    background: #A7C34E;
+    color: #FFFFFF;
 }
 </string>
    </property>
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>0</y>
+      <x>150</x>
+      <y>-10</y>
       <width>281</width>
       <height>61</height>
      </rect>
@@ -183,8 +169,8 @@ QPushButton:checked {
    <widget class="QLabel" name="poweredBy">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>470</y>
+      <x>120</x>
+      <y>570</y>
       <width>221</width>
       <height>20</height>
      </rect>
@@ -199,25 +185,46 @@ QPushButton:checked {
      <string>Powered by Google Gemini ©</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="chat">
+   <widget class="QScrollArea" name="chat">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>400</x>
       <y>40</y>
-      <width>681</width>
-      <height>371</height>
+      <width>871</width>
+      <height>481</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">	border:none;</string>
     </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>871</width>
+       <height>481</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QWidget" name="chatContainer" native="true"/>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QFrame" name="messageBar">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>430</y>
-      <width>681</width>
+      <x>437</x>
+      <y>526</y>
+      <width>791</width>
       <height>61</height>
      </rect>
     </property>
@@ -230,7 +237,7 @@ QPushButton:checked {
     <widget class="QPushButton" name="sendButton">
      <property name="geometry">
       <rect>
-       <x>550</x>
+       <x>670</x>
        <y>20</y>
        <width>50</width>
        <height>30</height>
@@ -247,7 +254,7 @@ QPushButton:checked {
     <widget class="QPushButton" name="voiceButton">
      <property name="geometry">
       <rect>
-       <x>620</x>
+       <x>730</x>
        <y>20</y>
        <width>50</width>
        <height>30</height>
@@ -272,7 +279,7 @@ QPushButton:checked {
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>511</width>
+       <width>641</width>
        <height>41</height>
       </rect>
      </property>
@@ -287,15 +294,18 @@ QPushButton:checked {
       <x>100</x>
       <y>1</y>
       <width>271</width>
-      <height>501</height>
+      <height>601</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true"> background-color:#333333;
     color: #FFFFFF; /* White text color */
-	border:none;
+        border:none;
 border-radius:10px;
 </string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
    </widget>
    <zorder>histroy</zorder>

@@ -16,6 +16,8 @@
 #include <QModelIndex>
 #include <QFontMetrics>
 #include <QTextDocument>
+#include <QScrollArea>
+#include <QScrollBar>
 #include <QLabel>
 #include <QListWidget>
 #include <QPushButton>
@@ -56,9 +58,9 @@ typedef float SAMPLE;
 // Define data structure for recording
 typedef struct
 {
-    int          frameIndex;  /* Index into sample array. */
-    int          maxFrameIndex;
-    SAMPLE* recordedSamples;
+	int frameIndex;
+	int maxFrameIndex;
+	SAMPLE* recordedSamples;
 } paTestData;
 
 QT_BEGIN_NAMESPACE
@@ -67,97 +69,28 @@ QT_END_NAMESPACE
 
 class chatbot : public QDialog
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    chatbot(QWidget* parent = nullptr);
-    ~chatbot();
+	chatbot(QWidget* parent = nullptr);
+	~chatbot();
 
 private slots:
-    void onSendMessageClicked();
-    void onVoiceButtonClicked();
-    void handleBotResponse(QNetworkReply* reply);
-    void recordVoice();
+	void onSendMessageClicked();
+	void onVoiceButtonClicked();
+	void handleBotResponse(QNetworkReply* reply);
+	void recordVoice();
 private:
-    Ui::chatbot* ui;
-    QNetworkAccessManager m_manager;
-    paTestData m_paTestData; // Declare m_paTestData
-    PaStream* m_paStream; // Declare m_paStream
+	Ui::chatbot* ui;
+	QNetworkAccessManager m_manager;
+	PaStream* m_paStream;
 
-    void sendUserMessage(const QString& message);
-    void sendAudioToChatbot(const QString& audioFilePath);
+	void sendUserMessage(const QString& message);
+	void sendAudioToChatbot(const QString& audioFilePath);
+    void addMessageBubble(const QString& text, bool isUser);
+public slots:
+	void moveScrollBarToBottom(int min, int max);
 };
 
-class LoadingWidget : public QWidget {
-    Q_OBJECT
 
-public:
-    LoadingWidget(QWidget* parent = nullptr) : QWidget(parent) {
-        setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
-        setAttribute(Qt::WA_TranslucentBackground);
-        setFixedSize(200, 100);
-
-        QVBoxLayout* layout = new QVBoxLayout(this);
-        loadingLabel = new QLabel(this);
-        loadingMovie = new QMovie("../Resources/Gifs/chatloading.gif", QByteArray(), this);
-        loadingLabel->setMovie(loadingMovie);
-        loadingMovie->start();
-        layout->addWidget(loadingLabel);
-        setLayout(layout);
-    }
-
-    ~LoadingWidget() {
-        delete loadingMovie;
-    }
-
-private:
-    QLabel* loadingLabel;
-    QMovie* loadingMovie;
-};
-
-class MessageBubbleDelegate : public QStyledItemDelegate {
-public:
-    MessageBubbleDelegate(QObject* parent = nullptr) : QStyledItemDelegate(parent) {}
-
-    void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        QString text = index.data(Qt::DisplayRole).toString();
-        bool isSentByUser = index.data(Qt::UserRole).toBool(); // Assuming you set UserRole to identify if the message is sent by the user
-
-        // Define colors and margins
-        QColor bubbleColor = isSentByUser ? QColor("#A7C34E") : QColor("#333333");
-        QColor textColor = isSentByUser ? Qt::white : Qt::white; // Adjust text color
-        int bubbleMargin = 10;
-        int bubblePadding = 10;
-        int borderRadius = 10;
-
-        // Set the background color and other properties based on whether the message is sent by the user or not
-        painter->setRenderHint(QPainter::Antialiasing);
-        painter->setBrush(bubbleColor);
-        painter->setPen(Qt::NoPen);
-
-        // Calculate the size of the bubble
-        QFontMetrics metrics(option.font);
-        QSize bubbleSize = metrics.boundingRect(QRect(0, 0, option.rect.width() - 2 * bubbleMargin, 0), Qt::AlignLeft | Qt::TextWordWrap, text).size() + QSize(2 * bubblePadding, 2 * bubblePadding);
-
-        // Calculate the position of the bubble
-        int bubbleX = isSentByUser ? option.rect.right() - bubbleSize.width() - bubbleMargin : option.rect.left() + bubbleMargin;
-        int bubbleY = option.rect.top() + bubbleMargin;
-
-        // Draw the bubble rectangle
-        QRect bubbleRect(bubbleX, bubbleY, bubbleSize.width(), bubbleSize.height());
-        painter->drawRoundedRect(bubbleRect, borderRadius, borderRadius);
-
-        // Draw the text inside the bubble
-        QTextDocument doc;
-        doc.setDefaultFont(option.font);
-        doc.setDefaultStyleSheet(QString("body { color: %1; }").arg(textColor.name()));
-        doc.setHtml("<body>" + text + "</body>");
-
-        // Draw the text with proper alignment
-        QRect textRect = bubbleRect.adjusted(bubblePadding, bubblePadding, -bubblePadding, -bubblePadding);
-        painter->translate(textRect.topLeft());
-        doc.drawContents(painter);
-        painter->translate(-textRect.topLeft());
-    }
-};
 #endif // CHATBOT_H

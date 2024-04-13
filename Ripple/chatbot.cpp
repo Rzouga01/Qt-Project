@@ -4,23 +4,6 @@
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-#define SAMPLE_RATE  (44100)
-#define FRAMES_PER_BUFFER (512)
-#define NUM_SECONDS     (5)
-#define NUM_CHANNELS    (2)
-#define DITHER_FLAG     (0)
-#define WRITE_TO_FILE   (1) // Set to 1 to enable writing to file
-#define FILE_NAME ".wav" 
-
-// Define sample type
-#define PA_SAMPLE_TYPE  paFloat32
-typedef float SAMPLE;
-
-// Define sample silence and print format
-#define SAMPLE_SILENCE  (0.0f)
-#define PRINTF_S_FORMAT "%.8f"
-
-// PortAudio callback function for recording
 static int recordCallback(const void* inputBuffer, void* outputBuffer,
     unsigned long framesPerBuffer,
     const PaStreamCallbackTimeInfo* timeInfo,
@@ -69,7 +52,10 @@ static int recordCallback(const void* inputBuffer, void* outputBuffer,
     data->frameIndex += framesToCalc;
     return finished;
 }
-
+void chatbot::moveScrollBarToBottom(int min, int max) {
+    Q_UNUSED(min);
+    ui->chat->verticalScrollBar()->setValue(max);
+}
 chatbot::chatbot(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::chatbot),
@@ -78,28 +64,80 @@ chatbot::chatbot(QWidget* parent) :
     ui->setupUi(this);
     connect(ui->sendButton, &QPushButton::clicked, this, &chatbot::onSendMessageClicked);
     connect(ui->voiceButton, &QPushButton::clicked, this, &chatbot::onVoiceButtonClicked);
+    ui->chatContainer->setLayout(new QVBoxLayout()); 
+    ui->chatContainer->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    ui->chat->setWidgetResizable(true);
+    ui->chat->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+
 }
 
 chatbot::~chatbot()
 {
     delete ui;
 }
+void chatbot::addMessageBubble(const QString& text, bool isUser) {
+    // Create a new QLabel for the message text
+    QLabel* messageLabel = new QLabel(text);
+
+    // Set word wrap for the message label
+    messageLabel->setWordWrap(true);
+
+    // Apply styling based on whether the message is from the user or bot
+    QString bubbleColor = isUser ? "#A7C34E" : "#E4E6EB";
+    QString textColor = isUser ? "#000000" : "#000000";
+    QString bubbleStyle = QString("background-color: %1; color: %2; border-radius: 10px; padding: 10px %3 10px 10px;").arg(bubbleColor, textColor).arg(isUser ? "10px" : "10px");
+    messageLabel->setStyleSheet(bubbleStyle);
+
+    // Calculate the size hint for the message label based on the text content
+    QFontMetrics metrics(messageLabel->font());
+    QSize textSize = metrics.boundingRect(QRect(0, 0, ui->chatContainer->width() * 0.7, 0), Qt::TextWordWrap, text).size();
+    QSize bubbleSize = textSize + QSize(20, 20); // Add some padding
+
+    // Ensure the bubble width does not exceed a certain threshold
+    int maxWidth = ui->chatContainer->width() * 0.5; 
+    if (bubbleSize.width() > maxWidth) {
+        bubbleSize.setWidth(maxWidth);
+        textSize = metrics.boundingRect(QRect(0, 0, maxWidth, 0), Qt::TextWordWrap, text).size();
+        bubbleSize.setHeight(textSize.height() + 20); // Recalculate bubble height
+    }
+
+    // Set the size hint for the message label
+    messageLabel->setFixedSize(bubbleSize);
+
+    // Create a container widget for the message label
+    QWidget* bubbleContainer = new QWidget();
+    QVBoxLayout* bubbleLayout = new QVBoxLayout(bubbleContainer);
+    bubbleLayout->addWidget(messageLabel);
+
+    // Align the message 
+    if (isUser) {
+        bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignRight);
+    }
+    else {
+        bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    }
+
+    // Add the bubble
+    ui->chatContainer->layout()->addWidget(bubbleContainer);
+    ui->chatContainer->layout()->update();
+
+    //Scroll to the bottom of the chat
+    QScrollBar* scrollbar = ui->chat->verticalScrollBar();
+    connect(scrollbar, SIGNAL(rangeChanged(int, int)), this, SLOT(moveScrollBarToBottom(int, int)));
+    scrollbar->setValue(scrollbar->maximum());
+}
+
 
 void chatbot::sendUserMessage(const QString& message)
 {
     if (message.isEmpty())
         return;
-
-   
-    LoadingWidget* loadingWidget = new LoadingWidget(this);
-    loadingWidget->move(geometry().center() - loadingWidget->rect().center());
-    loadingWidget->show();
+    addMessageBubble(message, true);
 
     const QString apiKey = QProcessEnvironment::systemEnvironment().value("GEMINI_API");
     if (apiKey.isEmpty()) {
         qWarning() << "API Key environment variable (GEMINI_API) is not set.";
-        loadingWidget->close();
-        delete loadingWidget;
         return;
     }
 
@@ -124,7 +162,6 @@ void chatbot::sendUserMessage(const QString& message)
     content2["parts"] = parts2;
     contentsArray.append(content2);
 
- 
     QJsonObject content3;
     QJsonArray parts3;
     QJsonObject part3_1;
@@ -173,17 +210,13 @@ void chatbot::sendUserMessage(const QString& message)
     QNetworkRequest request(QUrl("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=" + apiKey));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-  
     QNetworkAccessManager* manager = new QNetworkAccessManager(this);
-
 
     QNetworkReply* reply = manager->post(request, jsonData);
 
     QObject::connect(reply, &QNetworkReply::finished, [=]() {
         handleBotResponse(reply);
-        loadingWidget->close();
         reply->deleteLater();
-        loadingWidget->deleteLater();
         });
 
     QEventLoop loop;
@@ -198,14 +231,15 @@ void chatbot::sendUserMessage(const QString& message)
     else {
         qDebug() << "Error: " << reply->errorString();
     }
-
-  
 }
 
-void chatbot::handleBotResponse(QNetworkReply* reply)
-{
+void chatbot::handleBotResponse(QNetworkReply* reply) {
+ 
     QString botResponse;
+    bool isError = false;
+
     if (reply->error() == QNetworkReply::NoError) {
+        // Retrieve bot's response
         QByteArray responseData = reply->readAll();
         QJsonDocument responseDoc = QJsonDocument::fromJson(responseData);
         QJsonObject responseObj = responseDoc.object();
@@ -225,49 +259,25 @@ void chatbot::handleBotResponse(QNetworkReply* reply)
     else {
         qDebug() << "Error:" << reply->errorString();
         botResponse = "Sorry, an error occurred while processing your request.";
+        isError = true;
     }
 
-    QListWidgetItem* item = new QListWidgetItem(botResponse);
-   
-    item->setData(Qt::UserRole, false);
-
-    // Add item to chat widget
-    ui->chat->addItem(item);
-
-    // Clear message input field
-    ui->messageInput->clear();
-
-    // Set focus back to message input field
-    ui->messageInput->setFocus();
-
-    // Scroll to bottom of chat
-    ui->chat->scrollToBottom();
+    // Add bot response to chat container
+    addMessageBubble(isError ? "Error: " + botResponse : botResponse, false);
 }
 
-void chatbot::onSendMessageClicked()
-{
+void chatbot::onSendMessageClicked() {
     QString userMessage = ui->messageInput->text().trimmed();
 
     if (!userMessage.isEmpty()) {
-
-        // Create a new QListWidgetItem for the user's message
-        QListWidgetItem* item = new QListWidgetItem(userMessage);
-
-        // Set the UserRole to identify user messages in the delegate
-        item->setData(Qt::UserRole, true);
-
-        // Add the item to the chat widget
-        ui->chat->addItem(item);
-
         // Clear the message input field
         ui->messageInput->clear();
 
         // Set focus back to the message input field
         ui->messageInput->setFocus();
 
-        // Scroll to the bottom of the chat
-        ui->chat->scrollToBottom();
-
+        // Send user message to the chatbot
+        sendUserMessage(userMessage);
     }
 }
 
@@ -408,42 +418,19 @@ void chatbot::sendAudioToChatbot(const QString& audioFilePath)
     if (result->Reason == ResultReason::RecognizedSpeech) {
         QString recognizedText = QString::fromStdString(result->Text);
 
-        // Create a QListWidgetItem to represent the recognized text
-        QListWidgetItem* item = new QListWidgetItem(recognizedText);
-
-        // Set the UserRole to identify user messages in the delegate
-        item->setData(Qt::UserRole, true);
-
-        // Add the item to the chat widget
-        ui->chat->addItem(item);
-
-        // Clear the message input field
-        ui->messageInput->clear();
-
-        // Set focus back to the message input field
-        ui->messageInput->setFocus();
-
-        // Scroll to the bottom of the chat
-        ui->chat->scrollToBottom();
         sendUserMessage(recognizedText);
     }
     else if (result->Reason == ResultReason::NoMatch) {
-        // Create a QListWidgetItem to inform the user that speech could not be recognized
-        QListWidgetItem* item = new QListWidgetItem("Speech could not be recognized.");
-
-        // Add the item to the chat widget
-        ui->chat->addItem(item);
+        // Inform the user that speech could not be recognized
+        QLabel* errorLabel = new QLabel("Speech could not be recognized.");
+        errorLabel->setWordWrap(true);
+        addMessageBubble("Speech could not be recognized.", false);
     }
     else if (result->Reason == ResultReason::Canceled) {
         // Handle cancellation errors
         auto cancellation = CancellationDetails::FromResult(result);
         QString errorMessage = "Error: ";
         errorMessage += QString::number(static_cast<int>(cancellation->Reason));
-
-        // Create a QListWidgetItem to represent the error message
-        QListWidgetItem* item = new QListWidgetItem(errorMessage);
-
-        // Add the item to the chat widget
-        ui->chat->addItem(item);
+        addMessageBubble(errorMessage, false);  
     }
 }

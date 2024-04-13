@@ -9,10 +9,10 @@ CONFIG += c++11
 INCLUDEPATH += $$PWD/portaudio/include
 INCLUDEPATH += $$PWD/libsndfile/include
 INCLUDEPATH += ../QZXing/src
-INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/c_api
-DEPENDPATH  += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/c_api
-INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/cxx_api
-DEPENDPATH  += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/include/cxx_api
+INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
+DEPENDPATH  += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
+INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
+DEPENDPATH  += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
 
 LIBS += -lUser32 -lAdvapi32
 
@@ -85,16 +85,16 @@ FORMS += \
 
 # Configuration for Windows platform
 win32:CONFIG(release, debug|release) {
-    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
+    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
 } else:win32:CONFIG(debug, debug|release) {
-    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
+    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
 }
 
 # Configuration for x64 platform
 x64:CONFIG(release, debug|release) {
-    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
+    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
 } else:x64:CONFIG(debug, debug|release) {
-    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.36.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
+    LIBS += -L$$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/x64/Release/ -lMicrosoft.CognitiveServices.Speech.core
 }
 
 # Configuration for deployment
