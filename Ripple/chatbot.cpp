@@ -56,6 +56,7 @@ void chatbot::moveScrollBarToBottom(int min, int max) {
     Q_UNUSED(min);
     ui->chat->verticalScrollBar()->setValue(max);
 }
+
 chatbot::chatbot(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::chatbot),
@@ -76,6 +77,7 @@ chatbot::~chatbot()
 {
     delete ui;
 }
+
 void chatbot::addMessageBubble(const QString& text, bool isUser) {
     // Create a new QLabel for the message text
     QLabel* messageLabel = new QLabel(text);
@@ -85,49 +87,43 @@ void chatbot::addMessageBubble(const QString& text, bool isUser) {
 
     // Apply styling based on whether the message is from the user or bot
     QString bubbleColor = isUser ? "#A7C34E" : "#E4E6EB";
-    QString textColor = isUser ? "#000000" : "#000000";
-    QString bubbleStyle = QString("background-color: %1; color: %2; border-radius: 10px; padding: 10px %3 10px 10px;").arg(bubbleColor, textColor).arg(isUser ? "10px" : "10px");
+    QString textColor = "#000000"; // Black text color for both user and bot
+    QString bubbleStyle = QString("background-color: %1; color: %2; border-radius: 10px; padding: 10px;").arg(bubbleColor, textColor);
     messageLabel->setStyleSheet(bubbleStyle);
 
     // Calculate the size hint for the message label based on the text content
-    QFontMetrics metrics(messageLabel->font());
-    QSize textSize = metrics.boundingRect(QRect(0, 0, ui->chatContainer->width() * 0.7, 0), Qt::TextWordWrap, text).size();
-    QSize bubbleSize = textSize + QSize(20, 20); // Add some padding
+    QSize textSize = messageLabel->sizeHint();
 
-    // Ensure the bubble width does not exceed a certain threshold
-    int maxWidth = ui->chatContainer->width() * 0.5; 
-    if (bubbleSize.width() > maxWidth) {
-        bubbleSize.setWidth(maxWidth);
-        textSize = metrics.boundingRect(QRect(0, 0, maxWidth, 0), Qt::TextWordWrap, text).size();
-        bubbleSize.setHeight(textSize.height() + 20); // Recalculate bubble height
+    // Set the maximum width of the bubble to 120% of the chat container's width
+    int maxWidth = ui->chatContainer->width() * 1.2;
+    if (textSize.width() > maxWidth) {
+        textSize.setWidth(maxWidth);
+        messageLabel->setFixedWidth(maxWidth);
     }
 
     // Set the size hint for the message label
-    messageLabel->setFixedSize(bubbleSize);
+    messageLabel->setMinimumSize(textSize);
 
     // Create a container widget for the message label
     QWidget* bubbleContainer = new QWidget();
     QVBoxLayout* bubbleLayout = new QVBoxLayout(bubbleContainer);
+    bubbleLayout->setSpacing(10); // Adjust the spacing between bubbles (e.g., 10 pixels)
     bubbleLayout->addWidget(messageLabel);
 
-    // Align the message 
+    bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     if (isUser) {
         bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignRight);
-    }
-    else {
-        bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     }
 
     // Add the bubble
     ui->chatContainer->layout()->addWidget(bubbleContainer);
     ui->chatContainer->layout()->update();
 
-    //Scroll to the bottom of the chat
+    // Scroll to the bottom of the chat
     QScrollBar* scrollbar = ui->chat->verticalScrollBar();
     connect(scrollbar, SIGNAL(rangeChanged(int, int)), this, SLOT(moveScrollBarToBottom(int, int)));
     scrollbar->setValue(scrollbar->maximum());
 }
-
 
 void chatbot::sendUserMessage(const QString& message)
 {
