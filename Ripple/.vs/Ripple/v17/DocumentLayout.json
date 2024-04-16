@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "chatbot.h",
-              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
-              "RelativeDocumentMoniker": "chatbot.h",
-              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
-              "RelativeToolTip": "chatbot.h",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAFkAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-13T17:48:06.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "chatbot.cpp",
               "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeDocumentMoniker": "chatbot.cpp",
               "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeToolTip": "chatbot.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAALABAAAAAAAA",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAABcBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-06T12:54:19.863Z",
+              "WhenOpened": "2024-04-15T20:33:10.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "chatbot.h",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
+              "RelativeDocumentMoniker": "chatbot.h",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
+              "RelativeToolTip": "chatbot.h",
+              "ViewState": "AQIAADsAAAAAAAAAAAAiwCsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-15T20:33:09.541Z",
               "EditorCaption": ""
             }
           ]

@@ -198,7 +198,7 @@ QPushButton:checked {
      <string notr="true">	border:none;</string>
     </property>
     <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
     </property>
     <property name="widgetResizable">
      <bool>true</bool>
@@ -224,21 +224,34 @@ QPushButton:checked {
      <rect>
       <x>437</x>
       <y>526</y>
-      <width>791</width>
+      <width>831</width>
       <height>61</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <enum>QFrame::Shadow::Raised</enum>
     </property>
+    <widget class="QLineEdit" name="messageInput">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>641</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Your message...</string>
+     </property>
+    </widget>
     <widget class="QPushButton" name="sendButton">
      <property name="geometry">
       <rect>
-       <x>670</x>
-       <y>20</y>
+       <x>770</x>
+       <y>10</y>
        <width>50</width>
        <height>30</height>
       </rect>
@@ -251,40 +264,53 @@ QPushButton:checked {
        <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
      </property>
     </widget>
+    <widget class="QLabel" name="RecordingIndicator">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>-10</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
     <widget class="QPushButton" name="voiceButton">
      <property name="geometry">
       <rect>
-       <x>730</x>
-       <y>20</y>
-       <width>50</width>
-       <height>30</height>
+       <x>680</x>
+       <y>10</y>
+       <width>41</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+border:none</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../Resources/Icons/microphone.png</normaloff>../Resources/Icons/microphone.png</iconset>
+       <normaloff>../Resources/Icons/Untitled-1.png</normaloff>../Resources/Icons/Untitled-1.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
      </property>
      <property name="checkable">
       <bool>true</bool>
      </property>
      <property name="checked">
       <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="messageInput">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>641</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>Your message...</string>
      </property>
     </widget>
    </widget>
@@ -305,7 +331,7 @@ border-radius:10px;
 </string>
     </property>
     <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
     </property>
    </widget>
    <zorder>histroy</zorder>

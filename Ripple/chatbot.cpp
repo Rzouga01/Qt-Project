@@ -52,6 +52,18 @@ static int recordCallback(const void* inputBuffer, void* outputBuffer,
     data->frameIndex += framesToCalc;
     return finished;
 }
+
+RecordingThread::RecordingThread(QObject* parent) : QThread(parent), m_paStream(nullptr) {}
+
+void RecordingThread::run() {
+    m_isRecording = true;
+    recordVoice();
+}
+
+void RecordingThread::stopRecording() {
+    m_isRecording = false; 
+}
+
 void chatbot::moveScrollBarToBottom(int min, int max) {
     Q_UNUSED(min);
     ui->chat->verticalScrollBar()->setValue(max);
@@ -59,8 +71,7 @@ void chatbot::moveScrollBarToBottom(int min, int max) {
 
 chatbot::chatbot(QWidget* parent) :
     QDialog(parent),
-    ui(new Ui::chatbot),
-    m_paStream(nullptr)
+    ui(new Ui::chatbot)
 {
     ui->setupUi(this);
     connect(ui->sendButton, &QPushButton::clicked, this, &chatbot::onSendMessageClicked);
@@ -69,8 +80,7 @@ chatbot::chatbot(QWidget* parent) :
     ui->chatContainer->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     ui->chat->setWidgetResizable(true);
     ui->chat->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-
-
+    connect(&m_recordingThread, &RecordingThread::recordingFinished, this, &chatbot::handleRecordingFinished);
 }
 
 chatbot::~chatbot()
@@ -115,6 +125,15 @@ void chatbot::addMessageBubble(const QString& text, bool isUser) {
         bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignRight);
     }
 
+    // Add typing indicator if bot is typing
+    if (botTyping) {
+        QLabel* typingIndicator = new QLabel();
+        QMovie* typingMovie = new QMovie("../Resources/Gifs/typing.gif");
+        typingIndicator->setMovie(typingMovie);
+        typingMovie->start();
+        bubbleLayout->addWidget(typingIndicator);
+    }
+
     // Add the bubble
     ui->chatContainer->layout()->addWidget(bubbleContainer);
     ui->chatContainer->layout()->update();
@@ -129,6 +148,7 @@ void chatbot::sendUserMessage(const QString& message)
 {
     if (message.isEmpty())
         return;
+    botTyping = true;
     addMessageBubble(message, true);
 
     const QString apiKey = QProcessEnvironment::systemEnvironment().value("GEMINI_API");
@@ -257,9 +277,10 @@ void chatbot::handleBotResponse(QNetworkReply* reply) {
         botResponse = "Sorry, an error occurred while processing your request.";
         isError = true;
     }
-
+    botTyping = false;
     // Add bot response to chat container
     addMessageBubble(isError ? "Error: " + botResponse : botResponse, false);
+
 }
 
 void chatbot::onSendMessageClicked() {
@@ -277,14 +298,21 @@ void chatbot::onSendMessageClicked() {
     }
 }
 
-void chatbot::onVoiceButtonClicked()
-{
-    // Start recording voice
-    recordVoice();
+void chatbot::onVoiceButtonClicked() {
+    if (m_recordingThread.isRunning()) {
+        m_recordingThread.stopRecording(); 
+        ui->RecordingIndicator->hide(); 
+    }
+    else {
+        ui->RecordingIndicator->show();
+        QMovie* movie = new QMovie("../Resources/Gifs/recording.gif");
+        ui->RecordingIndicator->setMovie(movie);
+        movie->start();
+        m_recordingThread.start();
+    }
 }
 
-void chatbot::recordVoice()
-{
+void RecordingThread::recordVoice() {
     PaError err;
     SNDFILE* outfile;
     SF_INFO sfinfo;
@@ -296,14 +324,14 @@ void chatbot::recordVoice()
 
     err = Pa_Initialize();
     if (err != paNoError) {
-        QMessageBox::critical(this, "Error", QString("Failed to initialize PortAudio: %1").arg(Pa_GetErrorText(err)));
+        emit recordingFinished(""); // Signal recording finished with empty file path
         return;
     }
 
     PaStreamParameters inputParameters;
     inputParameters.device = Pa_GetDefaultInputDevice();
     if (inputParameters.device == paNoDevice) {
-        QMessageBox::critical(this, "Error", "Error: No default input device.");
+        emit recordingFinished(""); // Signal recording finished with empty file path
         Pa_Terminate();
         return;
     }
@@ -314,14 +342,14 @@ void chatbot::recordVoice()
 
     err = Pa_OpenStream(&m_paStream, &inputParameters, nullptr, SAMPLE_RATE, FRAMES_PER_BUFFER, paClipOff, recordCallback, &data);
     if (err != paNoError) {
-        QMessageBox::critical(this, "Error", QString("Failed to open PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+        emit recordingFinished(""); // Signal recording finished with empty file path
         Pa_Terminate();
         return;
     }
 
     err = Pa_StartStream(m_paStream);
     if (err != paNoError) {
-        QMessageBox::critical(this, "Error", QString("Failed to start PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+        emit recordingFinished(""); // Signal recording finished with empty file path
         Pa_CloseStream(m_paStream);
         Pa_Terminate();
         return;
@@ -329,34 +357,44 @@ void chatbot::recordVoice()
 
     std::cout << "\n=== Now recording!! Please speak into the microphone. ===" << std::endl;
 
-    // Wait until recording is complete
-    while ((err = Pa_IsStreamActive(m_paStream)) == 1)
-    {
-        Pa_Sleep(1000);
-        std::cout << "index = " << data.frameIndex << std::endl;
-    }
-    if (err < 0) {
-        QMessageBox::critical(this, "Error", QString("Error during recording: %1").arg(Pa_GetErrorText(err)));
-        Pa_CloseStream(m_paStream);
-        Pa_Terminate();
-        return;
+    // Record start time for timeout checking
+    auto startTime = std::chrono::steady_clock::now();
+    const auto timeoutDuration = std::chrono::seconds(NUM_SECONDS);
+
+    // Check the flag and PortAudio stream status to determine whether recording should continue
+    while (m_isRecording && Pa_IsStreamActive(m_paStream) == 1) {
+        // Check if recording duration exceeds the timeout duration
+        auto currentTime = std::chrono::steady_clock::now();
+        if (currentTime - startTime >= timeoutDuration) {
+            break;
+        }
+        // Sleep for a short duration to avoid busy-waiting
+        Pa_Sleep(100);
     }
 
+    // Stop the stream and terminate PortAudio
     err = Pa_StopStream(m_paStream);
     if (err != paNoError) {
-        QMessageBox::critical(this, "Error", QString("Failed to stop PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+        emit recordingFinished(""); // Signal recording finished with empty file path
     }
 
     err = Pa_CloseStream(m_paStream);
     if (err != paNoError) {
-        QMessageBox::critical(this, "Error", QString("Failed to close PortAudio stream: %1").arg(Pa_GetErrorText(err)));
+        emit recordingFinished(""); // Signal recording finished with empty file path
     }
 
     err = Pa_Terminate();
     if (err != paNoError) {
-        QMessageBox::critical(this, "Error", QString("Failed to terminate PortAudio: %1").arg(Pa_GetErrorText(err)));
+        emit recordingFinished(""); // Signal recording finished with empty file path
     }
 
+    // If recording is canceled, emit the recordingFinished signal with an empty file path
+    if (!m_isRecording) {
+        emit recordingFinished("");
+        return;
+    }
+
+    // If recording is not canceled, continue with writing data to WAV file
     // Initialize libsndfile info structure
     sfinfo.channels = NUM_CHANNELS;
     sfinfo.samplerate = SAMPLE_RATE;
@@ -365,7 +403,7 @@ void chatbot::recordVoice()
     // Open WAV file for writing
     outfile = sf_open(FILE_NAME, SFM_WRITE, &sfinfo);
     if (!outfile) {
-        QMessageBox::critical(this, "Error", "Error opening output file.");
+        emit recordingFinished(""); // Signal recording finished with empty file path
         return;
     }
 
@@ -375,8 +413,17 @@ void chatbot::recordVoice()
     // Close WAV file
     sf_close(outfile);
     std::cout << "Wrote data to '" << FILE_NAME << "'" << std::endl;
-    sendAudioToChatbot(QString(FILE_NAME));
+    emit recordingFinished(QString(FILE_NAME));
     delete[] data.recordedSamples;
+}
+
+void chatbot::handleRecordingFinished(const QString& filePath) {
+    ui->RecordingIndicator->hide();
+    QCoreApplication::processEvents();
+    if (filePath.isEmpty()) {
+        return;
+    }
+    sendAudioToChatbot(filePath);
 }
 
 void chatbot::sendAudioToChatbot(const QString& audioFilePath)
@@ -418,9 +465,9 @@ void chatbot::sendAudioToChatbot(const QString& audioFilePath)
     }
     else if (result->Reason == ResultReason::NoMatch) {
         // Inform the user that speech could not be recognized
-        QLabel* errorLabel = new QLabel("Speech could not be recognized.");
+        QLabel* errorLabel = new QLabel("Speech could not be recognized.Try again");
         errorLabel->setWordWrap(true);
-        addMessageBubble("Speech could not be recognized.", false);
+        addMessageBubble("Speech could not be recognized.Try again", false);
     }
     else if (result->Reason == ResultReason::Canceled) {
         // Handle cancellation errors

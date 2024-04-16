@@ -37,25 +37,20 @@
 #include <portaudio.h>
 #include <sndfile.h>
 #include <speechapi_cxx.h>
+#include <QThread>
 
-// Define constants
 #define SAMPLE_RATE  (44100)
 #define FRAMES_PER_BUFFER (512)
-#define NUM_SECONDS     (5)
+#define NUM_SECONDS     (10)
 #define NUM_CHANNELS    (2)
 #define DITHER_FLAG     (0)
-#define WRITE_TO_FILE   (1) // Set to 1 to enable writing to file
-#define FILE_NAME "recorded.wav" // Output WAV file name
-
-// Define sample type
+#define WRITE_TO_FILE   (1) 
+#define FILE_NAME ".wav" 
 #define PA_SAMPLE_TYPE  paFloat32
 typedef float SAMPLE;
-
-// Define sample silence and print format
 #define SAMPLE_SILENCE  (0.0f)
 #define PRINTF_S_FORMAT "%.8f"
 
-// Define data structure for recording
 typedef struct
 {
 	int frameIndex;
@@ -67,6 +62,25 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class chatbot; }
 QT_END_NAMESPACE
 
+class RecordingThread : public QThread
+{
+	Q_OBJECT
+
+public:
+	explicit RecordingThread(QObject* parent = nullptr);
+	void run() override;
+	void stopRecording(); 
+
+signals:
+	void recordingFinished(const QString& filePath);
+
+private:
+	PaStream* m_paStream;
+	bool m_isRecording; 
+
+	void recordVoice();
+};
+
 class chatbot : public QDialog
 {
 	Q_OBJECT
@@ -76,21 +90,21 @@ public:
 	~chatbot();
 
 private slots:
+	void moveScrollBarToBottom(int min, int max);
 	void onSendMessageClicked();
 	void onVoiceButtonClicked();
 	void handleBotResponse(QNetworkReply* reply);
-	void recordVoice();
+	void handleRecordingFinished(const QString& filePath);
 private:
 	Ui::chatbot* ui;
 	QNetworkAccessManager m_manager;
-	PaStream* m_paStream;
-
+	RecordingThread m_recordingThread;
+	bool isRecording;
+	bool botTyping;
 	void sendUserMessage(const QString& message);
 	void sendAudioToChatbot(const QString& audioFilePath);
     void addMessageBubble(const QString& text, bool isUser);
-public slots:
-	void moveScrollBarToBottom(int min, int max);
+	
 };
-
 
 #endif // CHATBOT_H
