@@ -187,7 +187,7 @@ debug/qrcodedialog.o
 debug/sms.o
 debug/accident.o
 debug/client.o
-debug/connection.o
+debug/SqlConn.o
 debug/contract.o
 debug/dashboard.o
 debug/employee.o

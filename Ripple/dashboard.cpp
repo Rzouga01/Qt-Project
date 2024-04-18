@@ -7,7 +7,7 @@
 #include <QtCharts>
 #include <QtDebug>
 #include "mainwindow.h"
-#include "connection.h"
+#include "sqlConn.h"
 #include "client.h"
 #include "employee.h"
 #include "accident.h"
@@ -20,7 +20,7 @@
 #include <QTextStream>
 #include <QSslSocket>
 #include <QtCore/QProcessEnvironment>
-
+#include <QToolTip>
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
@@ -85,6 +85,7 @@ void Dashboard::showPageForRole(int role)
 		break;
 	}
 }
+
 void Dashboard::createSession(Employee* employee) {
     this->user = employee;
     QString firstName = user->getFirstName().trimmed();
@@ -102,9 +103,6 @@ void Dashboard::createSession(Employee* employee) {
 
     qDebug() << "Role: " << role;
 }
-
-
-
 //--------------------------------------------------------------------------------------------------------------------------------
 // Client
 void Dashboard::ClientDashboardConnectUi() {
@@ -142,6 +140,21 @@ void Dashboard::ClientDashboardConnectUi() {
 
 	fillComboBoxClient();
 	ui->StackedClient->setCurrentIndex(0);
+	ui->sortClient->setToolTip("Sort Clients");
+
+	// Tooltips for generating PDF button
+	ui->pdfClient->setToolTip("Generate PDF");
+
+	// Tooltips for search bar employee
+	ui->searchBarClient->setToolTip("Search Clients");
+
+	// Tooltips for chat employee button
+	ui->pieChartClient->setToolTip("Show Stats Clients By Age");
+
+	// Tooltips for CRUD buttons
+	ui->addClient->setToolTip("Add Client");
+	ui->updateClient->setToolTip("Update Client");
+	ui->deleteClient->setToolTip("Delete Client");
 }
 
 void Dashboard::openDeletePage(int clientId) {
@@ -373,12 +386,39 @@ void Dashboard::clearInputFieldsDeleteClient() {
 }
 
 void Dashboard::onSortClickedClient() {
-	static bool isSorted = false;
+	QDialog dialog(this); // Create a dialog
+	dialog.setWindowTitle(tr("Select a Column to sort"));
 
-	Client MasterClient(ui->tableClient, this);
-	MasterClient.sortClientFirstName(isSorted); // Pass the sorting order parameter
+	QComboBox* comboBox = new QComboBox(&dialog);
+	comboBox->addItem(tr("Select a Column to sort"), QVariant("")); // Placeholder item
+	comboBox->addItem(tr("ID"), QVariant("CLIENT_ID"));
+	comboBox->addItem(tr("EMAIL"), QVariant("EMAIL"));
+	comboBox->addItem(tr("FIRST_NAME"), QVariant("FIRST_NAME"));
+	comboBox->addItem(tr("LAST_NAME"), QVariant("LAST_NAME"));
+	comboBox->addItem(tr("ADDRESS"), QVariant("ADDRESS"));
+	comboBox->addItem(tr("PHONE_NUMBER"), QVariant("PHONE_NUMBER"));
+	comboBox->addItem(tr("DOB"), QVariant("DOB"));
 
-	isSorted = !isSorted; // Toggle the sorting order for the next call
+	QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, &dialog);
+	connect(&buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+	connect(&buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+
+	QVBoxLayout layout(&dialog);
+	layout.addWidget(comboBox);
+	layout.addWidget(&buttonBox);
+
+	if (dialog.exec() == QDialog::Accepted) {
+		QString searchBy = comboBox->currentData().toString();
+		if (!searchBy.isEmpty()) {
+			static bool isSorted = false;
+			Client MasterClient(ui->tableClient, this);
+			MasterClient.sortClient(isSorted, searchBy); // Pass the sorting order parameter
+			isSorted = !isSorted; // Toggle the sorting order for the next call
+		}
+		else {
+			// Placeholder item or no column selected, handle accordingly
+		}
+	}
 }
 
 void Dashboard::onPdfClickedClient() {
@@ -554,11 +594,6 @@ void Dashboard::sendEmailWithQRCode(const QString& recipientEmail, const QString
 	qDebug() << "Email with attachment sent successfully!";
 }
 
-
-
-
-
-
 void Dashboard::fillComboBoxClient()
 {
 	QSqlQuery query;
@@ -599,9 +634,6 @@ void Dashboard::UpdateClientByClick()
 	}
 	ui->StackedClient->setCurrentIndex(1);
 }
-
-
-
 //********************************************************************************************************************
 // Employee
 void Dashboard::EmployeeDashboardConnectUi() {
@@ -619,6 +651,14 @@ void Dashboard::EmployeeDashboardConnectUi() {
 	QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
 	QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
 	QObject::connect(ui->chatEmployee, &QPushButton::clicked, this, &Dashboard::openChatBox);
+
+	ui->sortEmployee->setToolTip("Sort Employees By Age");
+	ui->pdfEmployee->setToolTip("Generate Employees List To  PDF");
+	ui->searchBarEmployee->setToolTip("Search Employees By Name");
+	ui->chatEmployee->setToolTip("Open RippleAssistant");
+	ui->addEmployee->setToolTip("Add Employee");
+	ui->updateEmployee->setToolTip("Update Employee");
+	ui->deleteEmployee->setToolTip("Delete Employee");
 
 	Employee employee;
 
@@ -956,6 +996,9 @@ void Dashboard::onPdfEmployeeClicked() {
 void Dashboard::onSearchTextChanged(const QString& searchText) {
 	Employee emp(ui->tableEmployee);
 	emp.searchEmployee(searchText);
+	ui->searchEmployee->hide();
+	if(searchText.isEmpty())
+		ui->searchEmployee->show();
 }
 
 void Dashboard::displayEmployeeStats(int employeeID) {
@@ -1168,8 +1211,6 @@ void Dashboard::openChatBox() {
 	chatbot* chat = new chatbot(this);
 	chat->show();
 }
-
-
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -1324,7 +1365,6 @@ void Dashboard::onAddClickedContract() {
 	}
 }
 
-
 void Dashboard::clearInputFieldsContract() {
 	ui->LineEditPremiumAmountContract->clear();
 	ui->dateEditEffectiveDateContract->setDate(QDate());
@@ -1393,7 +1433,6 @@ void Dashboard::onUpdateClickedContract() {
 	}
 }
 
-
 void Dashboard::onDeleteClickedContract() {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	if (ui->LineEditContractID->text().isEmpty()) {
@@ -1447,6 +1486,7 @@ void Dashboard::clearInputFieldsUpdateContract() {
 	ui->lineEditTypeContractUpdate->clear();
 
 }
+
 void Dashboard::onSortClickedContract() {
 	static bool isSorted = false;
 
@@ -1475,14 +1515,20 @@ void Dashboard::onPdfClickedContract() {
 	}
 }
 
-void Dashboard::onExcelClickedContract(int clientId) {
+void Dashboard::onExcelClickedContract() {
+	// Demander à l'utilisateur de sélectionner un client
+	bool ok;
+	int clientId = QInputDialog::getInt(this, tr("Sélectionner un client"),
+		tr("ID du client:"), 0, 0, 100000, 1, &ok);
+	if (!ok) return; // Si l'utilisateur annule, arrêtez le processus
+
 	// Demander à l'utilisateur de sélectionner un fichier pour enregistrer le fichier Excel
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Enregistrer en Excel"), "", "Fichiers Excel (*.xlsx)");
 	if (!filePath.isEmpty()) {
+		// Créer une instance de la classe contract et exporter vers Excel
 		contract MasterContract(ui->tableContract, ui->StackContract, this);
 		MasterContract.exportToExcel(clientId, filePath);
 	}
-
 }
 
 void Dashboard::clearInputFieldsDeleteContract() {
@@ -1533,7 +1579,6 @@ void Dashboard::onAddCancelClickedAccident() {
     clearInputFieldsAccidentCreate();
 }
 
-
 void Dashboard::onPdfClickedAccient() {
 
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
@@ -1542,7 +1587,6 @@ void Dashboard::onPdfClickedAccient() {
         MasterAccident.AccidenttoPdf(filePath); // Appel de la fonction toPdf() de l'objet accident
     }
 }
-
 
 void Dashboard::clearInputFieldsAccidentDelete() {
     ui->AccidentDeleteID->clear();
@@ -1667,6 +1711,7 @@ void Dashboard::onUpdateClickedAccident() {
         }
     }
 }
+
 void Dashboard::onSortClickedAccident() {
     static bool isSorted = false;
 
@@ -1675,10 +1720,12 @@ void Dashboard::onSortClickedAccident() {
 
     isSorted = !isSorted;
 }
+
 void Dashboard::onAccidentSearchTextChanged(const QString& searchText) {
     accident MasterAccident(ui->tableAccident);
     MasterAccident.searchAccident(searchText);
 }
+
 void Dashboard::onstatsClickedAccident() {
     accident MasterAccident(ui->tableAccident,this);
     MasterAccident.accidentstatsByDamage();
@@ -1724,9 +1771,6 @@ void Dashboard::onHistoriqueAccidentclicked()
         qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
     }
 }
-
-
-
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

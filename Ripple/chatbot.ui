@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>500</height>
+    <width>1200</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,187 +16,162 @@
   <widget class="QWidget" name="chatbox" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-100</x>
      <y>0</y>
-     <width>1000</width>
-     <height>500</height>
+     <width>1301</width>
+     <height>601</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
-        background-color: #333333; /* Dark background color */
-        color: #FFFFFF; /* White text color */
+        background-color: #222222;
+        color: #FFFFFF;
+	
 }
-
-QLineEdit {
-    border: 1px solid #A7C34E; /* Green border color */
+QFrame{
+   border: 1px solid #A7C34E;
     border-radius: 5px;
-    padding: 5px 15px;
-    background-color: #222222; /* Dark background color */
-    color: #FFFFFF; /* White text color */
-    font-size: 12px;
+    background-color: #222222;
 }
 
-QLineEdit:focus {
-    border: 1px solid #A7C34E; /* Green border color */
-}
-
-QLineEdit:disabled {
-    background-color: #444444; /* Darker background color for disabled state */
-    color: #A0A0A0; /* Light gray text color */
-}
-
-QLineEdit:read-only {
-    background-color: #444444; /* Darker background color for read-only state */
-    color: #A0A0A0; /* Light gray text color */
-}
-
-QLineEdit::hover {
-    border: 1px solid #A7C34E; /* Green border color */
-}
-
-QLineEdit::selected {
-    background-color: #A7C34E; /* Green background color for selected text */
-    color: #FFFFFF; /* White text color */
-}
-QListWidget{
+QLabel{
 background-color:transparent;
 border:none;
 }
 
-QTextEdit {
-    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #A7C34E, stop:1 #A7C34E); /* Green gradient border */
-    border-radius: 12px;
-    background-color: #222222; /* Dark background color */
-    color: #FFFFFF; /* White text color */
+QLineEdit {
+        border:none;
+    padding: 5px 15px;
+    background-color: #222222;
+    color: #FFFFFF;
+    font-size: 12px;
 }
 
+/*Scroll bar*/
+QScrollBar:vertical {
+    border: none;
+    background: #333333;
+    width: 14px;
+    margin: 15px 0 15px 0;
+    border-radius: 0px;
+}
+QScrollBar::handle:vertical {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #A7C34E, stop:1 #9AB447);
+    min-height: 30px;
+    border-radius: 7px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #A7C34E, stop:1 #5D762E);
+}
+
+QScrollBar::handle:vertical:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #A7C34E, stop:1 #3A511F);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+    border: none;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #9AB447, stop:1 #A7C34E);
+    height: 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #5D762E, stop:1 #A7C34E);
+}
+
+QScrollBar::sub-line:vertical:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #3A511F, stop:1 #A7C34E);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+    border: none;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #9AB447, stop:1 #A7C34E);
+    height: 15px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #5D762E, stop:1 #A7C34E);
+}
+
+QScrollBar::add-line:vertical:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #3A511F, stop:1 #A7C34E);
+}
 QPushButton {
-    border: 1px solid #A7C34E; /* Green border color */
+    border: 1px solid #A7C34E;
     border-radius: 10px;
     padding: 5px 15px;
-    background: #A7C34E; /* Dark background color */
-    color: #A7C34E; /* Green text color */
+    background: #A7C34E;
+    color: #A7C34E;
     font-size: 12px;
 }
 
 QPushButton:hover {
-    background-color: #A7C34E; /* Green background color on hover */
-        color: #FFFFFF; /* White text color on hover */
+    background-color: #A7C34E;
+        color: #FFFFFF;
 }
 
 QPushButton:pressed {
-    background-color: #A7C34E; /* Green background color when pressed */
-    border: 2px solid #A7C34E; /* Green border color when pressed */
+    background-color: #A7C34E;
+    border: 2px solid #A7C34E;
     padding: 4px 14px 6px 16px;
 }
 
 QPushButton:disabled {
-    background: #444444; /* Darker background color for disabled state */
-    color: #A0A0A0; /* Light gray text color */
+    background: #444444;
+    color: #A0A0A0;
 }
 
 QPushButton:checked {
-    background: #A7C34E; /* Green background color when checked */
-    color: #FFFFFF; /* White text color when checked */
+    background: #A7C34E;
+    color: #FFFFFF;
 }
 </string>
    </property>
-   <widget class="QTextEdit" name="conversation">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>23</x>
-      <y>102</y>
-      <width>951</width>
-      <height>281</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="messageBar">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>390</y>
-      <width>681</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Your message...</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sendButton">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>390</y>
-      <width>50</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="voiceButton">
-    <property name="geometry">
-     <rect>
-      <x>820</x>
-      <y>390</y>
-      <width>50</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../Resources/Icons/microphone.png</normaloff>../Resources/Icons/microphone.png</iconset>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>20</y>
-      <width>311</width>
-      <height>51</height>
+      <x>150</x>
+      <y>-10</y>
+      <width>281</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Open Sans</family>
-      <pointsize>30</pointsize>
+      <pointsize>20</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>ChatBot</string>
+     <string>RippleAssist</string>
     </property>
    </widget>
    <widget class="QLabel" name="poweredBy">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>70</y>
-      <width>181</width>
+      <x>120</x>
+      <y>570</y>
+      <width>221</width>
       <height>20</height>
      </rect>
     </property>
@@ -207,19 +182,163 @@ QPushButton:checked {
      </font>
     </property>
     <property name="text">
-     <string>Powered by Google Gemini</string>
+     <string>Powered by Google Gemini ©</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="chat">
+   <widget class="QScrollArea" name="chat">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>111</y>
-      <width>931</width>
-      <height>261</height>
+      <x>400</x>
+      <y>40</y>
+      <width>871</width>
+      <height>481</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">	border:none;</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>871</width>
+       <height>481</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QWidget" name="chatContainer" native="true"/>
+      </item>
+     </layout>
+    </widget>
    </widget>
+   <widget class="QFrame" name="messageBar">
+    <property name="geometry">
+     <rect>
+      <x>437</x>
+      <y>526</y>
+      <width>831</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="messageInput">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>641</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Your message...</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="sendButton">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>10</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="RecordingIndicator">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>-10</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="voiceButton">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>10</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+border:none</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Resources/Icons/Untitled-1.png</normaloff>../Resources/Icons/Untitled-1.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QListWidget" name="histroy">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>1</y>
+      <width>271</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"> background-color:#333333;
+    color: #FFFFFF; /* White text color */
+        border:none;
+border-radius:10px;
+</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <zorder>histroy</zorder>
+   <zorder>chat</zorder>
+   <zorder>title</zorder>
+   <zorder>poweredBy</zorder>
+   <zorder>messageBar</zorder>
   </widget>
  </widget>
  <resources/>

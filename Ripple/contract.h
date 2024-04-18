@@ -69,6 +69,7 @@ public:
     void statsByPremiumAmount();
     void exportToExcel(int clientId, const QString& filePath);
 
+
     void setTableWidget(QTableWidget* tableWidget);
     void setStackedWidget(QStackedWidget* stackedWidget);
 

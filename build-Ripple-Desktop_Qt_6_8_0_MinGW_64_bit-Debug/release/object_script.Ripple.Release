@@ -187,7 +187,7 @@ release/qrcodedialog.o
 release/sms.o
 release/accident.o
 release/client.o
-release/connection.o
+release/SqlConn.o
 release/contract.o
 release/dashboard.o
 release/employee.o

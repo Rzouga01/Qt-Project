@@ -100,14 +100,15 @@ void MainWindow::onLoginButtonClicked()
 	Employee employee;
 	if (employee.login(email, password)) {
 		int role = employee.getRole();
-		Dashboard* dash = new Dashboard(this);
+		// Create a dynamic instance of Dashboard
+		Dashboard* dash = new Dashboard();
+		dash->setAttribute(Qt::WA_DeleteOnClose);
 		dash->showPageForRole(role);
 		dash->createSession(&employee);
-		this->hide();
-		dash->show();
+		dash->show(); // Show the dashboard
+		this->hide(); // Hide the main window
 	}
 	else {
-
 		QMessageBox::warning(this, "Error", "Invalid email or password.");
 	}
 }

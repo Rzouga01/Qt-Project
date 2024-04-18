@@ -1,6 +1,6 @@
 ﻿#include "employee.h"
 #include "ui_employee.h"
-#include "connection.h"
+#include "sqlConn.h"
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QtDebug>

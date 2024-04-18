@@ -24,6 +24,7 @@
 #include <QToolTip>
 #include <QCursor>
 #include "xlsxdocument.h"
+#include <QSystemTrayIcon>
 contract::contract(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::contract),
@@ -500,72 +501,41 @@ void contract::statsByPremiumAmount()
     chartView->show();
 }
 void contract::exportToExcel(int clientId, const QString& filePath) {
-    qDebug() << "Exportation des données des contrats client vers Excel :" << filePath;
-
-    if (filePath.isEmpty()) {
-        qDebug() << "Le chemin du fichier est vide.";
-        return;
-    }
-
-    // Ouvrir le fichier Excel
-    QXlsx::Document xlsx;
-
-    // Ajouter les en-têtes
-    xlsx.write("A1", "CONTRACT ID");
-    xlsx.write("B1", "USER ID");
-    xlsx.write("C1", "CLIENT ID");
-    xlsx.write("D1", "PREMIUM AMOUNT");
-    xlsx.write("E1", "EFFECTIVE DATE");
-    xlsx.write("F1", "EXPIRATION DATE");
-    xlsx.write("G1", "PAYMENT STATUS");
-    xlsx.write("H1", "TYPE");
-
-    // Exécuter la requête SQL pour récupérer les contrats du client spécifié
+    // Execute SQL query to retrieve total contract amounts for the specified client
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM CONTRACTS WHERE CLIENT_ID = :clientId");
+    qry.prepare("SELECT SUM(PREMIUM_AMOUNT) FROM CONTRACTS WHERE CLIENT_ID = :clientId");
     qry.bindValue(":clientId", clientId);
     if (!qry.exec()) {
-        qDebug() << "Erreur lors de l'exécution de la requête :" << qry.lastError().text();
-        return;
+        qDebug() << "Error executing query:" << qry.lastError().text();
+        return; // Exit the function in case of error
     }
 
-    // Suivre l'index de ligne pour écrire les données dans Excel
-    int rowIndex = 2;
+    // Check if the query returned results
+    if (qry.next()) {
+        double totalAmount = qry.value(0).toDouble(); // Retrieve total contract amounts
 
-    // Initialiser les variables pour calculer le montant total de la prime
-    int totalContracts = 0;
-    double totalPremiumAmount = 0.0;
+        // Open the Excel file
+        QXlsx::Document xlsx;
 
-    // Récupérer et écrire les données des contrats dans Excel
-    while (qry.next()) {
-        xlsx.write(rowIndex, 1, qry.value(0).toInt()); // CONTRACT ID
-        xlsx.write(rowIndex, 2, qry.value(1).toInt()); // USER ID
-        xlsx.write(rowIndex, 3, qry.value(2).toInt()); // CLIENT ID
-        xlsx.write(rowIndex, 4, qry.value(3).toInt()); // PREMIUM AMOUNT
-        xlsx.write(rowIndex, 5, qry.value(4).toDate().toString(Qt::ISODate)); // EFFECTIVE DATE
-        xlsx.write(rowIndex, 6, qry.value(5).toDate().toString(Qt::ISODate)); // EXPIRATION DATE
-        xlsx.write(rowIndex, 7, qry.value(6).toInt()); // PAYMENT STATUS
-        xlsx.write(rowIndex, 8, qry.value(7).toString()); // TYPE
+        // Add header with the client ID
+        xlsx.write("A1", "Client ID");
+        xlsx.write("B1", "Total Contract Amount");
+        xlsx.write("A2", clientId); // Client ID
+        xlsx.write("B2", totalAmount); // Total contract amount
 
-        // Incrémenter totalContracts et ajouter à totalPremiumAmount
-        totalContracts++;
-        totalPremiumAmount += qry.value(3).toDouble(); // premium amount
+        // Save the Excel file
+        xlsx.saveAs(filePath);
 
-        // Passer à la ligne suivante
-        rowIndex++;
+        qDebug() << "Excel file created successfully:" << filePath;
+
+        // Display a message after saving
+        QMessageBox::information(nullptr, "Export Successful", "Data exported to Excel successfully.");
+    } else {
+        qDebug() << "No contracts found for client ID:" << clientId;
     }
-
-    // Enregistrer le fichier Excel
-    xlsx.saveAs(filePath);
-
-    qDebug() << "Fichier Excel créé avec succès :" << filePath;
-
-    // Afficher une boîte de message avec un résumé de l'exportation
-    QString message = QString("Les données des contrats clients ont été exportées avec succès vers Excel.\n"
-                              "Nombre total de contrats : %1\n"
-                              "Montant total  : %2 $").arg(totalContracts).arg(totalPremiumAmount);
-    QMessageBox::information(nullptr, "Exportation réussie", message);
 }
+
+
 
 /*
 contract::contract(QWidget *parent) :

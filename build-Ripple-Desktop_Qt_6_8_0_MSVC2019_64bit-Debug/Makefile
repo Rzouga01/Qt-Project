@@ -134,6 +134,8 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_concurrent.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_concurrent_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core5compat.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core5compat_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_datavisualization.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_datavisualization_private.pri \
@@ -411,6 +413,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgets.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quick.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGL.prl \
+		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Multimedia.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Gui.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sql.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModels.prl \
@@ -425,6 +428,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgetsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quickd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLd.prl \
+		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Multimediad.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Guid.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sqld.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModelsd.prl \
@@ -483,6 +487,8 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_chartsqml_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_concurrent.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_concurrent_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core5compat.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core5compat_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_core_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_datavisualization.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_datavisualization_private.pri:
@@ -760,6 +766,7 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgets.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgets.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quick.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGL.prl:
+C:\Qt\6.8.0\msvc2019_64\lib\Qt6Multimedia.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Gui.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sql.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModels.prl:
@@ -774,6 +781,7 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLWidgetsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Widgetsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Quickd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6OpenGLd.prl:
+C:\Qt\6.8.0\msvc2019_64\lib\Qt6Multimediad.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Guid.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sqld.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModelsd.prl:
