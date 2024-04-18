@@ -1,41 +1,42 @@
--ID:/Qt/6.8.0/msvc2019_64/mkspecs/win32-msvc
--IE:/touskie formatik/Qt-Project/Ripple
--IE:/touskie formatik/Qt-Project/QZXing/src
--IE:/touskie formatik/Qt-Project/QZXing/src/zxing
--IE:/touskie formatik/Qt-Project/QZXing/src/zxing/win32/zxing
--IE:/touskie formatik/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
--IE:/touskie formatik/Qt-Project/qtxlsx/QXlsx
--IE:/touskie formatik/Qt-Project/qtxlsx
--IE:/touskie formatik/Qt-Project/qtxlsx/QXlsx/header
--IE:/touskie formatik/Qt-Project/Ripple/portaudio/include
--IE:/touskie formatik/Qt-Project/Ripple/libsndfile/include
--IE:/touskie formatik/Qt-Project/QZXing/src
--IE:/touskie formatik/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
--IE:/touskie formatik/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
--ID:/Qt/6.8.0/msvc2019_64/include
--ID:/Qt/6.8.0/msvc2019_64/include/QtCharts
--ID:/Qt/6.8.0/msvc2019_64/include/QtUiTools
--ID:/Qt/6.8.0/msvc2019_64/include/QtOpenGLWidgets
--ID:/Qt/6.8.0/msvc2019_64/include/QtWidgets
--ID:/Qt/6.8.0/msvc2019_64/include/QtQuick
--ID:/Qt/6.8.0/msvc2019_64/include/QtOpenGL
--ID:/Qt/6.8.0/msvc2019_64/include/QtMultimedia
--ID:/Qt/6.8.0/msvc2019_64/include/QtGui/6.8.0
--ID:/Qt/6.8.0/msvc2019_64/include/QtGui/6.8.0/QtGui
--ID:/Qt/6.8.0/msvc2019_64/include/QtGui
--ID:/Qt/6.8.0/msvc2019_64/include/QtSql
--ID:/Qt/6.8.0/msvc2019_64/include/QtQmlModels
--ID:/Qt/6.8.0/msvc2019_64/include/QtQml
--ID:/Qt/6.8.0/msvc2019_64/include/QtQmlIntegration
--ID:/Qt/6.8.0/msvc2019_64/include/QtNetwork
--ID:/Qt/6.8.0/msvc2019_64/include/QtCore/6.8.0
--ID:/Qt/6.8.0/msvc2019_64/include/QtCore/6.8.0/QtCore
--ID:/Qt/6.8.0/msvc2019_64/include/QtCore
--IC:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.39.33519\include
--IC:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.39.33519\ATLMFC\include
--IC:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\VS\include
+-IC:/QT/6.8.0/MSVC2019_64/mkspecs/win32-msvc
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src/zxing
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src/zxing/win32/zxing
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/qtxlsx/QXlsx
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/qtxlsx
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/qtxlsx/QXlsx/header
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple/portaudio/include
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple/libsndfile/include
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/QZXing/src
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
+-IC:/Users/GAMING/Documents/GitHub/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
+-IC:/QT/6.8.0/MSVC2019_64/include
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCharts
+-IC:/QT/6.8.0/MSVC2019_64/include/QtUiTools
+-IC:/QT/6.8.0/MSVC2019_64/include/QtOpenGLWidgets
+-IC:/QT/6.8.0/MSVC2019_64/include/QtWidgets
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQuick
+-IC:/QT/6.8.0/MSVC2019_64/include/QtOpenGL
+-IC:/QT/6.8.0/MSVC2019_64/include/QtMultimedia
+-IC:/QT/6.8.0/MSVC2019_64/include/QtGui/6.8.0
+-IC:/QT/6.8.0/MSVC2019_64/include/QtGui/6.8.0/QtGui
+-IC:/QT/6.8.0/MSVC2019_64/include/QtGui
+-IC:/QT/6.8.0/MSVC2019_64/include/QtSql
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQmlModels
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQml
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQmlIntegration
+-IC:/QT/6.8.0/MSVC2019_64/include/QtNetwork
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCore/6.8.0
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCore/6.8.0/QtCore
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCore
+-IE:\Visual Studio\VC\Tools\MSVC\14.39.33519\include
+-IE:\Visual Studio\VC\Tools\MSVC\14.39.33519\ATLMFC\include
+-IE:\Visual Studio\VC\Auxiliary\VS\include
 -IC:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt
+-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um
