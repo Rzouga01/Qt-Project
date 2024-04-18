@@ -18,7 +18,7 @@ static int recordCallback(const void* inputBuffer, void* outputBuffer,
     int finished;
     unsigned long framesLeft = data->maxFrameIndex - data->frameIndex;
 
-    // Check if recording is complete
+
     if (framesLeft < framesPerBuffer)
     {
         framesToCalc = framesLeft;
@@ -30,7 +30,7 @@ static int recordCallback(const void* inputBuffer, void* outputBuffer,
         finished = paContinue;
     }
 
-    // Copy input buffer to recorded samples
+
     if (inputBuffer == NULL)
     {
         for (i = 0; i < framesToCalc; i++)
@@ -61,7 +61,7 @@ void RecordingThread::run() {
 }
 
 void RecordingThread::stopRecording() {
-    m_isRecording = false; 
+    m_isRecording = false;
 }
 
 void chatbot::moveScrollBarToBottom(int min, int max) {
@@ -76,7 +76,7 @@ chatbot::chatbot(QWidget* parent) :
     ui->setupUi(this);
     connect(ui->sendButton, &QPushButton::clicked, this, &chatbot::onSendMessageClicked);
     connect(ui->voiceButton, &QPushButton::clicked, this, &chatbot::onVoiceButtonClicked);
-    ui->chatContainer->setLayout(new QVBoxLayout()); 
+    ui->chatContainer->setLayout(new QVBoxLayout());
     ui->chatContainer->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     ui->chat->setWidgetResizable(true);
     ui->chat->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -125,14 +125,7 @@ void chatbot::addMessageBubble(const QString& text, bool isUser) {
         bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignRight);
     }
 
-    // Add typing indicator if bot is typing
-    if (botTyping) {
-        QLabel* typingIndicator = new QLabel();
-        QMovie* typingMovie = new QMovie("../Resources/Gifs/typing.gif");
-        typingIndicator->setMovie(typingMovie);
-        typingMovie->start();
-        bubbleLayout->addWidget(typingIndicator);
-    }
+
 
     // Add the bubble
     ui->chatContainer->layout()->addWidget(bubbleContainer);
@@ -144,11 +137,37 @@ void chatbot::addMessageBubble(const QString& text, bool isUser) {
     scrollbar->setValue(scrollbar->maximum());
 }
 
+void chatbot::showTypingIndicator(bool show) {
+    if (show) {
+        if (!typingIndicator) {
+
+            typingIndicator = new QLabel();
+            QMovie* typingMovie = new QMovie("../Resources/Gifs/typing.gif");
+            typingIndicator->setMovie(typingMovie);
+            typingMovie->start();
+
+            // Add the typing indicator to the chat container
+            QWidget* bubbleContainer = new QWidget();
+            QVBoxLayout* bubbleLayout = new QVBoxLayout(bubbleContainer);
+            bubbleLayout->addWidget(typingIndicator);
+            bubbleLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+            ui->chatContainer->layout()->addWidget(bubbleContainer);
+        }
+        typingIndicator->setVisible(true);
+    }
+    else {
+        if (typingIndicator) {
+            typingIndicator->setVisible(false);
+        }
+    }
+}
+
 void chatbot::sendUserMessage(const QString& message)
 {
     if (message.isEmpty())
         return;
-    botTyping = true;
+    showTypingIndicator(true);
     addMessageBubble(message, true);
 
     const QString apiKey = QProcessEnvironment::systemEnvironment().value("GEMINI_API");
@@ -250,7 +269,7 @@ void chatbot::sendUserMessage(const QString& message)
 }
 
 void chatbot::handleBotResponse(QNetworkReply* reply) {
- 
+
     QString botResponse;
     bool isError = false;
 
@@ -277,7 +296,7 @@ void chatbot::handleBotResponse(QNetworkReply* reply) {
         botResponse = "Sorry, an error occurred while processing your request.";
         isError = true;
     }
-    botTyping = false;
+    showTypingIndicator(false);
     // Add bot response to chat container
     addMessageBubble(isError ? "Error: " + botResponse : botResponse, false);
 
@@ -300,8 +319,8 @@ void chatbot::onSendMessageClicked() {
 
 void chatbot::onVoiceButtonClicked() {
     if (m_recordingThread.isRunning()) {
-        m_recordingThread.stopRecording(); 
-        ui->RecordingIndicator->hide(); 
+        m_recordingThread.stopRecording();
+        ui->RecordingIndicator->hide();
     }
     else {
         ui->RecordingIndicator->show();
@@ -474,6 +493,6 @@ void chatbot::sendAudioToChatbot(const QString& audioFilePath)
         auto cancellation = CancellationDetails::FromResult(result);
         QString errorMessage = "Error: ";
         errorMessage += QString::number(static_cast<int>(cancellation->Reason));
-        addMessageBubble(errorMessage, false);  
+        addMessageBubble(errorMessage, false);
     }
 }

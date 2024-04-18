@@ -1,5 +1,9 @@
 ﻿  chatbot.cpp
+  dashboard.cpp
+  main.cpp
 E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(10,27): warning C4100: 'statusFlags': unreferenced formal parameter
 E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(9,37): warning C4100: 'timeInfo': unreferenced formal parameter
 E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(7,58): warning C4100: 'outputBuffer': unreferenced formal parameter
+E:\touskie formatik\Qt-Project\Ripple\dashboard.cpp(669,11): warning C4100: 'index': unreferenced formal parameter
+  moc_chatbot.cpp
   Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe

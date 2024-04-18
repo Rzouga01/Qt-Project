@@ -95,12 +95,13 @@ private slots:
 	void onVoiceButtonClicked();
 	void handleBotResponse(QNetworkReply* reply);
 	void handleRecordingFinished(const QString& filePath);
+	void showTypingIndicator(bool show);
 private:
 	Ui::chatbot* ui;
 	QNetworkAccessManager m_manager;
 	RecordingThread m_recordingThread;
 	bool isRecording;
-	bool botTyping;
+	QLabel* typingIndicator=nullptr;
 	void sendUserMessage(const QString& message);
 	void sendAudioToChatbot(const QString& audioFilePath);
     void addMessageBubble(const QString& text, bool isUser);
