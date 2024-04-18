@@ -1,2 +1,3 @@
-﻿  main.cpp
-  Ripple.vcxproj -> C:\Users\malek\Documents\Qt-Project\Ripple\debug\Ripple.exe
+﻿  Generate moc_predefs.h
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): warning MSB8064: la build personnalisée pour l'élément "debug\moc_predefs.h.cbt" est réussie, mais la dépendance spécifiée "c:\users\walaa\onedrive\documents\qt-project\ripple\debug\moc_predefs.h.cbt" n'existe pas. Cela peut entraîner un fonctionnement incorrect de la build incrémentielle.
+  Ripple.vcxproj -> C:\Users\walaa\OneDrive\Documents\Qt-Project\Ripple\debug\Ripple.exe

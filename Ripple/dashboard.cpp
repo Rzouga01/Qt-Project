@@ -1619,12 +1619,13 @@ void Dashboard::onDeleteClickedAccident() {
             MasterAccident.accidentRead();
             clearInputFieldsAccidentDelete();
             QMessageBox::information(this, tr("Success"), tr("Accident deleted successfully"));
-            MasterAccident.logAccidentAction("Accident Deleted", "type");
+            MasterAccident.logAccidentAction("Accident Deleted" );
 
         }
         else {
             QMessageBox::critical(this, tr("Error"), tr("Accident not found"));
         }
+
     }
 }
 
@@ -1658,13 +1659,14 @@ void Dashboard::onAddClickedAccident() {
             clearInputFieldsAccidentCreate();
 
             QMessageBox::information(this, tr("Success"), tr("Accident created successfully"), QMessageBox::Ok, QMessageBox::Ok);
-            MasterAccident.logAccidentAction("Accident Created","type");
+            MasterAccident.logAccidentAction("Accident Created");
 
         }
         else
         {
             QMessageBox::critical(this, tr("Error"), tr("accident not created"), QMessageBox::Ok, QMessageBox::Ok);
         }
+
     }
 }
 
@@ -1706,7 +1708,7 @@ void Dashboard::onUpdateClickedAccident() {
             clearInputFieldsAccidentUpdate();
 
             QMessageBox::information(this, tr("Success"), tr("Accident Updated successfully"), QMessageBox::Ok, QMessageBox::Ok);
-            MasterAccident.logAccidentAction("Accident Updated", "type");
+            MasterAccident.logAccidentAction("Accident Updated");
 
         }
     }

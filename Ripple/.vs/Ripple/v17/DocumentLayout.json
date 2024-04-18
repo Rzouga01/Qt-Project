@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\",
+  "WorkspaceRootPath": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{76DD8F02-DA58-3D1C-8974-B938465BD132}|Ripple.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6B0D8676-6343-3D02-BE27-6131D5924FA8}|Ripple.vcxproj|C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6B0D8676-6343-3D02-BE27-6131D5924FA8}|Ripple.vcxproj|solutionrelative:map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B0D8676-6343-3D02-BE27-6131D5924FA8}|Ripple.vcxproj|C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6B0D8676-6343-3D02-BE27-6131D5924FA8}|Ripple.vcxproj|solutionrelative:map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B0D8676-6343-3D02-BE27-6131D5924FA8}|Ripple.vcxproj|C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\QmlMap.qml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6B0D8676-6343-3D02-BE27-6131D5924FA8}|Ripple.vcxproj|solutionrelative:QmlMap.qml||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\malek\\Documents\\Qt-Project\\Ripple\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Title": "map.h",
+              "DocumentMoniker": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\map.h",
+              "RelativeDocumentMoniker": "map.h",
+              "ToolTip": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\map.h",
+              "RelativeToolTip": "map.h",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAkAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-18T21:43:55.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "map.cpp",
+              "DocumentMoniker": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\map.cpp",
+              "RelativeDocumentMoniker": "map.cpp",
+              "ToolTip": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\map.cpp",
+              "RelativeToolTip": "map.cpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-18T13:47:34.877Z",
+              "WhenOpened": "2024-04-18T21:43:40.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QmlMap.qml",
+              "DocumentMoniker": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\QmlMap.qml",
+              "RelativeDocumentMoniker": "QmlMap.qml",
+              "ToolTip": "C:\\Users\\walaa\\OneDrive\\Documents\\Qt-Project\\Ripple\\QmlMap.qml",
+              "RelativeToolTip": "QmlMap.qml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
+              "WhenOpened": "2024-04-18T21:43:32.381Z",
               "EditorCaption": ""
             }
           ]
