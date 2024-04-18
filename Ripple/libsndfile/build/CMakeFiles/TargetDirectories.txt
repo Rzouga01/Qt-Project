@@ -1,2 +1,2 @@
-C:/Users/rzoug/Desktop/test/libsndfile/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/rzoug/Desktop/test/libsndfile/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/malek/Documents/Qt-Project/Ripple/libsndfile/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/malek/Documents/Qt-Project/Ripple/libsndfile/build/CMakeFiles/ZERO_CHECK.dir
