@@ -1,6 +1,6 @@
 QT += widgets charts uitools sql core gui quick network widgets-private
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 
 include(../QZXing/src/QZXing.pri)
@@ -13,11 +13,13 @@ CONFIG += c++11
 INCLUDEPATH += ../QZXing/src
 SOURCES += ../QZXing/src/QZXing.cpp \
     chatbot.cpp \
+    map.cpp \
     qrcodedialog.cpp
 
 SOURCES += sms.cpp
 HEADERS += sms.h \
-    chatbot.h
+    chatbot.h \
+    map.h
 
 # The following line is not necessary if you are already including QZXing.pri,
 # as it should handle the necessary includes and configurations.
@@ -59,6 +61,7 @@ FORMS += \
     dashboard.ui \
     employee.ui \
     mainwindow.ui \
+    map.ui \
     qrcodedialog.ui
 
 # Default rules for deployment.
@@ -69,3 +72,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     Menu.qml \
     MenuForm.ui.qml
+
+RESOURCES += \
+    Maps.qrc
