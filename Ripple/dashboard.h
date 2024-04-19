@@ -112,6 +112,7 @@ public:
     void onAccidentSearchTextChanged(const QString& searchText);
     void onHistoriqueAccidentclicked();
     void onstatsClickedAccident();
+	void showMapAccident();
 	//------------------------------------------------------------------------------------------------------------------
 public:
 	Ui::Dashboard* ui;

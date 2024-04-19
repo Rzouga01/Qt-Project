@@ -10,23 +10,22 @@
 #include <QtDebug>
 
 
-map::map(QWidget *parent) :
+map::map(QWidget* parent, float x, float y) :
     QDialog(parent),
     ui(new Ui::map)
 {
     ui->setupUi(this);
     ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/QmlMap.qml")));
-    ui->quickWidget->show();
-    auto obj = ui->quickWidget->rootObject();
 
+    // Check if the QML file is loaded successfully
+    auto obj = ui->quickWidget->rootObject();
     if (!obj) {
         QMessageBox::critical(this, "Error", "Failed to load QML file.");
         return;
     }
 
-    bool connected = true;
-
-    connected = connect(this, SIGNAL(setCenter(QVariant, QVariant)), obj, SLOT(setCenter(QVariant, QVariant)));
+    // Connect signals to corresponding slots in QML
+    bool connected = connect(this, SIGNAL(setCenter(QVariant, QVariant)), obj, SLOT(setCenter(QVariant, QVariant)));
     if (!connected) {
         QMessageBox::critical(this, "Error", "Failed to connect setCenter signal.");
         return;
@@ -38,17 +37,15 @@ map::map(QWidget *parent) :
         return;
     }
 
-    connected = connect(this, SIGNAL(addSecondMarker(QVariant, QVariant)), obj, SLOT(addSecondMarker(QVariant, QVariant)));
-    if (!connected) {
-        QMessageBox::critical(this, "Error", "Failed to connect addSecondMarker signal.");
-        return;
-    }
-
-
-    emit setCenter(36.8980217004885, 10.189632936848941);
-    emit addMarker(36.8980217004885, 10.189632936848941);
+    // Set initial map center and add marker
+    emit setCenter(x, y);
+    emit addMarker(x, y);
 }
 
+/*void map::setPointer(float x, float y) {
+     setCenter(x,y);
+     addMarker(x,y);
+}*/
 map::~map()
 {
     delete ui;

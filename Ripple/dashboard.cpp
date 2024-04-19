@@ -21,6 +21,7 @@
 #include <QSslSocket>
 #include <QtCore/QProcessEnvironment>
 #include <QToolTip>
+#include <map.h>
 Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
@@ -1545,7 +1546,6 @@ void Dashboard::AccidentDashboardConnectUi()
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
     QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
     QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
-    QObject::connect(ui->historyAccident, &QPushButton::clicked, this, &Dashboard::onHistoriqueAccidentclicked);
 
 
     QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
@@ -1557,8 +1557,23 @@ void Dashboard::AccidentDashboardConnectUi()
     QObject::connect(ui->AccidentDelete, &QPushButton::clicked, this, &Dashboard::onDeleteClickedAccident);
 
     QObject::connect(ui->AccidentCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedAccident);
+	QObject::connect(ui->tableAccident, &QTableWidget::doubleClicked, this, &Dashboard::showMapAccident);
 
     QSqlQuery query;
+	QSqlQuery query2;
+
+	if (!query2.exec("SELECT * FROM LOCATION")) {
+		qDebug() << "Error executing query:" << query2.lastError().text();
+		return;
+
+	}
+	while (query2.next()) {
+		QString locationName = query2.value(1).toString();
+		QVariant locationId = query2.value(0).toInt();
+		ui->AccidentCreateLocation->addItem(locationName, locationId);
+	}
+
+	
 
     if (!query.exec("SELECT * FROM CLIENTS")) {
         qDebug() << "Error executing query:" << query.lastError().text();
@@ -1571,6 +1586,7 @@ void Dashboard::AccidentDashboardConnectUi()
         ui->AccidentCreateClientID->addItem(clientName, clientId);
         ui->AccidentUpdateClientID->addItem(clientName, clientId);
     }
+	
 
     ui->StackedAccident->setCurrentIndex(0);
 }
@@ -1637,7 +1653,7 @@ void Dashboard::onAddClickedAccident() {
         ui->AccidentCreateDamage->text().isEmpty() ||
         ui->AccidentCreateDate->date().isNull() ||
         ui->AccidentCreateClientID->currentData().isNull() ||
-        ui->AccidentCreateLocation->text().isEmpty())
+        ui->AccidentCreateLocation->currentData().isNull())
 
     {
 
@@ -1651,7 +1667,7 @@ void Dashboard::onAddClickedAccident() {
                 ui->AccidentCreateType->text(),
                 ui->AccidentCreateDamage->text().toInt(),
                 ui->AccidentCreateDate->date(),
-                ui->AccidentCreateLocation->text(),
+                ui->AccidentCreateLocation->currentData().toString(),
                 ui->AccidentCreateClientID->currentData().toInt()))
         {
             MasterAccident.accidentRead();
@@ -1773,6 +1789,36 @@ void Dashboard::onHistoriqueAccidentclicked()
         qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
     }
 }
+
+void Dashboard::showMapAccident() {
+	accident MasterAccident(ui->tableAccident, this);
+
+	QTableWidgetItem* item = ui->tableAccident->item(ui->tableAccident->currentRow(), 5);
+	if (!item) {
+		qDebug() << "No item selected in tableAccident.";
+		return;
+	}
+
+	QString id = item->text();
+	qDebug() << "Selected location ID:" << id;
+
+	QSqlQuery qry;
+	qry.prepare("SELECT * FROM LOCATION WHERE LOCATION_ID = ?");
+	qry.addBindValue(id);
+	if (qry.exec() && qry.next()) {
+		float x = qry.value(2).toFloat();
+		float y = qry.value(3).toFloat();
+		qDebug() << "Location coordinates retrieved from database - x:" << x << ", y:" << y;
+
+		map p(nullptr,x,y);
+		p.exec();
+	}
+	else {
+		qDebug() << "Failed to retrieve location from the database.";
+	}
+}
+
+
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

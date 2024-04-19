@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtLocation 5.6
 import QtPositioning 5.6
 
-
 Rectangle {
     id: window
 
@@ -22,7 +21,7 @@ Rectangle {
         anchors.fill: parent
         plugin: mapPlugin
         center: QtPositioning.coordinate(oldLat, oldLng);
-        zoomLevel: 6
+        zoomLevel: 10
 
         MouseArea {
             anchors.fill: parent
@@ -57,14 +56,14 @@ Rectangle {
     }
     function getItemCount() {
         console.log(mapView.mapItems.length)
-        return mapView.mapItems.lengthz
+        return mapView.mapItems.length;
     }
     Component {
         id: mapMarker
         MapQuickItem {
             id: markerImg
-            anchorPoint.x: image.width/4
-            anchorPoint.y: image.height
+            anchorPoint.x: 0.5
+            anchorPoint.y: 1
             coordinate: position
 
             sourceItem: Image {
@@ -78,8 +77,8 @@ Rectangle {
         id: mapSecondMarker
         MapQuickItem {
             id: secondMarkerImg
-            anchorPoint.x: image.width/4
-            anchorPoint.y: image.height
+            anchorPoint.x: 0.5
+            anchorPoint.y: 1
             coordinate: position
 
             sourceItem: Image {
@@ -91,4 +90,3 @@ Rectangle {
 
     signal mapClickedSignal(var lat, var lng);
 }
-
