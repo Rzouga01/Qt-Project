@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "E:\\touskie formatik\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,25 +42,78 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "sms.h",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.h",
+              "RelativeDocumentMoniker": "sms.h",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.h",
+              "RelativeToolTip": "sms.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-19T03:05:52.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "sms.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp",
+              "RelativeDocumentMoniker": "sms.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp",
+              "RelativeToolTip": "sms.cpp",
+              "ViewState": "AQIAACAAAAAAAAAAAADwv0QAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-19T02:39:14.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "mainwindow.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.cpp",
+              "RelativeDocumentMoniker": "mainwindow.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.cpp",
+              "RelativeToolTip": "mainwindow.cpp",
+              "ViewState": "AQIAAEcAAAAAAAAAAAA1wGQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-19T02:27:31.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-19T02:12:56.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "chatbot.cpp",
               "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeDocumentMoniker": "chatbot.cpp",
               "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeToolTip": "chatbot.cpp",
-              "ViewState": "AQIAAMABAAAAAAAAAAAIwNUBAAA1AAAA",
+              "ViewState": "AQIAAIkAAAAAAAAAAADwv5YAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-15T20:33:10.481Z"
+              "WhenOpened": "2024-04-15T20:33:10.481Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "chatbot.h",
               "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
               "RelativeDocumentMoniker": "chatbot.h",
               "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
               "RelativeToolTip": "chatbot.h",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAGEAAAAjAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAA1wC0AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-15T20:33:09.541Z",
               "EditorCaption": ""

@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>Chat bot for employees</string>
   </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="chatbox" native="true">
    <property name="geometry">
     <rect>
@@ -48,19 +54,21 @@ QLineEdit {
 }
 
 /*Scroll bar*/
+
 QScrollBar:vertical {
-    border: none;
-    background: #333333;
+    background: transparent; 
     width: 14px;
     margin: 15px 0 15px 0;
-    border-radius: 0px;
+    border-radius: 7px;
 }
+
 QScrollBar::handle:vertical {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
                                       stop:0 #A7C34E, stop:1 #9AB447);
     min-height: 30px;
     border-radius: 7px;
 }
+
 
 QScrollBar::handle:vertical:hover {
     background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
@@ -188,17 +196,17 @@ QPushButton:checked {
    <widget class="QScrollArea" name="chat">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>40</y>
+      <x>390</x>
+      <y>20</y>
       <width>871</width>
-      <height>481</height>
+      <height>491</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">	border:none;</string>
     </property>
     <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+     <enum>Qt::ScrollBarAsNeeded</enum>
     </property>
     <property name="widgetResizable">
      <bool>true</bool>
@@ -209,12 +217,19 @@ QPushButton:checked {
        <x>0</x>
        <y>0</y>
        <width>871</width>
-       <height>481</height>
+       <height>491</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QWidget" name="chatContainer" native="true"/>
+       <widget class="QWidget" name="chatContainer" native="true">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -222,24 +237,21 @@ QPushButton:checked {
    <widget class="QFrame" name="messageBar">
     <property name="geometry">
      <rect>
-      <x>437</x>
-      <y>526</y>
+      <x>420</x>
+      <y>530</y>
       <width>831</width>
       <height>61</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::Shape::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Shadow::Raised</enum>
+     <enum>QFrame::NoFrame</enum>
     </property>
     <widget class="QLineEdit" name="messageInput">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>641</width>
+       <width>671</width>
        <height>41</height>
       </rect>
      </property>
@@ -252,42 +264,15 @@ QPushButton:checked {
       <rect>
        <x>770</x>
        <y>10</y>
-       <width>50</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
-     </property>
-    </widget>
-    <widget class="QLabel" name="RecordingIndicator">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>-10</y>
-       <width>81</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="voiceButton">
-     <property name="geometry">
-      <rect>
-       <x>680</x>
-       <y>10</y>
-       <width>41</width>
+       <width>51</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color:transparent;
@@ -298,7 +283,43 @@ border:none</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../Resources/Icons/Untitled-1.png</normaloff>../Resources/Icons/Untitled-1.png</iconset>
+       <normaloff>../Resources/Icons/send.png</normaloff>../Resources/Icons/send.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="voiceButton">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>10</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+border:none</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Resources/Icons/microphone.png</normaloff>../Resources/Icons/microphone.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -313,6 +334,26 @@ border:none</string>
       <bool>false</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="RecordingIndicator">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>-10</y>
+       <width>91</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>RecordingIndicator</zorder>
+    <zorder>messageInput</zorder>
+    <zorder>sendButton</zorder>
+    <zorder>voiceButton</zorder>
    </widget>
    <widget class="QListWidget" name="histroy">
     <property name="geometry">
@@ -331,7 +372,7 @@ border-radius:10px;
 </string>
     </property>
     <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+     <enum>Qt::ScrollBarAsNeeded</enum>
     </property>
    </widget>
    <zorder>histroy</zorder>

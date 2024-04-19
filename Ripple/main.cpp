@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
     
 
     if (con.createconnect()) {
-        //w.show();
-        bot.show();
+        w.show();
+   
     }
 
     return a.exec();

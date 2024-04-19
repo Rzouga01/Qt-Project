@@ -1,9 +1,19 @@
-﻿  chatbot.cpp
-  dashboard.cpp
-  main.cpp
-E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(10,27): warning C4100: 'statusFlags': unreferenced formal parameter
-E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(9,37): warning C4100: 'timeInfo': unreferenced formal parameter
+﻿  Moc'ing sms.h...
+   E:\touskie formatik\Qt-Project\Ripple\sms.h: note: No relevant classes found. No output generated.
+  chatbot.cpp
+  sms.cpp
+E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(10,24): warning C4100: 'statusFlags': unreferenced formal parameter
+E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(9,34): warning C4100: 'timeInfo': unreferenced formal parameter
 E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(7,58): warning C4100: 'outputBuffer': unreferenced formal parameter
-E:\touskie formatik\Qt-Project\Ripple\dashboard.cpp(669,11): warning C4100: 'index': unreferenced formal parameter
-  moc_chatbot.cpp
+  moc_ImageHandler.cpp
+  moc_QZXing.cpp
+  moc_accident.cpp
+  moc_client.cpp
+  moc_contract.cpp
+  moc_dashboard.cpp
+  moc_employee.cpp
+  moc_mainwindow.cpp
+  moc_qrcodedialog.cpp
+  moc_xlsxdocument.cpp
+  moc_sms.cpp
   Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe
