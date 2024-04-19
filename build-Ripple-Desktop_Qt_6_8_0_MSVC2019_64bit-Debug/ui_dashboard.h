@@ -98,6 +98,7 @@ public:
     QComboBox *EmployeeSelectStats;
     QLabel *EmployeeStatsLabel;
     QLabel *EmployeeStatsTitle;
+    QPushButton *searchEmployee;
     QWidget *page_2;
     QListWidget *readBoxClient;
     QLineEdit *searchBarClient;
@@ -259,6 +260,7 @@ public:
     QComboBox *AccidentUpdateClientID;
     QDateEdit *AccidentUpdateDate;
     QFrame *StatsAccident;
+    QPushButton *mapdisplay;
     QFrame *featureBarAccident;
     QPushButton *addAccident;
     QPushButton *deleteAccident;
@@ -413,7 +415,8 @@ public:
 "#pdfEmployee,\n"
 "#updateEmployee,\n"
 "#sortEmployee,\n"
-"#chatEmployee {\n"
+"#chatEmployee,\n"
+"#searchEmployee {\n"
 "    border: none;\n"
 "    background-color: transparent;\n"
 "}\n"
@@ -450,9 +453,9 @@ public:
 "QTableWidget QTableWidget {\n"
 "    font-size: 10pt;\n"
 "}\n"
-"\n"
-"/* Create and"
-                        " Update Combobox Items */\n"
+""
+                        "\n"
+"/* Create and Update Combobox Items */\n"
 "#EmployeeRole_C,\n"
 "#EmployeeRole_U,\n"
 "#EmployeeSelectID_U,\n"
@@ -488,8 +491,8 @@ public:
 "#EmployeeEmailText_U,\n"
 "#EmployeePasswordText_U,\n"
 "#EmployeeFirstNameText_U,\n"
-"#EmployeeLastNameText_"
-                        "U,\n"
+"#Emp"
+                        "loyeeLastNameText_U,\n"
 "#EmployeeAddressText_U,\n"
 "#EmployeePhoneNumberText_U,\n"
 "#EmployeeDobText_U,\n"
@@ -530,9 +533,9 @@ public:
 "    border: none;\n"
 "    border-radius: 15px;\n"
 "}\n"
-"\n"
-"/* Cancel an"
-                        "d Create/Update/Delete Buttons */\n"
+""
+                        "\n"
+"/* Cancel and Create/Update/Delete Buttons */\n"
 "#EmployeeCancelBtn_C,\n"
 "#EmployeeCreateBtn,\n"
 "#EmployeeCancelBtn_U,\n"
@@ -845,6 +848,12 @@ public:
         EmployeeStatsTitle = new QLabel(statsBoxEmployee);
         EmployeeStatsTitle->setObjectName("EmployeeStatsTitle");
         EmployeeStatsTitle->setGeometry(QRect(140, -30, 391, 111));
+        searchEmployee = new QPushButton(page);
+        searchEmployee->setObjectName("searchEmployee");
+        searchEmployee->setGeometry(QRect(1140, 170, 51, 41));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8("../Resources/Icons/search.png"), QSize(), QIcon::Normal, QIcon::Off);
+        searchEmployee->setIcon(icon6);
         stackedWidget->addWidget(page);
         statsBoxEmployee->raise();
         readBoxEmployee->raise();
@@ -852,6 +861,7 @@ public:
         CrudEmployee->raise();
         searchBarEmployee->raise();
         tableEmployee->raise();
+        searchEmployee->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         page_2->setStyleSheet(QString::fromUtf8(" #featureBarClient {\n"
@@ -1227,9 +1237,9 @@ public:
         pieChartClient->setObjectName("pieChartClient");
         pieChartClient->setGeometry(QRect(700, 5, 51, 51));
         pieChartClient->setCursor(QCursor(Qt::PointingHandCursor));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8("../Resources/Icons/piechart.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pieChartClient->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8("../Resources/Icons/piechart.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pieChartClient->setIcon(icon7);
         pieChartClient->setIconSize(QSize(50, 50));
         tableClient = new QTableWidget(page_2);
         if (tableClient->columnCount() < 7)
@@ -1269,9 +1279,7 @@ public:
         SearchIconClient = new QPushButton(page_2);
         SearchIconClient->setObjectName("SearchIconClient");
         SearchIconClient->setGeometry(QRect(690, 120, 51, 41));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8("../Resources/Icons/search.png"), QSize(), QIcon::Normal, QIcon::Off);
-        SearchIconClient->setIcon(icon7);
+        SearchIconClient->setIcon(icon6);
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName("page_3");
@@ -1706,7 +1714,7 @@ public:
         searchAccident->setClearButtonEnabled(true);
         CrudAccident = new QFrame(page_4);
         CrudAccident->setObjectName("CrudAccident");
-        CrudAccident->setGeometry(QRect(30, 290, 471, 371));
+        CrudAccident->setGeometry(QRect(20, 160, 461, 381));
         CrudAccident->setFrameShape(QFrame::NoFrame);
         StackedAccident = new QStackedWidget(CrudAccident);
         StackedAccident->setObjectName("StackedAccident");
@@ -1804,7 +1812,7 @@ public:
         UpdateAccident->setObjectName("UpdateAccident");
         frame_3 = new QFrame(UpdateAccident);
         frame_3->setObjectName("frame_3");
-        frame_3->setGeometry(QRect(0, -1, 441, 341));
+        frame_3->setGeometry(QRect(0, -1, 441, 351));
         frame_3->setStyleSheet(QString::fromUtf8(""));
         frame_3->setFrameShape(QFrame::NoFrame);
         AccidentUpdateIDline = new QLabel(frame_3);
@@ -1879,8 +1887,11 @@ public:
         StackedAccident->addWidget(UpdateAccident);
         StatsAccident = new QFrame(page_4);
         StatsAccident->setObjectName("StatsAccident");
-        StatsAccident->setGeometry(QRect(10, 10, 481, 251));
+        StatsAccident->setGeometry(QRect(20, 20, 191, 71));
         StatsAccident->setFrameShape(QFrame::NoFrame);
+        mapdisplay = new QPushButton(StatsAccident);
+        mapdisplay->setObjectName("mapdisplay");
+        mapdisplay->setGeometry(QRect(30, 20, 121, 31));
         featureBarAccident = new QFrame(page_4);
         featureBarAccident->setObjectName("featureBarAccident");
         featureBarAccident->setGeometry(QRect(510, 30, 651, 61));
@@ -1990,7 +2001,7 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(3);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(2);
         StackContract->setCurrentIndex(0);
@@ -2079,6 +2090,7 @@ public:
 
         EmployeeStatsLabel->setText(QString());
         EmployeeStatsTitle->setText(QCoreApplication::translate("Dashboard", "Employee Stats", nullptr));
+        searchEmployee->setText(QString());
         ClientCreateEmail->setPlaceholderText(QString());
         ClientCreateButton->setText(QCoreApplication::translate("Dashboard", "Create Client", nullptr));
         ClientCreateCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
@@ -2191,6 +2203,7 @@ public:
         AccidentUpdateDateline->setText(QCoreApplication::translate("Dashboard", "date", nullptr));
         AccidentUpdateLocationline->setText(QCoreApplication::translate("Dashboard", "location", nullptr));
         AccidentUpdate->setText(QCoreApplication::translate("Dashboard", "update", nullptr));
+        mapdisplay->setText(QCoreApplication::translate("Dashboard", "MAP DISPLAY", nullptr));
         addAccident->setText(QString());
         deleteAccident->setText(QString());
         updateAccident->setText(QString());

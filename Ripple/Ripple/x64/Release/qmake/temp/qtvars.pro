@@ -1,5 +1,5 @@
 CONFIG += no_fixpath
-QT += core sql opengl network gui multimedia uitools widgets qml quick charts openglwidgets
+QT += core sql opengl network gui multimedia uitools widgets qml quickwidgets quick charts openglwidgets
         
         
       

@@ -13,10 +13,13 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QScrollArea>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,71 +28,51 @@ class Ui_chatbot
 {
 public:
     QWidget *chatbox;
-    QLineEdit *messageBar;
-    QPushButton *sendButton;
-    QPushButton *voiceButton;
     QLabel *title;
     QLabel *poweredBy;
-    QTextEdit *chat;
+    QScrollArea *chat;
+    QWidget *scrollAreaWidgetContents;
+    QVBoxLayout *verticalLayout;
+    QWidget *chatContainer;
+    QFrame *messageBar;
+    QLineEdit *messageInput;
+    QPushButton *sendButton;
+    QLabel *RecordingIndicator;
+    QPushButton *voiceButton;
+    QListWidget *histroy;
 
     void setupUi(QDialog *chatbot)
     {
         if (chatbot->objectName().isEmpty())
             chatbot->setObjectName("chatbot");
-        chatbot->resize(1000, 500);
+        chatbot->resize(1200, 600);
         chatbox = new QWidget(chatbot);
         chatbox->setObjectName("chatbox");
-        chatbox->setGeometry(QRect(0, 0, 1000, 500));
+        chatbox->setGeometry(QRect(-100, 0, 1301, 601));
         chatbox->setStyleSheet(QString::fromUtf8("QWidget{\n"
-"        background-color: #333333; /* Dark background color */\n"
-"        color: #FFFFFF; /* White text color */\n"
+"        background-color: #222222;\n"
+"        color: #FFFFFF;\n"
+"	\n"
 "}\n"
-"\n"
-"QLineEdit {\n"
-"    border: 1px solid #A7C34E; /* Green border color */\n"
+"QFrame{\n"
+"   border: 1px solid #A7C34E;\n"
 "    border-radius: 5px;\n"
-"    padding: 5px 15px;\n"
-"    background-color: #222222; /* Dark background color */\n"
-"    color: #FFFFFF; /* White text color */\n"
-"    font-size: 12px;\n"
+"    background-color: #222222;\n"
 "}\n"
 "\n"
-"QLineEdit:focus {\n"
-"    border: 1px solid #A7C34E; /* Green border color */\n"
-"}\n"
-"\n"
-"QLineEdit:disabled {\n"
-"    background-color: #444444; /* Darker background color for disabled state */\n"
-"    color: #A0A0A0; /* Light gray text color */\n"
-"}\n"
-"\n"
-"QLineEdit:read-only {\n"
-"    background-color: #444444; /* Darker background color for read-only state */\n"
-"    color: #A0A0A0; /* Light gray text color */\n"
-"}\n"
-"\n"
-"QLineEdit::hover {\n"
-"    border: 1px solid #A7C34E; /* Green border color */\n"
-"}\n"
-"\n"
-"QLineEdit::selected {\n"
-"    background-color: #A7C34E; /* Green backgro"
-                        "und color for selected text */\n"
-"    color: #FFFFFF; /* White text color */\n"
-"}\n"
-"\n"
-"\n"
-"QListWidget{\n"
+"QLabel{\n"
 "background-color:transparent;\n"
 "border:none;\n"
 "}\n"
 "\n"
-"QTextEdit {\n"
-"    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #A7C34E, stop:1 #A7C34E); /* Green gradient border */\n"
-"    border-radius: 12px;\n"
-"    background-color: #222222; /* Dark background color */\n"
-"    color: #FFFFFF; /* White text color */\n"
+"QLineEdit {\n"
+"        border:none;\n"
+"    padding: 5px 15px;\n"
+"    background-color: #222222;\n"
+"    color: #FFFFFF;\n"
+"    font-size: 12px;\n"
 "}\n"
+"\n"
 "/*Scroll bar*/\n"
 "QScrollBar:vertical {\n"
 "    border: none;\n"
@@ -100,27 +83,27 @@ public:
 "}\n"
 "QScrollBar::handle:vertical {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #A7C34E, stop:1 #9AB447); /* Gradient handle */\n"
+"                                      stop:0 #A7C34E, stop:1 #9AB447);\n"
 "    min-height: 30px;\n"
 "    border-radius: 7px;\n"
 "}\n"
 "\n"
 "QScrollBar::handle:vertical:hover {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"          "
-                        "                            stop:0 #A7C34E, stop:1 #5D762E); /* Darker color on hover */\n"
+"                                      stop:0 #A7"
+                        "C34E, stop:1 #5D762E);\n"
 "}\n"
 "\n"
 "QScrollBar::handle:vertical:pressed {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #A7C34E, stop:1 #3A511F); /* Darker color when pressed */\n"
+"                                      stop:0 #A7C34E, stop:1 #3A511F);\n"
 "}\n"
 "\n"
 "/* BTN TOP - SCROLLBAR */\n"
 "QScrollBar::sub-line:vertical {\n"
 "    border: none;\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #9AB447, stop:1 #A7C34E); /* Light green button top */\n"
+"                                      stop:0 #9AB447, stop:1 #A7C34E);\n"
 "    height: 15px;\n"
 "    border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -130,20 +113,20 @@ public:
 "\n"
 "QScrollBar::sub-line:vertical:hover {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #5D762E, stop:1 #A7C34E); /* Darker green when hovered */\n"
+"                                      stop:0 #5D762E, stop:1 #A7C34E);\n"
 "}\n"
 "\n"
-"QScrollBar::sub-line:vertical:pres"
-                        "sed {\n"
+"QScrollBar::sub-line:vertical:pressed {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #3A511F, stop:1 #A7C34E); /* Darker green when pressed */\n"
+"                                      stop:0 #3A511F, stop:1 #A7C34E);\n"
 "}\n"
 "\n"
-"/* BTN BOTTOM - SCROLLBAR */\n"
+""
+                        "/* BTN BOTTOM - SCROLLBAR */\n"
 "QScrollBar::add-line:vertical {\n"
 "    border: none;\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #9AB447, stop:1 #A7C34E); /* Light green button bottom */\n"
+"                                      stop:0 #9AB447, stop:1 #A7C34E);\n"
 "    height: 15px;\n"
 "    border-bottom-left-radius: 7px;\n"
 "    border-bottom-right-radius: 7px;\n"
@@ -153,83 +136,119 @@ public:
 "\n"
 "QScrollBar::add-line:vertical:hover {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #5D762E, stop:1 #A7C34E); /* Darker green when hovered */\n"
+"                                      stop:0 #5D762E, stop:1 #A7C34E);\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical:pressed {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 "
-                        "#3A511F, stop:1 #A7C34E); /* Darker green when pressed */\n"
+"                                      stop:0 #3A511F, stop:1 #A7C34E);\n"
 "}\n"
 "QPushButton {\n"
-"    border: 1px solid #A7C34E; /* Green border color */\n"
+"    border: 1px solid #A7C34E;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px 15px;\n"
-"    background: #A7C34E; /* Dark background color */\n"
-"    color: #A7C34E; /* Green text color */\n"
+"    background: #A7C34E;\n"
+"    color: #A7C34E;\n"
 "    font-size: 12px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #A7C34E; /* Green background color on hover */\n"
-"        color: #FFFFFF; /* White text color on hover */\n"
+""
+                        "    background-color: #A7C34E;\n"
+"        color: #FFFFFF;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #A7C34E; /* Green background color when pressed */\n"
-"    border: 2px solid #A7C34E; /* Green border color when pressed */\n"
+"    background-color: #A7C34E;\n"
+"    border: 2px solid #A7C34E;\n"
 "    padding: 4px 14px 6px 16px;\n"
 "}\n"
 "\n"
 "QPushButton:disabled {\n"
-"    background: #444444; /* Darker background color for disabled state */\n"
-"    color: #A0A0A0; /* Light gray text color */\n"
+"    background: #444444;\n"
+"    color: #A0A0A0;\n"
 "}\n"
 "\n"
 "QPushButton:checked {\n"
-"    background: #A7C34E; /* Green background color when checked */\n"
-"    color: #FFFFFF; /* Whit"
-                        "e text color when checked */\n"
+"    background: #A7C34E;\n"
+"    color: #FFFFFF;\n"
 "}\n"
 ""));
-        messageBar = new QLineEdit(chatbox);
-        messageBar->setObjectName("messageBar");
-        messageBar->setGeometry(QRect(100, 390, 681, 41));
-        sendButton = new QPushButton(chatbox);
-        sendButton->setObjectName("sendButton");
-        sendButton->setGeometry(QRect(900, 390, 50, 30));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("../Resources/Icons/send.png"), QSize(), QIcon::Normal, QIcon::Off);
-        sendButton->setIcon(icon);
-        voiceButton = new QPushButton(chatbox);
-        voiceButton->setObjectName("voiceButton");
-        voiceButton->setGeometry(QRect(830, 390, 50, 30));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../Resources/Icons/microphone.png"), QSize(), QIcon::Normal, QIcon::Off);
-        voiceButton->setIcon(icon1);
-        voiceButton->setCheckable(true);
-        voiceButton->setChecked(false);
         title = new QLabel(chatbox);
         title->setObjectName("title");
-        title->setGeometry(QRect(390, 20, 311, 51));
+        title->setGeometry(QRect(150, -10, 281, 61));
         QFont font;
         font.setFamilies({QString::fromUtf8("Open Sans")});
-        font.setPointSize(30);
+        font.setPointSize(20);
         font.setBold(true);
         title->setFont(font);
         poweredBy = new QLabel(chatbox);
         poweredBy->setObjectName("poweredBy");
-        poweredBy->setGeometry(QRect(820, 70, 181, 20));
+        poweredBy->setGeometry(QRect(120, 570, 221, 20));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Open Sans SemiBold")});
         font1.setBold(true);
         poweredBy->setFont(font1);
-        chat = new QTextEdit(chatbox);
+        chat = new QScrollArea(chatbox);
         chat->setObjectName("chat");
-        chat->setGeometry(QRect(20, 100, 961, 281));
-        chat->setLayoutDirection(Qt::LeftToRight);
-        chat->setLineWrapMode(QTextEdit::WidgetWidth);
-        chat->setReadOnly(true);
+        chat->setGeometry(QRect(400, 40, 871, 481));
+        chat->setStyleSheet(QString::fromUtf8("	border:none;"));
+        chat->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        chat->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 871, 481));
+        verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout->setObjectName("verticalLayout");
+        chatContainer = new QWidget(scrollAreaWidgetContents);
+        chatContainer->setObjectName("chatContainer");
+
+        verticalLayout->addWidget(chatContainer);
+
+        chat->setWidget(scrollAreaWidgetContents);
+        messageBar = new QFrame(chatbox);
+        messageBar->setObjectName("messageBar");
+        messageBar->setGeometry(QRect(437, 526, 831, 61));
+        messageBar->setFrameShape(QFrame::Shape::StyledPanel);
+        messageBar->setFrameShadow(QFrame::Shadow::Raised);
+        messageInput = new QLineEdit(messageBar);
+        messageInput->setObjectName("messageInput");
+        messageInput->setGeometry(QRect(10, 10, 641, 41));
+        sendButton = new QPushButton(messageBar);
+        sendButton->setObjectName("sendButton");
+        sendButton->setGeometry(QRect(770, 10, 50, 30));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../Resources/Icons/send.png"), QSize(), QIcon::Normal, QIcon::Off);
+        sendButton->setIcon(icon);
+        RecordingIndicator = new QLabel(messageBar);
+        RecordingIndicator->setObjectName("RecordingIndicator");
+        RecordingIndicator->setGeometry(QRect(660, -10, 81, 81));
+        RecordingIndicator->setScaledContents(true);
+        voiceButton = new QPushButton(messageBar);
+        voiceButton->setObjectName("voiceButton");
+        voiceButton->setGeometry(QRect(680, 10, 41, 41));
+        voiceButton->setStyleSheet(QString::fromUtf8("background-color:transparent;\n"
+"border:none"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("../Resources/Icons/Untitled-1.png"), QSize(), QIcon::Normal, QIcon::Off);
+        voiceButton->setIcon(icon1);
+        voiceButton->setIconSize(QSize(40, 40));
+        voiceButton->setCheckable(true);
+        voiceButton->setChecked(false);
+        histroy = new QListWidget(chatbox);
+        histroy->setObjectName("histroy");
+        histroy->setGeometry(QRect(100, 1, 271, 601));
+        histroy->setStyleSheet(QString::fromUtf8(" background-color:#333333;\n"
+"    color: #FFFFFF; /* White text color */\n"
+"        border:none;\n"
+"border-radius:10px;\n"
+""));
+        histroy->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        histroy->raise();
+        chat->raise();
+        title->raise();
+        poweredBy->raise();
+        messageBar->raise();
 
         retranslateUi(chatbot);
 
@@ -239,11 +258,12 @@ public:
     void retranslateUi(QDialog *chatbot)
     {
         chatbot->setWindowTitle(QCoreApplication::translate("chatbot", "Chat bot for employees", nullptr));
-        messageBar->setPlaceholderText(QCoreApplication::translate("chatbot", "Your message...", nullptr));
-        sendButton->setText(QString());
-        voiceButton->setText(QString());
         title->setText(QCoreApplication::translate("chatbot", "RippleAssist", nullptr));
         poweredBy->setText(QCoreApplication::translate("chatbot", "Powered by Google Gemini \302\251", nullptr));
+        messageInput->setPlaceholderText(QCoreApplication::translate("chatbot", "Your message...", nullptr));
+        sendButton->setText(QString());
+        RecordingIndicator->setText(QString());
+        voiceButton->setText(QString());
     } // retranslateUi
 
 };

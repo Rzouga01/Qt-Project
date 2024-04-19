@@ -186,7 +186,7 @@ void accident::update(int acc_id, QString type, int damage, QDate date, QString 
 
             if (query.exec())
             {
-                qDebug() << "Contract Updated successfuly ." << "Data :" <<
+                qDebug() << "accident Updated successfuly ." << "Data :" <<
                     "\nacc_id :" << acc_id <<
                     "\ntype :" << type <<
                     "\ndamage :" << damage <<
@@ -204,7 +204,6 @@ void accident::update(int acc_id, QString type, int damage, QDate date, QString 
         else {
             QMessageBox::critical(nullptr, tr("Error"), tr("accident not found"));
         }
-
 
     }
     else {
@@ -385,7 +384,7 @@ void accident::searchAccident(const QString& search)
 
     QSqlQuery qry;
     qry.prepare("SELECT * FROM accidents WHERE LOWER(LOCATION) LIKE LOWER(:search) ");
-    qry.bindValue(":search", "%" + search.toLower() + "%");
+    qry.bindValue(":search", "%" + search + "%");
 
     if (qry.exec())
     {
@@ -491,4 +490,20 @@ QSqlQuery accident::rechercherall()
 
     return query;
 }
+void accident::logAccidentAction(const QString& action)
+{
+    QFile file("../historique.txt");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
+    {
+        QTextStream out(&file);
+        out << "Action: " << action << "\n";
+        out << "Time: " << QDate::currentDate().toString() << "\n\n";
+        file.close();
+    }
+    else
+    {
+        qDebug() << "Erreur d'ouverture du fichier historique.txt";
+    }
+}
+
 

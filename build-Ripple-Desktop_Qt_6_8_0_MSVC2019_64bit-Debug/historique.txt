@@ -1,0 +1,15 @@
+Action: Accident Updated
+Details: aa
+
+Action: Accident Created
+Details: ui
+
+Action: Accident Created
+Details: type
+
+Action: Accident Deleted
+Details: type
+
+Action: Accident Updated
+Details: type
+

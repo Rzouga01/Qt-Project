@@ -1,6 +1,6 @@
 QT += widgets charts uitools sql core gui quick network multimedia
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 include(../QZXing/src/QZXing.pri)
 include(../qtxlsx/QXlsx/QXlsx.pri)
@@ -9,6 +9,15 @@ CONFIG += c++11
 INCLUDEPATH += $$PWD/portaudio/include
 INCLUDEPATH += $$PWD/libsndfile/include
 INCLUDEPATH += ../QZXing/src
+SOURCES += ../QZXing/src/QZXing.cpp \
+    chatbot.cpp \
+    map.cpp \
+    qrcodedialog.cpp
+
+SOURCES += sms.cpp
+HEADERS += sms.h \
+    chatbot.h \
+    map.h
 INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
 DEPENDPATH  += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
 INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
@@ -81,6 +90,7 @@ FORMS += \
     dashboard.ui \
     employee.ui \
     mainwindow.ui \
+    map.ui \
     qrcodedialog.ui
 
 # Configuration for Windows platform
@@ -105,3 +115,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     Menu.qml \
     MenuForm.ui.qml
+
+RESOURCES += \
+    Maps.qrc

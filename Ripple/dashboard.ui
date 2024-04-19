@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
+    <enum>QFrame::Shape::NoFrame</enum>
    </property>
    <widget class="QLineEdit" name="role">
     <property name="geometry">
@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -358,7 +358,7 @@ QTableWidget QTableWidget {
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="addEmployee">
        <property name="geometry">
@@ -527,7 +527,7 @@ QTableWidget QTableWidget {
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <property name="currentIndex">
        <number>1</number>
@@ -559,7 +559,7 @@ QTableWidget QTableWidget {
          <string>Last Name</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="EmployeeAddress_C">
@@ -585,7 +585,7 @@ QTableWidget QTableWidget {
          <string>Address</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="EmployeeFirstName_C">
@@ -657,7 +657,7 @@ QTableWidget QTableWidget {
          <string>Email</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeePhoneNumberText_C">
@@ -673,7 +673,7 @@ QTableWidget QTableWidget {
          <string>Phone Number</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeeFirstNameText_C">
@@ -689,7 +689,7 @@ QTableWidget QTableWidget {
          <string>First Name</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeeDobText_C">
@@ -705,7 +705,7 @@ QTableWidget QTableWidget {
          <string>Date Of Birth</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QComboBox" name="EmployeeRole_C">
@@ -769,7 +769,7 @@ QTableWidget QTableWidget {
          <string>Role</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="EmployeePassword_C">
@@ -798,7 +798,7 @@ QTableWidget QTableWidget {
          <string>Password</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
       </widget>
@@ -816,7 +816,7 @@ QTableWidget QTableWidget {
          <string>First Name</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeePhoneNumberText_U">
@@ -832,7 +832,7 @@ QTableWidget QTableWidget {
          <string>Phone Number</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="EmployeeFirstName_U">
@@ -878,7 +878,7 @@ QTableWidget QTableWidget {
          <string>Password</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="EmployeePhoneNumber_U">
@@ -950,7 +950,7 @@ QTableWidget QTableWidget {
          <string>Date Of Birth</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeeRoleText_U">
@@ -966,7 +966,7 @@ QTableWidget QTableWidget {
          <string>Role</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeeAddressText_U">
@@ -982,7 +982,7 @@ QTableWidget QTableWidget {
          <string>Address</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="EmployeeEmailText_U">
@@ -998,7 +998,7 @@ QTableWidget QTableWidget {
          <string>Email</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QPushButton" name="EmployeeUpdateBtn">
@@ -1027,7 +1027,7 @@ QTableWidget QTableWidget {
          <string>Last Name</string>
         </property>
         <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="EmployeePassword_U">
@@ -1258,7 +1258,7 @@ QTableWidget QTableWidget {
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QChartView" name="EmployeeStats" native="true">
        <property name="enabled">
@@ -1542,7 +1542,7 @@ font-family: &quot;Roboto&quot;;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QStackedWidget" name="StackedClient">
        <property name="geometry">
@@ -1567,7 +1567,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLineEdit" name="ClientCreateEmail">
           <property name="geometry">
@@ -1671,7 +1671,7 @@ font-family: &quot;Roboto&quot;;
            <string>Email</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientCreateFirstNameLine">
@@ -1687,7 +1687,7 @@ font-family: &quot;Roboto&quot;;
            <string>First Name</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientCreateLastNameLine">
@@ -1703,7 +1703,7 @@ font-family: &quot;Roboto&quot;;
            <string>Last Name</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientCreateAddressLine">
@@ -1719,7 +1719,7 @@ font-family: &quot;Roboto&quot;;
            <string>Address</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientCreatePhoneNumberLine">
@@ -1735,7 +1735,7 @@ font-family: &quot;Roboto&quot;;
            <string>Phone Number</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientCreateDobLine">
@@ -1751,7 +1751,7 @@ font-family: &quot;Roboto&quot;;
            <string>Date Of Birth</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
         </widget>
@@ -1767,7 +1767,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLineEdit" name="ClientUpdateID">
           <property name="geometry">
@@ -1878,7 +1878,7 @@ font-family: &quot;Roboto&quot;;
            <string>ID</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientUpdateEmailLine">
@@ -1894,7 +1894,7 @@ font-family: &quot;Roboto&quot;;
            <string>Email</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientUpdateFirstNameLine">
@@ -1910,7 +1910,7 @@ font-family: &quot;Roboto&quot;;
            <string>First Name</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientUpdateLastNameLine">
@@ -1926,7 +1926,7 @@ font-family: &quot;Roboto&quot;;
            <string>Last Name</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientUpdateAddressLine">
@@ -1942,7 +1942,7 @@ font-family: &quot;Roboto&quot;;
            <string>Address</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientUpdatePhoneNumberLine">
@@ -1958,7 +1958,7 @@ font-family: &quot;Roboto&quot;;
            <string>Phone Number</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
          <widget class="QPlainTextEdit" name="ClientUpdateDobLine">
@@ -1974,7 +1974,7 @@ font-family: &quot;Roboto&quot;;
            <string>Date Of Birth</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
         </widget>
@@ -1990,7 +1990,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLineEdit" name="ClientDeleteID">
           <property name="geometry">
@@ -2041,7 +2041,7 @@ font-family: &quot;Roboto&quot;;
            <string>ID</string>
           </property>
           <property name="textInteractionFlags">
-           <set>Qt::NoTextInteraction</set>
+           <set>Qt::TextInteractionFlag::NoTextInteraction</set>
           </property>
          </widget>
         </widget>
@@ -2058,7 +2058,7 @@ font-family: &quot;Roboto&quot;;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QComboBox" name="QRCodeClientCombo">
        <property name="geometry">
@@ -2107,7 +2107,7 @@ font-family: &quot;Roboto&quot;;
         <string>Client ID</string>
        </property>
        <property name="textInteractionFlags">
-        <set>Qt::NoTextInteraction</set>
+        <set>Qt::TextInteractionFlag::NoTextInteraction</set>
        </property>
       </widget>
       <widget class="QPushButton" name="QRCodeClientGenerate">
@@ -2163,7 +2163,7 @@ font-family: &quot;Roboto&quot;;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="deleteClient">
        <property name="geometry">
@@ -2505,7 +2505,7 @@ font-family: &quot;Roboto&quot;;
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QStackedWidget" name="StackContract">
        <property name="geometry">
@@ -2530,7 +2530,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLineEdit" name="LineEditPremiumAmountContract">
           <property name="geometry">
@@ -2788,7 +2788,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLabel" name="LabelContractId">
           <property name="geometry">
@@ -2859,7 +2859,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QPushButton" name="UpdateContractButton">
           <property name="geometry">
@@ -3177,7 +3177,7 @@ font-family: &quot;Roboto&quot;;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="addContract">
        <property name="geometry">
@@ -3534,14 +3534,14 @@ font-family: &quot;Roboto&quot;;
      <widget class="QFrame" name="CrudAccident">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>290</y>
-        <width>471</width>
-        <height>371</height>
+        <x>20</x>
+        <y>30</y>
+        <width>461</width>
+        <height>621</height>
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QStackedWidget" name="StackedAccident">
        <property name="geometry">
@@ -3549,11 +3549,11 @@ font-family: &quot;Roboto&quot;;
          <x>10</x>
          <y>20</y>
          <width>441</width>
-         <height>341</height>
+         <height>591</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="CreateAccident">
         <widget class="QFrame" name="FrameCreateAccident">
@@ -3562,11 +3562,11 @@ font-family: &quot;Roboto&quot;;
            <x>0</x>
            <y>0</y>
            <width>451</width>
-           <height>361</height>
+           <height>591</height>
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLabel" name="AccidentCreateTypeline">
           <property name="geometry">
@@ -3603,16 +3603,6 @@ font-family: &quot;Roboto&quot;;
            <rect>
             <x>188</x>
             <y>147</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentCreateLocation">
-          <property name="geometry">
-           <rect>
-            <x>188</x>
-            <y>247</y>
             <width>113</width>
             <height>22</height>
            </rect>
@@ -3744,6 +3734,16 @@ font-family: &quot;Roboto&quot;;
            </rect>
           </property>
          </widget>
+         <widget class="QComboBox" name="AccidentCreateLocation">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>240</y>
+            <width>121</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QWidget" name="DeleteAccident">
@@ -3757,7 +3757,7 @@ font-family: &quot;Roboto&quot;;
           </rect>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLabel" name="AccidentDeleteIDline">
           <property name="geometry">
@@ -3811,14 +3811,14 @@ font-family: &quot;Roboto&quot;;
            <x>0</x>
            <y>-1</y>
            <width>441</width>
-           <height>341</height>
+           <height>351</height>
           </rect>
          </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <widget class="QLabel" name="AccidentUpdateIDline">
           <property name="geometry">
@@ -4017,19 +4017,6 @@ font-family: &quot;Roboto&quot;;
        </widget>
       </widget>
      </widget>
-     <widget class="QFrame" name="StatsAccident">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>481</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-     </widget>
      <widget class="QFrame" name="featureBarAccident">
       <property name="geometry">
        <rect>
@@ -4043,7 +4030,7 @@ font-family: &quot;Roboto&quot;;
        <string notr="true"/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="addAccident">
        <property name="geometry">
@@ -4074,7 +4061,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="deleteAccident">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>140</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -4100,7 +4087,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="updateAccident">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>350</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -4126,7 +4113,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="pdfAccident">
        <property name="geometry">
         <rect>
-         <x>430</x>
+         <x>470</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -4152,7 +4139,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="sortAccident">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>250</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -4172,29 +4159,6 @@ font-family: &quot;Roboto&quot;;
         <size>
          <width>50</width>
          <height>50</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="historyAccident">
-       <property name="geometry">
-        <rect>
-         <x>530</x>
-         <y>10</y>
-         <width>41</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../Resources/Icons/history.png</normaloff>../Resources/Icons/history.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>40</width>
-         <height>40</height>
         </size>
        </property>
       </widget>
