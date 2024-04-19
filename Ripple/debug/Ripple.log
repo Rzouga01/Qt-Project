@@ -1,19 +1,15 @@
-﻿  Moc'ing sms.h...
-   E:\touskie formatik\Qt-Project\Ripple\sms.h: note: No relevant classes found. No output generated.
-  chatbot.cpp
-  sms.cpp
-E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(10,24): warning C4100: 'statusFlags': unreferenced formal parameter
-E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(9,34): warning C4100: 'timeInfo': unreferenced formal parameter
-E:\touskie formatik\Qt-Project\Ripple\chatbot.cpp(7,58): warning C4100: 'outputBuffer': unreferenced formal parameter
-  moc_ImageHandler.cpp
-  moc_QZXing.cpp
-  moc_accident.cpp
-  moc_client.cpp
-  moc_contract.cpp
+﻿  Generate moc_predefs.h
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): warning MSB8064: Custom build for item "debug\moc_predefs.h.cbt" succeeded, but specified dependency "e:\touskie formatik\qt-project\ripple\debug\moc_predefs.h.cbt" does not exist. This may cause incremental build to work incorrectly.
+  Moc'ing mainwindow.h...
+  dashboard.cpp
+  main.cpp
+  mainwindow.cpp
+E:\touskie formatik\Qt-Project\Ripple\dashboard.cpp(670,11): warning C4100: 'index': unreferenced formal parameter
   moc_dashboard.cpp
-  moc_employee.cpp
   moc_mainwindow.cpp
-  moc_qrcodedialog.cpp
-  moc_xlsxdocument.cpp
   moc_sms.cpp
-  Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe
+dashboard.obj : error LNK2019: unresolved external symbol "public: __cdecl map::map(class QWidget *,float,float)" (??0map@@QEAA@PEAVQWidget@@MM@Z) referenced in function "public: void __cdecl Dashboard::showMapAccident(void)" (?showMapAccident@Dashboard@@QEAAXXZ)
+main.obj : error LNK2001: unresolved external symbol "public: __cdecl map::map(class QWidget *,float,float)" (??0map@@QEAA@PEAVQWidget@@MM@Z)
+dashboard.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl map::~map(void)" (??1map@@UEAA@XZ) referenced in function "public: void __cdecl Dashboard::showMapAccident(void)" (?showMapAccident@Dashboard@@QEAAXXZ)
+main.obj : error LNK2001: unresolved external symbol "public: virtual __cdecl map::~map(void)" (??1map@@UEAA@XZ)
+debug\\Ripple.exe : fatal error LNK1120: 2 unresolved externals

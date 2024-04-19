@@ -6,11 +6,12 @@
 #include <QApplication>
 #include "dashboard.h"
 #include "employee.h"
-
+#include "sms.h"
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
 	ui(new Ui::MainWindow),
-	logoAnimation(nullptr)
+	logoAnimation(nullptr),
+    m_sms(new SMS("ACfe07e61a81cc5a2cb361954afc499a79", "7d64376ed5101e3c558756437800e7a9", "+18603986293"))
 {
 	ui->setupUi(this);
 	ui->email->setAlignment(Qt::AlignCenter);
@@ -21,6 +22,7 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(ui->password, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -92,25 +94,76 @@ void MainWindow::handleThemeChange(int value) {
 		ui->logo->setPixmap(pixmap);
 	}
 }
-
 void MainWindow::onLoginButtonClicked()
 {
-	QString email = ui->email->text();
-	QString password = ui->password->text();
-	Employee employee;
-	if (employee.login(email, password)) {
-		int role = employee.getRole();
-		// Create a dynamic instance of Dashboard
-		Dashboard* dash = new Dashboard();
-		dash->setAttribute(Qt::WA_DeleteOnClose);
-		dash->showPageForRole(role);
-		dash->createSession(&employee);
-		dash->show(); // Show the dashboard
-		this->hide(); // Hide the main window
+    QString email = ui->email->text();
+    QString password = ui->password->text();
+    Employee employee;
+
+    if (employee.login(email, password)) {
+        // Generate a random verification code
+        QString verificationCode = generateVerificationCode();
+
+        // Store the verification code
+        m_verificationCode = verificationCode;
+
+        // Send the verification code via SMS
+        QString phoneNumber = "+216" + employee.getPhoneNumber();
+
+        QString message = "Your verification code is: " + verificationCode;
+        m_sms->sendSms(phoneNumber, message);
+
+        // Prompt the user to enter the verification code
+        bool ok;
+        QString enteredCode = QInputDialog::getText(this, "Verification Code", "Enter the verification code sent to your phone:", QLineEdit::Normal, "", &ok);
+
+        if (ok && !enteredCode.isEmpty()) {
+            // Compare the entered code with the generated code
+            if (enteredCode == m_verificationCode) {
+                // Codes match, proceed with showing the dashboard
+                int role = employee.getRole();
+                Dashboard* dash = new Dashboard();
+                dash->setAttribute(Qt::WA_DeleteOnClose);
+                dash->showPageForRole(role);
+                dash->createSession(&employee);
+                dash->show(); // Show the dashboard
+                this->hide(); // Hide the main window
+            }
+            else {
+                // Codes don't match, show error message
+                QMessageBox::warning(this, "Error", "Invalid verification code.");
+            }
+        }
+        else {
+            // User canceled or entered empty code, show error message
+            QMessageBox::warning(this, "Error", "Verification code is required.");
+        }
+    }
+    else {
+        QMessageBox::warning(this, "Error", "Invalid email or password.");
+    }
+}
+
+
+QString MainWindow::generateVerificationCode()
+{
+	const QString possibleCharacters = "0123456789"; // Define the characters allowed in the verification code
+
+	// Set the length of the verification code
+	const int codeLength = 6;
+
+	// Seed the random number generator
+	QRandomGenerator randomGenerator = QRandomGenerator::securelySeeded();
+
+	// Generate the verification code
+	QString verificationCode;
+	for (int i = 0; i < codeLength; ++i) {
+		int index = randomGenerator.bounded(possibleCharacters.length());
+		QChar nextChar = possibleCharacters.at(index);
+		verificationCode.append(nextChar);
 	}
-	else {
-		QMessageBox::warning(this, "Error", "Invalid email or password.");
-	}
+
+	return verificationCode;
 }
 
 

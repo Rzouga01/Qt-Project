@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "E:\\touskie formatik\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5127B45F-0759-383E-964B-2DE38B42826A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mainwindow.h",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.h",
+              "RelativeDocumentMoniker": "mainwindow.h",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.h",
+              "RelativeToolTip": "mainwindow.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-19T07:05:16.087Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,33 +65,33 @@
               "RelativeDocumentMoniker": "sms.h",
               "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.h",
               "RelativeToolTip": "sms.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-19T03:05:52.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "sms.cpp",
-              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp",
-              "RelativeDocumentMoniker": "sms.cpp",
-              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp",
-              "RelativeToolTip": "sms.cpp",
-              "ViewState": "AQIAACAAAAAAAAAAAADwv0QAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-19T02:39:14.722Z",
+              "WhenOpened": "2024-04-19T07:00:44.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "sms.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp",
+              "RelativeDocumentMoniker": "sms.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\sms.cpp",
+              "RelativeToolTip": "sms.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-19T07:00:07.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "mainwindow.cpp",
               "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.cpp",
               "RelativeDocumentMoniker": "mainwindow.cpp",
               "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\mainwindow.cpp",
               "RelativeToolTip": "mainwindow.cpp",
-              "ViewState": "AQIAAEcAAAAAAAAAAAA1wGQAAAAnAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAAAA0AAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-19T02:27:31.788Z",
               "EditorCaption": ""
@@ -94,20 +111,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "chatbot.cpp",
               "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeDocumentMoniker": "chatbot.cpp",
               "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.cpp",
               "RelativeToolTip": "chatbot.cpp",
-              "ViewState": "AQIAAIkAAAAAAAAAAADwv5YAAAAtAAAA",
+              "ViewState": "AQIAALUAAAAAAAAAAAAYwLwAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-15T20:33:10.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T20:33:10.481Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "chatbot.h",
               "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\chatbot.h",
               "RelativeDocumentMoniker": "chatbot.h",
@@ -115,8 +131,7 @@
               "RelativeToolTip": "chatbot.h",
               "ViewState": "AQIAABEAAAAAAAAAAAA1wC0AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-15T20:33:09.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T20:33:09.541Z"
             }
           ]
         }

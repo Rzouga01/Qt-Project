@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QPropertyAnimation>
-
+#include "sms.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,9 +20,12 @@ public:
     void animation();
     void resetLogoSize(const QRect &size);
     void onLoginButtonClicked();
+    QString generateVerificationCode();
 
 private:
     Ui::MainWindow *ui;
      QPropertyAnimation *logoAnimation;
+     QString m_verificationCode;
+     SMS *m_sms;
 };
 #endif // MAINWINDOW_H
