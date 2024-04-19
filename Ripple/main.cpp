@@ -21,8 +21,6 @@ int main(int argc, char *argv[])
 
     if (con.createconnect()) {
         w.show();
-        p.show();
-        //bot.show();
     }
 
     return a.exec();
