@@ -66,10 +66,12 @@ void Dashboard::update() {
 }
 
 void Dashboard::onLogoutButtonClicked() {
-    close();
-    mainWindowRef.show();
 
+    close();
+    deleteLater();
+    mainWindowRef.show();
 }
+
 
 void Dashboard::showPageForRole(int role)
 {
@@ -1875,8 +1877,6 @@ void Dashboard::showMapAccident() {
         qDebug() << "Failed to retrieve location from the database.";
     }
 }
-
-
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

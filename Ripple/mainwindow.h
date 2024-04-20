@@ -21,11 +21,15 @@ public:
     void resetLogoSize(const QRect &size);
     void onLoginButtonClicked();
     QString generateVerificationCode();
+    void onEmailEditingFinished();
 
 private:
     Ui::MainWindow *ui;
      QPropertyAnimation *logoAnimation;
      QString m_verificationCode;
      SMS *m_sms;
+     bool m_rememberMe = false;
+     QString m_storedEmail;
+     bool m_isRemembered = false;
 };
 #endif // MAINWINDOW_H

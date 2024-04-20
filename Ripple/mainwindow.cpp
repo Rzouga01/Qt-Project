@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(ui->loginButton, &QPushButton::clicked, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->password, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
+	connect(ui->email, &QLineEdit::editingFinished, this, &MainWindow::onEmailEditingFinished);
 }
 
 
@@ -94,68 +95,81 @@ void MainWindow::handleThemeChange(int value) {
 		ui->logo->setPixmap(pixmap);
 	}
 }
-void MainWindow::onLoginButtonClicked()
-{
-    QString email = ui->email->text();
-    QString password = ui->password->text();
-    Employee employee;
 
-    if (employee.login(email, password)) {
-        // Generate a random verification code
-        QString verificationCode = generateVerificationCode();
+void MainWindow::onLoginButtonClicked() {
+	QString email = ui->email->text().trimmed();
+	QString password = ui->password->text();
+	QString storedEmail;
+	bool require2FA;
+	bool currentRememberMeChecked = ui->rememberMe->isChecked();
 
-        // Store the verification code
-        m_verificationCode = verificationCode;
+	QString settingsPath = QApplication::applicationDirPath() + "/settings.ini";
+	QSettings settings(settingsPath, QSettings::IniFormat);
 
-        // Send the verification code via SMS
-        QString phoneNumber = "+216" + employee.getPhoneNumber();
+	storedEmail = settings.value("StoredEmail").toString();
+	require2FA = settings.value("Require2FA", true).toBool();
 
-        QString message = "Your verification code is: " + verificationCode;
-        m_sms->sendSms(phoneNumber, message);
+	if (email.isEmpty() || password.isEmpty()) {
+		QMessageBox::warning(this, "Error", "Email and password cannot be empty.");
+		return;
+	}
 
-        // Prompt the user to enter the verification code
-        bool ok;
-        QString enteredCode = QInputDialog::getText(this, "Verification Code", "Enter the verification code sent to your phone:", QLineEdit::Normal, "", &ok);
+	Employee employee;
+	if (!employee.login(email, password)) {
+		QMessageBox::warning(this, "Error", "Invalid email or password.");
+		return;
+	}
 
-        if (ok && !enteredCode.isEmpty()) {
-            // Compare the entered code with the generated code
-            if (enteredCode == m_verificationCode) {
-                // Codes match, proceed with showing the dashboard
-                int role = employee.getRole();
-                Dashboard* dash = new Dashboard();
-                dash->setAttribute(Qt::WA_DeleteOnClose);
-                dash->showPageForRole(role);
-                dash->createSession(&employee);
-                dash->show(); // Show the dashboard
-                this->hide(); // Hide the main window
-            }
-            else {
-                // Codes don't match, show error message
-                QMessageBox::warning(this, "Error", "Invalid verification code.");
-            }
-        }
-        else {
-            // User canceled or entered empty code, show error message
-            QMessageBox::warning(this, "Error", "Verification code is required.");
-        }
-    }
-    else {
-        QMessageBox::warning(this, "Error", "Invalid email or password.");
-    }
+	if (require2FA) {
+		QString employeePhoneNumber = employee.getPhoneNumber();
+		QString lastThreeDigits = employeePhoneNumber.right(3);
+		QString phoneNumber = QInputDialog::getText(this, "Phone Number Verification", "Please enter your phone number ending in ****" + lastThreeDigits + " for verification:");
+		if (phoneNumber.isEmpty() || phoneNumber.right(3) != lastThreeDigits) {
+			QMessageBox::warning(this, "Error", "Entered phone number does not match the employee's phone number.");
+			return;
+		}
+
+		// 2FA required
+		QString verificationCode = generateVerificationCode();
+		m_verificationCode = verificationCode;
+		m_sms->sendSms("+216" + phoneNumber, verificationCode);
+
+		bool ok;
+		QString enteredCode = QInputDialog::getText(this, "Verification Code", "Enter the verification code sent to your phone:", QLineEdit::Normal, "", &ok);
+
+		if (!ok || enteredCode.isEmpty()) {
+			QMessageBox::warning(this, "Error", "Verification code is required.");
+			return;
+		}
+
+		if (enteredCode != m_verificationCode) {
+			QMessageBox::warning(this, "Error", "Invalid verification code.");
+			return;
+		}
+	}
+
+	// Login successful
+	int role = employee.getRole();
+	Dashboard* dash = new Dashboard();
+	dash->setAttribute(Qt::WA_DeleteOnClose);
+	dash->showPageForRole(role);
+	dash->createSession(&employee);
+	dash->show();
+	this->hide();
+
+	require2FA = !currentRememberMeChecked;
+
+	settings.setValue("StoredEmail", email);
+	settings.setValue("Require2FA", require2FA);
+	settings.sync();
 }
 
 
 QString MainWindow::generateVerificationCode()
 {
-	const QString possibleCharacters = "0123456789"; // Define the characters allowed in the verification code
-
-	// Set the length of the verification code
+	const QString possibleCharacters = "0123456789";
 	const int codeLength = 6;
-
-	// Seed the random number generator
 	QRandomGenerator randomGenerator = QRandomGenerator::securelySeeded();
-
-	// Generate the verification code
 	QString verificationCode;
 	for (int i = 0; i < codeLength; ++i) {
 		int index = randomGenerator.bounded(possibleCharacters.length());
@@ -166,4 +180,11 @@ QString MainWindow::generateVerificationCode()
 	return verificationCode;
 }
 
-
+void MainWindow::onEmailEditingFinished() {
+	QString email = ui->email->text();
+	QString settingsPath = QApplication::applicationDirPath() + "/settings.ini";
+	QSettings settings(settingsPath, QSettings::IniFormat);
+	QString storedEmail = settings.value("StoredEmail").toString(); 
+	bool require2FA = settings.value("Require2FA", false).toBool(); 
+	ui->rememberMe->setChecked(email == storedEmail && !require2FA);
+}
