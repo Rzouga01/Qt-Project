@@ -5,6 +5,7 @@
 #include "map.h"
 #include "chatbot.h"
 #include "sqlConn.h"
+#include "dashboard.h"
 
 
 
@@ -17,10 +18,12 @@ int main(int argc, char *argv[])
     MainWindow w;
     sqlConn con;
     chatbot bot;
-    
+    Dashboard d;
 
     if (con.createconnect()) {
         w.show();
+        //d.show();
+
    
     }
 
