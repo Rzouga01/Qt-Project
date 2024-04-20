@@ -38,7 +38,7 @@ This project is a desktop application built with C++ and Qt framework. It provid
 1. Install Qt 6.8.0 on your system.
 2. Open the Ripple.pro file in the project directory.
 3. Select the MSVC 2019 64-bit compiler.
-4. Build the project as Release.
+4. Build the project.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
