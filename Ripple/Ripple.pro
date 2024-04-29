@@ -1,4 +1,4 @@
-QT += widgets charts uitools sql core gui quick network multimedia
+QT += widgets charts uitools sql core gui quick network multimedia serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
