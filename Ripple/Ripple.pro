@@ -67,7 +67,9 @@ SOURCES += \
     dashboard.cpp \
     employee.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    arduino.cpp
+
 
 HEADERS += \
     sms.h \
@@ -80,7 +82,8 @@ HEADERS += \
     employee.h \
     mainwindow.h \
     ../QZXing/src/QZXing.h \
-    qrcodedialog.h
+    qrcodedialog.h \
+    arduino.h
 
 FORMS += \
     accident.ui \
