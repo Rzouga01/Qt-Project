@@ -78,6 +78,10 @@ public:
     QStringList getEmployeeNames();
     int getEmployeeIdByName(const QString& name);
     bool login(const QString& email, const QString& password);
+    //Arduino
+	bool RFIDExists(const QString& uid);
+	QString getNameRFID(const QString& uid);  
+	int getIdRFID(const QString& uid);
 };
 
 #endif // EMPLOYEE_H

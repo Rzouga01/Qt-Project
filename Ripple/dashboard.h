@@ -74,6 +74,8 @@ public:
     void clearEmployeeStats();
     void displayGeneralStats();
     void openChatBox();
+    void startRFID(); 
+    void handleEmployeeCheckedIn(int employeeId);
     //***********************************************************
     //Contract
     void onAddClickedContract();

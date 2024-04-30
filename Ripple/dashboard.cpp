@@ -22,6 +22,7 @@
 #include <QtCore/QProcessEnvironment>
 #include <QToolTip>
 #include <map.h>
+#include "employeesRFID.h"
 Dashboard::Dashboard(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::Dashboard)
@@ -44,7 +45,7 @@ Dashboard::Dashboard(QWidget* parent) :
     QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Dashboard::checkContractDates);
     timer->start(5000);
-
+    startRFID();
 }
 
 void Dashboard::update() {
@@ -1220,6 +1221,16 @@ void Dashboard::openChatBox() {
     chatbot* chat = new chatbot(this);
     chat->show();
 }
+
+void Dashboard::startRFID() {
+
+    EmployeesRFID* employeesRFID = new EmployeesRFID(this);
+    connect(employeesRFID, &EmployeesRFID::employeeCheckedIn, this, &Dashboard::handleEmployeeCheckedIn);
+}
+
+void Dashboard::handleEmployeeCheckedIn(int employeeId) {
+    qDebug() << "Employee checked in with ID:" << employeeId;
+}
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -1548,7 +1559,7 @@ void Dashboard::clearInputFieldsDeleteContract() {
 void Dashboard::checkContractDates()
 {
     QDate currentDate = QDate::currentDate();
-    qDebug() << "Today's date is:" << currentDate.toString("dd/MM/yyyy");
+   // qDebug() << "Today's date is:" << currentDate.toString("dd/MM/yyyy");
     // Calculate the next day's date
     QDate nextDay = QDate::currentDate().addDays(1);
 

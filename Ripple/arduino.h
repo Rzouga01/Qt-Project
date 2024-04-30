@@ -1,33 +1,32 @@
 #ifndef ARDUINO_H
 #define ARDUINO_H
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
+
+#include <QDebug>
 #include <QSerialPort>
 #include <QSerialPortInfo>
-#include <QDebug>
 
-
-class Arduino
-{
-public:     //méthodes de la classe Arduino
+class Arduino {
+public:
     Arduino();
-    int connect_arduino(); // permet de connecter le PC à Arduino
-    int close_arduino(); // permet de femer la connexion
-    int write_to_arduino(QByteArray); // envoyer des données vers arduino
-    QByteArray read_from_arduino();  //recevoir des données de la carte Arduino
-    QSerialPort* getserial();   // accesseur
-    QString getarduino_port_name();
-    static const quint16 arduino_uno_vendor_id = 9025;
-    static const quint16 arduino_uno_producy_id = 67;
+    ~Arduino();
+
+    int connectArduino();               // Establish connection with Arduino
+    int disconnectArduino();           // Close the connection
+    int connect(QString port);        // Connect to Arduino on a specific port
+    int write(QByteArray data);      // Send data to Arduino
+    QByteArray read();              // Receive data from Arduino
+    QSerialPort* getSerial();                  
+    QString getPortName();                  
+    bool isOpen();               // Check if the connection is open
+   
+
 private:
-    QSerialPort* serial; //Cet objet rassemble des informations (vitesse, bits de données, etc.)
-    //et des fonctions (envoi, lecture de réception,…) sur ce qu’est une voie série pour Arduino.
-
-    QString arduino_port_name;
-    bool arduino_is_available;
-    QByteArray data;  // contenant les données lues à partir d'Arduino
+    QSerialPort* serial;
+    QString portName;
+    static const quint16 vendorId = 9025;       // Vendor ID for Arduino
+    static const quint16 productId = 67;       // Product ID for Arduino
+    bool isAvailable;
+    QByteArray data;
 };
-
-
 
 #endif // ARDUINO_H

@@ -249,7 +249,7 @@ QStringList Employee::getAllEmployeeIDs() {
     return ids;
 }
 
-    QStringList Employee::getEmployeeNames() {
+QStringList Employee::getEmployeeNames() {
         QStringList names;
         QSqlQuery query;
         query.prepare("SELECT first_name, last_name FROM EMPLOYEES");
@@ -595,6 +595,42 @@ bool Employee::login(const QString& email, const QString& password) {
     }
 }
 
+bool Employee::RFIDExists(const QString& uid)
+{
+    QSqlQuery query;
+    query.prepare("SELECT RFID FROM EMPLOYEES WHERE RFID = ?");
+    query.addBindValue(uid);
+    if (query.exec() && query.next()) {
+        
+        return true;
+    }
+   
+    return false;
+}
+
+QString Employee::getNameRFID(const QString& uid)
+{
+    QSqlQuery query;
+    query.prepare("SELECT FIRST_NAME || ' ' || LAST_NAME FROM EMPLOYEES WHERE RFID = ?");
+    query.addBindValue(uid);
+    if (query.exec() && query.next()) {
+       
+        return query.value(0).toString();
+    }
+    
+    return "";
+}
+
+int Employee::getIdRFID(const QString& uid) 
+{
+    QSqlQuery query;
+    query.prepare("SELECT ID FROM EMPLOYEES WHERE RFID = ?");
+    query.addBindValue(uid);
+    if (query.exec() && query.next()) {
+        return query.value(0).toInt();
+    }
+    return -1; 
+}
 
 
 
