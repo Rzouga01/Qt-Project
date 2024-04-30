@@ -1,4 +1,4 @@
--IC:/Qt/6.8.0/msvc2019_64/mkspecs/win32-msvc
+-IC:/QT/6.8.0/MSVC2019_64/mkspecs/win32-msvc
 -IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple
 -IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src
 -IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src/zxing
@@ -12,27 +12,27 @@
 -IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src
 -IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
 -IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
--IC:/Qt/6.8.0/msvc2019_64/include
--IC:/Qt/6.8.0/msvc2019_64/include/QtCharts
--IC:/Qt/6.8.0/msvc2019_64/include/QtUiTools
--IC:/Qt/6.8.0/msvc2019_64/include/QtOpenGLWidgets
--IC:/Qt/6.8.0/msvc2019_64/include/QtQuickWidgets
--IC:/Qt/6.8.0/msvc2019_64/include/QtWidgets
--IC:/Qt/6.8.0/msvc2019_64/include/QtQuick
--IC:/Qt/6.8.0/msvc2019_64/include/QtOpenGL
--IC:/Qt/6.8.0/msvc2019_64/include/QtMultimedia
--IC:/Qt/6.8.0/msvc2019_64/include/QtGui/6.8.0
--IC:/Qt/6.8.0/msvc2019_64/include/QtGui/6.8.0/QtGui
--IC:/Qt/6.8.0/msvc2019_64/include/QtGui
--IC:/Qt/6.8.0/msvc2019_64/include/QtSql
--IC:/Qt/6.8.0/msvc2019_64/include/QtQmlModels
--IC:/Qt/6.8.0/msvc2019_64/include/QtQml
--IC:/Qt/6.8.0/msvc2019_64/include/QtQmlIntegration
--IC:/Qt/6.8.0/msvc2019_64/include/QtNetwork
--IC:/Qt/6.8.0/msvc2019_64/include/QtSerialPort
--IC:/Qt/6.8.0/msvc2019_64/include/QtCore/6.8.0
--IC:/Qt/6.8.0/msvc2019_64/include/QtCore/6.8.0/QtCore
--IC:/Qt/6.8.0/msvc2019_64/include/QtCore
+-IC:/QT/6.8.0/MSVC2019_64/include
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCharts
+-IC:/QT/6.8.0/MSVC2019_64/include/QtUiTools
+-IC:/QT/6.8.0/MSVC2019_64/include/QtOpenGLWidgets
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQuickWidgets
+-IC:/QT/6.8.0/MSVC2019_64/include/QtWidgets
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQuick
+-IC:/QT/6.8.0/MSVC2019_64/include/QtOpenGL
+-IC:/QT/6.8.0/MSVC2019_64/include/QtMultimedia
+-IC:/QT/6.8.0/MSVC2019_64/include/QtGui/6.8.0
+-IC:/QT/6.8.0/MSVC2019_64/include/QtGui/6.8.0/QtGui
+-IC:/QT/6.8.0/MSVC2019_64/include/QtGui
+-IC:/QT/6.8.0/MSVC2019_64/include/QtSql
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQmlModels
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQml
+-IC:/QT/6.8.0/MSVC2019_64/include/QtQmlIntegration
+-IC:/QT/6.8.0/MSVC2019_64/include/QtNetwork
+-IC:/QT/6.8.0/MSVC2019_64/include/QtSerialPort
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCore/6.8.0
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCore/6.8.0/QtCore
+-IC:/QT/6.8.0/MSVC2019_64/include/QtCore
 -IC:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.39.33519\include
 -IC:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.39.33519\ATLMFC\include
 -IC:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\VS\include

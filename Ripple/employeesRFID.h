@@ -25,6 +25,7 @@ private slots:
 private:
     Arduino arduino;
     Employee employee;
+    QString const RFIDport = "COM4";
 
     bool checkIN(const QString& RFIDData);
    

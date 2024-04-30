@@ -2,18 +2,18 @@
 
 EmployeesRFID::EmployeesRFID(QObject* parent) : QObject(parent)
 {
-    int connectionResult = arduino.connectArduino();
-    if (connectionResult == 0) {
-        qDebug() << "Connected to Arduino on port:" << arduino.getPortName();
-    }
-    else if (connectionResult == 1) {
-        qDebug() << "Failed to open serial port!";
-    }
-    else if (connectionResult == -1) {
-        qDebug() << "Arduino not found!";
+    int arduinoConn = arduino.connectArduino(); 
+    switch (arduinoConn) {
+    case (0):
+        qDebug() << "arduino is available and connected to : "
+            << arduino.getPortName();
+        break;
+    case (1):
+        qDebug() << "given arduino is not available";
     }
 
-    QObject::connect(arduino.getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDData()));
+    QObject::connect(arduino.getSerial(), SIGNAL(readyRead()), this,
+        SLOT(processRFIDData()));
 }
 
 EmployeesRFID::~EmployeesRFID()

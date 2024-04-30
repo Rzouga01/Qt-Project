@@ -37,20 +37,31 @@ int Arduino::connect(QString port) {
 }
 
 int Arduino::connectArduino() {
-    foreach(const QSerialPortInfo & info, QSerialPortInfo::availablePorts()) {
-        if (info.hasVendorIdentifier() && info.hasProductIdentifier()) {
-            if (info.vendorIdentifier() == vendorId && info.productIdentifier() == productId) {
+    foreach(const QSerialPortInfo & serialPortInfo,
+        QSerialPortInfo::availablePorts()) {
+        if (serialPortInfo.hasVendorIdentifier() &&
+            serialPortInfo.hasProductIdentifier()) {
+            if (serialPortInfo.vendorIdentifier() == vendorId &&
+                serialPortInfo.productIdentifier() == productId) {
                 isAvailable = true;
-                portName = info.portName();
+                portName = serialPortInfo.portName();
             }
         }
     }
 
-    qDebug() << "Arduino port name is: " << portName;
+    qDebug() << "Arduino port name : " << portName;
     if (isAvailable) {
-        return connect(portName);
+        serial->setPortName(portName);
+        if (serial->open(QSerialPort::ReadWrite)) {
+            serial->setBaudRate(QSerialPort::Baud9600);
+            serial->setDataBits(QSerialPort::Data8);
+            serial->setParity(QSerialPort::NoParity);
+            serial->setStopBits(QSerialPort::OneStop);
+            serial->setFlowControl(QSerialPort::NoFlowControl);
+            return 0; // Success
+        }
+        return 1; // Failed to open port
     }
-
     return -1; // No Arduino found
 }
 
