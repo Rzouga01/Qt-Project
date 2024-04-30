@@ -2,8 +2,8 @@
 #define ARDUINO_H
 
 #include <QDebug>
-#include <QSerialPort>
-#include <QSerialPortInfo>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
 
 class Arduino {
 public:

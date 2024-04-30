@@ -68,7 +68,8 @@ SOURCES += \
     employee.cpp \
     main.cpp \
     mainwindow.cpp \
-    arduino.cpp
+    arduino.cpp \
+    employeesRFID.cpp \
 
 
 HEADERS += \
@@ -83,7 +84,8 @@ HEADERS += \
     mainwindow.h \
     ../QZXing/src/QZXing.h \
     qrcodedialog.h \
-    arduino.h
+    arduino.h   \
+    employeesRFID.h
 
 FORMS += \
     accident.ui \
