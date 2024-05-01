@@ -1238,8 +1238,9 @@ void Dashboard::startRFID() {
         break;
     }
 
-    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this,
+  QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID,
         SLOT(processRFIDData()));
+
 }
 
 

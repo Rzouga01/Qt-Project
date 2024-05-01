@@ -81,21 +81,35 @@ int Arduino::closeArduino() {
 }
 
 QString Arduino::readFromArduino() {
-    QString receivedData;
-
+    static QString receivedData;
     if (serial->isOpen() && serial->isReadable()) {
-        QByteArray requestData = serial->readAll(); 
+        QByteArray requestData = serial->readAll();
 
-        receivedData = QString::fromUtf8(requestData).trimmed();
+        QString currentData = QString::fromUtf8(requestData);
 
-        if (!receivedData.isEmpty()) {
-            qDebug() << "RFID Card scanned:" << receivedData;
+        if (!currentData.isEmpty()) {
+            // Append the received data to the buffer
+            receivedData += currentData;
 
+            // Check if the received data contains a complete RFID card scan
+            int newlineIndex = receivedData.indexOf('\n');
+            if (newlineIndex != -1) {
+                // Extract the complete RFID data
+                QString completeData = receivedData.left(newlineIndex).trimmed();
+
+                // Remove the extracted data from the buffer
+                receivedData = receivedData.mid(newlineIndex + 1).trimmed();
+
+                qDebug() << "RFID Card scanned:" << completeData;
+                return completeData;
+            }
         }
     }
 
-    return receivedData;
+    return QString();
 }
+
+
 
 void Arduino::writeToArduino(const QByteArray& d) {
     if (serial->isOpen() && serial->isWritable()) {

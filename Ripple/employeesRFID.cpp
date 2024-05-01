@@ -20,21 +20,24 @@ void EmployeesRFID::processRFIDData()
     QString RFIDString = arduino.readFromArduino();
 
     if (!RFIDString.isEmpty()) {
-        QSqlQuery query;
-        query.prepare("SELECT employee_id FROM employees WHERE RFID = :RFID");
-        query.bindValue(":RFID", RFIDString);
+        // Check if RFIDString contains valid RFID data
+        if (RFIDString.contains(" ")) {
+            QSqlQuery query;
+            query.prepare("SELECT user_id FROM employees WHERE RFID = :RFID");
+            query.bindValue(":RFID", RFIDString);
 
-        if (query.exec() && query.next()) {
-            int employeeId = query.value(0).toInt();
-            qDebug() << "Employee with RFID" << RFIDString << "and ID" << employeeId << "checked in.";
-            emit employeeCheckedIn(employeeId);
+            if (query.exec() && query.next()) {
+                int employeeId = query.value(0).toInt();
+                qDebug() << "Employee with RFID" << RFIDString << "and ID" << employeeId << "checked in.";
+                emit employeeCheckedIn(employeeId);
+            }
+            else {
+                qDebug() << "RFID" << RFIDString << "not found in the database.";
+            }
         }
         else {
-            qDebug() << "RFID" << RFIDString << "not found in the database.";
+            qDebug() << "Invalid RFID data.";
         }
-    }
-    else {
-        qDebug() << "Invalid RFID data.";
     }
 }
 

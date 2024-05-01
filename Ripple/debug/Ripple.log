@@ -1,4 +1,2 @@
-﻿  dashboard.cpp
-  employeesRFID.cpp
-C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(679,30): warning C4100: 'index': unreferenced formal parameter
-  Ripple.vcxproj -> C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\debug\Ripple.exe
+﻿  arduino.cpp
+LINK : fatal error LNK1104: cannot open file 'debug\\Ripple.exe'
