@@ -22,7 +22,6 @@
 #include <QtCore/QProcessEnvironment>
 #include <QToolTip>
 #include <map.h>
-#include "employeesRFID.h"
 Dashboard::Dashboard(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::Dashboard)
@@ -45,6 +44,7 @@ Dashboard::Dashboard(QWidget* parent) :
     QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Dashboard::checkContractDates);
     timer->start(5000);
+    empRFID = new EmployeesRFID(this);
     startRFID();
 }
 
@@ -1223,10 +1223,25 @@ void Dashboard::openChatBox() {
 }
 
 void Dashboard::startRFID() {
+    
+    int arduinoConn = empRFID->getArduino().connectArduino();
+    switch (arduinoConn) {
+    case 0:
+        qDebug() << "Arduino is available and connected to : "
+            << empRFID->getArduino().getArduinoPortName();
+        break;
+    case 1:
+        qDebug() << "Given Arduino is not available";
+        break;
+    case -1:
+        qDebug() << "Arduino not found";
+        break;
+    }
 
-    EmployeesRFID* employeesRFID = new EmployeesRFID(this);
-    connect(employeesRFID, &EmployeesRFID::employeeCheckedIn, this, &Dashboard::handleEmployeeCheckedIn);
+    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this,
+        SLOT(processRFIDData()));
 }
+
 
 void Dashboard::handleEmployeeCheckedIn(int employeeId) {
     qDebug() << "Employee checked in with ID:" << employeeId;

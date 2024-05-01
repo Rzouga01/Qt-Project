@@ -15,6 +15,7 @@ class EmployeesRFID : public QObject
 public:
     explicit EmployeesRFID(QObject* parent = nullptr);
     ~EmployeesRFID();
+    Arduino& getArduino();
 
 signals:
     void employeeCheckedIn(int employeeId);
@@ -25,8 +26,6 @@ private slots:
 private:
     Arduino arduino;
     Employee employee;
-    QString const RFIDport = "COM4";
-
     bool checkIN(const QString& RFIDData);
    
 };

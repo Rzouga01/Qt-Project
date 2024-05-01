@@ -1,31 +1,28 @@
 #ifndef ARDUINO_H
 #define ARDUINO_H
 
-#include <QDebug>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include <QDebug>
 
-class Arduino {
+class Arduino
+{
 public:
     Arduino();
     ~Arduino();
-
-    int connectArduino();               // Establish connection with Arduino
-    int disconnectArduino();           // Close the connection
-    int connect(QString port);        // Connect to Arduino on a specific port
-    int write(QByteArray data);      // Send data to Arduino
-    QByteArray read();              // Receive data from Arduino
-    QSerialPort* getSerial();                  
-    QString getPortName();                  
-    bool isOpen();               // Check if the connection is open
-   
+    int connectArduino();
+    int closeArduino();
+    void writeToArduino(const QByteArray& data); 
+    QString readFromArduino();
+    QSerialPort* getSerial();
+    QString getArduinoPortName();
 
 private:
     QSerialPort* serial;
-    QString portName;
-    static const quint16 vendorId = 9025;       // Vendor ID for Arduino
-    static const quint16 productId = 67;       // Product ID for Arduino
-    bool isAvailable;
+    static const quint16 arduinoUnoVendorId = 9025;
+    static const quint16 arduinoUnoProductId = 67;
+    QString arduinoPortName;
+    bool arduinoIsAvailable;
     QByteArray data;
 };
 

@@ -9,7 +9,7 @@
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include "employee.h"
-
+#include "employeesrfid.h"
 
 namespace Ui {
 class Dashboard;
@@ -123,6 +123,7 @@ public:
     MainWindow mainWindowRef;
     Employee *user;
     QSystemTrayIcon* trayIcon;
+    EmployeesRFID* empRFID;
 };
 
 #endif // DASHBOARD_H

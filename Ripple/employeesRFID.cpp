@@ -1,36 +1,40 @@
 #include "employeesrfid.h"
 
-EmployeesRFID::EmployeesRFID(QObject* parent) : QObject(parent)
+EmployeesRFID::EmployeesRFID(QObject* parent) : QObject(parent), arduino()
 {
-    int arduinoConn = arduino.connectArduino(); 
-    switch (arduinoConn) {
-    case (0):
-        qDebug() << "arduino is available and connected to : "
-            << arduino.getPortName();
-        break;
-    case (1):
-        qDebug() << "given arduino is not available";
-    }
-
-    QObject::connect(arduino.getSerial(), SIGNAL(readyRead()), this,
-        SLOT(processRFIDData()));
+    
 }
 
 EmployeesRFID::~EmployeesRFID()
 {
-    arduino.disconnectArduino();
+    arduino.closeArduino();
+}
+
+Arduino& EmployeesRFID::getArduino()
+{
+    return arduino;
 }
 
 void EmployeesRFID::processRFIDData()
 {
-    QByteArray RFIDData = arduino.read();
-    QString RFIDString = QString(RFIDData);
+    QString RFIDString = arduino.readFromArduino();
 
-    if (checkIN(RFIDString)) {
-        qDebug() << "Employee with RFID" << RFIDString << "checked in.";
+    if (!RFIDString.isEmpty()) {
+        QSqlQuery query;
+        query.prepare("SELECT employee_id FROM employees WHERE RFID = :RFID");
+        query.bindValue(":RFID", RFIDString);
+
+        if (query.exec() && query.next()) {
+            int employeeId = query.value(0).toInt();
+            qDebug() << "Employee with RFID" << RFIDString << "and ID" << employeeId << "checked in.";
+            emit employeeCheckedIn(employeeId);
+        }
+        else {
+            qDebug() << "RFID" << RFIDString << "not found in the database.";
+        }
     }
     else {
-        qDebug() << "Failed to update database for RFID" << RFIDString;
+        qDebug() << "Invalid RFID data.";
     }
 }
 
