@@ -48,10 +48,28 @@ Dashboard::Dashboard(QWidget* parent) :
     timer->start(5000);
     accidentDetector = new AccidentDetector;
     empRFID = new EmployeesRFID(this);
-    //startRFID();
-    startAccidentDetector();
 
+    // Create a dialog to choose between RFID and Accident Detector
+    QDialog dialog(this);
+    dialog.setWindowTitle(tr("Select an Option"));
+
+    QPushButton* rfidButton = new QPushButton(tr("Start RFID"), &dialog);
+    QPushButton* accidentButton = new QPushButton(tr("Start Accident Detector"), &dialog);
+
+    connect(rfidButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+    connect(accidentButton, &QPushButton::clicked, &dialog, &QDialog::reject);
+
+    QVBoxLayout layout(&dialog);
+    layout.addWidget(rfidButton);
+    layout.addWidget(accidentButton);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        startRFID();
+    } else {
+        startAccidentDetector();
+    }
 }
+
 
 void Dashboard::update() {
     // Dashboard Nav Buttons
