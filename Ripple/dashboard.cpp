@@ -22,6 +22,7 @@
 #include <QtCore/QProcessEnvironment>
 #include <QToolTip>
 #include <map.h>
+
 Dashboard::Dashboard(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::Dashboard)
@@ -1222,31 +1223,7 @@ void Dashboard::openChatBox() {
     chat->show();
 }
 
-void Dashboard::startRFID() {
-    
-    int arduinoConn = empRFID->getArduino().connectArduino();
-    switch (arduinoConn) {
-    case 0:
-        qDebug() << "Arduino is available and connected to : "
-            << empRFID->getArduino().getArduinoPortName();
-        break;
-    case 1:
-        qDebug() << "Given Arduino is not available";
-        break;
-    case -1:
-        qDebug() << "Arduino not found";
-        break;
-    }
 
-  QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID,
-        SLOT(processRFIDData()));
-
-}
-
-
-void Dashboard::handleEmployeeCheckedIn(int employeeId) {
-    qDebug() << "Employee checked in with ID:" << employeeId;
-}
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -1904,6 +1881,42 @@ void Dashboard::showMapAccident() {
         qDebug() << "Failed to retrieve location from the database.";
     }
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------
+//Arduino
+
+
+//RFID
+void Dashboard::startRFID() {
+
+    int arduinoConn = empRFID->getArduino().connectArduino();
+    switch (arduinoConn) {
+    case 0:
+        qDebug() << "Arduino is available and connected to : "
+                 << empRFID->getArduino().getArduinoPortName();
+        break;
+    case 1:
+        qDebug() << "Given Arduino is not available";
+        break;
+    case -1:
+        qDebug() << "Arduino not found";
+        break;
+    }
+
+    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID,
+                     SLOT(processRFIDData()));
+
+}
+
+
+void Dashboard::handleEmployeeCheckedIn(int employeeId) {
+    qDebug() << "Employee checked in with ID:" << employeeId;
+}
+//-------------------------------------------------------------------------------------------------------------------------------
+
+
+//Accident Detector
+
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

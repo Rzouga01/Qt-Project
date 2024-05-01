@@ -10,12 +10,14 @@ INCLUDEPATH += $$PWD/portaudio/include
 INCLUDEPATH += $$PWD/libsndfile/include
 INCLUDEPATH += ../QZXing/src
 SOURCES += ../QZXing/src/QZXing.cpp \
+    accidentdetector.cpp \
     chatbot.cpp \
     map.cpp \
     qrcodedialog.cpp
 
 SOURCES += sms.cpp
 HEADERS += sms.h \
+    accidentdetector.h \
     chatbot.h \
     map.h
 INCLUDEPATH += $$PWD/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api

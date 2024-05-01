@@ -35,8 +35,8 @@ private:
     int client_id;
 
 public:
-    explicit accident(QWidget *parent = nullptr);
-    explicit accident(QTableWidget*tablewidget,QWidget *parent = nullptr);
+    accident(QWidget *parent = nullptr);
+    accident(QTableWidget*tablewidget,QWidget *parent = nullptr);
 
     // CONSTRUCTEUR
 

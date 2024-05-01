@@ -93,6 +93,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_freetype.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_libjpeg.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_libpng.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_openxr_loader.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_3danimation.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_3danimation_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_3dcore.pri \
@@ -201,6 +202,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_opengl_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_openxr_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_packetprotocol_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_pdf.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_pdf_private.pri \
@@ -282,11 +284,35 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dutils.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dutils_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dxr.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dxr_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2material.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri \
@@ -306,6 +332,9 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimeline_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimelineblendtrees.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimelineblendtrees_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickvectorimage.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickvectorimage_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickvectorimagegenerator_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_remoteobjects.pri \
@@ -350,6 +379,8 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_uitools_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboard.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboard_private.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboardsettings.pri \
+		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboardsettings_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_webchannel.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_webchannel_private.pri \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_webchannelquick.pri \
@@ -420,6 +451,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModels.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qml.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Network.prl \
+		C:\Qt\6.8.0\msvc2019_64\lib\Qt6SerialPort.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Core.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPoint.prl \
 		C:\Qt\6.8.0\msvc2019_64\mkspecs\features\build_pass.prf \
@@ -437,6 +469,7 @@ Makefile: ..\Ripple\Ripple.pro C:\Qt\6.8.0\msvc2019_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModelsd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qmld.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Networkd.prl \
+		C:\Qt\6.8.0\msvc2019_64\lib\Qt6SerialPortd.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6Cored.prl \
 		C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPointd.prl
 	$(QMAKE) -o Makefile ..\Ripple\Ripple.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -449,6 +482,7 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\qconfig.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_freetype.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_libjpeg.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_libpng.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_ext_openxr_loader.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_3danimation.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_3danimation_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_3dcore.pri:
@@ -557,6 +591,7 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_opengl.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_opengl_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_openxr_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_packetprotocol_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_pdf.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_pdf_private.pri:
@@ -638,11 +673,35 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dutils.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dutils_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dxr.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick3dxr_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quick_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2material.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri:
@@ -662,6 +721,9 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimeline.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimeline_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimelineblendtrees.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quicktimelineblendtrees_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickvectorimage.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickvectorimage_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickvectorimagegenerator_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_remoteobjects.pri:
@@ -706,6 +768,8 @@ C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_uitools.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_uitools_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboard.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboard_private.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboardsettings.pri:
+C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_virtualkeyboardsettings_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_webchannel.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_webchannel_private.pri:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\modules\qt_lib_webchannelquick.pri:
@@ -776,6 +840,7 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sql.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModels.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qml.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Network.prl:
+C:\Qt\6.8.0\msvc2019_64\lib\Qt6SerialPort.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Core.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPoint.prl:
 C:\Qt\6.8.0\msvc2019_64\mkspecs\features\build_pass.prf:
@@ -793,6 +858,7 @@ C:\Qt\6.8.0\msvc2019_64\lib\Qt6Sqld.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6QmlModelsd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Qmld.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Networkd.prl:
+C:\Qt\6.8.0\msvc2019_64\lib\Qt6SerialPortd.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6Cored.prl:
 C:\Qt\6.8.0\msvc2019_64\lib\Qt6EntryPointd.prl:
 qmake: FORCE

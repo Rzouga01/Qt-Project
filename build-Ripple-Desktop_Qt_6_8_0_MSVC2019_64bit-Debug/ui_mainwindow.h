@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -34,6 +35,7 @@ public:
     QPlainTextEdit *dark_theme;
     QPlainTextEdit *light_theme;
     QPushButton *loginButton;
+    QCheckBox *rememberMe;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -68,6 +70,25 @@ public:
 "background-color:rgba(0, 0, 0, 0);\n"
 "color:white;\n"
 "}\n"
+"QCheckBox {\n"
+"    color: white; \n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255));\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255));\n"
+"    border: 2px solid white; \n"
+"}\n"
+"\n"
+"QCheckBox::indicator:hover {\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(70, 123, 54, 255));\n"
+"}\n"
+"\n"
+"\n"
 "\n"
 ""));
         LoginPage->setFrameShape(QFrame::StyledPanel);
@@ -80,11 +101,12 @@ public:
         email = new QLineEdit(LoginPage);
         email->setObjectName("email");
         email->setGeometry(QRect(360, 330, 501, 70));
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Open Sans")});
+        email->setFont(font);
         password = new QLineEdit(LoginPage);
         password->setObjectName("password");
         password->setGeometry(QRect(360, 420, 501, 70));
-        QFont font;
-        font.setFamilies({QString::fromUtf8("Open Sans")});
         password->setFont(font);
         password->setEchoMode(QLineEdit::Password);
         themeSlider = new QSlider(LoginPage);
@@ -105,10 +127,11 @@ public:
         light_theme->setReadOnly(true);
         loginButton = new QPushButton(LoginPage);
         loginButton->setObjectName("loginButton");
-        loginButton->setGeometry(QRect(490, 510, 231, 41));
+        loginButton->setGeometry(QRect(490, 550, 231, 41));
         QFont font1;
+        font1.setFamilies({QString::fromUtf8("Open Sans")});
         font1.setPointSize(14);
-        font1.setBold(true);
+        font1.setBold(false);
         loginButton->setFont(font1);
         loginButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255));\n"
@@ -119,6 +142,11 @@ public:
 "        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(70, 123, 54, 255));\n"
 "     }\n"
 "     "));
+        rememberMe = new QCheckBox(LoginPage);
+        rememberMe->setObjectName("rememberMe");
+        rememberMe->setGeometry(QRect(420, 500, 301, 31));
+        rememberMe->setFont(font);
+        rememberMe->setTristate(true);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -137,6 +165,7 @@ public:
         light_theme->setPlainText(QCoreApplication::translate("MainWindow", "Light\n"
 "", nullptr));
         loginButton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
+        rememberMe->setText(QCoreApplication::translate("MainWindow", "Remember me", nullptr));
     } // retranslateUi
 
 };

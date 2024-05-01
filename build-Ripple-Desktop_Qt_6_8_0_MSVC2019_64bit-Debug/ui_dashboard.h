@@ -230,7 +230,6 @@ public:
     QLabel *AccidentCreateTypeline;
     QLineEdit *AccidentCreateType;
     QLineEdit *AccidentCreateDamage;
-    QLineEdit *AccidentCreateLocation;
     QLabel *AccidentCreateDamageline;
     QLabel *AccidentCreateDateline;
     QLabel *AccidentCreateLocationline;
@@ -239,6 +238,7 @@ public:
     QPushButton *AccidentCancel;
     QComboBox *AccidentCreateClientID;
     QDateEdit *AccidentCreateDate;
+    QComboBox *AccidentCreateLocation;
     QWidget *DeleteAccident;
     QFrame *FrameCreateAccident_2;
     QLabel *AccidentDeleteIDline;
@@ -259,15 +259,12 @@ public:
     QPushButton *AccidentUpdate;
     QComboBox *AccidentUpdateClientID;
     QDateEdit *AccidentUpdateDate;
-    QFrame *StatsAccident;
-    QPushButton *mapdisplay;
     QFrame *featureBarAccident;
     QPushButton *addAccident;
     QPushButton *deleteAccident;
     QPushButton *updateAccident;
     QPushButton *pdfAccident;
     QPushButton *sortAccident;
-    QPushButton *historyAccident;
     QPushButton *statsAccident;
     QTableWidget *tableAccident;
     QPushButton *employees;
@@ -1699,7 +1696,8 @@ public:
 "#pdfAccident, \n"
 "#updateAccident,\n"
 "#sortAccident,\n"
-"#historyAccident {\n"
+"#historyAccident,\n"
+"#statsAccident {\n"
 "     border: none;\n"
 "     background-color: transparent;\n"
 "}\n"
@@ -1714,16 +1712,16 @@ public:
         searchAccident->setClearButtonEnabled(true);
         CrudAccident = new QFrame(page_4);
         CrudAccident->setObjectName("CrudAccident");
-        CrudAccident->setGeometry(QRect(20, 160, 461, 381));
+        CrudAccident->setGeometry(QRect(20, 30, 461, 621));
         CrudAccident->setFrameShape(QFrame::NoFrame);
         StackedAccident = new QStackedWidget(CrudAccident);
         StackedAccident->setObjectName("StackedAccident");
-        StackedAccident->setGeometry(QRect(10, 20, 441, 341));
+        StackedAccident->setGeometry(QRect(10, 20, 441, 591));
         CreateAccident = new QWidget();
         CreateAccident->setObjectName("CreateAccident");
         FrameCreateAccident = new QFrame(CreateAccident);
         FrameCreateAccident->setObjectName("FrameCreateAccident");
-        FrameCreateAccident->setGeometry(QRect(0, 0, 451, 361));
+        FrameCreateAccident->setGeometry(QRect(0, 0, 451, 591));
         FrameCreateAccident->setFrameShape(QFrame::NoFrame);
         AccidentCreateTypeline = new QLabel(FrameCreateAccident);
         AccidentCreateTypeline->setObjectName("AccidentCreateTypeline");
@@ -1739,9 +1737,6 @@ public:
         AccidentCreateDamage = new QLineEdit(FrameCreateAccident);
         AccidentCreateDamage->setObjectName("AccidentCreateDamage");
         AccidentCreateDamage->setGeometry(QRect(188, 147, 113, 22));
-        AccidentCreateLocation = new QLineEdit(FrameCreateAccident);
-        AccidentCreateLocation->setObjectName("AccidentCreateLocation");
-        AccidentCreateLocation->setGeometry(QRect(188, 247, 113, 22));
         AccidentCreateDamageline = new QLabel(FrameCreateAccident);
         AccidentCreateDamageline->setObjectName("AccidentCreateDamageline");
         AccidentCreateDamageline->setGeometry(QRect(58, 147, 56, 16));
@@ -1786,6 +1781,9 @@ public:
         AccidentCreateDate = new QDateEdit(FrameCreateAccident);
         AccidentCreateDate->setObjectName("AccidentCreateDate");
         AccidentCreateDate->setGeometry(QRect(188, 197, 110, 25));
+        AccidentCreateLocation = new QComboBox(FrameCreateAccident);
+        AccidentCreateLocation->setObjectName("AccidentCreateLocation");
+        AccidentCreateLocation->setGeometry(QRect(180, 240, 121, 22));
         StackedAccident->addWidget(CreateAccident);
         DeleteAccident = new QWidget();
         DeleteAccident->setObjectName("DeleteAccident");
@@ -1885,13 +1883,6 @@ public:
         AccidentUpdateDate->setObjectName("AccidentUpdateDate");
         AccidentUpdateDate->setGeometry(QRect(160, 200, 110, 25));
         StackedAccident->addWidget(UpdateAccident);
-        StatsAccident = new QFrame(page_4);
-        StatsAccident->setObjectName("StatsAccident");
-        StatsAccident->setGeometry(QRect(20, 20, 191, 71));
-        StatsAccident->setFrameShape(QFrame::NoFrame);
-        mapdisplay = new QPushButton(StatsAccident);
-        mapdisplay->setObjectName("mapdisplay");
-        mapdisplay->setGeometry(QRect(30, 20, 121, 31));
         featureBarAccident = new QFrame(page_4);
         featureBarAccident->setObjectName("featureBarAccident");
         featureBarAccident->setGeometry(QRect(510, 30, 651, 61));
@@ -1905,35 +1896,28 @@ public:
         addAccident->setIconSize(QSize(60, 60));
         deleteAccident = new QPushButton(featureBarAccident);
         deleteAccident->setObjectName("deleteAccident");
-        deleteAccident->setGeometry(QRect(130, 10, 41, 41));
+        deleteAccident->setGeometry(QRect(140, 10, 41, 41));
         deleteAccident->setCursor(QCursor(Qt::PointingHandCursor));
         deleteAccident->setIcon(icon1);
         deleteAccident->setIconSize(QSize(40, 40));
         updateAccident = new QPushButton(featureBarAccident);
         updateAccident->setObjectName("updateAccident");
-        updateAccident->setGeometry(QRect(330, 10, 41, 41));
+        updateAccident->setGeometry(QRect(350, 10, 41, 41));
         updateAccident->setCursor(QCursor(Qt::PointingHandCursor));
         updateAccident->setIcon(icon2);
         updateAccident->setIconSize(QSize(60, 60));
         pdfAccident = new QPushButton(featureBarAccident);
         pdfAccident->setObjectName("pdfAccident");
-        pdfAccident->setGeometry(QRect(430, 10, 41, 41));
+        pdfAccident->setGeometry(QRect(470, 10, 41, 41));
         pdfAccident->setCursor(QCursor(Qt::PointingHandCursor));
         pdfAccident->setIcon(icon3);
         pdfAccident->setIconSize(QSize(50, 50));
         sortAccident = new QPushButton(featureBarAccident);
         sortAccident->setObjectName("sortAccident");
-        sortAccident->setGeometry(QRect(230, 10, 41, 41));
+        sortAccident->setGeometry(QRect(250, 10, 41, 41));
         sortAccident->setCursor(QCursor(Qt::PointingHandCursor));
         sortAccident->setIcon(icon4);
         sortAccident->setIconSize(QSize(50, 50));
-        historyAccident = new QPushButton(featureBarAccident);
-        historyAccident->setObjectName("historyAccident");
-        historyAccident->setGeometry(QRect(530, 10, 41, 41));
-        QIcon icon10;
-        icon10.addFile(QString::fromUtf8("../Resources/Icons/history.png"), QSize(), QIcon::Normal, QIcon::Off);
-        historyAccident->setIcon(icon10);
-        historyAccident->setIconSize(QSize(40, 40));
         statsAccident = new QPushButton(featureBarAccident);
         statsAccident->setObjectName("statsAccident");
         statsAccident->setGeometry(QRect(590, 10, 41, 41));
@@ -1988,9 +1972,9 @@ public:
         logoutButton->setCursor(QCursor(Qt::PointingHandCursor));
         logoutButton->setAutoFillBackground(false);
         logoutButton->setStyleSheet(QString::fromUtf8(""));
-        QIcon icon11;
-        icon11.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon11);
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8("../Resources/Icons/logout.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon10);
         logoutButton->setIconSize(QSize(20, 20));
         helloTextBar = new QLineEdit(frame);
         helloTextBar->setObjectName("helloTextBar");
@@ -2001,11 +1985,11 @@ public:
 
         retranslateUi(Dashboard);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
         CrudEmployee->setCurrentIndex(1);
         StackedClient->setCurrentIndex(2);
         StackContract->setCurrentIndex(0);
-        StackedAccident->setCurrentIndex(2);
+        StackedAccident->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Dashboard);
@@ -2067,6 +2051,7 @@ public:
 
         EmployeeSelectIDText_D->setText(QCoreApplication::translate("Dashboard", "Select ID", nullptr));
         EmployeeCancelBtn_D->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));
+        searchBarEmployee->setPlaceholderText(QCoreApplication::translate("Dashboard", "Search employee by name", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableEmployee->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableEmployee->horizontalHeaderItem(1);
@@ -2187,6 +2172,7 @@ public:
         ___qtablewidgetitem22->setText(QCoreApplication::translate("Dashboard", "Payment Status", nullptr));
         QTableWidgetItem *___qtablewidgetitem23 = tableContract->horizontalHeaderItem(7);
         ___qtablewidgetitem23->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
+        searchAccident->setPlaceholderText(QString());
         AccidentCreateTypeline->setText(QCoreApplication::translate("Dashboard", "Type", nullptr));
         AccidentCreateDamageline->setText(QCoreApplication::translate("Dashboard", "Damage", nullptr));
         AccidentCreateDateline->setText(QCoreApplication::translate("Dashboard", "Date", nullptr));
@@ -2203,13 +2189,11 @@ public:
         AccidentUpdateDateline->setText(QCoreApplication::translate("Dashboard", "date", nullptr));
         AccidentUpdateLocationline->setText(QCoreApplication::translate("Dashboard", "location", nullptr));
         AccidentUpdate->setText(QCoreApplication::translate("Dashboard", "update", nullptr));
-        mapdisplay->setText(QCoreApplication::translate("Dashboard", "MAP DISPLAY", nullptr));
         addAccident->setText(QString());
         deleteAccident->setText(QString());
         updateAccident->setText(QString());
         pdfAccident->setText(QString());
         sortAccident->setText(QString());
-        historyAccident->setText(QString());
         statsAccident->setText(QString());
         QTableWidgetItem *___qtablewidgetitem24 = tableAccident->horizontalHeaderItem(0);
         ___qtablewidgetitem24->setText(QCoreApplication::translate("Dashboard", "ID", nullptr));

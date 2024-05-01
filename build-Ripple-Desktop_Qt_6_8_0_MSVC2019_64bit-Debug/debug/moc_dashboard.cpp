@@ -9,12 +9,15 @@
 #include "../../Ripple/dashboard.h"
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qscreen.h>
+#include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
 
 #include <memory>
 
+
+#include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'dashboard.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68

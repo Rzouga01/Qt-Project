@@ -37,8 +37,8 @@ public:
     QFrame *messageBar;
     QLineEdit *messageInput;
     QPushButton *sendButton;
-    QLabel *RecordingIndicator;
     QPushButton *voiceButton;
+    QLabel *RecordingIndicator;
     QListWidget *histroy;
 
     void setupUi(QDialog *chatbot)
@@ -46,6 +46,8 @@ public:
         if (chatbot->objectName().isEmpty())
             chatbot->setObjectName("chatbot");
         chatbot->resize(1200, 600);
+        chatbot->setSizeGripEnabled(false);
+        chatbot->setModal(true);
         chatbox = new QWidget(chatbot);
         chatbox->setObjectName("chatbox");
         chatbox->setGeometry(QRect(-100, 0, 1301, 601));
@@ -74,13 +76,14 @@ public:
 "}\n"
 "\n"
 "/*Scroll bar*/\n"
+"\n"
 "QScrollBar:vertical {\n"
-"    border: none;\n"
-"    background: #333333;\n"
+"    background: transparent; \n"
 "    width: 14px;\n"
 "    margin: 15px 0 15px 0;\n"
-"    border-radius: 0px;\n"
+"    border-radius: 7px;\n"
 "}\n"
+"\n"
 "QScrollBar::handle:vertical {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
 "                                      stop:0 #A7C34E, stop:1 #9AB447);\n"
@@ -88,10 +91,11 @@ public:
 "    border-radius: 7px;\n"
 "}\n"
 "\n"
+"\n"
 "QScrollBar::handle:vertical:hover {\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"                                      stop:0 #A7"
-                        "C34E, stop:1 #5D762E);\n"
+"                                      stop:0 #A7C3"
+                        "4E, stop:1 #5D762E);\n"
 "}\n"
 "\n"
 "QScrollBar::handle:vertical:pressed {\n"
@@ -191,50 +195,63 @@ public:
         poweredBy->setFont(font1);
         chat = new QScrollArea(chatbox);
         chat->setObjectName("chat");
-        chat->setGeometry(QRect(400, 40, 871, 481));
+        chat->setGeometry(QRect(390, 20, 871, 491));
         chat->setStyleSheet(QString::fromUtf8("	border:none;"));
-        chat->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        chat->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         chat->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 871, 481));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 871, 491));
         verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout->setObjectName("verticalLayout");
         chatContainer = new QWidget(scrollAreaWidgetContents);
         chatContainer->setObjectName("chatContainer");
+        chatContainer->setEnabled(true);
+        chatContainer->setCursor(QCursor(Qt::ArrowCursor));
 
         verticalLayout->addWidget(chatContainer);
 
         chat->setWidget(scrollAreaWidgetContents);
         messageBar = new QFrame(chatbox);
         messageBar->setObjectName("messageBar");
-        messageBar->setGeometry(QRect(437, 526, 831, 61));
-        messageBar->setFrameShape(QFrame::Shape::StyledPanel);
-        messageBar->setFrameShadow(QFrame::Shadow::Raised);
+        messageBar->setGeometry(QRect(420, 530, 831, 61));
+        messageBar->setFrameShape(QFrame::NoFrame);
         messageInput = new QLineEdit(messageBar);
         messageInput->setObjectName("messageInput");
-        messageInput->setGeometry(QRect(10, 10, 641, 41));
+        messageInput->setGeometry(QRect(10, 10, 671, 41));
         sendButton = new QPushButton(messageBar);
         sendButton->setObjectName("sendButton");
-        sendButton->setGeometry(QRect(770, 10, 50, 30));
+        sendButton->setGeometry(QRect(770, 10, 51, 41));
+        sendButton->setCursor(QCursor(Qt::PointingHandCursor));
+        sendButton->setFocusPolicy(Qt::ClickFocus);
+        sendButton->setStyleSheet(QString::fromUtf8("background-color:transparent;\n"
+"border:none"));
         QIcon icon;
         icon.addFile(QString::fromUtf8("../Resources/Icons/send.png"), QSize(), QIcon::Normal, QIcon::Off);
         sendButton->setIcon(icon);
-        RecordingIndicator = new QLabel(messageBar);
-        RecordingIndicator->setObjectName("RecordingIndicator");
-        RecordingIndicator->setGeometry(QRect(660, -10, 81, 81));
-        RecordingIndicator->setScaledContents(true);
+        sendButton->setIconSize(QSize(40, 40));
+        sendButton->setCheckable(true);
         voiceButton = new QPushButton(messageBar);
         voiceButton->setObjectName("voiceButton");
-        voiceButton->setGeometry(QRect(680, 10, 41, 41));
+        voiceButton->setGeometry(QRect(710, 10, 51, 41));
+        voiceButton->setCursor(QCursor(Qt::PointingHandCursor));
+        voiceButton->setFocusPolicy(Qt::ClickFocus);
         voiceButton->setStyleSheet(QString::fromUtf8("background-color:transparent;\n"
 "border:none"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../Resources/Icons/Untitled-1.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("../Resources/Icons/microphone.png"), QSize(), QIcon::Normal, QIcon::Off);
         voiceButton->setIcon(icon1);
         voiceButton->setIconSize(QSize(40, 40));
         voiceButton->setCheckable(true);
         voiceButton->setChecked(false);
+        RecordingIndicator = new QLabel(messageBar);
+        RecordingIndicator->setObjectName("RecordingIndicator");
+        RecordingIndicator->setGeometry(QRect(690, -10, 91, 81));
+        RecordingIndicator->setScaledContents(true);
+        RecordingIndicator->raise();
+        messageInput->raise();
+        sendButton->raise();
+        voiceButton->raise();
         histroy = new QListWidget(chatbox);
         histroy->setObjectName("histroy");
         histroy->setGeometry(QRect(100, 1, 271, 601));
@@ -243,7 +260,7 @@ public:
 "        border:none;\n"
 "border-radius:10px;\n"
 ""));
-        histroy->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        histroy->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         histroy->raise();
         chat->raise();
         title->raise();
@@ -262,8 +279,8 @@ public:
         poweredBy->setText(QCoreApplication::translate("chatbot", "Powered by Google Gemini \302\251", nullptr));
         messageInput->setPlaceholderText(QCoreApplication::translate("chatbot", "Your message...", nullptr));
         sendButton->setText(QString());
-        RecordingIndicator->setText(QString());
         voiceButton->setText(QString());
+        RecordingIndicator->setText(QString());
     } // retranslateUi
 
 };

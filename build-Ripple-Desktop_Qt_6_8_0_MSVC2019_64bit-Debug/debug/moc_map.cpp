@@ -13,6 +13,8 @@
 
 #include <memory>
 
+
+#include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'map.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
@@ -36,6 +38,7 @@ constexpr auto qt_meta_stringdata_CLASSmapENDCLASS = QtMocHelpers::stringData(
     "map",
     "setCenter",
     "",
+    "QVariant",
     "addMarker",
     "addSecondMarker",
     "clear",
@@ -44,14 +47,7 @@ constexpr auto qt_meta_stringdata_CLASSmapENDCLASS = QtMocHelpers::stringData(
     "getItemCount",
     "sendValues",
     "value1",
-    "value2",
-    "handleMapClick",
-    "lat",
-    "lng",
-    "on_pushButton_2_clicked",
-    "on_pushButton_clicked",
-    "on_comboBox_3_currentTextChanged",
-    "arg1"
+    "value2"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -64,7 +60,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmapENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,34 +68,22 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmapENDCLASS[] = {
        7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   80,    2, 0x06,    1 /* Public */,
-       3,    2,   85,    2, 0x06,    4 /* Public */,
-       4,    2,   90,    2, 0x06,    7 /* Public */,
-       5,    0,   95,    2, 0x06,   10 /* Public */,
-       6,    1,   96,    2, 0x06,   11 /* Public */,
-       8,    0,   99,    2, 0x06,   13 /* Public */,
-       9,    2,  100,    2, 0x06,   14 /* Public */,
-
- // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      12,    2,  105,    2, 0x0a,   17 /* Public */,
-      15,    0,  110,    2, 0x08,   20 /* Private */,
-      16,    0,  111,    2, 0x08,   21 /* Private */,
-      17,    1,  112,    2, 0x08,   22 /* Private */,
+       1,    2,   56,    2, 0x06,    1 /* Public */,
+       4,    2,   61,    2, 0x06,    4 /* Public */,
+       5,    2,   66,    2, 0x06,    7 /* Public */,
+       6,    0,   71,    2, 0x06,   10 /* Public */,
+       7,    1,   72,    2, 0x06,   11 /* Public */,
+       9,    0,   75,    2, 0x06,   13 /* Public */,
+      10,    2,   76,    2, 0x06,   14 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QVariant, QMetaType::QVariant,    2,    2,
-    QMetaType::Void, QMetaType::QVariant, QMetaType::QVariant,    2,    2,
-    QMetaType::Void, QMetaType::QVariant, QMetaType::QVariant,    2,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    2,    2,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, QMetaType::QString,    8,
     QMetaType::Int,
-    QMetaType::Void, QMetaType::Double, QMetaType::Double,   10,   11,
-
- // slots: parameters
-    QMetaType::QString, QMetaType::QVariant, QMetaType::QVariant,   13,   14,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::Double, QMetaType::Double,   11,   12,
 
        0        // eod
 };
@@ -135,18 +119,7 @@ Q_CONSTINIT const QMetaObject map::staticMetaObject = { {
         // method 'sendValues'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<double, std::false_type>,
-        QtPrivate::TypeAndForceComplete<double, std::false_type>,
-        // method 'handleMapClick'
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QVariant, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QVariant, std::false_type>,
-        // method 'on_pushButton_2_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_pushButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_comboBox_3_currentTextChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<double, std::false_type>
     >,
     nullptr
 } };
@@ -165,11 +138,6 @@ void map::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 5: { int _r = _t->getItemCount();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 6: _t->sendValues((*reinterpret_cast< std::add_pointer_t<double>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[2]))); break;
-        case 7: { QString _r = _t->handleMapClick((*reinterpret_cast< std::add_pointer_t<QVariant>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QVariant>>(_a[2])));
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 8: _t->on_pushButton_2_clicked(); break;
-        case 9: _t->on_pushButton_clicked(); break;
-        case 10: _t->on_comboBox_3_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -245,13 +213,13 @@ int map::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 7;
     }
     return _id;
 }
