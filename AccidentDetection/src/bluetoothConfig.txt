@@ -1,0 +1,26 @@
+#include "Arduino.h"
+#include <SoftwareSerial.h>
+
+const byte rxPin = 9;
+const byte txPin = 8;
+SoftwareSerial BTSerial(rxPin, txPin); // RX TX
+
+void setup() {
+  pinMode(rxPin, INPUT);
+  pinMode(txPin, OUTPUT);
+  BTSerial.begin(9600);
+  Serial.begin(9600);
+}
+
+
+void loop() {
+  while (BTSerial.available()) {
+    char dataByte = BTSerial.read();
+    Serial.write(dataByte);
+  }
+  
+  while (Serial.available()) {
+    char dataByte = Serial.read();
+    BTSerial.write(dataByte);
+  }
+}
