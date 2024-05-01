@@ -23,14 +23,21 @@ AccidentDetector &AccidentDetector::operator=(const AccidentDetector &rhs)
 
 QString AccidentDetector::parseData(int columnReturn, QString data)
 {
-    return data.split("_")[columnReturn];
-
+    QStringList parts = data.split("_");
+    if (columnReturn >= 0 && columnReturn < parts.size()) {
+        return parts[columnReturn];
+    } else {
+        // Handle the case where columnReturn is out of range
+        qDebug() << "Invalid columnReturn index:" << columnReturn;
+        return QString(); // or return an error string
+    }
 }
 
 bool AccidentDetector::OnAccidentDetected(QString data)
 {
 
-    int clientID = parseData(0,data).toInt();
+
+    int clientID = 83;
 
     int location=parseData(1,data).toInt();
 
@@ -47,9 +54,9 @@ bool AccidentDetector::OnAccidentDetected(QString data)
 
     accident accident(nullptr,nullptr);
 
-    if(accident.create(accidentType,damage,date,QString::number(location),clientID))
+    if(accident.create(accidentType,damage,date,location,clientID))
     {
-        QMessageBox::information(nullptr,"Accident Detected","An accident has been detected and added to the database");
+        QMessageBox::information(nullptr,"Accident Detected through the Arduino","An accident has been detected and added to the database");
 
         return true;
     }

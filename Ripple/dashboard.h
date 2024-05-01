@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QtWidgets>
 #include <QUiLoader>
+#include "accidentdetector.h"
 #include "mainwindow.h"
 #include <QTableWidget>
 #include <QTableWidgetItem>
@@ -118,12 +119,20 @@ public:
     void onstatsClickedAccident();
     void showMapAccident();
     //------------------------------------------------------------------------------------------------------------------
+    //Arduino
+   void printSerialMonitor();
+
+    //Accident Detector
+    void startAccidentDetector();
+private slots:
+    void readAccidentData();
 public:
     Ui::Dashboard* ui;
     MainWindow mainWindowRef;
     Employee *user;
     QSystemTrayIcon* trayIcon;
     EmployeesRFID* empRFID;
+    AccidentDetector* accidentDetector;
 };
 
 #endif // DASHBOARD_H

@@ -22,6 +22,7 @@
 #include <QtCore/QProcessEnvironment>
 #include <QToolTip>
 #include <map.h>
+#include "accidentdetector.h"
 
 Dashboard::Dashboard(QWidget* parent) :
     QDialog(parent),
@@ -45,8 +46,11 @@ Dashboard::Dashboard(QWidget* parent) :
     QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Dashboard::checkContractDates);
     timer->start(5000);
+    accidentDetector = new AccidentDetector;
     empRFID = new EmployeesRFID(this);
-    startRFID();
+    //startRFID();
+    startAccidentDetector();
+
 }
 
 void Dashboard::update() {
@@ -65,6 +69,7 @@ void Dashboard::update() {
     ContractDashboardConnectUi();
     // Accident
     AccidentDashboardConnectUi();
+
 }
 
 void Dashboard::onLogoutButtonClicked() {
@@ -1557,14 +1562,10 @@ void Dashboard::checkContractDates()
     QDate nextDay = QDate::currentDate().addDays(1);
 
     // Connect to the database
-    QSqlDatabase db = QSqlDatabase::database();
-    if (!db.isValid()) {
-        qDebug() << "Database connection invalid";
-        return;
-    }
+
 
     // Prepare a query to fetch the end dates and names of projects
-    QSqlQuery query(db);
+    QSqlQuery query;
     query.prepare("SELECT CONTRACT_ID, EXPIRATION_DATE FROM CONTRACTS");
     if (!query.exec()) {
         qDebug() << "Failed to execute query:" << query.lastError().text();
@@ -1575,7 +1576,7 @@ void Dashboard::checkContractDates()
     while (query.next()) {
         int id = query.value(0).toInt();
         QDate endDate = query.value(1).toDate();
-        qDebug() << "Contract ID:" << id << "Expiration Date:" << endDate.toString("dd/MM/yyyy");
+        //qDebug() << "Contract ID:" << id << "Expiration Date:" << endDate.toString("dd/MM/yyyy");
         if (endDate == nextDay) {
             sendNotification(id);
             qDebug() << "Contract ends tomorrow";
@@ -1731,7 +1732,7 @@ void Dashboard::onAddClickedAccident() {
                 ui->AccidentCreateType->text(),
                 ui->AccidentCreateDamage->text().toInt(),
                 ui->AccidentCreateDate->date(),
-                ui->AccidentCreateLocation->currentData().toString(),
+                ui->AccidentCreateLocation->currentData().toInt(),
                 ui->AccidentCreateClientID->currentData().toInt()))
         {
             MasterAccident.accidentRead();
@@ -1884,7 +1885,29 @@ void Dashboard::showMapAccident() {
 
 //-------------------------------------------------------------------------------------------------------------------------------
 //Arduino
+void Dashboard::printSerialMonitor()
+{
+    qDebug() << "Serial Monitor Output:";
 
+    QSerialPort serialPort;
+    serialPort.setPortName("COM7"); // Replace "COM7" with the appropriate port name for your Arduino
+
+    if (!serialPort.open(QIODevice::ReadOnly)) {
+        qDebug() << "Failed to open serial port:" << serialPort.portName();
+        return;
+    }
+
+    while (true) {
+        if (serialPort.waitForReadyRead(1000)) {
+            QByteArray data = serialPort.readAll();
+            qDebug() << "Data:" << QString::fromLatin1(data);
+        }
+
+        QThread::msleep(100); // Wait for 100 milliseconds before checking again
+    }
+
+    serialPort.close();
+}
 
 //RFID
 void Dashboard::startRFID() {
@@ -1916,7 +1939,36 @@ void Dashboard::handleEmployeeCheckedIn(int employeeId) {
 
 
 //Accident Detector
+void Dashboard::startAccidentDetector() {
+    // Connect Arduino and check connection status
+    accident MasterAccident(ui->tableAccident, this);
+    int arduinoConn = accidentDetector->getArduino().connectArduino();
+    switch (arduinoConn) {
+    case 0:
+        qDebug() << "Arduino is available and connected to: "
+                 << accidentDetector->getArduino().getArduinoPortName();
+        break;
+    case 1:
+        qDebug() << "Given Arduino is not available";
+        break;
+    case -1:
+        qDebug() << "Arduino not found";
+        break;
+    }
 
+    // Connect Arduino's serial port signal to OnAccidentDetected slot
+    QObject::connect(accidentDetector->getArduino().getSerial(), SIGNAL(readyRead()),
+                     this, SLOT(readAccidentData()));
+    MasterAccident.accidentRead();
+
+
+}
+
+void Dashboard::readAccidentData() {
+    QByteArray data = accidentDetector->getArduino().getSerial()->readAll().trimmed(); // Read data from serial
+    QString accidentData = QString::fromLatin1(data); // Convert data to QString
+    accidentDetector->OnAccidentDetected(accidentData); // Process accident data
+}
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
     delete ui;

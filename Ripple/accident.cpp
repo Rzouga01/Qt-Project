@@ -68,7 +68,7 @@ accident::accident(QString type, int damage, QDate date, QString location, int c
     this->client_id = client_id;
 }
 
-bool accident::create(QString type, int damage, QDate date, QString location, int client_id)
+bool accident::create(QString type, int damage, QDate date, int location, int client_id)
 {
     QSqlQuery query;
 

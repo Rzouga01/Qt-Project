@@ -35,7 +35,7 @@ private:
     int client_id;
 
 public:
-    accident(QWidget *parent = nullptr);
+   accident(QWidget *parent = nullptr);
     accident(QTableWidget*tablewidget,QWidget *parent = nullptr);
 
     // CONSTRUCTEUR
@@ -65,7 +65,7 @@ public:
 
     // FONCTIONALITES DE BASE
 
-    bool create(QString type  ,int damage ,QDate date,QString location,int client_id );
+    bool create(QString type  ,int damage ,QDate date,int location,int client_id );
     void accidentRead();
     void update( int acc_id,QString type,int damage,QDate date,QString location,int client_id);
     bool Delete(int);

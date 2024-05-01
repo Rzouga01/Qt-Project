@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     sqlConn con;
     chatbot bot;
-    Dashboard d;
+    //Dashboard d;
 
     if (con.createconnect()) {
         w.show();
