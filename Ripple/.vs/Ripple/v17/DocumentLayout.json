@@ -1,58 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\",
+  "WorkspaceRootPath": "E:\\touskie formatik\\Qt-Project\\Ripple\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\arduino.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:arduino.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\arduino.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|solutionrelative:arduino.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\employeesRFID.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:employeesRFID.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\employeesRFID.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|solutionrelative:employeesRFID.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\employeesRFID.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:employeesRFID.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:dashboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\employeesRFID.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|solutionrelative:employeesRFID.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:dashboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\arduino.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:arduino.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:sms.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:sms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:chatbot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AF568665-BF3A-3314-B894-30F39C0A4AFD}|Ripple.vcxproj|solutionrelative:chatbot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|E:\\touskie formatik\\Qt-Project\\Ripple\\arduino.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F29A56FE-7B1D-3EBE-A7BE-13BE01B7A91A}|Ripple.vcxproj|solutionrelative:arduino.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,183 +30,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d3750d8a-574b-4fb3-b7e2-aa8af40e8231}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dashboard.h",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\dashboard.h",
-              "RelativeDocumentMoniker": "dashboard.h",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\dashboard.h",
-              "RelativeToolTip": "dashboard.h",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAcwHoAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-30T15:56:11.268Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "dashboard.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\dashboard.cpp",
-              "RelativeDocumentMoniker": "dashboard.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\dashboard.cpp",
-              "RelativeToolTip": "dashboard.cpp",
-              "ViewState": "AQIAAIwEAAAAAAAAAAAAAKMEAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-30T13:05:15.539Z",
+              "Title": "employeesRFID.h",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\employeesRFID.h",
+              "RelativeDocumentMoniker": "employeesRFID.h",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\employeesRFID.h",
+              "RelativeToolTip": "employeesRFID.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-01T22:30:40.429Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "employeesRFID.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\employeesRFID.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\employeesRFID.cpp",
               "RelativeDocumentMoniker": "employeesRFID.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\employeesRFID.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\employeesRFID.cpp",
               "RelativeToolTip": "employeesRFID.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAFAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAwwCAAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-30T15:47:24.036Z",
+              "WhenOpened": "2024-05-01T22:30:39.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "employeesRFID.h",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\employeesRFID.h",
-              "RelativeDocumentMoniker": "employeesRFID.h",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\employeesRFID.h",
-              "RelativeToolTip": "employeesRFID.h",
-              "ViewState": "AQIAAAIAAAAAAAAAAAA1wBYAAAAOAAAA",
+              "Title": "dashboard.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\dashboard.cpp",
+              "RelativeDocumentMoniker": "dashboard.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\dashboard.cpp",
+              "RelativeToolTip": "dashboard.cpp",
+              "ViewState": "AQIAAFEGAAAAAAAAAAA0wJIHAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-01T22:25:10.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "arduino.h",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\arduino.h",
+              "RelativeDocumentMoniker": "arduino.h",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\arduino.h",
+              "RelativeToolTip": "arduino.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-30T13:05:20.251Z",
+              "WhenOpened": "2024-05-01T22:23:28.074Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "arduino.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\arduino.cpp",
+              "DocumentMoniker": "E:\\touskie formatik\\Qt-Project\\Ripple\\arduino.cpp",
               "RelativeDocumentMoniker": "arduino.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\arduino.cpp",
+              "ToolTip": "E:\\touskie formatik\\Qt-Project\\Ripple\\arduino.cpp",
               "RelativeToolTip": "arduino.cpp",
-              "ViewState": "AQIAAJwAAAAAAAAAAAA1wLsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFoAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-30T15:48:08.214Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "arduino.h",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\arduino.h",
-              "RelativeDocumentMoniker": "arduino.h",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\arduino.h",
-              "RelativeToolTip": "arduino.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-30T12:35:46.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "mainwindow.h",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\mainwindow.h",
-              "RelativeDocumentMoniker": "mainwindow.h",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\mainwindow.h",
-              "RelativeToolTip": "mainwindow.h",
-              "ViewState": "AQIAABAAAAAAAAAAAABIwBsAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-19T07:05:16.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "sms.h",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\sms.h",
-              "RelativeDocumentMoniker": "sms.h",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\sms.h",
-              "RelativeToolTip": "sms.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-19T07:00:44.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "sms.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\sms.cpp",
-              "RelativeDocumentMoniker": "sms.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\sms.cpp",
-              "RelativeToolTip": "sms.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-19T07:00:07.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "mainwindow.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\mainwindow.cpp",
-              "RelativeDocumentMoniker": "mainwindow.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\mainwindow.cpp",
-              "RelativeToolTip": "mainwindow.cpp",
-              "ViewState": "AQIAAGYAAAAAAAAAAABIwA0AAABeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-19T02:27:31.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-19T02:12:56.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "chatbot.cpp",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\chatbot.cpp",
-              "RelativeDocumentMoniker": "chatbot.cpp",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\chatbot.cpp",
-              "RelativeToolTip": "chatbot.cpp",
-              "ViewState": "AQIAALUAAAAAAAAAAAAYwLwAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-15T20:33:10.481Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "chatbot.h",
-              "DocumentMoniker": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\chatbot.h",
-              "RelativeDocumentMoniker": "chatbot.h",
-              "ToolTip": "C:\\Users\\Rzouga.RZOUGALAPTOP\\Desktop\\School\\2A\\SEM 2\\QT\\Qt-Project\\Ripple\\chatbot.h",
-              "RelativeToolTip": "chatbot.h",
-              "ViewState": "AQIAABEAAAAAAAAAAAA1wC0AAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-15T20:33:09.541Z",
+              "WhenOpened": "2024-05-01T22:22:24.13Z",
               "EditorCaption": ""
             }
           ]

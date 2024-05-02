@@ -88,16 +88,15 @@ QString Arduino::readFromArduino() {
         QString currentData = QString::fromUtf8(requestData);
 
         if (!currentData.isEmpty()) {
-            // Append the received data to the buffer
+          
             receivedData += currentData;
 
-            // Check if the received data contains a complete RFID card scan
+         
             int newlineIndex = receivedData.indexOf('\n');
             if (newlineIndex != -1) {
-                // Extract the complete RFID data
+              
                 QString completeData = receivedData.left(newlineIndex).trimmed();
 
-                // Remove the extracted data from the buffer
                 receivedData = receivedData.mid(newlineIndex + 1).trimmed();
 
                 qDebug() << "RFID Card scanned:" << completeData;

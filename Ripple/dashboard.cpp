@@ -1245,8 +1245,6 @@ void Dashboard::openChatBox() {
     chatbot* chat = new chatbot(this);
     chat->show();
 }
-
-
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -1901,14 +1899,14 @@ void Dashboard::showMapAccident() {
     }
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------
+//********************************************************************************************************************
 //Arduino
 void Dashboard::printSerialMonitor()
 {
     qDebug() << "Serial Monitor Output:";
 
     QSerialPort serialPort;
-    serialPort.setPortName("COM7"); // Replace "COM7" with the appropriate port name for your Arduino
+    serialPort.setPortName("COM7");
 
     if (!serialPort.open(QIODevice::ReadOnly)) {
         qDebug() << "Failed to open serial port:" << serialPort.portName();
@@ -1921,7 +1919,7 @@ void Dashboard::printSerialMonitor()
             qDebug() << "Data:" << QString::fromLatin1(data);
         }
 
-        QThread::msleep(100); // Wait for 100 milliseconds before checking again
+        QThread::msleep(100);
     }
 
     serialPort.close();
@@ -1953,8 +1951,7 @@ void Dashboard::startRFID() {
 void Dashboard::handleEmployeeCheckedIn(int employeeId) {
     qDebug() << "Employee checked in with ID:" << employeeId;
 }
-//-------------------------------------------------------------------------------------------------------------------------------
-
+//********************************************************************************************************************
 
 //Accident Detector
 void Dashboard::startAccidentDetector() {

@@ -1,2 +1,1 @@
-﻿  arduino.cpp
-LINK : fatal error LNK1104: cannot open file 'debug\\Ripple.exe'
+﻿  Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe
