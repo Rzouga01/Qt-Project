@@ -63,7 +63,7 @@ bool AccidentDetector::OnAccidentDetected() {
             qry.bindValue(":id", clientID);
 
             if (qry.exec() && qry.next()) {
-                QString ClientName = qry.value(1).toString();
+                QString ClientName = qry.value(2).toString();
                 writeData += ClientName; // Append client name to writeData
             } else {
                 QMessageBox::warning(nullptr, "Error", "Error querying client data");
