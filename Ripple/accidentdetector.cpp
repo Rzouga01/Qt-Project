@@ -1,5 +1,5 @@
 #include "accidentdetector.h"
-
+#include <random>
 class AccidentDetectorData : public QSharedData
 {
 public:
@@ -21,48 +21,61 @@ AccidentDetector &AccidentDetector::operator=(const AccidentDetector &rhs)
 }
 
 
-QString AccidentDetector::parseData(int columnReturn, QString data)
-{
-    QStringList parts = data.split("_");
-    if (columnReturn >= 0 && columnReturn < parts.size()) {
-        return parts[columnReturn];
-    } else {
-        // Handle the case where columnReturn is out of range
-        qDebug() << "Invalid columnReturn index:" << columnReturn;
-        return QString(); // or return an error string
+QString AccidentDetector::parseData(int columnReturn, QString data) {
+    QStringList dataList = data.split(" ");
+    if (columnReturn >= 0 && columnReturn < dataList.size()) {
+        return dataList[columnReturn];
+    }
+    else {
+        qWarning() << "Invalid column"<<columnReturn<<" requested";
+        return "";
     }
 }
 
-bool AccidentDetector::OnAccidentDetected(QString data)
-{
 
+bool AccidentDetector::OnAccidentDetected() {
 
-    int clientID = 83;
+    QString data=arduino.readFromArduino();
 
-    int location=parseData(1,data).toInt();
+    int clientID = parseData(0,data).toInt();
 
-    float accelaX = parseData(2,data).toFloat();
-    float accelaY = parseData(3,data).toFloat();
-    float accelaZ = parseData(4,data).toFloat();
+    // Validate location parsing (assuming parseData returns an int)
+    int location = parseData(1, data).toInt();
 
-    float deltaAccela = abs(accelaX)+abs(accelaY)+abs(accelaZ);
+      // Assuming location is parsed as an int
+    float deltaAccela = parseData(2, data).toFloat();
 
-    QString accidentType="Car Accident";
+    qDebug() << "Delta Accela: " << deltaAccela;
 
-    int damage=1000*deltaAccela/3;
-    QDate date=QDate::currentDate();
+    QString accidentType = "Car Accident";
+    int damage = 1000 * deltaAccela / 3;
+    QDate date = QDate::currentDate();
 
+    float accelerationThreshold = 10.0;
+
+    // Ensure all required fields are set in the accident object
     accident accident(nullptr,nullptr);
 
-    if(accident.create(accidentType,damage,date,location,clientID))
-    {
-        QMessageBox::information(nullptr,"Accident Detected through the Arduino","An accident has been detected and added to the database");
+    // Thread safety (if applicable)
+    QMutex mutex;  // Example mutex for thread synchronization
+    mutex.lock();
+if (deltaAccela > accelerationThreshold && location != 0) {
+    if (accident.create(accidentType,damage,date,location,clientID)){
+        QMessageBox::information(nullptr, "Accident Detected",
+                                 "An accident has been detected through the arduino and added to the database");
+        QString writeData="*"+QString::number(clientID)+" "+QString::number(location);
 
+        arduino.writeToArduino(writeData.toUtf8());
+
+        mutex.unlock();
         return true;
-    }
-    return false;
+    } else {
+        QMessageBox::warning(nullptr, "Error", "An error occurred while adding the accident to the database");
+        mutex.unlock();
+        return false;
+    }}
+return false;
 }
-
 
 
 Arduino& AccidentDetector::getArduino()
