@@ -12,7 +12,7 @@ LiquidCrystal_I2C lcd(LCD_ADDRESS, 16, 2); // 16x2 LCD
 SoftwareSerial BTSerial(9, 8);              // RX, TX pins for Bluetooth
 
 const float accelerationThreshold = 10.0; // Adjust as needed for sensitivity
-const int clientId = 83;                  // Assuming constant client ID (remove if not applicable)
+const int clientId = 81 ;//81,82,83,101;                  // Assuming constant client ID 
 int locationId;
 // Declare locationId variable
 
