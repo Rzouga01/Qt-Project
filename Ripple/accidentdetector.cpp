@@ -46,6 +46,7 @@ bool AccidentDetector::OnAccidentDetected() {
     QDate date = QDate::currentDate();
 
     float accelerationThreshold = 10.0;
+    QString Information="";
 
     accident accident(nullptr, nullptr); // Ensure all required fields are set in the accident object
 
@@ -54,7 +55,9 @@ bool AccidentDetector::OnAccidentDetected() {
 
     if (deltaAccela > accelerationThreshold && location != 0) {
         if (accident.create(accidentType, damage, date, location, clientID)) {
-            QMessageBox::information(nullptr, "Accident Detected", "An accident has been detected and added to the database");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Accident Detected");
+            msgBox.setText("An accident has been detected!");
 
             QSqlQuery qry;
 
@@ -64,6 +67,10 @@ bool AccidentDetector::OnAccidentDetected() {
 
             if (qry.exec() && qry.next()) {
                 QString ClientName = qry.value(2).toString();
+                Information+="Client Name:"+ClientName+"\n";
+                Information+="Client Last Name:"+qry.value(3).toString()+"\n";
+                Information+="Client Phone:"+qry.value(5).toString()+"\n";
+
                 writeData += ClientName; // Append client name to writeData
             } else {
                 QMessageBox::warning(nullptr, "Error", "Error querying client data");
@@ -77,6 +84,7 @@ bool AccidentDetector::OnAccidentDetected() {
 
             if (qry.exec() && qry.next()) {
                 QString locationName = qry.value(1).toString();
+                Information+="Location Name:"+locationName+"\n";
                 writeData += " " + locationName; // Append location name to writeData
             } else {
                 QMessageBox::warning(nullptr, "Error", "Error querying location data");
@@ -85,6 +93,22 @@ bool AccidentDetector::OnAccidentDetected() {
             }
 
             // Send the formatted message to Arduino
+            QString message = "Accident Detected\n" + Information;
+            msgBox.setInformativeText(message);
+
+            QPushButton* mapButton = msgBox.addButton(tr("Show on Map"), QMessageBox::ActionRole);
+            QPushButton* closeButton = msgBox.addButton(QMessageBox::Close);
+
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setDefaultButton(mapButton);
+
+            // Show the pop-up dialog and wait for user response
+            msgBox.exec();
+
+            if (msgBox.clickedButton() == mapButton) {
+                showMapAccident(location);
+            }
+
             arduino.writeToArduino(writeData.toUtf8());
             mutex.unlock(); // Unlock the mutex before returning
             return true;
@@ -99,6 +123,21 @@ bool AccidentDetector::OnAccidentDetected() {
     return false;
 }
 
+void AccidentDetector::showMapAccident(int locationID) {
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM LOCATION WHERE LOCATION_ID = ?");
+    qry.addBindValue(locationID);
+    if (qry.exec() && qry.next()) {
+        float x = qry.value(2).toFloat();
+        float y = qry.value(3).toFloat();
+        qDebug() << "Location coordinates retrieved from database - x:" << x << ", y:" << y;
+
+        map p(nullptr, x, y);
+        p.exec();
+    } else {
+        qDebug() << "Failed to retrieve location from the database.";
+    }
+}
 
 Arduino& AccidentDetector::getArduino()
 {

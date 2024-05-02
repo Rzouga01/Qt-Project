@@ -5,6 +5,7 @@
 #include <QSharedDataPointer>
 #include <accident.h>
 #include "arduino.h"
+#include <map.h>
 
 class AccidentDetectorData;
 
@@ -20,6 +21,7 @@ public:
     Arduino& getArduino();
     bool OnAccidentDetected();
     bool sendAccidentNotification(const accident& accident);
+    void showMapAccident(int locationID);
 
 private:
     Arduino arduino;
