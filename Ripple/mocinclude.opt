@@ -1,17 +1,17 @@
 -IC:/Qt/6.8.0/msvc2019_64/mkspecs/win32-msvc
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src/zxing
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src/zxing/win32/zxing
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/qtxlsx/QXlsx
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/qtxlsx
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/qtxlsx/QXlsx/header
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple/portaudio/include
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple/libsndfile/include
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/QZXing/src
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
--IC:/Users/Rzouga.RZOUGALAPTOP/Desktop/School/2A/SEM 2/QT/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/Ripple
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/QZXing/src
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/QZXing/src/zxing
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/QZXing/src/zxing/win32/zxing
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/QZXing/src/zxing/win32/zxing/msvc
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/qtxlsx/QXlsx
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/qtxlsx
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/qtxlsx/QXlsx/header
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/Ripple/portaudio/include
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/Ripple/libsndfile/include
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/QZXing/src
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/c_api
+-IC:/Users/21650/OneDrive/Bureau/Qt-Project/Ripple/packages/Microsoft.CognitiveServices.Speech.1.37.0/build/native/include/cxx_api
 -IC:/Qt/6.8.0/msvc2019_64/include
 -IC:/Qt/6.8.0/msvc2019_64/include/QtCharts
 -IC:/Qt/6.8.0/msvc2019_64/include/QtUiTools
@@ -41,3 +41,4 @@
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt
 -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt
+-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um

@@ -22,11 +22,12 @@ void EmployeesRFID::processRFIDData()
     if (!RFIDString.isEmpty()) {
         if (RFIDString.contains(" ")) {
             QSqlQuery query;
-            query.prepare("SELECT user_id FROM employees WHERE RFID = :RFID");
+            query.prepare("SELECT * FROM employees WHERE RFID = :RFID");
             query.bindValue(":RFID", RFIDString.trimmed());
 
             if (query.exec() && query.next()) {
                 int employeeId = query.value(0).toInt();
+                QString employeeName = query.value(4).toString();
                 qDebug() << "Employee with RFID" << RFIDString << "and ID" << employeeId << "checked in.";
                 emit employeeCheckedIn(employeeId, QDateTime::currentDateTime().toString("dd MMM yyyy hh:mm:ss"));
         
@@ -35,6 +36,9 @@ void EmployeesRFID::processRFIDData()
                 }
 
                 arduino.writeToArduino("1");
+                arduino.writeToArduino(QString("Welcome %1").arg(employeeName).toUtf8());
+
+
             }
             else {
                 qDebug() << "RFID" << RFIDString << "not found in the database.";

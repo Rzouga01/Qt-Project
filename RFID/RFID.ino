@@ -87,7 +87,7 @@ void scanRFID() {
   lcd.print("Scanning");
   for (int i = 0; i < rfid.uid.size; i++) {
     lcd.print(".");
-    delay(500);
+    delay(500); 
   }
 
   String cardContent = "";
@@ -105,6 +105,15 @@ void scanRFID() {
 
 void handleCommand(String command) {
   if (command[0] == '1' && doorLocked == 0) {
+      if (Serial.available() > 0) {
+    String employeeName = Serial.readString();
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Welcome ");
+    lcd.setCursor(0, 1);
+    lcd.print(employeeName);
+    delay(3000);  // Affichage pendant 3 secondes
+  }
     openDoor();
   } else if (command[0] == '1' && doorLocked == 1) {
     closeDoor();
@@ -117,6 +126,7 @@ void handleCommand(String command) {
     delay(1500);
     lcd.clear();
   }
+  
 
   rfid.PICC_HaltA();
 }
