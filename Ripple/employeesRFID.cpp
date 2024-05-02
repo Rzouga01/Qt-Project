@@ -28,11 +28,8 @@ void EmployeesRFID::processRFIDData()
             if (query.exec() && query.next()) {
                 int employeeId = query.value(0).toInt();
                 qDebug() << "Employee with RFID" << RFIDString << "and ID" << employeeId << "checked in.";
-
-                // Emit signal for employee checked in
                 emit employeeCheckedIn(employeeId, QDateTime::currentDateTime().toString("dd MMM yyyy hh:mm:ss"));
-
-                // Add record of employee check-in to database
+        
                 if (!checkIN(RFIDString)) {
                     qDebug() << "Error adding check-in record to the database.";
                 }
@@ -41,6 +38,7 @@ void EmployeesRFID::processRFIDData()
             }
             else {
                 qDebug() << "RFID" << RFIDString << "not found in the database.";
+                emit employeeCheckedIn(-1, QDateTime::currentDateTime().toString("dd MMM yyyy hh:mm:ss"));
             }
         }
         else {
@@ -48,8 +46,6 @@ void EmployeesRFID::processRFIDData()
         }
     }
 }
-
-
 
 bool EmployeesRFID::checkIN(const QString& RFIDData)
 {

@@ -48,6 +48,10 @@ Dashboard::Dashboard(QWidget* parent) :
     timer->start(5000);
     accidentDetector = new AccidentDetector;
     empRFID = new EmployeesRFID(this);
+    logFile.setFileName("employee_log.txt");
+    connect(empRFID, &EmployeesRFID::employeeCheckedIn, this, [=](int employeeId, const QString& checkInTime) {
+        saveLogToFile(employeeId, checkInTime);
+        });
 
     // Create a dialog to choose between RFID and Accident Detector
     QDialog dialog(this);
@@ -1266,28 +1270,61 @@ void Dashboard::openEmployeesPresenceLog() {
 
     layout->addWidget(logTextEdit);
     logDialog->setLayout(layout);
-
-    // Connect the signal to slot for updating log
     connect(empRFID, &EmployeesRFID::employeeCheckedIn, this, [=](int employeeId, const QString& checkInTime) {
-        // Query the database to retrieve the employee name
+      
         QString employeeName;
         QSqlQuery query;
         query.prepare("SELECT FIRST_NAME FROM EMPLOYEES WHERE USER_ID = ?");
-        query.addBindValue(employeeId); 
+        query.addBindValue(employeeId);
         if (query.exec() && query.next()) {
             employeeName = query.value(0).toString();
+            QString logEntry = QString("%2: %1 has checked.\n").arg(employeeName).arg(checkInTime);
+            logTextEdit->append(logEntry);
         }
         else {
-            employeeName = "Unknown Employee";
+           QString logEntry= QString("%1: An unknown card was scanned.\n").arg(checkInTime);
+			logTextEdit->append(logEntry);
         }
-        QString logEntry = QString("%1 has checked in at %2\n").arg(employeeName).arg(checkInTime);
-        logTextEdit->append(logEntry);
         });
+    if (logFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&logFile);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            logTextEdit->append(line);
+        }
+        logFile.close();
+    }
+    else {
+        qDebug() << "Failed to open log file for reading";
+    }
 
     logDialog->exec();
     delete logDialog;
 }
 
+void Dashboard::saveLogToFile(int employeeId, const QString& checkInTime) {
+    if (logFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&logFile);
+        QString employeeFirstName;
+        QSqlQuery query;
+        query.prepare("SELECT FIRST_NAME FROM EMPLOYEES WHERE USER_ID = ?");
+        query.addBindValue(employeeId);
+        if (query.exec() && query.next()) {
+            employeeFirstName = query.value(0).toString();
+            QString logEntry = QString("%2: %1 has checked.\n").arg(employeeFirstName).arg(checkInTime);
+            out << logEntry;
+        }
+        else {
+            QString logEntry = QString("%1: An unknown card was scanned.\n").arg(checkInTime);
+            out << logEntry;
+        }
+        logFile.close();
+        qDebug() << "Log saved successfully.";
+    }
+    else {
+        qDebug() << "Error: Failed to open log file for writing.";
+    }
+}
 
 //********************************************************************************************************************
 // Contract

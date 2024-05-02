@@ -75,7 +75,6 @@ public:
     void displayGeneralStats();
     void openChatBox();
 	void openEmployeesPresenceLog();
-    void updateLog(int employeeId, const QString& checkInTime);
     //***********************************************************
     //Contract
     void onAddClickedContract();
@@ -128,6 +127,7 @@ public:
     //------------------------------------------------------------------------------------------------------------------
 private slots:
     void readAccidentData();
+    void saveLogToFile(int employeeId, const QString& checkInTime);
 public:
     Ui::Dashboard* ui;
     MainWindow mainWindowRef;
@@ -135,6 +135,7 @@ public:
     QSystemTrayIcon* trayIcon;
     EmployeesRFID* empRFID;
     AccidentDetector* accidentDetector;
+    QFile logFile;
 };
 
 #endif // DASHBOARD_H
