@@ -99,6 +99,7 @@ public:
     QLabel *EmployeeStatsLabel;
     QLabel *EmployeeStatsTitle;
     QPushButton *searchEmployee;
+    QPushButton *LogEmployee;
     QWidget *page_2;
     QListWidget *readBoxClient;
     QLineEdit *searchBarClient;
@@ -521,17 +522,18 @@ public:
 "#EmployeePhoneNumber_U,\n"
 "#EmployeeDob_U,\n"
 "#EmployeeRole_U,\n"
-"#EmployeeSelectID_D {\n"
+"#EmployeeSelectID_D,\n"
+"#LogEmployee {\n"
 "    background-color: #444444;\n"
 "    font-family: \"Helvetica\";\n"
 "    font-size: 14px;\n"
 "    color: white;\n"
 "    font-weight: bold;\n"
 "    border: none;\n"
-"    border-radius: 15px;\n"
+"    border-radiu"
+                        "s: 15px;\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "/* Cancel and Create/Update/Delete Buttons */\n"
 "#EmployeeCancelBtn_C,\n"
 "#EmployeeCreateBtn,\n"
@@ -851,6 +853,11 @@ public:
         QIcon icon6;
         icon6.addFile(QString::fromUtf8("../Resources/Icons/search.png"), QSize(), QIcon::Normal, QIcon::Off);
         searchEmployee->setIcon(icon6);
+        LogEmployee = new QPushButton(page);
+        LogEmployee->setObjectName("LogEmployee");
+        LogEmployee->setGeometry(QRect(940, 130, 251, 31));
+        LogEmployee->setCheckable(true);
+        LogEmployee->setChecked(true);
         stackedWidget->addWidget(page);
         statsBoxEmployee->raise();
         readBoxEmployee->raise();
@@ -859,6 +866,7 @@ public:
         searchBarEmployee->raise();
         tableEmployee->raise();
         searchEmployee->raise();
+        LogEmployee->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         page_2->setStyleSheet(QString::fromUtf8(" #featureBarClient {\n"
@@ -2076,6 +2084,7 @@ public:
         EmployeeStatsLabel->setText(QString());
         EmployeeStatsTitle->setText(QCoreApplication::translate("Dashboard", "Employee Stats", nullptr));
         searchEmployee->setText(QString());
+        LogEmployee->setText(QCoreApplication::translate("Dashboard", "View employees presence log", nullptr));
         ClientCreateEmail->setPlaceholderText(QString());
         ClientCreateButton->setText(QCoreApplication::translate("Dashboard", "Create Client", nullptr));
         ClientCreateCancel->setText(QCoreApplication::translate("Dashboard", "Cancel", nullptr));

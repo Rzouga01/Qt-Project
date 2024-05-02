@@ -27,25 +27,19 @@ QString AccidentDetector::parseData(int columnReturn, QString data) {
         return dataList[columnReturn];
     }
     else {
-        qWarning() << "Invalid column"<<columnReturn<<" requested";
         return "";
     }
 }
 
 
 bool AccidentDetector::OnAccidentDetected() {
+    QString writeData = "*"; // Initialize writeData with the message prefix
 
-    QString data=arduino.readFromArduino();
+    QString data = arduino.readFromArduino();
 
-    int clientID = parseData(0,data).toInt();
-
-    // Validate location parsing (assuming parseData returns an int)
+    int clientID = parseData(0, data).toInt();
     int location = parseData(1, data).toInt();
-
-      // Assuming location is parsed as an int
     float deltaAccela = parseData(2, data).toFloat();
-
-    qDebug() << "Delta Accela: " << deltaAccela;
 
     QString accidentType = "Car Accident";
     int damage = 1000 * deltaAccela / 3;
@@ -53,28 +47,56 @@ bool AccidentDetector::OnAccidentDetected() {
 
     float accelerationThreshold = 10.0;
 
-    // Ensure all required fields are set in the accident object
-    accident accident(nullptr,nullptr);
+    accident accident(nullptr, nullptr); // Ensure all required fields are set in the accident object
 
-    // Thread safety (if applicable)
-    QMutex mutex;  // Example mutex for thread synchronization
-    mutex.lock();
-if (deltaAccela > accelerationThreshold && location != 0) {
-    if (accident.create(accidentType,damage,date,location,clientID)){
-        QMessageBox::information(nullptr, "Accident Detected",
-                                 "An accident has been detected through the arduino and added to the database");
-        QString writeData="*"+QString::number(clientID)+" "+QString::number(location);
+    QMutex mutex; // Example mutex for thread synchronization
+    mutex.lock(); // Lock the mutex
 
-        arduino.writeToArduino(writeData.toUtf8());
+    if (deltaAccela > accelerationThreshold && location != 0) {
+        if (accident.create(accidentType, damage, date, location, clientID)) {
+            QMessageBox::information(nullptr, "Accident Detected", "An accident has been detected and added to the database");
 
-        mutex.unlock();
-        return true;
-    } else {
-        QMessageBox::warning(nullptr, "Error", "An error occurred while adding the accident to the database");
-        mutex.unlock();
-        return false;
-    }}
-return false;
+            QSqlQuery qry;
+
+            // Query the CLIENTS table to get the client name
+            qry.prepare("SELECT * FROM CLIENTS WHERE CLIENT_ID = :id");
+            qry.bindValue(":id", clientID);
+
+            if (qry.exec() && qry.next()) {
+                QString ClientName = qry.value(1).toString();
+                writeData += ClientName; // Append client name to writeData
+            } else {
+                QMessageBox::warning(nullptr, "Error", "Error querying client data");
+                mutex.unlock(); // Unlock the mutex before returning
+                return false;
+            }
+
+            // Query the LOCATION table to get the location name
+            qry.prepare("SELECT * FROM LOCATION WHERE LOCATION_ID = :id");
+            qry.bindValue(":id", location);
+
+            if (qry.exec() && qry.next()) {
+                QString locationName = qry.value(1).toString();
+                writeData += " " + locationName; // Append location name to writeData
+            } else {
+                QMessageBox::warning(nullptr, "Error", "Error querying location data");
+                mutex.unlock(); // Unlock the mutex before returning
+                return false;
+            }
+
+            // Send the formatted message to Arduino
+            arduino.writeToArduino(writeData.toUtf8());
+            mutex.unlock(); // Unlock the mutex before returning
+            return true;
+        } else {
+            QMessageBox::warning(nullptr, "Error", "Error creating accident entry");
+            mutex.unlock(); // Unlock the mutex before returning
+            return false;
+        }
+    }
+
+    mutex.unlock(); // Unlock the mutex before returning
+    return false;
 }
 
 
