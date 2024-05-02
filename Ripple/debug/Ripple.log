@@ -1,1 +1,3 @@
-﻿  Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe
+﻿  dashboard.cpp
+E:\touskie formatik\Qt-Project\Ripple\dashboard.cpp(705,17): warning C4100: 'index': unreferenced formal parameter
+  Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe

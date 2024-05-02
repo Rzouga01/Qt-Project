@@ -51,7 +51,6 @@ public:
     void sendEmailWithQRCode(const QString& recipientEmail, const QString& clientData, const QString& firstName, const QString& lastName);
     void fillComboBoxClient();
     void UpdateClientByClick();
-
     //***********************************************************
     // Employee
     void onAddEmployeeClicked();
@@ -75,8 +74,8 @@ public:
     void clearEmployeeStats();
     void displayGeneralStats();
     void openChatBox();
-    void startRFID(); 
-    void handleEmployeeCheckedIn(int employeeId);
+	void openEmployeesPresenceLog();
+    void updateLog(int employeeId, const QString& checkInTime);
     //***********************************************************
     //Contract
     void onAddClickedContract();
@@ -118,12 +117,15 @@ public:
     void onHistoriqueAccidentclicked();
     void onstatsClickedAccident();
     void showMapAccident();
-    //------------------------------------------------------------------------------------------------------------------
+    //***********************************************************
     //Arduino
-   void printSerialMonitor();
-
+    void printSerialMonitor();
+    //RFID
+    void startRFID();
+    void handleEmployeeCheckedIn(int employeeId);
     //Accident Detector
     void startAccidentDetector();
+    //------------------------------------------------------------------------------------------------------------------
 private slots:
     void readAccidentData();
 public:

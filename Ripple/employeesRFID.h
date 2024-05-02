@@ -18,7 +18,7 @@ public:
     Arduino& getArduino();
 
 signals:
-    void employeeCheckedIn(int employeeId);
+void employeeCheckedIn(int employeeId, const QString& checkInTime);
 
 private slots:
     void processRFIDData();

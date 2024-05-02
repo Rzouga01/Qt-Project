@@ -477,26 +477,40 @@ QMap<QString, qreal> Employee::calculateEmployeeStats(int employeeID) {
     query.next();
     int totalWorkingDays = query.value(0).toInt();
 
-    // Query to calculate late arrival frequency for the specified employee
+    // Query to calculate early, on time, late, and absent frequencies for the specified employee
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'Early'";
+    query.exec(queryStr);
+    query.next();
+    int earlyArrivals = query.value(0).toInt();
+
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'On Time'";
+    query.exec(queryStr);
+    query.next();
+    int onTimeArrivals = query.value(0).toInt();
+
     queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'Late'";
     query.exec(queryStr);
     query.next();
     int lateArrivals = query.value(0).toInt();
 
-    // Query to calculate early departure frequency for the specified employee
-    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'Early Departure'";
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "' AND ARRIVAL_STATUS = 'Absent'";
     query.exec(queryStr);
     query.next();
-    int earlyDepartures = query.value(0).toInt();
+    int absentDays = query.value(0).toInt();
 
-    // Calculate absenteeism rate
-    int absenteeismDays = totalWorkingDays - lateArrivals - earlyDepartures;
-    qreal absenteeismRate = static_cast<qreal>(absenteeismDays) / totalWorkingDays * 100.0;
+    // Calculate percentages for early, on time, late, and absent days
+    qreal earlyPercentage = static_cast<qreal>(earlyArrivals) / totalWorkingDays * 100.0;
+    qreal onTimePercentage = static_cast<qreal>(onTimeArrivals) / totalWorkingDays * 100.0;
+    qreal latePercentage = static_cast<qreal>(lateArrivals) / totalWorkingDays * 100.0;
+    qreal absentPercentage = static_cast<qreal>(absentDays) / totalWorkingDays * 100.0;
 
+    // Insert calculated values into the stats map
     stats["Total Working Days"] = totalWorkingDays;
-    stats["Late Arrivals"] = lateArrivals;
-    stats["Early Departures"] = earlyDepartures;
-    stats["Absenteeism Rate"] = absenteeismRate;
+    stats["Early Arrivals Percentage"] = earlyPercentage;
+    stats["On Time Arrivals Percentage"] = onTimePercentage;
+    stats["Late Arrivals Percentage"] = latePercentage;
+    stats["Absent Days"] = absentDays;
+    stats["Absent Percentage"] = absentPercentage;
 
     return stats;
 }
@@ -513,47 +527,50 @@ QMap<QString, qreal> Employee::calculateGeneralStats() {
     query.next();
     int totalEmployees = query.value(0).toInt();
 
-    // Query to calculate total working hours for all employees
-    queryStr = "SELECT SUM(TOTAL_HOURS) FROM employees_presence";
+    // Query to calculate total working days for all employees
+    queryStr = "SELECT COUNT(*) FROM employees_presence";
     query.exec(queryStr);
     query.next();
-    qreal totalWorkingHours = query.value(0).toReal();
+    int totalWorkingDays = query.value(0).toInt();
 
-    // Query to calculate the total number of late arrivals for all employees
+    // Query to calculate early, on time, late, and absent frequencies for all employees
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Early'";
+    query.exec(queryStr);
+    query.next();
+    int totalEarlyArrivals = query.value(0).toInt();
+
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'On Time'";
+    query.exec(queryStr);
+    query.next();
+    int totalOnTimeArrivals = query.value(0).toInt();
+
     queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Late'";
     query.exec(queryStr);
     query.next();
     int totalLateArrivals = query.value(0).toInt();
 
-    // Query to calculate the total number of early departures for all employees
-    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Early Departure'";
+    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Absent'";
     query.exec(queryStr);
     query.next();
-    int totalEarlyDepartures = query.value(0).toInt();
+    int totalAbsentDays = query.value(0).toInt();
 
-    // Calculate absenteeism rate for all employees
-    qreal totalAbsenteeismRate = 0.0;
-    if (totalEmployees > 0) {
-        // Query to count the total number of absences for all employees
-        queryStr = "SELECT COUNT(*) FROM employees_presence WHERE ARRIVAL_STATUS = 'Absent'";
-        query.exec(queryStr);
-        query.next();
-        int totalAbsences = query.value(0).toInt();
-
-        // Calculate absenteeism rate
-        totalAbsenteeismRate = static_cast<qreal>(totalAbsences) / totalEmployees * 100.0;
-    }
-
-    // Calculate average attendance rate
-    qreal averageAttendanceRate = 100.0 - totalAbsenteeismRate;
+    // Calculate percentages for early, on time, late, and absent days
+    qreal totalEarlyPercentage = static_cast<qreal>(totalEarlyArrivals) / totalWorkingDays * 100.0;
+    qreal totalOnTimePercentage = static_cast<qreal>(totalOnTimeArrivals) / totalWorkingDays * 100.0;
+    qreal totalLatePercentage = static_cast<qreal>(totalLateArrivals) / totalWorkingDays * 100.0;
+    qreal totalAbsentPercentage = static_cast<qreal>(totalAbsentDays) / totalWorkingDays * 100.0;
 
     // Insert calculated values into the generalStats map
     generalStats["Total Employees"] = totalEmployees;
-    generalStats["Average Attendance Rate"] = averageAttendanceRate;
-    generalStats["Total Working Hours"] = totalWorkingHours;
+    generalStats["Total Working Days"] = totalWorkingDays;
+    generalStats["Total Early Arrivals"] = totalEarlyArrivals;
+    generalStats["Total On Time Arrivals"] = totalOnTimeArrivals;
     generalStats["Total Late Arrivals"] = totalLateArrivals;
-    generalStats["Total Early Departures"] = totalEarlyDepartures;
-    generalStats["Absenteeism Rate"] = totalAbsenteeismRate;
+    generalStats["Total Absent Days"] = totalAbsentDays;
+    generalStats["Total Early Arrivals Percentage"] = totalEarlyPercentage;
+    generalStats["Total On Time Arrivals Percentage"] = totalOnTimePercentage;
+    generalStats["Total Late Arrivals Percentage"] = totalLatePercentage;
+    generalStats["Total Absent Percentage"] = totalAbsentPercentage;
 
     return generalStats;
 }

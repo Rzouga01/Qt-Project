@@ -685,6 +685,7 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
     QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
     QObject::connect(ui->chatEmployee, &QPushButton::clicked, this, &Dashboard::openChatBox);
+    QObject::connect(ui->LogEmployee, &QPushButton::clicked, this, &Dashboard::openEmployeesPresenceLog);
 
     ui->sortEmployee->setToolTip("Sort Employees By Age");
     ui->pdfEmployee->setToolTip("Generate Employees List To  PDF");
@@ -696,15 +697,16 @@ void Dashboard::EmployeeDashboardConnectUi() {
 
     Employee employee;
 
-    QStringList employeeNames = employee.getEmployeeNames();
-    ui->EmployeeSelectStats->addItems(employeeNames);
+   
 
+    // Connect signal for employee stats selection
     QObject::connect(ui->EmployeeSelectStats, QOverload<int>::of(&QComboBox::currentIndexChanged),
-                     [=](int index) { this->onEmployeeSelectStatsChanged(ui->EmployeeSelectStats->currentText()); });
+        [=](int index) { this->onEmployeeSelectStatsChanged(ui->EmployeeSelectStats->currentText()); });
 
+    // Set the initial index for the combo box
+    ui->EmployeeSelectStats->setCurrentIndex(0);
 
-    ui->CrudEmployee->setCurrentIndex(0);
-
+    // Initialize other UI elements
     QChartView* chartView = ui->EmployeeStats;
     chartView->chart()->setBackgroundBrush(Qt::transparent);
 }
@@ -1188,27 +1190,25 @@ void Dashboard::displayGeneralStats() {
 }
 
 void Dashboard::onEmployeeSelectStatsChanged(const QString& employeeName) {
-
     if (ui->EmployeeSelectStats->currentIndex() == 1) {
         qDebug() << "Displaying general statistics.";
         displayGeneralStats();
         return;
     }
+
     if (ui->EmployeeSelectStats->currentIndex() <= 0) {
         clearEmployeeStats();
         return;
     }
+
     Employee employee;
 
     int employeeId = employee.getEmployeeIdByName(employeeName);
     if (employeeId != -1) {
-
         displayEmployeeStats(employeeId);
-    }
-    else {
+    } else {
         qDebug() << "Error: Unable to retrieve employee ID for selected name.";
     }
-
 }
 
 void Dashboard::clearEmployeeStats()
@@ -1245,6 +1245,50 @@ void Dashboard::openChatBox() {
     chatbot* chat = new chatbot(this);
     chat->show();
 }
+
+void Dashboard::openEmployeesPresenceLog() {
+    QDialog* logDialog = new QDialog(this);
+    logDialog->setWindowTitle("Log");
+
+    QVBoxLayout* layout = new QVBoxLayout(logDialog);
+
+    QTextEdit* logTextEdit = new QTextEdit(logDialog);
+    logTextEdit->setReadOnly(true);
+    logTextEdit->setFixedWidth(500);
+
+    logTextEdit->setStyleSheet("QTextEdit {"
+        "background-color: #444444;"
+        "color: white;"
+        "font-family: Helvetica;"
+        "font-size: 12px;"
+        "border: 1px solid #cccccc;"
+        "}");
+
+    layout->addWidget(logTextEdit);
+    logDialog->setLayout(layout);
+
+    // Connect the signal to slot for updating log
+    connect(empRFID, &EmployeesRFID::employeeCheckedIn, this, [=](int employeeId, const QString& checkInTime) {
+        // Query the database to retrieve the employee name
+        QString employeeName;
+        QSqlQuery query;
+        query.prepare("SELECT FIRST_NAME FROM EMPLOYEES WHERE USER_ID = ?");
+        query.addBindValue(employeeId); 
+        if (query.exec() && query.next()) {
+            employeeName = query.value(0).toString();
+        }
+        else {
+            employeeName = "Unknown Employee";
+        }
+        QString logEntry = QString("%1 has checked in at %2\n").arg(employeeName).arg(checkInTime);
+        logTextEdit->append(logEntry);
+        });
+
+    logDialog->exec();
+    delete logDialog;
+}
+
+
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {

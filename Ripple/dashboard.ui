@@ -299,7 +299,8 @@ QTableWidget QTableWidget {
 #EmployeePhoneNumber_U,
 #EmployeeDob_U,
 #EmployeeRole_U,
-#EmployeeSelectID_D {
+#EmployeeSelectID_D,
+#LogEmployee {
     background-color: #444444;
     font-family: &quot;Helvetica&quot;;
     font-size: 14px;
@@ -1344,6 +1345,25 @@ border:none;</string>
         <normaloff>../Resources/Icons/search.png</normaloff>../Resources/Icons/search.png</iconset>
       </property>
      </widget>
+     <widget class="QPushButton" name="LogEmployee">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>130</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View employees presence log</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>statsBoxEmployee</zorder>
      <zorder>readBoxEmployee</zorder>
      <zorder>featureBarEmployee</zorder>
@@ -1351,6 +1371,7 @@ border:none;</string>
      <zorder>searchBarEmployee</zorder>
      <zorder>tableEmployee</zorder>
      <zorder>searchEmployee</zorder>
+     <zorder>LogEmployee</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
