@@ -29,15 +29,14 @@ void EmployeesRFID::processRFIDData()
                 int employeeId = query.value(0).toInt();
                 QString employeeName = query.value(4).toString();
                 qDebug() << "Employee with RFID" << RFIDString << "and ID" << employeeId << "checked in.";
+                
                 emit employeeCheckedIn(employeeId, QDateTime::currentDateTime().toString("dd MMM yyyy hh:mm:ss"));
         
                 if (!checkIN(RFIDString)) {
                     qDebug() << "Error adding check-in record to the database.";
                 }
-
-                arduino.writeToArduino("1");
-                arduino.writeToArduino(QString("Welcome %1").arg(employeeName).toUtf8());
-
+                QString Name = "1Welcome " + employeeName;
+                arduino.writeToArduino(Name.toUtf8());
 
             }
             else {

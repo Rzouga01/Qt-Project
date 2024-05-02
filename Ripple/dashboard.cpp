@@ -689,7 +689,7 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->pdfEmployee, &QPushButton::clicked, this, &Dashboard::onPdfEmployeeClicked);
     QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
     QObject::connect(ui->chatEmployee, &QPushButton::clicked, this, &Dashboard::openChatBox);
-    //QObject::connect(ui->LogEmployee, &QPushButton::clicked, this, &Dashboard::openEmployeesPresenceLog);
+    QObject::connect(ui->LogEmployee, &QPushButton::clicked, this, &Dashboard::openEmployeesPresenceLog);
 
     ui->sortEmployee->setToolTip("Sort Employees By Age");
     ui->pdfEmployee->setToolTip("Generate Employees List To  PDF");

@@ -102,18 +102,13 @@ void scanRFID() {
   String command = Serial.readString();
   handleCommand(command);
 }
-
 void handleCommand(String command) {
   if (command[0] == '1' && doorLocked == 0) {
-      if (Serial.available() > 0) {
-    String employeeName = Serial.readString();
+    String employeeName = command.substring(1);
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Welcome ");
-    lcd.setCursor(0, 1);
-    lcd.print(employeeName);
-    delay(3000);  // Affichage pendant 3 secondes
-  }
+    lcd.print(employeeName); 
+    delay(3000);
     openDoor();
   } else if (command[0] == '1' && doorLocked == 1) {
     closeDoor();
@@ -126,10 +121,10 @@ void handleCommand(String command) {
     delay(1500);
     lcd.clear();
   }
-  
 
   rfid.PICC_HaltA();
 }
+
 
 void buzzerSignal(int type) {
   if (type == 1) {
