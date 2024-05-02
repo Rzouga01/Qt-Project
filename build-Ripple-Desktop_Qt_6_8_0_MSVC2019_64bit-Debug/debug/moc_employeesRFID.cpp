@@ -39,7 +39,6 @@ constexpr auto qt_meta_stringdata_CLASSEmployeesRFIDENDCLASS = QtMocHelpers::str
     "employeeCheckedIn",
     "",
     "employeeId",
-    "checkInTime",
     "processRFIDData"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -61,13 +60,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSEmployeesRFIDENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   26,    2, 0x06,    1 /* Public */,
+       1,    1,   26,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   31,    2, 0x08,    4 /* Private */,
+       4,    0,   29,    2, 0x08,    3 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int, QMetaType::QString,    3,    4,
+    QMetaType::Void, QMetaType::Int,    3,
 
  // slots: parameters
     QMetaType::Void,
@@ -87,7 +86,6 @@ Q_CONSTINIT const QMetaObject EmployeesRFID::staticMetaObject = { {
         // method 'employeeCheckedIn'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'processRFIDData'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -100,14 +98,14 @@ void EmployeesRFID::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         auto *_t = static_cast<EmployeesRFID *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->employeeCheckedIn((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 0: _t->employeeCheckedIn((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 1: _t->processRFIDData(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (EmployeesRFID::*)(int , const QString & );
+            using _t = void (EmployeesRFID::*)(int );
             if (_t _q_method = &EmployeesRFID::employeeCheckedIn; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
@@ -147,9 +145,9 @@ int EmployeesRFID::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void EmployeesRFID::employeeCheckedIn(int _t1, const QString & _t2)
+void EmployeesRFID::employeeCheckedIn(int _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

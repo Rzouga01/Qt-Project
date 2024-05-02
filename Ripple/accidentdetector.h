@@ -18,7 +18,7 @@ public:
     ~AccidentDetector();
     QString parseData(int columnReturn, QString data);
     Arduino& getArduino();
-    bool OnAccidentDetected();
+    bool OnAccidentDetected(QString data);
 
 private:
     Arduino arduino;

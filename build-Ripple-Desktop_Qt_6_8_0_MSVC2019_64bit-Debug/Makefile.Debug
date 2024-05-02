@@ -2233,10 +2233,10 @@ debug\moc_sms.cpp: ..\Ripple\sms.h \
 	C:\Qt\6.8.0\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/malek/Documents/Qt-Project/build-Ripple-Desktop_Qt_6_8_0_MSVC2019_64bit-Debug/debug/moc_predefs.h @debug/mocinclude.opt ..\Ripple\sms.h -o debug\moc_sms.cpp
 
 debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QObject \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobject.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qnamespace.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QMainWindow \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtversionchecks.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtconfiginclude.h \
@@ -2281,12 +2281,22 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtresource.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qttranslation.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversiontagging.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtgui-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qwidget.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qnamespace.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcompare.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcomparehelpers.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20type_traits.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtmetamacros.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qfunctionaltools_impl.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobject.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qchar.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstringview.h \
@@ -2333,48 +2343,8 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qscopeguard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobject_impl.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qbindingstorage.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata.h \
-		..\Ripple\accident.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QString \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmetaobject.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariant.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdebug.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtextstream.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcontiguouscache.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmap.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata_impl.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qset.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qhash.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvarlengtharray.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q23utility.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdatetime.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcalendar.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlocale.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QDialog \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qdialog.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtgui-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qwidget.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs_win.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmargins.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q23utility.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaction.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qkeysequence.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qicon.h \
@@ -2386,12 +2356,24 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qcolor.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qrgb.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qrgba64.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qimage.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpixelformat.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtransform.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpolygon.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qregion.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qline.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariant.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdebug.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtextstream.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmap.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qset.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qhash.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpalette.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qbrush.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qfont.h \
@@ -2411,6 +2393,7 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qinputdevice.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qscreen.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QList \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QObject \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QRect \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSize \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSizeF \
@@ -2435,7 +2418,60 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qexception.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpromise.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qinputmethod.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlocale.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\QQuickItem \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qquickitem.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqml-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquick-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqml.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlprivate.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsprimitivevalue.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsnumbercoercion.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsvalue.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmllist.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlparserstatus.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlpropertyvaluesource.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdatetime.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcalendar.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmetaobject.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpointer.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversionnumber.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qspan.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20iterator.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtyperevision.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlregistration.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQmlIntegration\qqmlintegration.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlcomponent.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlerror.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qproperty.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpropertyprivate.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible_base.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QWidget \
+		..\Ripple\accident.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QString \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QDialog \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qdialog.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtablewidget.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtableview.h \
@@ -2452,7 +2488,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qabstractslider.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstyle.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstackedwidget.h \
@@ -2460,7 +2495,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QtCoreDepends \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20algorithm.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20chrono.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20iterator.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20map.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20vector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q23functional.h \
@@ -2487,8 +2521,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcborstreamreader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcborstreamwriter.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qchronotimer.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qproperty.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpropertyprivate.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcollator.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcommandlineoption.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcommandlineparser.h \
@@ -2516,9 +2548,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlatin1stringmatcher.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlibrary.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlibraryinfo.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversionnumber.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qspan.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtyperevision.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlockfile.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qloggingcategory.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmessageauthenticationcode.h \
@@ -2531,7 +2560,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpauseanimation.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpermissions.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qplugin.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpointer.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpluginloader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qprocess.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpropertyanimation.h \
@@ -2596,8 +2624,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtextformat.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpen.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtextoption.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible_base.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessiblebridge.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessibleobject.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessibleplugin.h \
@@ -2737,7 +2763,6 @@ debug\moc_accidentdetector.cpp: ..\Ripple\accidentdetector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qlcdnumber.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qlistview.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qlistwidget.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmdiarea.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmdisubwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmenu.h \
@@ -6194,61 +6219,11 @@ debug\moc_dashboard.cpp: ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\QUiLoader \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\quiloader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\qtuitoolsglobal.h \
-		..\Ripple\accidentdetector.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
-		..\Ripple\accident.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChart \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchart.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtcharts-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtchartsexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QPen \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QFont \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QLegend \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qlegend.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QBrush \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSet \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarset.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarCategoryAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarcategoryaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QValueAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qvalueaxis.h \
-		..\Ripple\arduino.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialport.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qtserialportexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPortInfo \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
 		..\Ripple\mainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QMainWindow \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QPropertyAnimation \
 		..\Ripple\sms.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QNetworkReply \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qnetworkreply.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
@@ -6257,6 +6232,7 @@ debug\moc_dashboard.cpp: ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QIODevice \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QNetworkRequest \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qnetworkrequest.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QUrl \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qnetworkaccessmanager.h \
@@ -6272,12 +6248,29 @@ debug\moc_dashboard.cpp: ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QFlags \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QSslPreSharedKeyAuthenticator \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qsslpresharedkeyauthenticator.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidgetItem \
 		..\Ripple\employee.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
 		..\Ripple\employeesrfid.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDateTime \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlError \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlerror.h \
+		..\Ripple\arduino.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialport.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qtserialportexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPortInfo \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h \
 		debug\mocinclude.opt \
 		debug\moc_predefs.h \
 		C:\Qt\6.8.0\msvc2019_64\bin\moc.exe
@@ -28483,10 +28476,10 @@ debug\QZXing.obj: ..\QZXing\src\QZXing.cpp ..\QZXing\src\QZXing.h \
 		..\QZXing\src\QZXingImageProvider.h
 
 debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdetector.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QObject \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobject.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobjectdefs.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qnamespace.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QMainWindow \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmainwindow.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtversionchecks.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtconfiginclude.h \
@@ -28531,12 +28524,22 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtresource.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qttranslation.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversiontagging.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtgui-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qwidget.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qnamespace.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcompare.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcomparehelpers.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20type_traits.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtmetamacros.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qfunctionaltools_impl.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobject.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qchar.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstringview.h \
@@ -28583,48 +28586,8 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qscopeguard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qobject_impl.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qbindingstorage.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata.h \
-		..\Ripple\accident.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QString \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmetaobject.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariant.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdebug.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtextstream.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcontiguouscache.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmap.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata_impl.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qset.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qhash.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvarlengtharray.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q23utility.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdatetime.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcalendar.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlocale.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QDialog \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qdialog.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtgui-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtguiexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qwidget.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qwindowdefs_win.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmargins.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q23utility.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaction.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qkeysequence.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qicon.h \
@@ -28636,12 +28599,24 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qcolor.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qrgb.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qrgba64.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qimage.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpixelformat.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtransform.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpolygon.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qregion.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qline.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvariant.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdebug.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtextstream.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmap.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qset.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qhash.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qvarlengtharray.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpalette.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qbrush.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qfont.h \
@@ -28661,6 +28636,7 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qinputdevice.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qscreen.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QList \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QObject \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QRect \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSize \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSizeF \
@@ -28685,7 +28661,60 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qexception.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpromise.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qinputmethod.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlocale.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\QQuickItem \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qquickitem.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqml-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qtqmlexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquick-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQuick\qtquickexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqml.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlprivate.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsprimitivevalue.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsnumbercoercion.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qjsvalue.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmllist.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlparserstatus.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlpropertyvaluesource.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qdatetime.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcalendar.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmetaobject.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpointer.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversionnumber.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qspan.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20iterator.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtyperevision.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlregistration.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQmlIntegration\qqmlintegration.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlcomponent.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtQml\qqmlerror.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qproperty.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpropertyprivate.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible_base.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QWidget \
+		..\Ripple\accident.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QString \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QDialog \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qdialog.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtablewidget.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtableview.h \
@@ -28702,7 +28731,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qabstractslider.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstyle.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qtabwidget.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qstackedwidget.h \
@@ -28710,7 +28738,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QtCoreDepends \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20algorithm.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20chrono.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20iterator.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20map.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q20vector.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\q23functional.h \
@@ -28737,8 +28764,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcborstreamreader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcborstreamwriter.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qchronotimer.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qproperty.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpropertyprivate.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcollator.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcommandlineoption.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qcommandlineparser.h \
@@ -28766,9 +28791,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlatin1stringmatcher.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlibrary.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlibraryinfo.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qversionnumber.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qspan.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qtyperevision.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qlockfile.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qloggingcategory.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qmessageauthenticationcode.h \
@@ -28781,7 +28803,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpauseanimation.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpermissions.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qplugin.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpointer.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpluginloader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qprocess.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\qpropertyanimation.h \
@@ -28846,8 +28867,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtextformat.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qpen.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qtextoption.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessible_base.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessiblebridge.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessibleobject.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\qaccessibleplugin.h \
@@ -28987,7 +29006,6 @@ debug\accidentdetector.obj: ..\Ripple\accidentdetector.cpp ..\Ripple\accidentdet
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qlcdnumber.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qlistview.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qlistwidget.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmdiarea.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmdisubwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\qmenu.h \
@@ -34106,61 +34124,11 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\QUiLoader \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\quiloader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\qtuitoolsglobal.h \
-		..\Ripple\accidentdetector.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
-		..\Ripple\accident.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChart \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchart.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtcharts-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtchartsexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QPen \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QFont \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QLegend \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qlegend.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QBrush \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSet \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarset.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarCategoryAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarcategoryaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QValueAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qvalueaxis.h \
-		..\Ripple\arduino.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialport.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qtserialportexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPortInfo \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
 		..\Ripple\mainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QMainWindow \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QPropertyAnimation \
 		..\Ripple\sms.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDebug \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QNetworkReply \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qnetworkreply.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
@@ -34169,6 +34137,7 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QIODevice \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QNetworkRequest \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qnetworkrequest.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QSharedDataPointer \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QUrl \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qnetworkaccessmanager.h \
@@ -34184,13 +34153,49 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QFlags \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\QSslPreSharedKeyAuthenticator \
 		C:\Qt\6.8.0\msvc2019_64\include\QtNetwork\qsslpresharedkeyauthenticator.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidgetItem \
 		..\Ripple\employee.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
 		..\Ripple\employeesrfid.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDateTime \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlError \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlerror.h \
+		..\Ripple\arduino.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialport.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qtserialportexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPortInfo \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h \
 		..\Ripple\ui_dashboard.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractaxis.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartGlobal \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartglobal.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtcharts-config.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtchartsexports.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QPen \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QFont \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractSeries \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractseries.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChart \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchart.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QLegend \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qlegend.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsWidget \
+		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QBrush \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsView \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QIcon \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QComboBox \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QDateEdit \
@@ -34201,6 +34206,7 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QListWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QPlainTextEdit \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QPushButton \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QWidget \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QFileDialog \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QtCharts \
@@ -34234,13 +34240,19 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtOpenGLWidgets\qtopenglwidgetsexports.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtOpenGLWidgets\qopenglwidget.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtOpenGLWidgets\qtopenglwidgetsversion.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractbarseries.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qarealegendmarker.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QLegendMarker \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qlegendmarker.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAreaSeries \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qareaseries.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarcategoryaxis.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarlegendmarker.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractBarSeries \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSet \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarset.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarmodelmapper.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarseries.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qboxplotlegendmarker.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBoxPlotSeries \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qboxplotseries.h \
@@ -34253,6 +34265,8 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qcandlestickmodelmapper.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qcandlestickset.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qcategoryaxis.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QValueAxis \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qvalueaxis.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qcoloraxis.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qdatetimeaxis.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qhbarmodelmapper.h \
@@ -34295,6 +34309,9 @@ debug\dashboard.obj: ..\Ripple\dashboard.cpp ..\Ripple\dashboard.h \
 		..\Ripple\sqlConn.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlDatabase \
 		..\Ripple\client.h \
+		..\Ripple\accident.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSeries \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarCategoryAxis \
 		..\Ripple\contract.h \
 		..\Ripple\chatbot.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QMovie \
@@ -35673,53 +35690,21 @@ debug\main.obj: ..\Ripple\main.cpp ..\Ripple\mainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
 		..\Ripple\dashboard.h \
-		..\Ripple\accidentdetector.h \
-		..\Ripple\accident.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidgetItem \
+		..\Ripple\employee.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChart \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchart.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtcharts-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtchartsexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QPen \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QFont \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QLegend \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qlegend.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QBrush \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSet \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarset.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarCategoryAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarcategoryaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QValueAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qvalueaxis.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
+		..\Ripple\employeesrfid.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDateTime \
 		..\Ripple\arduino.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialport.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qtserialportexports.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPortInfo \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidgetItem \
-		..\Ripple\employee.h \
-		..\Ripple\employeesrfid.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDateTime
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h
 
 debug\mainwindow.obj: ..\Ripple\mainwindow.cpp ..\Ripple\mainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QMainWindow \
@@ -36303,61 +36288,29 @@ debug\mainwindow.obj: ..\Ripple\mainwindow.cpp ..\Ripple\mainwindow.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\QUiLoader \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\quiloader.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtUiTools\qtuitoolsglobal.h \
-		..\Ripple\accidentdetector.h \
-		..\Ripple\accident.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
+		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidgetItem \
+		..\Ripple\employee.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQuery \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquery.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsql-config.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qtsqlexports.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqldatabase.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlQueryModel \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlquerymodel.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QStackedWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChart \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchart.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartGlobal \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartglobal.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtcharts-config.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qtchartsexports.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QPen \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QFont \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QLegend \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qlegend.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsWidget \
-		C:\Qt\6.8.0\msvc2019_64\include\QtGui\QBrush \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QChartView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qchartview.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QGraphicsView \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QAbstractBarSeries \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qabstractbarseries.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarSet \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarset.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QBarCategoryAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qbarcategoryaxis.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\QValueAxis \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCharts\qvalueaxis.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDate \
+		..\Ripple\employeesrfid.h \
+		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDateTime \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlError \
+		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlerror.h \
 		..\Ripple\arduino.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialport.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportglobal.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qtserialportexports.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPortInfo \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtWidgets\QTableWidgetItem \
-		..\Ripple\employee.h \
-		..\Ripple\employeesrfid.h \
-		C:\Qt\6.8.0\msvc2019_64\include\QtCore\QDateTime \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\QSqlError \
-		C:\Qt\6.8.0\msvc2019_64\include\QtSql\qsqlerror.h
+		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\qserialportinfo.h
 
 debug\arduino.obj: ..\Ripple\arduino.cpp ..\Ripple\arduino.h \
 		C:\Qt\6.8.0\msvc2019_64\include\QtSerialPort\QSerialPort \

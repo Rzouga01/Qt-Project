@@ -2061,7 +2061,9 @@ void Dashboard::startAccidentDetector() {
 }
 
 void Dashboard::readAccidentData() {
-    accidentDetector->OnAccidentDetected(); // Process accident data
+    QByteArray data = accidentDetector->getArduino().getSerial()->readAll().trimmed(); // Read data from serial
+    QString accidentData = QString::fromLatin1(data); // Convert data to QString
+    accidentDetector->OnAccidentDetected(accidentData); // Process accident data
 }
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {
