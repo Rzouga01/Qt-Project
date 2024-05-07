@@ -11,15 +11,13 @@
 #define LOCKED_POSITION 70
 #define UNLOCKED_POSITION 160
 
-
 const int MELODY_NOTES[] = {523, 392, 392, 440, 392, 493, 523};
 const int MELODY_DURATIONS[] = {200, 100, 100, 200, 400, 200, 200};
-const int DOOR_CLOSE_DELAY = 10000; 
+const int DOOR_CLOSE_DELAY = 5000; 
 // Pins
 Servo doorLock;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 MFRC522 rfid(SS_PIN, RST_PIN);
-
 
 byte doorLocked = 0;
 unsigned long doorCloseTimer = 0;
@@ -53,7 +51,6 @@ void setup() {
 void loop() {
   static boolean timerDisplayed = false;
 
- 
   scanRFID();
   if (doorCloseTimer > 0 && millis() >= doorCloseTimer) {
     closeDoor();
@@ -64,11 +61,9 @@ void loop() {
     timerDisplayed = true;
   }
 
- 
   if (doorLocked == 0) {
     turnOffLEDs();
   }
-  
   
   if (doorLocked == 1) {
     updateLCDTimer();
@@ -87,7 +82,7 @@ void scanRFID() {
   lcd.print("Scanning");
   for (int i = 0; i < rfid.uid.size; i++) {
     lcd.print(".");
-    delay(500); 
+    delay(600);
   }
 
   String cardContent = "";
@@ -102,16 +97,28 @@ void scanRFID() {
   String command = Serial.readString();
   handleCommand(command);
 }
+
 void handleCommand(String command) {
   if (command[0] == '1' && doorLocked == 0) {
     String employeeName = command.substring(1);
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print(employeeName); 
-    delay(3000);
+    delay(2000);
     openDoor();
   } else if (command[0] == '1' && doorLocked == 1) {
     closeDoor();
+  }
+  else if (command[0] == '2') {
+    String employeeName = command.substring(1);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Logged in as:");
+    lcd.setCursor(0, 1);
+    lcd.print(employeeName);
+    delay(2000);
+    Serial.flush(); 
+    lcd.clear();
   } else {
     lcd.clear();
     lcd.setCursor(0, 0);
@@ -124,7 +131,6 @@ void handleCommand(String command) {
 
   rfid.PICC_HaltA();
 }
-
 
 void buzzerSignal(int type) {
   if (type == 1) {

@@ -124,12 +124,16 @@ public:
     //RFID
     void startRFID();
     void handleEmployeeCheckedIn(int employeeId);
+    QString scanRFID();
     //Accident Detector
     void startAccidentDetector();
     //------------------------------------------------------------------------------------------------------------------
 private slots:
     void readAccidentData();
     void saveLogToFile(int employeeId, const QString& checkInTime);
+    void onScanRFIDClicked();
+    void processRFIDDataForCreation();
+   
 public:
     Ui::Dashboard* ui;
     MainWindow mainWindowRef;
@@ -138,6 +142,7 @@ public:
     EmployeesRFID* empRFID;
     AccidentDetector* accidentDetector;
     QFile logFile;
+    bool creatingEmployee = false;
 };
 
 #endif // DASHBOARD_H

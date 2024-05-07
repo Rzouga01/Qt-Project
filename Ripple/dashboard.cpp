@@ -52,9 +52,8 @@ Dashboard::Dashboard(QWidget* parent) :
     connect(empRFID, &EmployeesRFID::employeeCheckedIn, this, [=](int employeeId, const QString& checkInTime) {
         saveLogToFile(employeeId, checkInTime);
         });
-
-    // Create a dialog to choose between RFID and Accident Detector
-    QDialog dialog(this);
+        // Create a dialog to choose between RFID and Accident Detector
+        QDialog dialog(this);
     dialog.setWindowTitle(tr("Select an Option"));
 
     QPushButton* rfidButton = new QPushButton(tr("Start RFID"), &dialog);
@@ -69,11 +68,12 @@ Dashboard::Dashboard(QWidget* parent) :
 
     if (dialog.exec() == QDialog::Accepted) {
         startRFID();
-    } else {
+    }
+    else {
         startAccidentDetector();
     }
-}
 
+}
 
 void Dashboard::update() {
     // Dashboard Nav Buttons
@@ -683,6 +683,8 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->EmployeeUpdateBtn, &QPushButton::clicked, this, &Dashboard::onUpdateEmployeeClicked);
     QObject::connect(ui->EmployeeDeleteBtn, &QPushButton::clicked, this, &Dashboard::onDeleteEmployeeClicked);
 
+    QObject::connect(ui->EmployeeScanRFID__C, &QPushButton::clicked, this, &Dashboard::onScanRFIDClicked);
+    QObject::connect(ui->EmployeeScanRFID__U, &QPushButton::clicked, this, &Dashboard::onScanRFIDClicked);
     QObject::connect(ui->EmployeeCancelBtn_C, &QPushButton::clicked, this, &Dashboard::onCancelClickedEmp_C);
 
     QObject::connect(ui->sortEmployee, &QPushButton::clicked, this, &Dashboard::onSortEmployeeClicked);
@@ -690,6 +692,7 @@ void Dashboard::EmployeeDashboardConnectUi() {
     QObject::connect(ui->searchBarEmployee, &QLineEdit::textChanged, this, &Dashboard::onSearchTextChanged);
     QObject::connect(ui->chatEmployee, &QPushButton::clicked, this, &Dashboard::openChatBox);
     QObject::connect(ui->LogEmployee, &QPushButton::clicked, this, &Dashboard::openEmployeesPresenceLog);
+
 
     ui->sortEmployee->setToolTip("Sort Employees By Age");
     ui->pdfEmployee->setToolTip("Generate Employees List To  PDF");
@@ -701,16 +704,12 @@ void Dashboard::EmployeeDashboardConnectUi() {
 
     Employee employee;
 
-
-
-    // Connect signal for employee stats selection
+  
     QObject::connect(ui->EmployeeSelectStats, QOverload<int>::of(&QComboBox::currentIndexChanged),
         [=](int index) { this->onEmployeeSelectStatsChanged(ui->EmployeeSelectStats->currentText()); });
 
-    // Set the initial index for the combo box
     ui->EmployeeSelectStats->setCurrentIndex(0);
 
-    // Initialize other UI elements
     QChartView* chartView = ui->EmployeeStats;
     chartView->chart()->setBackgroundBrush(Qt::transparent);
 }
@@ -744,6 +743,14 @@ QString Dashboard::mapRoleToString(int role) {
 }
 
 void Dashboard::onAddEmployeeClicked() {
+  
+    QString scannedUID = scanRFID();
+
+    if (scannedUID.isEmpty()) {
+        QMessageBox::critical(this, tr("Error"), tr("Failed to scan RFID"), QMessageBox::Ok);
+        return;
+    }
+
     Employee emp(ui->tableEmployee, this);
 
     QString email = ui->EmployeeEmail_C->text();
@@ -759,34 +766,37 @@ void Dashboard::onAddEmployeeClicked() {
 
     if (email.isEmpty() || password.isEmpty() || roleText.isEmpty() || firstName.isEmpty() ||
         lastName.isEmpty() || phoneNumber.isEmpty() || address.isEmpty() || dob.isNull()) {
-        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
         return;
     }
 
     if (!email.contains('@') || !email.contains('.')) {
-        QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok);
         return;
     }
 
     if (password.length() < 8) {
-        QMessageBox::critical(this, tr("Error"), tr("Password must be at least 8 characters long"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Password must be at least 8 characters long"), QMessageBox::Ok);
         return;
     }
 
     if (phoneNumber.length() != 8 || !phoneNumber.toInt()) {
-        QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please enter a valid 8-digit phone number"), QMessageBox::Ok);
         return;
     }
 
     if (!firstName.contains(QRegularExpression("^[a-zA-Z]+$")) || !lastName.contains(QRegularExpression("^[a-zA-Z]+$"))) {
-        QMessageBox::critical(this, tr("Error"), tr("Please enter valid first and last names"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Error"), tr("Please enter valid first and last names"), QMessageBox::Ok);
         return;
     }
 
-    emp.createEmployee(email, password, role, firstName, lastName, phoneNumber, address, dob);
 
+    emp.createEmployee( email, password, role, firstName, lastName, phoneNumber, address, dob, scannedUID);
+
+ 
     emp.readEmployee();
 
+   
     openUpdateForm();
 
     QString firstItem = ui->EmployeeSelectStats->itemText(0);
@@ -794,13 +804,12 @@ void Dashboard::onAddEmployeeClicked() {
     QStringList newNames = emp.getEmployeeNames();
 
     ui->EmployeeSelectStats->clear();
-
     ui->EmployeeSelectStats->addItem(firstItem);
     ui->EmployeeSelectStats->addItem(secondItem);
     ui->EmployeeSelectStats->addItems(newNames);
 
-
-    QMessageBox::information(this, tr("Success"), tr("Employee created successfully"), QMessageBox::Ok, QMessageBox::Ok);
+    QMessageBox::information(this, tr("Success"), tr("Employee created successfully"), QMessageBox::Ok);
+    creatingEmployee = false;
 }
 
 void Dashboard::onUpdateEmployeeClicked() {
@@ -1110,7 +1119,6 @@ void Dashboard::displayEmployeeStats(int employeeID) {
             QBarCategoryAxis* xAxis = new QBarCategoryAxis();
             xAxis->append("Total Days Worked");
             xAxis->append("Late Arrivals");
-            xAxis->append("Early Departures");
             xAxis->append("Absenteeism Rate");
             xAxis->setLabelsFont(QFont("Arial", 8));
             QValueAxis* yAxis = new QValueAxis();
@@ -1251,6 +1259,7 @@ void Dashboard::openChatBox() {
 }
 
 void Dashboard::openEmployeesPresenceLog() {
+
     QDialog* logDialog = new QDialog(this);
     logDialog->setWindowTitle("Log");
 
@@ -1278,7 +1287,7 @@ void Dashboard::openEmployeesPresenceLog() {
         query.addBindValue(employeeId);
         if (query.exec() && query.next()) {
             employeeName = query.value(0).toString();
-            QString logEntry = QString("%2: %1 has checked.\n").arg(employeeName).arg(checkInTime);
+            QString logEntry = QString("%2: %1 has checked in.\n").arg(employeeName).arg(checkInTime);
             logTextEdit->append(logEntry);
         }
         else {
@@ -1311,7 +1320,7 @@ void Dashboard::saveLogToFile(int employeeId, const QString& checkInTime) {
         query.addBindValue(employeeId);
         if (query.exec() && query.next()) {
             employeeFirstName = query.value(0).toString();
-            QString logEntry = QString("%2: %1 has checked.\n").arg(employeeFirstName).arg(checkInTime);
+            QString logEntry = QString("%2: %1 has checked in.\n").arg(employeeFirstName).arg(checkInTime);
             out << logEntry;
         }
         else {
@@ -1324,6 +1333,44 @@ void Dashboard::saveLogToFile(int employeeId, const QString& checkInTime) {
     else {
         qDebug() << "Error: Failed to open log file for writing.";
     }
+}
+
+void Dashboard::onScanRFIDClicked() {
+    creatingEmployee = true;
+
+    empRFID->getArduino().writeToArduino("S");
+    QMessageBox::information(this, tr("Scan RFID"), tr("Please place the card on the RFID scanner."));
+
+    QTimer::singleShot(3000, this, [=]() {
+        QString scannedUID = empRFID->getArduino().readFromArduino();
+
+        if (!scannedUID.isEmpty()) {
+            QMessageBox::information(this, tr("RFID Scanned"), tr("Scanned UID: ") + scannedUID);
+        }
+        else {
+            QMessageBox::critical(this, tr("RFID Error"), tr("Failed to scan RFID. Please try again."));
+        }
+        });
+}
+
+void Dashboard::processRFIDDataForCreation() {
+    QString scannedUID = empRFID->getArduino().readFromArduino();
+
+    if (!scannedUID.isEmpty()) {
+      
+        qDebug() << "Scanned UID for employee creation: " << scannedUID;
+
+    }
+    else {
+        qDebug() << "Failed to read RFID data for employee creation.";
+    }
+}
+
+QString Dashboard::scanRFID()
+{
+    QString uid = empRFID->getArduino().readFromArduino();
+    QString scannedUID(uid);
+    return scannedUID;
 }
 
 //********************************************************************************************************************
@@ -2010,12 +2057,10 @@ void Dashboard::printSerialMonitor()
 
 //RFID
 void Dashboard::startRFID() {
-
     int arduinoConn = empRFID->getArduino().connectArduino();
     switch (arduinoConn) {
     case 0:
-        qDebug() << "Arduino is available and connected to : "
-                 << empRFID->getArduino().getArduinoPortName();
+        qDebug() << "Arduino is available and connected to: " << empRFID->getArduino().getArduinoPortName();
         break;
     case 1:
         qDebug() << "Given Arduino is not available";
@@ -2025,11 +2070,14 @@ void Dashboard::startRFID() {
         break;
     }
 
-    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID,
-                     SLOT(processRFIDData()));
+    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
+    
+    /*if (creatingEmployee) {
+        QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
+		QObject::connect(empRFID, &EmployeesRFID::employeeCheckedIn, this, &Dashboard::processRFIDDataForCreation);
+	}*/
 
 }
-
 
 void Dashboard::handleEmployeeCheckedIn(int employeeId) {
     qDebug() << "Employee checked in with ID:" << employeeId;
@@ -2063,7 +2111,7 @@ void Dashboard::startAccidentDetector() {
 }
 
 void Dashboard::readAccidentData() {
-    accidentDetector->OnAccidentDetected(); // Process accident data
+    accidentDetector->OnAccidentDetected();
 }
 //--------------------------------------------------------------------------------------------------------------------------------
 Dashboard::~Dashboard() {

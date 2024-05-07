@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Dashboard</class>
- <widget class="QDialog" name="Dashboard">
+ <widget class="QWidget" name="Dashboard">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -290,6 +290,7 @@ QTableWidget QTableWidget {
 #EmployeePhoneNumber_C,
 #EmployeeDob_C,
 #EmployeeRole_C,
+#EmployeeScanRFID__C,
 #EmployeeSelectID_U,
 #EmployeeEmail_U,
 #EmployeePassword_U,
@@ -299,6 +300,7 @@ QTableWidget QTableWidget {
 #EmployeePhoneNumber_U,
 #EmployeeDob_U,
 #EmployeeRole_U,
+#EmployeeScanRFID__U,
 #EmployeeSelectID_D,
 #LogEmployee {
     background-color: #444444;
@@ -802,6 +804,19 @@ QTableWidget QTableWidget {
          <set>Qt::NoTextInteraction</set>
         </property>
        </widget>
+       <widget class="QPushButton" name="EmployeeScanRFID__C">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>20</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Scan RFID card</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="UpdateEmployee">
        <widget class="QPlainTextEdit" name="EmployeeFirstNameText_U">
@@ -1094,6 +1109,19 @@ QTableWidget QTableWidget {
           <string/>
          </property>
         </item>
+       </widget>
+       <widget class="QPushButton" name="EmployeeScanRFID__U">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>20</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Scan RFID card</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="DeleteEmployee">

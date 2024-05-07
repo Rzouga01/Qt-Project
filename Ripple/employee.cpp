@@ -71,11 +71,11 @@ QString mapNumberToRole(int role)
     }
 }
 
-bool Employee::createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob)
+bool Employee::createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob, const QString& uid)
 {
     QSqlQuery qry;
-    qry.prepare("INSERT INTO EMPLOYEES (EMAIL, PASSWORD, ROLE, FIRST_NAME, LAST_NAME, PHONE_NUMBER, ADDRESS, DOB) "
-        "VALUES (:email, :password, :role, :first_name, :last_name, :phone_number, :address, :dob)");
+    qry.prepare("INSERT INTO EMPLOYEES (EMAIL, PASSWORD, ROLE, FIRST_NAME, LAST_NAME, PHONE_NUMBER, ADDRESS, DOB, RFID) "
+        "VALUES (:email, :password, :role, :first_name, :last_name, :phone_number, :address, :dob, :uid)");
 
     qry.bindValue(":email", email);
     qry.bindValue(":password", password);
@@ -85,6 +85,7 @@ bool Employee::createEmployee(const QString& email, const QString& password, int
     qry.bindValue(":phone_number", phone_number);
     qry.bindValue(":address", address);
     qry.bindValue(":dob", dob);
+    qry.bindValue(":uid", uid);
 
     if (qry.exec())
     {
@@ -96,7 +97,8 @@ bool Employee::createEmployee(const QString& email, const QString& password, int
             "\nLast Name :" << last_name <<
             "\nPhone Number :" << phone_number <<
             "\nAddress :" << address <<
-            "\nDate of Birth :" << dob.toString();
+            "\nDate of Birth :" << dob.toString() <<
+            "\nUID :" << uid;
         return  true;
     }
     else

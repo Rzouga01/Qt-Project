@@ -59,7 +59,7 @@ public:
     void setTableEmployee(QTableWidget* table) { tableEmployee = table; };
 
     // CRUD 
-    bool createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
+    bool createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob,const QString& uid);
     void readEmployee();
     bool updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
     bool deleteEmployee(int id);

@@ -1,2 +1,120 @@
 02 May 2024 15:36:37: An unknown card was scanned.
 02 May 2024 15:36:45: REZGI has checked.
+02 May 2024 16:59:10: REZGI has checked.
+02 May 2024 16:59:50: REZGI has checked.
+02 May 2024 17:02:36: REZGI has checked.
+02 May 2024 17:06:30: REZGI has checked.
+02 May 2024 17:10:43: REZGI has checked.
+02 May 2024 17:12:41: REZGI has checked.
+02 May 2024 17:13:08: An unknown card was scanned.
+02 May 2024 17:18:32: REZGI has checked.
+02 May 2024 17:19:32: REZGI has checked.
+02 May 2024 17:31:44: An unknown card was scanned.
+02 May 2024 17:33:36: REZGI has checked.
+02 May 2024 17:41:40: An unknown card was scanned.
+02 May 2024 17:41:50: An unknown card was scanned.
+02 May 2024 17:42:59: An unknown card was scanned.
+02 May 2024 17:43:09: REZGI has checked.
+02 May 2024 17:43:35: REZGI has checked.
+02 May 2024 17:44:10: An unknown card was scanned.
+02 May 2024 20:26:16: An unknown card was scanned.
+02 May 2024 20:29:29: REZGI has checked.
+02 May 2024 20:31:20: REZGI has checked.
+02 May 2024 20:34:09: An unknown card was scanned.
+02 May 2024 20:34:30: REZGI has checked.
+02 May 2024 23:05:18: REZGI has checked.
+02 May 2024 23:05:28: REZGI has checked.
+02 May 2024 23:05:40: REZGI has checked.
+03 May 2024 01:38:22: REZGI has checked.
+03 May 2024 01:38:52: REZGI has checked.
+03 May 2024 01:41:37: REZGI has checked.
+03 May 2024 01:42:14: REZGI has checked.
+03 May 2024 01:45:16: An unknown card was scanned.
+03 May 2024 01:45:28: REZGI has checked.
+03 May 2024 01:46:06: An unknown card was scanned.
+03 May 2024 01:46:40: REZGI has checked.
+03 May 2024 01:47:18: REZGI has checked.
+03 May 2024 02:57:20: REZGI has checked in.
+03 May 2024 03:16:27: An unknown card was scanned.
+03 May 2024 03:16:38: REZGI has checked in.
+03 May 2024 03:18:13: REZGI has checked in.
+03 May 2024 04:43:18: An unknown card was scanned.
+03 May 2024 04:43:30: REZGI has checked in.
+03 May 2024 04:45:04: An unknown card was scanned.
+03 May 2024 04:55:29: REZGI has checked in.
+03 May 2024 04:55:32: REZGI has checked in.
+03 May 2024 05:06:00: An unknown card was scanned.
+03 May 2024 05:06:03: An unknown card was scanned.
+03 May 2024 05:09:40: An unknown card was scanned.
+03 May 2024 05:09:43: An unknown card was scanned.
+03 May 2024 05:15:19: An unknown card was scanned.
+03 May 2024 05:15:22: An unknown card was scanned.
+03 May 2024 05:41:26: An unknown card was scanned.
+03 May 2024 05:41:29: An unknown card was scanned.
+03 May 2024 05:51:32: An unknown card was scanned.
+03 May 2024 05:51:35: An unknown card was scanned.
+03 May 2024 05:51:49: An unknown card was scanned.
+03 May 2024 05:51:52: An unknown card was scanned.
+03 May 2024 05:56:03: REZGI has checked in.
+03 May 2024 05:56:36: An unknown card was scanned.
+03 May 2024 06:06:05: An unknown card was scanned.
+03 May 2024 06:06:08: An unknown card was scanned.
+03 May 2024 06:10:51: An unknown card was scanned.
+03 May 2024 06:10:54: An unknown card was scanned.
+03 May 2024 06:13:08: An unknown card was scanned.
+03 May 2024 06:13:11: An unknown card was scanned.
+03 May 2024 06:14:49: An unknown card was scanned.
+03 May 2024 06:14:53: An unknown card was scanned.
+03 May 2024 06:26:43: REZGI has checked in.
+03 May 2024 06:27:07: An unknown card was scanned.
+03 May 2024 06:32:46: jhon has checked in.
+03 May 2024 06:33:18: admin has checked in.
+03 May 2024 06:34:45: jhon has checked in.
+03 May 2024 06:35:37: jhon has checked in.
+03 May 2024 06:37:00: jhon has checked in.
+03 May 2024 06:37:20: jhon has checked in.
+03 May 2024 06:38:25: jhon has checked in.
+03 May 2024 09:05:37: admin has checked in.
+03 May 2024 09:06:05: admin has checked in.
+03 May 2024 09:09:24: jhon has checked in.
+03 May 2024 09:09:45: An unknown card was scanned.
+03 May 2024 09:13:25: admin has checked in.
+03 May 2024 09:13:47: An unknown card was scanned.
+03 May 2024 09:13:56: jhon has checked in.
+03 May 2024 09:19:01: admin has checked in.
+03 May 2024 09:19:22: admin has checked in.
+03 May 2024 09:19:47: An unknown card was scanned.
+03 May 2024 09:19:59: jhon has checked in.
+03 May 2024 09:20:54: admin has checked in.
+03 May 2024 09:21:20: admin has checked in.
+03 May 2024 09:23:31: admin has checked in.
+03 May 2024 09:27:39: admin has checked in.
+03 May 2024 10:02:39: An unknown card was scanned.
+03 May 2024 10:04:59: An unknown card was scanned.
+03 May 2024 10:09:30: admin has checked in.
+03 May 2024 10:09:50: An unknown card was scanned.
+03 May 2024 10:10:00: jhon has checked in.
+03 May 2024 10:11:26: admin has checked in.
+03 May 2024 10:12:51: admin has checked in.
+03 May 2024 10:15:10: admin has checked in.
+03 May 2024 10:16:10: An unknown card was scanned.
+03 May 2024 10:16:31: jhon has checked in.
+03 May 2024 10:17:01: jhon has checked in.
+03 May 2024 10:17:24: An unknown card was scanned.
+03 May 2024 10:17:39: admin has checked in.
+03 May 2024 10:18:05: admin has checked in.
+03 May 2024 10:21:10: admin has checked in.
+03 May 2024 10:21:28: jhon has checked in.
+03 May 2024 10:21:46: An unknown card was scanned.
+03 May 2024 10:22:00: An unknown card was scanned.
+03 May 2024 10:22:16: An unknown card was scanned.
+03 May 2024 23:51:49: admin has checked in.
+03 May 2024 23:52:18: jhon has checked in.
+03 May 2024 23:55:12: admin has checked in.
+03 May 2024 23:56:03: admin has checked in.
+07 May 2024 11:11:25: admin has checked in.
+07 May 2024 11:14:08: admin has checked in.
+07 May 2024 11:18:23: admin has checked in.
+07 May 2024 11:19:35: admin has checked in.
+07 May 2024 11:19:58: An unknown card was scanned.
+07 May 2024 11:20:37: An unknown card was scanned.

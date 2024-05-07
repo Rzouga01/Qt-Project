@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPropertyAnimation>
 #include "sms.h"
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,5 +32,9 @@ private:
      bool m_rememberMe = false;
      QString m_storedEmail;
      bool m_isRemembered = false;
+     Arduino arduino;
+     bool isRFIDLoginActive = false;
+private slots:
+    void RFIDLogin();
 };
 #endif // MAINWINDOW_H

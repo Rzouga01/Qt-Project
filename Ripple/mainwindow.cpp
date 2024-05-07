@@ -11,7 +11,8 @@ MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
 	ui(new Ui::MainWindow),
 	logoAnimation(nullptr),
-    m_sms(new SMS("ACfe07e61a81cc5a2cb361954afc499a79", "7d64376ed5101e3c558756437800e7a9", "+18603986293"))
+	m_sms(new SMS("ACfe07e61a81cc5a2cb361954afc499a79", "7d64376ed5101e3c558756437800e7a9", "+18603986293")),
+	isRFIDLoginActive(false)
 {
 	ui->setupUi(this);
 	ui->email->setAlignment(Qt::AlignCenter);
@@ -22,6 +23,22 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(ui->password, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::editingFinished, this, &MainWindow::onEmailEditingFinished);
+
+	int arduinoConn = arduino.connectArduino();
+	switch (arduinoConn) {
+	case 0:
+		qDebug() << "Arduino is available and connected to : "
+			<< arduino.getArduinoPortName();
+		break;
+	case 1:
+		qDebug() << "Given Arduino is not available";
+		break;
+	case -1:
+		qDebug() << "Arduino not found";
+		break;
+	}
+	QObject::connect(arduino.getSerial(), SIGNAL(readyRead()), this,
+		SLOT(RFIDLogin()));
 }
 
 
@@ -164,6 +181,54 @@ void MainWindow::onLoginButtonClicked() {
 	settings.sync();
 }
 
+void MainWindow::RFIDLogin()
+{
+	if (isRFIDLoginActive) {
+		qDebug() << "RFID login already active. Ignoring further scans.";
+		return;
+	}
+
+	QString RFIDString = arduino.readFromArduino().trimmed();
+	if (!RFIDString.isEmpty()) {
+		QSqlQuery query;
+		query.prepare("SELECT FIRST_NAME, EMAIL, PASSWORD, ROLE FROM employees WHERE RFID = :RFID");
+		query.bindValue(":RFID", RFIDString);
+
+		if (query.exec() && query.next()) {
+			isRFIDLoginActive = true;
+
+			QObject::disconnect(arduino.getSerial(), SIGNAL(readyRead()), this, SLOT(RFIDLogin()));
+
+			QString firstName = query.value(0).toString();
+			QString email = query.value(1).toString();
+			QString password = query.value(2).toString();
+			int role = query.value(3).toInt();
+			QString name = "2" + firstName; 
+			arduino.writeToArduino(name.toUtf8());
+
+			Employee employee;
+			if (!employee.login(email, password)) {
+				QMessageBox::warning(this, "Error", "Invalid email or password.");
+				return;
+			}
+
+			Dashboard* dash = new Dashboard();
+			dash->setAttribute(Qt::WA_DeleteOnClose);
+			dash->showPageForRole(role);
+			dash->createSession(&employee);
+			dash->show();
+			arduino.closeArduino();
+			dash->startRFID();
+			this->close();
+		}
+		else {
+			qDebug() << "Failed to retrieve employee details or no such RFID in the system.";
+		}
+	}
+	else {
+		qDebug() << "Invalid RFID data.";
+	}
+}
 
 QString MainWindow::generateVerificationCode()
 {
@@ -184,7 +249,7 @@ void MainWindow::onEmailEditingFinished() {
 	QString email = ui->email->text();
 	QString settingsPath = QApplication::applicationDirPath() + "/settings.ini";
 	QSettings settings(settingsPath, QSettings::IniFormat);
-	QString storedEmail = settings.value("StoredEmail").toString(); 
-	bool require2FA = settings.value("Require2FA", false).toBool(); 
+	QString storedEmail = settings.value("StoredEmail").toString();
+	bool require2FA = settings.value("Require2FA", false).toBool();
 	ui->rememberMe->setChecked(email == storedEmail && !require2FA);
 }

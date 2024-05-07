@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 
     if (con.createconnect()) {
         w.show();
+        w.showMaximized();
         //d.show();
 
    

@@ -98,7 +98,6 @@ QString Arduino::readFromArduino() {
                 QString completeData = receivedData.left(newlineIndex).trimmed();
 
                 receivedData = receivedData.mid(newlineIndex + 1).trimmed();
-
                 return completeData;
             }
         }
