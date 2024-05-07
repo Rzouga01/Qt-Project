@@ -701,7 +701,7 @@ void Dashboard::EmployeeDashboardConnectUi() {
 
     Employee employee;
 
-   
+
 
     // Connect signal for employee stats selection
     QObject::connect(ui->EmployeeSelectStats, QOverload<int>::of(&QComboBox::currentIndexChanged),
@@ -1271,7 +1271,7 @@ void Dashboard::openEmployeesPresenceLog() {
     layout->addWidget(logTextEdit);
     logDialog->setLayout(layout);
     connect(empRFID, &EmployeesRFID::employeeCheckedIn, this, [=](int employeeId, const QString& checkInTime) {
-      
+
         QString employeeName;
         QSqlQuery query;
         query.prepare("SELECT FIRST_NAME FROM EMPLOYEES WHERE USER_ID = ?");
@@ -1283,7 +1283,7 @@ void Dashboard::openEmployeesPresenceLog() {
         }
         else {
            QString logEntry= QString("%1: An unknown card was scanned.\n").arg(checkInTime);
-			logTextEdit->append(logEntry);
+            logTextEdit->append(logEntry);
         }
         });
     if (logFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -1433,8 +1433,9 @@ void Dashboard::onAddClickedContract() {
     QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
     QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
     QDate expirationDate = ui->dateEditExpirationDateContract->date();
-    QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
-    QString type = ui->lineEditTypeContract->text().toLower();
+    QString paymentStatusStr = ui->comboBoxPaymentStatus->currentText();
+    QString type = ui->comboBoxType->currentText().toLower();
+
 
     // R�cup�rer les valeurs s�lectionn�es dans les combobox pour le client ID et le user ID
     QVariant clientIdVar = ui->comboBoxClientIDCreateContract->currentData();
@@ -1464,8 +1465,8 @@ void Dashboard::onAddClickedContract() {
     }
 
     // V�rifier si le type est parmi les valeurs autoris�es
-    if (type != "house" && type != "car" && type != "life" && type != "all risk") {
-        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
+    if (type != "house" && type != "car" && type != "life" && type != "All_risk") {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'house', 'vcar', 'life', or 'all risk'"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
         return;
     }
@@ -1485,8 +1486,9 @@ void Dashboard::clearInputFieldsContract() {
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
-    ui->LineEditPaymentstatusContract->clear();
-    ui->lineEditTypeContract->clear();
+    ui->comboBoxPaymentStatus->setCurrentIndex(1);
+    ui->comboBoxType->setCurrentIndex(0);
+
 }
 
 void Dashboard::onUpdateClickedContract() {
@@ -1496,8 +1498,8 @@ void Dashboard::onUpdateClickedContract() {
     QString premiumAmountStr = ui->LineEditPremiumAmountContractUpdate->text().trimmed();
     QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
     QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
-    QString paymentStatusStr = ui->LineEditPaymentstatusContractUpdate->text().trimmed();
-    QString type = ui->lineEditTypeContractUpdate->text().trimmed().toLower(); // Convertir en minuscules pour �tre insensible � la casse
+    QString paymentStatusStr = ui->comboBoxUpdatePaymentStatus->currentText();
+    QString type = ui->comboBoxUpdateType->currentText().trimmed().toLower(); // Convertir en minuscules pour �tre insensible � la casse
 
     // Assurez-vous de r�cup�rer les valeurs s�lectionn�es dans les combobox pour le client ID et le user ID
     QVariant clientId = ui->comboBoxClientIDUpdateContract->currentData();
@@ -1533,8 +1535,8 @@ void Dashboard::onUpdateClickedContract() {
     }
 
     // V�rifier si le type est parmi les valeurs autoris�es
-    if (type != "house" && type != "car" && type != "life" && type != "all risk") {
-        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'maison', 'voiture', 'vie', or 'tous risque'"), QMessageBox::Ok);
+    if (type != "house" && type != "car" && type != "life" && type != "All_risk") {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'house', 'car', 'life', or 'All risk'"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
     }
@@ -1590,16 +1592,16 @@ void Dashboard::clearInputFieldsCreateContract() {
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
-    ui->LineEditPaymentstatusContract->clear();
-    ui->lineEditTypeContract->clear();
+    ui->comboBoxPaymentStatus->setCurrentIndex(1);
+    ui->comboBoxType->setCurrentIndex(0);
 }
 
 void Dashboard::clearInputFieldsUpdateContract() {
     ui->LineEditPremiumAmountContractUpdate->clear();
     ui->dateEditEffectiveDateContractUpdate->setDate(QDate());
     ui->dateEditExpirationDateContractUpdate->setDate(QDate());
-    ui->LineEditPaymentstatusContractUpdate->clear();
-    ui->lineEditTypeContractUpdate->clear();
+    ui->comboBoxUpdatePaymentStatus->setCurrentIndex(1);
+    ui->comboBoxType->setCurrentIndex(0);
 
 }
 
@@ -1699,24 +1701,56 @@ void Dashboard::sendNotification(int id)
 
 //********************************************************************************************************************
 //Accident
-void Dashboard::AccidentDashboardConnectUi() {
-    // Connect UI elements to slots
+void Dashboard::AccidentDashboardConnectUi()
+{
+    accident MasterAccident(ui->tableAccident, this);
+
+
     QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
     QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
     QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
+
 
     QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
     QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
     QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
 
     QObject::connect(ui->AccidentSubmit, &QPushButton::clicked, this, &Dashboard::onAddClickedAccident);
+    QObject::connect(ui->AccidentUpdate, &QPushButton::clicked, this, &Dashboard::onUpdateClickedAccident);
+    QObject::connect(ui->AccidentDelete, &QPushButton::clicked, this, &Dashboard::onDeleteClickedAccident);
+
     QObject::connect(ui->AccidentCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedAccident);
     QObject::connect(ui->tableAccident, &QTableWidget::doubleClicked, this, &Dashboard::showMapAccident);
 
-    // Populate location and client comboboxes initially
-    populateLocationComboBox();
-    populateClientComboBox();
+    QSqlQuery query;
+    QSqlQuery query2;
+
+    if (!query2.exec("SELECT * FROM LOCATION")) {
+        qDebug() << "Error executing query:" << query2.lastError().text();
+        return;
+
+    }
+    while (query2.next()) {
+        QString locationName = query2.value(1).toString();
+        QVariant locationId = query2.value(0).toInt();
+        ui->AccidentCreateLocation->addItem(locationName, locationId);
+    }
+
+
+
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+    // Counter to track the number of rows fetched
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+        ui->AccidentCreateClientID->addItem(clientName, clientId);
+        ui->AccidentUpdateClientID->addItem(clientName, clientId);
+    }
+
 
     ui->StackedAccident->setCurrentIndex(0);
 }
@@ -1778,16 +1812,21 @@ void Dashboard::onDeleteClickedAccident() {
 void Dashboard::onAddClickedAccident() {
     accident MasterAccident(ui->tableAccident, this);
 
+
     if (ui->AccidentCreateType->text().isEmpty() ||
         ui->AccidentCreateDamage->text().isEmpty() ||
         ui->AccidentCreateDate->date().isNull() ||
         ui->AccidentCreateClientID->currentData().isNull() ||
         ui->AccidentCreateLocation->currentData().isNull())
+
     {
-        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"));
+
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
+
         clearInputFieldsAccidentCreate();
     }
     else {
+
         if (MasterAccident.create(
                 ui->AccidentCreateType->text(),
                 ui->AccidentCreateDamage->text().toInt(),
@@ -1796,17 +1835,18 @@ void Dashboard::onAddClickedAccident() {
                 ui->AccidentCreateClientID->currentData().toInt()))
         {
             MasterAccident.accidentRead();
+
             clearInputFieldsAccidentCreate();
-            QMessageBox::information(this, tr("Success"), tr("Accident created successfully"));
+
+            QMessageBox::information(this, tr("Success"), tr("Accident created successfully"), QMessageBox::Ok, QMessageBox::Ok);
             MasterAccident.logAccidentAction("Accident Created");
 
-            // Refresh location and client comboboxes after adding an accident
-            populateLocationComboBox();
-            populateClientComboBox();
         }
-        else {
-            QMessageBox::critical(this, tr("Error"), tr("Accident not created"));
+        else
+        {
+            QMessageBox::critical(this, tr("Error"), tr("accident not created"), QMessageBox::Ok, QMessageBox::Ok);
         }
+
     }
 }
 
@@ -1941,48 +1981,7 @@ void Dashboard::showMapAccident() {
         qDebug() << "Failed to retrieve location from the database.";
     }
 }
-void Dashboard::populateLocationComboBox() {
-    QSqlQuery query;
-    if (!query.exec("SELECT * FROM LOCATION")) {
-        qDebug() << "Error executing query:" << query.lastError().text();
-        return;
-    }
 
-    ui->AccidentCreateLocation->clear();  // Clear combobox before populating
-
-    while (query.next()) {
-        QString locationName = query.value(1).toString();
-        QVariant locationId = query.value(0).toInt();
-        ui->AccidentCreateLocation->addItem(locationName, locationId);
-    }
-}
-
-
-void Dashboard::populateClientComboBox() {
-    QSqlQuery query;
-    if (!query.exec("SELECT * FROM CLIENTS")) {
-        qDebug() << "Error executing query:" << query.lastError().text();
-        return;
-    }
-
-    ui->AccidentCreateClientID->clear();  // Clear combobox before populating
-
-    while (query.next()) {
-        QString clientName = query.value(2).toString();
-        QVariant clientId = query.value(0).toInt();
-        ui->AccidentCreateClientID->addItem(clientName, clientId);
-    }
-
-    ui->AccidentUpdateClientID->clear();  // Clear update combobox before populating
-
-    query.exec();  // Re-execute the query to reset the query position
-
-    while (query.next()) {
-        QString clientName = query.value(2).toString();
-        QVariant clientId = query.value(0).toInt();
-        ui->AccidentUpdateClientID->addItem(clientName, clientId);
-    }
-}
 //********************************************************************************************************************
 //Arduino
 void Dashboard::printSerialMonitor()
