@@ -1480,7 +1480,7 @@ void Dashboard::onAddClickedContract() {
     QString premiumAmountStr = ui->LineEditPremiumAmountContract->text();
     QDate effectiveDate = ui->dateEditEffectiveDateContract->date();
     QDate expirationDate = ui->dateEditExpirationDateContract->date();
-    QString paymentStatusStr = ui->comboBoxPaymentStatus->currentText();
+    QString paymentStatusStr = ui->LineEditPaymentstatusContract->text();
     QString type = ui->comboBoxType->currentText().toLower();
 
 
@@ -1510,13 +1510,14 @@ void Dashboard::onAddClickedContract() {
         clearInputFieldsCreateContract();
         return;
     }
-
+    /*
     // V�rifier si le type est parmi les valeurs autoris�es
     if (type != "house" && type != "car" && type != "life" && type != "All_risk") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'house', 'vcar', 'life', or 'all risk'"), QMessageBox::Ok);
         clearInputFieldsCreateContract();
         return;
     }
+    */
 
     // Appeler la fonction CreateContract avec les valeurs extraites
     if (MasterContract.CreateContract(userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
@@ -1533,7 +1534,7 @@ void Dashboard::clearInputFieldsContract() {
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
-    ui->comboBoxPaymentStatus->setCurrentIndex(1);
+    ui->LineEditPaymentstatusContract->clear();
     ui->comboBoxType->setCurrentIndex(0);
 
 }
@@ -1545,7 +1546,7 @@ void Dashboard::onUpdateClickedContract() {
     QString premiumAmountStr = ui->LineEditPremiumAmountContractUpdate->text().trimmed();
     QDate effectiveDate = ui->dateEditEffectiveDateContractUpdate->date();
     QDate expirationDate = ui->dateEditExpirationDateContractUpdate->date();
-    QString paymentStatusStr = ui->comboBoxUpdatePaymentStatus->currentText();
+    QString paymentStatusStr = ui->LineEditPremiumAmountContractUpdate->text().trimmed();
     QString type = ui->comboBoxUpdateType->currentText().trimmed().toLower(); // Convertir en minuscules pour �tre insensible � la casse
 
     // Assurez-vous de r�cup�rer les valeurs s�lectionn�es dans les combobox pour le client ID et le user ID
@@ -1580,13 +1581,14 @@ void Dashboard::onUpdateClickedContract() {
         clearInputFieldsUpdateContract();
         return;
     }
-
+    /*
     // V�rifier si le type est parmi les valeurs autoris�es
     if (type != "house" && type != "car" && type != "life" && type != "All_risk") {
         QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'house', 'car', 'life', or 'All risk'"), QMessageBox::Ok);
         clearInputFieldsUpdateContract();
         return;
     }
+    */
 
     if (MasterContract.UpdateContract(contractId, userId.toInt(), clientId.toInt(), premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
         MasterContract.ReadContract();
@@ -1639,7 +1641,7 @@ void Dashboard::clearInputFieldsCreateContract() {
     ui->LineEditPremiumAmountContract->clear();
     ui->dateEditEffectiveDateContract->setDate(QDate());
     ui->dateEditExpirationDateContract->setDate(QDate());
-    ui->comboBoxPaymentStatus->setCurrentIndex(1);
+    ui->LineEditPaymentstatusContract->clear();
     ui->comboBoxType->setCurrentIndex(0);
 }
 
@@ -1647,7 +1649,7 @@ void Dashboard::clearInputFieldsUpdateContract() {
     ui->LineEditPremiumAmountContractUpdate->clear();
     ui->dateEditEffectiveDateContractUpdate->setDate(QDate());
     ui->dateEditExpirationDateContractUpdate->setDate(QDate());
-    ui->comboBoxUpdatePaymentStatus->setCurrentIndex(1);
+    ui->LineEditPaymentstatusUpdateContract->clear();
     ui->comboBoxType->setCurrentIndex(0);
 
 }
