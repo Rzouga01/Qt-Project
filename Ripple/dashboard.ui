@@ -2781,6 +2781,16 @@ font-family: &quot;Roboto&quot;;
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string>Paid </string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Not_Paid</string>
+           </property>
+          </item>
          </widget>
          <widget class="QComboBox" name="comboBoxType">
           <property name="geometry">
@@ -2791,6 +2801,26 @@ font-family: &quot;Roboto&quot;;
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string>House</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Car</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>life</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>All_risk</string>
+           </property>
+          </item>
          </widget>
         </widget>
        </widget>
