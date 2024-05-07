@@ -1510,14 +1510,6 @@ void Dashboard::onAddClickedContract() {
         clearInputFieldsCreateContract();
         return;
     }
-    /*
-    // V�rifier si le type est parmi les valeurs autoris�es
-    if (type != "house" && type != "car" && type != "life" && type != "All_risk") {
-        QMessageBox::critical(this, tr("Error"), tr("Invalid input for type. Please enter 'house', 'vcar', 'life', or 'all risk'"), QMessageBox::Ok);
-        clearInputFieldsCreateContract();
-        return;
-    }
-    */
 
     // Appeler la fonction CreateContract avec les valeurs extraites
     if (MasterContract.CreateContract(userId, clientId, premiumAmount, effectiveDate, expirationDate, paymentStatus, type)) {
