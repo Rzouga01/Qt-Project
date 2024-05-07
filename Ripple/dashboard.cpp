@@ -1699,56 +1699,24 @@ void Dashboard::sendNotification(int id)
 
 //********************************************************************************************************************
 //Accident
-void Dashboard::AccidentDashboardConnectUi()
-{
-    accident MasterAccident(ui->tableAccident, this);
-
-
+void Dashboard::AccidentDashboardConnectUi() {
+    // Connect UI elements to slots
     QObject::connect(ui->sortAccident, &QPushButton::clicked, this, &Dashboard::onSortClickedAccident);
     QObject::connect(ui->pdfAccident, &QPushButton::clicked, this, &Dashboard::onPdfClickedAccient);
     QObject::connect(ui->searchAccident, &QLineEdit::textChanged, this, &Dashboard::onAccidentSearchTextChanged);
     QObject::connect(ui->statsAccident, &QPushButton::clicked, this, &Dashboard::onstatsClickedAccident);
-
 
     QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
     QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
     QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
 
     QObject::connect(ui->AccidentSubmit, &QPushButton::clicked, this, &Dashboard::onAddClickedAccident);
-    QObject::connect(ui->AccidentUpdate, &QPushButton::clicked, this, &Dashboard::onUpdateClickedAccident);
-    QObject::connect(ui->AccidentDelete, &QPushButton::clicked, this, &Dashboard::onDeleteClickedAccident);
-
     QObject::connect(ui->AccidentCancel, &QPushButton::clicked, this, &Dashboard::onAddCancelClickedAccident);
     QObject::connect(ui->tableAccident, &QTableWidget::doubleClicked, this, &Dashboard::showMapAccident);
 
-    QSqlQuery query;
-    QSqlQuery query2;
-
-    if (!query2.exec("SELECT * FROM LOCATION")) {
-        qDebug() << "Error executing query:" << query2.lastError().text();
-        return;
-
-    }
-    while (query2.next()) {
-        QString locationName = query2.value(1).toString();
-        QVariant locationId = query2.value(0).toInt();
-        ui->AccidentCreateLocation->addItem(locationName, locationId);
-    }
-
-
-
-    if (!query.exec("SELECT * FROM CLIENTS")) {
-        qDebug() << "Error executing query:" << query.lastError().text();
-        return;
-    }
-    // Counter to track the number of rows fetched
-    while (query.next()) {
-        QString clientName = query.value(2).toString();
-        QVariant clientId = query.value(0).toInt();
-        ui->AccidentCreateClientID->addItem(clientName, clientId);
-        ui->AccidentUpdateClientID->addItem(clientName, clientId);
-    }
-
+    // Populate location and client comboboxes initially
+    populateLocationComboBox();
+    populateClientComboBox();
 
     ui->StackedAccident->setCurrentIndex(0);
 }
@@ -1810,21 +1778,16 @@ void Dashboard::onDeleteClickedAccident() {
 void Dashboard::onAddClickedAccident() {
     accident MasterAccident(ui->tableAccident, this);
 
-
     if (ui->AccidentCreateType->text().isEmpty() ||
         ui->AccidentCreateDamage->text().isEmpty() ||
         ui->AccidentCreateDate->date().isNull() ||
         ui->AccidentCreateClientID->currentData().isNull() ||
         ui->AccidentCreateLocation->currentData().isNull())
-
     {
-
-        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok, QMessageBox::Ok);
-
+        QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"));
         clearInputFieldsAccidentCreate();
     }
     else {
-
         if (MasterAccident.create(
                 ui->AccidentCreateType->text(),
                 ui->AccidentCreateDamage->text().toInt(),
@@ -1833,18 +1796,17 @@ void Dashboard::onAddClickedAccident() {
                 ui->AccidentCreateClientID->currentData().toInt()))
         {
             MasterAccident.accidentRead();
-
             clearInputFieldsAccidentCreate();
-
-            QMessageBox::information(this, tr("Success"), tr("Accident created successfully"), QMessageBox::Ok, QMessageBox::Ok);
+            QMessageBox::information(this, tr("Success"), tr("Accident created successfully"));
             MasterAccident.logAccidentAction("Accident Created");
 
+            // Refresh location and client comboboxes after adding an accident
+            populateLocationComboBox();
+            populateClientComboBox();
         }
-        else
-        {
-            QMessageBox::critical(this, tr("Error"), tr("accident not created"), QMessageBox::Ok, QMessageBox::Ok);
+        else {
+            QMessageBox::critical(this, tr("Error"), tr("Accident not created"));
         }
-
     }
 }
 
@@ -1979,7 +1941,48 @@ void Dashboard::showMapAccident() {
         qDebug() << "Failed to retrieve location from the database.";
     }
 }
+void Dashboard::populateLocationComboBox() {
+    QSqlQuery query;
+    if (!query.exec("SELECT * FROM LOCATION")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
 
+    ui->AccidentCreateLocation->clear();  // Clear combobox before populating
+
+    while (query.next()) {
+        QString locationName = query.value(1).toString();
+        QVariant locationId = query.value(0).toInt();
+        ui->AccidentCreateLocation->addItem(locationName, locationId);
+    }
+}
+
+
+void Dashboard::populateClientComboBox() {
+    QSqlQuery query;
+    if (!query.exec("SELECT * FROM CLIENTS")) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+
+    ui->AccidentCreateClientID->clear();  // Clear combobox before populating
+
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+        ui->AccidentCreateClientID->addItem(clientName, clientId);
+    }
+
+    ui->AccidentUpdateClientID->clear();  // Clear update combobox before populating
+
+    query.exec();  // Re-execute the query to reset the query position
+
+    while (query.next()) {
+        QString clientName = query.value(2).toString();
+        QVariant clientId = query.value(0).toInt();
+        ui->AccidentUpdateClientID->addItem(clientName, clientId);
+    }
+}
 //********************************************************************************************************************
 //Arduino
 void Dashboard::printSerialMonitor()

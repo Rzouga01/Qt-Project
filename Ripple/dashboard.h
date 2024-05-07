@@ -116,6 +116,8 @@ public:
     void onHistoriqueAccidentclicked();
     void onstatsClickedAccident();
     void showMapAccident();
+    void populateLocationComboBox();
+    void populateClientComboBox();
     //***********************************************************
     //Arduino
     void printSerialMonitor();

@@ -99,7 +99,6 @@ QString Arduino::readFromArduino() {
 
                 receivedData = receivedData.mid(newlineIndex + 1).trimmed();
 
-                qDebug() << "RFID Card scanned:" << completeData;
                 return completeData;
             }
         }
