@@ -95,10 +95,10 @@ void Dashboard::update() {
 }
 
 void Dashboard::onLogoutButtonClicked() {
-
-    close();
-    deleteLater();
-    mainWindowRef.show();
+	this->close();
+	MainWindow* mainWindow = new MainWindow();
+	mainWindow->show();
+	delete this;
 }
 
 
