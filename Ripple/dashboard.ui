@@ -2562,7 +2562,8 @@ font-family: &quot;Roboto&quot;;
 background-color:transparent;
 }
 QComboBox QAbstractItemView {
-    background-color: transparent;
+   color: white; 
+    background-color: #17171717;
 }
 </string>
      </property>
@@ -2588,7 +2589,7 @@ QComboBox QAbstractItemView {
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="page_5">
         <widget class="QFrame" name="CreateContract">
@@ -3661,7 +3662,8 @@ QComboBox QAbstractItemView {
 background-color:transparent;
 }
 QComboBox QAbstractItemView {
-    background-color: transparent;
+   color: white; 
+    background-color: #17171717;
 }
  </string>
      </property>
@@ -4047,7 +4049,7 @@ QComboBox QAbstractItemView {
 								   </string>
             </property>
             <property name="text">
-             <string>Client_ID</string>
+             <string>Client ID</string>
             </property>
            </widget>
           </item>

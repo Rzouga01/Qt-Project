@@ -118,3 +118,44 @@
 07 May 2024 11:19:35: admin has checked in.
 07 May 2024 11:19:58: An unknown card was scanned.
 07 May 2024 11:20:37: An unknown card was scanned.
+08 May 2024 04:41:40: An unknown card was scanned.
+08 May 2024 04:41:53: An unknown card was scanned.
+08 May 2024 04:42:00: rzouga has checked in.
+08 May 2024 04:42:20: An unknown card was scanned.
+08 May 2024 04:42:26: An unknown card was scanned.
+08 May 2024 04:42:32: rzouga has checked in.
+08 May 2024 04:55:29: An unknown card was scanned.
+08 May 2024 04:55:37: An unknown card was scanned.
+08 May 2024 04:55:47: An unknown card was scanned.
+08 May 2024 04:55:54: rzouga has checked in.
+08 May 2024 05:00:33: rzouga has checked in.
+08 May 2024 05:00:46: rzouga has checked in.
+08 May 2024 05:01:43: rzouga has checked in.
+08 May 2024 05:01:52: rzouga has checked in.
+08 May 2024 05:02:06: rzouga has checked in.
+08 May 2024 05:02:22: An unknown card was scanned.
+08 May 2024 05:12:33: rzouga has checked in.
+08 May 2024 05:12:43: rzouga has checked in.
+08 May 2024 05:18:02: rzouga has checked in.
+08 May 2024 05:18:09: rzouga has checked in.
+08 May 2024 16:00:09: rzouga has checked in.
+08 May 2024 16:04:30: rzouga has checked in.
+08 May 2024 16:43:32: rzouga has checked in.
+08 May 2024 16:43:51: An unknown card was scanned.
+08 May 2024 16:59:53: An unknown card was scanned.
+08 May 2024 17:37:31: An unknown card was scanned.
+08 May 2024 17:41:16: An unknown card was scanned.
+08 May 2024 18:11:04: An unknown card was scanned.
+08 May 2024 18:12:18: An unknown card was scanned.
+08 May 2024 18:18:49: An unknown card was scanned.
+08 May 2024 18:21:39: An unknown card was scanned.
+08 May 2024 18:22:12: An unknown card was scanned.
+08 May 2024 18:22:23: rzouga has checked in.
+08 May 2024 18:43:53: rzouga has checked in.
+08 May 2024 18:44:05: An unknown card was scanned.
+08 May 2024 19:46:47: rzouga has checked in.
+08 May 2024 19:47:03: rzouga has checked in.
+08 May 2024 20:33:52: An unknown card was scanned.
+08 May 2024 20:57:49: An unknown card was scanned.
+08 May 2024 20:57:58: rzouga has checked in.
+08 May 2024 21:11:00: rzouga has checked in.

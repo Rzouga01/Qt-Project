@@ -41,7 +41,6 @@ MainWindow::MainWindow(QWidget* parent)
 		SLOT(RFIDLogin()));
 }
 
-
 MainWindow::~MainWindow()
 {
 	delete ui;
@@ -184,7 +183,7 @@ void MainWindow::onLoginButtonClicked() {
 void MainWindow::RFIDLogin()
 {
 	if (isRFIDLoginActive) {
-		qDebug() << "RFID login already active. Ignoring further scans.";
+		QMessageBox::warning(this, "Error", "For security purposes, RFID logins are allowed only once per session. Please log in manually.");
 		return;
 	}
 
@@ -196,19 +195,18 @@ void MainWindow::RFIDLogin()
 
 		if (query.exec() && query.next()) {
 			isRFIDLoginActive = true;
-
+			 
 			QObject::disconnect(arduino.getSerial(), SIGNAL(readyRead()), this, SLOT(RFIDLogin()));
 
 			QString firstName = query.value(0).toString();
 			QString email = query.value(1).toString();
 			QString password = query.value(2).toString();
 			int role = query.value(3).toInt();
-			QString name = "2" + firstName; 
+			QString name = "2" + firstName;
 			arduino.writeToArduino(name.toUtf8());
 
 			Employee employee;
 			if (!employee.login(email, password)) {
-				QMessageBox::warning(this, "Error", "Invalid email or password.");
 				return;
 			}
 

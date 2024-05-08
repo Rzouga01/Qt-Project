@@ -80,23 +80,28 @@ void scanRFID() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Scanning");
-  for (int i = 0; i < rfid.uid.size; i++) {
-    lcd.print(".");
-    delay(600);
-  }
-
+  Serial.println("Scanning");
   String cardContent = "";
   for (byte i = 0; i < rfid.uid.size; i++) {
+     lcd.print(".");
+    delay(500);
     cardContent += String(rfid.uid.uidByte[i] < 0x10 ? " 0" : " ");
     cardContent += String(rfid.uid.uidByte[i], HEX);
   }
+  Serial.flush();
   cardContent.toUpperCase();
   Serial.println(cardContent);
   delay(3000);
-
   String command = Serial.readString();
-  handleCommand(command);
+  if (command[0] == 'S') {
+    Serial.println(cardContent);
+  } else {
+    handleCommand(command); 
+  }
+
+  rfid.PICC_HaltA();
 }
+
 
 void handleCommand(String command) {
   if (command[0] == '1' && doorLocked == 0) {
@@ -104,7 +109,7 @@ void handleCommand(String command) {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print(employeeName); 
-    delay(2000);
+    delay(000);
     openDoor();
   } else if (command[0] == '1' && doorLocked == 1) {
     closeDoor();
@@ -116,10 +121,14 @@ void handleCommand(String command) {
     lcd.print("Logged in as:");
     lcd.setCursor(0, 1);
     lcd.print(employeeName);
-    delay(2000);
+    delay(3000);
     Serial.flush(); 
     lcd.clear();
-  } else {
+  }   
+  else  if (command[0] == "S") {
+    lcd.clear();
+  } 
+  else {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Wrong card!");
