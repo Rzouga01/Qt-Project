@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -170,7 +170,7 @@
 #EmployeeStatsTitle
 {
 background-color:transparent;
-font-family: &quot;Helvetica&quot;;
+font-family: &quot;Roboto&quot;;
  font-size: 30px;
  font-weight: bold;
  color: #333;
@@ -520,20 +520,231 @@ QTableWidget QTableWidget {
        </property>
       </widget>
      </widget>
+     <widget class="QListWidget" name="readBoxEmployee">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>120</y>
+        <width>591</width>
+        <height>551</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="searchBarEmployee">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>170</y>
+        <width>431</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>Search employee by name</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableEmployee">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>220</y>
+        <width>571</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>JetBrains Mono</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Email</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Role</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>First Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Last Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Phone Number</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Address</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date Of Birth</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QFrame" name="statsBoxEmployee">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>601</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <widget class="QChartView" name="EmployeeStats" native="true">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>-30</x>
+         <y>0</y>
+         <width>651</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+border:none;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="EmployeeSelectStats">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>10</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Select an employee</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Show general stats</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="EmployeeStatsLabel">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>541</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="EmployeeStatsTitle">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>-30</y>
+         <width>391</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Employee Stats</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="searchEmployee">
+      <property name="geometry">
+       <rect>
+        <x>1140</x>
+        <y>170</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Resources/Icons/search.png</normaloff>../Resources/Icons/search.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="LogEmployee">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>130</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View employees presence log</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
      <widget class="QStackedWidget" name="CrudEmployee">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>270</y>
-        <width>601</width>
-        <height>411</height>
+        <width>591</width>
+        <height>401</height>
        </rect>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="CreateEmployee">
        <widget class="QLineEdit" name="EmployeeEmail_C">
@@ -1181,225 +1392,14 @@ QTableWidget QTableWidget {
        </widget>
       </widget>
      </widget>
-     <widget class="QListWidget" name="readBoxEmployee">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>120</y>
-        <width>591</width>
-        <height>551</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="searchBarEmployee">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>170</y>
-        <width>431</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="placeholderText">
-       <string>Search employee by name</string>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="tableEmployee">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>220</y>
-        <width>591</width>
-        <height>381</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>JetBrains Mono</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="showGrid">
-       <bool>true</bool>
-      </property>
-      <column>
-       <property name="text">
-        <string>ID</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Email</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Password</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Role</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>First Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Last Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Phone Number</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Address</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Date Of Birth</string>
-       </property>
-      </column>
-     </widget>
-     <widget class="QFrame" name="statsBoxEmployee">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>601</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <widget class="QChartView" name="EmployeeStats" native="true">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>-30</x>
-         <y>0</y>
-         <width>651</width>
-         <height>271</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: transparent;
-border:none;</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="EmployeeSelectStats">
-       <property name="geometry">
-        <rect>
-         <x>440</x>
-         <y>10</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>Select an employee</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Show general stats</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="EmployeeStatsLabel">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>40</y>
-         <width>541</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="EmployeeStatsTitle">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>-30</y>
-         <width>391</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Employee Stats</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QPushButton" name="searchEmployee">
-      <property name="geometry">
-       <rect>
-        <x>1140</x>
-        <y>170</y>
-        <width>51</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../Resources/Icons/search.png</normaloff>../Resources/Icons/search.png</iconset>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="LogEmployee">
-      <property name="geometry">
-       <rect>
-        <x>940</x>
-        <y>130</y>
-        <width>251</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>View employees presence log</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
      <zorder>statsBoxEmployee</zorder>
      <zorder>readBoxEmployee</zorder>
      <zorder>featureBarEmployee</zorder>
-     <zorder>CrudEmployee</zorder>
      <zorder>searchBarEmployee</zorder>
      <zorder>tableEmployee</zorder>
      <zorder>searchEmployee</zorder>
      <zorder>LogEmployee</zorder>
+     <zorder>CrudEmployee</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -1577,8 +1577,16 @@ font-family: &quot;Roboto&quot;;
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Helvetica Now Text </family>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>Search</string>
       </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
@@ -2461,6 +2469,11 @@ font-family: &quot;Roboto&quot;;
         <height>41</height>
        </rect>
       </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
      </widget>
      <widget class="QLabel" name="SearchByLabel">
       <property name="geometry">
@@ -3288,7 +3301,7 @@ QComboBox QAbstractItemView {
      <widget class="QLineEdit" name="searchBarContract">
       <property name="geometry">
        <rect>
-        <x>780</x>
+        <x>820</x>
         <y>120</y>
         <width>331</width>
         <height>41</height>
@@ -3296,6 +3309,9 @@ QComboBox QAbstractItemView {
       </property>
       <property name="styleSheet">
        <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>Search contract by ID</string>
       </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
@@ -3654,7 +3670,7 @@ QComboBox QAbstractItemView {
        <rect>
         <x>520</x>
         <y>110</y>
-        <width>591</width>
+        <width>661</width>
         <height>541</height>
        </rect>
       </property>
@@ -3662,9 +3678,9 @@ QComboBox QAbstractItemView {
      <widget class="QLineEdit" name="searchAccident">
       <property name="geometry">
        <rect>
-        <x>560</x>
+        <x>690</x>
         <y>140</y>
-        <width>531</width>
+        <width>481</width>
         <height>41</height>
        </rect>
       </property>
@@ -3672,7 +3688,7 @@ QComboBox QAbstractItemView {
        <string notr="true"/>
       </property>
       <property name="placeholderText">
-       <string/>
+       <string>Search accident by location</string>
       </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
@@ -3700,7 +3716,7 @@ QComboBox QAbstractItemView {
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="CreateAccident">
         <widget class="QFrame" name="FrameCreateAccident">
@@ -4206,7 +4222,7 @@ QComboBox QAbstractItemView {
      <widget class="QFrame" name="featureBarAccident">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>520</x>
         <y>30</y>
         <width>651</width>
         <height>61</height>
@@ -4377,7 +4393,7 @@ QComboBox QAbstractItemView {
        <rect>
         <x>520</x>
         <y>210</y>
-        <width>591</width>
+        <width>661</width>
         <height>421</height>
        </rect>
       </property>

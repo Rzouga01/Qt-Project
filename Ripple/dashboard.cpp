@@ -695,9 +695,9 @@ void Dashboard::EmployeeDashboardConnectUi() {
 
 
     ui->sortEmployee->setToolTip("Sort Employees By Age");
-    ui->pdfEmployee->setToolTip("Generate Employees List To  PDF");
+    ui->pdfEmployee->setToolTip("Export Employees List To  PDF");
     ui->searchBarEmployee->setToolTip("Search Employees By Name");
-    ui->chatEmployee->setToolTip("Open RippleAssistant");
+    ui->chatEmployee->setToolTip("Open RippleAssist");
     ui->addEmployee->setToolTip("Add Employee");
     ui->updateEmployee->setToolTip("Update Employee");
     ui->deleteEmployee->setToolTip("Delete Employee");
