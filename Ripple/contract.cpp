@@ -86,6 +86,7 @@ contract::contract() {
 //fonction ajouter
 bool contract::CreateContract(int USER_ID, int CLIENT_ID, int PREMIUM_AMOUNT, QDate EFFECTIVE_DATE, QDate EXPIRATION_DATE, int PAYMENT_STATUS, QString TYPE) {
 	QSqlQuery query;
+	
 
 	query.prepare("INSERT INTO CONTRACTS(USER_ID,CLIENT_ID,PREMIUM_AMOUNT,EFFECTIVE_DATE,EXPIRATION_DATE,PAYMENT_STATUS,TYPE) values( :USER_ID, :CLIENT_ID, :PREMIUM_AMOUNT, :EFFECTIVE_DATE, :EXPIRATION_DATE, :PAYMENT_STATUS, :TYPE)");
 
@@ -165,14 +166,14 @@ void contract::ReadContract() {
 		while (query.next()) {
 			int row = tableContract->rowCount();
 			tableContract->insertRow(row);
-
+			QString paymentStatus = query.value(6).toInt() == 1 ? "Paid" : "Unpaid";
 			tableContract->setItem(row, 0, new QTableWidgetItem(query.value(0).toString()));
 			tableContract->setItem(row, 1, new QTableWidgetItem(query.value(1).toString()));
 			tableContract->setItem(row, 2, new QTableWidgetItem(query.value(2).toString()));
 			tableContract->setItem(row, 3, new QTableWidgetItem(query.value(3).toString()));
 			tableContract->setItem(row, 4, new QTableWidgetItem(query.value(4).toDate().toString()));
 			tableContract->setItem(row, 5, new QTableWidgetItem(query.value(5).toDate().toString()));
-			tableContract->setItem(row, 6, new QTableWidgetItem(query.value(6).toString()));
+			tableContract->setItem(row, 6, new QTableWidgetItem(paymentStatus));
 			tableContract->setItem(row, 7, new QTableWidgetItem(query.value(7).toString()));
 		}
 		tableContract->repaint();
@@ -302,20 +303,20 @@ void contract::sortContractsByPremium(bool ascendingOrder)
     tableContract->clearContents();
     tableContract->setRowCount(0);
 
-    int row = 0;
     while (qry.next()) {
-        int col = 0;
+        int row = tableContract->rowCount();
         tableContract->insertRow(row);
 
         // Set data items for each column
-        QTableWidgetItem* contractIdItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* userIdItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* clientIdItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* premiumAmountItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* effectiveDateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
-        QTableWidgetItem* expirationDateItem = new QTableWidgetItem(qry.value(col++).toDate().toString());
-        QTableWidgetItem* paymentStatusItem = new QTableWidgetItem(qry.value(col++).toString());
-        QTableWidgetItem* typeItem = new QTableWidgetItem(qry.value(col++).toString());
+        QTableWidgetItem* contractIdItem = new QTableWidgetItem(qry.value(0).toString());
+        QTableWidgetItem* userIdItem = new QTableWidgetItem(qry.value(1).toString());
+        QTableWidgetItem* clientIdItem = new QTableWidgetItem(qry.value(2).toString());
+        QTableWidgetItem* premiumAmountItem = new QTableWidgetItem(qry.value(3).toString());
+        QTableWidgetItem* effectiveDateItem = new QTableWidgetItem(qry.value(4).toDate().toString());
+        QTableWidgetItem* expirationDateItem = new QTableWidgetItem(qry.value(5).toDate().toString());
+        QString paymentStatus = qry.value(6).toInt() == 1 ? "Paid" : "Unpaid";
+        QTableWidgetItem* paymentStatusItem = new QTableWidgetItem(paymentStatus);
+        QTableWidgetItem* typeItem = new QTableWidgetItem(qry.value(7).toString());
 
         // Set items to the table
         tableContract->setItem(row, 0, contractIdItem);
@@ -326,13 +327,12 @@ void contract::sortContractsByPremium(bool ascendingOrder)
         tableContract->setItem(row, 5, expirationDateItem);
         tableContract->setItem(row, 6, paymentStatusItem);
         tableContract->setItem(row, 7, typeItem);
-
-        ++row;
     }
     tableContract->repaint();
 
     qDebug() << "Contract data sorted by premium amount in" << sortOrder << "order.";
 }
+
 void contract::toPdf(const QString& filePath)
 {
     qDebug() << "Exporting contract data to PDF:" << filePath;

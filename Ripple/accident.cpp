@@ -168,7 +168,7 @@ bool accident::Delete(int id) {
     }
 }
 
-void accident::update(int acc_id, QString type, int damage, QDate date, QString location, int client_id) {
+bool accident::update(int acc_id, QString type, int damage, QDate date, QString location, int client_id) {
     QSqlQuery query;
     query.prepare("SELECT * FROM ACCIDENTS WHERE ACCIDENT_ID = :acc_id");
     query.bindValue(":acc_id", acc_id);
@@ -186,47 +186,33 @@ void accident::update(int acc_id, QString type, int damage, QDate date, QString 
 
             if (query.exec())
             {
-                qDebug() << "accident Updated successfuly ." << "Data :" <<
+                qDebug() << "Accident Updated successfully." << "Data :" <<
                     "\nacc_id :" << acc_id <<
                     "\ntype :" << type <<
                     "\ndamage :" << damage <<
                     "\ndate :" << date.toString("yyyy-MM-dd") <<
                     "\nlocation :" << location <<
                     "\nclient_id :" << client_id;
-
+                return true;
             }
             else {
                 qDebug() << "Error executing update query :" << query.lastError().text();
                 QMessageBox::critical(nullptr, tr("Error"), query.lastError().text());
-
             }
         }
         else {
-            QMessageBox::critical(nullptr, tr("Error"), tr("accident not found"));
+            QMessageBox::critical(nullptr, tr("Error"), tr("Accident not found"));
         }
-
     }
     else {
         qDebug() << "Error executing select query:" << query.lastError().text();
         QMessageBox::critical(nullptr, tr("Error"), query.lastError().text());
     }
-    /*  qDebug() << "Contract Updated successfuly ." << "Data :" <<
-                "\nacc_id :" << acc_id <<
-                  "\ntype :" <<type <<
-               "\ndamage :" <<damage<<
-                "\ndate :" <<date.toString("yyyy-MM-dd") <<
-                "\nlocation :" <<location<<
-                  "\nclient_id :" <<client_id;
-      QSqlQuery query ;
-      query.prepare("UPDATE ACCIDENTS SET TYPE=:type, DAMAGE =:damage,ACCIDENT_DATE= :accident_date,LOCATION= :location, CLIENT_ID= :client_id WHERE ACCIDENT_ID= :id");
-      query.bindValue(":id",acc_id);
-      query.bindValue(":type",type);
-      query.bindValue(":damage",damage);
-      query.bindValue(":accident_date",date.toString("yyyy-MM-dd"));
-      query.bindValue(":location",location);
-      query.bindValue(":client_id",client_id);
-      query.exec();*/
+
+    return false;
 }
+
+
 void accident::sortAccidentByDamage(bool ascendingOrder)
 {
     QString sortOrder = ascendingOrder ? "ASC" : "DESC";

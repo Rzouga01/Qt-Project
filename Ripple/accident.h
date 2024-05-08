@@ -67,7 +67,7 @@ public:
 
     bool create(QString type  ,int damage ,QDate date,int location,int client_id );
     void accidentRead();
-    void update( int acc_id,QString type,int damage,QDate date,QString location,int client_id);
+    bool update( int acc_id,QString type,int damage,QDate date,QString location,int client_id);
     bool Delete(int);
     void setTableWidget(QTableWidget *tableWidget);
     void setStackedWidget(QStackedWidget *stackedWidget);

@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -1606,7 +1606,7 @@ font-family: &quot;Roboto&quot;;
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="CreateClientPage">
         <widget class="QFrame" name="CreateClient">
@@ -2545,13 +2545,19 @@ font-family: &quot;Roboto&quot;;
      border: none;
      background-color: transparent;
 }
- </string>
+ QLabel{
+background-color:transparent;
+}
+QComboBox QAbstractItemView {
+    background-color: transparent;
+}
+</string>
      </property>
      <widget class="QFrame" name="CrudContract">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
+        <x>20</x>
+        <y>30</y>
         <width>371</width>
         <height>641</height>
        </rect>
@@ -2569,16 +2575,16 @@ font-family: &quot;Roboto&quot;;
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="page_5">
         <widget class="QFrame" name="CreateContract">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>351</width>
-           <height>621</height>
+           <x>0</x>
+           <y>0</y>
+           <width>370</width>
+           <height>640</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -2611,7 +2617,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>USER_ID</string>
+           <string>User ID</string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelClientIdContract">
@@ -2631,7 +2637,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>CLIENT_ID</string>
+           <string>Client ID</string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelPremiumAmountContract">
@@ -2651,7 +2657,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>PREMIUM_AMOUNT</string>
+           <string>Premium Amount</string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelEffectiveDateContract">
@@ -2671,7 +2677,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>EFFECTIVE_DATE</string>
+           <string>Effective Date</string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelExpirationDateContract">
@@ -2691,7 +2697,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>EXPIRATION_DATE</string>
+           <string>Expiration Date</string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelPaymentStatusContract">
@@ -2711,7 +2717,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>PAYMENT_STATUS</string>
+           <string>Payment Status</string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelTypeContract">
@@ -2731,7 +2737,7 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>TYPE</string>
+           <string>Type</string>
           </property>
          </widget>
          <widget class="QPushButton" name="CancelCreateContract">
@@ -2789,6 +2795,11 @@ font-family: &quot;Roboto&quot;;
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
          </widget>
          <widget class="QComboBox" name="comboBoxClientIDCreateContract">
           <property name="geometry">
@@ -2799,6 +2810,11 @@ font-family: &quot;Roboto&quot;;
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
          </widget>
          <widget class="QComboBox" name="comboBoxType">
           <property name="geometry">
@@ -2811,34 +2827,49 @@ font-family: &quot;Roboto&quot;;
           </property>
           <item>
            <property name="text">
-            <string>House</string>
+            <string/>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Car</string>
+            <string>Property</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>life</string>
+            <string>Vehicule</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>All_risk</string>
+            <string>Life</string>
            </property>
           </item>
          </widget>
-         <widget class="QLineEdit" name="LineEditPaymentstatusContract">
+         <widget class="QComboBox" name="comboBoxPaymentstatusContract">
           <property name="geometry">
            <rect>
             <x>220</x>
             <y>320</y>
-            <width>113</width>
+            <width>111</width>
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Paid</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Unpaid</string>
+           </property>
+          </item>
          </widget>
         </widget>
        </widget>
@@ -2846,10 +2877,10 @@ font-family: &quot;Roboto&quot;;
         <widget class="QFrame" name="DeleteContract">
          <property name="geometry">
           <rect>
-           <x>10</x>
+           <x>0</x>
            <y>0</y>
-           <width>351</width>
-           <height>671</height>
+           <width>370</width>
+           <height>640</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -2858,8 +2889,8 @@ font-family: &quot;Roboto&quot;;
          <widget class="QLabel" name="LabelContractId">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>50</y>
+            <x>50</x>
+            <y>200</y>
             <width>91</width>
             <height>21</height>
            </rect>
@@ -2872,14 +2903,14 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>Contract_Id</string>
+           <string>Contract ID</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="LineEditContractID">
           <property name="geometry">
            <rect>
-            <x>230</x>
-            <y>50</y>
+            <x>220</x>
+            <y>200</y>
             <width>113</width>
             <height>24</height>
            </rect>
@@ -2888,10 +2919,10 @@ font-family: &quot;Roboto&quot;;
          <widget class="QPushButton" name="CancelDeleteContract">
           <property name="geometry">
            <rect>
-            <x>230</x>
-            <y>530</y>
-            <width>91</width>
-            <height>31</height>
+            <x>240</x>
+            <y>550</y>
+            <width>80</width>
+            <height>25</height>
            </rect>
           </property>
           <property name="text">
@@ -2901,10 +2932,10 @@ font-family: &quot;Roboto&quot;;
          <widget class="QPushButton" name="DeleteContractButton">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>530</y>
-            <width>111</width>
-            <height>31</height>
+            <x>30</x>
+            <y>550</y>
+            <width>101</width>
+            <height>25</height>
            </rect>
           </property>
           <property name="text">
@@ -2917,216 +2948,23 @@ font-family: &quot;Roboto&quot;;
         <widget class="QFrame" name="UpdateContract">
          <property name="geometry">
           <rect>
-           <x>-1</x>
-           <y>29</y>
-           <width>371</width>
-           <height>681</height>
+           <x>0</x>
+           <y>0</y>
+           <width>370</width>
+           <height>640</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
-         <widget class="QPushButton" name="UpdateContractButton">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>540</y>
-            <width>111</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Update Contract</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="CancelUpdateContract">
-          <property name="geometry">
-           <rect>
-            <x>260</x>
-            <y>540</y>
-            <width>80</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Cancel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelUserIdContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>100</y>
-            <width>81</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelUserIdContractUpdate {
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>USER_ID</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelClientIdContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>160</y>
-            <width>71</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelClientIdContractUpdate {
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>CLIENT_ID</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelPremiumAmountContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>210</y>
-            <width>121</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelPremiumAmountContractUpdate {
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>PREMIUM_AMOUNT</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelEffectiveDateContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>270</y>
-            <width>121</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelEffectiveDateContractUpdate{
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>EFFECTIVE_DATE</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelExpirationDateContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>330</y>
-            <width>121</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelExpirationDateContractUpdate {
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>EXPIRATION_DATE</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelPaymentStatusContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>390</y>
-            <width>121</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelPaymentStatusContractUpdate {
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>PAYMENT_STATUS</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="LabelTypeContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>450</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   #LabelTypeContractUpdate {
-									   background-color: transparent;
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>TYPE</string>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="dateEditEffectiveDateContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>250</x>
-            <y>270</y>
-            <width>110</width>
-            <height>25</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="dateEditExpirationDateContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>250</x>
-            <y>320</y>
-            <width>110</width>
-            <height>25</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="LineEditPremiumAmountContractUpdate">
-          <property name="geometry">
-           <rect>
-            <x>250</x>
-            <y>210</y>
-            <width>113</width>
-            <height>24</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QLineEdit" name="lineEditContractIDUpdate">
           <property name="geometry">
            <rect>
-            <x>250</x>
-            <y>40</y>
+            <x>221</x>
+            <y>50</y>
             <width>113</width>
             <height>24</height>
            </rect>
@@ -3135,8 +2973,8 @@ font-family: &quot;Roboto&quot;;
          <widget class="QLabel" name="labelContractIDUpdate">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>40</y>
+            <x>50</x>
+            <y>50</y>
             <width>81</width>
             <height>16</height>
            </rect>
@@ -3149,33 +2987,214 @@ font-family: &quot;Roboto&quot;;
 								   </string>
           </property>
           <property name="text">
-           <string>Contract_ID</string>
+           <string>Contract ID</string>
           </property>
          </widget>
-         <widget class="QComboBox" name="comboBoxUserIDUpdateContract">
+         <widget class="QLabel" name="LabelUserIdContractUpdate">
           <property name="geometry">
            <rect>
-            <x>251</x>
-            <y>100</y>
-            <width>111</width>
-            <height>28</height>
+            <x>50</x>
+            <y>110</y>
+            <width>51</width>
+            <height>21</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelUserIdContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>User ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelEffectiveDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>270</y>
+            <width>121</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelEffectiveDateContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Effective Date</string>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEditEffectiveDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>270</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelClientIdContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>170</y>
+            <width>71</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelClientIdContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Client ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelTypeContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>440</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelTypeContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEditExpirationDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>320</y>
+            <width>110</width>
+            <height>25</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelExpirationDateContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>320</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelExpirationDateContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Expiration Date</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="CancelUpdateContract">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>550</y>
+            <width>80</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="UpdateContractButton">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>550</y>
+            <width>101</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Update Contract</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="LabelPremiumAmountContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>220</y>
+            <width>121</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelPremiumAmountContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Premium Amount</string>
           </property>
          </widget>
          <widget class="QComboBox" name="comboBoxClientIDUpdateContract">
           <property name="geometry">
            <rect>
-            <x>251</x>
+            <x>221</x>
             <y>160</y>
             <width>111</width>
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="LabelPaymentStatusContractUpdate">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>380</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   #LabelPaymentStatusContract {
+									   background-color: transparent;
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>Payment Status</string>
+          </property>
          </widget>
          <widget class="QComboBox" name="comboBoxUpdateType">
           <property name="geometry">
            <rect>
-            <x>251</x>
+            <x>221</x>
             <y>440</y>
             <width>111</width>
             <height>28</height>
@@ -3183,34 +3202,74 @@ font-family: &quot;Roboto&quot;;
           </property>
           <item>
            <property name="text">
-            <string>House</string>
+            <string/>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>All_risk</string>
+            <string>Vehicule</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>life</string>
+            <string>Property</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Car</string>
+            <string>Life</string>
            </property>
           </item>
          </widget>
-         <widget class="QLineEdit" name="LineEditPaymentstatusUpdateContract">
+         <widget class="QLineEdit" name="LineEditPremiumAmountContractUpdate">
           <property name="geometry">
            <rect>
-            <x>250</x>
-            <y>380</y>
+            <x>220</x>
+            <y>220</y>
             <width>113</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="comboBoxUserIDUpdateContract">
+          <property name="geometry">
+           <rect>
+            <x>221</x>
+            <y>110</y>
+            <width>111</width>
             <height>28</height>
            </rect>
           </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="comboBoxPaymentstatusUpdateContract">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>380</y>
+            <width>111</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Paid</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Unpaid</string>
+           </property>
+          </item>
          </widget>
         </widget>
        </widget>
@@ -3219,7 +3278,7 @@ font-family: &quot;Roboto&quot;;
      <widget class="QListWidget" name="readBoxContract">
       <property name="geometry">
        <rect>
-        <x>390</x>
+        <x>430</x>
         <y>80</y>
         <width>741</width>
         <height>581</height>
@@ -3247,7 +3306,7 @@ font-family: &quot;Roboto&quot;;
        <rect>
         <x>450</x>
         <y>10</y>
-        <width>671</width>
+        <width>711</width>
         <height>61</height>
        </rect>
       </property>
@@ -3260,7 +3319,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="addContract">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>156</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -3289,7 +3348,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="deleteContract">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>246</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -3318,7 +3377,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="updateContract">
        <property name="geometry">
         <rect>
-         <x>430</x>
+         <x>436</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -3347,7 +3406,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="pdfContract">
        <property name="geometry">
         <rect>
-         <x>520</x>
+         <x>526</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -3376,7 +3435,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="sortContract">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>336</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -3405,7 +3464,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="excelContract">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>56</x>
          <y>10</y>
          <width>51</width>
          <height>41</height>
@@ -3434,7 +3493,7 @@ font-family: &quot;Roboto&quot;;
       <widget class="QPushButton" name="statsContract">
        <property name="geometry">
         <rect>
-         <x>600</x>
+         <x>606</x>
          <y>10</y>
          <width>41</width>
          <height>41</height>
@@ -3467,7 +3526,7 @@ font-family: &quot;Roboto&quot;;
      <widget class="QTableWidget" name="tableContract">
       <property name="geometry">
        <rect>
-        <x>390</x>
+        <x>430</x>
         <y>200</y>
         <width>741</width>
         <height>381</height>
@@ -3582,6 +3641,12 @@ font-family: &quot;Roboto&quot;;
      border: none;
      background-color: transparent;
 }
+ QLabel{
+background-color:transparent;
+}
+QComboBox QAbstractItemView {
+    background-color: transparent;
+}
  </string>
      </property>
      <widget class="QListWidget" name="readAccident">
@@ -3635,7 +3700,7 @@ font-family: &quot;Roboto&quot;;
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="CreateAccident">
         <widget class="QFrame" name="FrameCreateAccident">
@@ -3643,189 +3708,212 @@ font-family: &quot;Roboto&quot;;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>451</width>
-           <height>591</height>
+           <width>250</width>
+           <height>361</height>
           </rect>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
-         <widget class="QLabel" name="AccidentCreateTypeline">
-          <property name="geometry">
-           <rect>
-            <x>58</x>
-            <y>97</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   QLabel{
-									   color:white
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>Type</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentCreateType">
-          <property name="geometry">
-           <rect>
-            <x>188</x>
-            <y>97</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentCreateDamage">
-          <property name="geometry">
-           <rect>
-            <x>188</x>
-            <y>147</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentCreateDamageline">
-          <property name="geometry">
-           <rect>
-            <x>58</x>
-            <y>147</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   QLabel{
-									   color:white
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>Damage</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentCreateDateline">
-          <property name="geometry">
-           <rect>
-            <x>58</x>
-            <y>197</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   QLabel{
-									   color:white
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>Date</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentCreateLocationline">
-          <property name="geometry">
-           <rect>
-            <x>58</x>
-            <y>247</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   QLabel{
-									   color:white
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>Location</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentCreateClientIDline">
-          <property name="geometry">
-           <rect>
-            <x>58</x>
-            <y>57</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="AccidentCreateClientIDline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel
 									   {color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>Client ID</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="AccidentSubmit">
-          <property name="geometry">
-           <rect>
-            <x>348</x>
-            <y>207</y>
-            <width>71</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>SUBMIT</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="AccidentCancel">
-          <property name="geometry">
-           <rect>
-            <x>348</x>
-            <y>237</y>
-            <width>71</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>CANCEL</string>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="AccidentCreateClientID">
-          <property name="geometry">
-           <rect>
-            <x>188</x>
-            <y>57</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="AccidentCreateDate">
-          <property name="geometry">
-           <rect>
-            <x>188</x>
-            <y>197</y>
-            <width>110</width>
-            <height>25</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="AccidentCreateLocation">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>240</y>
-            <width>121</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
+            </property>
+            <property name="text">
+             <string>Client ID</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="AccidentCreateClientID">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="AccidentCreateTypeline">
+            <property name="styleSheet">
+             <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+            </property>
+            <property name="text">
+             <string>Type</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="AccidentCreateType">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vehicule accident</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Life accident</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Property accident</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="AccidentCreateDamageline">
+            <property name="styleSheet">
+             <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+            </property>
+            <property name="text">
+             <string> Damage amount</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="AccidentCreateDamage"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="AccidentCreateDateline">
+            <property name="styleSheet">
+             <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+            </property>
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QDateEdit" name="AccidentCreateDate"/>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="AccidentCreateLocationline">
+            <property name="styleSheet">
+             <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+            </property>
+            <property name="text">
+             <string>Location</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QComboBox" name="AccidentCreateLocation">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="QPushButton" name="AccidentSubmit">
+            <property name="text">
+             <string>Create</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="1">
+           <widget class="QPushButton" name="AccidentCancel">
+            <property name="text">
+             <string>Cancel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="1">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="7" column="1">
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="1">
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </widget>
        <widget class="QWidget" name="DeleteAccident">
@@ -3881,7 +3969,7 @@ font-family: &quot;Roboto&quot;;
            </rect>
           </property>
           <property name="text">
-           <string>delete</string>
+           <string>Delete</string>
           </property>
          </widget>
         </widget>
@@ -3891,9 +3979,9 @@ font-family: &quot;Roboto&quot;;
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-1</y>
-           <width>441</width>
-           <height>351</height>
+           <y>0</y>
+           <width>250</width>
+           <height>360</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -3902,199 +3990,215 @@ font-family: &quot;Roboto&quot;;
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
-         <widget class="QLabel" name="AccidentUpdateIDline">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>40</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="AccidentUpdateIDline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel{
 									   color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>ID</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentUpdateClientIDline">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>80</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+            </property>
+            <property name="text">
+             <string>ID</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="AccidentUpdateID"/>
+          </item>
+          <item row="1" column="1">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="AccidentUpdateClientIDline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel{
 									   color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>Client_ID</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentUpdateTypeline">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>120</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+            </property>
+            <property name="text">
+             <string>Client_ID</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="AccidentUpdateClientID">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="AccidentUpdateTypeline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel{
 									   color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>Type</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentUpdateDamageline">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>160</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+            </property>
+            <property name="text">
+             <string>Type</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QComboBox" name="AccidentUpdateType">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vehicule accident</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Life accident</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Property accident</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="AccidentUpdateDamageline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel{
 									   color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>Damage</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentUpdateDateline">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>200</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+            </property>
+            <property name="text">
+             <string>Damage amount</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="AccidentUpdateDamage"/>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="AccidentUpdateDateline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel{
 									   color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>date</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="AccidentUpdateLocationline">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>240</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+            </property>
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QDateEdit" name="AccidentUpdateDate"/>
+          </item>
+          <item row="10" column="0">
+           <widget class="QLabel" name="AccidentUpdateLocationline">
+            <property name="styleSheet">
+             <string notr="true">
 									   QLabel{
 									   color:white
 									   }
 								   </string>
-          </property>
-          <property name="text">
-           <string>location</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentUpdateID">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>40</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentUpdateType">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>120</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentUpdateDamage">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>160</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentUpdateLocation">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>240</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="AccidentUpdate">
-          <property name="geometry">
-           <rect>
-            <x>330</x>
-            <y>260</y>
-            <width>93</width>
-            <height>28</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>update</string>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="AccidentUpdateClientID">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>80</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="AccidentUpdateDate">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>200</y>
-            <width>110</width>
-            <height>25</height>
-           </rect>
-          </property>
-         </widget>
+            </property>
+            <property name="text">
+             <string>Location</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="QComboBox" name="AccidentUpdateLocation">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="12" column="1">
+           <widget class="QPushButton" name="AccidentUpdate">
+            <property name="text">
+             <string>Update</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="7" column="1">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="1">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </widget>
       </widget>
