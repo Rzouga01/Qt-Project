@@ -28,7 +28,7 @@ Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
 {
-	QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
+	//QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 	ui->setupUi(this);
 	Client MasterClient(ui->tableClient, this);
 	accident MasterAccident(ui->tableAccident, this);
@@ -68,7 +68,7 @@ Dashboard::Dashboard(QWidget* parent) :
 	layout.addWidget(accidentButton);
 
 	if (dialog.exec() == QDialog::Accepted) {
-		QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
+		//QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 		startRFID();
 		
 
@@ -76,7 +76,7 @@ Dashboard::Dashboard(QWidget* parent) :
 
 	}
 	else {
-		QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
+		//QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 
 		startAccidentDetector();
 	}

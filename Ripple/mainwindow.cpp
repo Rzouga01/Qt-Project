@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(ui->password, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::editingFinished, this, &MainWindow::onEmailEditingFinished);
-
+	/*
 	int arduinoConn = arduino.connectArduino();
 	switch (arduinoConn) {
 	case 0:
@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget* parent)
 		break;
 	}
 	QObject::connect(arduino.getSerial(), SIGNAL(readyRead()), this,
-		SLOT(RFIDLogin()));
+		SLOT(RFIDLogin()));*/
 }
 
 MainWindow::~MainWindow()
