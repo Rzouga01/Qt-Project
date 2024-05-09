@@ -136,7 +136,7 @@ private slots:
    
 public:
     Ui::Dashboard* ui;
-    MainWindow mainWindowRef;
+    MainWindow* mainWindowRef;
     Employee *user;
     QSystemTrayIcon* trayIcon;
     EmployeesRFID* empRFID;

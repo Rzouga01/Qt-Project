@@ -28,6 +28,7 @@ Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
 {
+	QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 	ui->setupUi(this);
 	Client MasterClient(ui->tableClient, this);
 	accident MasterAccident(ui->tableAccident, this);
@@ -67,9 +68,16 @@ Dashboard::Dashboard(QWidget* parent) :
 	layout.addWidget(accidentButton);
 
 	if (dialog.exec() == QDialog::Accepted) {
+		QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 		startRFID();
+		
+
+
+
 	}
 	else {
+		QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
+
 		startAccidentDetector();
 	}
 
@@ -1337,46 +1345,48 @@ void Dashboard::saveLogToFile(int employeeId, const QString& checkInTime) {
 }
 
 void Dashboard::onScanRFIDClicked() {
-	QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
-	QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
+    QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
+    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
 
-	QDialog* scanDialog = new QDialog(this);
-	scanDialog->setWindowTitle(tr("Scanning RFID"));
-	scanDialog->setStyleSheet("background-color: #444444; color: white; font-family: Helvetica; font-size: 12px;");
-	QLabel* scanLabel = new QLabel(tr("Place the card on the RFID scanner."), scanDialog);
-	scanLabel->setStyleSheet("color: white;");
-	QVBoxLayout* layout = new QVBoxLayout(scanDialog);
-	layout->addWidget(scanLabel);
-	scanDialog->setLayout(layout);
+    QDialog* scanDialog = new QDialog(this);
+    scanDialog->setWindowTitle(tr("Scanning RFID"));
+    scanDialog->setStyleSheet("background-color: #444444; color: white; font-family: Helvetica; font-size: 12px;");
+    QLabel* scanLabel = new QLabel(tr("Place the card on the RFID scanner."), scanDialog);
+    scanLabel->setStyleSheet("color: white;");
+    QVBoxLayout* layout = new QVBoxLayout(scanDialog);
+    layout->addWidget(scanLabel);
+    scanDialog->setLayout(layout);
 
-	scanDialog->show();
-
-	connect(empRFID->getArduino().getSerial(), &QSerialPort::readyRead, [=]() {
-		QString feedback = empRFID->getArduino().readFromArduino();
-		qDebug() << "Feedback from RFID scanner:" << feedback;
-		if (feedback.contains("Scanning")) {
-			scanLabel->setText(feedback);
-			QProgressBar* progressBar = new QProgressBar(scanDialog);
-			progressBar->setRange(0, 0);
-			progressBar->setStyleSheet("background-color: #444444; color: white;");
-			layout->addWidget(progressBar);
-			empRFID->getArduino().getSerial()->clear();
-			QTimer::singleShot(3000, [=]() {
-				QString scannedUID = feedback;
-				if (!scannedUID.isEmpty()) {
-					qDebug() << "Scanned UID: " << scannedUID;
-					QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. Scanned UID: ") + scannedUID);
-				}
-				else {
-					qDebug() << "No UID received.";
-					QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. No UID received."));
-				}
-				scanDialog->close();
-				QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
-				QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
-				});
-		}
-		});
+    scanDialog->show();
+    
+    connect(empRFID->getArduino().getSerial(), &QSerialPort::readyRead, [=]() {
+        QString feedback = empRFID->getArduino().readFromArduino();
+        qDebug() << "Feedback from RFID scanner:" << feedback;
+        if (feedback.isEmpty()) {
+            qDebug() << "Empty feedback received. Ignoring.";
+            return; // Skip further processing if feedback is empty
+        }
+        if (feedback.contains("Scanning")) {
+            scanLabel->setText(feedback);
+            QProgressBar* progressBar = new QProgressBar(scanDialog);
+            progressBar->setRange(0, 0);
+            progressBar->setStyleSheet("background-color: #444444; color: white;");
+            layout->addWidget(progressBar);
+        }
+        QTimer::singleShot(3000, [&, feedback]() { // Capture feedback by reference
+            QString scannedUID = feedback; // Initialize scannedUID with feedback
+            if (!scannedUID.isEmpty() && !(feedback.contains("Scanning"))) {
+                qDebug() << "Scanned UID: " << scannedUID;
+                QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. Scanned UID: ") + scannedUID);
+            } else {
+                qDebug() << "No UID received.";
+                QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. No UID received."));
+            }
+            scanDialog->close();
+            QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
+            QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
+        });
+    });
 }
 
 void Dashboard::processRFIDDataForCreation() {
@@ -1855,7 +1865,7 @@ void Dashboard::AccidentDashboardConnectUi()
 		ui->AccidentCreateClientID->addItem(clientName, clientId);
 		ui->AccidentUpdateClientID->addItem(clientName, clientId);
 	}
-
+		
 
 	ui->StackedAccident->setCurrentIndex(0);
 }

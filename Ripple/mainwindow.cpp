@@ -251,3 +251,7 @@ void MainWindow::onEmailEditingFinished() {
 	bool require2FA = settings.value("Require2FA", false).toBool();
 	ui->rememberMe->setChecked(email == storedEmail && !require2FA);
 }
+Arduino& MainWindow::getArduino()
+{
+	return arduino;
+}

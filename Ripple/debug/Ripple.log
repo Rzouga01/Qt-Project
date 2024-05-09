@@ -1,3 +1,42 @@
 ﻿  dashboard.cpp
-E:\touskie formatik\Qt-Project\Ripple\dashboard.cpp(709,11): warning C4100: 'index': unreferenced formal parameter
-  Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe
+C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(709,11): warning C4100: 'index': unreferenced formal parameter
+C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6): error C2678: binary '=': no operator found which takes a left-hand operand of type 'const QString' (or there is no acceptable conversion)
+  C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h(853,40):
+  could be 'QString &QString::operator =(const QByteArray &)'
+  	C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  	'QString &QString::operator =(const QByteArray &)': cannot convert 'this' pointer from 'const QString' to 'QString &'
+  		C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  		Conversion loses qualifiers
+  C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h(845,40):
+  or       'QString &QString::operator =(const char *)'
+  	C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  	'QString &QString::operator =(const char *)': cannot convert 'this' pointer from 'const QString' to 'QString &'
+  		C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  		Conversion loses qualifiers
+  C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h(182,5):
+  or       'QString &QString::operator =(QString &&) noexcept'
+  	C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  	'QString &QString::operator =(QString &&) noexcept': cannot convert 'this' pointer from 'const QString' to 'QString &'
+  		C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  		Conversion loses qualifiers
+  C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h(179,14):
+  or       'QString &QString::operator =(QLatin1StringView)'
+  	C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  	'QString &QString::operator =(QLatin1StringView)': cannot convert 'this' pointer from 'const QString' to 'QString &'
+  		C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  		Conversion loses qualifiers
+  C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h(178,14):
+  or       'QString &QString::operator =(const QString &) noexcept'
+  	C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  	'QString &QString::operator =(const QString &) noexcept': cannot convert 'this' pointer from 'const QString' to 'QString &'
+  		C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  		Conversion loses qualifiers
+  C:\Qt\6.8.0\msvc2019_64\include\QtCore\qstring.h(177,14):
+  or       'QString &QString::operator =(QChar)'
+  	C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  	'QString &QString::operator =(QChar)': cannot convert 'this' pointer from 'const QString' to 'QString &'
+  		C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  		Conversion loses qualifiers
+  C:\Users\Rzouga.RZOUGALAPTOP\Desktop\School\2A\SEM 2\QT\Qt-Project\Ripple\dashboard.cpp(1362,6):
+  while trying to match the argument list '(const QString, QString)'
+  

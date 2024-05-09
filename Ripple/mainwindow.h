@@ -23,11 +23,12 @@ public:
     void onLoginButtonClicked();
     QString generateVerificationCode();
     void onEmailEditingFinished();
+    Arduino& getArduino();
 
 private:
     Ui::MainWindow *ui;
      QPropertyAnimation *logoAnimation;
-     QString m_verificationCode;
+     QString m_verificationCode;    
      SMS *m_sms;
      bool m_rememberMe = false;
      QString m_storedEmail;

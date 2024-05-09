@@ -159,3 +159,6 @@
 08 May 2024 20:57:49: An unknown card was scanned.
 08 May 2024 20:57:58: rzouga has checked in.
 08 May 2024 21:11:00: rzouga has checked in.
+09 May 2024 22:31:26: An unknown card was scanned.
+09 May 2024 22:32:05: admin has checked in.
+09 May 2024 23:04:18: An unknown card was scanned.
