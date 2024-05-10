@@ -1817,8 +1817,8 @@ void Dashboard::AccidentDashboardConnectUi()
 
 
 	QObject::connect(ui->addAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(0); });
-	QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
-	QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
+	QObject::connect(ui->updateAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(1); });
+	QObject::connect(ui->deleteAccident, &QPushButton::clicked, this, [this]() { ui->StackedAccident->setCurrentIndex(2); });
 
 	QObject::connect(ui->AccidentSubmit, &QPushButton::clicked, this, &Dashboard::onAddClickedAccident);
 	QObject::connect(ui->AccidentUpdate, &QPushButton::clicked, this, &Dashboard::onUpdateClickedAccident);
