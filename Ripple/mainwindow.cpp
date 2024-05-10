@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(ui->password, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::returnPressed, this, &MainWindow::onLoginButtonClicked);
 	connect(ui->email, &QLineEdit::editingFinished, this, &MainWindow::onEmailEditingFinished);
-	/*
+
 	int arduinoConn = arduino.connectArduino();
 	switch (arduinoConn) {
 	case 0:
@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget* parent)
 		break;
 	}
 	QObject::connect(arduino.getSerial(), SIGNAL(readyRead()), this,
-		SLOT(RFIDLogin()));*/
+		SLOT(RFIDLogin()));
 }
 
 MainWindow::~MainWindow()
@@ -83,7 +83,6 @@ void MainWindow::animation()
 
 void MainWindow::resetLogoSize(const QRect& size)
 {
-	// Reset the size of the logo QLabel to its original size
 	ui->logo->setGeometry(size);
 }
 
@@ -167,6 +166,8 @@ void MainWindow::onLoginButtonClicked() {
 	// Login successful
 	int role = employee.getRole();
 	Dashboard* dash = new Dashboard();
+	arduino.closeArduino();
+	QObject::disconnect(arduino.getSerial(), SIGNAL(readyRead()), this, SLOT(RFIDLogin()));
 	dash->setAttribute(Qt::WA_DeleteOnClose);
 	dash->showPageForRole(role);
 	dash->createSession(&employee);
@@ -174,7 +175,6 @@ void MainWindow::onLoginButtonClicked() {
 	this->hide();
 
 	require2FA = !currentRememberMeChecked;
-
 	settings.setValue("StoredEmail", email);
 	settings.setValue("Require2FA", require2FA);
 	settings.sync();

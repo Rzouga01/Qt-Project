@@ -140,9 +140,10 @@ void Employee::readEmployee()
             tableEmployee->setItem(row, 6, new QTableWidgetItem(qry.value(6).toString()));
             tableEmployee->setItem(row, 7, new QTableWidgetItem(qry.value(7).toString()));
             tableEmployee->setItem(row, 8, new QTableWidgetItem(qry.value(8).toDate().toString()));
+            tableEmployee->setItem(row, 9, new QTableWidgetItem(qry.value(9).toString()));
         }
         tableEmployee->resizeColumnsToContents();
-        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive); 
+        tableEmployee->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
         tableEmployee->repaint();
     }
     else
@@ -151,10 +152,10 @@ void Employee::readEmployee()
     }
 }
 
-bool Employee::updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob)
+bool Employee::updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob, const QString& uid)
 {
     QSqlQuery qry;
-    qry.prepare("UPDATE employees  SET EMAIL = :email, PASSWORD = :password, ROLE = :role, FIRST_NAME = :first_name, LAST_NAME = :last_name, PHONE_NUMBER = :phone_number, ADDRESS = :address, DOB = :dob WHERE USER_ID = :id");
+    qry.prepare("UPDATE employees  SET EMAIL = :email, PASSWORD = :password, ROLE = :role, FIRST_NAME = :first_name, LAST_NAME = :last_name, PHONE_NUMBER = :phone_number, ADDRESS = :address, DOB = :dob, RFID = :uid WHERE USER_ID = :id");
 
     qry.bindValue(":email", email);
     qry.bindValue(":password", password);
@@ -165,6 +166,7 @@ bool Employee::updateEmployee(int id, const QString& email, const QString& passw
     qry.bindValue(":address", address);
     qry.bindValue(":dob", dob);
     qry.bindValue(":id", id);
+    qry.bindValue(":uid", uid); 
 
     if (qry.exec())
     {
@@ -177,7 +179,8 @@ bool Employee::updateEmployee(int id, const QString& email, const QString& passw
             "\nLast Name :" << last_name <<
             "\nPhone Number :" << phone_number <<
             "\nAddress :" << address <<
-            "\nDate of Birth :" << dob.toString(Qt::ISODate);
+            "\nDate of Birth :" << dob.toString(Qt::ISODate) <<
+            "\nUID :" << uid;
         return true;
     }
     else
@@ -613,6 +616,18 @@ bool Employee::login(const QString& email, const QString& password) {
         return false;
     }
 }
+
+bool Employee::emailExists(const QString& email) {
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM EMPLOYEES WHERE EMAIL = ?");
+    query.addBindValue(email);
+    if (query.exec() && query.next()) {
+        int count = query.value(0).toInt();
+        return (count > 0);
+    }
+    return false; 
+}
+
 
 bool Employee::RFIDExists(const QString& uid)
 {

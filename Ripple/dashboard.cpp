@@ -28,7 +28,6 @@ Dashboard::Dashboard(QWidget* parent) :
 	QDialog(parent),
 	ui(new Ui::Dashboard)
 {
-	//QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 	ui->setupUi(this);
 	Client MasterClient(ui->tableClient, this);
 	accident MasterAccident(ui->tableAccident, this);
@@ -68,16 +67,9 @@ Dashboard::Dashboard(QWidget* parent) :
 	layout.addWidget(accidentButton);
 
 	if (dialog.exec() == QDialog::Accepted) {
-		//QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
 		startRFID();
-		
-
-
-
 	}
 	else {
-		//QObject::disconnect(mainWindowRef->getArduino().getSerial(), SIGNAL(readyRead()), mainWindowRef, SLOT(RFIDLogin()));
-
 		startAccidentDetector();
 	}
 
@@ -752,12 +744,9 @@ QString Dashboard::mapRoleToString(int role) {
 
 void Dashboard::onAddEmployeeClicked() {
 
-	QString scannedUID = scanRFID();
+	QString scannedUID = m_scannedUID;
 
-	if (scannedUID.isEmpty()) {
-		QMessageBox::critical(this, tr("Error"), tr("Failed to scan RFID"), QMessageBox::Ok);
-		return;
-	}
+	
 
 	Employee emp(ui->tableEmployee, this);
 
@@ -771,13 +760,19 @@ void Dashboard::onAddEmployeeClicked() {
 	QDate dob = ui->EmployeeDob_C->date();
 
 	int role = mapRoleToNumber(roleText);
-
+	if (emp.RFIDExists(scannedUID)) {
+		QMessageBox::critical(this, tr("Error"), tr("RFID already exists"), QMessageBox::Ok);
+		return;
+	}
 	if (email.isEmpty() || password.isEmpty() || roleText.isEmpty() || firstName.isEmpty() ||
 		lastName.isEmpty() || phoneNumber.isEmpty() || address.isEmpty() || dob.isNull()) {
 		QMessageBox::critical(this, tr("Error"), tr("Please fill in all fields"), QMessageBox::Ok);
 		return;
 	}
-
+	if (emp.emailExists(email)) {
+		QMessageBox::critical(this, tr("Error"), tr("Email already exists"), QMessageBox::Ok);
+		return;
+	}
 	if (!email.contains('@') || !email.contains('.')) {
 		QMessageBox::critical(this, tr("Error"), tr("Please enter a valid email address"), QMessageBox::Ok);
 		return;
@@ -822,6 +817,7 @@ void Dashboard::onAddEmployeeClicked() {
 
 void Dashboard::onUpdateEmployeeClicked() {
 	int selectedId = ui->EmployeeSelectID_U->currentText().toInt();
+	QString scannedUID = m_scannedUID;
 
 	QString email = ui->EmployeeEmail_U->text();
 	QString password = ui->EmployeePassword_U->text();
@@ -831,6 +827,7 @@ void Dashboard::onUpdateEmployeeClicked() {
 	QString phoneNumber = ui->EmployeePhoneNumber_U->text();
 	QString address = ui->EmployeeAddress_U->text();
 	QDate dob = ui->EmployeeDob_U->date();
+
 
 	if (email.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() ||
 		phoneNumber.isEmpty() || address.isEmpty() || dob.isNull()) {
@@ -858,9 +855,13 @@ void Dashboard::onUpdateEmployeeClicked() {
 		return;
 	}
 
-	Employee emp;
 
-	if (emp.updateEmployee(selectedId, email, password, role, firstName, lastName, phoneNumber, address, dob)) {
+	Employee emp;
+	if (emp.RFIDExists(scannedUID)) {
+		QMessageBox::critical(this, tr("Error"), tr("RFID already exists"), QMessageBox::Ok);
+		return;
+	}
+	if (emp.updateEmployee(selectedId, email, password, role, firstName, lastName, phoneNumber, address, dob, scannedUID)) {
 		Employee emp(ui->tableEmployee);
 		emp.readEmployee();
 		openUpdateForm();
@@ -1112,37 +1113,38 @@ void Dashboard::displayEmployeeStats(int employeeID) {
 					employeeName = query.value("full_name").toString();
 				}
 			}
+
 			QChart* chart = new QChart();
 			chart->setBackgroundBrush(QBrush(Qt::transparent));
+
 			QBarSeries* series = new QBarSeries();
-			QBarSet* set = new QBarSet("Statistics");
-			*set << stats.value("Total Days Worked")
-				<< stats.value("Late Arrivals")
-				<< stats.value("Early Departures")
-				<< stats.value("Absenteeism Rate");
-			series->append(set);
+			QStringList categories = { "Total Days Worked", "Late Arrivals", "Early Departures", "Absenteeism Rate" };
+
+			for (const QString& category : categories) {
+				qreal value = stats.value(category, 0); // Retrieve value or default to 0 if not found
+				QBarSet* set = new QBarSet(category);
+				*set << value;
+				series->append(set);
+			}
+
 			chart->addSeries(series);
 			chart->setTitle("Statistics for " + employeeName);
 			chart->setAnimationOptions(QChart::AllAnimations);
+
 			QBarCategoryAxis* xAxis = new QBarCategoryAxis();
-			xAxis->append("Total Days Worked");
-			xAxis->append("Late Arrivals");
-			xAxis->append("Absenteeism Rate");
+			xAxis->append(categories);
 			xAxis->setLabelsFont(QFont("Arial", 8));
+
 			QValueAxis* yAxis = new QValueAxis();
 			yAxis->setTitleText("Values");
 			yAxis->setLabelsFont(QFont("Arial", 10));
+
 			chart->addAxis(xAxis, Qt::AlignBottom);
 			chart->addAxis(yAxis, Qt::AlignLeft);
 			series->attachAxis(xAxis);
 			series->attachAxis(yAxis);
 			chart->legend()->setVisible(false);
-			QChartView* chartView = new QChartView(chart);
-			chartView->setRenderHint(QPainter::Antialiasing);
-			chartView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-			chartView->setMinimumSize(400, 200);
-			chartView->setRubberBand(QChartView::RectangleRubberBand);
-			chartView->setInteractive(true);
+
 			employeeStatsView->setChart(chart);
 		}
 	}
@@ -1225,6 +1227,7 @@ void Dashboard::onEmployeeSelectStatsChanged(const QString& employeeName) {
 
 	int employeeId = employee.getEmployeeIdByName(employeeName);
 	if (employeeId != -1) {
+		qDebug() << "Displaying statistics for employee with ID:" << employeeId;
 		displayEmployeeStats(employeeId);
 	}
 	else {
@@ -1345,69 +1348,60 @@ void Dashboard::saveLogToFile(int employeeId, const QString& checkInTime) {
 }
 
 void Dashboard::onScanRFIDClicked() {
-    QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
-    QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
+	// Disconnect the normal RFID processing slot
+	QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
 
-    QDialog* scanDialog = new QDialog(this);
-    scanDialog->setWindowTitle(tr("Scanning RFID"));
-    scanDialog->setStyleSheet("background-color: #444444; color: white; font-family: Helvetica; font-size: 12px;");
-    QLabel* scanLabel = new QLabel(tr("Place the card on the RFID scanner."), scanDialog);
-    scanLabel->setStyleSheet("color: white;");
-    QVBoxLayout* layout = new QVBoxLayout(scanDialog);
-    layout->addWidget(scanLabel);
-    scanDialog->setLayout(layout);
+	// Connect the scanning process to a different slot
+	QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
 
-    scanDialog->show();
-    
-    connect(empRFID->getArduino().getSerial(), &QSerialPort::readyRead, [=]() {
-        QString feedback = empRFID->getArduino().readFromArduino();
-        qDebug() << "Feedback from RFID scanner:" << feedback;
-        if (feedback.isEmpty()) {
-            qDebug() << "Empty feedback received. Ignoring.";
-            return; // Skip further processing if feedback is empty
-        }
-        if (feedback.contains("Scanning")) {
-            scanLabel->setText(feedback);
-            QProgressBar* progressBar = new QProgressBar(scanDialog);
-            progressBar->setRange(0, 0);
-            progressBar->setStyleSheet("background-color: #444444; color: white;");
-            layout->addWidget(progressBar);
-        }
-        QTimer::singleShot(3000, [&, feedback]() { // Capture feedback by reference
-            QString scannedUID = feedback; // Initialize scannedUID with feedback
-            if (!scannedUID.isEmpty() && !(feedback.contains("Scanning"))) {
-                qDebug() << "Scanned UID: " << scannedUID;
-                QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. Scanned UID: ") + scannedUID);
-            } else {
-                qDebug() << "No UID received.";
-                QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. No UID received."));
-            }
-            scanDialog->close();
-            QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
-            QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
-        });
-    });
+	// Show scanning dialog
+	QDialog* scanDialog = new QDialog(this);
+	scanDialog->setWindowTitle(tr("Scanning RFID"));
+	QLabel* scanLabel = new QLabel(tr("Place the card on the RFID scanner."), scanDialog);
+	QVBoxLayout* layout = new QVBoxLayout(scanDialog);
+	layout->addWidget(scanLabel);
+	scanDialog->setLayout(layout);
+	scanDialog->show();
+
+	// Create the progress bar
+	QPointer<QProgressBar> progressBar = new QProgressBar(scanDialog);
+
+	// Connect to Arduino readyRead signal for scanning process
+	connect(empRFID->getArduino().getSerial(), &QSerialPort::readyRead, [=]() {
+		QString feedback = empRFID->getArduino().readFromArduino();
+		qDebug() << "Feedback from RFID scanner:" << feedback;
+
+		if (feedback.isEmpty() || feedback.contains("Scanning")) {
+			// Update UI to show scanning feedback
+			if (!progressBar.isNull()) {
+				progressBar->setRange(0, 0);
+				progressBar->setStyleSheet("background-color: #444444; color: white;");
+				layout->addWidget(progressBar);
+			}
+			scanLabel->setText(feedback);
+		}
+		else {
+			// Scanning completed
+			qDebug() << "Scanned UID: " << feedback;
+			m_scannedUID = feedback;
+			QMessageBox::information(this, tr("RFID Scanned"), tr("Scanning completed successfully. Scanned UID: ") + feedback);
+			scanDialog->close();
+			disconnect(empRFID->getArduino().getSerial(), nullptr, nullptr, nullptr);
+
+			QObject::disconnect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), this, SLOT(processRFIDDataForCreation()));
+
+			QObject::connect(empRFID->getArduino().getSerial(), SIGNAL(readyRead()), empRFID, SLOT(processRFIDData()));
+		}
+		});
+
+	
 }
+
 
 void Dashboard::processRFIDDataForCreation() {
-	/*/QString scannedUID = empRFID->getArduino().readFromArduino();
-
-	if (!scannedUID.isEmpty()) {
-
-		qDebug() << "Scanned UID for employee creation: " << scannedUID;
-
-	}
-	else {
-		qDebug() << "Failed to read RFID data for employee creation.";
-	}*/
+	qDebug() << "Processing RFID data for creation.";
 }
 
-QString Dashboard::scanRFID()
-{
-	QString uid = empRFID->getArduino().readFromArduino();
-	QString scannedUID(uid);
-	return scannedUID;
-}
 
 //********************************************************************************************************************
 // Contract
@@ -1456,15 +1450,12 @@ void Dashboard::ContractDashboardConnectUi() {
 	}
 	// Counter to track the number of rows fetched
 	while (query.next()) {
-		QString UserName = query.value(2).toString(); // Supposons que le nom de l'employ� est � l'index 2
+		QString UserName = query.value(2).toString();
 		QVariant UserId = query.value(0);
 
 		ui->comboBoxUserIDCreateContract->addItem(UserName, UserId);
 		ui->comboBoxUserIDUpdateContract->addItem(UserName, UserId);
 	}
-
-
-
 
 
 	ui->StackContract->setCurrentIndex(0);
@@ -1664,7 +1655,6 @@ void Dashboard::onUpdateClickedContract() {
 	}
 }
 
-
 void Dashboard::onDeleteClickedContract() {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	if (ui->LineEditContractID->text().isEmpty()) {
@@ -1731,19 +1721,19 @@ void Dashboard::onSortClickedContract() {
 void Dashboard::onSearchIdContract(QString searched) {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
 	QString id = ui->searchBarContract->text();
-	MasterContract.searchContract(id); // Appel de la fonction searchContractID pour rechercher les contrats
+	MasterContract.searchContract(id); 
 }
 
 void Dashboard::onStatByPremiumAmount() {
 	contract MasterContract(ui->tableContract, ui->StackContract, this);
-	MasterContract.statsByPremiumAmount(); // Appelle statsByPremiumAmount de la classe Contract
+	MasterContract.statsByPremiumAmount(); 
 }
 
 void Dashboard::onPdfClickedContract() {
 	QString filePath = QFileDialog::getSaveFileName(this, tr("Save PDF"), "", "PDF Files (*.pdf)");
 	if (!filePath.isEmpty()) {
 		contract MasterContract(ui->tableContract, ui->StackContract, this);
-		MasterContract.toPdf(filePath); // Appel de la fonction toPdf() de l'objet contract
+		MasterContract.toPdf(filePath);
 	}
 }
 
@@ -1839,6 +1829,19 @@ void Dashboard::AccidentDashboardConnectUi()
 
 	QSqlQuery query;
 	QSqlQuery query2;
+	if (!query.exec("SELECT * FROM CLIENTS")) {
+		qDebug() << "Error executing query:" << query.lastError().text();
+		return;
+	}
+
+	// Counter to track the number of rows fetched
+	while (query.next()) {
+		QString clientName = query.value(2).toString();
+		QVariant clientId = query.value(0).toInt();
+		ui->AccidentCreateClientID->addItem(clientName, clientId);
+		ui->AccidentUpdateClientID->addItem(clientName, clientId);
+	}
+
 
 	if (!query2.exec("SELECT * FROM LOCATION")) {
 		qDebug() << "Error executing query:" << query2.lastError().text();
@@ -1852,20 +1855,6 @@ void Dashboard::AccidentDashboardConnectUi()
 		ui->AccidentUpdateLocation->addItem(locationName, locationId);
 	}
 
-
-
-	if (!query.exec("SELECT * FROM CLIENTS")) {
-		qDebug() << "Error executing query:" << query.lastError().text();
-		return;
-	}
-	// Counter to track the number of rows fetched
-	while (query.next()) {
-		QString clientName = query.value(2).toString();
-		QVariant clientId = query.value(0).toInt();
-		ui->AccidentCreateClientID->addItem(clientName, clientId);
-		ui->AccidentUpdateClientID->addItem(clientName, clientId);
-	}
-		
 
 	ui->StackedAccident->setCurrentIndex(0);
 }

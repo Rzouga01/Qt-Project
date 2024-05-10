@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -616,6 +616,11 @@ QTableWidget QTableWidget {
       <column>
        <property name="text">
         <string>Date Of Birth</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>RFID card uid</string>
        </property>
       </column>
      </widget>
@@ -2558,7 +2563,49 @@ background-color:transparent;
 }
 QComboBox QAbstractItemView {
    color: white; 
-    background-color: #17171717;
+    background-color: #333333;
+}
+/* Apply styles to QLineEdit */
+QLineEdit {
+    background-color: #333333; /* Light grey background */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px; /* Add some padding */
+}
+
+/* Apply styles to QComboBox */
+QComboBox {
+    background-color: #333333; /* Light grey background */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 8px; /* Add some padding */
+}
+
+/* Apply styles to QDateEdit */
+QDateEdit {
+    background-color: #333333; /* Light grey background */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 8px; /* Add some padding */
+}
+
+/* Apply styles to QPushButton */
+QPushButton {
+    background-color: #333333; /* Grey background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 16px; /* Add some padding */
+}
+
+/* Apply styles to all QLabel */
+QLabel {
+    color: #333333; /* Dark grey text color */
+}
+
+/* Apply styles to all widgets within the frame */
+QFrame#UpdateContract, QFrame#CreateContract, QFrame#DeleteContract &gt; * {
+    color: white; /* Black text color */
 }
 </string>
      </property>
@@ -2584,7 +2631,7 @@ QComboBox QAbstractItemView {
         </rect>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="page_5">
         <widget class="QFrame" name="CreateContract">
@@ -2604,8 +2651,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>160</y>
-            <width>113</width>
-            <height>24</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -2752,10 +2799,10 @@ QComboBox QAbstractItemView {
          <widget class="QPushButton" name="CancelCreateContract">
           <property name="geometry">
            <rect>
-            <x>240</x>
-            <y>550</y>
-            <width>80</width>
-            <height>25</height>
+            <x>200</x>
+            <y>490</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -2766,13 +2813,13 @@ QComboBox QAbstractItemView {
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>550</y>
-            <width>101</width>
-            <height>25</height>
+            <y>490</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
-           <string>Create Contract</string>
+           <string>Create </string>
           </property>
          </widget>
          <widget class="QDateEdit" name="dateEditEffectiveDateContract">
@@ -2780,8 +2827,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>210</y>
-            <width>110</width>
-            <height>25</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -2790,8 +2837,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>260</y>
-            <width>110</width>
-            <height>25</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -2800,8 +2847,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>50</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -2815,8 +2862,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>100</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -2830,8 +2877,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>380</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -2860,8 +2907,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>320</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -2908,6 +2955,7 @@ QComboBox QAbstractItemView {
            <string notr="true">
 									   #LabelContractId {
 									   background-color: transparent;
+	color:#000;
 									   }
 								   </string>
           </property>
@@ -2920,18 +2968,18 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>200</y>
-            <width>113</width>
-            <height>24</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
          <widget class="QPushButton" name="CancelDeleteContract">
           <property name="geometry">
            <rect>
-            <x>240</x>
-            <y>550</y>
-            <width>80</width>
-            <height>25</height>
+            <x>200</x>
+            <y>490</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -2942,13 +2990,13 @@ QComboBox QAbstractItemView {
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>550</y>
-            <width>101</width>
-            <height>25</height>
+            <y>490</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
-           <string>Delete Contract</string>
+           <string>Delete </string>
           </property>
          </widget>
         </widget>
@@ -2974,8 +3022,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>50</y>
-            <width>113</width>
-            <height>24</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -3044,8 +3092,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>270</y>
-            <width>110</width>
-            <height>25</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -3094,8 +3142,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>320</y>
-            <width>110</width>
-            <height>25</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -3122,10 +3170,10 @@ QComboBox QAbstractItemView {
          <widget class="QPushButton" name="CancelUpdateContract">
           <property name="geometry">
            <rect>
-            <x>240</x>
-            <y>550</y>
-            <width>80</width>
-            <height>25</height>
+            <x>200</x>
+            <y>490</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -3136,13 +3184,13 @@ QComboBox QAbstractItemView {
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>550</y>
-            <width>101</width>
-            <height>25</height>
+            <y>490</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
-           <string>Update Contract</string>
+           <string>Update </string>
           </property>
          </widget>
          <widget class="QLabel" name="LabelPremiumAmountContractUpdate">
@@ -3170,8 +3218,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>160</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -3205,8 +3253,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>440</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -3235,8 +3283,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>220</y>
-            <width>113</width>
-            <height>24</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
          </widget>
@@ -3245,8 +3293,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>221</x>
             <y>110</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -3260,8 +3308,8 @@ QComboBox QAbstractItemView {
            <rect>
             <x>220</x>
             <y>380</y>
-            <width>111</width>
-            <height>28</height>
+            <width>109</width>
+            <height>36</height>
            </rect>
           </property>
           <item>
@@ -3297,9 +3345,9 @@ QComboBox QAbstractItemView {
      <widget class="QLineEdit" name="searchBarContract">
       <property name="geometry">
        <rect>
-        <x>820</x>
+        <x>710</x>
         <y>120</y>
-        <width>331</width>
+        <width>441</width>
         <height>41</height>
        </rect>
       </property>
@@ -3615,6 +3663,27 @@ QComboBox QAbstractItemView {
        </property>
       </column>
      </widget>
+     <widget class="QPushButton" name="SearchIconContract">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>120</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:transparent;
+border:none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Resources/Icons/search.png</normaloff>../Resources/Icons/search.png</iconset>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_4">
      <property name="styleSheet">
@@ -3629,38 +3698,64 @@ QComboBox QAbstractItemView {
  #StatsAccident {
      background-color: #A7C34E;
      border-radius: 25px;
+}/* Apply styles to the featureBarAccident */
+#featureBarAccident {
+    background-color: white;
+    border-radius: 25px;
 }
- #featureBarAccident {
-     background-color: white;
-     border-radius: 25px;
+
+/* Apply styles to the CrudAccident */
+#CrudAccident {
+    background-color: #A7C34E; /* Changed color */
+    border-radius: 25px;
 }
- #readAccident {
-     border: none;
-     background-color: #A7C34E;
-     border-radius: 25px;
+
+/* Apply styles to the StatsAccident */
+#StatsAccident {
+    background-color: #A7C34E;
+    border-radius: 25px;
 }
- #searchAccident {
-     background-color: white;
-     border-radius: 20px;
+
+/* Apply styles to the readAccident */
+#readAccident {
+    border: none;
+    background-color: #A7C34E;
+    border-radius: 25px;
 }
+
+/* Apply styles to the searchAccident */
+#searchAccident {
+    background-color: white;
+    border-radius: 20px;
+}
+
+/* Apply styles to the addAccident, deleteAccident, pdfAccident, updateAccident, sortAccident, historyAccident, statsAccident */
 #addAccident,
-#deleteAccident, 
-#pdfAccident, 
+#deleteAccident,
+#pdfAccident,
 #updateAccident,
 #sortAccident,
 #historyAccident,
 #statsAccident {
-     border: none;
-     background-color: transparent;
+    border: none;
+    background-color: transparent;
 }
- QLabel{
-background-color:transparent;
+
+/* Apply styles to QLabel */
+QLabel {
+    background-color: transparent;
+    color: #fff; /* Changed text color */
 }
-QComboBox QAbstractItemView {
-   color: white; 
-    background-color: #17171717;
+
+/* Apply styles to QComboBox QAbstractItemView */
+
+/* Apply styles to all widgets within the frames */
+QFrame#FrameCreateAccident &gt; *,
+QFrame#frame_3 &gt; *,
+QFrame#FrameCreateAccident_2 &gt; * {
+    color: white; /* White text color */
 }
- </string>
+</string>
      </property>
      <widget class="QListWidget" name="readAccident">
       <property name="geometry">
@@ -3675,9 +3770,9 @@ QComboBox QAbstractItemView {
      <widget class="QLineEdit" name="searchAccident">
       <property name="geometry">
        <rect>
-        <x>690</x>
+        <x>720</x>
         <y>140</y>
-        <width>481</width>
+        <width>441</width>
         <height>41</height>
        </rect>
       </property>
@@ -3712,18 +3807,46 @@ QComboBox QAbstractItemView {
          <height>591</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;</string>
+       </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="CreateAccident">
         <widget class="QFrame" name="FrameCreateAccident">
          <property name="geometry">
           <rect>
-           <x>0</x>
+           <x>100</x>
            <y>0</y>
            <width>250</width>
            <height>361</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QLineEdit,
+QComboBox,
+QDateEdit {
+    background-color: #333333; /* Dark grey background */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px; /* Add some padding */
+}
+
+/* Apply styles to QPushButton */
+QPushButton {
+    background-color: #333333; /* Dark grey background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 16px; /* Add some padding */
+}
+QComboBox QAbstractItemView {
+    color: white;
+    background-color: #333333;
+}
+</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -3744,10 +3867,19 @@ QComboBox QAbstractItemView {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="AccidentCreateClientID"/>
+           <widget class="QComboBox" name="AccidentCreateClientID">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+           </widget>
           </item>
           <item row="1" column="1">
            <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -3867,6 +3999,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="3" column="1">
            <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -3877,6 +4012,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="5" column="1">
            <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -3887,6 +4025,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="7" column="1">
            <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -3897,6 +4038,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="9" column="1">
            <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -3908,76 +4052,41 @@ QComboBox QAbstractItemView {
          </layout>
         </widget>
        </widget>
-       <widget class="QWidget" name="DeleteAccident">
-        <widget class="QFrame" name="FrameCreateAccident_2">
-         <property name="geometry">
-          <rect>
-           <x>-1</x>
-           <y>-1</y>
-           <width>451</width>
-           <height>351</height>
-          </rect>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <widget class="QLabel" name="AccidentDeleteIDline">
-          <property name="geometry">
-           <rect>
-            <x>50</x>
-            <y>50</y>
-            <width>56</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-									   QLabel{
-									   color:white
-									   }
-								   </string>
-          </property>
-          <property name="text">
-           <string>ID</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="AccidentDeleteID">
-          <property name="geometry">
-           <rect>
-            <x>110</x>
-            <y>50</y>
-            <width>113</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="AccidentDelete">
-          <property name="geometry">
-           <rect>
-            <x>310</x>
-            <y>50</y>
-            <width>93</width>
-            <height>28</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Delete</string>
-          </property>
-         </widget>
-        </widget>
-       </widget>
        <widget class="QWidget" name="UpdateAccident">
         <widget class="QFrame" name="frame_3">
          <property name="geometry">
           <rect>
-           <x>0</x>
+           <x>100</x>
            <y>0</y>
            <width>250</width>
            <height>360</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">
+/* Apply styles to QLineEdit, QComboBox, QDateEdit */
+QLineEdit,
+QComboBox,
+QDateEdit {
+    background-color: #333333; /* Dark grey background */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px; /* Add some padding */
+}
+
+/* Apply styles to QPushButton */
+QPushButton {
+    background-color: #333333; /* Dark grey background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 16px; /* Add some padding */
+}
+QComboBox QAbstractItemView {
+    color: white;
+    background-color: #333333;
+}
+</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -4002,6 +4111,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="1" column="1">
            <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -4025,7 +4137,13 @@ QComboBox QAbstractItemView {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="AccidentUpdateClientID"/>
+           <widget class="QComboBox" name="AccidentUpdateClientID">
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+           </widget>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="AccidentUpdateTypeline">
@@ -4131,6 +4249,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="3" column="1">
            <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -4141,6 +4262,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="5" column="1">
            <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -4151,6 +4275,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="7" column="1">
            <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -4161,6 +4288,9 @@ QComboBox QAbstractItemView {
           </item>
           <item row="9" column="1">
            <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -4170,6 +4300,86 @@ QComboBox QAbstractItemView {
            </spacer>
           </item>
          </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="DeleteAccident">
+        <widget class="QFrame" name="FrameCreateAccident_2">
+         <property name="geometry">
+          <rect>
+           <x>-1</x>
+           <y>-1</y>
+           <width>451</width>
+           <height>351</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+/* Apply styles to QLineEdit, QComboBox, QDateEdit */
+QLineEdit,
+QComboBox,
+QDateEdit {
+    background-color: #333333; /* Dark grey background */
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px; /* Add some padding */
+}
+
+/* Apply styles to QPushButton */
+QPushButton {
+    background-color: #333333; /* Dark grey background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 16px; /* Add some padding */
+}
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <widget class="QLabel" name="AccidentDeleteIDline">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>60</y>
+            <width>56</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+									   QLabel{
+									   color:white
+									   }
+								   </string>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="AccidentDeleteID">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>50</y>
+            <width>109</width>
+            <height>36</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AccidentDelete">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>50</y>
+            <width>109</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -4341,6 +4551,9 @@ QComboBox QAbstractItemView {
          <height>40</height>
         </size>
        </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
       </widget>
      </widget>
      <widget class="QTableWidget" name="tableAccident">
@@ -4412,6 +4625,27 @@ QComboBox QAbstractItemView {
         <string>Location</string>
        </property>
       </column>
+     </widget>
+     <widget class="QPushButton" name="SearchIconAccident">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>140</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:transparent;
+border:none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Resources/Icons/search.png</normaloff>../Resources/Icons/search.png</iconset>
+      </property>
      </widget>
     </widget>
    </widget>

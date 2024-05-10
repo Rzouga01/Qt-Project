@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
         w.show();
         //d.show();
 
-   
     }
 
     return a.exec();

@@ -16,6 +16,12 @@
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
+#include <QtCharts/QChartView>
+#include <QtCharts/QStackedBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
+#include <QtCharts/QChart>
 #include <QtCharts/QChart>
 #include <QBoxLayout>
 #include <QtCharts/QPieSeries>
@@ -440,8 +446,11 @@ void contract::toPdf(const QString& filePath)
     qDebug() << "PDF file successfully created:" << filePath;
     QMessageBox::information(nullptr, "Export Successful", "Contract Data has been successfully exported to PDF.\nFile saved to: " + filePath);
 }
-void contract::statsByPremiumAmount()
-{
+
+void contract::statsByPremiumAmount() {
+    QMap<QString, int> contractCountByPremiumAmount;
+    QStringList categories = { "0-100", "101-500", "501-1000", "1000+" };
+
     QSqlQuery qry;
     qry.prepare("SELECT PREMIUM_AMOUNT_GROUP, COUNT(*) AS CONTRACT_COUNT \
                  FROM ( \
@@ -461,45 +470,41 @@ void contract::statsByPremiumAmount()
         return;
     }
 
-    qDebug() << "Query executed successfully. Fetching data...";
-
-    QBarSeries *barSeries = new QBarSeries();
-
     while (qry.next()) {
         QString premiumAmountGroup = qry.value(0).toString();
         int contractCount = qry.value(1).toInt();
-
-        // Create a bar set with label text indicating premium amount group and contract count
-        QBarSet *barSet = new QBarSet(premiumAmountGroup);
-        *barSet << contractCount;
-        barSeries->append(barSet);
+        contractCountByPremiumAmount[premiumAmountGroup] = contractCount;
     }
 
-    QChart *chart = new QChart();
-    chart->addSeries(barSeries);
-    chart->setTitle("Contracts by Premium Amount");
+    QBarSeries* series = new QBarSeries();
+    QBarSet* set = new QBarSet("Contracts by premium amount");
+
+    for (int i = 0; i < categories.size(); ++i) {
+        *set << contractCountByPremiumAmount.value(categories[i], 0);
+    }
+
+    series->append(set);
+
+    QChart* chart = new QChart();
+    chart->addSeries(series);
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
-    QStringList categories;
-    categories << "0-100" << "101-500" << "501-1000" << "1000+"; // Define categories for x-axis
-    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    QBarCategoryAxis* axisX = new QBarCategoryAxis();
     axisX->append(categories);
+    QValueAxis* axisY = new QValueAxis();
+    axisY->setTickCount(5);
     chart->addAxis(axisX, Qt::AlignBottom);
-    barSeries->attachAxis(axisX);
-
-    QValueAxis *axisY = new QValueAxis();
-    axisY->setTickCount(5); // Set number of ticks on y-axis
     chart->addAxis(axisY, Qt::AlignLeft);
-    barSeries->attachAxis(axisY);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
 
-    chart->legend()->setVisible(true);
-    chart->legend()->setAlignment(Qt::AlignBottom);
-
-    QChartView *chartView = new QChartView(chart);
+    QChartView* chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
-    chartView->setMinimumSize(800, 600);
+    chartView->setWindowTitle("Contracts by Premium Amount");
+    chartView->resize(800, 600);
     chartView->show();
 }
+
 void contract::exportToExcel(int clientId, const QString& filePath) {
     // Execute SQL query to retrieve total contract amounts for the specified client
     QSqlQuery qry;

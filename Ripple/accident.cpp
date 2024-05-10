@@ -407,8 +407,11 @@ void accident::searchAccident(const QString& search)
 
     }
 }
-void accident::accidentstatsByDamage()
-{
+
+void accident::accidentstatsByDamage() {
+    QMap<QString, int> accidentCountByDamage;
+    QStringList categories = { "0-3000", "3001-5000", "5001+" };
+
     QSqlQuery qry;
     qry.prepare("SELECT DAMAGE_GROUP, COUNT(*) AS ACCIDENT_COUNT \
                  FROM ( \
@@ -427,48 +430,42 @@ void accident::accidentstatsByDamage()
         return;
     }
 
-    qDebug() << "Query executed successfully. Fetching data...";
-
-    QBarSeries *barSeries = new QBarSeries();
-
     while (qry.next()) {
-        QString damageGroup = qry.value("DAMAGE_GROUP").toString();
-        int accidentCount = qry.value("ACCIDENT_COUNT").toInt();
-
-        // Create a bar set representing each damage category and its accident count
-        QBarSet *barSet = new QBarSet(damageGroup);
-        *barSet << accidentCount;
-        barSeries->append(barSet);
+        QString damageGroup = qry.value(0).toString();
+        int accidentCount = qry.value(1).toInt();
+        accidentCountByDamage[damageGroup] = accidentCount;
     }
 
-    QChart *chart = new QChart();
-    chart->addSeries(barSeries);
+    QBarSeries* series = new QBarSeries();
+    QBarSet* set = new QBarSet("Accidents by damage group");
+
+    for (int i = 0; i < categories.size(); ++i) {
+        *set << accidentCountByDamage.value(categories[i], 0);
+    }
+
+    series->append(set);
+
+    QChart* chart = new QChart();
+    chart->addSeries(series);
     chart->setTitle("Accidents by Damage Group");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
 
-    QStringList categories; // X-axis categories
-
-    // Adding categories based on damage groups
-    categories << "0-3000" << "3001-5000" << "5001+";
-
-    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    QBarCategoryAxis* axisX = new QBarCategoryAxis();
     axisX->append(categories);
+    QValueAxis* axisY = new QValueAxis();
+    axisY->setTickCount(5);
     chart->addAxis(axisX, Qt::AlignBottom);
-    barSeries->attachAxis(axisX);
-
-    QValueAxis *axisY = new QValueAxis();
-    axisY->setLabelFormat("%i");
     chart->addAxis(axisY, Qt::AlignLeft);
-    barSeries->attachAxis(axisY);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
 
-    chart->legend()->setVisible(true);
-    chart->legend()->setAlignment(Qt::AlignBottom);
-
-    QChartView *chartView = new QChartView(chart);
+    QChartView* chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
-
-    chartView->setMinimumSize(800, 600);
+    chartView->setWindowTitle("Accidents by Damage Group");
+    chartView->resize(800, 600);
     chartView->show();
 }
+
 QSqlQuery accident::rechercherall()
 {
     QSqlQuery query;

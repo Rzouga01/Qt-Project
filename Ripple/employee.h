@@ -61,7 +61,7 @@ public:
     // CRUD 
     bool createEmployee(const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob,const QString& uid);
     void readEmployee();
-    bool updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob);
+    bool updateEmployee(int id, const QString& email, const QString& password, int role, const QString& first_name, const QString& last_name, const QString& phone_number, const QString& address, const QDate& dob, const QString& uid);
     bool deleteEmployee(int id);
   
     //Metiers
@@ -78,6 +78,7 @@ public:
     QStringList getEmployeeNames();
     int getEmployeeIdByName(const QString& name);
     bool login(const QString& email, const QString& password);
+    bool emailExists(const QString& email);
     //Arduino
 	bool RFIDExists(const QString& uid);
 	QString getNameRFID(const QString& uid);  

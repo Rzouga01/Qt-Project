@@ -124,7 +124,6 @@ public:
     //RFID
     void startRFID();
     void handleEmployeeCheckedIn(int employeeId);
-    QString scanRFID();
     //Accident Detector
     void startAccidentDetector();
     //------------------------------------------------------------------------------------------------------------------
@@ -143,6 +142,7 @@ public:
     AccidentDetector* accidentDetector;
     QFile logFile;
     bool creatingEmployee = false;
+    QString m_scannedUID;
 };
 
 #endif // DASHBOARD_H

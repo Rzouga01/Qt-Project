@@ -109,7 +109,7 @@ void handleCommand(String command) {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print(employeeName); 
-    delay(000);
+    delay(3000);
     openDoor();
   } else if (command[0] == '1' && doorLocked == 1) {
     closeDoor();

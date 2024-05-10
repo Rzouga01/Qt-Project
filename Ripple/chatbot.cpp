@@ -148,7 +148,7 @@ void chatbot::showTypingIndicator(bool show) {
 			QWidget* bubbleContainer = new QWidget();
 			QVBoxLayout* bubbleLayout = new QVBoxLayout(bubbleContainer);
 			bubbleLayout->addWidget(typingIndicator);
-			bubbleLayout->setAlignment(Qt::AlignBottom | Qt::AlignLeft);
+			bubbleLayout->setAlignment(Qt::AlignBottom);
 
 			ui->chatContainer->layout()->addWidget(bubbleContainer);
 		}
