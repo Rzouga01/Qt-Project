@@ -180,3 +180,29 @@
 10 May 2024 06:17:32: admin has checked in.
 10 May 2024 06:19:13: Test has checked in.
 10 May 2024 06:20:59: test has checked in.
+10 May 2024 09:17:32: An unknown card was scanned.
+10 May 2024 09:17:32: An unknown card was scanned.
+10 May 2024 09:17:33: An unknown card was scanned.
+10 May 2024 09:17:35: An unknown card was scanned.
+10 May 2024 09:17:36: An unknown card was scanned.
+10 May 2024 09:17:38: An unknown card was scanned.
+10 May 2024 09:17:39: An unknown card was scanned.
+10 May 2024 09:17:41: An unknown card was scanned.
+10 May 2024 09:17:42: An unknown card was scanned.
+10 May 2024 09:17:44: An unknown card was scanned.
+10 May 2024 09:17:45: An unknown card was scanned.
+10 May 2024 09:17:46: An unknown card was scanned.
+10 May 2024 09:17:48: An unknown card was scanned.
+10 May 2024 09:17:49: An unknown card was scanned.
+10 May 2024 09:17:51: An unknown card was scanned.
+10 May 2024 09:17:52: An unknown card was scanned.
+10 May 2024 09:17:54: An unknown card was scanned.
+10 May 2024 09:17:55: An unknown card was scanned.
+10 May 2024 09:17:57: An unknown card was scanned.
+10 May 2024 09:17:58: An unknown card was scanned.
+10 May 2024 09:18:00: An unknown card was scanned.
+10 May 2024 09:18:01: An unknown card was scanned.
+10 May 2024 09:18:03: An unknown card was scanned.
+10 May 2024 09:18:05: An unknown card was scanned.
+10 May 2024 10:00:16: test has checked in.
+10 May 2024 10:00:37: admin has checked in.

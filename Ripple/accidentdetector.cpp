@@ -41,11 +41,11 @@ bool AccidentDetector::OnAccidentDetected() {
     int location = parseData(1, data).toInt();
     float deltaAccela = parseData(2, data).toFloat();
 
-    QString accidentType = "Car Accident";
+    QString accidentType = "Vehicule Accident";
     int damage = 1000 * deltaAccela / 3;
     QDate date = QDate::currentDate();
 
-    float accelerationThreshold = 10.0;
+    float accelerationThreshold = 5.0;
     QString Information="";
 
     accident accident(nullptr, nullptr); // Ensure all required fields are set in the accident object

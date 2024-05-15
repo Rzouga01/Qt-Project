@@ -165,9 +165,9 @@ void MainWindow::onLoginButtonClicked() {
 
 	// Login successful
 	int role = employee.getRole();
-	Dashboard* dash = new Dashboard();
 	arduino.closeArduino();
 	QObject::disconnect(arduino.getSerial(), SIGNAL(readyRead()), this, SLOT(RFIDLogin()));
+	Dashboard* dash = new Dashboard();
 	dash->setAttribute(Qt::WA_DeleteOnClose);
 	dash->showPageForRole(role);
 	dash->createSession(&employee);
