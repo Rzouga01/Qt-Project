@@ -95,6 +95,11 @@ void MainWindow::handleThemeChange(int value) {
 		ui->password->setStyleSheet("background-color: #FFFFFF; color: #171717;");
 		ui->dark_theme->setStyleSheet("color: #FFFFFF;");
 		ui->light_theme->setStyleSheet("color: #FFFFFF;");
+		ui->loginButton->setStyleSheet("QPushButton { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255)); border-radius: 10px; color: white; } QPushButton:hover { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(70, 123, 54, 255)); }");
+		ui->rememberMe->setStyleSheet("QCheckBox { color: white; }"
+			"QCheckBox::indicator { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255)); border-radius: 10px; }"
+			"QCheckBox::indicator:checked { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(90, 143, 54, 255)); border: 2px solid white; }"
+			"QCheckBox::indicator:hover { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(167, 195, 78, 255), stop:1 rgba(70, 123, 54, 255)); }");
 		QPixmap pixmap("../Resources/Logo/icon ripple.png");
 		ui->logo->setPixmap(pixmap);
 
@@ -102,13 +107,19 @@ void MainWindow::handleThemeChange(int value) {
 	else {
 		// Light theme
 		ui->centralwidget->setStyleSheet("background-color: #FFFFFF; color: black;");
-		ui->email->setStyleSheet("background-color: #333333; color: white;");
-		ui->password->setStyleSheet("background-color: #333333; color: white;");
+		ui->email->setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 255), stop:1 rgba(100, 100, 100, 255)); border-radius: 10px; color: white;");
+		ui->password->setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 255), stop:1 rgba(100, 100, 100, 255)); border-radius: 10px; color: white;");
 		ui->dark_theme->setStyleSheet("color: #171717;");
 		ui->light_theme->setStyleSheet("color: #171717;");
+		ui->loginButton->setStyleSheet("QPushButton { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 255), stop:1 rgba(100, 100, 100, 255)); border-radius: 10px; color: white; } QPushButton:hover { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(70, 70, 70, 255), stop:1 rgba(120, 120, 120, 255)); }");
+		ui->rememberMe->setStyleSheet("QCheckBox { color: grey; }"
+			"QCheckBox::indicator { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 255), stop:1 rgba(100, 100, 100, 255)); border-radius: 10px; }"
+			"QCheckBox::indicator:checked { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 255), stop:1 rgba(100, 100, 100, 255)); border: 2px solid black; }"
+			"QCheckBox::indicator:hover { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(70, 70, 70, 255), stop:1 rgba(120, 120, 120, 255)); color: white; }");
 		QPixmap pixmap("../Resources/Logo/icon white.png");
 		ui->logo->setPixmap(pixmap);
 	}
+
 }
 
 void MainWindow::onLoginButtonClicked() {
