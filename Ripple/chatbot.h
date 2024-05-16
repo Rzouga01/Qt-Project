@@ -96,6 +96,7 @@ private slots:
 	void handleBotResponse(QNetworkReply* reply);
 	void handleRecordingFinished(const QString& filePath);
 	void showTypingIndicator(bool show);
+	void showListeningIndicator(bool show);
 private:
 	Ui::chatbot* ui;
 	QNetworkAccessManager m_manager;

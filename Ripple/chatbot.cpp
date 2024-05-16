@@ -136,28 +136,56 @@ void chatbot::addMessageBubble(const QString& text, bool isUser) {
 }
 
 void chatbot::showTypingIndicator(bool show) {
+	static QTimer* typingAnimationTimer = nullptr;
 	if (show) {
-		if (!typingIndicator) {
+		ui->messageInput->setPlaceholderText("Bot is typing");
 
-			typingIndicator = new QLabel();
-			QMovie* typingMovie = new QMovie("../Resources/Gifs/typing.gif");
-			typingIndicator->setMovie(typingMovie);
-			typingMovie->start();
-
-
-			QWidget* bubbleContainer = new QWidget();
-			QVBoxLayout* bubbleLayout = new QVBoxLayout(bubbleContainer);
-			bubbleLayout->addWidget(typingIndicator);
-			bubbleLayout->setAlignment(Qt::AlignBottom);
-
-			ui->chatContainer->layout()->addWidget(bubbleContainer);
-		}
-		typingIndicator->setVisible(true);
+		typingAnimationTimer = new QTimer(this);
+		connect(typingAnimationTimer, &QTimer::timeout, this, [=]() {
+			QString currentText = ui->messageInput->placeholderText();
+			if (currentText.endsWith("...")) {
+				ui->messageInput->setPlaceholderText("Bot is typing");
+			}
+			else {
+				ui->messageInput->setPlaceholderText(currentText + ".");
+			}
+			});
+		typingAnimationTimer->start(300);
 	}
 	else {
-		if (typingIndicator) {
-			typingIndicator->setVisible(false);
+		if (typingAnimationTimer) {
+			typingAnimationTimer->stop();
+			delete typingAnimationTimer;
+			typingAnimationTimer = nullptr;
 		}
+		ui->messageInput->setPlaceholderText("Your message...");
+	}
+}
+
+void chatbot::showListeningIndicator(bool show) {
+	static QTimer* listeningAnimationTimer = nullptr;
+	if (show) {
+		ui->messageInput->setPlaceholderText("Listening...");
+
+		listeningAnimationTimer = new QTimer(this);
+		connect(listeningAnimationTimer, &QTimer::timeout, this, [=]() {
+			QString currentText = ui->messageInput->placeholderText();
+			if (currentText.endsWith("...")) {
+				ui->messageInput->setPlaceholderText("Listening");
+			}
+			else {
+				ui->messageInput->setPlaceholderText(currentText + ".");
+			}
+			});
+		listeningAnimationTimer->start(300);
+	}
+	else {
+		if (listeningAnimationTimer) {
+			listeningAnimationTimer->stop();
+			delete listeningAnimationTimer;
+			listeningAnimationTimer = nullptr;
+		}
+		ui->messageInput->setPlaceholderText("Your message...");
 	}
 }
 
@@ -319,6 +347,7 @@ void chatbot::onVoiceButtonClicked() {
 	if (m_recordingThread.isRunning()) {
 		m_recordingThread.stopRecording();
 		ui->RecordingIndicator->hide();
+		showListeningIndicator(false);
 	}
 	else {
 		ui->RecordingIndicator->show();
@@ -326,6 +355,7 @@ void chatbot::onVoiceButtonClicked() {
 		ui->RecordingIndicator->setMovie(movie);
 		movie->start();
 		m_recordingThread.start();
+		showListeningIndicator(true);
 	}
 }
 
@@ -431,9 +461,11 @@ void chatbot::handleRecordingFinished(const QString& filePath) {
 	ui->RecordingIndicator->hide();
 	QCoreApplication::processEvents();
 	if (filePath.isEmpty()) {
+		showListeningIndicator(false);
 		return;
 	}
 	sendAudioToChatbot(filePath);
+	showListeningIndicator(false);
 }
 
 void chatbot::sendAudioToChatbot(const QString& audioFilePath)

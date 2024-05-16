@@ -477,7 +477,7 @@ QMap<QString, qreal> Employee::calculateEmployeeStats(int employeeID) {
     }
 
     // Query to calculate total working days for the specified employee
-    queryStr = "SELECT COUNT(*) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "'";
+    queryStr = "SELECT COUNT(DISTINCT DATE) FROM employees_presence WHERE USER_ID = '" + employeeIDStr + "'";
     query.exec(queryStr);
     query.next();
     int totalWorkingDays = query.value(0).toInt();
@@ -510,15 +510,15 @@ QMap<QString, qreal> Employee::calculateEmployeeStats(int employeeID) {
     qreal absentPercentage = static_cast<qreal>(absentDays) / totalWorkingDays * 100.0;
 
     // Insert calculated values into the stats map
-    stats["Total Working Days"] = totalWorkingDays;
-    stats["Early Arrivals Percentage"] = earlyPercentage;
-    stats["On Time Arrivals Percentage"] = onTimePercentage;
-    stats["Late Arrivals Percentage"] = latePercentage;
-    stats["Absent Days"] = absentDays;
-    stats["Absent Percentage"] = absentPercentage;
+    stats["Total Days Worked"] = totalWorkingDays;
+    stats["Early Arrivals"] = earlyArrivals;
+    stats["On Time Arrivals"] = onTimeArrivals;
+    stats["Late Arrivals"] = lateArrivals;
+    stats["Absenteeism Rate"] = absentPercentage;
 
     return stats;
 }
+
 
 QMap<QString, qreal> Employee::calculateGeneralStats() {
     QMap<QString, qreal> generalStats;
@@ -627,7 +627,6 @@ bool Employee::emailExists(const QString& email) {
     }
     return false; 
 }
-
 
 bool Employee::RFIDExists(const QString& uid)
 {

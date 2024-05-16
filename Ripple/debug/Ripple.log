@@ -1,2 +1,7 @@
-﻿  mainwindow.cpp
+﻿  dashboard.cpp
+  employee.cpp
+E:\touskie formatik\Qt-Project\Ripple\employee.cpp(507,11): warning C4189: 'earlyPercentage': local variable is initialized but not referenced
+E:\touskie formatik\Qt-Project\Ripple\employee.cpp(508,11): warning C4189: 'onTimePercentage': local variable is initialized but not referenced
+E:\touskie formatik\Qt-Project\Ripple\employee.cpp(509,11): warning C4189: 'latePercentage': local variable is initialized but not referenced
+E:\touskie formatik\Qt-Project\Ripple\dashboard.cpp(744,11): warning C4100: 'index': unreferenced formal parameter
   Ripple.vcxproj -> E:\touskie formatik\Qt-Project\Ripple\debug\Ripple.exe

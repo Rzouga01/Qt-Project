@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="styleSheet">
@@ -1584,7 +1584,7 @@ font-family: &quot;Roboto&quot;;
       </property>
       <property name="font">
        <font>
-        <family>Helvetica Now Text </family>
+        <family>Segoe UI</family>
        </font>
       </property>
       <property name="styleSheet">

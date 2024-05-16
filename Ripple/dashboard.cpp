@@ -101,7 +101,6 @@ void Dashboard::onLogoutButtonClicked() {
 	delete this;
 }
 
-
 void Dashboard::showPageForRole(int role)
 {
 	switch (role) {
@@ -169,6 +168,9 @@ void Dashboard::ClientDashboardConnectUi() {
 
 	connect(&MasterClient, &Client::deleteClientRequested, this, &Dashboard::openDeletePage);
 
+	connect(ui->SearchComboClient, qOverload<int>(&QComboBox::currentIndexChanged), this, &Dashboard::updateTooltipsAndPlaceholders);
+
+
 	ui->SearchComboClient->addItem("ID", "CLIENT_ID");
 	ui->SearchComboClient->addItem("First Name", "FIRST_NAME");
 	ui->SearchComboClient->addItem("Last Name", "LAST_NAME");
@@ -193,6 +195,39 @@ void Dashboard::ClientDashboardConnectUi() {
 	ui->addClient->setToolTip("Add Client");
 	ui->updateClient->setToolTip("Update Client");
 	ui->deleteClient->setToolTip("Delete Client");
+}
+
+void Dashboard::updateTooltipsAndPlaceholders(int index) {
+	switch (index) {
+	case 0:
+		ui->searchBarClient->setToolTip("Search Clients By ID");
+		ui->searchBarClient->setPlaceholderText("Search Clients By ID");
+		break;
+	case 1:
+		ui->searchBarClient->setToolTip("Search Clients By First Name");
+		ui->searchBarClient->setPlaceholderText("Search Clients By First Name");
+		break;
+	case 2:
+		ui->searchBarClient->setToolTip("Search Clients By Last Name");
+		ui->searchBarClient->setPlaceholderText("Search Clients By Last Name");
+		break;
+	case 3:
+		ui->searchBarClient->setToolTip("Search Clients By Email");
+		ui->searchBarClient->setPlaceholderText("Search Clients By Email");
+		break;
+	case 4:
+		ui->searchBarClient->setToolTip("Search Clients By Phone Number");
+		ui->searchBarClient->setPlaceholderText("Search Clients By Phone Number");
+		break;
+	case 5:
+		ui->searchBarClient->setToolTip("Search Clients By Address");
+		ui->searchBarClient->setPlaceholderText("Search Clients By Address");
+		break;
+	default:
+		ui->searchBarClient->setToolTip("Search Clients");
+		ui->searchBarClient->setPlaceholderText("Search");
+		break;
+	}
 }
 
 void Dashboard::openDeletePage(int clientId) {
@@ -1060,95 +1095,95 @@ void Dashboard::onSearchTextChanged(const QString& searchText) {
 }
 
 void Dashboard::displayEmployeeStats(int employeeID) {
-	QChartView* employeeStatsView = findChild<QChartView*>("EmployeeStats");
-	QLabel* employeeStatsLabel = findChild<QLabel*>("EmployeeStatsLabel");
+		QChartView* employeeStatsView = findChild<QChartView*>("EmployeeStats");
+		QLabel* employeeStatsLabel = findChild<QLabel*>("EmployeeStatsLabel");
 
-	if (ui->EmployeeSelectStats->currentIndex() == 1) {
-		qDebug() << "Displaying general statistics.";
-		displayGeneralStats();
-		return;
-	}
-
-	if (employeeID <= 0) {
-		clearEmployeeStats();
-		if (employeeStatsLabel) {
-			employeeStatsLabel->setText("");
+		if (ui->EmployeeSelectStats->currentIndex() == 1) {
+			qDebug() << "Displaying general statistics.";
+			displayGeneralStats();
+			return;
 		}
-		return;
-	}
 
-	Employee employee;
-
-	QMap<QString, qreal> stats = employee.calculateEmployeeStats(employeeID);
-
-	if (employeeStatsView) {
-		employeeStatsView->setBackgroundBrush(QBrush(Qt::transparent));
-
-		if (stats.isEmpty()) {
-			qDebug() << "No statistics found for employee with ID:" << employeeID;
-
+		if (employeeID <= 0) {
 			clearEmployeeStats();
-
-			if (employeeStatsLabel) {
-				QString message = "This employee is probably new or hasn't recorded any statistics.\n"
-					"Please work some hours and come back later.";
-				employeeStatsLabel->setText(message);
-			}
-		}
-		else {
 			if (employeeStatsLabel) {
 				employeeStatsLabel->setText("");
 			}
+			return;
+		}
 
-			QString employeeName;
-			QSqlQuery query;
-			query.prepare("SELECT FIRST_NAME || ' ' || LAST_NAME AS full_name FROM employees WHERE USER_ID = ?");
-			query.addBindValue(employeeID);
+		Employee employee;
 
-			if (!query.exec()) {
-				qDebug() << "Error executing query:" << query.lastError().text();
-			}
-			else {
-				if (query.next()) {
-					employeeName = query.value("full_name").toString();
+		QMap<QString, qreal> stats = employee.calculateEmployeeStats(employeeID);
+
+		if (employeeStatsView) {
+			employeeStatsView->setBackgroundBrush(QBrush(Qt::transparent));
+
+			if (stats.isEmpty()) {
+				qDebug() << "No statistics found for employee with ID:" << employeeID;
+
+				clearEmployeeStats();
+
+				if (employeeStatsLabel) {
+					QString message = "This employee is probably new or hasn't recorded any statistics.\n"
+						"Please work some hours and come back later.";
+					employeeStatsLabel->setText(message);
 				}
 			}
+			else {
+				if (employeeStatsLabel) {
+					employeeStatsLabel->setText("");
+				}
 
-			QChart* chart = new QChart();
-			chart->setBackgroundBrush(QBrush(Qt::transparent));
+				QString employeeName;
+				QSqlQuery query;
+				query.prepare("SELECT FIRST_NAME || ' ' || LAST_NAME AS full_name FROM employees WHERE USER_ID = ?");
+				query.addBindValue(employeeID);
 
-			QBarSeries* series = new QBarSeries();
-			QStringList categories = { "Total Days Worked", "Late Arrivals", "Early Departures", "Absenteeism Rate" };
+				if (!query.exec()) {
+					qDebug() << "Error executing query:" << query.lastError().text();
+				}
+				else {
+					if (query.next()) {
+						employeeName = query.value("full_name").toString();
+					}
+				}
 
-			for (const QString& category : categories) {
-				qreal value = stats.value(category, 0); // Retrieve value or default to 0 if not found
-				QBarSet* set = new QBarSet(category);
-				*set << value;
-				series->append(set);
+				QChart* chart = new QChart();
+				chart->setBackgroundBrush(QBrush(Qt::transparent));
+
+				QBarSeries* series = new QBarSeries();
+				QStringList categories = { "Total Days Worked", "Late Arrivals", "Early Departures", "Absenteeism Rate" };
+
+				for (const QString& category : categories) {
+					qreal value = stats.value(category, 0); // Retrieve value or default to 0 if not found
+					QBarSet* set = new QBarSet(category);
+					*set << value;
+					series->append(set);
+				}
+
+				chart->addSeries(series);
+				chart->setTitle("Statistics for " + employeeName);
+				chart->setAnimationOptions(QChart::AllAnimations);
+
+				QBarCategoryAxis* xAxis = new QBarCategoryAxis();
+				xAxis->append(categories);
+				xAxis->setLabelsFont(QFont("Arial", 8));
+
+				QValueAxis* yAxis = new QValueAxis();
+				yAxis->setTitleText("Values");
+				yAxis->setLabelsFont(QFont("Arial", 10));
+
+				chart->addAxis(xAxis, Qt::AlignBottom);
+				chart->addAxis(yAxis, Qt::AlignLeft);
+				series->attachAxis(xAxis);
+				series->attachAxis(yAxis);
+				chart->legend()->setVisible(false);
+
+				employeeStatsView->setChart(chart);
 			}
-
-			chart->addSeries(series);
-			chart->setTitle("Statistics for " + employeeName);
-			chart->setAnimationOptions(QChart::AllAnimations);
-
-			QBarCategoryAxis* xAxis = new QBarCategoryAxis();
-			xAxis->append(categories);
-			xAxis->setLabelsFont(QFont("Arial", 8));
-
-			QValueAxis* yAxis = new QValueAxis();
-			yAxis->setTitleText("Values");
-			yAxis->setLabelsFont(QFont("Arial", 10));
-
-			chart->addAxis(xAxis, Qt::AlignBottom);
-			chart->addAxis(yAxis, Qt::AlignLeft);
-			series->attachAxis(xAxis);
-			series->attachAxis(yAxis);
-			chart->legend()->setVisible(false);
-
-			employeeStatsView->setChart(chart);
 		}
 	}
-}
 
 void Dashboard::displayGeneralStats() {
 	Employee employee;
@@ -1179,7 +1214,6 @@ void Dashboard::displayGeneralStats() {
 			QPieSeries* series = new QPieSeries();
 
 			for (auto it = generalStats.begin(); it != generalStats.end(); ++it) {
-				// Skip adding the "Total Employees" to the chart series
 				if (it.key() == "Total Employees") {
 					continue;
 				}
@@ -1397,12 +1431,9 @@ void Dashboard::onScanRFIDClicked() {
 	
 }
 
-
 void Dashboard::processRFIDDataForCreation() {
 	qDebug() << "Processing RFID data for creation.";
 }
-
-
 //********************************************************************************************************************
 // Contract
 void Dashboard::ContractDashboardConnectUi() {
@@ -1788,7 +1819,6 @@ void Dashboard::checkContractDates()
 	}
 }
 
-
 void Dashboard::sendNotification(int id)
 {
 	QString cID = QString::number(id);
@@ -1801,8 +1831,6 @@ void Dashboard::sendNotification(int id)
 		qDebug() << "Error: Tray icon is not initialized.";
 	}
 }
-
-
 //********************************************************************************************************************
 //Accident
 void Dashboard::AccidentDashboardConnectUi()
@@ -2071,7 +2099,6 @@ void Dashboard::showMapAccident() {
 		qDebug() << "Failed to retrieve location from the database.";
 	}
 }
-
 //********************************************************************************************************************
 //Arduino
 void Dashboard::printSerialMonitor()
@@ -2097,7 +2124,6 @@ void Dashboard::printSerialMonitor()
 
 	serialPort.close();
 }
-
 //RFID
 void Dashboard::startRFID() {
 	int arduinoConn = empRFID->getArduino().connectArduino();
@@ -2121,7 +2147,6 @@ void Dashboard::handleEmployeeCheckedIn(int employeeId) {
 	qDebug() << "Employee checked in with ID:" << employeeId;
 }
 //********************************************************************************************************************
-
 //Accident Detector
 void Dashboard::startAccidentDetector() {
 	// Connect Arduino and check connection status

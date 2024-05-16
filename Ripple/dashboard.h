@@ -132,6 +132,8 @@ private slots:
     void saveLogToFile(int employeeId, const QString& checkInTime);
     void onScanRFIDClicked();
     void processRFIDDataForCreation();
+    void updateTooltipsAndPlaceholders(int index);
+
    
 public:
     Ui::Dashboard* ui;

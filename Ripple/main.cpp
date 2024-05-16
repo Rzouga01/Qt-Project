@@ -7,9 +7,6 @@
 #include "sqlConn.h"
 #include "dashboard.h"
 
-
-
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -17,13 +14,9 @@ int main(int argc, char *argv[])
     map p;
     MainWindow w;
     sqlConn con;
-    chatbot bot;
-    //Dashboard d;
 
     if (con.createconnect()) {
-        w.show();
-        //d.show();
-
+     w.show();
     }
 
     return a.exec();
