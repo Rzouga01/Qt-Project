@@ -8,12 +8,12 @@
 #define BUZZER_PIN 2
 #define RED_LED 5
 #define GREEN_LED 6
-#define LOCKED_POSITION 70
+#define LOCKED_POSITION -90
 #define UNLOCKED_POSITION 160
 
 const int MELODY_NOTES[] = {523, 392, 392, 440, 392, 493, 523};
 const int MELODY_DURATIONS[] = {200, 100, 100, 200, 400, 200, 200};
-const int DOOR_CLOSE_DELAY = 5000; 
+const int DOOR_CLOSE_DELAY = 10000; 
 // Pins
 Servo doorLock;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
@@ -39,13 +39,13 @@ void setup() {
   pinMode(RED_LED, OUTPUT);
   pinMode(GREEN_LED, OUTPUT);
   Serial.begin(9600);
-  doorLock.attach(3);
+  doorLock.attach(8);
   doorLock.write(LOCKED_POSITION);
   lcd.init();
   lcd.backlight();
   SPI.begin();
   rfid.PCD_Init();
-  playWelcomeSound();
+  //playWelcomeSound();
 }
 
 void loop() {
